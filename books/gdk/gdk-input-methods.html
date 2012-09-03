@@ -1,0 +1,1218 @@
+<HTML
+><HEAD
+><TITLE
+>Input Methods</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Key Values"
+HREF="gdk-key-values.html"><LINK
+REL="NEXT"
+TITLE="Input Contexts"
+HREF="gdk-input-contexts.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-key-values.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-input-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-INPUT-METHODS"
+>Input Methods</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12591"
+></A
+><H2
+>Name</H2
+>Input Methods&nbsp;--&nbsp;support for internationalized text input.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12594"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+enum        <A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+>;
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-input-methods.html#GDK-IM-READY"
+>gdk_im_ready</A
+>                    (void);
+<A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+>  <A
+HREF="gdk-input-methods.html#GDK-IM-DECIDE-STYLE"
+>gdk_im_decide_style</A
+>             (<A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+> supported_style);
+<A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+>  <A
+HREF="gdk-input-methods.html#GDK-IM-SET-BEST-STYLE"
+>gdk_im_set_best_style</A
+>           (<A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+> best_allowed_style);
+
+void        <A
+HREF="gdk-input-methods.html#GDK-IM-BEGIN"
+>gdk_im_begin</A
+>                    (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window);
+void        <A
+HREF="gdk-input-methods.html#GDK-IM-END"
+>gdk_im_end</A
+>                      (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12610"
+></A
+><H2
+>Description</H2
+><P
+>Input Methods provide a way for complex character sets to be used in GTK+.
+Languages such as Chinese, Japanese, and Korean (often abbreviated to CJK)
+use a large number of ideographs, making it impossible to support all
+characters with a simple keyboard. Instead, text is usually
+<I
+CLASS="EMPHASIS"
+>pre-edited</I
+> using a phonetic alphabet and then
+<I
+CLASS="EMPHASIS"
+>composed</I
+> to form the ideographs.</P
+><P
+>GTK+ makes use of the input method mechanism provided by the X Windows
+platform. When a GTK+ application is started, it opens a connection to the
+input method appropriate for the current locale (if any). </P
+><P
+>Widgets which handle textual input, such as <A
+HREF=../gtk/gtkentry.html
+>GtkEntry</A>, need to do a number of
+things to support internationalized text input:
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>When the widget is realized:</DT
+><DD
+><P
+>Check if an input method is being used with <A
+HREF="gdk-input-methods.html#GDK-IM-READY"
+>gdk_im_ready</A
+>().
+If it is, create a new <A
+HREF="gdk-input-contexts.html"
+>Input Context</A
+>
+using <A
+HREF="gdk-input-contexts.html#GDK-IC-NEW"
+>gdk_ic_new</A
+>(). Find out which events the
+<A
+HREF="gdk-input-contexts.html"
+>Input Context</A
+> needs to receive
+with <A
+HREF="gdk-input-contexts.html#GDK-IC-GET-EVENTS"
+>gdk_ic_get_events</A
+>(), and make sure that the widget's window receives
+these events using <A
+HREF="gdk-windows.html#GDK-WINDOW-SET-EVENTS"
+>gdk_window_set_events</A
+>().</P
+></DD
+><DT
+>When the widget's size, state or cursor position changes:</DT
+><DD
+><P
+>Update the appropriate
+<A
+HREF="gdk-input-contexts.html"
+>Input Context</A
+> attributes
+using <A
+HREF="gdk-input-contexts.html#GDK-IC-SET-ATTR"
+>gdk_ic_set_attr</A
+>().</P
+></DD
+><DT
+>When the keyboard focus enters or leaves the widget:</DT
+><DD
+><P
+>Call <A
+HREF="gdk-input-methods.html#GDK-IM-BEGIN"
+>gdk_im_begin</A
+>() or <A
+HREF="gdk-input-methods.html#GDK-IM-END"
+>gdk_im_end</A
+>() to start or finish editing the text.</P
+></DD
+><DT
+>When the widget receives a key_press event:</DT
+><DD
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>string</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>length</I
+></TT
+>
+fields of the <A
+HREF="gdk-event-structures.html#GDKEVENTKEY"
+>GdkEventKey</A
+> struct should be used to insert the composed text
+into the widget.</P
+></DD
+><DT
+>When the widget is unrealized:</DT
+><DD
+><P
+>Destroy the <A
+HREF="gdk-input-contexts.html"
+>Input Context</A
+>.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+><P
+>See the XLib reference manual for more detailed information on input methods,
+and the <A
+HREF=../gtk/gtkentry.html
+>GtkEntry</A> and <A
+HREF=../gtk/gtktext.html
+>GtkText</A> widgets for some example code.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12656"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12658"
+></A
+><H3
+><A
+NAME="GDKIMSTYLE"
+></A
+>enum GdkIMStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum			/*&lt; flags &gt;*/
+{
+  GDK_IM_PREEDIT_AREA	   = 0x0001, 
+  GDK_IM_PREEDIT_CALLBACKS = 0x0002, 
+  GDK_IM_PREEDIT_POSITION  = 0x0004,
+  GDK_IM_PREEDIT_NOTHING   = 0x0008,
+  GDK_IM_PREEDIT_NONE	   = 0x0010,
+  GDK_IM_PREEDIT_MASK      = 0x001f,
+
+  GDK_IM_STATUS_AREA	   = 0x0100, 
+  GDK_IM_STATUS_CALLBACKS  = 0x0200,
+  GDK_IM_STATUS_NOTHING	   = 0x0400,
+  GDK_IM_STATUS_NONE	   = 0x0800,
+  GDK_IM_STATUS_MASK	   = 0x0f00 
+} GdkIMStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A set of bit-flags used to specify the input method styles which are supported
+or which are currently in use. The flags can be divided into 2 groups, the
+pre-edit flags and the status flags.</P
+><P
+>The pre-edit flags specify how pre-editing data is displayed.
+For example, this could display the text being typed in the phonetic
+alphabet before it is composed and inserted as an ideograph.</P
+><P
+>The status flags specify how status information is displayed.
+The status information can be thought of as an extension of the
+standard keyboard mode indicators, such as the Caps Lock indicator.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>The <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_CALLBACKS</TT
+> and <TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_CALLBACKS</TT
+> styles are not 
+currently supported in GTK+.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12669"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_AREA</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The application provides the input method with an area
+in which to perform <I
+CLASS="EMPHASIS"
+>off-the-spot</I
+> pre-editing.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_CALLBACKS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The application registers a number of callback
+functions which are used to display pre-editing data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_POSITION</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The application provides the input method with the
+position of the insertion cursor, for <I
+CLASS="EMPHASIS"
+>over-the-spot</I
+>
+pre-editing. The input method creates its own window over the widget to
+display the pre-editing data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_NOTHING</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The input method uses the root X window to perform
+pre-editing, so the application does not need to do anything.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_NONE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>No pre-editing is done by the input method, or no
+pre-editing data needs to be displayed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A bit-mask containing all the pre-edit flags.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_AREA</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The application provides the input method with an area
+in which to display status information.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_CALLBACKS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The applications registers a number of callback
+functions which are used to display status information.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_NOTHING</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The input method uses the root X window to display
+status information, so the application does not need to do anything.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_NONE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The input method does not display status information.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A bit-mask containing all the status flags.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12720"
+></A
+><H3
+><A
+NAME="GDK-IM-READY"
+></A
+>gdk_im_ready ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_im_ready                    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Checks if an input method is to be used for the current locale.
+If GTK+ has been compiled without support for input methods, or the current
+locale doesn't need an input method, then this will return FALSE.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12726"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if an input method is available and should be used.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12735"
+></A
+><H3
+><A
+NAME="GDK-IM-DECIDE-STYLE"
+></A
+>gdk_im_decide_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+>  gdk_im_decide_style             (<A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+> supported_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Decides which input method style should be used, by comparing the styles given
+in <TT
+CLASS="PARAMETER"
+><I
+>supported_style</I
+></TT
+> with those of the available input method.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12743"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>supported_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>styles which are supported by the widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the best style in <TT
+CLASS="PARAMETER"
+><I
+>supported_style</I
+></TT
+> that is also supported by the
+available input method.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12757"
+></A
+><H3
+><A
+NAME="GDK-IM-SET-BEST-STYLE"
+></A
+>gdk_im_set_best_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+>  gdk_im_set_best_style           (<A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+> best_allowed_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the best pre-edit and/or status style which should be used.
+This will affect the style chosen in <A
+HREF="gdk-input-methods.html#GDK-IM-DECIDE-STYLE"
+>gdk_im_decide_style</A
+>().</P
+><P
+>The order of the pre-edit styles is (from worst to best):
+<TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_NONE</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_NOTHING</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_AREA</TT
+>,
+<TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_POSITION</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_CALLBACKS</TT
+>.
+The order of the status styles is:
+<TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_NONE</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_NOTHING</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_AREA</TT
+>,
+<TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_CALLBACKS</TT
+>.</P
+><P
+>So, for example, to set the best allowed pre-edit style to <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_AREA</TT
+>
+you would do this:
+
+<DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN12777"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  gdk_im_set_best_style (GDK_IM_PREEDIT_AREA);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+>
+
+Or to set the best allowed pre-edit style to <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_POSITION</TT
+> and the
+best allowed status style to <TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_NOTHING</TT
+> you can do this:
+
+<DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN12781"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  gdk_im_set_best_style (GDK_IM_PREEDIT_POSITION | GDK_IM_STATUS_NOTHING);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12783"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>best_allowed_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a bit-mask with the best pre-edit style and/or the best
+status style to use. If 0 is used, then the current bit-mask of all allowed
+styles is returned.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a bit-mask of all the styles allowed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12796"
+></A
+><H3
+><A
+NAME="GDK-IM-BEGIN"
+></A
+>gdk_im_begin ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_im_begin                    (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Starts editing, using the given input context and <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.
+This should be called when the widget receives the input focus, typically in
+the widget's focus_in_event method.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12804"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ic</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> which will be receiving the key press events.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12819"
+></A
+><H3
+><A
+NAME="GDK-IM-END"
+></A
+>gdk_im_end ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_im_end                      (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Stops editing using the input method.
+This should be called when the widget loses the input focus, typically in
+the widget's focus_out_event method.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12824"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gdk-input-contexts.html"
+>Input Contexts</A
+></DT
+><DD
+><P
+>Used for each widget that handles internationalized text input using the
+global input method.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-key-values.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-input-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Key Values</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Input Contexts</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

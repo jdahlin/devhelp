@@ -1,0 +1,192 @@
+<HTML
+><HEAD
+><TITLE
+>"Dialog panes" Notebook Pane</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Using PonG-Edit"
+HREF="using-pong-edit.html"><LINK
+REL="PREVIOUS"
+TITLE='"Configuration keys" Notebook Pane'
+HREF="upe-keys-pane.html"><LINK
+REL="NEXT"
+TITLE='"User levels" Notebook Pane'
+HREF="upe-user-levels-pane.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="upe-keys-pane.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Using PonG-Edit</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="upe-user-levels-pane.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="UPE-DIALOG-PANE"
+>"Dialog panes" Notebook Pane</A
+></H1
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-EDIT-PANES-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-edit-panes.png"></P
+><P
+><B
+>Figure 3. PonG Edit dialog panes</B
+></P
+></DIV
+><P
+>	This is where you describe how your preference dialog looks.  Each
+	dialog consists of panes, these panes consist of groups and these
+	groups consist of widgets.  Instead of groups or widgets you can
+	insert Bonobo controls or Glade files.  Just select where you wish to
+	add a particular item and click the appropriate button.
+      </P
+><P
+>	Each widget should have a unique name, usually this is the same as
+	the key, which makes it easier to orient yourself in the interface.
+	You can also set a label.  Some widgets support labels automatically
+	for some PonG provides the label.  If PonG is providing the label,
+	you can select it to align all labels so that your widgets and labels
+	in a particular group are in a straight line.
+      </P
+><P
+>	Some widgets, such as option menus, take a set of options.  Each option
+	has a label (what the user sees) and a value (what is actually stored
+	in the configuration).  The way the values are used is specific to an
+	interface.  See the widget reference on the end of this document for
+	more information.
+      </P
+><P
+>	To modify the behaviour of widgets you can set certain arguments, these
+	are the GTK arguments the widget supports,
+	see the native widget reference on the end of this document for
+	more information.  Also check the GTK+ documentation for standard
+	arguments.  Note that in adition the value of the argument can be
+	translated, this is useful if the value is for example a title of
+	the browse dialog or something else displayed in the interface.
+      </P
+><P
+>	Finally you can have certain widgets, groups or panes appear only
+	in certain user levels.  Normally if you do nothing, the widget appears
+	in all user levels.  To have them appear only in cetain user levels,
+	select those levels in the user level pane.
+      </P
+><P
+>	Note that gob style object naming is used by PonG when referring to
+	widgets, so ':' is used to separate words.  For example GtkButton
+	would be written as "Gtk:Button".  Using "GtkButton" will usually
+	work, but it is considered better style to write "Gtk:Button" and
+	that will work in all circumstances. 
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="upe-keys-pane.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="upe-user-levels-pane.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>"Configuration keys" Notebook Pane</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="using-pong-edit.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>"User levels" Notebook Pane</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

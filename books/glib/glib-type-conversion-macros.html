@@ -1,0 +1,769 @@
+<HTML
+><HEAD
+><TITLE
+>Type Conversion Macros</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Fundamentals"
+HREF="glib-fundamentals.html"><LINK
+REL="PREVIOUS"
+TITLE="Standard Macros"
+HREF="glib-standard-macros.html"><LINK
+REL="NEXT"
+TITLE="Byte Order Macros"
+HREF="glib-byte-order-macros.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-standard-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-byte-order-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-TYPE-CONVERSION-MACROS"
+>Type Conversion Macros</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN637"
+></A
+><H2
+>Name</H2
+>Type Conversion Macros&nbsp;--&nbsp;a portable method for storing <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> &amp; <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> values in <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> variables.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN643"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+#define     <A
+HREF="glib-type-conversion-macros.html#GINT-TO-POINTER-CAPS"
+>GINT_TO_POINTER</A
+>                 (i)
+#define     <A
+HREF="glib-type-conversion-macros.html#GPOINTER-TO-INT-CAPS"
+>GPOINTER_TO_INT</A
+>                 (p)
+
+#define     <A
+HREF="glib-type-conversion-macros.html#GUINT-TO-POINTER-CAPS"
+>GUINT_TO_POINTER</A
+>                (u)
+#define     <A
+HREF="glib-type-conversion-macros.html#GPOINTER-TO-UINT-CAPS"
+>GPOINTER_TO_UINT</A
+>                (p)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN650"
+></A
+><H2
+>Description</H2
+><P
+>These macros provide a portable method of storing <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> and <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> values in
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> variables.</P
+><P
+>Many of the GLib data types are based on storing <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> values,
+e.g. <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>, <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>, <A
+HREF="glib-balanced-binary-trees.html#GTREE"
+>GTree</A
+>, and <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+By using the type conversion macros described below you can store <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> and
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> values inside a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>. So you can, for example, create
+a hash table of <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> values, or a linked list of <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> values.</P
+><P
+>The type conversion macros are necessary because the size of a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> can
+vary across different platforms. So the type conversion has to be done
+carefully.</P
+><P
+>Note that the reverse operation, storing <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> values in
+integer variables, is not supported, since an integer is not guaranteed to
+be large enough to store <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> values across all platforms.</P
+><P
+>To convert an integer value, a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>, to a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>, use <A
+HREF="glib-type-conversion-macros.html#GINT-TO-POINTER-CAPS"
+>GINT_TO_POINTER</A
+>.
+To convert it back to a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>, use <A
+HREF="glib-type-conversion-macros.html#GPOINTER-TO-INT-CAPS"
+>GPOINTER_TO_INT</A
+>.</P
+><P
+>To convert an unsigned integer, a <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>, to a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>, use
+<A
+HREF="glib-type-conversion-macros.html#GUINT-TO-POINTER-CAPS"
+>GUINT_TO_POINTER</A
+>. To convert it back to a <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>, use <A
+HREF="glib-type-conversion-macros.html#GPOINTER-TO-UINT-CAPS"
+>GPOINTER_TO_UINT</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN685"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN687"
+></A
+><H3
+><A
+NAME="GINT-TO-POINTER-CAPS"
+></A
+>GINT_TO_POINTER()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GINT_TO_POINTER(i)	((gpointer)  (i))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> to a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN694"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value converted to a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN709"
+></A
+><H3
+><A
+NAME="GPOINTER-TO-INT-CAPS"
+></A
+>GPOINTER_TO_INT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GPOINTER_TO_INT(p)	((gint)   (p))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> to a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN716"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>p</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value converted to a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN731"
+></A
+><H3
+><A
+NAME="GUINT-TO-POINTER-CAPS"
+></A
+>GUINT_TO_POINTER()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GUINT_TO_POINTER(u)	((gpointer)  (u))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> to a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN738"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>u</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value converted to a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN753"
+></A
+><H3
+><A
+NAME="GPOINTER-TO-UINT-CAPS"
+></A
+>GPOINTER_TO_UINT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GPOINTER_TO_UINT(p)	((guint)  (p))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> to a <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN760"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>p</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value converted to a <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-standard-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-byte-order-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Standard Macros</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Byte Order Macros</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

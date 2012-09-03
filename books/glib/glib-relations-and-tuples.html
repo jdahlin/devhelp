@@ -1,0 +1,1800 @@
+<HTML
+><HEAD
+><TITLE
+>Relations and Tuples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Datasets"
+HREF="glib-datasets.html"><LINK
+REL="NEXT"
+TITLE="Caches"
+HREF="glib-caches.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-datasets.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-caches.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-RELATIONS-AND-TUPLES"
+>Relations and Tuples</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN17801"
+></A
+><H2
+>Name</H2
+>Relations and Tuples&nbsp;--&nbsp;tables of data which can be indexed on any number of fields.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN17804"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>;
+<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>*  <A
+HREF="glib-relations-and-tuples.html#G-RELATION-NEW"
+>g_relation_new</A
+>                  (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> fields);
+void        <A
+HREF="glib-relations-and-tuples.html#G-RELATION-INDEX"
+>g_relation_index</A
+>                (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field,
+                                             <A
+HREF="glib-hash-tables.html#GHASHFUNC"
+>GHashFunc</A
+> hash_func,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> key_compare_func);
+void        <A
+HREF="glib-relations-and-tuples.html#G-RELATION-INSERT"
+>g_relation_insert</A
+>               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             ...);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-relations-and-tuples.html#G-RELATION-EXISTS"
+>g_relation_exists</A
+>               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             ...);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-relations-and-tuples.html#G-RELATION-COUNT"
+>g_relation_count</A
+>                (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);
+<A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+>*    <A
+HREF="glib-relations-and-tuples.html#G-RELATION-SELECT"
+>g_relation_select</A
+>               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-relations-and-tuples.html#G-RELATION-DELETE"
+>g_relation_delete</A
+>               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);
+void        <A
+HREF="glib-relations-and-tuples.html#G-RELATION-DESTROY"
+>g_relation_destroy</A
+>              (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation);
+
+void        <A
+HREF="glib-relations-and-tuples.html#G-RELATION-PRINT"
+>g_relation_print</A
+>                (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation);
+
+struct      <A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+>;
+void        <A
+HREF="glib-relations-and-tuples.html#G-TUPLES-DESTROY"
+>g_tuples_destroy</A
+>                (<A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+> *tuples);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-relations-and-tuples.html#G-TUPLES-INDEX"
+>g_tuples_index</A
+>                  (<A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+> *tuples,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> index,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17848"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> is a table of data which can be indexed on any number of fields,
+rather like simple database tables. A <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> contains a number of
+records, called tuples. Each record contains a number of fields.
+Records are not ordered, so it is not possible to find the record at a
+particular index.</P
+><P
+>Note that <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> tables are currently limited to 2 fields.</P
+><P
+>To create a GRelation, use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-NEW"
+>g_relation_new</A
+>().</P
+><P
+>To specify which fields should be indexed, use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-INDEX"
+>g_relation_index</A
+>().
+Note that this must be called before any tuples are added to the <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</P
+><P
+>To add records to a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-INSERT"
+>g_relation_insert</A
+>().</P
+><P
+>To determine if a given record appears in a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>, use
+<A
+HREF="glib-relations-and-tuples.html#G-RELATION-EXISTS"
+>g_relation_exists</A
+>(). Note that fields are compared directly, so pointers
+must point to the exact same position (i.e. different copies of the same
+string will not match.)</P
+><P
+>To count the number of records which have a particular value in a given
+field, use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-COUNT"
+>g_relation_count</A
+>().</P
+><P
+>To get all the records which have a particular value in a given field,
+use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-SELECT"
+>g_relation_select</A
+>(). To access fields of the resulting records,
+use <A
+HREF="glib-relations-and-tuples.html#G-TUPLES-INDEX"
+>g_tuples_index</A
+>(). To free the resulting records use <A
+HREF="glib-relations-and-tuples.html#G-TUPLES-DESTROY"
+>g_tuples_destroy</A
+>().</P
+><P
+>To delete all records which have a particular value in a given field,
+use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-DELETE"
+>g_relation_delete</A
+>().</P
+><P
+>To destroy the <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>, use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-DESTROY"
+>g_relation_destroy</A
+>().</P
+><P
+>To help debug <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> objects, use <A
+HREF="glib-relations-and-tuples.html#G-RELATION-PRINT"
+>g_relation_print</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17880"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17882"
+></A
+><H3
+><A
+NAME="GRELATION"
+></A
+>struct GRelation</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GRelation;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> struct is an opaque data structure to represent a
+<A
+HREF="glib-relations-and-tuples.html"
+>Relation</A
+>.
+It should only be accessed via the following functions.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17889"
+></A
+><H3
+><A
+NAME="G-RELATION-NEW"
+></A
+>g_relation_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>*  g_relation_new                  (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> fields);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> with the given number of fields.
+Note that currently the number of fields must be 2.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17897"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fields</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of fields.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17911"
+></A
+><H3
+><A
+NAME="G-RELATION-INDEX"
+></A
+>g_relation_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_relation_index                (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field,
+                                             <A
+HREF="glib-hash-tables.html#GHASHFUNC"
+>GHashFunc</A
+> hash_func,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> key_compare_func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates an index on the given field.
+Note that this must be called before any records are added to the <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17921"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>field</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the field to index, counting from 0.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function to produce a hash value from the field data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key_compare_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function to compare two values of the given field.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17943"
+></A
+><H3
+><A
+NAME="G-RELATION-INSERT"
+></A
+>g_relation_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_relation_insert               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a record into a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17950"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the fields of the record to add. This must match the number of
+fields in the <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17965"
+></A
+><H3
+><A
+NAME="G-RELATION-EXISTS"
+></A
+>g_relation_exists ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_relation_exists               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if a record with the given values exists in a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.
+Note that the values are compared directly, so that, for example, two
+copies of the same string will not match.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17973"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the fields of the record to compare. The number must match the
+number of fields in the <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if a record matches.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17992"
+></A
+><H3
+><A
+NAME="G-RELATION-COUNT"
+></A
+>g_relation_count ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_relation_count                (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the number of tuples in a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> that have the given value
+in the given field.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN18002"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to compare with.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>field</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the field of each record to match.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of matches.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN18024"
+></A
+><H3
+><A
+NAME="G-RELATION-SELECT"
+></A
+>g_relation_select ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+>*    g_relation_select               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns all of the tuples which have the given key in the given field.
+Use <A
+HREF="glib-relations-and-tuples.html#G-TUPLES-INDEX"
+>g_tuples_index</A
+>() to access the returned records.
+The returned records should be freed with <A
+HREF="glib-relations-and-tuples.html#G-TUPLES-DESTROY"
+>g_tuples_destroy</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN18035"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to compare with.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>field</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the field of each record to match.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the records (tuples) that matched.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN18057"
+></A
+><H3
+><A
+NAME="G-RELATION-DELETE"
+></A
+>g_relation_delete ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_relation_delete               (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deletes any records from a GRelation that have the given key value in
+the given field.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN18066"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to compare with.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>field</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the field of each record to match.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of records deleted.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN18088"
+></A
+><H3
+><A
+NAME="G-RELATION-DESTROY"
+></A
+>g_relation_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_relation_destroy              (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys the <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>, freeing all memory allocated.
+However, it does not free memory allocated for the
+tuple data, so you should free that first if appropriate.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN18095"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN18105"
+></A
+><H3
+><A
+NAME="G-RELATION-PRINT"
+></A
+>g_relation_print ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_relation_print                (<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> *relation);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Outputs information about all records in a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>, as well as the indexes.
+It is for debugging.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN18112"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN18122"
+></A
+><H3
+><A
+NAME="GTUPLES"
+></A
+>struct GTuples</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GTuples
+{
+  guint len;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+> struct is used to return records (or tuples) from the
+<A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+> by <A
+HREF="glib-relations-and-tuples.html#G-RELATION-SELECT"
+>g_relation_select</A
+>().
+It only contains one public member - the number of records that matched.
+To access the matched records, you must use <A
+HREF="glib-relations-and-tuples.html#G-TUPLES-INDEX"
+>g_tuples_index</A
+>().</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN18131"
+></A
+><H3
+><A
+NAME="G-TUPLES-DESTROY"
+></A
+>g_tuples_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_tuples_destroy                (<A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+> *tuples);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the records which were returned by <A
+HREF="glib-relations-and-tuples.html#G-RELATION-SELECT"
+>g_relation_select</A
+>().
+This should always be called after <A
+HREF="glib-relations-and-tuples.html#G-RELATION-SELECT"
+>g_relation_select</A
+>() when you are
+finished with the records.
+The records are not removed from the <A
+HREF="glib-relations-and-tuples.html#GRELATION"
+>GRelation</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN18140"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tuples</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the tuple data to free.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN18149"
+></A
+><H3
+><A
+NAME="G-TUPLES-INDEX"
+></A
+>g_tuples_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_tuples_index                  (<A
+HREF="glib-relations-and-tuples.html#GTUPLES"
+>GTuples</A
+> *tuples,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> index,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> field);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets a field from the records returned by <A
+HREF="glib-relations-and-tuples.html#G-RELATION-SELECT"
+>g_relation_select</A
+>().
+It returns the given field of the record at the given index.
+The returned value should not be changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN18159"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tuples</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the tuple data, returned by <A
+HREF="glib-relations-and-tuples.html#G-RELATION-SELECT"
+>g_relation_select</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the record.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>field</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the field to return.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the field of the record.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-datasets.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-caches.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Datasets</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Caches</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

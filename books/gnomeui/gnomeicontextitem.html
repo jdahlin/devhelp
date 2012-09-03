@@ -1,0 +1,1946 @@
+<HTML
+><HEAD
+><TITLE
+>GnomeIconTextItem</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="Gnome User Interface Library Reference Manual"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="GNOME Widgets and Objects"
+HREF="gnome-objects.html"><LINK
+REL="PREVIOUS"
+TITLE="GnomeIconEntry"
+HREF="gnomeiconentry.html"><LINK
+REL="NEXT"
+TITLE="GnomeIconList"
+HREF="gnomeiconlist.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>Gnome User Interface Library Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeiconentry.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeiconlist.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GNOMEICONTEXTITEM"
+>GnomeIconTextItem</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN20194"
+></A
+><H2
+>Name</H2
+>GnomeIconTextItem&nbsp;--&nbsp;Canvas item for editable text captions in icon lists.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN20197"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gnome.h&gt;
+
+
+typedef     <A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+>;
+void        <A
+HREF="gnomeicontextitem.html#GNOME-ICON-TEXT-ITEM-CONFIGURE"
+>gnome_icon_text_item_configure</A
+>  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             int x,
+                                             int y,
+                                             int width,
+                                             const char *fontname,
+                                             const char *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_editable,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_static);
+void        <A
+HREF="gnomeicontextitem.html#GNOME-ICON-TEXT-ITEM-SETXY"
+>gnome_icon_text_item_setxy</A
+>      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             int x,
+                                             int y);
+void        <A
+HREF="gnomeicontextitem.html#GNOME-ICON-TEXT-ITEM-SELECT"
+>gnome_icon_text_item_select</A
+>     (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             int sel);
+char*       <A
+HREF="gnomeicontextitem.html#GNOME-ICON-TEXT-ITEM-GET-TEXT"
+>gnome_icon_text_item_get_text</A
+>   (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti);
+void        <A
+HREF="gnomeicontextitem.html#GNOME-ICON-TEXT-ITEM-STOP-EDITING"
+>gnome_icon_text_item_stop_editing</A
+>
+                                            (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> accept);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20214"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF=../gtk/gtkobject.html
+>GtkObject</A>
+   +----<A
+HREF="gnomecanvasitem.html"
+>GnomeCanvasItem</A
+>
+         +----GnomeIconTextItem</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20219"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM--USE-BROKEN-EVENT-HANDLING"
+>use-broken-event-handling</A
+>&quot; <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20224"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM-TEXT-CHANGED"
+>text-changed</A
+>&quot;
+            <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    user_function      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM-HEIGHT-CHANGED"
+>height-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM-WIDTH-CHANGED"
+>width-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM-EDITING-STARTED"
+>editing-started</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM-EDITING-STOPPED"
+>editing-stopped</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM-SELECTION-STARTED"
+>selection-started</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeicontextitem.html#GNOMEICONTEXTITEM-SELECTION-STOPPED"
+>selection-stopped</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20249"
+></A
+><H2
+>Description</H2
+><P
+>    The <SPAN
+CLASS="STRUCTNAME"
+>GnomeIconTextItem</SPAN
+> canvas item
+    provides a specialized, editable text item to be used for the text
+    captions of icons.  This item is used by the
+    <SPAN
+CLASS="STRUCTNAME"
+>GnomeIconList</SPAN
+> widget and by the GNOME
+    file manager.
+  </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20254"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20256"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM"
+></A
+>GnomeIconTextItem</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct {
+	GnomeCanvasItem canvas_item;
+
+	/* Size and maximum allowed width */
+	int x, y;
+	int width;
+
+	/* Font name */
+	char *fontname;
+
+	/* Private data */
+	gpointer priv; /* was GtkEntry *entry */
+	gpointer pad1; /* was GtkWidget *entry_top */
+	gpointer pad2; /* was GdkFont *font */
+
+	/* Actual text */
+	char *text;
+
+	/* Text layout information */
+	GnomeIconTextInfo *ti;
+
+	/* Whether the text is being edited */
+	unsigned int editing : 1;
+
+	/* Whether the text item is selected */
+	unsigned int selected : 1;
+
+	unsigned int pad3; /* was unsigned int unselected_click : 1 */
+
+	/* Whether the user is select-dragging a block of text */
+	unsigned int selecting : 1;
+
+	/* Whether the text is editable */
+	unsigned int is_editable : 1;
+
+	/* Whether the text is allocated by us (FALSE if allocated by the client) */
+	unsigned int is_text_allocated : 1;
+} GnomeIconTextItem;</PRE
+></TD
+></TR
+></TABLE
+><P
+>    All the fields in the <SPAN
+CLASS="STRUCTNAME"
+>GnomeIconTextItem</SPAN
+>
+    structure should be considered private.  When the application
+    needs to know the size and bounds of an icon text item, it should
+    use the <TT
+CLASS="FUNCTION"
+><A
+HREF="gnomecanvasitem.html#GNOME-CANVAS-ITEM-GET-BOUNDS"
+>gnome_canvas_item_get_bounds</A
+>()</TT
+>
+    function.
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20264"
+></A
+><H3
+><A
+NAME="GNOME-ICON-TEXT-ITEM-CONFIGURE"
+></A
+>gnome_icon_text_item_configure ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_text_item_configure  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             int x,
+                                             int y,
+                                             int width,
+                                             const char *fontname,
+                                             const char *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_editable,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_static);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This routine is used to configure a &amp;GnomeIconTextItem.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+> specify the cordinates where the item is placed inside the canvas.
+The <TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+> coordinate should be the leftmost position that the icon text item can
+assume at any one time, that is, the left margin of the column in which the
+icon is to be placed.  The <TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+> coordinate specifies the top of the icon text
+item.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+> is the maximum width allowed for this icon text item.  The coordinates
+define the upper-left corner of an icon text item with maximum width; this may
+actually be outside the bounding box of the item if the text is narrower than
+the maximum width.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>is_static</I
+></TT
+> is true, it means that there is no need for the item to
+allocate memory for the string (it is a guarantee that the text is allocated
+by the caller and it will not be deallocated during the lifetime of this
+item).  This is an optimization to reduce memory usage for large icon sets.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20282"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iti</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon text item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> X position in which to place the item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Y position in which to place the item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Maximum width allowed for this item, to be used for word wrapping.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontname</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Name of the fontset that should be used to display the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Text that is going to be displayed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_editable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Deprecated.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_static</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Whether <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> points to a static string or not.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20320"
+></A
+><H3
+><A
+NAME="GNOME-ICON-TEXT-ITEM-SETXY"
+></A
+>gnome_icon_text_item_setxy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_text_item_setxy      (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             int x,
+                                             int y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the coordinates at which the icon text item should be placed.</P
+><P
+>See also: <A
+HREF="gnomeicontextitem.html#GNOME-ICON-TEXT-ITEM-CONFIGURE"
+>gnome_icon_text_item_configure</A
+>().</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20329"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iti</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  An icon text item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> X position.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Y position.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20346"
+></A
+><H3
+><A
+NAME="GNOME-ICON-TEXT-ITEM-SELECT"
+></A
+>gnome_icon_text_item_select ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_text_item_select     (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             int sel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is used to control whether an icon text item is displayed as
+selected or not.  Mouse events are ignored by the item when it is unselected;
+when the user clicks on a selected icon text item, it will start the text
+editing process.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20353"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iti</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon text item</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Whether the icon text item should be displayed as selected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20366"
+></A
+><H3
+><A
+NAME="GNOME-ICON-TEXT-ITEM-GET-TEXT"
+></A
+>gnome_icon_text_item_get_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>char*       gnome_icon_text_item_get_text   (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20373"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iti</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon text item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the current text string in an icon text item.  The client should not
+free this string, as it is internal to the icon text item.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20386"
+></A
+><H3
+><A
+NAME="GNOME-ICON-TEXT-ITEM-STOP-EDITING"
+></A
+>gnome_icon_text_item_stop_editing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_text_item_stop_editing
+                                            (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *iti,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> accept);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Terminates the editing state of an icon text item.  The <TT
+CLASS="PARAMETER"
+><I
+>accept</I
+></TT
+> argument
+controls whether the item's current text should be accepted or discarded.  If
+it is discarded, then the icon's original text will be restored.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20395"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iti</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon text item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accept</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Whether to accept the current text or to discard it.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20408"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GNOMEICONTEXTITEM--USE-BROKEN-EVENT-HANDLING"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>use-broken-event-handling</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20418"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20420"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM-TEXT-CHANGED"
+></A
+>The &quot;text-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    user_function                  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the user has finished editing the text
+    in an icon text item.  Typically this happens when the user
+    presses <B
+CLASS="KEYCAP"
+>Enter</B
+>.  The application has to decide
+    whether the entered text is valid or not; for example, a file
+    manager may want to test whether it is legal to rename a file to
+    the proposed name or not.
+  </P
+><P
+>    Upon receiving this signal, the application should use
+    <TT
+CLASS="FUNCTION"
+><A
+HREF="gnomeicontextitem.html#GNOME-ICON-TEXT-ITEM-GET-TEXT"
+>gnome_icon_text_item_get_text</A
+>()</TT
+> to get the
+    text for validation.  The return value of this signal indicates
+    whether the proposed text is accepted by the application.  If the
+    proposed text is valid, then a signal handler should return
+    <SPAN
+CLASS="SYMBOL"
+>TRUE</SPAN
+>, otherwise it should return
+    <SPAN
+CLASS="SYMBOL"
+>FALSE</SPAN
+>.  If the change is not accepted, the text
+    is automatically reset to its original state.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20434"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icontextitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon text item which emitted the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the change is accepted, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> otherwise.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20453"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM-HEIGHT-CHANGED"
+></A
+>The &quot;height-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the height of an icon text item
+    changes, usually due to the user changing the text or the
+    application selecting a different font.  Applications can change
+    their layout accordingly.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20460"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icontextitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon text item which emitted the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20473"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM-WIDTH-CHANGED"
+></A
+>The &quot;width-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the width of an icon text item
+    changes, usually due to the user changing the text or the
+    application selecting a different font.  Applications can change
+    their layout accordingly.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20480"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icontextitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon text item which emitted the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20493"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM-EDITING-STARTED"
+></A
+>The &quot;editing-started&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the user begins editing the text in an
+    icon text item, usually by clicking on it while it is selected.
+    Applications can use this information to disable drag and drop
+    signals and update their state accordingly.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20500"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icontextitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon text item which emitted the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20513"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM-EDITING-STOPPED"
+></A
+>The &quot;editing-stopped&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the user terminates editing the text
+    in an icon text item, usually by pressing <B
+CLASS="KEYCAP"
+>Enter</B
+>
+    or <B
+CLASS="KEYCAP"
+>Esc</B
+>.  Applications can use this information to
+    enable drag and drop signals and update their state accordingly.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20522"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icontextitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon text item which emitted the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20535"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM-SELECTION-STARTED"
+></A
+>The &quot;selection-started&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the user begins a rubberband selection
+    of text with the mouse in an icon text item.  Applications can use
+    this information to disable drag and drop signals and update their
+    state accordingly.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20542"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icontextitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon text item which emitted the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20555"
+></A
+><H3
+><A
+NAME="GNOMEICONTEXTITEM-SELECTION-STOPPED"
+></A
+>The &quot;selection-stopped&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeicontextitem.html"
+>GnomeIconTextItem</A
+> *icontextitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the user terminates a rubberband
+    selection of text with the mouse in an icon text item.
+    Applications can use this information to disable drag and drop
+    signals and update their state accordingly.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20562"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icontextitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon text item which emitted the signal.
+&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20575"
+></A
+><H2
+>See Also</H2
+><P
+>    <A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+>, <A
+HREF="gnomecanvas.html"
+>GnomeCanvas</A
+>. <A
+HREF="gnomeui-gnome-icon-text.html#GNOMEICONTEXTINFO"
+>GnomeIconTextInfo</A
+>.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeiconentry.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeiconlist.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeIconEntry</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeIconList</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

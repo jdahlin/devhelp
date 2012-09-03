@@ -1,0 +1,922 @@
+<HTML
+><HEAD
+><TITLE
+>Class GtkDialog</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.54"><LINK
+REL="HOME"
+TITLE="PyGTK Docs"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Class GtkCurve"
+HREF="class-gtkcurve.html"><LINK
+REL="NEXT"
+TITLE="Class GtkDrawingArea"
+HREF="class-gtkdrawingarea.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PyGTK Docs</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="class-gtkcurve.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="class-gtkdrawingarea.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CLASS-GTKDIALOG"
+>Class GtkDialog</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN10459"
+>Ancestry</A
+></H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>+-- GObject
+  +-- <A
+HREF="class-gtkobject.html"
+>GtkObject</A
+>
+    +-- <A
+HREF="class-gtkwidget.html"
+>GtkWidget</A
+>
+      +-- <A
+HREF="class-gtkcontainer.html"
+>GtkContainer</A
+>
+        +-- <A
+HREF="class-gtkbin.html"
+>GtkBin</A
+>
+          +-- <A
+HREF="class-gtkwindow.html"
+>GtkWindow</A
+>
+            +-- <A
+HREF="class-gtkdialog.html"
+>GtkDialog</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN10469"
+>Constructor</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="FSFUNC"
+>GtkDialog</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>a GtkWidget*</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN10481"
+>Methods</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--ADD-ACTION-WIDGET"
+>GtkDialog.add_action_widget</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add_action_widget</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>child</VAR
+>, <VAR
+CLASS="PDPARAM"
+>response_id</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+></DT
+><DD
+><P
+>an activatable widget</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+></DT
+><DD
+><P
+>response ID for <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Adds an activatable widget to the action area of a <A
+HREF="class-gtkdialog.html"
+><SPAN
+CLASS="TYPE"
+>GtkDialog</SPAN
+></A
+>,
+connecting a signal handler that will emit the "response" signal on
+the dialog when the widget is activated.  The widget is appended to
+the end of the dialog's action area.  If you want to add a
+non-activatable widget, simply pack it into the
+<TT
+CLASS="LITERAL"
+>action_area</TT
+> field of the <A
+HREF="class-gtkdialog.html"
+><SPAN
+CLASS="TYPE"
+>GtkDialog</SPAN
+></A
+> struct.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--ADD-BUTTON"
+>GtkDialog.add_button</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add_button</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>button_text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>response_id</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>button_text</I
+></TT
+></DT
+><DD
+><P
+>text of button, or stock ID</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+></DT
+><DD
+><P
+>response ID for the button</P
+></DD
+></DL
+></DIV
+><P
+>Adds a button with the given text (or a stock button, if <TT
+CLASS="PARAMETER"
+><I
+>button_text</I
+></TT
+> is a
+stock ID) and sets things up so that clicking the button will emit the
+"response" signal with the given <TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+>. The button is appended to the
+end of the dialog's action area. The button widget is returned, but usually
+you don't need it.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--ADD-BUTTONS"
+>GtkDialog.add_buttons</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add_buttons</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>first_button_text</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>first_button_text</I
+></TT
+></DT
+><DD
+><P
+>button text or stock ID</P
+></DD
+></DL
+></DIV
+><P
+>Adds more buttons, same as calling <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--ADD-BUTTON"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.add_button()</TT
+></A
+>
+repeatedly.  The variable argument list should be NULL-terminated
+as with <TT
+CLASS="FUNCTION"
+>GtkDialog()</TT
+>. Each button must have both
+text and response ID.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--SET-RESPONSE-SENSITIVE"
+>GtkDialog.set_response_sensitive</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_response_sensitive</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>response_id</VAR
+>, <VAR
+CLASS="PDPARAM"
+>setting</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+></DT
+><DD
+><P
+>a response ID</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+></DT
+><DD
+><P
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> for sensitive</P
+></DD
+></DL
+></DIV
+><P
+>Calls gtk_widget_set_sensitive (widget, <TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+>) for each
+widget in the dialog's action area with the given <TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+>.
+A convenient way to sensitize/desensitize dialog buttons.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--SET-DEFAULT-RESPONSE"
+>GtkDialog.set_default_response</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_default_response</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>response_id</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+></DT
+><DD
+><P
+>a response ID</P
+></DD
+></DL
+></DIV
+><P
+>Sets the last widget in the dialog's action area with the given <TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+>
+as the default widget for the dialog. Pressing "Enter" normally activates
+the default widget.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--SET-HAS-SEPARATOR"
+>GtkDialog.set_has_separator</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_has_separator</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>setting</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+></DT
+><DD
+><P
+>a gboolean</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--GET-HAS-SEPARATOR"
+>GtkDialog.get_has_separator</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_has_separator</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>a gboolean</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--RESPONSE"
+>GtkDialog.response</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>response</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>response_id</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>response_id</I
+></TT
+></DT
+><DD
+><P
+>response ID</P
+></DD
+></DL
+></DIV
+><P
+>Emits the "response" signal with the given response ID. Used to
+indicate that the user has responded to the dialog in some way;
+typically either you or <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> will be monitoring the
+"response" signal and take appropriate action.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKDIALOG--RUN"
+>GtkDialog.run</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>run</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>response ID</P
+></DD
+></DL
+></DIV
+><P
+>Blocks in a recursive main loop until the <TT
+CLASS="PARAMETER"
+><I
+>dialog</I
+></TT
+> either emits the
+response signal, or is destroyed. If the dialog is destroyed,
+<A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> returns GTK_RESPONSE_NONE. Otherwise, it returns
+the response ID from the "response" signal emission. Before
+entering the recursive main loop, <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> calls
+<A
+HREF="class-gtkwidget.html#METHOD-GTKWIDGET--SHOW"
+><TT
+CLASS="FUNCTION"
+>GtkWidget.show()</TT
+></A
+> on the dialog for you. Note that you still
+need to show any children of the dialog yourself.</P
+><P
+>During <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+>, the default behavior of "delete_event" is
+disabled; if the dialog receives "delete_event", it will not be
+destroyed as windows usually are, and <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> will return
+GTK_RESPONSE_DELETE_EVENT. Also, during <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> the dialog will be
+modal. You can force <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> to return at any time by
+calling <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RESPONSE"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.response()</TT
+></A
+> to emit the "response"
+signal. Destroying the dialog during <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> is a very bad
+idea, because your post-run code won't know whether the dialog was
+destroyed or not.</P
+><P
+>After <A
+HREF="class-gtkdialog.html#METHOD-GTKDIALOG--RUN"
+><TT
+CLASS="FUNCTION"
+>GtkDialog.run()</TT
+></A
+> returns, you are responsible for hiding or
+destroying the dialog if you wish to do so.</P
+><P
+>Typical usage of this function might be:
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>gint result = gtk_dialog_run (GTK_DIALOG (dialog));
+switch (result)
+{
+case GTK_RESPONSE_ACCEPT:
+<TT
+CLASS="FUNCTION"
+>do_application_specific_something()</TT
+>;
+break;
+default:
+<TT
+CLASS="FUNCTION"
+>do_nothing_since_dialog_was_cancelled()</TT
+>;
+break;
+}
+gtk_widget_destroy (dialog);</PRE
+></TD
+></TR
+></TABLE
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="class-gtkcurve.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="class-gtkdrawingarea.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class GtkCurve</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class GtkDrawingArea</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

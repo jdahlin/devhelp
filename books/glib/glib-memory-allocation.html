@@ -1,0 +1,1495 @@
+<HTML
+><HEAD
+><TITLE
+>Memory Allocation</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Core Application Support"
+HREF="glib-core.html"><LINK
+REL="PREVIOUS"
+TITLE="Dynamic Loading of Modules"
+HREF="glib-dynamic-loading-of-modules.html"><LINK
+REL="NEXT"
+TITLE="IO Channels"
+HREF="glib-io-channels.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-dynamic-loading-of-modules.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-io-channels.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-MEMORY-ALLOCATION"
+>Memory Allocation</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4124"
+></A
+><H2
+>Name</H2
+>Memory Allocation&nbsp;--&nbsp;general memory-handling.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4127"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+#define     <A
+HREF="glib-memory-allocation.html#G-NEW"
+>g_new</A
+>                           (type, count)
+#define     <A
+HREF="glib-memory-allocation.html#G-NEW0"
+>g_new0</A
+>                          (type, count)
+#define     <A
+HREF="glib-memory-allocation.html#G-RENEW"
+>g_renew</A
+>                         (type, mem, count)
+
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-memory-allocation.html#G-MALLOC"
+>g_malloc</A
+>                        (<A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> size);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-memory-allocation.html#G-MALLOC0"
+>g_malloc0</A
+>                       (<A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> size);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-memory-allocation.html#G-REALLOC"
+>g_realloc</A
+>                       (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> mem,
+                                             <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> size);
+
+void        <A
+HREF="glib-memory-allocation.html#G-FREE"
+>g_free</A
+>                          (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> mem);
+
+#define     <A
+HREF="glib-memory-allocation.html#G-MEMMOVE"
+>g_memmove</A
+>                       (d,s,n)
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-memory-allocation.html#G-MEMDUP"
+>g_memdup</A
+>                        (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> mem,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> byte_size);
+
+void        <A
+HREF="glib-memory-allocation.html#G-MEM-PROFILE"
+>g_mem_profile</A
+>                   (void);
+void        <A
+HREF="glib-memory-allocation.html#G-MEM-CHECK"
+>g_mem_check</A
+>                     (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> mem);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4153"
+></A
+><H2
+>Description</H2
+><P
+>These functions provide support for allocating and freeing memory.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>If any call to allocate memory fails, the application is terminated.
+This also means that there is no need to check if the call succeeded.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4158"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4160"
+></A
+><H3
+><A
+NAME="G-NEW"
+></A
+>g_new()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_new(type, count)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates <TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+> elements of type <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.
+The returned pointer is cast to a pointer to the given type.
+If <TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+> is 0 it returns NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4168"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the elements to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the allocated memory, cast to a pointer to <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4186"
+></A
+><H3
+><A
+NAME="G-NEW0"
+></A
+>g_new0()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_new0(type, count)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates <TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+> elements of type <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>, initialized to 0's.
+The returned pointer is cast to a pointer to the given type.
+If <TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+> is 0 it returns NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4194"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the elements to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the allocated memory, cast to a pointer to <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4212"
+></A
+><H3
+><A
+NAME="G-RENEW"
+></A
+>g_renew()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_renew(type, mem, count)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reallocates the memory pointed to by <TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>, so that it now has space for
+<TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+> elements of type <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>. It returns the new address of the memory,
+which may have been moved.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4220"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the elements to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the currently allocated memory.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the new allocated memory, cast to a pointer to <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4242"
+></A
+><H3
+><A
+NAME="G-MALLOC"
+></A
+>g_malloc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_malloc                        (<A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> bytes of memory.
+If <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> is 0 it returns NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4251"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the allocated memory.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4264"
+></A
+><H3
+><A
+NAME="G-MALLOC0"
+></A
+>g_malloc0 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_malloc0                       (<A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> bytes of memory, initialized to 0's.
+If <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> is 0 it returns NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4273"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the allocated memory.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4286"
+></A
+><H3
+><A
+NAME="G-REALLOC"
+></A
+>g_realloc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_realloc                       (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> mem,
+                                             <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reallocates the memory pointed to by <TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>, so that it now has space for
+<TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> bytes of memory. It returns the new address of the memory, which may
+have been moved.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4296"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the memory to reallocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new size of the allocated memory, in bytes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new address of the allocated memory.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4313"
+></A
+><H3
+><A
+NAME="G-FREE"
+></A
+>g_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_free                          (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> mem);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the memory pointed to by <TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>.
+If <TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+> is NULL it simply returns.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4321"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the memory to free.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4330"
+></A
+><H3
+><A
+NAME="G-MEMMOVE"
+></A
+>g_memmove()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_memmove(d,s,n)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Copies a block of memory <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> bytes long, from <TT
+CLASS="PARAMETER"
+><I
+>s</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>d</I
+></TT
+>.
+The source and destination areas may overlap.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>On architectures where memmove() is not available, this function is implemented
+using bcopy(), which may not be able to handle overlapping areas.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4342"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>d</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the destination address to copy the bytes to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>s</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the source address to copy the bytes from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to copy.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4359"
+></A
+><H3
+><A
+NAME="G-MEMDUP"
+></A
+>g_memdup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_memdup                        (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> mem,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> byte_size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates <TT
+CLASS="PARAMETER"
+><I
+>byte_size</I
+></TT
+> bytes of memory, and copies <TT
+CLASS="PARAMETER"
+><I
+>byte_size</I
+></TT
+> bytes into it
+from <TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+> is NULL it returns NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4371"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the memory to copy.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>byte_size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to copy.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the newly allocated copy of the memory, or NULL if <TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>
+is NULL.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4389"
+></A
+><H3
+><A
+NAME="G-MEM-PROFILE"
+></A
+>g_mem_profile ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_mem_profile                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Outputs a summary of memory usage.
+To use this function you must configure glib with the flag
+'--enable-mem-profile=yes' before compiling.</P
+><P
+>It outputs the frequency of allocations of different sizes,
+the total number of bytes which have been allocated,
+the total number of bytes which have been freed,
+and the difference between the previous two values, i.e. the number of bytes
+still in use.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4395"
+></A
+><H3
+><A
+NAME="G-MEM-CHECK"
+></A
+>g_mem_check ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_mem_check                     (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> mem);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Checks if the given memory has already been freed. If it has it outputs
+a warning message.
+To use this function you must configure glib with the flag
+'--enable-mem-check=yes' before compiling.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4401"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the memory to check.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-dynamic-loading-of-modules.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-io-channels.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Dynamic Loading of Modules</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>IO Channels</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

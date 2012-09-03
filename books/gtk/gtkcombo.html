@@ -1,0 +1,1394 @@
+<HTML
+><HEAD
+><TITLE
+>GtkCombo</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkColorSelectionDialog"
+HREF="gtkcolorselectiondialog.html"><LINK
+REL="NEXT"
+TITLE="GtkContainer"
+HREF="gtkcontainer.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkcolorselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcontainer.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKCOMBO"
+>GtkCombo</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN19445"
+></A
+><H2
+>Name</H2
+>GtkCombo&nbsp;--&nbsp;a text entry field with a dropdown list.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN19448"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkcombo.html#GTKCOMBO-STRUCT"
+>GtkCombo</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkcombo.html#GTK-COMBO-NEW"
+>gtk_combo_new</A
+>                   (void);
+void        <A
+HREF="gtkcombo.html#GTK-COMBO-SET-POPDOWN-STRINGS"
+>gtk_combo_set_popdown_strings</A
+>   (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *strings);
+void        <A
+HREF="gtkcombo.html#GTK-COMBO-SET-VALUE-IN-LIST"
+>gtk_combo_set_value_in_list</A
+>     (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ok_if_empty);
+void        <A
+HREF="gtkcombo.html#GTK-COMBO-SET-USE-ARROWS"
+>gtk_combo_set_use_arrows</A
+>        (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val);
+void        <A
+HREF="gtkcombo.html#GTK-COMBO-SET-USE-ARROWS-ALWAYS"
+>gtk_combo_set_use_arrows_always</A
+> (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val);
+void        <A
+HREF="gtkcombo.html#GTK-COMBO-SET-CASE-SENSITIVE"
+>gtk_combo_set_case_sensitive</A
+>    (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val);
+void        <A
+HREF="gtkcombo.html#GTK-COMBO-SET-ITEM-STRING"
+>gtk_combo_set_item_string</A
+>       (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF="gtkitem.html"
+>GtkItem</A
+> *item,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *item_value);
+void        <A
+HREF="gtkcombo.html#GTK-COMBO-DISABLE-ACTIVATE"
+>gtk_combo_disable_activate</A
+>      (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19476"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbox.html"
+>GtkBox</A
+>
+                     +----<A
+HREF="gtkhbox.html"
+>GtkHBox</A
+>
+                           +----GtkCombo</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19484"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> widget consists of a single-line text entry field and a drop-down
+list. The drop-down list is displayed when the user clicks on a small arrow
+button to the right of the entry field.</P
+><P
+>The drop-down list is a <A
+HREF="gtklist.html"
+>GtkList</A
+> widget and can be accessed using the
+<TT
+CLASS="STRUCTFIELD"
+><I
+>list</I
+></TT
+> member of the <A
+HREF="gtkcombo.html#GTKCOMBO-STRUCT"
+>GtkCombo</A
+>.
+List elements can contain arbitrary widgets, but if an element is not a
+plain label, then you must use the gtk_list_set_item_string() function.
+This sets the string which will be placed in the text entry field when the
+item is selected.</P
+><P
+>By default, the user can step through the items in the list using the
+arrow (cursor) keys, though this behaviour can be turned off with
+<A
+HREF="gtkcombo.html#GTK-COMBO-SET-USE-ARROWS"
+>gtk_combo_set_use_arrows</A
+>().</P
+><P
+>Normally the arrow keys are only active when the contents of the text entry
+field matches one of the items in the list. If the contents of the entry field
+do not match any of the list items, then pressing the arrow keys does nothing.
+However, by calling <A
+HREF="gtkcombo.html#GTK-COMBO-SET-USE-ARROWS-ALWAYS"
+>gtk_combo_set_use_arrows_always</A
+>() you can specify that the
+arrow keys are always active. If the contents of the entry field does not match
+any of the items in the list, then pressing the up or down arrow key will set
+the entry field to the last or first item in the list, respectively.</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="GTKCOMBO-SIMPLE-EXAMPLE"
+></A
+><P
+><B
+>Example 1. Creating a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> widget with simple text items.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  GtkWidget *combo;
+  GList *items = NULL;
+
+  items = g_list_append (items, "First Item");
+  items = g_list_append (items, "Second Item");
+  items = g_list_append (items, "Third Item");
+  items = g_list_append (items, "Fourth Item");
+  items = g_list_append (items, "Fifth Item");
+
+  combo = <A
+HREF="gtkcombo.html#GTK-COMBO-NEW"
+>gtk_combo_new</A
+>();
+  gtk_combo_set_popdown_strings (GTK_COMBO (combo), items);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN19502"
+></A
+><P
+><B
+>Example 2. Creating a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> widget with a complex item.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  GtkWidget *combo, *item, *hbox, *arrow, *label;
+
+  combo = <A
+HREF="gtkcombo.html#GTK-COMBO-NEW"
+>gtk_combo_new</A
+>();
+
+  item = <A
+HREF="gtklistitem.html#GTK-LIST-ITEM-NEW"
+>gtk_list_item_new</A
+>();
+  gtk_widget_show (item);
+
+  /* You can put almost anything into the GtkListItem widget. Here we will use
+     a horizontal box with an arrow and a label in it. */
+  hbox = gtk_hbox_new (FALSE, 3);
+  gtk_container_add (GTK_CONTAINER (item), hbox);
+  gtk_widget_show (hbox);
+
+  arrow = gtk_arrow_new (GTK_ARROW_RIGHT, GTK_SHADOW_OUT);
+  gtk_widget_show (arrow);
+  gtk_box_pack_start (GTK_BOX (hbox), pixmap, FALSE, FALSE, 0);
+
+  label = gtk_label_new ("First Item");
+  gtk_widget_show (label);
+  gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
+
+  /* You must set the string to display in the entry field when the item is
+     selected. */
+  gtk_combo_set_item_string (GTK_COMBO (combo), GTK_ITEM (item), "1st Item");
+
+  /* Now we simply add the item to the combo's list. */
+  gtk_container_add (GTK_CONTAINER (GTK_COMBO (combo)-&#62;list), item);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19508"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19510"
+></A
+><H3
+><A
+NAME="GTKCOMBO-STRUCT"
+></A
+>struct GtkCombo</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkCombo;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The GtkFixedChild struct contains the following fields.
+(These fields should be considered read-only. They should never be set by
+an application.)
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19516"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *entry;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text entry field.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *list;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list shown in the drop-down window.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19529"
+></A
+><H3
+><A
+NAME="GTK-COMBO-NEW"
+></A
+>gtk_combo_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_combo_new                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19536"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19546"
+></A
+><H3
+><A
+NAME="GTK-COMBO-SET-POPDOWN-STRINGS"
+></A
+>gtk_combo_set_popdown_strings ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_combo_set_popdown_strings   (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *strings);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Convenience function to set all of the items in the popup list.
+(See the <A
+HREF="gtkcombo.html#GTKCOMBO-SIMPLE-EXAMPLE"
+>example</A
+> above.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19554"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>combo</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>strings</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a list of strings.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19568"
+></A
+><H3
+><A
+NAME="GTK-COMBO-SET-VALUE-IN-LIST"
+></A
+>gtk_combo_set_value_in_list ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_combo_set_value_in_list     (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ok_if_empty);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies whether the value entered in the text entry field must match one of
+the values in the list. If this is set then the user will not be able to
+perform any other action until a valid value has been entered.</P
+><P
+>If an empty field is acceptable, the <TT
+CLASS="PARAMETER"
+><I
+>ok_if_empty</I
+></TT
+> parameter should be TRUE.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19578"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>combo</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the value entered must match one of the values in the list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ok_if_empty</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if an empty value is considered valid.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19596"
+></A
+><H3
+><A
+NAME="GTK-COMBO-SET-USE-ARROWS"
+></A
+>gtk_combo_set_use_arrows ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_combo_set_use_arrows        (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies if the arrow (cursor) keys can be used to step through the items in
+the list. This is on by default.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19603"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>combo</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the arrow keys can be used to step through the items in the list.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19617"
+></A
+><H3
+><A
+NAME="GTK-COMBO-SET-USE-ARROWS-ALWAYS"
+></A
+>gtk_combo_set_use_arrows_always ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_combo_set_use_arrows_always (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies if the arrow keys will still work even if the current contents of the
+<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> field do not match any of the list items. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19625"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>combo</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19639"
+></A
+><H3
+><A
+NAME="GTK-COMBO-SET-CASE-SENSITIVE"
+></A
+>gtk_combo_set_case_sensitive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_combo_set_case_sensitive    (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> val);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies whether the text entered into the <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> field and the text in
+the list items is case sensitive.</P
+><P
+>This may be useful, for example, when you have called
+<A
+HREF="gtkcombo.html#GTK-COMBO-SET-VALUE-IN-LIST"
+>gtk_combo_set_value_in_list</A
+>() to limit the values entered, but you are not
+worried about differences in case.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19649"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>combo</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19663"
+></A
+><H3
+><A
+NAME="GTK-COMBO-SET-ITEM-STRING"
+></A
+>gtk_combo_set_item_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_combo_set_item_string       (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo,
+                                             <A
+HREF="gtkitem.html"
+>GtkItem</A
+> *item,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *item_value);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the string to place in the <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> field when a particular list item is
+selected. This is needed if the list item is not a simple label.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19672"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>combo</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkitem.html"
+>GtkItem</A
+> which</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item_value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to place in the <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> when <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+> is selected.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19693"
+></A
+><H3
+><A
+NAME="GTK-COMBO-DISABLE-ACTIVATE"
+></A
+>gtk_combo_disable_activate ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_combo_disable_activate      (<A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> *combo);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Stops the <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> widget from showing the popup list when the <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>
+emits the "activate" signal, i.e. when the Return key is pressed.
+This may be useful if, for example. you want the Return key to close a dialog
+instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19701"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>combo</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcombo.html"
+>GtkCombo</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkcolorselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcontainer.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkColorSelectionDialog</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkContainer</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

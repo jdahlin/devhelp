@@ -1,0 +1,1242 @@
+<HTML
+><HEAD
+><TITLE
+>GnomeSpell</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="Gnome User Interface Library Reference Manual"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="GNOME Widgets and Objects"
+HREF="gnome-objects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkPixmapMenuItem"
+HREF="gtkpixmapmenuitem.html"><LINK
+REL="NEXT"
+TITLE="GnomeDockLayout"
+HREF="gnomedocklayout.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>Gnome User Interface Library Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkpixmapmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomedocklayout.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GNOMESPELL"
+>GnomeSpell</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN28355"
+></A
+><H2
+>Name</H2
+>GnomeSpell&nbsp;--&nbsp;Deprecated.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN28358"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gnome.h&gt;
+
+
+struct      <A
+HREF="gnomespell.html#GNOMESPELL-STRUCT"
+>GnomeSpell</A
+>;
+struct      <A
+HREF="gnomespell.html#GNOMESPELLINFO"
+>GnomeSpellInfo</A
+>;
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomespell.html#GNOME-SPELL-NEW"
+>gnome_spell_new</A
+>                 (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gnomespell.html#GNOME-SPELL-CHECK"
+>gnome_spell_check</A
+>               (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str);
+void        <A
+HREF="gnomespell.html#GNOME-SPELL-ACCEPT"
+>gnome_spell_accept</A
+>              (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *word);
+void        <A
+HREF="gnomespell.html#GNOME-SPELL-INSERT"
+>gnome_spell_insert</A
+>              (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *word,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> lowercase);
+int         <A
+HREF="gnomespell.html#GNOME-SPELL-NEXT"
+>gnome_spell_next</A
+>                (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell);
+void        <A
+HREF="gnomespell.html#GNOME-SPELL-KILL"
+>gnome_spell_kill</A
+>                (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN28380"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF=../gtk/gtkobject.html
+>GtkObject</A>
+   +----<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>
+         +----<A
+HREF=../gtk/gtkcontainer.html
+>GtkContainer</A>
+               +----<A
+HREF=../gtk/gtkbox.html
+>GtkBox</A>
+                     +----<A
+HREF=../gtk/gtkvbox.html
+>GtkVBox</A>
+                           +----GnomeSpell</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN28388"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gnomespell.html#GNOMESPELL-FOUND-WORD"
+>found-word</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *spell,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomespell.html#GNOMESPELL-HANDLED-WORD"
+>handled-word</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *spell,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN28399"
+></A
+><H2
+>Description</H2
+><P
+>Deprecated spell-checker widget.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN28402"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28404"
+></A
+><H3
+><A
+NAME="GNOMESPELL-STRUCT"
+></A
+>struct GnomeSpell</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GnomeSpell;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28409"
+></A
+><H3
+><A
+NAME="GNOMESPELLINFO"
+></A
+>struct GnomeSpellInfo</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GnomeSpellInfo {
+	const gchar* original;
+	gchar* replacement;
+	gchar* word;
+	guint offset;
+	GSList * words;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28414"
+></A
+><H3
+><A
+NAME="GNOME-SPELL-NEW"
+></A
+>gnome_spell_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_spell_new                 (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new GNOME spell checker object.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28421"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME spell checker object, or <TT
+CLASS="LITERAL"
+>NULL</TT
+> on
+failure.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28431"
+></A
+><H3
+><A
+NAME="GNOME-SPELL-CHECK"
+></A
+>gnome_spell_check ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gnome_spell_check               (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Perform spell-checking on one or more words.</P
+><P
+>FIXME: there is a problem when you call gnome_spell_check(spell, "bogus bogus"):
+if you accept bogus the first time, it will be reported again
+because ispell checked it before...
+The easiest solution is to spell-check a word at a time (but it's slow).</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28441"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Pointer to GNOME spell checker object.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> String to be spell-checked.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> 1 if spelling is ok, 0 if not, -1 on system error.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28458"
+></A
+><H3
+><A
+NAME="GNOME-SPELL-ACCEPT"
+></A
+>gnome_spell_accept ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_spell_accept              (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *word);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a single word to the runtime list of words that the spelling
+checker should ignore.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28466"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Pointer to GNOME spell checker object.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>word</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Word to be ignored.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28479"
+></A
+><H3
+><A
+NAME="GNOME-SPELL-INSERT"
+></A
+>gnome_spell_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_spell_insert              (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *word,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> lowercase);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a single word to the spelling checker's private dictionary.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28488"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Pointer to GNOME spell checker object.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>word</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Word to be added to private dictionary.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lowercase</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> <TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the added word should be changed to lowercase, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> if not.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28507"
+></A
+><H3
+><A
+NAME="GNOME-SPELL-NEXT"
+></A
+>gnome_spell_next ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_spell_next                (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a single word to the runtime list of words that the spelling
+checker should ignore.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28514"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Pointer to GNOME spell checker object.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> <TT
+CLASS="LITERAL"
+>TRUE</TT
+> on success, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> on failure.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28529"
+></A
+><H3
+><A
+NAME="GNOME-SPELL-KILL"
+></A
+>gnome_spell_kill ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_spell_kill                (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *gtkspell);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Terminates the external spelling checker process, if present.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28536"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Pointer to GNOME spell checker object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN28545"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28547"
+></A
+><H3
+><A
+NAME="GNOMESPELL-FOUND-WORD"
+></A
+>The &quot;found-word&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *spell,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28555"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>User data&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN28572"
+></A
+><H3
+><A
+NAME="GNOMESPELL-HANDLED-WORD"
+></A
+>The &quot;handled-word&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomespell.html"
+>GnomeSpell</A
+> *spell,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN28580"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>User data&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkpixmapmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomedocklayout.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPixmapMenuItem</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeDockLayout</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

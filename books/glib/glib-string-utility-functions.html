@@ -1,0 +1,3542 @@
+<HTML
+><HEAD
+><TITLE
+>String Utility Functions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Utilities"
+HREF="glib-utilities.html"><LINK
+REL="PREVIOUS"
+TITLE="GLib Utilities"
+HREF="glib-utilities.html"><LINK
+REL="NEXT"
+TITLE="Date and Time Functions"
+HREF="glib-date-and-time-functions.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-date-and-time-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-STRING-UTILITY-FUNCTIONS"
+>String Utility Functions</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN5706"
+></A
+><H2
+>Name</H2
+>String Utility Functions&nbsp;--&nbsp;various string-related functions.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN5709"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRDUP"
+>g_strdup</A
+>                        (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *str);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRNDUP"
+>g_strndup</A
+>                       (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *str,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRNFILL"
+>g_strnfill</A
+>                      (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> length,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> fill_char);
+
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRDUP-PRINTF"
+>g_strdup_printf</A
+>                 (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRDUP-VPRINTF"
+>g_strdup_vprintf</A
+>                (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             va_list args);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-string-utility-functions.html#G-SNPRINTF"
+>g_snprintf</A
+>                      (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> n,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> const *format,
+                                             ...);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-string-utility-functions.html#G-VSNPRINTF"
+>g_vsnprintf</A
+>                     (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> n,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> const *format,
+                                             va_list args);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-string-utility-functions.html#G-PRINTF-STRING-UPPER-BOUND"
+>g_printf_string_upper_bound</A
+>     (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             va_list args);
+
+void        <A
+HREF="glib-string-utility-functions.html#G-STRUP"
+>g_strup</A
+>                         (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+void        <A
+HREF="glib-string-utility-functions.html#G-STRDOWN"
+>g_strdown</A
+>                       (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-string-utility-functions.html#G-STRCASECMP"
+>g_strcasecmp</A
+>                    (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s1,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s2);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-string-utility-functions.html#G-STRNCASECMP"
+>g_strncasecmp</A
+>                   (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s1,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s2,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);
+
+void        <A
+HREF="glib-string-utility-functions.html#G-STRREVERSE"
+>g_strreverse</A
+>                    (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+<A
+HREF="glib-basic-types.html#GDOUBLE"
+>gdouble</A
+>     <A
+HREF="glib-string-utility-functions.html#G-STRTOD"
+>g_strtod</A
+>                        (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *nptr,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **endptr);
+
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRCHUG"
+>g_strchug</A
+>                       (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRCHOMP"
+>g_strchomp</A
+>                      (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+#define     <A
+HREF="glib-string-utility-functions.html#G-STRSTRIP"
+>g_strstrip</A
+>                      ( string )
+
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRDELIMIT"
+>g_strdelimit</A
+>                    (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *delimiters,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> new_delimiter);
+#define     <A
+HREF="glib-string-utility-functions.html#G-STR-DELIMITERS-CAPS"
+>G_STR_DELIMITERS</A
+>
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRESCAPE"
+>g_strescape</A
+>                     (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>**     <A
+HREF="glib-string-utility-functions.html#G-STRSPLIT"
+>g_strsplit</A
+>                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *delimiter,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> max_tokens);
+void        <A
+HREF="glib-string-utility-functions.html#G-STRFREEV"
+>g_strfreev</A
+>                      (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **str_array);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRCONCAT"
+>g_strconcat</A
+>                     (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string1,
+                                             ...);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRJOIN"
+>g_strjoin</A
+>                       (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *separator,
+                                             ...);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRJOINV"
+>g_strjoinv</A
+>                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *separator,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **str_array);
+
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRERROR"
+>g_strerror</A
+>                      (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> errnum);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-utility-functions.html#G-STRSIGNAL"
+>g_strsignal</A
+>                     (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> signum);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5800"
+></A
+><H2
+>Description</H2
+><P
+>This section describes a number of utility functions for creating,
+duplicating, and manipulating strings.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5803"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5805"
+></A
+><H3
+><A
+NAME="G-STRDUP"
+></A
+>g_strdup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strdup                        (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *str);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Duplicates a string.
+The returned string should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5812"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to duplicate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated copy of <TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5826"
+></A
+><H3
+><A
+NAME="G-STRNDUP"
+></A
+>g_strndup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strndup                       (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *str,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Duplicates the first <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> characters of a string, returning a newly-allocated
+buffer <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> + 1 characters long which will always be null-terminated.
+If <TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+> is less than <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> characters long the buffer is padded with nulls.
+The returned value should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5838"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to duplicate part of.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum number of characters to copy from <TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated buffer containing the first <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> characters of <TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>,
+null-terminated.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5858"
+></A
+><H3
+><A
+NAME="G-STRNFILL"
+></A
+>g_strnfill ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strnfill                      (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> length,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> fill_char);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new string <TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+> characters long filled with <TT
+CLASS="PARAMETER"
+><I
+>fill_char</I
+></TT
+>.
+The returned string should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5868"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the new string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill_char</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to fill the string with.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated string filled the <TT
+CLASS="PARAMETER"
+><I
+>fill_char</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5886"
+></A
+><H3
+><A
+NAME="G-STRDUP-PRINTF"
+></A
+>g_strdup_printf ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strdup_printf                 (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Similar to the standard C <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+> function
+but safer, since it calculates the maximum space required and allocates
+memory to hold the result.
+The returned string should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5894"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the standard <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+> format string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to insert into the format string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated string holding the result.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5912"
+></A
+><H3
+><A
+NAME="G-STRDUP-VPRINTF"
+></A
+>g_strdup_vprintf ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strdup_vprintf                (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             va_list args);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Similar to the standard C <TT
+CLASS="FUNCTION"
+>vsprintf()</TT
+> function
+but safer, since it calculates the maximum space required and allocates
+memory to hold the result.
+The returned string should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5921"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the standard <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+> format string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list of parameters to insert into the format string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated string holding the result.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5939"
+></A
+><H3
+><A
+NAME="G-SNPRINTF"
+></A
+>g_snprintf ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_snprintf                      (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> n,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> const *format,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A safer form of the standard <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+> function.
+The output is guaranteed to not exceed <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> characters (including the
+terminating NULL character), so it is easy to ensure that a buffer overflow
+cannot occur.</P
+><P
+>See also <A
+HREF="glib-string-utility-functions.html#G-STRDUP-PRINTF"
+>g_strdup_printf</A
+>().</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>In versions of GLib prior to 1.2.3, this function may return -1 if the output
+was truncated, and the truncated string may not be NULL-terminated.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5954"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the buffer to hold the output.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum number of characters to produce (including the terminating null
+character).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the format string. See the <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the arguments to insert in the output.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the output string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5980"
+></A
+><H3
+><A
+NAME="G-VSNPRINTF"
+></A
+>g_vsnprintf ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_vsnprintf                     (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+> n,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> const *format,
+                                             va_list args);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A safer form of the standard <TT
+CLASS="FUNCTION"
+>vsprintf()</TT
+> function.
+The output is guaranteed to not exceed <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> characters (including the
+terminating NULL character), so it is easy to ensure that a buffer overflow
+cannot occur.</P
+><P
+>See also <A
+HREF="glib-string-utility-functions.html#G-STRDUP-VPRINTF"
+>g_strdup_vprintf</A
+>().</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>In versions of GLib prior to 1.2.3, this function may return -1 if the output
+was truncated, and the truncated string may not be NULL-terminated.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5996"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the buffer to hold the output.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum number of characters to produce (including the terminating null
+character).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the format string. See the <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list of arguments to insert in the output.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the output string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6022"
+></A
+><H3
+><A
+NAME="G-PRINTF-STRING-UPPER-BOUND"
+></A
+>g_printf_string_upper_bound ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_printf_string_upper_bound     (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             va_list args);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calculates the maximum space needed to store the output of the
+<TT
+CLASS="FUNCTION"
+>sprintf()</TT
+> function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6030"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the format string. See the <TT
+CLASS="FUNCTION"
+>printf()</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to be inserted into the format string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum space needed to store the formatted string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6048"
+></A
+><H3
+><A
+NAME="G-STRUP"
+></A
+>g_strup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_strup                         (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a string to upper case.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6054"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to convert.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6063"
+></A
+><H3
+><A
+NAME="G-STRDOWN"
+></A
+>g_strdown ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_strdown                       (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a string to lower case.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6069"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to convert.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6078"
+></A
+><H3
+><A
+NAME="G-STRCASECMP"
+></A
+>g_strcasecmp ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_strcasecmp                    (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s1,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A case-insensitive string comparison, corresponding to the standard
+<TT
+CLASS="FUNCTION"
+>strcasecmp()</TT
+> function on platforms which support it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6088"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>s2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to compare with <TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>0 if the strings match, a negative value if <TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+> &#60; <TT
+CLASS="PARAMETER"
+><I
+>s2</I
+></TT
+>, or a positive
+value if <TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+> &#62; <TT
+CLASS="PARAMETER"
+><I
+>s2</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6110"
+></A
+><H3
+><A
+NAME="G-STRNCASECMP"
+></A
+>g_strncasecmp ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_strncasecmp                   (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s1,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s2,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A case-insensitive string comparison, corresponding to the standard
+<TT
+CLASS="FUNCTION"
+>strncasecmp()</TT
+> function on platforms which support it.
+It is similar to <A
+HREF="glib-string-utility-functions.html#G-STRCASECMP"
+>g_strcasecmp</A
+>() except it only compares the first <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+> characters
+of the strings.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6123"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>s2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to compare with <TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum number of characters to compare.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>0 if the strings match, a negative value if <TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+> &#60; <TT
+CLASS="PARAMETER"
+><I
+>s2</I
+></TT
+>, or a positive
+value if <TT
+CLASS="PARAMETER"
+><I
+>s1</I
+></TT
+> &#62; <TT
+CLASS="PARAMETER"
+><I
+>s2</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6149"
+></A
+><H3
+><A
+NAME="G-STRREVERSE"
+></A
+>g_strreverse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_strreverse                    (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reverses all of the characters in a string.
+For example, g_strreverse ("abcdef") would be "fedcba".</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6155"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to reverse.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6164"
+></A
+><H3
+><A
+NAME="G-STRTOD"
+></A
+>g_strtod ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GDOUBLE"
+>gdouble</A
+>     g_strtod                        (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *nptr,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **endptr);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a string to a gdouble value.
+It calls the standard <TT
+CLASS="FUNCTION"
+>strtod()</TT
+> function
+to handle the conversion, but if the string is not completely converted
+it attempts the conversion again in the "C" locale, and returns the best
+match.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6174"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nptr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to convert to a numeric value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>endptr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if non-NULL, it returns the character after the last character used
+in the conversion.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the gdouble value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6191"
+></A
+><H3
+><A
+NAME="G-STRCHUG"
+></A
+>g_strchug ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strchug                       (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes leading whitespace from a string, by moving the rest of the
+characters forward.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6198"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to remove the leading whitespace from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6212"
+></A
+><H3
+><A
+NAME="G-STRCHOMP"
+></A
+>g_strchomp ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strchomp                      (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes trailing whitespace from a string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6219"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to remove the trailing whitespace from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6233"
+></A
+><H3
+><A
+NAME="G-STRSTRIP"
+></A
+>g_strstrip()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_strstrip( string )</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes leading and trailing whitespace from a string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6238"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to remove the leading and trailing whitespace from.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6247"
+></A
+><H3
+><A
+NAME="G-STRDELIMIT"
+></A
+>g_strdelimit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strdelimit                    (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *delimiters,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> new_delimiter);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts any delimiter characters in <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>new_delimiter</I
+></TT
+>.
+Any characters in <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+> which are found in <TT
+CLASS="PARAMETER"
+><I
+>delimiters</I
+></TT
+> are changed
+to the <TT
+CLASS="PARAMETER"
+><I
+>new_delimiter</I
+></TT
+> character.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6261"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to convert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>delimiters</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string containing the current delimiters, or NULL to use the
+standard delimiters defined in <A
+HREF="glib-string-utility-functions.html#G-STR-DELIMITERS-CAPS"
+>G_STR_DELIMITERS</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_delimiter</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new delimiter character.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6283"
+></A
+><H3
+><A
+NAME="G-STR-DELIMITERS-CAPS"
+></A
+>G_STR_DELIMITERS</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	 G_STR_DELIMITERS	"_-|&gt; &lt;."</PRE
+></TD
+></TR
+></TABLE
+><P
+>The standard delimiters, used in <A
+HREF="glib-string-utility-functions.html#G-STRDELIMIT"
+>g_strdelimit</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6289"
+></A
+><H3
+><A
+NAME="G-STRESCAPE"
+></A
+>g_strescape ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strescape                     (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Escapes all backslash characters, '\' in a string, by inserting a second '\'.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6296"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to escape the backslashes in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly allocated copy of <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>, with all backslash characters
+escaped using a second backslash.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6310"
+></A
+><H3
+><A
+NAME="G-STRSPLIT"
+></A
+>g_strsplit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>**     g_strsplit                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *delimiter,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> max_tokens);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Splits a string into a maximum of <TT
+CLASS="PARAMETER"
+><I
+>max_tokens</I
+></TT
+> pieces, using the given
+<TT
+CLASS="PARAMETER"
+><I
+>delimiter</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>max_tokens</I
+></TT
+> is reached, the final string in the returned
+string array contains the remainder of <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6323"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to split.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>delimiter</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string which specifies the places at which to split the string.
+The delimiter is not included in any of the resulting strings, unless
+max_tokens is reached.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max_tokens</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum number of strings to split <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+> into. If this is
+less than 1, the string is split completely.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated array of strings. Use <A
+HREF="glib-string-utility-functions.html#G-STRFREEV"
+>g_strfreev</A
+>() to free it.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6346"
+></A
+><H3
+><A
+NAME="G-STRFREEV"
+></A
+>g_strfreev ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_strfreev                      (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **str_array);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees a NULL-terminated array of strings, and the array itself.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6352"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str_array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings to free.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6361"
+></A
+><H3
+><A
+NAME="G-STRCONCAT"
+></A
+>g_strconcat ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strconcat                     (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string1,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Concatenates all of the given strings into one long string.
+The returned string should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6368"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The first string to add, which must not be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated list of strings to append to the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated string containing all the string arguments.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6385"
+></A
+><H3
+><A
+NAME="G-STRJOIN"
+></A
+>g_strjoin ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strjoin                       (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *separator,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Joins a number of strings together to form one long string, with the optional
+<TT
+CLASS="PARAMETER"
+><I
+>separator</I
+></TT
+> inserted between each of them.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6393"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>separator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to insert between each of the strings, or NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated list of strings to join.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated string containing all of the strings joined
+together, with <TT
+CLASS="PARAMETER"
+><I
+>separator</I
+></TT
+> between them.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6411"
+></A
+><H3
+><A
+NAME="G-STRJOINV"
+></A
+>g_strjoinv ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strjoinv                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *separator,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **str_array);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Joins a number of strings together to form one long string, with the optional
+<TT
+CLASS="PARAMETER"
+><I
+>separator</I
+></TT
+> inserted between each of them.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6420"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>separator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to insert between each of the strings, or NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str_array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings to join.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly-allocated string containing all of the strings joined
+together, with <TT
+CLASS="PARAMETER"
+><I
+>separator</I
+></TT
+> between them.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6438"
+></A
+><H3
+><A
+NAME="G-STRERROR"
+></A
+>g_strerror ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strerror                      (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> errnum);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns a string corresponding to the given error code, e.g. "no such process".
+This function is included since not all platforms support the 
+<TT
+CLASS="FUNCTION"
+>strerror()</TT
+> function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6447"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>errnum</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the system error number. See the standard C <TT
+CLASS="LITERAL"
+>errno</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string describing the error code.
+If the error code is unknown, it returns "unknown error (&lt;code&gt;)".
+The string can only be used until the next call to g_strerror.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6461"
+></A
+><H3
+><A
+NAME="G-STRSIGNAL"
+></A
+>g_strsignal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_strsignal                     (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> signum);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns a string describing the given signal, e.g. "Segmentation fault".
+This function is included since not all platforms support the
+<TT
+CLASS="FUNCTION"
+>strsignal()</TT
+> function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6470"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signum</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal number. See the <TT
+CLASS="LITERAL"
+>signal</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string describing the signal.
+If the signal is unknown, it returns "unknown signal (&lt;signum&gt;)".
+The string can only be used until the next call to g_strsignal.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-date-and-time-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GLib Utilities</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Date and Time Functions</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

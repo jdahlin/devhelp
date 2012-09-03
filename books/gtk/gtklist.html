@@ -1,0 +1,3525 @@
+<HTML
+><HEAD
+><TITLE
+>GtkList</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkLayout"
+HREF="gtklayout.html"><LINK
+REL="NEXT"
+TITLE="GtkListItem"
+HREF="gtklistitem.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtklayout.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtklistitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKLIST"
+>GtkList</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN29554"
+></A
+><H2
+>Name</H2
+>GtkList&nbsp;--&nbsp;Widget for packing a list of selectable items.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN29557"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtklist.html#GTKLIST-STRUCT"
+>GtkList</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtklist.html#GTK-LIST-NEW"
+>gtk_list_new</A
+>                    (void);
+void        <A
+HREF="gtklist.html#GTK-LIST-INSERT-ITEMS"
+>gtk_list_insert_items</A
+>           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtklist.html#GTK-LIST-APPEND-ITEMS"
+>gtk_list_append_items</A
+>           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);
+void        <A
+HREF="gtklist.html#GTK-LIST-PREPEND-ITEMS"
+>gtk_list_prepend_items</A
+>          (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);
+void        <A
+HREF="gtklist.html#GTK-LIST-REMOVE-ITEMS"
+>gtk_list_remove_items</A
+>           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);
+void        <A
+HREF="gtklist.html#GTK-LIST-REMOVE-ITEMS-NO-UNREF"
+>gtk_list_remove_items_no_unref</A
+>  (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);
+void        <A
+HREF="gtklist.html#GTK-LIST-CLEAR-ITEMS"
+>gtk_list_clear_items</A
+>            (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> end);
+void        <A
+HREF="gtklist.html#GTK-LIST-SELECT-ITEM"
+>gtk_list_select_item</A
+>            (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);
+void        <A
+HREF="gtklist.html#GTK-LIST-UNSELECT-ITEM"
+>gtk_list_unselect_item</A
+>          (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);
+void        <A
+HREF="gtklist.html#GTK-LIST-SELECT-CHILD"
+>gtk_list_select_child</A
+>           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtklist.html#GTK-LIST-UNSELECT-CHILD"
+>gtk_list_unselect_child</A
+>         (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtklist.html#GTK-LIST-CHILD-POSITION"
+>gtk_list_child_position</A
+>         (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtklist.html#GTK-LIST-SET-SELECTION-MODE"
+>gtk_list_set_selection_mode</A
+>     (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSELECTIONMODE"
+>GtkSelectionMode</A
+> mode);
+void        <A
+HREF="gtklist.html#GTK-LIST-EXTEND-SELECTION"
+>gtk_list_extend_selection</A
+>       (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+> scroll_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> auto_start_selection);
+void        <A
+HREF="gtklist.html#GTK-LIST-START-SELECTION"
+>gtk_list_start_selection</A
+>        (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);
+void        <A
+HREF="gtklist.html#GTK-LIST-END-SELECTION"
+>gtk_list_end_selection</A
+>          (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);
+void        <A
+HREF="gtklist.html#GTK-LIST-SELECT-ALL"
+>gtk_list_select_all</A
+>             (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);
+void        <A
+HREF="gtklist.html#GTK-LIST-UNSELECT-ALL"
+>gtk_list_unselect_all</A
+>           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);
+void        <A
+HREF="gtklist.html#GTK-LIST-SCROLL-HORIZONTAL"
+>gtk_list_scroll_horizontal</A
+>      (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+> scroll_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position);
+void        <A
+HREF="gtklist.html#GTK-LIST-SCROLL-VERTICAL"
+>gtk_list_scroll_vertical</A
+>        (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+> scroll_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position);
+void        <A
+HREF="gtklist.html#GTK-LIST-TOGGLE-ADD-MODE"
+>gtk_list_toggle_add_mode</A
+>        (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);
+void        <A
+HREF="gtklist.html#GTK-LIST-TOGGLE-FOCUS-ROW"
+>gtk_list_toggle_focus_row</A
+>       (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);
+void        <A
+HREF="gtklist.html#GTK-LIST-TOGGLE-ROW"
+>gtk_list_toggle_row</A
+>             (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *item);
+void        <A
+HREF="gtklist.html#GTK-LIST-UNDO-SELECTION"
+>gtk_list_undo_selection</A
+>         (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);
+void        <A
+HREF="gtklist.html#GTK-LIST-END-DRAG-SELECTION"
+>gtk_list_end_drag_selection</A
+>     (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29634"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkList</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29640"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtklist.html#GTKLIST-SELECTION-CHANGED"
+>selection-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtklist.html#GTKLIST-SELECT-CHILD"
+>select-child</A
+>&quot;
+            void        user_function      (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtklist.html#GTKLIST-UNSELECT-CHILD"
+>unselect-child</A
+>&quot;
+            void        user_function      (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29654"
+></A
+><H2
+>Description</H2
+><P
+>The GtkList widget is a container whose children are displayed
+vertically in order, and can be selected.
+
+The list has many selection modes, which are programmer selective and
+depend on how many elements are able to be selected at the same time.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29657"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29659"
+></A
+><H3
+><A
+NAME="GTKLIST-STRUCT"
+></A
+>struct GtkList</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkList;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29664"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29669"
+></A
+><H3
+><A
+NAME="GTK-LIST-NEW"
+></A
+>gtk_list_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_list_new                    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtklist.html"
+>GtkList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29676"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created <A
+HREF="gtklist.html"
+>GtkList</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29686"
+></A
+><H3
+><A
+NAME="GTK-LIST-INSERT-ITEMS"
+></A
+>gtk_list_insert_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_insert_items           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts <TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+> into the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> at the position <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>. The <TT
+CLASS="PARAMETER"
+><I
+>GList</I
+></TT
+> items
+must not be freed after.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29698"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the items.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to insert <TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>, starting at 0.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29716"
+></A
+><H3
+><A
+NAME="GTK-LIST-APPEND-ITEMS"
+></A
+>gtk_list_append_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_append_items           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds <TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+> to the end of the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29725"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the items.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29738"
+></A
+><H3
+><A
+NAME="GTK-LIST-PREPEND-ITEMS"
+></A
+>gtk_list_prepend_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_prepend_items          (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts <TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+> at the beginning of the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29747"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the items.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29760"
+></A
+><H3
+><A
+NAME="GTK-LIST-REMOVE-ITEMS"
+></A
+>gtk_list_remove_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_remove_items           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the <TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+> from the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29769"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the items to remove.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29782"
+></A
+><H3
+><A
+NAME="GTK-LIST-REMOVE-ITEMS-NO-UNREF"
+></A
+>gtk_list_remove_items_no_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_remove_items_no_unref  (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the <TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+> from the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>, without unreferencing them. It
+may be useful if you want to move the items from one list to another.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29791"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the items.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29804"
+></A
+><H3
+><A
+NAME="GTK-LIST-CLEAR-ITEMS"
+></A
+>gtk_list_clear_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_clear_items            (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> end);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the items between index <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> (included) and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> (excluded)
+from the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> is negative, or greater than the number of
+children of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>, it's assumed to be exactly the number of
+elements. If <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> is greater than or equal to <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>, nothing is
+done.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29819"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the first item to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the lest item to remove plus one.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29836"
+></A
+><H3
+><A
+NAME="GTK-LIST-SELECT-ITEM"
+></A
+>gtk_list_select_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_select_item            (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects the child number <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+> of the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>. Nothing happens if <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>
+is out of bounds. The signal GtkList::select-child will be emitted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29846"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the child to select.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29859"
+></A
+><H3
+><A
+NAME="GTK-LIST-UNSELECT-ITEM"
+></A
+>gtk_list_unselect_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_unselect_item          (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unselects the child number <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+> of the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>. Nothing happens if
+<TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+> is out of bounds. The signal GtkList::unselect-child will be
+emitted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29869"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the child to unselect.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29882"
+></A
+><H3
+><A
+NAME="GTK-LIST-SELECT-CHILD"
+></A
+>gtk_list_select_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_select_child           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects the given <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>. The signal GtkList::select-child will be
+emitted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29890"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to select.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29903"
+></A
+><H3
+><A
+NAME="GTK-LIST-UNSELECT-CHILD"
+></A
+>gtk_list_unselect_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_unselect_child         (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unselects the given <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>. The signal GtkList::unselect-child will be
+emitted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29911"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to unselect.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29924"
+></A
+><H3
+><A
+NAME="GTK-LIST-CHILD-POSITION"
+></A
+>gtk_list_child_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_list_child_position         (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Searches the children of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> for the index of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29934"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to look for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the child, -1 if not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29951"
+></A
+><H3
+><A
+NAME="GTK-LIST-SET-SELECTION-MODE"
+></A
+>gtk_list_set_selection_mode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_set_selection_mode     (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSELECTIONMODE"
+>GtkSelectionMode</A
+> mode);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the list selection mode. The selection mode can be any value in
+<A
+HREF="gtk-standard-enumerations.html#GTKSELECTIONMODE"
+>GtkSelectionMode</A
+>:
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>GTK_SELECTION_SINGLE</DT
+><DD
+><P
+>Zero or one element may be selected.</P
+></DD
+><DT
+>GTK_SELECTION_BROWSE</DT
+><DD
+><P
+>Exactly one element is always selected (this can be false after you have
+changed the selection mode).</P
+></DD
+><DT
+>GTK_SELECTION_MULTIPLE</DT
+><DD
+><P
+>Any number of elements may be selected. Clicks toggle the state of an
+item.</P
+></DD
+><DT
+>GTK_SELECTION_EXTENDED</DT
+><DD
+><P
+>Any number of elements may be selected. Click-drag selects a range of
+elements; the Ctrl key may be used to enlarge the selection, and
+Shift key to select between the focus and the child pointed to.</P
+></DD
+></DL
+></DIV
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29980"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new selection mode.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29993"
+></A
+><H3
+><A
+NAME="GTK-LIST-EXTEND-SELECTION"
+></A
+>gtk_list_extend_selection ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_extend_selection       (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+> scroll_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> auto_start_selection);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Extends the selection by moving the anchor according to <TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+>. Only
+in GTK_SELECTION_EXTENDED.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30004"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the direction and length.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position if <TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+> is GTK_SCROLL_JUMP.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>auto_start_selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <A
+HREF=../glib/glib-standard-macros.html#TRUE-CAPS
+>TRUE</A>, gtk_list_start_selection is automatically
+carried out before extending the selection.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30028"
+></A
+><H3
+><A
+NAME="GTK-LIST-START-SELECTION"
+></A
+>gtk_list_start_selection ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_start_selection        (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Starts a selection (or part of selection) at the focused child. Only in
+GTK_SELECTION_EXTENDED mode.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30035"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30044"
+></A
+><H3
+><A
+NAME="GTK-LIST-END-SELECTION"
+></A
+>gtk_list_end_selection ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_end_selection          (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Ends the selection. Used with <A
+HREF="gtklist.html#GTK-LIST-EXTEND-SELECTION"
+>gtk_list_extend_selection</A
+> and
+<A
+HREF="gtklist.html#GTK-LIST-START-SELECTION"
+>gtk_list_start_selection</A
+>. Only in GTK_SELECTION_EXTENDED.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30053"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30062"
+></A
+><H3
+><A
+NAME="GTK-LIST-SELECT-ALL"
+></A
+>gtk_list_select_all ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_select_all             (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects all children of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>. A signal will be emitted for each
+newly selected child.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30069"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30078"
+></A
+><H3
+><A
+NAME="GTK-LIST-UNSELECT-ALL"
+></A
+>gtk_list_unselect_all ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_unselect_all           (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unselects all children of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>. A signal will be emitted for each
+newly unselected child.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30085"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30094"
+></A
+><H3
+><A
+NAME="GTK-LIST-SCROLL-HORIZONTAL"
+></A
+>gtk_list_scroll_horizontal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_scroll_horizontal      (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+> scroll_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Scrolls <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> horizontaly. This supposes that the list is packed into a
+scrolled window or something similar, and adjustments are well
+set. Step and page increment are those from the horizontal adjustment
+of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>. Backward means to the left, and forward to the
+right. Out of bounds values are truncated.
+<TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+> may be any valid <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+>. If <TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+> is
+GTK_SCROLL_NONE, nothing is done. If it's GTK_SCROLL_JUMP, the list
+scrolls to the ratio <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>: 0 is full left, 1 is full right.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30110"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the scrolling type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position if <TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+> is GTK_SCROLL_JUMP
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30129"
+></A
+><H3
+><A
+NAME="GTK-LIST-SCROLL-VERTICAL"
+></A
+>gtk_list_scroll_vertical ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_scroll_vertical        (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+> scroll_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Scrolls <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> vertically. This supposes that the list is packed into a
+scrolled window or something similar, and adjustments are well
+set. Step and page increment are those from the vertical adjustment
+of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>. Backward means up, and forward down. Out of bounds values are
+truncated.
+<TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+> may be any valid <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+>. If <TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+> is
+GTK_SCROLL_NONE, nothing is done. If it's GTK_SCROLL_JUMP, the list
+scrolls to the ratio <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>: 0 is top, 1 is bottom.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30145"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the scrolling type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position if <TT
+CLASS="PARAMETER"
+><I
+>scroll_type</I
+></TT
+> is GTK_SCROLL_JUMP
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30164"
+></A
+><H3
+><A
+NAME="GTK-LIST-TOGGLE-ADD-MODE"
+></A
+>gtk_list_toggle_add_mode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_toggle_add_mode        (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Toggles between adding to the selection and beginning a new selection. Only
+in GTK_SELECTION_EXTENDED. Useful with <A
+HREF="gtklist.html#GTK-LIST-EXTEND-SELECTION"
+>gtk_list_extend_selection</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30172"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30181"
+></A
+><H3
+><A
+NAME="GTK-LIST-TOGGLE-FOCUS-ROW"
+></A
+>gtk_list_toggle_focus_row ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_toggle_focus_row       (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Toggles the focus row. If the focus row is selected, it's
+unselected. If the focus row is unselected, it's selected. If the
+selection mode of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> is GTK_SELECTION_BROWSE, this has no effect,
+as the selection is always at the focus row.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30189"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30198"
+></A
+><H3
+><A
+NAME="GTK-LIST-TOGGLE-ROW"
+></A
+>gtk_list_toggle_row ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_toggle_row             (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Toggles the child <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+> of list. If the selection mode of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> is
+GTK_SELECTION_BROWSE, the item is selected, and the others are
+unselected.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30208"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to toggle.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30221"
+></A
+><H3
+><A
+NAME="GTK-LIST-UNDO-SELECTION"
+></A
+>gtk_list_undo_selection ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_undo_selection         (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Restores the selection in the last state, only if selection mode is
+GTK_SELECTION_EXTENDED. If this function is called twice, the selection is
+cleared. This function sometimes gives stranges "last states".</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30228"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30237"
+></A
+><H3
+><A
+NAME="GTK-LIST-END-DRAG-SELECTION"
+></A
+>gtk_list_end_drag_selection ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_list_end_drag_selection     (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Stops the drag selection mode and ungrabs the pointer. This has no
+effect if a drag selection is not active.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30243"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30252"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30254"
+></A
+><H3
+><A
+NAME="GTKLIST-SELECTION-CHANGED"
+></A
+>The &quot;selection-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The selection of the widget has just changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30261"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30274"
+></A
+><H3
+><A
+NAME="GTKLIST-SELECT-CHILD"
+></A
+>The &quot;select-child&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The child <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> has just been selected.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30283"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly selected child.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30300"
+></A
+><H3
+><A
+NAME="GTKLIST-UNSELECT-CHILD"
+></A
+>The &quot;unselect-child&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtklist.html"
+>GtkList</A
+> *list,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The child <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> has just been unselected.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30309"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly unselected child.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30326"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+></DT
+><DD
+><P
+>For functions that apply to every <A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+(like <A
+HREF="gtklist.html"
+>GtkList</A
+>).</P
+></DD
+><DT
+><A
+HREF="gtklistitem.html"
+>GtkListitem</A
+></DT
+><DD
+><P
+>Children of a <A
+HREF="gtklist.html"
+>GtkList</A
+> widget must be of this
+type.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtklayout.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtklistitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkLayout</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkListItem</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

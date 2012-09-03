@@ -1,0 +1,2402 @@
+<HTML
+><HEAD
+><TITLE
+>Strings</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Hash Tables"
+HREF="glib-hash-tables.html"><LINK
+REL="NEXT"
+TITLE="String Chunks"
+HREF="glib-string-chunks.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-hash-tables.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-string-chunks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-STRINGS"
+>Strings</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13562"
+></A
+><H2
+>Name</H2
+>Strings&nbsp;--&nbsp;text buffers which grow automatically as text is added.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13565"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>;
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-NEW"
+>g_string_new</A
+>                    (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *init);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-SIZED-NEW"
+>g_string_sized_new</A
+>              (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> dfl_size);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-ASSIGN"
+>g_string_assign</A
+>                 (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *lval,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *rval);
+void        <A
+HREF="glib-strings.html#G-STRING-SPRINTF"
+>g_string_sprintf</A
+>                (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);
+void        <A
+HREF="glib-strings.html#G-STRING-SPRINTFA"
+>g_string_sprintfa</A
+>               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-APPEND"
+>g_string_append</A
+>                 (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *val);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-APPEND-C"
+>g_string_append_c</A
+>               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> c);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-PREPEND"
+>g_string_prepend</A
+>                (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *val);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-PREPEND-C"
+>g_string_prepend_c</A
+>              (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> c);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-INSERT"
+>g_string_insert</A
+>                 (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> pos,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *val);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-INSERT-C"
+>g_string_insert_c</A
+>               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> pos,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> c);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-ERASE"
+>g_string_erase</A
+>                  (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> pos,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> len);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-TRUNCATE"
+>g_string_truncate</A
+>               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> len);
+void        <A
+HREF="glib-strings.html#G-STRING-FREE"
+>g_string_free</A
+>                   (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> free_segment);
+
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-UP"
+>g_string_up</A
+>                     (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string);
+<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    <A
+HREF="glib-strings.html#G-STRING-DOWN"
+>g_string_down</A
+>                   (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13629"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> is similar to a standard C string, except that it grows
+automatically as text is appended or inserted.</P
+><P
+>The space allocated for the string is always a power of two, so as the
+string grows it will occupy 2, 4, 8, 16, 32, 64, 128 etc. characters.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13634"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13636"
+></A
+><H3
+><A
+NAME="GSTRING"
+></A
+>struct GString</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GString
+{
+  gchar *str;
+  gint len;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> struct contains the public fields of a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>str</I
+></TT
+> field points to the character data.
+It may move as text is added.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>len</I
+></TT
+> field contains the length of the string,
+not including the terminating null character.</P
+><P
+>The str field is zero-terminated and so can be used as an ordinary C
+string. But it may be moved when text is appended or inserted into the
+string.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13646"
+></A
+><H3
+><A
+NAME="G-STRING-NEW"
+></A
+>g_string_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_new                    (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *init);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, initialized with the given string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13654"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>init</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the initial text to copy into the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13668"
+></A
+><H3
+><A
+NAME="G-STRING-SIZED-NEW"
+></A
+>g_string_sized_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_sized_new              (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> dfl_size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new GString, with enough space for <TT
+CLASS="PARAMETER"
+><I
+>dfl_size</I
+></TT
+> characters.
+This is useful if you are going to add a lot of text to the string and
+don't want it to be reallocated too often.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13676"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dfl_size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default size of the space allocated to hold the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13690"
+></A
+><H3
+><A
+NAME="G-STRING-ASSIGN"
+></A
+>g_string_assign ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_assign                 (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *lval,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *rval);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Copies the characters from one <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> into another, destroying any previous
+contents. It is rather like the standard strcpy() function, except that
+you do not have to worry about having enough space to copy the string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13700"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the destination <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>. Its current contents are destroyed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the source <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the destination <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13720"
+></A
+><H3
+><A
+NAME="G-STRING-SPRINTF"
+></A
+>g_string_sprintf ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_string_sprintf                (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Writes a formatted string into a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+This is similar to the standard <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+> function,
+except that the GString buffer automatically expands to contain the results.
+The previous contents of the GString are destroyed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13729"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string format. See the <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to insert into the format string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13748"
+></A
+><H3
+><A
+NAME="G-STRING-SPRINTFA"
+></A
+>g_string_sprintfa ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_string_sprintfa               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends a formatted string onto the end of a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+This function is is similar to <A
+HREF="glib-strings.html#G-STRING-SPRINTF"
+>g_string_sprintf</A
+>() except that
+the text is appended to the GString.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13757"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string format. See the <TT
+CLASS="FUNCTION"
+>sprintf()</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to insert into the format string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13776"
+></A
+><H3
+><A
+NAME="G-STRING-APPEND"
+></A
+>g_string_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_append                 (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *val);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a string onto the end of a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, expanding it if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13785"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to append onto the end of the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13805"
+></A
+><H3
+><A
+NAME="G-STRING-APPEND-C"
+></A
+>g_string_append_c ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_append_c               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> c);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a character onto the end of a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, expanding it if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13814"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>c</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to append onto the end of the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13834"
+></A
+><H3
+><A
+NAME="G-STRING-PREPEND"
+></A
+>g_string_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_prepend                (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *val);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a string on to the start of a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, expanding it if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13843"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to prepend on the start of the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13863"
+></A
+><H3
+><A
+NAME="G-STRING-PREPEND-C"
+></A
+>g_string_prepend_c ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_prepend_c              (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> c);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a character onto the start of a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, expanding it if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13872"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>c</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to prepend on the start of the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13892"
+></A
+><H3
+><A
+NAME="G-STRING-INSERT"
+></A
+>g_string_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_insert                 (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> pos,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *val);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a copy of a string into a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, expanding it if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13902"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to insert the copy of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13925"
+></A
+><H3
+><A
+NAME="G-STRING-INSERT-C"
+></A
+>g_string_insert_c ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_insert_c               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> pos,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> c);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a character into a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, expanding it if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13935"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to insert the character.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>c</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13958"
+></A
+><H3
+><A
+NAME="G-STRING-ERASE"
+></A
+>g_string_erase ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_erase                  (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> pos,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> len);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> characters from a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>, starting at position <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>.
+The rest of the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> is shifted down to fill the gap.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13971"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the characters to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13994"
+></A
+><H3
+><A
+NAME="G-STRING-TRUNCATE"
+></A
+>g_string_truncate ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_truncate               (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> len);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Cuts off the end of the GString, leaving the first <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> characters.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14003"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new size of the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14023"
+></A
+><H3
+><A
+NAME="G-STRING-FREE"
+></A
+>g_string_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_string_free                   (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> free_segment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the memory allocated for the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+If free_segment is TRUE it also frees the character data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14031"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>free_segment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if TRUE the actual character data is freed as well.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14045"
+></A
+><H3
+><A
+NAME="G-STRING-UP"
+></A
+>g_string_up ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_up                     (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> to upper case.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14053"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14068"
+></A
+><H3
+><A
+NAME="G-STRING-DOWN"
+></A
+>g_string_down ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>*    g_string_down                   (<A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+> to lower case.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14076"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-strings.html#GSTRING"
+>GString</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-hash-tables.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-string-chunks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Hash Tables</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>String Chunks</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

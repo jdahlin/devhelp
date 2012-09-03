@@ -1,0 +1,573 @@
+<HTML
+><HEAD
+><TITLE
+>Graphics Contexts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Version Information"
+HREF="gtk-feature-test-macros.html"><LINK
+REL="NEXT"
+TITLE="Styles"
+HREF="gtk-styles.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-feature-test-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-styles.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-GRAPHICS-CONTEXTS"
+>Graphics Contexts</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN1177"
+></A
+><H2
+>Name</H2
+>Graphics Contexts&nbsp;--&nbsp;provides access to a shared pool of <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> objects.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN1181"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+<A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A>*      <A
+HREF="gtk-graphics-contexts.html#GTK-GC-GET"
+>gtk_gc_get</A
+>                      (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> *colormap,
+                                             <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGCVALUES
+>GdkGCValues</A> *values,
+                                             <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGCVALUESMASK
+>GdkGCValuesMask</A> values_mask);
+void        <A
+HREF="gtk-graphics-contexts.html#GTK-GC-RELEASE"
+>gtk_gc_release</A
+>                  (<A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> *gc);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1192"
+></A
+><H2
+>Description</H2
+><P
+>These functions provide access to a shared pool of <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> objects.
+When a new <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> is needed, <A
+HREF="gtk-graphics-contexts.html#GTK-GC-GET"
+>gtk_gc_get</A
+>() is called with the required depth,
+colormap and <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGCVALUES
+>GdkGCValues</A>. If a <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> with the required properties already
+exists then that is returned. If not, a new <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> is created.
+When the <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> is no longer needed, <A
+HREF="gtk-graphics-contexts.html#GTK-GC-RELEASE"
+>gtk_gc_release</A
+>() is called.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1203"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1205"
+></A
+><H3
+><A
+NAME="GTK-GC-GET"
+></A
+>gtk_gc_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A>*      gtk_gc_get                      (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> *colormap,
+                                             <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGCVALUES
+>GdkGCValues</A> *values,
+                                             <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGCVALUESMASK
+>GdkGCValuesMask</A> values_mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets a <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> with the given depth, colormap and <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGCVALUES
+>GdkGCValues</A>.
+If a <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> with the given properties already exists then it is returned,
+otherwise a new <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> is created.
+The returned <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> should be released with <A
+HREF="gtk-graphics-contexts.html#GTK-GC-RELEASE"
+>gtk_gc_release</A
+>() when it is no
+longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1221"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the depth of the <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> to create.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> (FIXME: I don't know why this is needed).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGCVALUES
+>GdkGCValues</A> struct containing settings for the <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>values_mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a set of flags indicating which of the fields in <TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+> has
+been set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1252"
+></A
+><H3
+><A
+NAME="GTK-GC-RELEASE"
+></A
+>gtk_gc_release ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_gc_release                  (<A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> *gc);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Releases a <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> allocated using <A
+HREF="gtk-graphics-contexts.html#GTK-GC-GET"
+>gtk_gc_get</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1260"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-feature-test-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-styles.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Version Information</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Styles</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

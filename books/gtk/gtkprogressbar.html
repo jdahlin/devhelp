@@ -1,0 +1,1574 @@
+<HTML
+><HEAD
+><TITLE
+>GtkProgressBar</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkProgress"
+HREF="gtkprogress.html"><LINK
+REL="NEXT"
+TITLE="GtkRadioButton"
+HREF="gtkradiobutton.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkprogress.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkradiobutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKPROGRESSBAR"
+>GtkProgressBar</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN37138"
+></A
+><H2
+>Name</H2
+>GtkProgressBar&nbsp;--&nbsp;a widget which indicates progress visually.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN37141"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR-STRUCT"
+>GtkProgressBar</A
+>;
+enum        <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARSTYLE"
+>GtkProgressBarStyle</A
+>;
+enum        <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARORIENTATION"
+>GtkProgressBarOrientation</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-NEW"
+>gtk_progress_bar_new</A
+>            (void);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-NEW-WITH-ADJUSTMENT"
+>gtk_progress_bar_new_with_adjustment</A
+>
+                                            (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);
+void        <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-SET-BAR-STYLE"
+>gtk_progress_bar_set_bar_style</A
+>  (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARSTYLE"
+>GtkProgressBarStyle</A
+> style);
+void        <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-SET-DISCRETE-BLOCKS"
+>gtk_progress_bar_set_discrete_blocks</A
+>
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> blocks);
+void        <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-SET-ACTIVITY-STEP"
+>gtk_progress_bar_set_activity_step</A
+>
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> step);
+void        <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-SET-ACTIVITY-BLOCKS"
+>gtk_progress_bar_set_activity_blocks</A
+>
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> blocks);
+void        <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-SET-ORIENTATION"
+>gtk_progress_bar_set_orientation</A
+>
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARORIENTATION"
+>GtkProgressBarOrientation</A
+> orientation);
+void        <A
+HREF="gtkprogressbar.html#GTK-PROGRESS-BAR-UPDATE"
+>gtk_progress_bar_update</A
+>         (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> percentage);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37170"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkprogress.html"
+>GtkProgress</A
+>
+               +----GtkProgressBar</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37176"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR--ADJUSTMENT"
+>adjustment</A
+>&quot;           <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>        : Read / Write / Construct
+  &quot;<A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR--ORIENTATION"
+>orientation</A
+>&quot;          <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARORIENTATION"
+>GtkProgressBarOrientation</A
+> : Read / Write
+  &quot;<A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR--BAR-STYLE"
+>bar-style</A
+>&quot;            <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARSTYLE"
+>GtkProgressBarStyle</A
+>  : Read / Write
+  &quot;<A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR--ACTIVITY-STEP"
+>activity-step</A
+>&quot;        <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR--ACTIVITY-BLOCKS"
+>activity-blocks</A
+>&quot;      <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR--DISCRETE-BLOCKS"
+>discrete-blocks</A
+>&quot;      <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37191"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> is typically used to display the progress of a long
+running operation.  It provides a visual clue that processing
+is underway.  The <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> can be used in two different
+modes: percentage mode and activity mode.</P
+><P
+>When an application can determine how much work needs to take place 
+(e.g. read a fixed number of bytes from a file) and can monitor its
+progress, it can use the <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> in percentage mode and the user
+sees a growing bar indicating the percentage of the work that has
+been completed.  In this mode, the application is required to call
+either the <A
+HREF="gtkprogress.html#GTK-PROGRESS-SET-PERCENTAGE"
+>gtk_progress_set_percentage</A
+>() or <A
+HREF="gtkprogress.html#GTK-PROGRESS-SET-VALUE"
+>gtk_progress_set_value</A
+>()
+functions periodically to update the progress bar.</P
+><P
+>When an application has no accurate way of knowing the amount of work
+to do, it can use the <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> in activity mode.  In this mode
+the progress bar shows activity by a block moving back and forth within
+the progress area.</P
+><P
+>There is quite a bit of flexibility provided to control the appearance
+of the <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.  Functions are provided to control the 
+orientation of the bar, optional text which can be displayed along with
+the bar, and the style in which the bar grows.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37204"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37206"
+></A
+><H3
+><A
+NAME="GTKPROGRESSBAR-STRUCT"
+></A
+>struct GtkProgressBar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkProgressBar;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkprogressbar.html#GTKPROGRESSBAR-STRUCT"
+>GtkProgressBar</A
+> struct contains private data only, 
+and should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37212"
+></A
+><H3
+><A
+NAME="GTKPROGRESSBARSTYLE"
+></A
+>enum GtkProgressBarStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_PROGRESS_CONTINUOUS,
+  GTK_PROGRESS_DISCRETE
+} GtkProgressBarStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration representing the styles for drawing the progress bar.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37217"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_PROGRESS_CONTINUOUS</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The progress bar grows in a smooth, continuous manner.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_PROGRESS_DISCRETE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The progress bar grows in discrete, visible blocks.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37228"
+></A
+><H3
+><A
+NAME="GTKPROGRESSBARORIENTATION"
+></A
+>enum GtkProgressBarOrientation</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_PROGRESS_LEFT_TO_RIGHT,
+  GTK_PROGRESS_RIGHT_TO_LEFT,
+  GTK_PROGRESS_BOTTOM_TO_TOP,
+  GTK_PROGRESS_TOP_TO_BOTTOM
+} GtkProgressBarOrientation;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration representing possible orientations and growth
+directions for the visible progress bar.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37233"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_PROGRESS_LEFT_TO_RIGHT</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A horizontal progress bar growing from left to right.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_PROGRESS_RIGHT_TO_LEFT</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A horizontal progress bar growing from right to left.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_PROGRESS_BOTTOM_TO_TOP</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A vertical progress bar growing from bottom to top.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_PROGRESS_TOP_TO_BOTTOM</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A vertical progress bar growing from top to bottom.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37250"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-NEW"
+></A
+>gtk_progress_bar_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_progress_bar_new            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37257"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37267"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-NEW-WITH-ADJUSTMENT"
+></A
+>gtk_progress_bar_new_with_adjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_progress_bar_new_with_adjustment
+                                            (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> with an associated <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37276"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37291"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-SET-BAR-STYLE"
+></A
+>gtk_progress_bar_set_bar_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_progress_bar_set_bar_style  (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARSTYLE"
+>GtkProgressBarStyle</A
+> style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the style of the <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.  The default style is
+<TT
+CLASS="LITERAL"
+>GTK_PROGRESS_CONTINUOUS</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37300"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARSTYLE"
+>GtkProgressBarStyle</A
+> value indicating the desired style.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37315"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-SET-DISCRETE-BLOCKS"
+></A
+>gtk_progress_bar_set_discrete_blocks ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_progress_bar_set_discrete_blocks
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> blocks);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the number of blocks that the progress bar is divided into
+when the style is <TT
+CLASS="LITERAL"
+>GTK_PROGRESS_DISCRETE</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37323"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blocks</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of individual blocks making up the bar.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37337"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-SET-ACTIVITY-STEP"
+></A
+>gtk_progress_bar_set_activity_step ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_progress_bar_set_activity_step
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> step);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the step value used when the progress bar is in activity
+mode.  The step is the amount by which the progress is incremented
+each iteration.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37344"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>step</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the amount which the progress is incremented in activity
+mode.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37358"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-SET-ACTIVITY-BLOCKS"
+></A
+>gtk_progress_bar_set_activity_blocks ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_progress_bar_set_activity_blocks
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> blocks);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the number of blocks used when the progress bar is in activity
+mode.  Larger numbers make the visible block smaller.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37365"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blocks</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of blocks which can fit within the progress bar area.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37379"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-SET-ORIENTATION"
+></A
+>gtk_progress_bar_set_orientation ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_progress_bar_set_orientation
+                                            (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARORIENTATION"
+>GtkProgressBarOrientation</A
+> orientation);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the orientation of the progress bar.  This controls whether
+the bar is horizontal or vertical and the direction in which it
+grows.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37386"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>orientation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARORIENTATION"
+>GtkProgressBarOrientation</A
+> value which specifies the
+orientation and growth direction of the bar.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37401"
+></A
+><H3
+><A
+NAME="GTK-PROGRESS-BAR-UPDATE"
+></A
+>gtk_progress_bar_update ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_progress_bar_update         (<A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> *pbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> percentage);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is deprecated.  Please use <A
+HREF="gtkprogress.html#GTK-PROGRESS-SET-VALUE"
+>gtk_progress_set_value</A
+>() or
+<A
+HREF="gtkprogress.html#GTK-PROGRESS-SET-PERCENTAGE"
+>gtk_progress_set_percentage</A
+>() instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37410"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>percentage</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new percent complete value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37424"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKPROGRESSBAR--ADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>adjustment</TT
+>&quot; (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> : Read / Write / Construct)</DT
+><DD
+><P
+>a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> to be used with the <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</P
+></DD
+><DT
+><A
+NAME="GTKPROGRESSBAR--ORIENTATION"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>orientation</TT
+>&quot; (<A
+HREF="gtkprogressbar.html#GTKPROGRESSBARORIENTATION"
+>GtkProgressBarOrientation</A
+> : Read / Write)</DT
+><DD
+><P
+>a <A
+HREF="gtkprogressbar.html#GTKPROGRESSBARORIENTATION"
+>GtkProgressBarOrientation</A
+> value which specifies the
+orientation and growth direction of the bar.</P
+></DD
+><DT
+><A
+NAME="GTKPROGRESSBAR--BAR-STYLE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>bar-style</TT
+>&quot; (<A
+HREF="gtkprogressbar.html#GTKPROGRESSBARSTYLE"
+>GtkProgressBarStyle</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPROGRESSBAR--ACTIVITY-STEP"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>activity-step</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPROGRESSBAR--ACTIVITY-BLOCKS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>activity-blocks</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPROGRESSBAR--DISCRETE-BLOCKS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>discrete-blocks</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkprogress.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkradiobutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkProgress</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkRadioButton</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,2622 @@
+<HTML
+><HEAD
+><TITLE
+>GtkWindow</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkWidget"
+HREF="gtkwidget.html"><LINK
+REL="NEXT"
+TITLE="Index"
+HREF="gtk-index.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkwidget.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKWINDOW"
+>GtkWindow</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN49037"
+></A
+><H2
+>Name</H2
+>GtkWindow&nbsp;--&nbsp;</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN49040"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkwindow.html#GTKWINDOW-STRUCT"
+>GtkWindow</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkwindow.html#GTK-WINDOW-NEW"
+>gtk_window_new</A
+>                  (<A
+HREF="gtk-standard-enumerations.html#GTKWINDOWTYPE"
+>GtkWindowType</A
+> type);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-TITLE"
+>gtk_window_set_title</A
+>            (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *title);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-WMCLASS"
+>gtk_window_set_wmclass</A
+>          (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *wmclass_name,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *wmclass_class);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-FOCUS"
+>gtk_window_set_focus</A
+>            (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *focus);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-DEFAULT"
+>gtk_window_set_default</A
+>          (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *defaultw);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-POLICY"
+>gtk_window_set_policy</A
+>           (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allow_shrink,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allow_grow,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> auto_shrink);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-ADD-ACCEL-GROUP"
+>gtk_window_add_accel_group</A
+>      (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-REMOVE-ACCEL-GROUP"
+>gtk_window_remove_accel_group</A
+>   (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);
+#define     <A
+HREF="gtkwindow.html#GTK-WINDOW-POSITION"
+>gtk_window_position</A
+>
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkwindow.html#GTK-WINDOW-ACTIVATE-FOCUS"
+>gtk_window_activate_focus</A
+>       (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkwindow.html#GTK-WINDOW-ACTIVATE-DEFAULT"
+>gtk_window_activate_default</A
+>     (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-MODAL"
+>gtk_window_set_modal</A
+>            (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> modal);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-ADD-EMBEDDED-XID"
+>gtk_window_add_embedded_xid</A
+>     (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> xid);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-REMOVE-EMBEDDED-XID"
+>gtk_window_remove_embedded_xid</A
+>  (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> xid);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-DEFAULT-SIZE"
+>gtk_window_set_default_size</A
+>     (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-GEOMETRY-HINTS"
+>gtk_window_set_geometry_hints</A
+>   (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *geometry_widget,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKGEOMETRY
+>GdkGeometry</A> *geometry,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKWINDOWHINTS
+>GdkWindowHints</A> geom_mask);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-POSITION"
+>gtk_window_set_position</A
+>         (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKWINDOWPOSITION"
+>GtkWindowPosition</A
+> position);
+void        <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-TRANSIENT-FOR"
+>gtk_window_set_transient_for</A
+>    (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *parent);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN49102"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----GtkWindow</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN49109"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkwindow.html#GTKWINDOW--TYPE"
+>type</A
+>&quot;                 <A
+HREF="gtk-standard-enumerations.html#GTKWINDOWTYPE"
+>GtkWindowType</A
+>        : Read / Write
+  &quot;<A
+HREF="gtkwindow.html#GTKWINDOW--TITLE"
+>title</A
+>&quot;                <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*               : Read / Write
+  &quot;<A
+HREF="gtkwindow.html#GTKWINDOW--AUTO-SHRINK"
+>auto-shrink</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkwindow.html#GTKWINDOW--ALLOW-SHRINK"
+>allow-shrink</A
+>&quot;         <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkwindow.html#GTKWINDOW--ALLOW-GROW"
+>allow-grow</A
+>&quot;           <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkwindow.html#GTKWINDOW--MODAL"
+>modal</A
+>&quot;                <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkwindow.html#GTKWINDOW--WINDOW-POSITION"
+>window-position</A
+>&quot;      <A
+HREF="gtk-standard-enumerations.html#GTKWINDOWPOSITION"
+>GtkWindowPosition</A
+>    : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN49126"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkwindow.html#GTKWINDOW-SET-FOCUS"
+>set-focus</A
+>&quot; void        user_function      (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN49133"
+></A
+><H2
+>Description</H2
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN49136"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49138"
+></A
+><H3
+><A
+NAME="GTKWINDOW-STRUCT"
+></A
+>struct GtkWindow</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkWindow;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49143"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-NEW"
+></A
+>gtk_window_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_window_new                  (<A
+HREF="gtk-standard-enumerations.html#GTKWINDOWTYPE"
+>GtkWindowType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49150"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49163"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-TITLE"
+></A
+>gtk_window_set_title ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_title            (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *title);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49170"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>title</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49183"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-WMCLASS"
+></A
+>gtk_window_set_wmclass ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_wmclass          (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *wmclass_name,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *wmclass_class);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49191"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>wmclass_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>wmclass_class</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49208"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-FOCUS"
+></A
+>gtk_window_set_focus ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_focus            (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *focus);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49215"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>focus</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49228"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-DEFAULT"
+></A
+>gtk_window_set_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_default          (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *defaultw);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49235"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>defaultw</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49248"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-POLICY"
+></A
+>gtk_window_set_policy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_policy           (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allow_shrink,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allow_grow,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> auto_shrink);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes how a toplevel window deals with its size request and user resize
+attempts. There are really only two reasonable ways to call this function:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>gtk_window_set_policy(GTK_WINDOW(window), FALSE, TRUE, FALSE)</TT
+> 
+means that the window is user-resizable.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE)</TT
+> 
+means that the window's size is program-controlled, and should simply match 
+the current size request of the window's children.</P
+></LI
+></OL
+>
+The first policy is the default, that is, by default windows are designed to 
+be resized by users.</P
+><P
+>The basic ugly truth of this function is that it should be simply:
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+> void gtk_window_set_user_resizeable(GtkWidget* window, gboolean setting);</PRE
+></TD
+></TR
+></TABLE
+>
+So, pretend it is like that, and only use the two policies mentioned above.
+GTK+ 1.4 may replace <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-POLICY"
+>gtk_window_set_policy</A
+>() with a nicer function like
+gtk_window_set_user_resizeable().</P
+><P
+>If set to TRUE, the <TT
+CLASS="PARAMETER"
+><I
+>allow_grow</I
+></TT
+> parameter allows the user to expand the window
+beyond the size request of its child widgets. If <TT
+CLASS="PARAMETER"
+><I
+>allow_grow</I
+></TT
+> is TRUE, be sure to
+check that your child widgets work properly as the window is resized.</P
+><P
+>A toplevel window will always change size to ensure its child widgets receive
+their requested size. This means that if you add child widgets, the toplevel
+window will expand to contain them. However, normally the toplevel will not
+shrink to fit the size request of its children if it's too large; the
+<TT
+CLASS="PARAMETER"
+><I
+>auto_shrink</I
+></TT
+> parameter causes the window to shrink when child widgets have too
+much space. <TT
+CLASS="PARAMETER"
+><I
+>auto_shrink</I
+></TT
+> is normally used with the second of the two window
+policies mentioned above.  That is, set <TT
+CLASS="PARAMETER"
+><I
+>auto_shrink</I
+></TT
+> to TRUE if you want the
+window to have a fixed, always-optimal size determined by your program.</P
+><P
+>Note that <TT
+CLASS="PARAMETER"
+><I
+>auto_shrink</I
+></TT
+> doesn't do anything if <TT
+CLASS="PARAMETER"
+><I
+>allow_shrink</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>allow_grow</I
+></TT
+> are
+both set to FALSE.</P
+><P
+>Neither of the two suggested window policies set the <TT
+CLASS="PARAMETER"
+><I
+>allow_shrink</I
+></TT
+> paramter to
+TRUE.  If <TT
+CLASS="PARAMETER"
+><I
+>allow_shrink</I
+></TT
+> is TRUE, the user can shrink the window so that its
+children do not receive their full size request; this is basically a bad thing,
+because most widgets will look wrong if this happens. Furthermore GTK+ has a
+tendency to re-expand the window if size is recalculated for any reason. The
+upshot is that <TT
+CLASS="PARAMETER"
+><I
+>allow_shrink</I
+></TT
+> should always be set to FALSE.</P
+><P
+>Sometimes when you think you want to use <TT
+CLASS="PARAMETER"
+><I
+>allow_shrink</I
+></TT
+>, the real problem is that
+some specific child widget is requesting too much space, so the user can't
+shrink the window sufficiently. Perhaps you are calling <A
+HREF="gtkwidget.html#GTK-WIDGET-SET-USIZE"
+>gtk_widget_set_usize</A
+>()
+on a child widget, and forcing its size request to be too large. Instead of
+setting the child's usize, consider using <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-DEFAULT-SIZE"
+>gtk_window_set_default_size</A
+>() so that
+the child gets a larger allocation than it requests.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49287"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>allow_shrink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether the user can shrink the window below its size request</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>allow_grow</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether the user can grow the window larger than its size request</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>auto_shrink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether the window automatically snaps back to its size request if
+it's larger
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49308"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-ADD-ACCEL-GROUP"
+></A
+>gtk_window_add_accel_group ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_add_accel_group      (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49315"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49328"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-REMOVE-ACCEL-GROUP"
+></A
+>gtk_window_remove_accel_group ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_remove_accel_group   (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49335"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49348"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-POSITION"
+></A
+>gtk_window_position</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	gtk_window_position			gtk_window_set_position</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49353"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-ACTIVATE-FOCUS"
+></A
+>gtk_window_activate_focus ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_window_activate_focus       (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49360"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49373"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-ACTIVATE-DEFAULT"
+></A
+>gtk_window_activate_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_window_activate_default     (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49380"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49393"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-MODAL"
+></A
+>gtk_window_set_modal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_modal            (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> modal);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49400"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49413"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-ADD-EMBEDDED-XID"
+></A
+>gtk_window_add_embedded_xid ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_add_embedded_xid     (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> xid);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49420"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49433"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-REMOVE-EMBEDDED-XID"
+></A
+>gtk_window_remove_embedded_xid ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_remove_embedded_xid  (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> xid);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49440"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49453"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-DEFAULT-SIZE"
+></A
+>gtk_window_set_default_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_default_size     (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49461"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49478"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-GEOMETRY-HINTS"
+></A
+>gtk_window_set_geometry_hints ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_geometry_hints   (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *geometry_widget,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKGEOMETRY
+>GdkGeometry</A> *geometry,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKWINDOWHINTS
+>GdkWindowHints</A> geom_mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49487"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>geometry_widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>geometry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>geom_mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49508"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-POSITION"
+></A
+>gtk_window_set_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_position         (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKWINDOWPOSITION"
+>GtkWindowPosition</A
+> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49515"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49528"
+></A
+><H3
+><A
+NAME="GTK-WINDOW-SET-TRANSIENT-FOR"
+></A
+>gtk_window_set_transient_for ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_window_set_transient_for    (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                             <A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49535"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN49548"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKWINDOW--TYPE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>type</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKWINDOWTYPE"
+>GtkWindowType</A
+> : Read / Write)</DT
+><DD
+><P
+>The type of the window.</P
+></DD
+><DT
+><A
+NAME="GTKWINDOW--TITLE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>title</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>* : Read / Write)</DT
+><DD
+><P
+>The title of the window.</P
+></DD
+><DT
+><A
+NAME="GTKWINDOW--AUTO-SHRINK"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>auto-shrink</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKWINDOW--ALLOW-SHRINK"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>allow-shrink</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKWINDOW--ALLOW-GROW"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>allow-grow</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKWINDOW--MODAL"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>modal</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>If the window is modal, i.e. it grabs all GTK+ events.</P
+></DD
+><DT
+><A
+NAME="GTKWINDOW--WINDOW-POSITION"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>window-position</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKWINDOWPOSITION"
+>GtkWindowPosition</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN49600"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN49602"
+></A
+><H3
+><A
+NAME="GTKWINDOW-SET-FOCUS"
+></A
+>The &quot;set-focus&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> *window,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN49610"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkwidget.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkWidget</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Index</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

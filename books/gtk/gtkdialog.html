@@ -1,0 +1,661 @@
+<HTML
+><HEAD
+><TITLE
+>GtkDialog</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkData"
+HREF="gtkdata.html"><LINK
+REL="NEXT"
+TITLE="GtkDrawingArea"
+HREF="gtkdrawingarea.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkdata.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkdrawingarea.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKDIALOG"
+>GtkDialog</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN24176"
+></A
+><H2
+>Name</H2
+>GtkDialog&nbsp;--&nbsp;create popup windows.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN24179"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkdialog.html#GTKDIALOG-STRUCT"
+>GtkDialog</A
+>;
+struct      <A
+HREF="gtkdialog.html#GTKDIALOGBUTTON"
+>GtkDialogButton</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkdialog.html#GTK-DIALOG-NEW"
+>gtk_dialog_new</A
+>                  (void);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24186"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+>
+                           +----GtkDialog</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24194"
+></A
+><H2
+>Description</H2
+><P
+>Dialog boxes are a convenient way to prompt the user for a small amount of
+input, eg. to display
+a message, ask a question, or anything else that does not require extensive
+effort on the user's part.</P
+><P
+>Gtk+ treats a dialog as a window split horizontally. The top section is a
+<A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>, and is where widgets such as a <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> or a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> should be
+packed. The second area is known as the <TT
+CLASS="STRUCTFIELD"
+><I
+>action_area</I
+></TT
+>. This is generally used
+for packing buttons into the dialog which may perform functions such as cancel, ok, or apply. The two
+areas are separated by a <A
+HREF="gtkhseparator.html"
+>GtkHSeparator</A
+>.</P
+><P
+><A
+HREF="gtkdialog.html"
+>GtkDialog</A
+> boxes are created with a call to <A
+HREF="gtkdialog.html#GTK-DIALOG-NEW"
+>gtk_dialog_new</A
+>().</P
+><P
+>If 'dialog' is a newly created dialog, the two primary areas of the window 
+can be accessed as GTK_DIALOG(dialog)-&#62;vbox and GTK_DIALOG(dialog)-&#62;action_area,
+as can be seen from the example, below.</P
+><P
+>A 'modal' dialog (that is, one which freezes the rest of the application
+from user input), can be created by calling <A
+HREF="gtkwindow.html#GTK-WINDOW-SET-MODAL"
+>gtk_window_set_modal</A
+>() on the dialog. Use the
+GTK_WINDOW() macro to cast the widget returned from <A
+HREF="gtkdialog.html#GTK-DIALOG-NEW"
+>gtk_dialog_new</A
+>() into a
+<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+>.</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN24213"
+></A
+><P
+><B
+>Example 1. Using a <A
+HREF="gtkdialog.html"
+>GtkDialog</A
+> to keep the user informed.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;/* Function to open a dialog box displaying the message provided. */
+
+void quick_message(<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message) {
+
+   <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *dialog, *label, *okay_button;
+   
+   /* Create the widgets */
+   
+   dialog = <A
+HREF="gtkdialog.html#GTK-DIALOG-NEW"
+>gtk_dialog_new</A
+>();
+   label = gtk_label_new (message);
+   okay_button = gtk_button_new_with_label("Okay");
+   
+   /* Ensure that the dialog box is destroyed when the user clicks ok. */
+   
+   gtk_signal_connect_object (GTK_OBJECT (okay_button), "clicked",
+                              GTK_SIGNAL_FUNC (gtk_widget_destroy), dialog);
+   gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog)-&#62;action_area),
+                      okay_button);
+
+   /* Add the label, and show everything we've added to the dialog. */
+
+   gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog)-&#62;vbox),
+                      label);
+   gtk_widget_show_all (dialog);
+}&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24220"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24222"
+></A
+><H3
+><A
+NAME="GTKDIALOG-STRUCT"
+></A
+>struct GtkDialog</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkDialog;</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>window</I
+></TT
+> is a <A
+HREF="gtkwindow.html"
+>GtkWindow</A
+>, but should not be
+modified directly, (use the functions provided, such as
+<A
+HREF="gtkwindow.html#GTK-WINDOW-SET-TITLE"
+>gtk_window_set_title</A
+>(). See the <A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> section for more).</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>vbox</I
+></TT
+> is a <A
+HREF="gtkvbox.html"
+>GtkVBox</A
+> - the main part of the dialog box.</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>action_area</I
+></TT
+> is a <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> packed below the dividing <A
+HREF="gtkhseparator.html"
+>GtkHSeparator</A
+> in the dialog. It is treated exactly the same as any other <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24239"
+></A
+><H3
+><A
+NAME="GTKDIALOGBUTTON"
+></A
+>struct GtkDialogButton</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkDialogButton;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deprecated.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24244"
+></A
+><H3
+><A
+NAME="GTK-DIALOG-NEW"
+></A
+>gtk_dialog_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_dialog_new                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new dialog box. Widgets should not be packed into this <A
+HREF="gtkwindow.html"
+>GtkWindow</A
+>
+directly, but into the vbox and action_area, as described above. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24251"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> - the newly created dialog box.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24261"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkvbox.html"
+>GtkVBox</A
+></DT
+><DD
+><P
+>Pack widgets vertically.</P
+></DD
+><DT
+><A
+HREF="gtkwindow.html"
+>GtkWindow</A
+></DT
+><DD
+><P
+>Alter the properties of your dialog box.</P
+></DD
+><DT
+><A
+HREF="gtkbutton.html"
+>GtkButton</A
+></DT
+><DD
+><P
+>Add them to the <TT
+CLASS="STRUCTFIELD"
+><I
+>action_area</I
+></TT
+> to get a
+response from the user.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkdata.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkdrawingarea.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkData</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkDrawingArea</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

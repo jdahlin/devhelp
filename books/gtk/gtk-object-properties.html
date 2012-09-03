@@ -1,0 +1,2072 @@
+<HTML
+><HEAD
+><TITLE
+>Implementation of Object Properties</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Signal Marshallers"
+HREF="gtk-signal-marshallers.html"><LINK
+REL="NEXT"
+TITLE="Types"
+HREF="gtk-types.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-signal-marshallers.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-OBJECT-PROPERTIES"
+>Implementation of Object Properties</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN9181"
+></A
+><H2
+>Name</H2
+>Implementation of Object Properties&nbsp;--&nbsp;Utility function to manipulate lists of named, typed arguments.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN9184"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>;
+<A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>*     <A
+HREF="gtk-object-properties.html#GTK-ARG-NEW"
+>gtk_arg_new</A
+>                     (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> arg_type);
+<A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>*     <A
+HREF="gtk-object-properties.html#GTK-ARG-COPY"
+>gtk_arg_copy</A
+>                    (<A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *src_arg,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *dest_arg);
+void        <A
+HREF="gtk-object-properties.html#GTK-ARG-FREE"
+>gtk_arg_free</A
+>                    (<A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *arg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> free_contents);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-object-properties.html#GTK-ARGS-COLLECT"
+>gtk_args_collect</A
+>                (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> **arg_list_p,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> **info_list_p,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *first_arg_name,
+                                             va_list var_args);
+void        <A
+HREF="gtk-object-properties.html#GTK-ARGS-COLLECT-CLEANUP"
+>gtk_args_collect_cleanup</A
+>        (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *arg_list,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *info_list);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-object-properties.html#GTK-ARG-GET-INFO"
+>gtk_arg_get_info</A
+>                (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *arg_name,
+                                             <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+> **info_p);
+<A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>* <A
+HREF="gtk-object-properties.html#GTK-ARG-TYPE-NEW-STATIC"
+>gtk_arg_type_new_static</A
+>         (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> base_class_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *arg_name,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> class_n_args_offset,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> arg_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_id);
+<A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>*     <A
+HREF="gtk-object-properties.html#GTK-ARGS-QUERY"
+>gtk_args_query</A
+>                  (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> class_type,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> **arg_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *n_args_p);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-object-properties.html#GTK-ARG-NAME-STRIP-TYPE"
+>gtk_arg_name_strip_type</A
+>         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *arg_name);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-object-properties.html#GTK-ARG-INFO-EQUAL"
+>gtk_arg_info_equal</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GCONSTPOINTER
+>gconstpointer</A> arg_info_1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCONSTPOINTER
+>gconstpointer</A> arg_info_2);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-object-properties.html#GTK-ARG-INFO-HASH"
+>gtk_arg_info_hash</A
+>               (<A
+HREF=../glib/glib-basic-types.html#GCONSTPOINTER
+>gconstpointer</A> arg_info);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9239"
+></A
+><H2
+>Description</H2
+><P
+>All the functions in here are marked a Non-public.
+We describe it anyway because it is occasionally useful
+to understand how the work is done.</P
+><P
+>Arguments are a way of describing a named parameter to a function.
+They have two important roles within gtk+:
+<P
+></P
+><UL
+><LI
+><P
+>they describe <I
+CLASS="WORDASWORD"
+>object properties</I
+>.
+This means that they present an interface to get and set a named-type
+for any type of object in a consistent way.
+(All the relevant functions to do this start with gtk_object_set
+or gtk_object_get).</P
+></LI
+><LI
+><P
+>they describe <I
+CLASS="WORDASWORD"
+>signal arguments</I
+>.
+This is a lot less often needed but still useful.
+Usually if you are just emitting or creating a particular signal
+it is more convenient to just use <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>() or <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEW"
+>gtk_signal_new</A
+>().
+However if you are writing a function to emit or create an arbitrary
+signal, you must use <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMITV"
+>gtk_signal_emitv</A
+>() or <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEWV"
+>gtk_signal_newv</A
+>().</P
+></LI
+></UL
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9254"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9256"
+></A
+><H3
+><A
+NAME="GTKARGINFO"
+></A
+>struct GtkArgInfo</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkArgInfo
+{
+  /* hash key portion */
+  GtkType class_type;
+  gchar *name;
+  
+  GtkType type;
+  guint arg_flags;
+  gchar *full_name;
+  
+  /* private fields */
+  guint arg_id;
+  guint seq_id;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A structure containing information about the argument.
+Returned by <A
+HREF="gtk-object-properties.html#GTK-ARG-GET-INFO"
+>gtk_arg_get_info</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9262"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>class_type</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if the argument is an object, this is the object class type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *<TT
+CLASS="STRUCTFIELD"
+><I
+>name</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the argument.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>type</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the argument; it may be an object's type
+or a fundamental type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>arg_flags</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>flags applicable to the argument (i.e. readable, writable,
+and whether it needs to be constructed).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *<TT
+CLASS="STRUCTFIELD"
+><I
+>full_name</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object name and argument name separated by ::,
+e.g. "GtkObject::user_data" or "GtkButton::label".</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>arg_id</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the unique argument identified.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>seq_id</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>???&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9302"
+></A
+><H3
+><A
+NAME="GTK-ARG-NEW"
+></A
+>gtk_arg_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>*     gtk_arg_new                     (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> arg_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new argument of a certain type, set to 0 or NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9309"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the argument.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9323"
+></A
+><H3
+><A
+NAME="GTK-ARG-COPY"
+></A
+>gtk_arg_copy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>*     gtk_arg_copy                    (<A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *src_arg,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *dest_arg);</PRE
+></TD
+></TR
+></TABLE
+><P
+>It will either copy data into an existing argument or allocate a new argument
+and copy the data.  Strings are duplicated.  All other pointers and
+values are copied (shallowly-- that is the pointers themselves are
+copied, not the data they point to.)</P
+><P
+>You should call gtk_arg_reset() on dest_arg before calling this
+if the argument may contain string data that you want freed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9333"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src_arg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the argument to duplicate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dest_arg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the argument to copy over (or NULL to create a new <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> (or dest_arg, if it was not NULL).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9352"
+></A
+><H3
+><A
+NAME="GTK-ARG-FREE"
+></A
+>gtk_arg_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_arg_free                    (<A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *arg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> free_contents);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the argument, and optionally its contents.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9359"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the argument to free.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>free_contents</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether to free the string, if it is a string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9372"
+></A
+><H3
+><A
+NAME="GTK-ARGS-COLLECT"
+></A
+>gtk_args_collect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_args_collect                (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> **arg_list_p,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> **info_list_p,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *first_arg_name,
+                                             va_list var_args);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Private:  given a hashtable of argument information it takes a vararg
+list and parses it into arguments (in the form of lists of GtkArgs
+and lists of GtkArgInfos.</P
+><P
+>The list of arguments starts with first_arg_name then the first argument's
+value.  Followed by any number of additional name/argument pairs,
+terminated with NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9386"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of object we are collecting arguments for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_info_hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a hashtable mapping from names of arguments
+to their GtkArgInfos.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_list_p</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a returned list of arguments obtained from parsing the
+varargs.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info_list_p</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a returned list of the GtkArgInfos.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>first_arg_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the first argument.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>var_args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a va_list containing the value of the first argument,
+followed by name/value pairs, followed by NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an error message on failure, or NULL otherwise.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9421"
+></A
+><H3
+><A
+NAME="GTK-ARGS-COLLECT-CLEANUP"
+></A
+>gtk_args_collect_cleanup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_args_collect_cleanup        (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *arg_list,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *info_list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Private: erase lists of arguments returned from <A
+HREF="gtk-object-properties.html#GTK-ARGS-COLLECT"
+>gtk_args_collect</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9429"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>arg_list_p returned from <A
+HREF="gtk-object-properties.html#GTK-ARGS-COLLECT"
+>gtk_args_collect</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info_list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>info_list_p returned from <A
+HREF="gtk-object-properties.html#GTK-ARGS-COLLECT"
+>gtk_args_collect</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9444"
+></A
+><H3
+><A
+NAME="GTK-ARG-GET-INFO"
+></A
+>gtk_arg_get_info ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_arg_get_info                (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *arg_name,
+                                             <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+> **info_p);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Private: get information about an argument.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9454"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of object.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_info_hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the hashtable of GtkArgInfos.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the argument to lookup.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info_p</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the argument info.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an error message on failure, or NULL otherwise.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9480"
+></A
+><H3
+><A
+NAME="GTK-ARG-TYPE-NEW-STATIC"
+></A
+>gtk_arg_type_new_static ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>* gtk_arg_type_new_static         (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> base_class_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *arg_name,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> class_n_args_offset,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> arg_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new argument registered with a class.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9493"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>base_class_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the basic type having the arguments, almost alway
+GTK_TYPE_OBJECT, except if your defining a different type argument
+that gets a different namespace.  <A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+> does this to define
+per-child arguments of the container.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>name of the argument to create.  (must be a static constant string)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>class_n_args_offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>offset into the base class structure that tells
+the number of arguments.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_info_hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>hashtable of GtkArgInfos.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>type of the argument.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>flags of the argument.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>???</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9533"
+></A
+><H3
+><A
+NAME="GTK-ARGS-QUERY"
+></A
+>gtk_args_query ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>*     gtk_args_query                  (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> class_type,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GHASHTABLE
+>GHashTable</A> *arg_info_hash_table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> **arg_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *n_args_p);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Private: from a class type and its arginfo hashtable,
+get an array of GtkArgs that this object accepts.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9544"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>class_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the class type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_info_hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the hashtable of GtkArgInfos.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returned array of argument flags.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_args_p</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of arguments this object accepts.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the array of arguments (or NULL on error).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9570"
+></A
+><H3
+><A
+NAME="GTK-ARG-NAME-STRIP-TYPE"
+></A
+>gtk_arg_name_strip_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_arg_name_strip_type         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *arg_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given a fully qualified argument name (e.g. "GtkButton::label")
+it returns just the argument name (e.g. "label") unless
+the argument name was invalid, in which case it returns NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9577"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the fully-qualified argument name.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the base argument name.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9590"
+></A
+><H3
+><A
+NAME="GTK-ARG-INFO-EQUAL"
+></A
+>gtk_arg_info_equal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_arg_info_equal              (<A
+HREF=../glib/glib-basic-types.html#GCONSTPOINTER
+>gconstpointer</A> arg_info_1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCONSTPOINTER
+>gconstpointer</A> arg_info_2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A <A
+HREF=../glib/glib-hash-tables.html#GCOMPAREFUNC
+>GCompareFunc</A> for hashing GtkArgInfos.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9600"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_info_1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_info_2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether the arguments are the same.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9619"
+></A
+><H3
+><A
+NAME="GTK-ARG-INFO-HASH"
+></A
+>gtk_arg_info_hash ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_arg_info_hash               (<A
+HREF=../glib/glib-basic-types.html#GCONSTPOINTER
+>gconstpointer</A> arg_info);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A <A
+HREF=../glib/glib-hash-tables.html#GHASHFUNC
+>GHashFunc</A> for hashing GtkArgInfos.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9628"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_info</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a hash value for that <A
+HREF="gtk-object-properties.html#GTKARGINFO"
+>GtkArgInfo</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9643"
+></A
+><H2
+>See Also</H2
+><P
+><A
+HREF="gtkobject.html"
+>GtkObject</A
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-signal-marshallers.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Signal Marshallers</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Types</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

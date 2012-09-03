@@ -1,0 +1,2459 @@
+<HTML
+><HEAD
+><TITLE
+>Bindings</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Types"
+HREF="gtk-types.html"><LINK
+REL="NEXT"
+TITLE="Standard Enumerations"
+HREF="gtk-standard-enumerations.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-standard-enumerations.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-BINDINGS"
+>Bindings</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11341"
+></A
+><H2
+>Name</H2
+>Bindings&nbsp;--&nbsp;</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11344"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+>;
+void        <A
+HREF="gtk-bindings.html#GTK-PATTERN-SPEC-INIT"
+>gtk_pattern_spec_init</A
+>           (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);
+void        <A
+HREF="gtk-bindings.html#GTK-PATTERN-SPEC-FREE-SEGS"
+>gtk_pattern_spec_free_segs</A
+>      (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-bindings.html#GTK-PATTERN-MATCH"
+>gtk_pattern_match</A
+>               (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> string_length,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string_reversed);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-bindings.html#GTK-PATTERN-MATCH-STRING"
+>gtk_pattern_match_string</A
+>        (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-bindings.html#GTK-PATTERN-MATCH-SIMPLE"
+>gtk_pattern_match_simple</A
+>        (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+struct      <A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+>;
+struct      <A
+HREF="gtk-bindings.html#GTKBINDINGENTRY"
+>GtkBindingEntry</A
+>;
+struct      <A
+HREF="gtk-bindings.html#GTKBINDINGSIGNAL"
+>GtkBindingSignal</A
+>;
+struct      <A
+HREF="gtk-bindings.html#GTKBINDINGARG"
+>GtkBindingArg</A
+>;
+<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+>* <A
+HREF="gtk-bindings.html#GTK-BINDING-SET-NEW"
+>gtk_binding_set_new</A
+>          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *set_name);
+<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+>* <A
+HREF="gtk-bindings.html#GTK-BINDING-SET-BY-CLASS"
+>gtk_binding_set_by_class</A
+>     (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> object_class);
+<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+>* <A
+HREF="gtk-bindings.html#GTK-BINDING-SET-FIND"
+>gtk_binding_set_find</A
+>         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *set_name);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-bindings.html#GTK-BINDINGS-ACTIVATE"
+>gtk_bindings_activate</A
+>           (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-bindings.html#GTK-BINDING-SET-ACTIVATE"
+>gtk_binding_set_activate</A
+>        (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+#define     <A
+HREF="gtk-bindings.html#GTK-BINDING-ENTRY-ADD"
+>gtk_binding_entry_add</A
+>
+void        <A
+HREF="gtk-bindings.html#GTK-BINDING-ENTRY-CLEAR"
+>gtk_binding_entry_clear</A
+>         (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers);
+void        <A
+HREF="gtk-bindings.html#GTK-BINDING-ENTRY-ADD-SIGNAL"
+>gtk_binding_entry_add_signal</A
+>    (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal_name,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_args,
+                                             ...);
+void        <A
+HREF="gtk-bindings.html#GTK-BINDING-SET-ADD-PATH"
+>gtk_binding_set_add_path</A
+>        (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPATHTYPE"
+>GtkPathType</A
+> path_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *path_pattern,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPATHPRIORITYTYPE"
+>GtkPathPriorityType</A
+> priority);
+void        <A
+HREF="gtk-bindings.html#GTK-BINDING-ENTRY-REMOVE"
+>gtk_binding_entry_remove</A
+>        (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers);
+void        <A
+HREF="gtk-bindings.html#GTK-BINDING-ENTRY-ADD-SIGNALL"
+>gtk_binding_entry_add_signall</A
+>   (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal_name,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *binding_args);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-bindings.html#GTK-BINDING-PARSE-BINDING"
+>gtk_binding_parse_binding</A
+>       (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11420"
+></A
+><H2
+>Description</H2
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11423"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11425"
+></A
+><H3
+><A
+NAME="GTKPATTERNSPEC"
+></A
+>struct GtkPatternSpec</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPatternSpec
+{
+  GtkMatchType	 match_type;
+  guint		 pattern_length;
+  gchar		*pattern;
+  gchar		*pattern_reversed;
+  gpointer	 user_data;
+  guint		 seq_id;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11430"
+></A
+><H3
+><A
+NAME="GTK-PATTERN-SPEC-INIT"
+></A
+>gtk_pattern_spec_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_pattern_spec_init           (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11437"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pspec</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11450"
+></A
+><H3
+><A
+NAME="GTK-PATTERN-SPEC-FREE-SEGS"
+></A
+>gtk_pattern_spec_free_segs ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_pattern_spec_free_segs      (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11456"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pspec</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11465"
+></A
+><H3
+><A
+NAME="GTK-PATTERN-MATCH"
+></A
+>gtk_pattern_match ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_pattern_match               (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> string_length,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string_reversed);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11475"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pspec</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string_reversed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11500"
+></A
+><H3
+><A
+NAME="GTK-PATTERN-MATCH-STRING"
+></A
+>gtk_pattern_match_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_pattern_match_string        (<A
+HREF="gtk-bindings.html#GTKPATTERNSPEC"
+>GtkPatternSpec</A
+> *pspec,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11508"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pspec</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11525"
+></A
+><H3
+><A
+NAME="GTK-PATTERN-MATCH-SIMPLE"
+></A
+>gtk_pattern_match_simple ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_pattern_match_simple        (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11533"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11550"
+></A
+><H3
+><A
+NAME="GTKBINDINGSET"
+></A
+>struct GtkBindingSet</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkBindingSet
+{
+  gchar			*set_name;
+  gint			 priority;
+  GSList		*widget_path_pspecs;
+  GSList		*widget_class_pspecs;
+  GSList		*class_branch_pspecs;
+  GtkBindingEntry	*entries;
+  GtkBindingEntry	*current;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11555"
+></A
+><H3
+><A
+NAME="GTKBINDINGENTRY"
+></A
+>struct GtkBindingEntry</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkBindingEntry
+{
+  /* key portion
+   */
+  guint			 keyval;
+  guint			 modifiers;
+  
+  GtkBindingSet		*binding_set;
+  guint			destroyed : 1;
+  guint			in_emission : 1;
+  GtkBindingEntry	*set_next;
+  GtkBindingEntry	*hash_next;
+  GtkBindingSignal	*signals;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11560"
+></A
+><H3
+><A
+NAME="GTKBINDINGSIGNAL"
+></A
+>struct GtkBindingSignal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkBindingSignal
+{
+  GtkBindingSignal	*next;
+  gchar			*signal_name;
+  guint			 n_args;
+  GtkBindingArg		*args;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11565"
+></A
+><H3
+><A
+NAME="GTKBINDINGARG"
+></A
+>struct GtkBindingArg</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkBindingArg
+{
+  GtkType	arg_type;
+  union {
+    glong	 long_data;
+    gdouble	 double_data;
+    gchar	*string_data;
+  } d;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11570"
+></A
+><H3
+><A
+NAME="GTK-BINDING-SET-NEW"
+></A
+>gtk_binding_set_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+>* gtk_binding_set_new          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *set_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11577"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>set_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11590"
+></A
+><H3
+><A
+NAME="GTK-BINDING-SET-BY-CLASS"
+></A
+>gtk_binding_set_by_class ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+>* gtk_binding_set_by_class     (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> object_class);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11597"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object_class</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11610"
+></A
+><H3
+><A
+NAME="GTK-BINDING-SET-FIND"
+></A
+>gtk_binding_set_find ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+>* gtk_binding_set_find         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *set_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11617"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>set_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11630"
+></A
+><H3
+><A
+NAME="GTK-BINDINGS-ACTIVATE"
+></A
+>gtk_bindings_activate ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_bindings_activate           (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11639"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11660"
+></A
+><H3
+><A
+NAME="GTK-BINDING-SET-ACTIVATE"
+></A
+>gtk_binding_set_activate ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_binding_set_activate        (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11670"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>binding_set</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11695"
+></A
+><H3
+><A
+NAME="GTK-BINDING-ENTRY-ADD"
+></A
+>gtk_binding_entry_add</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	 gtk_binding_entry_add		gtk_binding_entry_clear</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11700"
+></A
+><H3
+><A
+NAME="GTK-BINDING-ENTRY-CLEAR"
+></A
+>gtk_binding_entry_clear ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_binding_entry_clear         (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11708"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>binding_set</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11725"
+></A
+><H3
+><A
+NAME="GTK-BINDING-ENTRY-ADD-SIGNAL"
+></A
+>gtk_binding_entry_add_signal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_binding_entry_add_signal    (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal_name,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_args,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11735"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>binding_set</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11764"
+></A
+><H3
+><A
+NAME="GTK-BINDING-SET-ADD-PATH"
+></A
+>gtk_binding_set_add_path ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_binding_set_add_path        (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPATHTYPE"
+>GtkPathType</A
+> path_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *path_pattern,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPATHPRIORITYTYPE"
+>GtkPathPriorityType</A
+> priority);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11773"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>binding_set</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>path_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>path_pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11794"
+></A
+><H3
+><A
+NAME="GTK-BINDING-ENTRY-REMOVE"
+></A
+>gtk_binding_entry_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_binding_entry_remove        (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11802"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>binding_set</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11819"
+></A
+><H3
+><A
+NAME="GTK-BINDING-ENTRY-ADD-SIGNALL"
+></A
+>gtk_binding_entry_add_signall ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_binding_entry_add_signall   (<A
+HREF="gtk-bindings.html#GTKBINDINGSET"
+>GtkBindingSet</A
+> *binding_set,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> modifiers,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal_name,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *binding_args);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11829"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>binding_set</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>binding_args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11854"
+></A
+><H3
+><A
+NAME="GTK-BINDING-PARSE-BINDING"
+></A
+>gtk_binding_parse_binding ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_binding_parse_binding       (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11861"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scanner</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-standard-enumerations.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Types</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Standard Enumerations</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

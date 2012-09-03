@@ -1,0 +1,1613 @@
+<HTML
+><HEAD
+><TITLE
+>GtkTipsQuery</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkText"
+HREF="gtktext.html"><LINK
+REL="NEXT"
+TITLE="GtkToggleButton"
+HREF="gtktogglebutton.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktext.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktogglebutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKTIPSQUERY"
+>GtkTipsQuery</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN41057"
+></A
+><H2
+>Name</H2
+>GtkTipsQuery&nbsp;--&nbsp;displays help about widgets in the user interface.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN41060"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtktipsquery.html#GTKTIPSQUERY-STRUCT"
+>GtkTipsQuery</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-NEW"
+>gtk_tips_query_new</A
+>              (void);
+void        <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-START-QUERY"
+>gtk_tips_query_start_query</A
+>      (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query);
+void        <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-STOP-QUERY"
+>gtk_tips_query_stop_query</A
+>       (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query);
+void        <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-SET-CALLER"
+>gtk_tips_query_set_caller</A
+>       (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *caller);
+void        <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-SET-LABELS"
+>gtk_tips_query_set_labels</A
+>       (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label_inactive,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label_no_tip);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41077"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkmisc.html"
+>GtkMisc</A
+>
+               +----<A
+HREF="gtklabel.html"
+>GtkLabel</A
+>
+                     +----GtkTipsQuery</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41084"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY--EMIT-ALWAYS"
+>emit-always</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY--CALLER"
+>caller</A
+>&quot;               <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>            : Read / Write
+  &quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY--LABEL-INACTIVE"
+>label-inactive</A
+>&quot;       <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*               : Read / Write
+  &quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY--LABEL-NO-TIP"
+>label-no-tip</A
+>&quot;         <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*               : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41095"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY-START-QUERY"
+>start-query</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY-STOP-QUERY"
+>stop-query</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY-WIDGET-ENTERED"
+>widget-entered</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_private,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtktipsquery.html#GTKTIPSQUERY-WIDGET-SELECTED"
+>widget-selected</A
+>&quot;
+            <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    user_function      (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_private,
+                                            <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTBUTTON
+>GdkEventButton</A> *event,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41118"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> widget is a subclass of <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> which is used to display
+help about widgets in a user interface.</P
+><P
+>A query is started with a call to <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-START-QUERY"
+>gtk_tips_query_start_query</A
+>(), usually
+when some kind of 'Help' button is pressed. The <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> then grabs all
+events, stopping the user interface from functioning normally.
+Then as the user moves the mouse over the widgets, the <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> displays
+each widget's tooltip text.</P
+><P
+>By connecting to the "widget-entered" or "widget-selected" signals, it is
+possible to customize the <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> to perform other actions when widgets
+are entered or selected. For example, a help browser could be opened with
+documentation on the widget selected.</P
+><P
+>At some point a call to <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-STOP-QUERY"
+>gtk_tips_query_stop_query</A
+>() must be made in order to
+stop the query and return the interface to its normal state.
+The <A
+HREF="gtktipsquery.html#GTK-TIPS-QUERY-SET-CALLER"
+>gtk_tips_query_set_caller</A
+>() function can be used to specify a widget
+which the user can select to stop the query (often the same button used to
+start the query).</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41132"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41134"
+></A
+><H3
+><A
+NAME="GTKTIPSQUERY-STRUCT"
+></A
+>struct GtkTipsQuery</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTipsQuery;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtktipsquery.html#GTKTIPSQUERY-STRUCT"
+>GtkTipsQuery</A
+> struct contains private data only, and
+should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41140"
+></A
+><H3
+><A
+NAME="GTK-TIPS-QUERY-NEW"
+></A
+>gtk_tips_query_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_tips_query_new              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41147"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41157"
+></A
+><H3
+><A
+NAME="GTK-TIPS-QUERY-START-QUERY"
+></A
+>gtk_tips_query_start_query ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tips_query_start_query      (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Starts a query.
+The <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> widget will take control of the mouse and as the mouse
+moves it will display the tooltip of the widget beneath the mouse.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41164"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tips_query</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41174"
+></A
+><H3
+><A
+NAME="GTK-TIPS-QUERY-STOP-QUERY"
+></A
+>gtk_tips_query_stop_query ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tips_query_stop_query       (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Stops a query.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41180"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tips_query</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41190"
+></A
+><H3
+><A
+NAME="GTK-TIPS-QUERY-SET-CALLER"
+></A
+>gtk_tips_query_set_caller ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tips_query_set_caller       (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *caller);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the widget which initiates the query, usually a button.
+If the <TT
+CLASS="PARAMETER"
+><I
+>caller</I
+></TT
+> is selected while the query is running, the query is
+automatically stopped.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41198"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tips_query</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>caller</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget which initiates the query.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41212"
+></A
+><H3
+><A
+NAME="GTK-TIPS-QUERY-SET-LABELS"
+></A
+>gtk_tips_query_set_labels ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tips_query_set_labels       (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tips_query,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label_inactive,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label_no_tip);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the text to display when the query is not in effect,
+and the text to display when the query is in effect but the widget beneath
+the pointer has no tooltip.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41220"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tips_query</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label_inactive</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to display when the query is not running.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label_no_tip</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to display when the query is running but the widget
+beneath the pointer has no tooltip.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41238"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKTIPSQUERY--EMIT-ALWAYS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>emit-always</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKTIPSQUERY--CALLER"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>caller</TT
+>&quot; (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> : Read / Write)</DT
+><DD
+><P
+>The widget that starts the tips query, usually a button.
+If it is selected while the query is in effect the query is automatically
+stopped.</P
+></DD
+><DT
+><A
+NAME="GTKTIPSQUERY--LABEL-INACTIVE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>label-inactive</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>* : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKTIPSQUERY--LABEL-NO-TIP"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>label-no-tip</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>* : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41269"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41271"
+></A
+><H3
+><A
+NAME="GTKTIPSQUERY-START-QUERY"
+></A
+>The &quot;start-query&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the query is started.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41278"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tipsquery</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41291"
+></A
+><H3
+><A
+NAME="GTKTIPSQUERY-STOP-QUERY"
+></A
+>The &quot;stop-query&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the query is stopped.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41298"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tipsquery</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41311"
+></A
+><H3
+><A
+NAME="GTKTIPSQUERY-WIDGET-ENTERED"
+></A
+>The &quot;widget-entered&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_private,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when a widget is entered by the pointer while the query is in effect.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41321"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tipsquery</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget that was entered by the pointer.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget's tooltip.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tip_private</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget's private tooltip (see <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-SET-TIP"
+>gtk_tooltips_set_tip</A
+>()).&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41347"
+></A
+><H3
+><A
+NAME="GTKTIPSQUERY-WIDGET-SELECTED"
+></A
+>The &quot;widget-selected&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    user_function                  (<A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> *tipsquery,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_private,
+                                            <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTBUTTON
+>GdkEventButton</A> *event,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when a widget is selected during a query.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41359"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tipsquery</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget that was selected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget's tooltip.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tip_private</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget's private tooltip (see <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-SET-TIP"
+>gtk_tooltips_set_tip</A
+>()).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the button press or button release event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the query should be stopped.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41393"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+></DT
+><DD
+><P
+>the object which handles tooltips.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktext.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktogglebutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkText</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkToggleButton</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

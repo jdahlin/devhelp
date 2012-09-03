@@ -1,0 +1,1143 @@
+<HTML
+><HEAD
+><TITLE
+>GnomeMessageBox</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="Gnome User Interface Library Reference Manual"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="GNOME Widgets and Objects"
+HREF="gnome-objects.html"><LINK
+REL="PREVIOUS"
+TITLE="GnomeMDI"
+HREF="gnomemdi.html"><LINK
+REL="NEXT"
+TITLE="GnomeNumberEntry"
+HREF="gnomenumberentry.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>Gnome User Interface Library Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomemdi.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomenumberentry.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GNOMEMESSAGEBOX"
+>GnomeMessageBox</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN23969"
+></A
+><H2
+>Name</H2
+>GnomeMessageBox&nbsp;--&nbsp;Message box display routines</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN23972"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gnome.h&gt;
+
+
+struct      <A
+HREF="gnomemessagebox.html#GNOMEMESSAGEBOX-STRUCT"
+>GnomeMessageBox</A
+>;
+#define     <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-INFO-CAPS"
+>GNOME_MESSAGE_BOX_INFO</A
+>
+#define     <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-WARNING-CAPS"
+>GNOME_MESSAGE_BOX_WARNING</A
+>
+#define     <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-ERROR-CAPS"
+>GNOME_MESSAGE_BOX_ERROR</A
+>
+#define     <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-QUESTION-CAPS"
+>GNOME_MESSAGE_BOX_QUESTION</A
+>
+#define     <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-GENERIC-CAPS"
+>GNOME_MESSAGE_BOX_GENERIC</A
+>
+struct      <A
+HREF="gnomemessagebox.html#GNOMEMESSAGEBOXBUTTON"
+>GnomeMessageBoxButton</A
+>;
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-NEW"
+>gnome_message_box_new</A
+>           (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *messagebox_type,
+                                             ...);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-NEWV"
+>gnome_message_box_newv</A
+>          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *messagebox_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **buttons);
+void        <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-SET-MODAL"
+>gnome_message_box_set_modal</A
+>     (<A
+HREF="gnomemessagebox.html"
+>GnomeMessageBox</A
+> *messagebox);
+void        <A
+HREF="gnomemessagebox.html#GNOME-MESSAGE-BOX-SET-DEFAULT"
+>gnome_message_box_set_default</A
+>   (<A
+HREF="gnomemessagebox.html"
+>GnomeMessageBox</A
+> *messagebox,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> button);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23996"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF=../gtk/gtkobject.html
+>GtkObject</A>
+   +----<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>
+         +----<A
+HREF=../gtk/gtkcontainer.html
+>GtkContainer</A>
+               +----<A
+HREF=../gtk/gtkbin.html
+>GtkBin</A>
+                     +----<A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A>
+                           +----<A
+HREF="gnomedialog.html"
+>GnomeDialog</A
+>
+                                 +----GnomeMessageBox</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24005"
+></A
+><H2
+>Description</H2
+><P
+>    The <A
+HREF="gnomemessagebox.html"
+>GnomeMessageBox</A
+> widget creates dialog boxes (of type
+    <A
+HREF="gnomedialog.html"
+>GnomeDialog</A
+>) that contain a severity level (indicated by an icon
+    and a title), a message to be displayed and a list of buttons that
+    will be in the dialog.  
+  </P
+><P
+>    The programmer will use strings desired for each button.  If the
+    strings are any of the GNOME_STOCK macros, then instead of
+    creating a button with the text, the button will be a GNOME stock
+    button with a stock icon.
+  </P
+><P
+>    The list of known types for message boxes are:
+    <TT
+CLASS="LITERAL"
+>GNOME_MESSAGE_BOX_INFO</TT
+>, <TT
+CLASS="LITERAL"
+>GNOME_MESSAGE_BOX_WARNING</TT
+>,
+    <TT
+CLASS="LITERAL"
+>GNOME_MESSAGE_BOX_ERROR</TT
+>, <TT
+CLASS="LITERAL"
+>GNOME_MESSAGE_BOX_QUESTION</TT
+> and
+    <TT
+CLASS="LITERAL"
+>GNOME_MESSAGE_BOX_GENERIC</TT
+>.  
+  </P
+><P
+>    Here is an example that informs the user of an error:
+
+    <TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>      GtkWidget *error_dialog;
+      int ret;
+      
+      error_dialog = gnome_message_box_new (
+              "Wrong password",
+              GNOME_MESSAGE_BOX_ERROR,
+              "Retry", "Ignore",
+              NULL);
+      ret = gnome_dialog_run (GNOME_DIALOG (error_dialog));
+      switch (ret){
+             case 0:
+                    do_retry();
+                    break;
+             case 1:
+                    do_ignore()
+                    break;
+             default:
+                    /* User closed dialog with window manager,
+                     * assume "ignore"
+                     */
+                    do_ignore();
+                    break;
+      }
+    </PRE
+></TD
+></TR
+></TABLE
+>
+
+    This other example uses stock buttons:
+
+    <TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>      GtkWidget *yes_no_dialog;
+      int ret;
+      
+      yes_no_dialog = gnome_message_box_new (
+              "Do you want to make a chocolate cake?",
+              GNOME_MESSAGE_BOX_QUESTION,
+              GNOME_STOCK_BUTTON_YES,
+              GNOME_STOCK_BUTTON_NO,
+              NULL);
+      ret = gnome_dialog_run (GNOME_DIALOG (yes_no_dialog));
+      switch (ret){
+             case 0:
+                    make_chocolate_cake();
+                    break;
+             case 1:
+                    /* User does not desire chocolate cake *./
+                    break;
+             default:
+                    /*
+		     * User closed dialog with window manager,
+                     * assume he is not into chocolate cake.
+                     */
+                    do_ignore();
+                    break;
+      }
+    </PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24025"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24027"
+></A
+><H3
+><A
+NAME="GNOMEMESSAGEBOX-STRUCT"
+></A
+>struct GnomeMessageBox</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GnomeMessageBox;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24032"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-INFO-CAPS"
+></A
+>GNOME_MESSAGE_BOX_INFO</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_MESSAGE_BOX_INFO      "info"</PRE
+></TD
+></TR
+></TABLE
+><P
+>    Use this macro for displaying an informational message.
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24037"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-WARNING-CAPS"
+></A
+>GNOME_MESSAGE_BOX_WARNING</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_MESSAGE_BOX_WARNING   "warning"</PRE
+></TD
+></TR
+></TABLE
+><P
+>    Use this macro for displaying a warning message.
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24042"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-ERROR-CAPS"
+></A
+>GNOME_MESSAGE_BOX_ERROR</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_MESSAGE_BOX_ERROR     "error"</PRE
+></TD
+></TR
+></TABLE
+><P
+>    Use this macro for displaying an error message.
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24047"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-QUESTION-CAPS"
+></A
+>GNOME_MESSAGE_BOX_QUESTION</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_MESSAGE_BOX_QUESTION  "question"</PRE
+></TD
+></TR
+></TABLE
+><P
+>    Use this macro when you want to query the user for information. 
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24052"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-GENERIC-CAPS"
+></A
+>GNOME_MESSAGE_BOX_GENERIC</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_MESSAGE_BOX_GENERIC   "generic"</PRE
+></TD
+></TR
+></TABLE
+><P
+>    Use this macro if none of the other message box types apply.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24057"
+></A
+><H3
+><A
+NAME="GNOMEMESSAGEBOXBUTTON"
+></A
+>struct GnomeMessageBoxButton</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GnomeMessageBoxButton;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24062"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-NEW"
+></A
+>gnome_message_box_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_message_box_new           (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *messagebox_type,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a dialog box of type <TT
+CLASS="PARAMETER"
+><I
+>message_box_type</I
+></TT
+> with <TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>.  A number
+of buttons are inserted on it.  You can use the GNOME stock identifiers
+to create gnome-stock-buttons.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24073"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The message to be displayed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>messagebox_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A NULL terminated list of strings to use in each button.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a widget that has the dialog box.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24094"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-NEWV"
+></A
+>gnome_message_box_newv ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_message_box_newv          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *messagebox_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **buttons);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a dialog box of type <TT
+CLASS="PARAMETER"
+><I
+>message_box_type</I
+></TT
+> with <TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>.  A number
+of buttons are inserted on it, the messages come from the <TT
+CLASS="PARAMETER"
+><I
+>buttons</I
+></TT
+> array.
+You can use the GNOME stock identifiers to create gnome-stock-buttons.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24107"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The message to be displayed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>messagebox_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>buttons</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a NULL terminated array with the buttons to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a widget that has the dialog box.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24128"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-SET-MODAL"
+></A
+>gnome_message_box_set_modal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_message_box_set_modal     (<A
+HREF="gnomemessagebox.html"
+>GnomeMessageBox</A
+> *messagebox);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deprecated. Use <TT
+CLASS="FUNCTION"
+><A
+HREF=../gtk/gtkwindow.html#GTK-WINDOW-SET-MODAL
+>gtk_window_set_modal</A>()</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24136"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>messagebox</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24145"
+></A
+><H3
+><A
+NAME="GNOME-MESSAGE-BOX-SET-DEFAULT"
+></A
+>gnome_message_box_set_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_message_box_set_default   (<A
+HREF="gnomemessagebox.html"
+>GnomeMessageBox</A
+> *messagebox,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deprecated. Use <TT
+CLASS="FUNCTION"
+>gnome_dialog_set_modal()</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24154"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>messagebox</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24167"
+></A
+><H2
+>See Also</H2
+><P
+>    <A
+HREF="gnomedialog.html"
+>GnomeDialog</A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomemdi.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomenumberentry.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeMDI</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeNumberEntry</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

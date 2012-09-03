@@ -1,0 +1,2597 @@
+<HTML
+><HEAD
+><TITLE
+>GtkMenu</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkListItem"
+HREF="gtklistitem.html"><LINK
+REL="NEXT"
+TITLE="GtkMenuBar"
+HREF="gtkmenubar.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtklistitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkmenubar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKMENU"
+>GtkMenu</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN30750"
+></A
+><H2
+>Name</H2
+>GtkMenu&nbsp;--&nbsp;a drop down menu widget.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN30753"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkmenu.html#GTKMENU-STRUCT"
+>GtkMenu</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkmenu.html#GTK-MENU-NEW"
+>gtk_menu_new</A
+>                    (void);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-APPEND"
+>gtk_menu_append</A
+>                 (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-PREPEND"
+>gtk_menu_prepend</A
+>                (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-INSERT"
+>gtk_menu_insert</A
+>                 (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-REORDER-CHILD"
+>gtk_menu_reorder_child</A
+>          (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-POPUP"
+>gtk_menu_popup</A
+>                  (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *parent_menu_shell,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *parent_menu_item,
+                                             <A
+HREF="gtkmenu.html#GTKMENUPOSITIONFUNC"
+>GtkMenuPositionFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> activate_time);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-SET-ACCEL-GROUP"
+>gtk_menu_set_accel_group</A
+>        (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-SET-TITLE"
+>gtk_menu_set_title</A
+>              (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *title);
+
+void        <A
+HREF="gtkmenu.html#GTK-MENU-POPDOWN"
+>gtk_menu_popdown</A
+>                (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-REPOSITION"
+>gtk_menu_reposition</A
+>             (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkmenu.html#GTK-MENU-GET-ACTIVE"
+>gtk_menu_get_active</A
+>             (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-SET-ACTIVE"
+>gtk_menu_set_active</A
+>             (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-SET-TEAROFF-STATE"
+>gtk_menu_set_tearoff_state</A
+>      (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> torn_off);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-ATTACH-TO-WIDGET"
+>gtk_menu_attach_to_widget</A
+>       (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *attach_widget,
+                                             <A
+HREF="gtkmenu.html#GTKMENUDETACHFUNC"
+>GtkMenuDetachFunc</A
+> detacher);
+void        <A
+HREF="gtkmenu.html#GTK-MENU-DETACH"
+>gtk_menu_detach</A
+>                 (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkmenu.html#GTK-MENU-GET-ATTACH-WIDGET"
+>gtk_menu_get_attach_widget</A
+>      (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);
+void        (<A
+HREF="gtkmenu.html#GTKMENUPOSITIONFUNC"
+>*GtkMenuPositionFunc</A
+>)          (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+void        (<A
+HREF="gtkmenu.html#GTKMENUDETACHFUNC"
+>*GtkMenuDetachFunc</A
+>)            (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *attach_widget,
+                                             <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30817"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+>
+                     +----GtkMenu</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30824"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> is a <A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+> that implements a drop down menu consisting of
+a list of <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> objects which can be navigated and activated by the 
+user to perform application functions.</P
+><P
+>A <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> is most commonly dropped down by activating a <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> in a 
+<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> or popped up by activating a <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> in another <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.  </P
+><P
+>A <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> can also be popped up by activating a <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.  
+Other composite widgets such as the <A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> can pop up a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> 
+as well.</P
+><P
+>Applications can display a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> as a popup menu by calling the 
+<A
+HREF="gtkmenu.html#GTK-MENU-POPUP"
+>gtk_menu_popup</A
+>() function.  The example below shows how an application
+can pop up a menu when the 3rd mouse button is pressed.  </P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN30844"
+></A
+><P
+><B
+>Example 1. Connecting the popup signal handler.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>    /* connect our handler which will popup the menu */
+    gtk_signal_connect_object(GTK_OBJECT(window), "button_press_event",
+	GTK_SIGNAL_FUNC (my_popup_handler), GTK_OBJECT(menu));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN30847"
+></A
+><P
+><B
+>Example 2. Signal handler which displays a popup menu.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>static gint
+my_popup_handler(GtkWidget *widget, GdkEvent *event)
+{
+  GtkMenu *menu;
+  GdkEventButton *event_button;
+
+  g_return_val_if_fail (widget != NULL, FALSE);
+  g_return_val_if_fail (GTK_IS_MENU (widget), FALSE);
+  g_return_val_if_fail (event != NULL, FALSE);
+
+  /* The "widget" is the menu that was supplied when 
+   * gtk_signal_connect_object was called.
+   */
+  menu = GTK_MENU (widget);
+
+  if (event-&#62;type == GDK_BUTTON_PRESS)
+    {
+      event_button = (GdkEventButton *) event;
+      if (event_button-&#62;button == 3)
+	{
+	  gtk_menu_popup (menu, NULL, NULL, NULL, NULL, 
+			  event_button-&#62;button, event_button-&#62;time);
+	  return TRUE;
+	}
+    }
+
+  return FALSE;
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30850"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30852"
+></A
+><H3
+><A
+NAME="GTKMENU-STRUCT"
+></A
+>struct GtkMenu</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkMenu;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkmenu.html#GTKMENU-STRUCT"
+>GtkMenu</A
+> struct contains private data only, and
+should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30858"
+></A
+><H3
+><A
+NAME="GTK-MENU-NEW"
+></A
+>gtk_menu_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_menu_new                    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30865"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30875"
+></A
+><H3
+><A
+NAME="GTK-MENU-APPEND"
+></A
+>gtk_menu_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_append                 (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to the end of the menu's item list.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30883"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to add.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30898"
+></A
+><H3
+><A
+NAME="GTK-MENU-PREPEND"
+></A
+>gtk_menu_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_prepend                (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to the beginning of the menu's item list.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30906"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to add.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30921"
+></A
+><H3
+><A
+NAME="GTK-MENU-INSERT"
+></A
+>gtk_menu_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_insert                 (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to the menu's item list at the position
+indicated by <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30931"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The position in the item list where <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is added.
+Positions are numbered from 0 to n-1.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30951"
+></A
+><H3
+><A
+NAME="GTK-MENU-REORDER-CHILD"
+></A
+>gtk_menu_reorder_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_reorder_child          (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Moves a <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to a new position within the <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30961"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to move.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new position to place <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>.  Positions are numbered from 
+0 to n-1.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN30981"
+></A
+><H3
+><A
+NAME="GTK-MENU-POPUP"
+></A
+>gtk_menu_popup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_popup                  (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *parent_menu_shell,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *parent_menu_item,
+                                             <A
+HREF="gtkmenu.html#GTKMENUPOSITIONFUNC"
+>GtkMenuPositionFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> activate_time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Displays a menu and makes it available for selection.  Applications can use
+this function to display context-sensitive menus, and will typically supply
+NULL for the <TT
+CLASS="PARAMETER"
+><I
+>parent_menu_shell</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>parent_menu_item</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> 
+parameters.  The default menu positioning function will position the menu
+at the current pointer position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN30997"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent_menu_shell</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu shell containing the triggering menu item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent_menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item whose activation triggered the popup.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a user supplied function used to position the menu.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user supplied data to be passed to <TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the button which was pressed to initiate the event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>activate_time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the time at which the activation event occurred.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31032"
+></A
+><H3
+><A
+NAME="GTK-MENU-SET-ACCEL-GROUP"
+></A
+>gtk_menu_set_accel_group ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_set_accel_group        (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> which holds global accelerators for the menu.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31040"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> to be associated with the menu.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31055"
+></A
+><H3
+><A
+NAME="GTK-MENU-SET-TITLE"
+></A
+>gtk_menu_set_title ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_set_title              (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *title);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the title string for the menu.  The title is displayed when the menu
+is shown as a tearoff menu.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31062"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>title</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string containing the title for the menu.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31076"
+></A
+><H3
+><A
+NAME="GTK-MENU-POPDOWN"
+></A
+>gtk_menu_popdown ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_popdown                (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the menu from the screen.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31082"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31092"
+></A
+><H3
+><A
+NAME="GTK-MENU-REPOSITION"
+></A
+>gtk_menu_reposition ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_reposition             (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Repositions the menu according to its position function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31098"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31108"
+></A
+><H3
+><A
+NAME="GTK-MENU-GET-ACTIVE"
+></A
+>gtk_menu_get_active ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_menu_get_active             (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the selected menu item from the menu.  This is used by the 
+<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31116"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> that was last selected in the menu.  If a 
+selection has not yet been made, the first menu item is selected.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31131"
+></A
+><H3
+><A
+NAME="GTK-MENU-SET-ACTIVE"
+></A
+>gtk_menu_set_active ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_set_active             (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects the specified menu item within the menu.  This is used by the
+<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31139"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the menu item to select.  Index values are from
+0 to n-1.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31153"
+></A
+><H3
+><A
+NAME="GTK-MENU-SET-TEAROFF-STATE"
+></A
+>gtk_menu_set_tearoff_state ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_set_tearoff_state      (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> torn_off);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes the tearoff state of the menu.  A menu is normally displayed 
+as drop down menu which persists as long as the menu is active.  It can 
+also be displayed as a tearoff menu which persists until it is closed 
+or reattached.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31160"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>torn_off</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If TRUE, menu is displayed as a tearoff menu.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31174"
+></A
+><H3
+><A
+NAME="GTK-MENU-ATTACH-TO-WIDGET"
+></A
+>gtk_menu_attach_to_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_attach_to_widget       (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *attach_widget,
+                                             <A
+HREF="gtkmenu.html#GTKMENUDETACHFUNC"
+>GtkMenuDetachFunc</A
+> detacher);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Attaches the menu to the widget and provides a callback function that will
+be invoked when the menu calls <A
+HREF="gtkmenu.html#GTK-MENU-DETACH"
+>gtk_menu_detach</A
+>() during its destruction.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31183"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>attach_widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that the menu will be attached to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>detacher</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user supplied callback function that will be called when 
+the menu calls <A
+HREF="gtkmenu.html#GTK-MENU-DETACH"
+>gtk_menu_detach</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31203"
+></A
+><H3
+><A
+NAME="GTK-MENU-DETACH"
+></A
+>gtk_menu_detach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_detach                 (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Detaches the menu from the widget to which it had been attached.  
+This function will call the callback function, <TT
+CLASS="PARAMETER"
+><I
+>detacher</I
+></TT
+>, provided
+when the <A
+HREF="gtkmenu.html#GTK-MENU-ATTACH-TO-WIDGET"
+>gtk_menu_attach_to_widget</A
+>() function was called.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31211"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31221"
+></A
+><H3
+><A
+NAME="GTK-MENU-GET-ATTACH-WIDGET"
+></A
+>gtk_menu_get_attach_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_menu_get_attach_widget      (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that the menu is attached to.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31229"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that the menu is attached to.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31244"
+></A
+><H3
+><A
+NAME="GTKMENUPOSITIONFUNC"
+></A
+>GtkMenuPositionFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkMenuPositionFunc)          (<A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A user function supplied when calling <A
+HREF="gtkmenu.html#GTK-MENU-POPUP"
+>gtk_menu_popup</A
+>() which controls the
+positioning of the menu when it is displayed.  The function sets the <TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>
+and <TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+> parameters to the coordinates where the menu is to be drawn.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31256"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>address of the <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> representing the horizontal position where the
+menu shall be drawn.  This is an output parameter.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>address of the <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> representing the vertical position where the
+menu shall be drawn.  This is an output parameter.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data supplied by the user in the <A
+HREF="gtkmenu.html#GTK-MENU-POPUP"
+>gtk_menu_popup</A
+>() <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>
+parameter.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31282"
+></A
+><H3
+><A
+NAME="GTKMENUDETACHFUNC"
+></A
+>GtkMenuDetachFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkMenuDetachFunc)            (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *attach_widget,
+                                             <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> *menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A user function supplied when calling <A
+HREF="gtkmenu.html#GTK-MENU-ATTACH-TO-WIDGET"
+>gtk_menu_attach_to_widget</A
+>() which 
+will be called when the menu is later detached from the widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31290"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>attach_widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that the menu is being detached from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> being detached.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtklistitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkmenubar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkListItem</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkMenuBar</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

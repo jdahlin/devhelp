@@ -1,0 +1,4931 @@
+<HTML
+><HEAD
+><TITLE
+>Class GtkTextBuffer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.54"><LINK
+REL="HOME"
+TITLE="PyGTK Docs"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Class GtkTearoffMenuItem"
+HREF="class-gtktearoffmenuitem.html"><LINK
+REL="NEXT"
+TITLE="Class GtkTextChildAnchor"
+HREF="class-gtktextchildanchor.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PyGTK Docs</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="class-gtktearoffmenuitem.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="class-gtktextchildanchor.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CLASS-GTKTEXTBUFFER"
+>Class GtkTextBuffer</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN18576"
+>Ancestry</A
+></H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>+-- GObject
+  +-- <A
+HREF="class-gtktextbuffer.html"
+>GtkTextBuffer</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN18581"
+>Constructor</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="FSFUNC"
+>GtkTextBuffer</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>table</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+></DT
+><DD
+><P
+>a tag table, or NULL to create a new one</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>a new text buffer</P
+></DD
+></DL
+></DIV
+><P
+>Creates a new text buffer.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN18600"
+>Methods</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-LINE-COUNT"
+>GtkTextBuffer.get_line_count</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_line_count</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>number of lines in the buffer</P
+></DD
+></DL
+></DIV
+><P
+>Obtains the number of lines in the buffer. This value is cached, so
+the function is very fast.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-CHAR-COUNT"
+>GtkTextBuffer.get_char_count</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_char_count</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>number of characters in the buffer</P
+></DD
+></DL
+></DIV
+><P
+>Gets the number of characters in the buffer; note that characters
+and bytes are not the same, you can't e.g. expect the contents of
+the buffer in string form to be this many bytes long. The character
+count is cached, so this function is very fast.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-TAG-TABLE"
+>GtkTextBuffer.get_tag_table</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_tag_table</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>the buffer's tag table</P
+></DD
+></DL
+></DIV
+><P
+>Get the <A
+HREF="class-gtktexttagtable.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextTagTable</SPAN
+></A
+> associated with this buffer.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--SET-TEXT"
+>GtkTextBuffer.set_text</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_text</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>len</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></DT
+><DD
+><P
+>UTF-8 text to insert</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></DT
+><DD
+><P
+>length of <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> in bytes</P
+></DD
+></DL
+></DIV
+><P
+>Deletes current contents of <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+>, and inserts <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> instead.  If
+<TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> doesn't end with a newline, a newline is added;
+<A
+HREF="class-gtktextbuffer.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextBuffer</SPAN
+></A
+> contents must always end with a newline. If <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>
+ends with a newline, the new buffer contents will be exactly
+<TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> is -1, <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> must be nul-terminated.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT"
+>GtkTextBuffer.insert</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>len</VAR
+>=-1);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>a position in the buffer</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></DT
+><DD
+><P
+>UTF-8 format text to insert</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></DT
+><DD
+><P
+>length of text in bytes, or -1</P
+></DD
+></DL
+></DIV
+><P
+>Inserts <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> bytes of <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> at position <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+>.  If <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> is -1,
+<TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> must be nul-terminated and will be inserted in its
+entirety. Emits the "insert_text" signal; insertion actually occurs
+in the default handler for the signal. <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> is invalidated when
+insertion occurs (because the buffer contents change), but the
+default signal handler revalidates it to point to the end of the
+inserted text.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-AT-CURSOR"
+>GtkTextBuffer.insert_at_cursor</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_at_cursor</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>len</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></DT
+><DD
+><P
+>some text in UTF-8 format</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></DT
+><DD
+><P
+>length of text, in bytes</P
+></DD
+></DL
+></DIV
+><P
+>Simply calls <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert()</TT
+></A
+>, using the current
+cursor position as the insertion point.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-INTERACTIVE"
+>GtkTextBuffer.insert_interactive</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_interactive</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>len</VAR
+>, <VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>a position in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></DT
+><DD
+><P
+>some UTF-8 text</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></DT
+><DD
+><P
+>length of text in bytes, or -1</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>default editability of buffer</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether text was actually inserted</P
+></DD
+></DL
+></DIV
+><P
+>Like <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert()</TT
+></A
+>, but the insertion will not occur if
+<TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> is at a non-editable location in the buffer.  Usually you
+want to prevent insertions at ineditable locations if the insertion
+results from a user action (is interactive).</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+> indicates the editability of text that doesn't
+have a tag affecting editability applied to it. Typically the
+result of <A
+HREF="class-gtktextview.html#METHOD-GTKTEXTVIEW--GET-EDITABLE"
+><TT
+CLASS="FUNCTION"
+>GtkTextView.get_editable()</TT
+></A
+> is appropriate here.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-INTERACTIVE-AT-CURSOR"
+>GtkTextBuffer.insert_interactive_at_cursor</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_interactive_at_cursor</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>len</VAR
+>, <VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></DT
+><DD
+><P
+>text in UTF-8 format</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></DT
+><DD
+><P
+>length of text in bytes, or -1</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>default editability of buffer</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether text was actually inserted</P
+></DD
+></DL
+></DIV
+><P
+>Calls <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT-INTERACTIVE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert_interactive()</TT
+></A
+> at the cursor
+position.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+> indicates the editability of text that doesn't
+have a tag affecting editability applied to it. Typically the
+result of <A
+HREF="class-gtktextview.html#METHOD-GTKTEXTVIEW--GET-EDITABLE"
+><TT
+CLASS="FUNCTION"
+>GtkTextView.get_editable()</TT
+></A
+> is appropriate here.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-RANGE"
+>GtkTextBuffer.insert_range</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_range</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>start</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>a position in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></DT
+><DD
+><P
+>a position in a <A
+HREF="class-gtktextbuffer.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextBuffer</SPAN
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+></DT
+><DD
+><P
+>another position in the same buffer as <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Copies text, tags, and pixbufs between <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> (the order
+of <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> doesn't matter) and inserts the copy at <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+>.
+Used instead of simply getting/inserting text because it preserves
+images and tags. If <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> are in a different buffer from
+<TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+>, the two buffers must share the same tag table.</P
+><P
+>Implemented via emissions of the insert_text and apply_tag signals,
+so expect those.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-RANGE-INTERACTIVE"
+>GtkTextBuffer.insert_range_interactive</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_range_interactive</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>start</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end</VAR
+>, <VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>a position in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></DT
+><DD
+><P
+>a position in a <A
+HREF="class-gtktextbuffer.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextBuffer</SPAN
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+></DT
+><DD
+><P
+>another position in the same buffer as <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>default editability of the buffer</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether an insertion was possible at <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Same as <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT-RANGE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert_range()</TT
+></A
+>, but does nothing if the
+insertion point isn't editable. The <TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+> parameter
+indicates whether the text is editable at <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> if no tags
+enclosing <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> affect editability. Typically the result of
+<A
+HREF="class-gtktextview.html#METHOD-GTKTEXTVIEW--GET-EDITABLE"
+><TT
+CLASS="FUNCTION"
+>GtkTextView.get_editable()</TT
+></A
+> is appropriate here.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-WITH-TAGS"
+>GtkTextBuffer.insert_with_tags</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_with_tags</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>len</VAR
+>, <VAR
+CLASS="PDPARAM"
+>first_tag</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>an iterator in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></DT
+><DD
+><P
+>UTF-8 text</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></DT
+><DD
+><P
+>length of <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>, or -1</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>first_tag</I
+></TT
+></DT
+><DD
+><P
+>first tag to apply to <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Inserts <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> into <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+> at <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+>, applying the list of tags to
+the newly-inserted text. The last tag specified must be NULL to
+terminate the list. Equivalent to calling <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert()</TT
+></A
+>,
+then <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--APPLY-TAG"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.apply_tag()</TT
+></A
+> on the inserted text;
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT-WITH-TAGS"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert_with_tags()</TT
+></A
+> is just a convenience function.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-WITH-TAGS-BY-NAME"
+>GtkTextBuffer.insert_with_tags_by_name</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_with_tags_by_name</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>text</VAR
+>, <VAR
+CLASS="PDPARAM"
+>len</VAR
+>, <VAR
+CLASS="PDPARAM"
+>first_tag_name</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>position in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></DT
+><DD
+><P
+>UTF-8 text</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></DT
+><DD
+><P
+>length of <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>, or -1</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>first_tag_name</I
+></TT
+></DT
+><DD
+><P
+>name of a tag to apply to <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Same as <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT-WITH-TAGS"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert_with_tags()</TT
+></A
+>, but allows you
+to pass in tag names instead of tag objects.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--DELETE"
+>GtkTextBuffer.delete</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>delete</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>start</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></DT
+><DD
+><P
+>a position in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+></DT
+><DD
+><P
+>another position in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Deletes text between <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>. The order of <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>
+is not actually relevant; <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--DELETE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.delete()</TT
+></A
+> will reorder
+them. This function actually emits the "delete_range" signal, and
+the default handler of that signal deletes the text. Because the
+buffer is modified, all outstanding iterators become invalid after
+calling this function; however, the <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> will be
+re-initialized to point to the location where text was deleted.</P
+><P
+>Note that the final newline in the buffer may not be deleted; a
+<A
+HREF="class-gtktextbuffer.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextBuffer</SPAN
+></A
+> always contains at least one newline.  You can
+safely include the final newline in the range [<TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>) but it
+won't be affected by the deletion.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--DELETE-INTERACTIVE"
+>GtkTextBuffer.delete_interactive</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>delete_interactive</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>start_iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end_iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start_iter</I
+></TT
+></DT
+><DD
+><P
+>start of range to delete</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end_iter</I
+></TT
+></DT
+><DD
+><P
+>end of range</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>whether the buffer is editable by default</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether some text was actually deleted</P
+></DD
+></DL
+></DIV
+><P
+>Deletes all <I
+CLASS="EMPHASIS"
+>editable</I
+> text in the given range.
+Calls <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--DELETE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.delete()</TT
+></A
+> for each editable sub-range of
+[<TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>). <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> are revalidated to point to
+the location of the last deleted range, or left untouched if
+no text was deleted.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-TEXT"
+>GtkTextBuffer.get_text</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_text</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>start</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end</VAR
+>, <VAR
+CLASS="PDPARAM"
+>include_hidden_chars</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></DT
+><DD
+><P
+>start of a range</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+></DT
+><DD
+><P
+>end of a range</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>include_hidden_chars</I
+></TT
+></DT
+><DD
+><P
+>whether to include invisible text</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>an allocated UTF-8 string</P
+></DD
+></DL
+></DIV
+><P
+>Returns the text in the range [<TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>). Excludes undisplayed
+text (text marked with tags that set the invisibility attribute) if
+<TT
+CLASS="PARAMETER"
+><I
+>include_hidden_chars</I
+></TT
+> is FALSE. Does not include characters
+representing embedded images, so byte and character indexes into
+the returned string do <I
+CLASS="EMPHASIS"
+>not</I
+> correspond to byte
+and character indexes into the buffer. Contrast with
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-SLICE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_slice()</TT
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-SLICE"
+>GtkTextBuffer.get_slice</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_slice</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>start</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end</VAR
+>, <VAR
+CLASS="PDPARAM"
+>include_hidden_chars</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></DT
+><DD
+><P
+>start of a range</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+></DT
+><DD
+><P
+>end of a range</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>include_hidden_chars</I
+></TT
+></DT
+><DD
+><P
+>whether to include invisible text</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>an allocated UTF-8 string</P
+></DD
+></DL
+></DIV
+><P
+>Returns the text in the range [<TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>). Excludes undisplayed
+text (text marked with tags that set the invisibility attribute) if
+<TT
+CLASS="PARAMETER"
+><I
+>include_hidden_chars</I
+></TT
+> is FALSE. The returned string includes a
+0xFFFC character whenever the buffer contains
+embedded images, so byte and character indexes into
+the returned string <I
+CLASS="EMPHASIS"
+>do</I
+> correspond to byte
+and character indexes into the buffer. Contrast with
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-TEXT"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_text()</TT
+></A
+>. Note that 0xFFFC can occur in normal
+text as well, so it is not a reliable indicator that a pixbuf or
+widget is in the buffer.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-PIXBUF"
+>GtkTextBuffer.insert_pixbuf</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_pixbuf</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>pixbuf</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>location to insert the pixbuf</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>pixbuf</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+></P
+></DD
+></DL
+></DIV
+><P
+>Inserts an image into the text buffer at <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+>. The image will be
+counted as one character in character counts, and when obtaining
+the buffer contents as a string, will be represented by the Unicode
+"object replacement character" 0xFFFC. Note that the "slice"
+variants for obtaining portions of the buffer as a string include
+this character for pixbufs, but the "text" variants do
+not. e.g. see <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-SLICE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_slice()</TT
+></A
+> and
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-TEXT"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_text()</TT
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--INSERT-CHILD-ANCHOR"
+>GtkTextBuffer.insert_child_anchor</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>insert_child_anchor</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>anchor</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>location to insert the anchor</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>anchor</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gtktextchildanchor.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextChildAnchor</SPAN
+></A
+></P
+></DD
+></DL
+></DIV
+><P
+>Inserts a child widget anchor into the text buffer at <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+>. The
+anchor will be counted as one character in character counts, and
+when obtaining the buffer contents as a string, will be represented
+by the Unicode "object replacement character" 0xFFFC. Note that the
+"slice" variants for obtaining portions of the buffer as a string
+include this character for pixbufs, but the "text" variants do
+not. e.g. see <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-SLICE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_slice()</TT
+></A
+> and
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-TEXT"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_text()</TT
+></A
+>. Consider
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--CREATE-CHILD-ANCHOR"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.create_child_anchor()</TT
+></A
+> as a more convenient
+alternative to this function. The buffer will add a reference to
+the anchor, so you can unref it after insertion.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--CREATE-CHILD-ANCHOR"
+>GtkTextBuffer.create_child_anchor</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>create_child_anchor</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>location in the buffer</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>the created child anchor</P
+></DD
+></DL
+></DIV
+><P
+>This is a convenience function which simply creates a child anchor
+with <TT
+CLASS="FUNCTION"
+>gtk_text_child_anchor_new()</TT
+> and inserts it into the buffer
+with <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT-CHILD-ANCHOR"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert_child_anchor()</TT
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--CREATE-MARK"
+>GtkTextBuffer.create_mark</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>create_mark</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>mark_name</VAR
+>, <VAR
+CLASS="PDPARAM"
+>where</VAR
+>, <VAR
+CLASS="PDPARAM"
+>left_gravity</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>mark_name</I
+></TT
+></DT
+><DD
+><P
+>name for mark, or <TT
+CLASS="LITERAL"
+>NULL</TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>where</I
+></TT
+></DT
+><DD
+><P
+>location to place mark</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>left_gravity</I
+></TT
+></DT
+><DD
+><P
+>whether the mark has left gravity</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>the new <A
+HREF="class-gtktextmark.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextMark</SPAN
+></A
+> object</P
+></DD
+></DL
+></DIV
+><P
+>Creates a mark at position <TT
+CLASS="PARAMETER"
+><I
+>where</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>mark_name</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, the mark
+is anonymous; otherwise, the mark can be retrieved by name using
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-MARK"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_mark()</TT
+></A
+>. If a mark has left gravity, and text is
+inserted at the mark's current location, the mark will be moved to
+the left of the newly-inserted text. If the mark has right gravity
+(<TT
+CLASS="PARAMETER"
+><I
+>left_gravity</I
+></TT
+> = <TT
+CLASS="LITERAL"
+>FALSE</TT
+>), the mark will end up on the right of
+newly-inserted text. The standard left-to-right cursor is a mark
+with right gravity (when you type, the cursor stays on the right
+side of the text you're typing).</P
+><P
+>The caller of this function does <I
+CLASS="EMPHASIS"
+>not</I
+> own a reference
+to the returned <A
+HREF="class-gtktextmark.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextMark</SPAN
+></A
+>, so you can ignore the return value
+if you like. Marks are owned by the buffer and go away when the
+buffer does.</P
+><P
+>Emits the "mark_set" signal as notification of the mark's initial
+placement.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--MOVE-MARK"
+>GtkTextBuffer.move_mark</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>move_mark</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>mark</VAR
+>, <VAR
+CLASS="PDPARAM"
+>where</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gtktextmark.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextMark</SPAN
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>where</I
+></TT
+></DT
+><DD
+><P
+>new location for <TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+> in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Moves <TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+> to the new location <TT
+CLASS="PARAMETER"
+><I
+>where</I
+></TT
+>. Emits the "mark_set" signal
+as notification of the move.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--DELETE-MARK"
+>GtkTextBuffer.delete_mark</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>delete_mark</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>mark</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gtktextmark.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextMark</SPAN
+></A
+> in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Deletes <TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+>, so that it's no longer located anywhere in the
+buffer. Removes the reference the buffer holds to the mark, so if
+you haven't called <TT
+CLASS="FUNCTION"
+>g_object_ref()</TT
+> on the mark, it will be freed. Even
+if the mark isn't freed, most operations on <TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+> become
+invalid. There is no way to undelete a
+mark. <A
+HREF="class-gtktextmark.html#METHOD-GTKTEXTMARK--GET-DELETED"
+><TT
+CLASS="FUNCTION"
+>GtkTextMark.get_deleted()</TT
+></A
+> will return TRUE after this
+function has been called on a mark; <A
+HREF="class-gtktextmark.html#METHOD-GTKTEXTMARK--GET-DELETED"
+><TT
+CLASS="FUNCTION"
+>GtkTextMark.get_deleted()</TT
+></A
+>
+indicates that a mark no longer belongs to a buffer. The "mark_deleted"
+signal will be emitted as notification after the mark is deleted.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-MARK"
+>GtkTextBuffer.get_mark</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_mark</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>name</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+></DT
+><DD
+><P
+>a mark name</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>a <A
+HREF="class-gtktextmark.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextMark</SPAN
+></A
+>, or NULL</P
+></DD
+></DL
+></DIV
+><P
+>Returns the mark named <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+> in buffer <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+>, or NULL if no such
+mark exists in the buffer.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--MOVE-MARK-BY-NAME"
+>GtkTextBuffer.move_mark_by_name</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>move_mark_by_name</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>name</VAR
+>, <VAR
+CLASS="PDPARAM"
+>where</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+></DT
+><DD
+><P
+>name of a mark</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>where</I
+></TT
+></DT
+><DD
+><P
+>new location for mark</P
+></DD
+></DL
+></DIV
+><P
+>Moves the mark named <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+> (which must exist) to location <TT
+CLASS="PARAMETER"
+><I
+>where</I
+></TT
+>.
+See <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--MOVE-MARK"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.move_mark()</TT
+></A
+> for details.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--DELETE-MARK-BY-NAME"
+>GtkTextBuffer.delete_mark_by_name</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>delete_mark_by_name</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>name</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+></DT
+><DD
+><P
+>name of a mark in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Deletes the mark named <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>; the mark must exist. See
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--DELETE-MARK"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.delete_mark()</TT
+></A
+> for details.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-INSERT"
+>GtkTextBuffer.get_insert</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_insert</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>insertion point mark</P
+></DD
+></DL
+></DIV
+><P
+>Returns the mark that represents the cursor (insertion point).
+Equivalent to calling <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-MARK"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_mark()</TT
+></A
+> to get the mark
+name "insert," but very slightly more efficient, and involves less
+typing.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-SELECTION-BOUND"
+>GtkTextBuffer.get_selection_bound</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_selection_bound</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>selection bound mark</P
+></DD
+></DL
+></DIV
+><P
+>Returns the mark that represents the selection bound.  Equivalent
+to calling <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-MARK"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_mark()</TT
+></A
+> to get the mark name
+"selection_bound," but very slightly more efficient, and involves
+less typing.</P
+><P
+>The currently-selected text in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+> is the region between the
+"selection_bound" and "insert" marks. If "selection_bound" and
+"insert" are in the same place, then there is no current selection.
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-SELECTION-BOUNDS"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_selection_bounds()</TT
+></A
+> is another convenient function
+for handling the selection, if you just want to know whether there's a
+selection and what its bounds are.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--PLACE-CURSOR"
+>GtkTextBuffer.place_cursor</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>place_cursor</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>where</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>where</I
+></TT
+></DT
+><DD
+><P
+>where to put the cursor</P
+></DD
+></DL
+></DIV
+><P
+>This function moves the "insert" and "selection_bound" marks
+simultaneously.  If you move them to the same place in two steps
+with <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--MOVE-MARK"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.move_mark()</TT
+></A
+>, you will temporarily select a
+region in between their old and new locations, which can be pretty
+inefficient since the temporarily-selected region will force stuff
+to be recalculated. This function moves them as a unit, which can
+be optimized.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--APPLY-TAG"
+>GtkTextBuffer.apply_tag</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>apply_tag</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>tag</VAR
+>, <VAR
+CLASS="PDPARAM"
+>start_index</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end_index</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>tag</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gtktexttag.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextTag</SPAN
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+></DL
+></DIV
+><P
+>Emits the "apply_tag" signal on <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+>. The default
+handler for the signal applies <TT
+CLASS="PARAMETER"
+><I
+>tag</I
+></TT
+> to the given range.
+<TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> do not have to be in order.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--REMOVE-TAG"
+>GtkTextBuffer.remove_tag</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>remove_tag</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>tag</VAR
+>, <VAR
+CLASS="PDPARAM"
+>start_index</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end_index</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>tag</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gtktexttag.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextTag</SPAN
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+></DL
+></DIV
+><P
+>Emits the "remove_tag" signal. The default handler for the signal
+removes all occurrences of <TT
+CLASS="PARAMETER"
+><I
+>tag</I
+></TT
+> from the given range. <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and
+<TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> don't have to be in order.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--APPLY-TAG-BY-NAME"
+>GtkTextBuffer.apply_tag_by_name</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>apply_tag_by_name</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>name</VAR
+>, <VAR
+CLASS="PDPARAM"
+>start_index</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end_index</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+></DT
+><DD
+><P
+>name of a named <A
+HREF="class-gtktexttag.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextTag</SPAN
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+></DL
+></DIV
+><P
+>Calls <A
+HREF="class-gtktexttagtable.html#METHOD-GTKTEXTTAGTABLE--LOOKUP"
+><TT
+CLASS="FUNCTION"
+>GtkTextTagTable.lookup()</TT
+></A
+> on the buffer's tag table to
+get a <A
+HREF="class-gtktexttag.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextTag</SPAN
+></A
+>, then calls <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--APPLY-TAG"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.apply_tag()</TT
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--REMOVE-TAG-BY-NAME"
+>GtkTextBuffer.remove_tag_by_name</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>remove_tag_by_name</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>name</VAR
+>, <VAR
+CLASS="PDPARAM"
+>start_index</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end_index</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+></DT
+><DD
+><P
+>name of a <A
+HREF="class-gtktexttag.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextTag</SPAN
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end_index</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+></DL
+></DIV
+><P
+>Calls <A
+HREF="class-gtktexttagtable.html#METHOD-GTKTEXTTAGTABLE--LOOKUP"
+><TT
+CLASS="FUNCTION"
+>GtkTextTagTable.lookup()</TT
+></A
+> on the buffer's tag table to
+get a <A
+HREF="class-gtktexttag.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextTag</SPAN
+></A
+>, then calls <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--REMOVE-TAG"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.remove_tag()</TT
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--CREATE-TAG"
+>GtkTextBuffer.create_tag</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>create_tag</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>tag_name</VAR
+>, <VAR
+CLASS="PDPARAM"
+>first_property_name</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>tag_name</I
+></TT
+></DT
+><DD
+><P
+>name of the new tag, or <TT
+CLASS="LITERAL"
+>NULL</TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>first_property_name</I
+></TT
+></DT
+><DD
+><P
+>name of first property to set, or <TT
+CLASS="LITERAL"
+>NULL</TT
+></P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>a new tag</P
+></DD
+></DL
+></DIV
+><P
+>Creates a tag and adds it to the tag table for <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+>.
+Equivalent to calling <TT
+CLASS="FUNCTION"
+>GtkTextTag()</TT
+> and then adding the
+tag to the buffer's tag table. The returned tag has its refcount
+incremented, as if you'd called <TT
+CLASS="FUNCTION"
+>GtkTextTag()</TT
+>.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>tag_name</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, the tag is anonymous.</P
+><P
+>The <TT
+CLASS="PARAMETER"
+><I
+>first_property_name</I
+></TT
+> argument and subsequent arguments are a list
+of properties to set on the tag, as with <TT
+CLASS="FUNCTION"
+>g_object_set()</TT
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-ITER-AT-LINE-OFFSET"
+>GtkTextBuffer.get_iter_at_line_offset</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_iter_at_line_offset</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>line_number</VAR
+>, <VAR
+CLASS="PDPARAM"
+>char_offset</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>line_number</I
+></TT
+></DT
+><DD
+><P
+>line number counting from 0</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>char_offset</I
+></TT
+></DT
+><DD
+><P
+>char offset from start of line</P
+></DD
+></DL
+></DIV
+><P
+>Obtains an iterator pointing to <TT
+CLASS="PARAMETER"
+><I
+>char_offset</I
+></TT
+> within the given
+line. The <TT
+CLASS="PARAMETER"
+><I
+>char_offset</I
+></TT
+> must exist, offsets off the end of the line
+are not allowed. Note <I
+CLASS="EMPHASIS"
+>characters</I
+>, not bytes;
+UTF-8 may encode one character as multiple bytes.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-ITER-AT-LINE-INDEX"
+>GtkTextBuffer.get_iter_at_line_index</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_iter_at_line_index</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>line_number</VAR
+>, <VAR
+CLASS="PDPARAM"
+>byte_offset</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>line_number</I
+></TT
+></DT
+><DD
+><P
+>line number counting from 0</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>byte_offset</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+></DL
+></DIV
+><P
+>Obtains an iterator pointing to <TT
+CLASS="PARAMETER"
+><I
+>byte_index</I
+></TT
+> within the given line.
+<TT
+CLASS="PARAMETER"
+><I
+>byte_index</I
+></TT
+> must be the start of a UTF-8 character, and must not be
+beyond the end of the line.  Note <I
+CLASS="EMPHASIS"
+>bytes</I
+>, not
+characters; UTF-8 may encode one character as multiple bytes.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-ITER-AT-OFFSET"
+>GtkTextBuffer.get_iter_at_offset</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_iter_at_offset</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>char_offset</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>char_offset</I
+></TT
+></DT
+><DD
+><P
+>char offset from start of buffer, counting from 0</P
+></DD
+></DL
+></DIV
+><P
+>Initializes <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> to a position <TT
+CLASS="PARAMETER"
+><I
+>char_offset</I
+></TT
+> chars from the start
+of the entire buffer.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-ITER-AT-LINE"
+>GtkTextBuffer.get_iter_at_line</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_iter_at_line</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>line_number</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>line_number</I
+></TT
+></DT
+><DD
+><P
+>line number counting from 0</P
+></DD
+></DL
+></DIV
+><P
+>Initializes <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> to the start of the given line.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-END-ITER"
+>GtkTextBuffer.get_end_iter</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_end_iter</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize</P
+></DD
+></DL
+></DIV
+><P
+>Initializes <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> with the "end iterator," one past the last valid
+character in the text buffer. If dereferenced with
+<TT
+CLASS="FUNCTION"
+>GtkTextIter.get_char()</TT
+>, the end iterator has a character value of
+0. The entire buffer lies in the range from the first position in
+the buffer (call <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--GET-ITER-AT-OFFSET"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.get_iter_at_offset()</TT
+></A
+> to get
+character position 0) to the end iterator.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-BOUNDS"
+>GtkTextBuffer.get_bounds</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_bounds</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>start</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize with first position in the buffer</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize with the end iterator</P
+></DD
+></DL
+></DIV
+><P
+>Retrieves the first and last iterators in the buffer, i.e. the
+entire buffer lies within the range [<TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-ITER-AT-MARK"
+>GtkTextBuffer.get_iter_at_mark</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_iter_at_mark</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>mark</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gtktextmark.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextMark</SPAN
+></A
+> in <TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Initializes <TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+> with the current position of <TT
+CLASS="PARAMETER"
+><I
+>mark</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-ITER-AT-CHILD-ANCHOR"
+>GtkTextBuffer.get_iter_at_child_anchor</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_iter_at_child_anchor</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>iter</VAR
+>, <VAR
+CLASS="PDPARAM"
+>anchor</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>iter</I
+></TT
+></DT
+><DD
+><P
+>a GtkTextIter*</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>anchor</I
+></TT
+></DT
+><DD
+><P
+>a GtkTextChildAnchor*</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-MODIFIED"
+>GtkTextBuffer.get_modified</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_modified</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the buffer has been modified</P
+></DD
+></DL
+></DIV
+><P
+>Indicates whether the buffer has been modified since the last call
+to <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--SET-MODIFIED"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.set_modified()</TT
+></A
+> set the modification flag to
+<TT
+CLASS="LITERAL"
+>FALSE</TT
+>. Used for example to enable a "save" function in a text
+editor.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--SET-MODIFIED"
+>GtkTextBuffer.set_modified</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_modified</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>setting</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+></DT
+><DD
+><P
+>modification flag setting</P
+></DD
+></DL
+></DIV
+><P
+>Used to keep track of whether the buffer has been modified since the
+last time it was saved. Whenever the buffer is saved to disk, call
+gtk_text_buffer_set_modified (<TT
+CLASS="PARAMETER"
+><I
+>buffer</I
+></TT
+>, FALSE). When the buffer is modified,
+it will automatically toggled on the modified bit again. When the modified
+bit flips, the buffer emits a "modified_changed" signal.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--PASTE-PRIMARY"
+>GtkTextBuffer.paste_primary</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>paste_primary</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>override_location</VAR
+>, <VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>override_location</I
+></TT
+></DT
+><DD
+><P
+>location to insert pasted text, or <TT
+CLASS="LITERAL"
+>NULL</TT
+> for at the cursor</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>whether the buffer is editable by default</P
+></DD
+></DL
+></DIV
+><P
+>Pastes the primary selection at the insertion point, or at <TT
+CLASS="PARAMETER"
+><I
+>override_location</I
+></TT
+>.
+(Note: pasting is asynchronous, that is, we'll ask for the paste data
+and return, and at some point later after the main loop runs, the paste
+data will be inserted.)</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--CUT-CLIPBOARD"
+>GtkTextBuffer.cut_clipboard</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>cut_clipboard</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>default editability of the buffer</P
+></DD
+></DL
+></DIV
+><P
+>Copies the currently-selected text to the clipboard, then deletes
+said text if it's editable.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--COPY-CLIPBOARD"
+>GtkTextBuffer.copy_clipboard</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>copy_clipboard</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Copies the currently-selected text to the clipboard.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--PASTE-CLIPBOARD"
+>GtkTextBuffer.paste_clipboard</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>paste_clipboard</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>whether the buffer is editable by default</P
+></DD
+></DL
+></DIV
+><P
+>Pastes the clipboard contents at the insertion point.  (Note:
+pasting is asynchronous, that is, we'll ask for the paste data and
+return, and at some point later after the main loop runs, the paste
+data will be inserted.)</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--GET-SELECTION-BOUNDS"
+>GtkTextBuffer.get_selection_bounds</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_selection_bounds</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>start</VAR
+>, <VAR
+CLASS="PDPARAM"
+>end</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize with selection start</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+></DT
+><DD
+><P
+>iterator to initialize with selection end</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether the selection has nonzero length</P
+></DD
+></DL
+></DIV
+><P
+>Returns <TT
+CLASS="LITERAL"
+>TRUE</TT
+> if some text is selected; places the bounds
+of the selection in <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> (if the selection has length 0,
+then <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> are filled in with the same value).
+<TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> will be in ascending order. If <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> are
+NULL, then they are not filled in, but the return value still indicates
+whether text is selected.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--DELETE-SELECTION"
+>GtkTextBuffer.delete_selection</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>delete_selection</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>interactive</VAR
+>, <VAR
+CLASS="PDPARAM"
+>default_editable</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>interactive</I
+></TT
+></DT
+><DD
+><P
+>whether the deletion is caused by user interaction</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>default_editable</I
+></TT
+></DT
+><DD
+><P
+>whether the buffer is editable by default</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether there was a non-empty selection to delete</P
+></DD
+></DL
+></DIV
+><P
+>Deletes the range between the "insert" and "selection_bound" marks,
+that is, the currently-selected text. If <TT
+CLASS="PARAMETER"
+><I
+>interactive</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>TRUE</TT
+>,
+the editability of the selection will be considered (users can't delete
+uneditable text).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--BEGIN-USER-ACTION"
+>GtkTextBuffer.begin_user_action</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>begin_user_action</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Called to indicate that the buffer operations between here and a
+call to <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--END-USER-ACTION"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.end_user_action()</TT
+></A
+> are part of a single
+user-visible operation. The operations between
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--BEGIN-USER-ACTION"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.begin_user_action()</TT
+></A
+> and
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--END-USER-ACTION"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.end_user_action()</TT
+></A
+> can then be grouped when creating
+an undo stack. <A
+HREF="class-gtktextbuffer.html"
+><SPAN
+CLASS="TYPE"
+>GtkTextBuffer</SPAN
+></A
+> maintains a count of calls to
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--BEGIN-USER-ACTION"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.begin_user_action()</TT
+></A
+> that have not been closed with
+a call to <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--END-USER-ACTION"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.end_user_action()</TT
+></A
+>, and emits the "begin_user_action"
+and "end_user_action" signals only for the outermost pair of calls.
+This allows you to build user actions from other user actions.</P
+><P
+>The "interactive" buffer mutation functions, such as
+<A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--INSERT-INTERACTIVE"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.insert_interactive()</TT
+></A
+>, automatically call begin/end
+user action around the buffer operations they perform, so there's
+no need to add extra calls if you user action consists solely of a
+single call to one of those functions.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKTEXTBUFFER--END-USER-ACTION"
+>GtkTextBuffer.end_user_action</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>end_user_action</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Should be paired with a call to <A
+HREF="class-gtktextbuffer.html#METHOD-GTKTEXTBUFFER--BEGIN-USER-ACTION"
+><TT
+CLASS="FUNCTION"
+>GtkTextBuffer.begin_user_action()</TT
+></A
+>.
+See that function for a full explanation.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="class-gtktearoffmenuitem.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="class-gtktextchildanchor.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class GtkTearoffMenuItem</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class GtkTextChildAnchor</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

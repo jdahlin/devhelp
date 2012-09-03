@@ -1,0 +1,158 @@
+<HTML
+><HEAD
+><TITLE
+>The PonG-Edit (pong-edit)</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="What is PonG"
+HREF="pong-what-is-pong.html"><LINK
+REL="PREVIOUS"
+TITLE="The PonG Library"
+HREF="wip-pong-library.html"><LINK
+REL="NEXT"
+TITLE="The pong-tool"
+HREF="wip-pong-tool.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="wip-pong-library.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>What is PonG</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="wip-pong-tool.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="WIP-PONG-EDIT"
+>The PonG-Edit (pong-edit)</A
+></H1
+><P
+>        There is a GUI editor for the .pong.in (untranslated) files, called
+	PonG-Edit (command line is just "pong-edit".  It is fairly simple to
+	use once you understand how .pong(.in) files are structured.  It allows
+	you to change and test the PonG file without having to recompile your
+	application, making development easier.
+      </P
+><P
+>	The way translations work is that the file that PonG-Edit generates has
+	some strings marked for translation, this file is normally saved with
+	the extention .pong.in.  You should then use xml-i18n-tools on this
+	file to generate a new file called .pong which has the translations
+	merged in.  The .pong.in file will in fact
+	also work when loaded with the library, just like the .pong file,
+	you will just not have any of the translations.
+      </P
+><P
+>	PonG-Edit can generate GConf schema files, but without translations,
+	you should really use pong-gconf-schema-export program described below.
+	That program takes a .pong file with the translations merged in by
+	xml-i18n-tools and generates a GConf schema file with all translations
+	done properly.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="wip-pong-library.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="wip-pong-tool.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The PonG Library</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="pong-what-is-pong.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The pong-tool</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

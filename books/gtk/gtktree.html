@@ -1,0 +1,2922 @@
+<HTML
+><HEAD
+><TITLE
+>GtkTree</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkTooltips"
+HREF="gtktooltips.html"><LINK
+REL="NEXT"
+TITLE="GtkTreeItem"
+HREF="gtktreeitem.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktooltips.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktreeitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKTREE"
+>GtkTree</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN42848"
+></A
+><H2
+>Name</H2
+>GtkTree&nbsp;--&nbsp;A treelist widget.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN42851"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtktree.html#GTKTREE-STRUCT"
+>GtkTree</A
+>;
+#define     <A
+HREF="gtktree.html#GTK-IS-ROOT-TREE-CAPS"
+>GTK_IS_ROOT_TREE</A
+>                (obj)
+#define     <A
+HREF="gtktree.html#GTK-TREE-ROOT-TREE-CAPS"
+>GTK_TREE_ROOT_TREE</A
+>              (obj)
+#define     <A
+HREF="gtktree.html#GTK-TREE-SELECTION-CAPS"
+>GTK_TREE_SELECTION</A
+>              (obj)
+enum        <A
+HREF="gtktree.html#GTKTREEVIEWMODE"
+>GtkTreeViewMode</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktree.html#GTK-TREE-NEW"
+>gtk_tree_new</A
+>                    (void);
+void        <A
+HREF="gtktree.html#GTK-TREE-APPEND"
+>gtk_tree_append</A
+>                 (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);
+void        <A
+HREF="gtktree.html#GTK-TREE-PREPEND"
+>gtk_tree_prepend</A
+>                (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);
+void        <A
+HREF="gtktree.html#GTK-TREE-INSERT"
+>gtk_tree_insert</A
+>                 (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtktree.html#GTK-TREE-REMOVE-ITEMS"
+>gtk_tree_remove_items</A
+>           (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);
+void        <A
+HREF="gtktree.html#GTK-TREE-CLEAR-ITEMS"
+>gtk_tree_clear_items</A
+>            (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> end);
+void        <A
+HREF="gtktree.html#GTK-TREE-SELECT-ITEM"
+>gtk_tree_select_item</A
+>            (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);
+void        <A
+HREF="gtktree.html#GTK-TREE-UNSELECT-ITEM"
+>gtk_tree_unselect_item</A
+>          (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);
+void        <A
+HREF="gtktree.html#GTK-TREE-SELECT-CHILD"
+>gtk_tree_select_child</A
+>           (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);
+void        <A
+HREF="gtktree.html#GTK-TREE-UNSELECT-CHILD"
+>gtk_tree_unselect_child</A
+>         (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtktree.html#GTK-TREE-CHILD-POSITION"
+>gtk_tree_child_position</A
+>         (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtktree.html#GTK-TREE-SET-SELECTION-MODE"
+>gtk_tree_set_selection_mode</A
+>     (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSELECTIONMODE"
+>GtkSelectionMode</A
+> mode);
+void        <A
+HREF="gtktree.html#GTK-TREE-SET-VIEW-MODE"
+>gtk_tree_set_view_mode</A
+>          (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtktree.html#GTKTREEVIEWMODE"
+>GtkTreeViewMode</A
+> mode);
+void        <A
+HREF="gtktree.html#GTK-TREE-SET-VIEW-LINES"
+>gtk_tree_set_view_lines</A
+>         (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> flag);
+void        <A
+HREF="gtktree.html#GTK-TREE-REMOVE-ITEM"
+>gtk_tree_remove_item</A
+>            (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42906"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkTree</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42912"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtktree.html#GTKTREE-SELECTION-CHANGED"
+>selection-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtktree.html#GTKTREE-SELECT-CHILD"
+>select-child</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtktree.html#GTKTREE-UNSELECT-CHILD"
+>unselect-child</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42926"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtktree.html"
+>GtkTree</A
+> widget is a container that shows users a list of items, in a tree format complete with branches and leafnodes. Branches can be expanded to show their child items, or collapsed to hide them.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42930"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42932"
+></A
+><H3
+><A
+NAME="GTKTREE-STRUCT"
+></A
+>struct GtkTree</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTree;</PRE
+></TD
+></TR
+></TABLE
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct _GtkTree
+{
+  GtkContainer container;
+  GList *children;
+  GtkTree* root_tree; /* owner of selection list */
+  GtkWidget* tree_owner;
+  GList *selection;
+  guint level;
+  guint indent_value;
+  guint current_indent;
+  guint selection_mode : 2;
+  guint view_mode : 1;
+  guint view_line : 1;
+};</PRE
+></TD
+></TR
+></TABLE
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42938"
+></A
+><H3
+><A
+NAME="GTK-IS-ROOT-TREE-CAPS"
+></A
+>GTK_IS_ROOT_TREE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_IS_ROOT_TREE(obj)   ((GtkObject*) GTK_TREE(obj)-&gt;root_tree == (GtkObject*)obj)</PRE
+></TD
+></TR
+></TABLE
+><P
+>A macro that returns a boolean value which indicates if <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+> is a root tree or not.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42944"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtktree.html"
+>GtkTree</A
+>. <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+> will accept any pointer, but if the pointer does not point to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>, the results are undefined.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42956"
+></A
+><H3
+><A
+NAME="GTK-TREE-ROOT-TREE-CAPS"
+></A
+>GTK_TREE_ROOT_TREE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_TREE_ROOT_TREE(obj) (GTK_TREE(obj)-&gt;root_tree ? GTK_TREE(obj)-&gt;root_tree : GTK_TREE(obj))</PRE
+></TD
+></TR
+></TABLE
+><P
+>A macro that returns the root tree of <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+>.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+> is already a root tree, <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+> is cast to <A
+HREF="gtktree.html"
+>GtkTree</A
+> and returned.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42966"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtktree.html"
+>GtkTree</A
+>. <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+> will accept any pointer, but if the pointer does not point to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>, the results are undefined.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42978"
+></A
+><H3
+><A
+NAME="GTK-TREE-SELECTION-CAPS"
+></A
+>GTK_TREE_SELECTION()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_TREE_SELECTION(obj) (GTK_TREE_ROOT_TREE(obj)-&gt;selection)</PRE
+></TD
+></TR
+></TABLE
+><P
+>A macro that returns a GList that contains the selection of the root tree of <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42984"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtktree.html"
+>GtkTree</A
+>. <TT
+CLASS="PARAMETER"
+><I
+>obj</I
+></TT
+> will accept any pointer, but it the pointer does not point to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>, the results are undefined.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42996"
+></A
+><H3
+><A
+NAME="GTKTREEVIEWMODE"
+></A
+>enum GtkTreeViewMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum 
+{
+  GTK_TREE_VIEW_LINE,  /* default view mode */
+  GTK_TREE_VIEW_ITEM
+} GtkTreeViewMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43001"
+></A
+><H3
+><A
+NAME="GTK-TREE-NEW"
+></A
+>gtk_tree_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_tree_new                    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43008"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the newly allocated widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43017"
+></A
+><H3
+><A
+NAME="GTK-TREE-APPEND"
+></A
+>gtk_tree_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_append                 (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the <A
+HREF="gtktreeitem.html"
+>GtkTreeItem</A
+> in <TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+> to the end of the items in <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43027"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that is to be appended to the tree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43042"
+></A
+><H3
+><A
+NAME="GTK-TREE-PREPEND"
+></A
+>gtk_tree_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_prepend                (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the <A
+HREF="gtktreeitem.html"
+>GtkTreeItem</A
+> in <TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+> to the start of the items in <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43052"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that is to be prepended to the tree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43067"
+></A
+><H3
+><A
+NAME="GTK-TREE-INSERT"
+></A
+>gtk_tree_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_insert                 (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the <A
+HREF="gtktreeitem.html"
+>GtkTreeItem</A
+> in <TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+> to the list of items in <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+> at the position indicated by <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43079"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that is to be added to the tree.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> that indicates the position in the tree, that the tree_item is to be added at.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43099"
+></A
+><H3
+><A
+NAME="GTK-TREE-REMOVE-ITEMS"
+></A
+>gtk_tree_remove_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_remove_items           (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *items);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes a list of items from the <A
+HREF="gtktree.html"
+>GtkTree</A
+> in <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>.</P
+><P
+>If only one item is to be removed from the <A
+HREF="gtktree.html"
+>GtkTree</A
+>, <A
+HREF="gtkcontainer.html#GTK-CONTAINER-REMOVE"
+>gtk_container_remove</A
+>() can be used instead.</P
+><P
+>Removing an item from a <A
+HREF="gtktree.html"
+>GtkTree</A
+> dereferences the item, and thus usually destroys the item and any subtrees it may contain. If the item is not to be destroyed, use <A
+HREF="gtkobject.html#GTK-OBJECT-REF"
+>gtk_object_ref</A
+>() before removing it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43114"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> that contains the items to be removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43129"
+></A
+><H3
+><A
+NAME="GTK-TREE-CLEAR-ITEMS"
+></A
+>gtk_tree_clear_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_clear_items            (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> end);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the items at positions between <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+> from the <A
+HREF="gtktree.html"
+>GtkTree</A
+> <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>.</P
+><P
+>Removing an item from a <A
+HREF="gtktree.html"
+>GtkTree</A
+> dereferences the item, and thus usually destroys the item and any subtrees it may contain. If the item is not to be destroyed, use <A
+HREF="gtkobject.html#GTK-OBJECT-REF"
+>gtk_object_ref</A
+>() before removing it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43144"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A gint.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A gint.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43162"
+></A
+><H3
+><A
+NAME="GTK-TREE-SELECT-ITEM"
+></A
+>gtk_tree_select_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_select_item            (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits the select_item signal for the child at position <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>, and thus selects it (unless it is unselected in a signal handler).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43171"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A gint.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43185"
+></A
+><H3
+><A
+NAME="GTK-TREE-UNSELECT-ITEM"
+></A
+>gtk_tree_unselect_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_unselect_item          (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits the unselect_item for the child at position <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>, and thus unselects it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43194"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A gint.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43208"
+></A
+><H3
+><A
+NAME="GTK-TREE-SELECT-CHILD"
+></A
+>gtk_tree_select_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_select_child           (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits the select_item signal for the child <TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+>, and thus selects it (unless it is unselected in a signal handler).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43217"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that is to be selected.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43232"
+></A
+><H3
+><A
+NAME="GTK-TREE-UNSELECT-CHILD"
+></A
+>gtk_tree_unselect_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_unselect_child         (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tree_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits the unselect_item signal for the child <TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+>, and thus unselects it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43241"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that is to be selected.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43256"
+></A
+><H3
+><A
+NAME="GTK-TREE-CHILD-POSITION"
+></A
+>gtk_tree_child_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_tree_child_position         (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the position of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> in the <A
+HREF="gtktree.html"
+>GtkTree</A
+> <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is not a child of <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>, then -1 is returned.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43270"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A gint.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43289"
+></A
+><H3
+><A
+NAME="GTK-TREE-SET-SELECTION-MODE"
+></A
+>gtk_tree_set_selection_mode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_set_selection_mode     (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSELECTIONMODE"
+>GtkSelectionMode</A
+> mode);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the selection mode for the <A
+HREF="gtktree.html"
+>GtkTree</A
+> <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+> can be one of</P
+><P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_SELECTION_SINGLE</TT
+> for when only one item can be selected at a time.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_SELECTION_BROWSE</TT
+> for when one item must be selected.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_SELECTION_MULTIPLE</TT
+> for when many items can be selected at once.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_SELECTION_EXTENDED</TT
+> Reserved for later use.</P
+></LI
+></UL
+><P
+>The selection mode is only defined for a root tree, as the root tree "owns" the selection.</P
+><P
+>The default mode is <TT
+CLASS="LITERAL"
+>GTK_SELECTION_SINGLE</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43316"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtk-standard-enumerations.html#GTKSELECTIONMODE"
+>GtkSelectionMode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43331"
+></A
+><H3
+><A
+NAME="GTK-TREE-SET-VIEW-MODE"
+></A
+>gtk_tree_set_view_mode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_set_view_mode          (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtktree.html#GTKTREEVIEWMODE"
+>GtkTreeViewMode</A
+> mode);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the 'viewmode' for the <A
+HREF="gtktree.html"
+>GtkTree</A
+> in <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>. The 'viewmode' defines how the tree looks when an item is selected.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+> can be one of:</P
+><P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_TREE_VIEW_LINE</TT
+> : When an item is selected the entire <A
+HREF="gtktreeitem.html"
+>GtkTreeItem</A
+> is highlighted.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_TREE_VIEW_ITEM</TT
+> : When an item is selected only the selected item's child widget is highlighted.</P
+></LI
+></UL
+><P
+>The default mode is <TT
+CLASS="LITERAL"
+>GTK_TREE_VIEW_LINE</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43352"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtktree.html#GTKTREEVIEWMODE"
+>GtkTreeViewMode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43367"
+></A
+><H3
+><A
+NAME="GTK-TREE-SET-VIEW-LINES"
+></A
+>gtk_tree_set_view_lines ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_set_view_lines         (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> flag);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether or not the connecting lines between branches and children are drawn.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43374"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flag</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A guint, indicating <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, or <TT
+CLASS="LITERAL"
+>FALSE</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43390"
+></A
+><H3
+><A
+NAME="GTK-TREE-REMOVE-ITEM"
+></A
+>gtk_tree_remove_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tree_remove_item            (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the item <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> from the <A
+HREF="gtktree.html"
+>GtkTree</A
+> <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43400"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that is to be removed from the tree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN43415"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43417"
+></A
+><H3
+><A
+NAME="GTKTREE-SELECTION-CHANGED"
+></A
+>The &quot;selection-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted by the root tree whenever the selection changes.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43424"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43437"
+></A
+><H3
+><A
+NAME="GTKTREE-SELECT-CHILD"
+></A
+>The &quot;select-child&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted by <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+> whenever <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> is about to be selected.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43447"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The child that is about to be selected.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN43464"
+></A
+><H3
+><A
+NAME="GTKTREE-UNSELECT-CHILD"
+></A
+>The &quot;unselect-child&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktree.html"
+>GtkTree</A
+> *tree,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted by <TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+> whenever <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> is about to be unselected.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN43474"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The child that is about to be unselected.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN43491"
+></A
+><H2
+>See Also</H2
+><P
+>GtkTreeList for the items to put into a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</P
+><P
+><A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> for details on how to scroll around a <A
+HREF="gtktree.html"
+>GtkTree</A
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktooltips.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktreeitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTooltips</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTreeItem</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,757 @@
+<HTML
+><HEAD
+><TITLE
+>GTK+ Reference Manual</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="NEXT"
+TITLE="GTK+ "
+HREF="gtk.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><DIV
+CLASS="TITLEPAGE"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+ALIGN="center"
+VALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="7"
+><P
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>GTK+ Reference Manual</A
+></P
+></FONT
+></TH
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="gtk.html"
+>GTK+</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="gtk-general.html"
+>General</A
+> &#8212; Mainloop and event handling</DT
+><DT
+><A
+HREF="gtk-feature-test-macros.html"
+>Version Information</A
+> &#8212; variables and functions to check the GTK+ version.</DT
+><DT
+><A
+HREF="gtk-graphics-contexts.html"
+>Graphics Contexts</A
+> &#8212; provides access to a shared pool of <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> objects.</DT
+><DT
+><A
+HREF="gtk-styles.html"
+>Styles</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-themes.html"
+>Themes</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-resource-files.html"
+>Resource Files</A
+> &#8212; Routines for handling resource files</DT
+><DT
+><A
+HREF="gtk-keyboard-accelerators.html"
+>Keyboard Accelerators</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-selections.html"
+>Selections</A
+> &#8212; Functions for handling inter-process communication via selections.</DT
+><DT
+><A
+HREF="gtk-drag-and-drop.html"
+>Drag and Drop</A
+> &#8212; Functions for controlling drag and drop handling.</DT
+><DT
+><A
+HREF="gtk-signals.html"
+>Signals</A
+> &#8212; Object methods and callbacks.</DT
+><DT
+><A
+HREF="gtk-signal-marshallers.html"
+>Signal Marshallers</A
+> &#8212; Functions to adapt C structures to native calling convention.</DT
+><DT
+><A
+HREF="gtk-object-properties.html"
+>Implementation of Object Properties</A
+> &#8212; Utility function to manipulate lists of named, typed arguments.</DT
+><DT
+><A
+HREF="gtk-types.html"
+>Types</A
+> &#8212; Handle run-time type creation.</DT
+><DT
+><A
+HREF="gtk-bindings.html"
+>Bindings</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-standard-enumerations.html"
+>Standard Enumerations</A
+> &#8212; Public enumerated types used throughout GTK+.</DT
+><DT
+><A
+HREF="gtk-private-information.html"
+>Private Information</A
+> &#8212; </DT
+></DL
+></DD
+><DT
+><A
+HREF="gtkobjects.html"
+>GTK+ Widgets and Objects</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> &#8212; a label which displays an accelerator key on the right of the text.</DT
+><DT
+><A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> &#8212; a <A
+HREF="gtkobject.html"
+>GtkObject</A
+> representing an adjustable bounded value.</DT
+><DT
+><A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+> &#8212; a widget which controls the alignment and size of its child.</DT
+><DT
+><A
+HREF="gtkarrow.html"
+>GtkArrow</A
+> &#8212; produces an arrow pointing in one of the four cardinal directions.</DT
+><DT
+><A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+> &#8212; A frame that constrains its child to a particular aspect ratio.</DT
+><DT
+><A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> &#8212; Base class for <A
+HREF="gtkhbuttonbox.html"
+>GtkHButtonBox</A
+> and <A
+HREF="gtkvbuttonbox.html"
+>GtkVButtonBox</A
+></DT
+><DT
+><A
+HREF="gtkbin.html"
+>GtkBin</A
+> &#8212; a container with just one child.</DT
+><DT
+><A
+HREF="gtkbox.html"
+>GtkBox</A
+> &#8212; a base class for box containers</DT
+><DT
+><A
+HREF="gtkbutton.html"
+>GtkButton</A
+> &#8212; A widget that creates a signal when clicked on.</DT
+><DT
+><A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> &#8212; display a calendar and/or allow the user to select a date.</DT
+><DT
+><A
+HREF="gtkcheckbutton.html"
+>GtkCheckButton</A
+> &#8212; create widgets with a discrete toggle button.</DT
+><DT
+><A
+HREF="gtkcheckmenuitem.html"
+>GtkCheckMenuItem</A
+> &#8212; a menu item with a check box.</DT
+><DT
+><A
+HREF="gtkclist.html"
+>GtkCList</A
+> &#8212; A multi-columned scrolling list widget.</DT
+><DT
+><A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> &#8212; a widget used to select a color.</DT
+><DT
+><A
+HREF="gtkcolorselectiondialog.html"
+>GtkColorSelectionDialog</A
+> &#8212; a standard dialog box for selecting a color.</DT
+><DT
+><A
+HREF="gtkcombo.html"
+>GtkCombo</A
+> &#8212; a text entry field with a dropdown list.</DT
+><DT
+><A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtkctree.html"
+>GtkCTree</A
+> &#8212; a widget displaying a hierarchical tree.</DT
+><DT
+><A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> &#8212; allows direct editing of a curve.</DT
+><DT
+><A
+HREF="gtkdata.html"
+>GtkData</A
+> &#8212; abstract base class for objects containing data.</DT
+><DT
+><A
+HREF="gtkdialog.html"
+>GtkDialog</A
+> &#8212; create popup windows.</DT
+><DT
+><A
+HREF="gtkdrawingarea.html"
+>GtkDrawingArea</A
+> &#8212; a widget for custom user interface elements.</DT
+><DT
+><A
+HREF="gtkeditable.html"
+>GtkEditable</A
+> &#8212; Base class for text-editing widgets.</DT
+><DT
+><A
+HREF="gtkentry.html"
+>GtkEntry</A
+> &#8212; a single line text entry field.</DT
+><DT
+><A
+HREF="gtkeventbox.html"
+>GtkEventBox</A
+> &#8212; a widget used to catch events for widgets which do not have their own window.</DT
+><DT
+><A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> &#8212; prompt the user for a file or directory name.</DT
+><DT
+><A
+HREF="gtkfixed.html"
+>GtkFixed</A
+> &#8212; a container which supports fixed sizes and positions of its children.</DT
+><DT
+><A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> &#8212; a widget for selecting fonts.</DT
+><DT
+><A
+HREF="gtkfontselectiondialog.html"
+>GtkFontSelectionDialog</A
+> &#8212; a dialog box for selecting fonts.</DT
+><DT
+><A
+HREF="gtkframe.html"
+>GtkFrame</A
+> &#8212; A bin with a decorative frame and optional label.</DT
+><DT
+><A
+HREF="gtkgammacurve.html"
+>GtkGammaCurve</A
+> &#8212; a subclass of <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> for editing gamma curves.</DT
+><DT
+><A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> &#8212; a widget for  detachable window portions.</DT
+><DT
+><A
+HREF="gtkhbuttonbox.html"
+>GtkHButtonBox</A
+> &#8212; a container for arranging button horizontally.</DT
+><DT
+><A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> &#8212; horizontal container box</DT
+><DT
+><A
+HREF="gtkhpaned.html"
+>GtkHPaned</A
+> &#8212; A container with two panes arranged horizontally.</DT
+><DT
+><A
+HREF="gtkhruler.html"
+>GtkHRuler</A
+> &#8212; A horizontal ruler.</DT
+><DT
+><A
+HREF="gtkhscale.html"
+>GtkHScale</A
+> &#8212; a horizontal slider widget for selecting a value from a range.</DT
+><DT
+><A
+HREF="gtkhscrollbar.html"
+>GtkHScrollbar</A
+> &#8212; A horizontal scrollbar</DT
+><DT
+><A
+HREF="gtkhseparator.html"
+>GtkHSeparator</A
+> &#8212; a horizontal separator.</DT
+><DT
+><A
+HREF="gtkimage.html"
+>GtkImage</A
+> &#8212; A widget displaying a graphical image</DT
+><DT
+><A
+HREF="gtkinputdialog.html"
+>GtkInputDialog</A
+> &#8212; Configure devices for the XInput extension.</DT
+><DT
+><A
+HREF="gtkinvisible.html"
+>GtkInvisible</A
+> &#8212; internally-used widget which is not displayed.</DT
+><DT
+><A
+HREF="gtkitem.html"
+>GtkItem</A
+> &#8212; abstract base class for <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>, <A
+HREF="gtklistitem.html"
+>GtkListItem</A
+> and <A
+HREF="gtktreeitem.html"
+>GtkTreeItem</A
+>.</DT
+><DT
+><A
+HREF="gtkitemfactory.html"
+>GtkItemFactory</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtklabel.html"
+>GtkLabel</A
+> &#8212; A widget that displays a small to medium amount of text.</DT
+><DT
+><A
+HREF="gtklayout.html"
+>GtkLayout</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtklist.html"
+>GtkList</A
+> &#8212; Widget for packing a list of selectable items.</DT
+><DT
+><A
+HREF="gtklistitem.html"
+>GtkListItem</A
+> &#8212; an item in a <A
+HREF="gtklist.html"
+>GtkList</A
+>.</DT
+><DT
+><A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> &#8212; a drop down menu widget.</DT
+><DT
+><A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> &#8212; A subclass widget for <A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+> which holds <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> widgets</DT
+><DT
+><A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> &#8212; the widget used for item in menus</DT
+><DT
+><A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+> &#8212; a base class for menu objects.</DT
+><DT
+><A
+HREF="gtkmisc.html"
+>GtkMisc</A
+> &#8212; a base class for widgets with alignments and padding.</DT
+><DT
+><A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> &#8212; Set of pages with bookmarks.</DT
+><DT
+><A
+HREF="gtkobject.html"
+>GtkObject</A
+> &#8212; The base class of the Gtk type hierarchy.</DT
+><DT
+><A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> &#8212; a widget used to choose from a list of valid choices.</DT
+><DT
+><A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> &#8212; Base class for widgets with two adjustable panes</DT
+><DT
+><A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> &#8212; a widget displaying a graphical image or icon.</DT
+><DT
+><A
+HREF="gtkplug.html"
+>GtkPlug</A
+> &#8212; Toplevel for embedding into other processes.</DT
+><DT
+><A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> &#8212; a widget to display RGB or grayscale data.</DT
+><DT
+><A
+HREF="gtkprogress.html"
+>GtkProgress</A
+> &#8212; the base class for <A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+>.</DT
+><DT
+><A
+HREF="gtkprogressbar.html"
+>GtkProgressBar</A
+> &#8212; a widget which indicates progress visually.</DT
+><DT
+><A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> &#8212; A choice from multiple check buttons.</DT
+><DT
+><A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+> &#8212; A choice from multiple check menu items.</DT
+><DT
+><A
+HREF="gtkrange.html"
+>GtkRange</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtkruler.html"
+>GtkRuler</A
+> &#8212; Base class for horizontal or vertical rulers</DT
+><DT
+><A
+HREF="gtkscale.html"
+>GtkScale</A
+> &#8212; a base class for <A
+HREF="gtkhscale.html"
+>GtkHScale</A
+> and <A
+HREF="gtkvscale.html"
+>GtkVScale</A
+>.</DT
+><DT
+><A
+HREF="gtkscrollbar.html"
+>GtkScrollbar</A
+> &#8212; base class for <A
+HREF="gtkhscrollbar.html"
+>GtkHScrollbar</A
+> and GtkVScrollbar.</DT
+><DT
+><A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> &#8212; 
+Adds scrollbars to its child widget.</DT
+><DT
+><A
+HREF="gtkseparator.html"
+>GtkSeparator</A
+> &#8212; a base class for <A
+HREF="gtkhseparator.html"
+>GtkHSeparator</A
+> and <A
+HREF="gtkvseparator.html"
+>GtkVseparator</A
+>.</DT
+><DT
+><A
+HREF="gtksocket.html"
+>GtkSocket</A
+> &#8212; Container for widgets from other processes.</DT
+><DT
+><A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> &#8212; retrieve an integer or floating-point number from the user.</DT
+><DT
+><A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> &#8212; report messages of minor importance to the user.</DT
+><DT
+><A
+HREF="gtktable.html"
+>GtkTable</A
+> &#8212; Pack widgets in regular patterns.</DT
+><DT
+><A
+HREF="gtktearoffmenuitem.html"
+>GtkTearoffMenuItem</A
+> &#8212; a menu item used to tear off and reattach its menu.</DT
+><DT
+><A
+HREF="gtktext.html"
+>GtkText</A
+> &#8212; text widget which allows display and manipulation of arbitrary text</DT
+><DT
+><A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+> &#8212; displays help about widgets in the user interface.</DT
+><DT
+><A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> &#8212; create buttons which retain their state.</DT
+><DT
+><A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> &#8212; create bars of buttons and other widgets.</DT
+><DT
+><A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> &#8212; Add tips to your widgets.</DT
+><DT
+><A
+HREF="gtktree.html"
+>GtkTree</A
+> &#8212; A treelist widget.</DT
+><DT
+><A
+HREF="gtktreeitem.html"
+>GtkTreeItem</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtkvbuttonbox.html"
+>GtkVButtonBox</A
+> &#8212; a container for arranging buttons vertically.</DT
+><DT
+><A
+HREF="gtkvbox.html"
+>GtkVBox</A
+> &#8212; vertical container box</DT
+><DT
+><A
+HREF="gtkviewport.html"
+>GtkViewport</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtkvpaned.html"
+>GtkVPaned</A
+> &#8212; A container with two panes arranged vertically.</DT
+><DT
+><A
+HREF="gtkvruler.html"
+>GtkVRuler</A
+> &#8212; A vertical ruler.</DT
+><DT
+><A
+HREF="gtkvscale.html"
+>GtkVScale</A
+> &#8212; a vertical slider widget for selecting a value from a range.</DT
+><DT
+><A
+HREF="gtkvscrollbar.html"
+>GtkVScrollbar</A
+> &#8212; A vertical scrollbar</DT
+><DT
+><A
+HREF="gtkvseparator.html"
+>GtkVSeparator</A
+> &#8212; a vertical separator.</DT
+><DT
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> &#8212; </DT
+></DL
+></DD
+><DT
+><A
+HREF="gtk-index.html"
+>Index</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="gtk-index.html#AEN49629"
+>Object Hierarchy</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+>&nbsp;</TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&nbsp;</B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&nbsp;</B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+>&nbsp;</TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GTK+</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

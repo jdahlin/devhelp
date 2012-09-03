@@ -1,0 +1,6476 @@
+<HTML
+><HEAD
+><TITLE
+>Signals</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Drag and Drop"
+HREF="gtk-drag-and-drop.html"><LINK
+REL="NEXT"
+TITLE="Signal Marshallers"
+HREF="gtk-signal-marshallers.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-signal-marshallers.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-SIGNALS"
+>Signals</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN7609"
+></A
+><H2
+>Name</H2
+>Signals&nbsp;--&nbsp;Object methods and callbacks.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN7612"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+#define     <A
+HREF="gtk-signals.html#GTK-SIGNAL-OFFSET-CAPS"
+>GTK_SIGNAL_OFFSET</A
+>               (struct, field)
+void        (<A
+HREF="gtk-signals.html#GTKSIGNALMARSHAL"
+>*GtkSignalMarshal</A
+>)             (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nparams,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> *arg_types,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> return_type);
+void        (<A
+HREF="gtk-signals.html#GTKSIGNALDESTROY"
+>*GtkSignalDestroy</A
+>)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    (<A
+HREF="gtk-signals.html#GTKEMISSIONHOOK"
+>*GtkEmissionHook</A
+>)              (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_params,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *params,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+struct      <A
+HREF="gtk-signals.html#GTKSIGNALQUERY"
+>GtkSignalQuery</A
+>;
+enum        <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+>;
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-INIT"
+>gtk_signal_init</A
+>                 (void);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEW"
+>gtk_signal_new</A
+>                  (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> function_offset,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALMARSHALLER"
+>GtkSignalMarshaller</A
+> marshaller,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> return_val,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nparams,
+                                             ...);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEWV"
+>gtk_signal_newv</A
+>                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> function_offset,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALMARSHALLER"
+>GtkSignalMarshaller</A
+> marshaller,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> return_val,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nparams,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> *params);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-LOOKUP"
+>gtk_signal_lookup</A
+>               (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-signals.html#GTK-SIGNAL-NAME"
+>gtk_signal_name</A
+>                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>                 (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             ...);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT-BY-NAME"
+>gtk_signal_emit_by_name</A
+>         (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             ...);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMITV"
+>gtk_signal_emitv</A
+>                (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *params);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMITV-BY-NAME"
+>gtk_signal_emitv_by_name</A
+>        (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *params);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-N-EMISSIONS"
+>gtk_signal_n_emissions</A
+>          (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-N-EMISSIONS-BY-NAME"
+>gtk_signal_n_emissions_by_name</A
+>  (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT-STOP"
+>gtk_signal_emit_stop</A
+>            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT-STOP-BY-NAME"
+>gtk_signal_emit_stop_by_name</A
+>    (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT"
+>gtk_signal_connect</A
+>              (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-AFTER"
+>gtk_signal_connect_after</A
+>        (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-OBJECT"
+>gtk_signal_connect_object</A
+>       (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *slot_object);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-OBJECT-AFTER"
+>gtk_signal_connect_object_after</A
+> (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *slot_object);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-FULL"
+>gtk_signal_connect_full</A
+>         (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy_func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> object_signal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> after);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-WHILE-ALIVE"
+>gtk_signal_connect_while_alive</A
+>  (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *alive_object);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-OBJECT-WHILE-ALIVE"
+>gtk_signal_connect_object_while_alive</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *alive_object);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-DISCONNECT"
+>gtk_signal_disconnect</A
+>           (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-DISCONNECT-BY-FUNC"
+>gtk_signal_disconnect_by_func</A
+>   (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-DISCONNECT-BY-DATA"
+>gtk_signal_disconnect_by_data</A
+>   (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-BLOCK"
+>gtk_signal_handler_block</A
+>        (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-BLOCK-BY-FUNC"
+>gtk_signal_handler_block_by_func</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-BLOCK-BY-DATA"
+>gtk_signal_handler_block_by_data</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-UNBLOCK"
+>gtk_signal_handler_unblock</A
+>      (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-UNBLOCK-BY-FUNC"
+>gtk_signal_handler_unblock_by_func</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-UNBLOCK-BY-DATA"
+>gtk_signal_handler_unblock_by_data</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-PENDING"
+>gtk_signal_handler_pending</A
+>      (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> may_be_blocked);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-PENDING-BY-FUNC"
+>gtk_signal_handler_pending_by_func</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> may_be_blocked,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLER-PENDING-BY-ID"
+>gtk_signal_handler_pending_by_id</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> may_be_blocked);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-HANDLERS-DESTROY"
+>gtk_signal_handlers_destroy</A
+>     (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-SET-FUNCS"
+>gtk_signal_set_funcs</A
+>            (<A
+HREF="gtk-signals.html#GTKSIGNALMARSHAL"
+>GtkSignalMarshal</A
+> marshal_func,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALDESTROY"
+>GtkSignalDestroy</A
+> destroy_func);
+<A
+HREF="gtk-signals.html#GTKSIGNALQUERY"
+>GtkSignalQuery</A
+>* <A
+HREF="gtk-signals.html#GTK-SIGNAL-QUERY"
+>gtk_signal_query</A
+>            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-ADD-EMISSION-HOOK"
+>gtk_signal_add_emission_hook</A
+>    (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF="gtk-signals.html#GTKEMISSIONHOOK"
+>GtkEmissionHook</A
+> hook_func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-signals.html#GTK-SIGNAL-ADD-EMISSION-HOOK-FULL"
+>gtk_signal_add_emission_hook_full</A
+>
+                                            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF="gtk-signals.html#GTKEMISSIONHOOK"
+>GtkEmissionHook</A
+> hook_func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-datasets.html#GDESTROYNOTIFY
+>GDestroyNotify</A> destroy);
+void        <A
+HREF="gtk-signals.html#GTK-SIGNAL-REMOVE-EMISSION-HOOK"
+>gtk_signal_remove_emission_hook</A
+> (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> hook_id);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN7803"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7805"
+></A
+><H3
+>What are signals?</H3
+><P
+>Signals are a way to get notification when something happens
+and to customize object behavior according to the
+user's needs.
+Every <I
+CLASS="WORDASWORD"
+>signal</I
+> is uniquely identified by a name,
+"class_name::signal_name", where signal_name might be something like
+"clicked" and class_name might be "GtkButton".  Note that some other class
+may also define a "clicked" callback, so long as it doesn't derive from
+<A
+HREF="gtkbutton.html"
+>GtkButton</A
+>.</P
+><P
+>When they are created, they are also assigned a unique positive integer,
+the signal id (1 is the first signal id- 0 is used to flag an error).
+Each is also tied to an array of types that describes
+the prototype of the function pointer(s) (handlers) you may
+connect to the signal.  Finally, every signal has
+a default handler that is given by a function pointer
+in its class structure:  it is run by default whenever the
+signal is emitted.  (It is possible that a signal will
+be emitted and a user-defined handler will prevent the default handler
+from being run.)</P
+><P
+>Signals are used by everyone, but they are only
+created on a per class basis-- so you should call
+call <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEW"
+>gtk_signal_new</A
+>() unless you are writing
+a new <A
+HREF="gtkobject.html"
+>GtkObject</A
+> type.  However, if you want to make a new signal
+for an existing type, you may use <A
+HREF="gtkobject.html#GTK-OBJECT-CLASS-USER-SIGNAL-NEW"
+>gtk_object_class_user_signal_new</A
+>()
+to create a signal that doesn't correspond to a class's builtin
+methods.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7815"
+></A
+><H3
+>How are signals used?</H3
+><P
+>There are two basic actions in the signal handling game.
+If you want notification of an event, you must <I
+CLASS="EMPHASIS"
+>connect</I
+>
+a function pointer and a data pointer to that signal;  the data pointer
+will be passed as the last argument to the function (so long as you
+are using the default marshalling functions).
+You will receive a connection id, a unique positive integer
+corresponding to that attachment.</P
+><P
+>Functions that want to notify the user of certain actions,
+<I
+CLASS="EMPHASIS"
+>emit</I
+> signals.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7821"
+></A
+><H3
+>Basic Terminology</H3
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>signal</DT
+><DD
+><P
+>A class method, e.g. GtkButton::clicked.
+More precisely it is a unique class-branch/signal-name pair.
+This means you may not define a signal handler for a class which
+derives from GtkButton that is called clicked,
+but it is okay to share signals names if they are separate in
+the class tree.</P
+></DD
+><DT
+>default handler</DT
+><DD
+><P
+>The object's internal method which is invoked
+when the signal is emitted.</P
+></DD
+><DT
+>user-defined handler</DT
+><DD
+><P
+>A function pointer and data connected
+to a signal (for a particular object).</P
+><P
+>There are really two types: those which are connected
+normally, and those which are connected by one 
+of the connect_after functions.  The connect_after handlers
+are always run after the default handler.</P
+><P
+>Many toolkits refer to these as <I
+CLASS="WORDASWORD"
+>callbacks</I
+>.</P
+></DD
+><DT
+>emission</DT
+><DD
+><P
+>the whole process of emitting a signal,
+including the invocation of all
+the different handler types mentioned above.</P
+></DD
+><DT
+>signal id</DT
+><DD
+><P
+>The unique positive (nonzero) integer
+used to identify a signal.  It can be used instead of 
+a name to many functions for a slight performance
+improvement.</P
+></DD
+><DT
+>connection id</DT
+><DD
+><P
+>The unique positive (nonzero) integer
+used to identify the connection of a user-defined handler
+to a signal.  Notice that it is allowed to connect the
+same function-pointer/user-data pair twice, so
+there is no guarantee that a function-pointer/user-data
+maps to a unique connection id.</P
+></DD
+></DL
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7851"
+></A
+><H3
+>A brief note on how they work.</H3
+><P
+>The functions responsible for translating an array of GtkArgs
+to your C compiler's normal semantics are called Marshallers.
+They are identified by
+gtk_marshal_return_value__parameter_list()
+for example a C function returning a gboolean and taking a gint
+can be invoked by using gtk_marshal_BOOL__INT().
+Not all possibly combinations of return/params are available,
+of course, so if you are writing a <A
+HREF="gtkobject.html"
+>GtkObject</A
+> with parameters
+you might have to write a marshaller.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN7858"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7860"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-OFFSET-CAPS"
+></A
+>GTK_SIGNAL_OFFSET()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_SIGNAL_OFFSET(struct, field)	(GTK_STRUCT_OFFSET (struct, field))</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7865"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>struct</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>field</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7878"
+></A
+><H3
+><A
+NAME="GTKSIGNALMARSHAL"
+></A
+>GtkSignalMarshal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkSignalMarshal)             (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nparams,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> *arg_types,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> return_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This is currently a hack left in for a scheme wrapper library.
+It may be removed.</P
+><P
+>Don't use it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7890"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The object which emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The user data associated with the hook.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nparams</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of parameters to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The actual values of the arguments.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_types</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The types of the arguments.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>return_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The type of the return value from the function
+or GTK_TYPE_NONE for no return value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7920"
+></A
+><H3
+><A
+NAME="GTKSIGNALDESTROY"
+></A
+>GtkSignalDestroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkSignalDestroy)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A function which you can use to clean up when the
+signal handler is destroyed.</P
+><P
+>For example, if your handler requires a few variables
+that you made into a struct and allocated (using <A
+HREF=../glib/glib-memory-allocation.html#G-NEW
+>g_new</A>()
+or something), then you will probably want to free
+it as soon as the hook is destroyed.  This will
+allow you to do that. (For this in particular
+it is convenient to pass <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>() as a <A
+HREF="gtk-signals.html#GTKSIGNALDESTROY"
+>GtkSignalDestroy</A
+>
+function).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7930"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The user data associated with the hook that is being
+destroyed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7939"
+></A
+><H3
+><A
+NAME="GTKEMISSIONHOOK"
+></A
+>GtkEmissionHook ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    (*GtkEmissionHook)              (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_params,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *params,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A simple function pointer to get invoked when the
+signal is emitted.  This allows you tie a hook to the signal type,
+so that it will trap all emissions of that signal, from any object.</P
+><P
+>You may not attach these to signals created with the
+GTK_RUN_NO_HOOKS flag.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7952"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the unique integer identify the signal type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_params</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of parameters to the function,
+not including return value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>params</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to the function.  A pointer to
+the return value is passed as a last element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data associated with the hook.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether it wished to be removed.  If it returns
+TRUE, the signal hook is disconnected (and destroyed).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7981"
+></A
+><H3
+><A
+NAME="GTKSIGNALQUERY"
+></A
+>struct GtkSignalQuery</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkSignalQuery
+{
+  GtkType	   object_type;
+  guint		   signal_id;
+  const gchar	  *signal_name;
+  guint		   is_user_signal : 1;
+  GtkSignalRunType signal_flags;
+  GtkType	   return_val;
+  guint		   nparams;
+  const GtkType	  *params;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>This structure contains all the information about a particular
+signal:  its name, the type it affects, the signature of the handlers,
+and its unique identifying integer.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7986"
+></A
+><H3
+><A
+NAME="GTKSIGNALRUNTYPE"
+></A
+>enum GtkSignalRunType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum			/*&lt; flags &gt;*/
+{
+  GTK_RUN_FIRST      = 1 &lt;&lt; 0,
+  GTK_RUN_LAST       = 1 &lt;&lt; 1,
+  GTK_RUN_BOTH       = (GTK_RUN_FIRST | GTK_RUN_LAST),
+  GTK_RUN_NO_RECURSE = 1 &lt;&lt; 2,
+  GTK_RUN_ACTION     = 1 &lt;&lt; 3,
+  GTK_RUN_NO_HOOKS   = 1 &lt;&lt; 4
+} GtkSignalRunType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>These configure the signal's emission.  They control
+whether the signal can be emitted recursively on an object
+and
+whether to run the default method before or after the user-defined handlers.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>GTK_RUN_FIRST</DT
+><DD
+><P
+>Run the default handler before the connected user-defined
+handlers.</P
+></DD
+><DT
+>GTK_RUN_LAST</DT
+><DD
+><P
+>Run the default handler after the connected
+user-defined handlers.
+(Handlers registered as "after" always run after the default handler though)</P
+></DD
+><DT
+>GTK_RUN_BOTH</DT
+><DD
+><P
+>Run the default handler twice,
+once before the user-defined handlers,
+and
+once after.</P
+></DD
+><DT
+>GTK_RUN_NO_RECURSE</DT
+><DD
+><P
+>Whether to prevent a handler or hook
+from reemitting the signal from within itself.
+Attempts to
+emit the signal while it is running will result in the signal
+emission being restarted once it is done with the current processing.</P
+><P
+>You must be
+careful to avoid having two handlers endlessly reemitting signals,
+<A
+HREF="gtk-signals.html#GTK-SIGNAL-N-EMISSIONS"
+>gtk_signal_n_emissions</A
+>() can be helpful.</P
+></DD
+><DT
+>GTK_RUN_ACTION</DT
+><DD
+><P
+>The signal is an action you can 
+invoke without any particular setup or cleanup.
+The signal is treated no differently, but some
+other code can determine if the signal is appropriate to
+delegate to user control.  For example, key binding sets
+only allow bindings of ACTION signals to keystrokes.</P
+></DD
+><DT
+>GTK_RUN_NO_HOOKS</DT
+><DD
+><P
+>This prevents the connection of emission hooks
+to the signal.</P
+></DD
+></DL
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8018"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-INIT"
+></A
+>gtk_signal_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_init                 (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8023"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-NEW"
+></A
+>gtk_signal_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_new                  (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> function_offset,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALMARSHALLER"
+>GtkSignalMarshaller</A
+> marshaller,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> return_val,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nparams,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new signal type.  (This is usually done in the
+class initializer.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8036"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the event name for the signal, e.g. "clicked".</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a combination of GTK_RUN flags
+specifying detail of when the default handler is to be invoked.
+You should at least specify GTK_RUN_FIRST
+or GTK_RUN_LAST.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of object this signal pertains to.
+It will also pertain to derivers of this type automatically.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function_offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>How many bytes the function pointer is in
+the class structure for this type.  Used to invoke a class
+method generically.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshaller</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to translate between an array
+of GtkArgs and the native calling convention.  Usually they
+are identified just by the type of arguments they take:
+for example, gtk_marshal_BOOL__STRING() describes a marshaller
+which takes a string and returns a boolean value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>return_val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of return value, or GTK_TYPE_NONE for a signal
+without a return value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nparams</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of parameter the handlers may take.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a list of GTK_TYPE_*, one for each parameter.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8080"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-NEWV"
+></A
+>gtk_signal_newv ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_newv                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> function_offset,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALMARSHALLER"
+>GtkSignalMarshaller</A
+> marshaller,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> return_val,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nparams,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> *params);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new signal type.  (This is usually done in a
+class initializer.)</P
+><P
+>This function take the types as an array, instead of a list
+following the arguments.  Otherwise the same as <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEW"
+>gtk_signal_new</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8096"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the signal to create.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>see <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEW"
+>gtk_signal_new</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of GtkObject to associate the signal with.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function_offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>how many bytes the function pointer is in
+the class structure for this type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshaller</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>return_val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the return value, or GTK_TYPE_NONE if
+you don't want a return value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nparams</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of parameters to the user-defined handlers.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>params</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of GtkTypes, describing the prototype to
+the callbacks.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8138"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-LOOKUP"
+></A
+>gtk_signal_lookup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_lookup               (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> object_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given the name of the signal and the type of object it connects
+to, get the signal's identifying integer.  Emitting the signal
+by number is somewhat faster than using the name each time.</P
+><P
+>It also tries the ancestors of the given type.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8147"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal's name, e.g. clicked.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type that the signal operates on, e.g. GTK_TYPE_BUTTON.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal's identifying number, or 0 if no signal was found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8165"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-NAME"
+></A
+>gtk_signal_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_signal_name                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given the signal's identifier, find its name.</P
+><P
+>Two different signals may have the same name, if they have differing types.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8173"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal's identifying number.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal name, or NULL if the signal number was invalid.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8186"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-EMIT"
+></A
+>gtk_signal_emit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_emit                 (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emit a signal.  This causes the default handler and user-defined
+handlers to be run.</P
+><P
+>Here is what <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>() does:</P
+><P
+>1.  Calls the default handler and the user-connected handlers.
+The default handler will be called first if
+GTK_RUN_FIRST is set, and last if GTK_RUN_LAST is set.</P
+><P
+>2.  Calls all handlers connected with the "after" flag set.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8197"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object that emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal identifier.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to the function, followed
+by a pointer to the return type, if any.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8214"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-EMIT-BY-NAME"
+></A
+>gtk_signal_emit_by_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_emit_by_name         (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emit a signal.  This causes the default handler and user-connected
+handlers to be run.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8221"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object that emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to the function, followed
+by a pointer to the return type, if any.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8238"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-EMITV"
+></A
+>gtk_signal_emitv ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_emitv                (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *params);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emit a signal.  This causes the default handler and user-connected
+handlers to be run.  This differs from <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>() by taking
+an array of GtkArgs instead of using C's varargs mechanism.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8247"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object to emit the signal to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal identifier.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>params</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of GtkArgs, one for each parameter,
+followed by one which is a pointer to the return type.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8264"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-EMITV-BY-NAME"
+></A
+>gtk_signal_emitv_by_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_emitv_by_name        (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *params);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emit a signal by name.  This causes the default handler and user-connected
+handlers to be run.  This differs from <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>() by taking
+an array of GtkArgs instead of using C's varargs mechanism.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8273"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object to emit the signal to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>params</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of GtkArgs, one for each parameter,
+followed by one which is a pointer to the return type.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8290"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-N-EMISSIONS"
+></A
+>gtk_signal_n_emissions ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_n_emissions          (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Find out the recursion depth of emissions for a particular type
+of signal and object.  (So it will
+always return 0 or 1 if GTK_RUN_NO_RECURSE is specified)
+This is a way to avoid recursion:  you can see if
+you are currently running in that signal handler and emit it only
+if you are.</P
+><P
+>Another way to look at it is that this number increases
+by one when #<A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>(), et al, are called,
+and decreases by one when #<A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>() returns.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8302"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object with the signal handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal id.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the recursion depth of emissions of this signal for this
+object.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8319"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-N-EMISSIONS-BY-NAME"
+></A
+>gtk_signal_n_emissions_by_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_n_emissions_by_name  (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Find out the recursion depth of emissions for a particular type
+of signal and object.  Just like <A
+HREF="gtk-signals.html#GTK-SIGNAL-N-EMISSIONS"
+>gtk_signal_n_emissions</A
+>()
+except it will lookup the signal id for you.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8328"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object with the signal handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal name.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the recursion depth of emissions of this signal for this
+object.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8345"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-EMIT-STOP"
+></A
+>gtk_signal_emit_stop ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_emit_stop            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function aborts a signal's current emission.</P
+><P
+>It will prevent the default method from running,
+if the signal was GTK_RUN_LAST and you connected
+normally (i.e. without the "after" flag).</P
+><P
+>It will print a warning if used on a signal which
+isn't being emitted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8355"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object whose signal handlers you wish to stop.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal identifier, as returned by <A
+HREF="gtk-signals.html#GTK-SIGNAL-LOOKUP"
+>gtk_signal_lookup</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8369"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-EMIT-STOP-BY-NAME"
+></A
+>gtk_signal_emit_stop_by_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_emit_stop_by_name    (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function aborts a signal's current emission.</P
+><P
+>It is just like
+<A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT-STOP"
+>gtk_signal_emit_stop</A
+>()
+except it will lookup the signal id for you.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8378"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object whose signal handlers you wish to stop.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the signal you wish to stop.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8391"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-CONNECT"
+></A
+>gtk_signal_connect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_connect              (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Attach a function pointer and user data to a signal for
+a particular object.</P
+><P
+>The GtkSignalFunction takes a <SPAN
+CLASS="STRUCTNAME"
+>GtkObject</SPAN
+> as its first parameter.
+It will be the same object as the one you're connecting
+the hook to.  The func_data will be passed as the last parameter
+to the hook.</P
+><P
+>All else being equal, signal handlers are invoked in the order 
+connected (see <A
+HREF="gtk-signals.html#GTK-SIGNAL-EMIT"
+>gtk_signal_emit</A
+>() for the other details of
+which order things are called in).</P
+><P
+>Here is how one passes an integer as user data,
+for when you just want to specify a constant int
+as parameter to your function:</P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN8406"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>static void button_clicked_int(GtkButton* button, gpointer func_data)
+{
+	g_print("button pressed: <TT
+CLASS="LITERAL"
+>d</TT
+>\n", GPOINTER_TO_INT(func_data));
+}
+
+/* By calling this function, you will make the g_print above
+ * execute, printing the number passed as `to_print'. */
+static void attach_print_signal(GtkButton* button, gint to_print)
+{
+	gtk_signal_connect(GTK_OBJECT(button), "clicked",
+		GTK_SIGNAL_FUNC(button_clicked_int),
+		GINT_TO_POINTER(to_print));
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8409"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object associated with the signal, e.g. if a button
+is getting pressed, this is that button.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>name of the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>function pointer to attach to the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>value to pass as to your function (through the marshaller).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8434"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-CONNECT-AFTER"
+></A
+>gtk_signal_connect_after ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_connect_after        (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Attach a function pointer and user data to a signal
+so that this handler will be called after the other handlers.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8444"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object associated with the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>name of the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>function pointer to attach to the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>value to pass as to your function (through the marshaller).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the unique identifier for this attachment:  the connection id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8469"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-CONNECT-OBJECT"
+></A
+>gtk_signal_connect_object ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_connect_object       (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *slot_object);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is for registering a callback that will
+call another object's callback.  That is,
+instead of passing the object which is responsible
+for the event as the first parameter of the callback,
+it is switched with the user data (so the object which emits
+the signal will be the last parameter, which is where the
+user data usually is).</P
+><P
+>This is useful for passing a standard function in as a callback.
+For example, if you wanted a button's press to <A
+HREF="gtkwidget.html#GTK-WIDGET-SHOW"
+>gtk_widget_show</A
+>()
+some widget, you could write:</P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN8481"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>gtk_signal_connect_object(button, "clicked", gtk_widget_show, window);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8483"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to callback.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>slot_object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object to pass as the first parameter to func.
+(Though it pretends to take an object, you can
+really pass any gpointer as the slot_object .)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8509"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-CONNECT-OBJECT-AFTER"
+></A
+>gtk_signal_connect_object_after ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_connect_object_after (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *slot_object);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Attach a signal hook to a signal, passing in an alternate
+object as the first parameter, and guaranteeing 
+that the default handler and all normal
+handlers are called first.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8519"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object associated with the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>name of the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>function pointer to attach to the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>slot_object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object to pass as the first parameter to func.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8545"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-CONNECT-FULL"
+></A
+>gtk_signal_connect_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_connect_full         (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy_func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> object_signal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> after);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Attach a function pointer and user data to a signal with
+more control.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8559"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal.  For example, a button
+in the button press signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>function pointer to attach to the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function marshal, see the gtkmarshall documentation for
+more details, but briefly: the marshaller is a function which takes
+the <A
+HREF="gtkobject.html"
+>GtkObject</A
+> which emits the signal, the user data, the number of the
+arguments, and the array of arguments.  It is responsible for
+calling the function in the appropriate calling convention.
+gtk_signal_default_marshaller is usually fine.
+(This shows up, for example, when worrying about matching
+c++ or other languages' calling conventions.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data associated with the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>function to call when this particular hook is 
+disconnected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object_signal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether this is an object signal-- basically an "object
+signal" is one that wants its user_data and object fields switched,
+which is useful for calling functions which operate on another
+object primarily.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>after</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether to invoke the user-defined handler after the signal, or to let 
+the signal's default behavior preside (i.e. depending on GTK_RUN_FIRST
+and GTK_RUN_LAST).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8603"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-CONNECT-WHILE-ALIVE"
+></A
+>gtk_signal_connect_while_alive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_connect_while_alive  (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *alive_object);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Attach a function pointer and another GtkObject to a signal.</P
+><P
+>This function takes an object whose "destroy" signal
+should be trapped.
+That way, you don't have to clean up the
+signal handler when you destroy the object.
+It is a little less efficient though.</P
+><P
+>(Instead you may call <A
+HREF="gtk-signals.html#GTK-SIGNAL-DISCONNECT-BY-DATA"
+>gtk_signal_disconnect_by_data</A
+>(), if you want
+to explicitly delete all attachments to this object.  This
+is perhaps not recommended since it could be confused
+with an integer masquerading as a pointer (through GINT_AS_POINTER).)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8616"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object that emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>function pointer to attach to the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>pointer to pass to func.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>alive_object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>object whose death should cause the handler connection
+to be destroyed.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8641"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-CONNECT-OBJECT-WHILE-ALIVE"
+></A
+>gtk_signal_connect_object_while_alive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_connect_object_while_alive
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *signal,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *alive_object);</PRE
+></TD
+></TR
+></TABLE
+><P
+>These signal connectors are for signals which refer to objects,
+so they must not be called after the object is deleted.</P
+><P
+>Unlike <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-WHILE-ALIVE"
+>gtk_signal_connect_while_alive</A
+>(),
+this swaps the object and user data, making it suitable for
+use with functions which primarily operate on the user data.</P
+><P
+>This function acts just like <A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT-OBJECT"
+>gtk_signal_connect_object</A
+>() except
+it traps the "destroy" signal to prevent you from having to
+clean up the handler.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8654"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object associated with the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>function pointer to attach to the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>alive_object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data, which must be an object, whose destruction
+should signal the removal of this signal.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8675"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-DISCONNECT"
+></A
+>gtk_signal_disconnect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_disconnect           (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroy a user-defined handler connection.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8682"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which the handler pertains to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8695"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-DISCONNECT-BY-FUNC"
+></A
+>gtk_signal_disconnect_by_func ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_disconnect_by_func   (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroy all connections for a particular object, with
+the given function-pointer and user-data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8703"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function pointer to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data to search for.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8720"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-DISCONNECT-BY-DATA"
+></A
+>gtk_signal_disconnect_by_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_disconnect_by_data   (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroy all connections for a particular object, with
+the given user-data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8727"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data to search for.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8740"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-BLOCK"
+></A
+>gtk_signal_handler_block ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_handler_block        (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prevent an user-defined handler from being invoked.  All other
+signal processing will go on as normal, but this particular
+handler will ignore it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8747"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal to block.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8760"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-BLOCK-BY-FUNC"
+></A
+>gtk_signal_handler_block_by_func ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_handler_block_by_func
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prevent a user-defined handler from being invoked, by reference to
+the user-defined handler's function pointer and user data.  (It may result in
+multiple hooks being blocked, if you've called connect multiple times.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8768"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal to block.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function pointer of the handler to block.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data of the handler to block.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8785"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-BLOCK-BY-DATA"
+></A
+>gtk_signal_handler_block_by_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_handler_block_by_data
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prevent all user-defined handlers with a certain user data from being invoked.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8792"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal we want to block.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data of the handlers to block.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8805"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-UNBLOCK"
+></A
+>gtk_signal_handler_unblock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_handler_unblock      (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Undo a block, by connection id.  Note that undoing a block doesn't
+necessarily make the hook callable, because if you block a
+hook twice, you must unblock it twice.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8812"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal we want to unblock.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the emission handler identifier, as returned by
+<A
+HREF="gtk-signals.html#GTK-SIGNAL-CONNECT"
+>gtk_signal_connect</A
+>(), etc.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8826"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-UNBLOCK-BY-FUNC"
+></A
+>gtk_signal_handler_unblock_by_func ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_handler_unblock_by_func
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Undo a block, by function pointer and data.
+Note that undoing a block doesn't
+necessarily make the hook callable, because if you block a
+hook twice, you must unblock it twice.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8834"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal we want to unblock.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function pointer to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data to search for.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8851"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-UNBLOCK-BY-DATA"
+></A
+>gtk_signal_handler_unblock_by_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_handler_unblock_by_data
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Undo block(s), to all signals for a particular object
+with a particular user-data pointer</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8858"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which emits the signal we want to unblock.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data to search for.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8871"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-PENDING"
+></A
+>gtk_signal_handler_pending ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_handler_pending      (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> may_be_blocked);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns a connection id corresponding to a given signal id and object.</P
+><P
+>One example of when you might use this is when the arguments
+to the signal are difficult to compute.  A class implementor
+may opt to not emit the signal if no one is attached anyway,
+thus saving the cost of building the arguments.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8881"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object to search for the desired user-defined handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of the signal to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>may_be_blocked</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether it is acceptable to return a blocked
+handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id, if a connection was found.  0 otherwise.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8902"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-PENDING-BY-FUNC"
+></A
+>gtk_signal_handler_pending_by_func ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_handler_pending_by_func
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> may_be_blocked,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns a connection id corresponding to a given signal id, object, function
+pointer and user data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8913"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object to search for the desired handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of the signal to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>may_be_blocked</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether it is acceptable to return a blocked
+handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function pointer to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id, if a handler was found.  0 otherwise.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8942"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLER-PENDING-BY-ID"
+></A
+>gtk_signal_handler_pending_by_id ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_signal_handler_pending_by_id
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> may_be_blocked);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns whether a connection id is valid (and optionally not blocked).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8951"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object to search for the desired handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the connection id.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>may_be_blocked</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether it is acceptable to return a blocked
+handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the signal exists and wasn't blocked,
+unless may_be_blocked was specified.  FALSE otherwise.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8973"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-HANDLERS-DESTROY"
+></A
+>gtk_signal_handlers_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_handlers_destroy     (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroy all the signal handlers connected to an object.
+This is done automatically when the object is destroyed.</P
+><P
+>This function is labeled private.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8980"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object whose signal handlers should be destroyed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8989"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-SET-FUNCS"
+></A
+>gtk_signal_set_funcs ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_set_funcs            (<A
+HREF="gtk-signals.html#GTKSIGNALMARSHAL"
+>GtkSignalMarshal</A
+> marshal_func,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALDESTROY"
+>GtkSignalDestroy</A
+> destroy_func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>These set default functions to call when the user didn't
+supply a function when connecting.  (These are rarely
+used, and probably only for language bindings)</P
+><P
+>By default, there are no such functions.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8997"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshal_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to invoke on every handlers for which there
+isn't a function pointer.  May be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to invoke when each hook is destroyed.
+May be NULL.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9010"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-QUERY"
+></A
+>gtk_signal_query ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-signals.html#GTKSIGNALQUERY"
+>GtkSignalQuery</A
+>* gtk_signal_query            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Obtain information about a signal.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9017"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the signal type identifier.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a GtkSignalQuery structure
+which contains all the information, or NULL.
+The pointer is allocated just for you:  you must <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>() it.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9031"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-ADD-EMISSION-HOOK"
+></A
+>gtk_signal_add_emission_hook ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_add_emission_hook    (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF="gtk-signals.html#GTKEMISSIONHOOK"
+>GtkEmissionHook</A
+> hook_func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add an emission hook for a type of signal, for any object.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9040"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of signal to hook for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hook_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to invoke to handle the emission hook.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data passed in to hook_func.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id (that you may pass as a parameter
+to <A
+HREF="gtk-signals.html#GTK-SIGNAL-REMOVE-EMISSION-HOOK"
+>gtk_signal_remove_emission_hook</A
+>()).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9062"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-ADD-EMISSION-HOOK-FULL"
+></A
+>gtk_signal_add_emission_hook_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_signal_add_emission_hook_full
+                                            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF="gtk-signals.html#GTKEMISSIONHOOK"
+>GtkEmissionHook</A
+> hook_func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-datasets.html#GDESTROYNOTIFY
+>GDestroyNotify</A> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add an emission hook for a type of signal, for any object.
+(with control of what happens when the hook is
+destroyed).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9072"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of signal add the hook for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hook_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to invoke to handle the hook.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data passed in to hook_func.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function to invoke when the hook is destroyed,
+to clean up any allocation done just for this
+signal handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id (that you may pass as a parameter
+to <A
+HREF="gtk-signals.html#GTK-SIGNAL-REMOVE-EMISSION-HOOK"
+>gtk_signal_remove_emission_hook</A
+>()).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9098"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-REMOVE-EMISSION-HOOK"
+></A
+>gtk_signal_remove_emission_hook ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_signal_remove_emission_hook (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> signal_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> hook_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Delete an emission hook. (see <A
+HREF="gtk-signals.html#GTK-SIGNAL-ADD-EMISSION-HOOK"
+>gtk_signal_add_emission_hook</A
+>())</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9106"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of the signal type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hook_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of the emission handler, returned by add_emission_hook().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9120"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkobject.html"
+>GtkObject</A
+></DT
+><DD
+><P
+>The base class for things which emit signals.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-signal-marshallers.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Drag and Drop</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Signal Marshallers</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

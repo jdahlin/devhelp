@@ -1,0 +1,2542 @@
+<HTML
+><HEAD
+><TITLE
+>Standard Enumerations</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Bindings"
+HREF="gtk-bindings.html"><LINK
+REL="NEXT"
+TITLE="Private Information"
+HREF="gtk-private-information.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-bindings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-private-information.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-STANDARD-ENUMERATIONS"
+>Standard Enumerations</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11879"
+></A
+><H2
+>Name</H2
+>Standard Enumerations&nbsp;--&nbsp;Public enumerated types used throughout GTK+.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11882"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKACCELFLAGS"
+>GtkAccelFlags</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKARROWTYPE"
+>GtkArrowType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKATTACHOPTIONS"
+>GtkAttachOptions</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKBUTTONBOXSTYLE"
+>GtkButtonBoxStyle</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKCORNERTYPE"
+>GtkCornerType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKCURVETYPE"
+>GtkCurveType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKDIRECTIONTYPE"
+>GtkDirectionType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKJUSTIFICATION"
+>GtkJustification</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKMATCHTYPE"
+>GtkMatchType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKMETRICTYPE"
+>GtkMetricType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKPATHPRIORITYTYPE"
+>GtkPathPriorityType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKPATHTYPE"
+>GtkPathType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKPREVIEWTYPE"
+>GtkPreviewType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKRELIEFSTYLE"
+>GtkReliefStyle</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKRESIZEMODE"
+>GtkResizeMode</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKSCROLLTYPE"
+>GtkScrollType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKSELECTIONMODE"
+>GtkSelectionMode</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKSTATETYPE"
+>GtkStateType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKSUBMENUDIRECTION"
+>GtkSubmenuDirection</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKSUBMENUPLACEMENT"
+>GtkSubmenuPlacement</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKTROUGHTYPE"
+>GtkTroughType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKUPDATETYPE"
+>GtkUpdateType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKVISIBILITY"
+>GtkVisibility</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKWINDOWPOSITION"
+>GtkWindowPosition</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKWINDOWTYPE"
+>GtkWindowType</A
+>;
+enum        <A
+HREF="gtk-standard-enumerations.html#GTKSORTTYPE"
+>GtkSortType</A
+>;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11917"
+></A
+><H2
+>Description</H2
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11920"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11922"
+></A
+><H3
+><A
+NAME="GTKACCELFLAGS"
+></A
+>enum GtkAccelFlags</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  /* should the accelerator appear in
+   * the widget's display?
+   */
+  GTK_ACCEL_VISIBLE        = 1 &lt;&lt; 0,
+  /* should the signal associated with
+   * this accelerator be also visible?
+   */
+  GTK_ACCEL_SIGNAL_VISIBLE = 1 &lt;&lt; 1,
+  /* may the accelerator be removed
+   * again?
+   */
+  GTK_ACCEL_LOCKED         = 1 &lt;&lt; 2,
+  GTK_ACCEL_MASK           = 0x07
+} GtkAccelFlags;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11927"
+></A
+><H3
+><A
+NAME="GTKARROWTYPE"
+></A
+>enum GtkArrowType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_ARROW_UP,
+  GTK_ARROW_DOWN,
+  GTK_ARROW_LEFT,
+  GTK_ARROW_RIGHT
+} GtkArrowType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used to indicate the direction in which a <A
+HREF="gtkarrow.html"
+>GtkArrow</A
+> should point.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11933"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_ARROW_UP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Represents an upward pointing arrow.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_ARROW_DOWN</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Represents a downward pointing arrow.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_ARROW_LEFT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Represents a left pointing arrow.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_ARROW_RIGHT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Represents a right pointing arrow.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11954"
+></A
+><H3
+><A
+NAME="GTKATTACHOPTIONS"
+></A
+>enum GtkAttachOptions</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_EXPAND = 1 &lt;&lt; 0,
+  GTK_SHRINK = 1 &lt;&lt; 1,
+  GTK_FILL   = 1 &lt;&lt; 2
+} GtkAttachOptions;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Denotes the expansion properties that a widget will have when it (or it's
+parent) is resized.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11959"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_EXPAND</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget should expand to take up any extra space in its
+container that has been allocated.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SHRINK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget should shrink as and when possible.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_FILL</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget should fill the space allocated to it.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11976"
+></A
+><H3
+><A
+NAME="GTKBUTTONBOXSTYLE"
+></A
+>enum GtkButtonBoxStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum 
+{
+  GTK_BUTTONBOX_DEFAULT_STYLE,
+  GTK_BUTTONBOX_SPREAD,
+  GTK_BUTTONBOX_EDGE,
+  GTK_BUTTONBOX_START,
+  GTK_BUTTONBOX_END
+} GtkButtonBoxStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used to dictate the style that a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> uses to layout the buttons it
+contains. (See also: <A
+HREF="gtkvbuttonbox.html"
+>GtkVButtonBox</A
+> and <A
+HREF="gtkhbuttonbox.html"
+>GtkHButtonBox</A
+>).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11984"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_BUTTONBOX_DEFAULT_STYLE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Default packing.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_BUTTONBOX_SPREAD</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Buttons are evenly spread across the ButtonBox.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_BUTTONBOX_EDGE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Buttons are placed at the edges of the ButtonBox.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_BUTTONBOX_START</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Buttons are grouped towards the start of box, (on the
+left for a HBox, or the top for a VBox).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_BUTTONBOX_END</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Buttons are grouped towards the end of a box, (on the
+right for a HBox, or the bottom for a VBox).&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12009"
+></A
+><H3
+><A
+NAME="GTKCORNERTYPE"
+></A
+>enum GtkCornerType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_CORNER_TOP_LEFT,
+  GTK_CORNER_BOTTOM_LEFT,
+  GTK_CORNER_TOP_RIGHT,
+  GTK_CORNER_BOTTOM_RIGHT
+} GtkCornerType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies which corner a child widget should be placed in when packed into
+a <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>. This is effectively the opposite of where the scroll
+bars are placed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12015"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_CORNER_TOP_LEFT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Place the scrollbars on the right and bottom of the
+widget (default behaviour).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_CORNER_BOTTOM_LEFT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Place the scrollbars on the top and right of the
+widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_CORNER_TOP_RIGHT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Place the scrollbars on the left and bottom of the
+widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_CORNER_BOTTOM_RIGHT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Place the scrollbars on the top and left of the
+widget.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12036"
+></A
+><H3
+><A
+NAME="GTKCURVETYPE"
+></A
+>enum GtkCurveType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_CURVE_TYPE_LINEAR,       /* linear interpolation */
+  GTK_CURVE_TYPE_SPLINE,       /* spline interpolation */
+  GTK_CURVE_TYPE_FREE          /* free form curve */
+} GtkCurveType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12041"
+></A
+><H3
+><A
+NAME="GTKDIRECTIONTYPE"
+></A
+>enum GtkDirectionType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_DIR_TAB_FORWARD,
+  GTK_DIR_TAB_BACKWARD,
+  GTK_DIR_UP,
+  GTK_DIR_DOWN,
+  GTK_DIR_LEFT,
+  GTK_DIR_RIGHT
+} GtkDirectionType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12046"
+></A
+><H3
+><A
+NAME="GTKJUSTIFICATION"
+></A
+>enum GtkJustification</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_JUSTIFY_LEFT,
+  GTK_JUSTIFY_RIGHT,
+  GTK_JUSTIFY_CENTER,
+  GTK_JUSTIFY_FILL
+} GtkJustification;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used for justifying the text inside a <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget. (See also
+<A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12053"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_JUSTIFY_LEFT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The text is placed at the left edge of the label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_JUSTIFY_RIGHT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The text is placed at the right edge of the label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_JUSTIFY_CENTER</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The text is placed in the center of the label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_JUSTIFY_FILL</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The text is placed is distributed across the label.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12074"
+></A
+><H3
+><A
+NAME="GTKMATCHTYPE"
+></A
+>enum GtkMatchType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_MATCH_ALL,       /* "*A?A*" */
+  GTK_MATCH_ALL_TAIL,  /* "*A?AA" */
+  GTK_MATCH_HEAD,      /* "AAAA*" */
+  GTK_MATCH_TAIL,      /* "*AAAA" */
+  GTK_MATCH_EXACT,     /* "AAAAA" */
+  GTK_MATCH_LAST
+} GtkMatchType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12079"
+></A
+><H3
+><A
+NAME="GTKMETRICTYPE"
+></A
+>enum GtkMetricType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_PIXELS,
+  GTK_INCHES,
+  GTK_CENTIMETERS
+} GtkMetricType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12084"
+></A
+><H3
+><A
+NAME="GTKORIENTATION"
+></A
+>enum GtkOrientation</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_ORIENTATION_HORIZONTAL,
+  GTK_ORIENTATION_VERTICAL
+} GtkOrientation;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12089"
+></A
+><H3
+><A
+NAME="GTKPACKTYPE"
+></A
+>enum GtkPackType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_PACK_START,
+  GTK_PACK_END
+} GtkPackType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used for packing widgets into <A
+HREF="gtkbox.html"
+>GtkBox</A
+> widgets. (See also: <A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>,
+<A
+HREF="gtkhbox.html"
+>GtkHBox</A
+>, and <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12098"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_PACK_START</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_PACK_END</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12111"
+></A
+><H3
+><A
+NAME="GTKPATHPRIORITYTYPE"
+></A
+>enum GtkPathPriorityType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_PATH_PRIO_LOWEST      = 0,
+  GTK_PATH_PRIO_GTK	    = 4,
+  GTK_PATH_PRIO_APPLICATION = 8,
+  GTK_PATH_PRIO_RC          = 12,
+  GTK_PATH_PRIO_HIGHEST     = 15,
+  GTK_PATH_PRIO_MASK        = 0x0f
+} GtkPathPriorityType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12116"
+></A
+><H3
+><A
+NAME="GTKPATHTYPE"
+></A
+>enum GtkPathType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_PATH_WIDGET,
+  GTK_PATH_WIDGET_CLASS,
+  GTK_PATH_CLASS
+} GtkPathType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12121"
+></A
+><H3
+><A
+NAME="GTKPOLICYTYPE"
+></A
+>enum GtkPolicyType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_POLICY_ALWAYS,
+  GTK_POLICY_AUTOMATIC,
+  GTK_POLICY_NEVER
+} GtkPolicyType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines when a scroll bar will be visible. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12126"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_POLICY_ALWAYS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The scrollbar is always visible.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_POLICY_AUTOMATIC</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The scrollbar will appear and disappear as necessary. For example,
+when all of a <A
+HREF="gtkclist.html"
+>GtkCList</A
+> can not be seen.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_POLICY_NEVER</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The scrollbar will never appear.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12144"
+></A
+><H3
+><A
+NAME="GTKPOSITIONTYPE"
+></A
+>enum GtkPositionType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_POS_LEFT,
+  GTK_POS_RIGHT,
+  GTK_POS_TOP,
+  GTK_POS_BOTTOM
+} GtkPositionType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12149"
+></A
+><H3
+><A
+NAME="GTKPREVIEWTYPE"
+></A
+>enum GtkPreviewType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_PREVIEW_COLOR,
+  GTK_PREVIEW_GRAYSCALE
+} GtkPreviewType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration which describes whether a preview
+contains grayscale or red-green-blue data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12154"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_PREVIEW_COLOR</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the preview contains red-green-blue data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_PREVIEW_GRAYSCALE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The preview contains grayscale data.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12167"
+></A
+><H3
+><A
+NAME="GTKRELIEFSTYLE"
+></A
+>enum GtkReliefStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_RELIEF_NORMAL,
+  GTK_RELIEF_HALF,
+  GTK_RELIEF_NONE
+} GtkReliefStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12172"
+></A
+><H3
+><A
+NAME="GTKRESIZEMODE"
+></A
+>enum GtkResizeMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_RESIZE_PARENT,		/* Pass resize request to the parent */
+  GTK_RESIZE_QUEUE,		/* Queue resizes on this widget */
+  GTK_RESIZE_IMMEDIATE		/* Perform the resizes now */
+} GtkResizeMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12177"
+></A
+><H3
+><A
+NAME="GTKSCROLLTYPE"
+></A
+>enum GtkScrollType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_SCROLL_NONE,
+  GTK_SCROLL_STEP_BACKWARD,
+  GTK_SCROLL_STEP_FORWARD,
+  GTK_SCROLL_PAGE_BACKWARD,
+  GTK_SCROLL_PAGE_FORWARD,
+  GTK_SCROLL_JUMP
+} GtkScrollType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12182"
+></A
+><H3
+><A
+NAME="GTKSELECTIONMODE"
+></A
+>enum GtkSelectionMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_SELECTION_SINGLE,
+  GTK_SELECTION_BROWSE,
+  GTK_SELECTION_MULTIPLE,
+  GTK_SELECTION_EXTENDED
+} GtkSelectionMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12187"
+></A
+><H3
+><A
+NAME="GTKSHADOWTYPE"
+></A
+>enum GtkShadowType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_SHADOW_NONE,
+  GTK_SHADOW_IN,
+  GTK_SHADOW_OUT,
+  GTK_SHADOW_ETCHED_IN,
+  GTK_SHADOW_ETCHED_OUT
+} GtkShadowType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used to change the appearance of an outline typically provided by a <A
+HREF="gtkframe.html"
+>GtkFrame</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12193"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SHADOW_NONE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>No outline.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SHADOW_IN</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The outline is bevelled inwards.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SHADOW_OUT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The outline is bevelled outwards like a button.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SHADOW_ETCHED_IN</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The outline itself is an inward bevel, but the frame
+does </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SHADOW_ETCHED_OUT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12218"
+></A
+><H3
+><A
+NAME="GTKSTATETYPE"
+></A
+>enum GtkStateType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_STATE_NORMAL,
+  GTK_STATE_ACTIVE,
+  GTK_STATE_PRELIGHT,
+  GTK_STATE_SELECTED,
+  GTK_STATE_INSENSITIVE
+} GtkStateType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>This type indicates the current state of a widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12223"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_STATE_NORMAL</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The state during normal operation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_STATE_ACTIVE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The widget is currently active, such as a</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_STATE_PRELIGHT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The mouse pointer is over the widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_STATE_SELECTED</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_STATE_INSENSITIVE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The state of the widget can not be altered by the
+user. Its appearance will usually indicate this.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12248"
+></A
+><H3
+><A
+NAME="GTKSUBMENUDIRECTION"
+></A
+>enum GtkSubmenuDirection</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_DIRECTION_LEFT,
+  GTK_DIRECTION_RIGHT
+} GtkSubmenuDirection;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Indicates the direction a sub-menu will appear.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12253"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_DIRECTION_LEFT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A sub-menu will appear</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_DIRECTION_RIGHT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12266"
+></A
+><H3
+><A
+NAME="GTKSUBMENUPLACEMENT"
+></A
+>enum GtkSubmenuPlacement</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_TOP_BOTTOM,
+  GTK_LEFT_RIGHT
+} GtkSubmenuPlacement;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12271"
+></A
+><H3
+><A
+NAME="GTKTOOLBARSTYLE"
+></A
+>enum GtkToolbarStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_TOOLBAR_ICONS,
+  GTK_TOOLBAR_TEXT,
+  GTK_TOOLBAR_BOTH
+} GtkToolbarStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used to customize the appearance of a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12277"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_TOOLBAR_ICONS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Buttons should display only icons in the toolbar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_TOOLBAR_TEXT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Buttons should display only text labels in the toolbar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_TOOLBAR_BOTH</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Buttons should display text and icons in the toolbar.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12294"
+></A
+><H3
+><A
+NAME="GTKTROUGHTYPE"
+></A
+>enum GtkTroughType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_TROUGH_NONE,
+  GTK_TROUGH_START,
+  GTK_TROUGH_END,
+  GTK_TROUGH_JUMP
+} GtkTroughType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12299"
+></A
+><H3
+><A
+NAME="GTKUPDATETYPE"
+></A
+>enum GtkUpdateType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_UPDATE_CONTINUOUS,
+  GTK_UPDATE_DISCONTINUOUS,
+  GTK_UPDATE_DELAYED
+} GtkUpdateType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12304"
+></A
+><H3
+><A
+NAME="GTKVISIBILITY"
+></A
+>enum GtkVisibility</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_VISIBILITY_NONE,
+  GTK_VISIBILITY_PARTIAL,
+  GTK_VISIBILITY_FULL
+} GtkVisibility;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12309"
+></A
+><H3
+><A
+NAME="GTKWINDOWPOSITION"
+></A
+>enum GtkWindowPosition</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_WIN_POS_NONE,
+  GTK_WIN_POS_CENTER,
+  GTK_WIN_POS_MOUSE
+} GtkWindowPosition;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Window placement can be influenced using this enumeration.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12314"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_WIN_POS_NONE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>No influence is made on placement.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_WIN_POS_CENTER</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Windows should be placed in the center of the screen.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_WIN_POS_MOUSE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Windows should be placed at the current mouse position.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12331"
+></A
+><H3
+><A
+NAME="GTKWINDOWTYPE"
+></A
+>enum GtkWindowType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_WINDOW_TOPLEVEL,
+  GTK_WINDOW_DIALOG,
+  GTK_WINDOW_POPUP
+} GtkWindowType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A <A
+HREF="gtkwindow.html"
+>GtkWindow</A
+> can be of these types. A toplevel window has standard window
+decorations by default. A dialog may have fewer decorations and obey a
+different placement policy. A popup window will have no decorations.</P
+><P
+>It should be noted that such decorations can often be over-ridden by modern
+window managers.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12338"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_WINDOW_TOPLEVEL</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A window for a typical application.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_WINDOW_DIALOG</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A window for transient messages and dialogs.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_WINDOW_POPUP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A window for popups.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12355"
+></A
+><H3
+><A
+NAME="GTKSORTTYPE"
+></A
+>enum GtkSortType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_SORT_ASCENDING,
+  GTK_SORT_DESCENDING
+} GtkSortType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the direction of a sort.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12360"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SORT_ASCENDING</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Sorting is in ascending order.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GTK_SORT_DESCENDING</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Sorting is in descending order.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-bindings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-private-information.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Bindings</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Private Information</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

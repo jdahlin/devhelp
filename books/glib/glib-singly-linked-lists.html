@@ -1,0 +1,3459 @@
+<HTML
+><HEAD
+><TITLE
+>Singly-Linked Lists</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Doubly-Linked Lists"
+HREF="glib-doubly-linked-lists.html"><LINK
+REL="NEXT"
+TITLE="Hash Tables"
+HREF="glib-hash-tables.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-doubly-linked-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-hash-tables.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-SINGLY-LINKED-LISTS"
+>Singly-Linked Lists</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12054"
+></A
+><H2
+>Name</H2
+>Singly-Linked Lists&nbsp;--&nbsp;linked lists containing integer values or pointers to data, limited to
+iterating over the list in one direction.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12057"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>;
+
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-ALLOC"
+>g_slist_alloc</A
+>                   (void);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-APPEND"
+>g_slist_append</A
+>                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-PREPEND"
+>g_slist_prepend</A
+>                 (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INSERT"
+>g_slist_insert</A
+>                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> position);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INSERT-SORTED"
+>g_slist_insert_sorted</A
+>           (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-REMOVE"
+>g_slist_remove</A
+>                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-REMOVE-LINK"
+>g_slist_remove_link</A
+>             (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *llink);
+void        <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FREE"
+>g_slist_free</A
+>                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);
+void        <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FREE-1"
+>g_slist_free_1</A
+>                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-singly-linked-lists.html#G-SLIST-LENGTH"
+>g_slist_length</A
+>                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-COPY"
+>g_slist_copy</A
+>                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-REVERSE"
+>g_slist_reverse</A
+>                 (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-SORT"
+>g_slist_sort</A
+>                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> compare_func);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-CONCAT"
+>g_slist_concat</A
+>                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list1,
+                                             <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list2);
+void        <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FOREACH"
+>g_slist_foreach</A
+>                 (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GFUNC"
+>GFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-LAST"
+>g_slist_last</A
+>                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);
+#define     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-NEXT"
+>g_slist_next</A
+>                    (slist)
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-NTH"
+>g_slist_nth</A
+>                     (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-singly-linked-lists.html#G-SLIST-NTH-DATA"
+>g_slist_nth_data</A
+>                (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);
+
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FIND"
+>g_slist_find</A
+>                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FIND-CUSTOM"
+>g_slist_find_custom</A
+>             (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-singly-linked-lists.html#G-SLIST-POSITION"
+>g_slist_position</A
+>                (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *llink);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INDEX"
+>g_slist_index</A
+>                   (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+void        <A
+HREF="glib-singly-linked-lists.html#G-SLIST-PUSH-ALLOCATOR"
+>g_slist_push_allocator</A
+>          (<A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> *allocator);
+void        <A
+HREF="glib-singly-linked-lists.html#G-SLIST-POP-ALLOCATOR"
+>g_slist_pop_allocator</A
+>           (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12146"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> structure and its associated functions provide a standard
+singly-linked list data structure.</P
+><P
+>Each element in the list contains a piece of data, together with a pointer
+which links to the next element in the list.
+Using this pointer it is possible to move through the list in one
+direction only (unlike the
+<A
+HREF="glib-doubly-linked-lists.html"
+>Doubly-Linked Lists</A
+>
+which allow movement in both directions).</P
+><P
+>The data contained in each element can be either integer values, by using one
+of the
+<A
+HREF="glib-type-conversion-macros.html"
+>Type Conversion Macros</A
+>,
+or simply pointers to any type of data.</P
+><P
+>List elements are allocated in blocks using a GListAllocator, which is
+more efficient than allocating elements individually.</P
+><P
+>Note that most of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> functions expect to be passed a pointer to
+the first element in the list. The functions which insert elements return
+the new start of the list, which may have changed.</P
+><P
+>There is no function to create a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>. NULL is considered to be the empty
+list so you simply set a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>* to NULL.</P
+><P
+>To add elements, use <A
+HREF="glib-singly-linked-lists.html#G-SLIST-APPEND"
+>g_slist_append</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-PREPEND"
+>g_slist_prepend</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INSERT"
+>g_slist_insert</A
+>()
+and <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INSERT-SORTED"
+>g_slist_insert_sorted</A
+>().</P
+><P
+>To remove elements, use <A
+HREF="glib-singly-linked-lists.html#G-SLIST-REMOVE"
+>g_slist_remove</A
+>().</P
+><P
+>To find elements in the list use <A
+HREF="glib-singly-linked-lists.html#G-SLIST-LAST"
+>g_slist_last</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-NEXT"
+>g_slist_next</A
+>(),
+<A
+HREF="glib-singly-linked-lists.html#G-SLIST-NTH"
+>g_slist_nth</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-NTH-DATA"
+>g_slist_nth_data</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FIND"
+>g_slist_find</A
+>() and
+<A
+HREF="glib-singly-linked-lists.html#G-SLIST-FIND-CUSTOM"
+>g_slist_find_custom</A
+>().</P
+><P
+>To find the index of an element use <A
+HREF="glib-singly-linked-lists.html#G-SLIST-POSITION"
+>g_slist_position</A
+>() and <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INDEX"
+>g_slist_index</A
+>().</P
+><P
+>To call a function for each element in the list use <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FOREACH"
+>g_slist_foreach</A
+>().</P
+><P
+>To free the entire list, use <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FREE"
+>g_slist_free</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12182"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12184"
+></A
+><H3
+><A
+NAME="GSLIST"
+></A
+>struct GSList</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GSList
+{
+  gpointer data;
+  GSList *next;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> struct is used for each element in the singly-linked list.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>data</I
+></TT
+> field holds the element's data, which can
+be a pointer to any kind of data, or any integer value using the
+<A
+HREF="glib-type-conversion-macros.html"
+>Type Conversion Macros</A
+>.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>next</I
+></TT
+> field contains the link to the next
+element in the list.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12193"
+></A
+><H3
+><A
+NAME="G-SLIST-ALLOC"
+></A
+>g_slist_alloc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_alloc                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates space for one <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> element.
+It is called by the <A
+HREF="glib-singly-linked-lists.html#G-SLIST-APPEND"
+>g_slist_append</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-PREPEND"
+>g_slist_prepend</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INSERT"
+>g_slist_insert</A
+>() and
+<A
+HREF="glib-singly-linked-lists.html#G-SLIST-INSERT-SORTED"
+>g_slist_insert_sorted</A
+>() functions and so is rarely used on its own.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12204"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the newly-allocated <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12214"
+></A
+><H3
+><A
+NAME="G-SLIST-APPEND"
+></A
+>g_slist_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_append                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new element on to the end of the list.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>The return value is the new start of the list, which may have changed, so
+make sure you store the new value.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN12224"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  /* Notice that these are initialized to the empty list. */
+  GSList *list = NULL, *number_list = NULL;
+
+  /* This is a list of strings. */
+  list = g_slist_append (list, "first");
+  list = g_slist_append (list, "second");
+
+  /* This is a list of integers. */
+  number_list = g_slist_append (number_list, GINT_TO_POINTER (27));
+  number_list = g_slist_append (number_list, GINT_TO_POINTER (14));</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12226"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12245"
+></A
+><H3
+><A
+NAME="G-SLIST-PREPEND"
+></A
+>g_slist_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_prepend                 (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new element on to the start of the list.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>The return value is the new start of the list, which may have changed, so
+make sure you store the new value.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN12255"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  /* Notice that it is initialized to the empty list. */
+  GSList *list = NULL;
+  list = g_slist_prepend (list, "last");
+  list = g_slist_prepend (list, "first");</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12257"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12276"
+></A
+><H3
+><A
+NAME="G-SLIST-INSERT"
+></A
+>g_slist_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_insert                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new element into the list at the given position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12285"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to insert the element. If this is negative, or is
+larger than the number of elements in the list, the new element is added on
+to the end of the list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12308"
+></A
+><H3
+><A
+NAME="G-SLIST-INSERT-SORTED"
+></A
+>g_slist_insert_sorted ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_insert_sorted           (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new element into the list, using the given comparison function
+to determine its position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12317"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to compare elements in the list. It should return a
+number &#62; 0 if the first parameter comes after the second parameter in
+the sort order.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12340"
+></A
+><H3
+><A
+NAME="G-SLIST-REMOVE"
+></A
+>g_slist_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_remove                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes an element from a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+If two elements contain the same data, only the first is removed.
+If none of the elements contain the data, the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> is unchanged.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12350"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data of the element to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12369"
+></A
+><H3
+><A
+NAME="G-SLIST-REMOVE-LINK"
+></A
+>g_slist_remove_link ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_remove_link             (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *llink);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes an element from a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>, without freeing the element.
+The removed element's next link is set to NULL, so that it becomes a
+self-contained list with one element.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12378"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>llink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an element in the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>, without the element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12398"
+></A
+><H3
+><A
+NAME="G-SLIST-FREE"
+></A
+>g_slist_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_slist_free                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees all of the memory used by a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+The freed elements are added to the GListAllocator free list.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12406"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12416"
+></A
+><H3
+><A
+NAME="G-SLIST-FREE-1"
+></A
+>g_slist_free_1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_slist_free_1                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees one <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> element.
+It is usually used after <A
+HREF="glib-singly-linked-lists.html#G-SLIST-REMOVE-LINK"
+>g_slist_remove_link</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12424"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12434"
+></A
+><H3
+><A
+NAME="G-SLIST-LENGTH"
+></A
+>g_slist_length ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_slist_length                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the number of elements in a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12442"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements in the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12457"
+></A
+><H3
+><A
+NAME="G-SLIST-COPY"
+></A
+>g_slist_copy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_copy                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Copies a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</P
+><P
+>Note that this is a "shallow" copy. If the list elements consist of pointers
+to data, the pointers are copied but the actual data isn't.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12466"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a copy of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12481"
+></A
+><H3
+><A
+NAME="G-SLIST-REVERSE"
+></A
+>g_slist_reverse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_reverse                 (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reverses a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12489"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start of the reversed <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12504"
+></A
+><H3
+><A
+NAME="G-SLIST-SORT"
+></A
+>g_slist_sort ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_sort                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> compare_func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sorts a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> using the given comparison function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12513"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>compare_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the comparison function used to sort the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>. This function
+is passed 2 elements of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> and should return 0 if they are equal,
+a negative value if the first element comes before the second, or a positive
+value if the first element comes after the second.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start of the sorted <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12534"
+></A
+><H3
+><A
+NAME="G-SLIST-CONCAT"
+></A
+>g_slist_concat ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_concat                  (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list1,
+                                             <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the second <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> onto the end of the first <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+Note that the elements of the second <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> are not copied.
+They are used directly.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12545"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> to add to the end of the first <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start of the new <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12566"
+></A
+><H3
+><A
+NAME="G-SLIST-FOREACH"
+></A
+>g_slist_foreach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_slist_foreach                 (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GFUNC"
+>GFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calls a function for each element of a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12575"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call with each element's data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12593"
+></A
+><H3
+><A
+NAME="G-SLIST-LAST"
+></A
+>g_slist_last ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_last                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the last element in a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12601"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the last element in the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>, or NULL if the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> has no
+elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12617"
+></A
+><H3
+><A
+NAME="G-SLIST-NEXT"
+></A
+>g_slist_next()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_slist_next(slist)</PRE
+></TD
+></TR
+></TABLE
+><P
+>A convenience macro to gets the next element in a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12623"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>slist</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an element in a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the next element, or NULL if there are no more elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12637"
+></A
+><H3
+><A
+NAME="G-SLIST-NTH"
+></A
+>g_slist_nth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_nth                     (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the element at the given position in a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12646"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the element, counting from 0.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element, or NULL if the position is off the end of the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12665"
+></A
+><H3
+><A
+NAME="G-SLIST-NTH-DATA"
+></A
+>g_slist_nth_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_slist_nth_data                (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the data of the element at the given position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12673"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's data, or NULL if the position is off the end of the
+<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12692"
+></A
+><H3
+><A
+NAME="G-SLIST-FIND"
+></A
+>g_slist_find ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_find                    (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds the element in a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> which contains the given data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12701"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element data to find.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the found <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> element, or NULL if it is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12720"
+></A
+><H3
+><A
+NAME="G-SLIST-FIND-CUSTOM"
+></A
+>g_slist_find_custom ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>*     g_slist_find_custom             (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds an element in a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>, using a supplied function to find the desired
+element.
+It iterates over the list, calling the given function which should return 0
+when the desired element is found.
+The function takes two <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> arguments, the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> element's data
+and the given user data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12732"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call for each element. It should return 0 when the
+desired element is found.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the found <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> element, or NULL if it is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12755"
+></A
+><H3
+><A
+NAME="G-SLIST-POSITION"
+></A
+>g_slist_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_slist_position                (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *llink);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the position of the given element in the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> (starting from 0).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12764"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>llink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an element in the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the element in the <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>, or -1 if the element
+is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12784"
+></A
+><H3
+><A
+NAME="G-SLIST-INDEX"
+></A
+>g_slist_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_slist_index                   (<A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the position of the element containing the given data (starting from 0).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12792"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data to find.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the element containing the data, or -1 if the data
+is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12810"
+></A
+><H3
+><A
+NAME="G-SLIST-PUSH-ALLOCATOR"
+></A
+>g_slist_push_allocator ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_slist_push_allocator          (<A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> *allocator);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the allocator to use to allocate <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> elements.
+Use <A
+HREF="glib-singly-linked-lists.html#G-SLIST-POP-ALLOCATOR"
+>g_slist_pop_allocator</A
+>() to restore the previous allocator.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12818"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>allocator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> to use when allocating <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12829"
+></A
+><H3
+><A
+NAME="G-SLIST-POP-ALLOCATOR"
+></A
+>g_slist_pop_allocator ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_slist_pop_allocator           (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Restores the previous <A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+>, used when allocating <A
+HREF="glib-singly-linked-lists.html#GSLIST"
+>GSList</A
+> elements.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-doubly-linked-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-hash-tables.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Doubly-Linked Lists</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Hash Tables</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

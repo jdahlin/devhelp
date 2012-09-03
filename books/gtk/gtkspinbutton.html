@@ -1,0 +1,2659 @@
+<HTML
+><HEAD
+><TITLE
+>GtkSpinButton</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkSocket"
+HREF="gtksocket.html"><LINK
+REL="NEXT"
+TITLE="GtkStatusbar"
+HREF="gtkstatusbar.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtksocket.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkstatusbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKSPINBUTTON"
+>GtkSpinButton</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN39127"
+></A
+><H2
+>Name</H2
+>GtkSpinButton&nbsp;--&nbsp;retrieve an integer or floating-point number from the user.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN39130"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkspinbutton.html#GTKSPINBUTTON-STRUCT"
+>GtkSpinButton</A
+>;
+enum        <A
+HREF="gtkspinbutton.html#GTKSPINBUTTONUPDATEPOLICY"
+>GtkSpinButtonUpdatePolicy</A
+>;
+enum        <A
+HREF="gtkspinbutton.html#GTKSPINTYPE"
+>GtkSpinType</A
+>;
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-CONFIGURE"
+>gtk_spin_button_configure</A
+>       (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> climb_rate,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> digits);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-NEW"
+>gtk_spin_button_new</A
+>             (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> climb_rate,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> digits);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-ADJUSTMENT"
+>gtk_spin_button_set_adjustment</A
+>  (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);
+<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>* <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-GET-ADJUSTMENT"
+>gtk_spin_button_get_adjustment</A
+>
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-DIGITS"
+>gtk_spin_button_set_digits</A
+>      (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> digits);
+<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>      <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-GET-VALUE-AS-FLOAT"
+>gtk_spin_button_get_value_as_float</A
+>
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-GET-VALUE-AS-INT"
+>gtk_spin_button_get_value_as_int</A
+>
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-VALUE"
+>gtk_spin_button_set_value</A
+>       (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> value);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-UPDATE-POLICY"
+>gtk_spin_button_set_update_policy</A
+>
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkspinbutton.html#GTKSPINBUTTONUPDATEPOLICY"
+>GtkSpinButtonUpdatePolicy</A
+> policy);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-NUMERIC"
+>gtk_spin_button_set_numeric</A
+>     (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> numeric);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SPIN"
+>gtk_spin_button_spin</A
+>            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkspinbutton.html#GTKSPINTYPE"
+>GtkSpinType</A
+> direction,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> increment);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-WRAP"
+>gtk_spin_button_set_wrap</A
+>        (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> wrap);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-SHADOW-TYPE"
+>gtk_spin_button_set_shadow_type</A
+> (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> shadow_type);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-SNAP-TO-TICKS"
+>gtk_spin_button_set_snap_to_ticks</A
+>
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> snap_to_ticks);
+void        <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-UPDATE"
+>gtk_spin_button_update</A
+>          (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39185"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkeditable.html"
+>GtkEditable</A
+>
+               +----<A
+HREF="gtkentry.html"
+>GtkEntry</A
+>
+                     +----GtkSpinButton</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39192"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--ADJUSTMENT"
+>adjustment</A
+>&quot;           <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>        : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--CLIMB-RATE"
+>climb-rate</A
+>&quot;           <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--DIGITS"
+>digits</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--SNAP-TO-TICKS"
+>snap-to-ticks</A
+>&quot;        <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--NUMERIC"
+>numeric</A
+>&quot;              <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--WRAP"
+>wrap</A
+>&quot;                 <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--UPDATE-POLICY"
+>update-policy</A
+>&quot;        <A
+HREF="gtkspinbutton.html#GTKSPINBUTTONUPDATEPOLICY"
+>GtkSpinButtonUpdatePolicy</A
+> : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--SHADOW-TYPE"
+>shadow-type</A
+>&quot;          <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+>        : Read / Write
+  &quot;<A
+HREF="gtkspinbutton.html#GTKSPINBUTTON--VALUE"
+>value</A
+>&quot;                <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39213"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> is an ideal way to allow the user to set the value of some attribute. Rather than having to directly type a number into a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>, <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> allows the user to click on one of two arrows to increment or decrement the displayed value. A value can still be typed in, with the bonus that it can be checked to ensure it is in a given range.</P
+><P
+>The main properties of a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> are through a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>. See the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> section for more details about an adjustment's properties.</P
+><P
+><A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> widgets are created with a call to <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-NEW"
+>gtk_spin_button_new</A
+>().</P
+><P
+>The <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> of a spin button can be set or retrieved with a call to <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-ADJUSTMENT"
+>gtk_spin_button_set_adjustment</A
+>() or <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-GET-ADJUSTMENT"
+>gtk_spin_button_get_adjustment</A
+>(), respectively.</P
+><P
+>The number of digits after the decimal point of a spin button can be altered with <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-DIGITS"
+>gtk_spin_button_set_digits</A
+>().</P
+><P
+>To retrieve values from a spin button, use <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-GET-VALUE-AS-FLOAT"
+>gtk_spin_button_get_value_as_float</A
+>() if you require a floating point number, or <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-GET-VALUE-AS-INT"
+>gtk_spin_button_get_value_as_int</A
+>() if you require an integer.</P
+><P
+>To set the value of a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>, use <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-VALUE"
+>gtk_spin_button_set_value</A
+>(). To change the update behaviour of a spin button, use <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-UPDATE-POLICY"
+>gtk_spin_button_set_update_policy</A
+>().</P
+><P
+>When a spin button reaches it's upper or lower limit, it can either stop spinning, or wrap around and continue spinning from the opposite limit. For example, if five is the upper limit and the lower limit is zero, upon reaching the value five, the spin button can change it's value back to zero and continue spinning upwards.
+This behaviour is set with <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-WRAP"
+>gtk_spin_button_set_wrap</A
+>().</P
+><P
+>A border around a spin button's arrows can be created using <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-SHADOW-TYPE"
+>gtk_spin_button_set_shadow_type</A
+>().</P
+><P
+>A number may be entered that is invalid, given a spin button's range. An erroneous number can be corrected as soon as the spin button is 'activated' using gtk_spin_button_snap_to_ticks(), which will alter the current value to the nearest step increment. (See <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> for step increments).</P
+><P
+>Because a spin contains a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>, alphabetic characters may be entered. These can be ignored by using <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-NUMERIC"
+>gtk_spin_button_set_numeric</A
+>() with a value of TRUE. Then only numeric values, '-' and a decimal point will be accepted.</P
+><P
+>To manually increment or decrement the spin button, use <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SPIN"
+>gtk_spin_button_spin</A
+>(), and to force an update (refresh), use <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-UPDATE"
+>gtk_spin_button_update</A
+>().</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN39253"
+></A
+><P
+><B
+>Example 1. Using a GtkSpinButton to get an integer.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;/* Provides a function to retrieve an integer value from a GtkSpinButton
+ * and creates a spin button to model percentage values.
+ */
+
+gint grab_int_value (GtkSpinButton *a_spinner, gpointer user_data) {
+   return gtk_spin_button_get_value_as_int (a_spinner);
+}
+
+void create_integer_spin_button(void) {
+
+   GtkWidget *window, *spinner;
+   GtkAdjustment *spinner_adj;
+
+   spinner_adj = (GtkAdjustment *) gtk_adjustment_new(50.0, 0.0, 100.0, 1.0, 5.0, 5.0);
+   
+   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+   gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+   
+   /* creates the spinner, with no decimal places */
+   spinner = gtk_spin_button_new (spinner_adj, 1.0, 0);
+   gtk_container_add (GTK_CONTAINER(window), spinner);
+   
+   gtk_widget_show_all (window);
+   return;
+}&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN39257"
+></A
+><P
+><B
+>Example 2. Using a GtkSpinButton to get a floating point value.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;/* Provides a function to retrieve a floating point value from a
+ * GtkSpinButton, and creates a high precision spin button.
+ */
+
+gfloat grab_int_value (GtkSpinButton *a_spinner, gpointer user_data) {
+   return gtk_spin_button_get_value_as_float (a_spinner);
+}
+
+void create_floating_spin_button(void) {
+
+   GtkWidget *window, *spinner;
+   GtkAdjustment *spinner_adj;
+
+   spinner_adj = (GtkAdjustment *) gtk_adjustment_new(2.500, 0.0, 5.0, 0.001, 0.1, 0.1);
+   
+   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+   gtk_container_set_border_width (GTK_CONTAINER (window), 5);
+   
+   /* creates the spinner, with three decimal places */
+   spinner = gtk_spin_button_new (spinner_adj, 0.001, 3);
+   gtk_container_add (GTK_CONTAINER(window), spinner);
+   
+   gtk_widget_show_all (window);
+   return;
+}&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39260"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39262"
+></A
+><H3
+><A
+NAME="GTKSPINBUTTON-STRUCT"
+></A
+>struct GtkSpinButton</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkSpinButton;</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>entry</I
+></TT
+> is the <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> part of the <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> widget, and can be used accordingly. All other fields contain private data and should only be modified using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39270"
+></A
+><H3
+><A
+NAME="GTKSPINBUTTONUPDATEPOLICY"
+></A
+>enum GtkSpinButtonUpdatePolicy</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_UPDATE_ALWAYS,
+  GTK_UPDATE_IF_VALID
+} GtkSpinButtonUpdatePolicy;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39275"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_UPDATE_ALWAYS</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>When refreshing your <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>, the value is always displayed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_UPDATE_IF_VALID</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>When refreshing your <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>, the value is only displayed if it is valid within the bounds of the spin button's <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39289"
+></A
+><H3
+><A
+NAME="GTKSPINTYPE"
+></A
+>enum GtkSpinType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_SPIN_STEP_FORWARD,
+  GTK_SPIN_STEP_BACKWARD,
+  GTK_SPIN_PAGE_FORWARD,
+  GTK_SPIN_PAGE_BACKWARD,
+  GTK_SPIN_HOME,
+  GTK_SPIN_END,
+  GTK_SPIN_USER_DEFINED
+} GtkSpinType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39294"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_SPIN_STEP_FORWARD, 
+GTK_SPIN_STEP_BACKWARD, 
+GTK_SPIN_PAGE_FORWARD, 
+GTK_SPIN_PAGE_BACKWARD</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>These values spin a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> by the relevant values of the spin button's <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_SPIN_HOME, 
+GTK_SPIN_END</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>These set the spin button's value to the minimum or maxmimum possible values, (set by it's <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>), respectively.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_SPIN_USER_DEFINED</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The programmer must specify the exact amount to spin the <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39312"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-CONFIGURE"
+></A
+>gtk_spin_button_configure ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_configure       (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> climb_rate,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> digits);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes the properties of an existing spin button. The adjustment, climb rate, and number of decimal places are all changed accordingly, after this function call.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39321"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>climb_rate</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new climb rate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>digits</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of decimal places to display in the spin button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39344"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-NEW"
+></A
+>gtk_spin_button_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_spin_button_new             (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> climb_rate,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> digits);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39354"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> object that this spin button should use.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>climb_rate</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>specifies how much the spin button changes when an arrow is clicked on.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>digits</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of decimal places to display.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39377"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-ADJUSTMENT"
+></A
+>gtk_spin_button_set_adjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_adjustment  (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes which <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> is associated with a spin button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39385"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39400"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-GET-ADJUSTMENT"
+></A
+>gtk_spin_button_get_adjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>* gtk_spin_button_get_adjustment
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> used by a given spin button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39408"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39423"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-DIGITS"
+></A
+>gtk_spin_button_set_digits ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_digits      (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> digits);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Alters the number of decimal places that are displayed in a spin button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39430"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>digits</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of decimal places.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39444"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-GET-VALUE-AS-FLOAT"
+></A
+>gtk_spin_button_get_value_as_float ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>      gtk_spin_button_get_value_as_float
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the current value of a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>. If the number has no decimal places, it is converted to a float before the function returns.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39452"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value of <TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+> as a <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39468"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-GET-VALUE-AS-INT"
+></A
+>gtk_spin_button_get_value_as_int ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_spin_button_get_value_as_int
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the current integer value of a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39476"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value of <TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+> as a <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39492"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-VALUE"
+></A
+>gtk_spin_button_set_value ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_value       (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> value);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the value of a spin button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39499"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new floating point value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39513"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-UPDATE-POLICY"
+></A
+>gtk_spin_button_set_update_policy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_update_policy
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkspinbutton.html#GTKSPINBUTTONUPDATEPOLICY"
+>GtkSpinButtonUpdatePolicy</A
+> policy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes the way a spin button refreshes and updates itself. See <TT
+CLASS="LITERAL"
+>GtkSpinButtonUpdatePolicy</TT
+> for more information.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39521"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>policy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new update policy.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39535"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-NUMERIC"
+></A
+>gtk_spin_button_set_numeric ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_numeric     (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> numeric);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets how the spin button's <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> reacts to alphabetic characters. A value of TRUE to <TT
+CLASS="PARAMETER"
+><I
+>numeric</I
+></TT
+> means that all non-numeric characters (except '-' and a decimal point) are ignored.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39544"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>numeric</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether letters should be ignored.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39558"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SPIN"
+></A
+>gtk_spin_button_spin ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_spin            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtkspinbutton.html#GTKSPINTYPE"
+>GtkSpinType</A
+> direction,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> increment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Performs an explicit 'spin' on a spin button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39566"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>direction</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of spin to perform.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>increment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the amount to spin.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39584"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-WRAP"
+></A
+>gtk_spin_button_set_wrap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_wrap        (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> wrap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets a spin button's value to the lower limit when it's upper limit is reached, and vice versa.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39591"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>wrap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>defaults to FALSE, set to TRUE to make the spin button wrap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39605"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-SHADOW-TYPE"
+></A
+>gtk_spin_button_set_shadow_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_shadow_type (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> shadow_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a border around the arrows of a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>. The type of border is determined by <TT
+CLASS="PARAMETER"
+><I
+>shadow_type</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39614"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>shadow_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new border type.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39628"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-SET-SNAP-TO-TICKS"
+></A
+>gtk_spin_button_set_snap_to_ticks ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_set_snap_to_ticks
+                                            (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> snap_to_ticks);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether a number typed into a spin button should be snapped to the nearest step increment.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39635"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbutton.html"
+>GtkButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>snap_to_ticks</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE or FALSE.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39649"
+></A
+><H3
+><A
+NAME="GTK-SPIN-BUTTON-UPDATE"
+></A
+>gtk_spin_button_update ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_spin_button_update          (<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+> *spin_button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Refreshes a spin button. The behaviour of the update is determined by <A
+HREF="gtkspinbutton.html#GTK-SPIN-BUTTON-SET-UPDATE-POLICY"
+>gtk_spin_button_set_update_policy</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39656"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spin_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39666"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKSPINBUTTON--ADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>adjustment</TT
+>&quot; (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> : Read / Write)</DT
+><DD
+><P
+>the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> that defines a spin button's main properties.</P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--CLIMB-RATE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>climb-rate</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--DIGITS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>digits</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+>the number of decimal places to display.</P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--SNAP-TO-TICKS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>snap-to-ticks</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--NUMERIC"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>numeric</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>whether non-numeric characters should be ignored.</P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--WRAP"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>wrap</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>whether a spin button should wrap upon reaching its limits.</P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--UPDATE-POLICY"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>update-policy</TT
+>&quot; (<A
+HREF="gtkspinbutton.html#GTKSPINBUTTONUPDATEPOLICY"
+>GtkSpinButtonUpdatePolicy</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--SHADOW-TYPE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>shadow-type</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKSPINBUTTON--VALUE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>value</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+>reads the current value, or sets a new value.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39733"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkentry.html"
+>GtkEntry</A
+></DT
+><DD
+><P
+>retrieve text rather than numbers.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtksocket.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkstatusbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkSocket</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkStatusbar</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

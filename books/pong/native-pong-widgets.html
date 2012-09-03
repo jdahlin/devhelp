@@ -1,0 +1,733 @@
+<HTML
+><HEAD
+><TITLE
+>Native PonG Widgets</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Builtin Widget Reference"
+HREF="builtin-widget-reference.html"><LINK
+REL="PREVIOUS"
+TITLE="Builtin Widget Reference"
+HREF="builtin-widget-reference.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="builtin-widget-reference.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Builtin Widget Reference</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+>&nbsp;</TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="NATIVE-PONG-WIDGETS"
+>Native PonG Widgets</A
+></H1
+><P
+>	There is a bunch of widgets defined within PonG that are available
+	to any PonG file and all support the native PonG interface.
+	Here is a listing:
+      </P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Pong:Check:Group</DT
+><DD
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-CHECK-GROUP-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-check-group.png"></P
+><P
+><B
+>Figure 1. PonG:Check:Group widget</B
+></P
+></DIV
+><P
+>	      A group of several checkbuttons.  Their label and values
+	      are given by the widget options, so you need to set up
+	      some for this widget to be useful.
+	    </P
+><P
+>	      Supports a list of bools directly, however it is most useful
+	      when used with a specifier.  For any given specifier it will
+	      give true or false depending ont he state of the checkbutton
+	      that has the same value as the specifier.  Another way to
+	      use the check group is to select things in an unordered
+	      set of items, this is if you use it with list of ints, list of
+	      floats or list of strings.  The value of the GConf key will
+	      be all the values whose checkboxes are on, and it will not
+	      contain the values whose checkboxes are off.
+	    </P
+><DIV
+CLASS="TABLE"
+><P
+><B
+>Table 1. Pong:Check:Group arguments</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>horizontal</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Put checkboxes in horizontal,
+rather then vertical layout</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DD
+><DT
+>Pong:Color:Picker</DT
+><DD
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-COLOR-PICKER-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-color-picker.png"></P
+><P
+><B
+>Figure 2. PonG:Color:Picker widget</B
+></P
+></DIV
+><P
+>	      Mostly the same as Gnome:Color:Picker, but including some
+	      arguments.
+	    </P
+><P
+>	      Supports the string and int types directly.  List of ints and
+	      list of floats can also be used in which case these are RGB or
+	      RGBA values (for ints these are 8bit values).  Floats and ints
+	      can also be used with a specifier.  The specifier can be "red",
+	      "green", "blue" or "alpha".  If you use any of these specifiers
+	      that specific value will be set or returned.
+	    </P
+><DIV
+CLASS="TABLE"
+><P
+><B
+>Table 2. Pong:Color:Picker arguments</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>title</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Picker dialog title</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>use_alpha</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Use the alpha channel</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>dither</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Use dithering in the button</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DD
+><DT
+>Pong:List:Entry</DT
+><DD
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-LIST-ENTRY-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-list-entry.png"></P
+><P
+><B
+>Figure 3. PonG:List:Entry widget</B
+></P
+></DIV
+><P
+>	      A widget from selecting an unordered set of items from a given
+	      set.  Available unset items are on the left, selected items are
+	      on the right.
+	    </P
+><P
+>	      This supports lists of strings, ints and floats.
+	    </P
+><DIV
+CLASS="TABLE"
+><P
+><B
+>Table 3. Pong:List:Entry arguments</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>available_label</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Label of the column of available items</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>selected_label</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Label of the column of selected items</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DD
+><DT
+>Pong:Option:Menu</DT
+><DD
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-OPTION-MENU-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-option-menu.png"></P
+><P
+><B
+>Figure 4. PonG:Option:Menu widget</B
+></P
+></DIV
+><P
+>	      An option menu for selecting an option from a list.  The list
+	      of items to select from is given by the options.
+	    </P
+><P
+>	      This supports string, int, float or bool types.
+	    </P
+></DD
+><DT
+>Pong:Radio:Group</DT
+><DD
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-RADIO-GROUP-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-radio-group.png"></P
+><P
+><B
+>Figure 5. PonG:Radio:Group widget</B
+></P
+></DIV
+><P
+>	      A group of several radio buttons.  Their label and values
+	      are given by the widget options, so you need to set up
+	      some for this widget to be useful.
+	    </P
+><P
+>	      Supports string, int, float and bool types, which is the value
+	      of the currently selected radiobutton.  You can also query for
+	      true/false of a specific value by using a specifier and a bool
+	      type.
+	    </P
+><DIV
+CLASS="TABLE"
+><P
+><B
+>Table 4. Pong:Radio:Group arguments</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>horizontal</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Put radioboxes in horizontal,
+rather then vertical layout</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DD
+><DT
+>Pong:Slider</DT
+><DD
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-SLIDER-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-slider.png"></P
+><P
+><B
+>Figure 6. PonG:Slider widget</B
+></P
+></DIV
+><P
+>	      A horizontal slider, derived from GtkHScale.  Note that also all
+	      standard GTK+ arguments are supported, see the GTK+ manual for
+	      details.
+	    </P
+><P
+>	      Supports strings, ints and floats.  Strings are just converted
+	      to numbers
+	    </P
+><DIV
+CLASS="TABLE"
+><P
+><B
+>Table 5. Pong:Slider arguments</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>lower</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Lower bound</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>upper</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Upper bound</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>step_increment</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Step increment</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>page_increment</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Page increment</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DD
+><DT
+>Pong:Spin:Button</DT
+><DD
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-SPIN-BUTTON-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-spin-button.png"></P
+><P
+><B
+>Figure 7. PonG:Spin:Button widget</B
+></P
+></DIV
+><P
+>	      A spin button, derived from GtkSpinButton.  Note that also all
+	      standard GTK+ arguments are supported, see the GTK+ manual for
+	      details.
+	    </P
+><P
+>	      Supports strings, ints and floats.  Strings are just converted
+	      to numbers.
+	    </P
+><DIV
+CLASS="TABLE"
+><P
+><B
+>Table 6. Pong:Spin:Button arguments</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>lower</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Lower bound</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>upper</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Upper bound</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>step_increment</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Step increment</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>page_increment</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>double</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Page increment</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="builtin-widget-reference.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Builtin Widget Reference</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="builtin-widget-reference.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,191 @@
+<HTML
+><HEAD
+><TITLE
+>"Configuration keys" Notebook Pane</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Using PonG-Edit"
+HREF="using-pong-edit.html"><LINK
+REL="PREVIOUS"
+TITLE='"Configuration" Notebook Pane'
+HREF="upe-configuration-pane.html"><LINK
+REL="NEXT"
+TITLE='"Dialog panes" Notebook Pane'
+HREF="upe-dialog-pane.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="upe-configuration-pane.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Using PonG-Edit</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="upe-dialog-pane.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="UPE-KEYS-PANE"
+>"Configuration keys" Notebook Pane</A
+></H1
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PONG-EDIT-KEYS-SS"
+></A
+><P
+><IMG
+SRC="figures/pong-edit-keys.png"></P
+><P
+><B
+>Figure 2. PonG Edit configuration keys pane</B
+></P
+></DIV
+><P
+>	This is where things get interesting.  This is where you edit
+	which GConf "keys" your application uses.  By default this
+	list will be empty.  Press "Add" to add a new key.  When this
+	key is selected you will be able to use the below editting
+	area notebook to change it's properties.
+      </P
+><P
+>	On the "Basic" pane, you see "Configuration path:"  This
+	is the path that will be appended to the configuration prefix
+	that you set up before.  So for example it could be
+	"sounds/enable", and then the full path of this GConf key would
+	be "/apps/gnome-foo/sounds/enable".  Underneath you see "Widget:",
+	which is the name of the widget that this key refers to.
+	You can set this string, but it's best to leave it empty, in which
+	case PonG will just look up a widget according to it's Configuration
+	path set above.  So for example here it would use "sounds/enable"
+	as the name of the widget.  The "Specifier:" allows you to set a
+	specific string to use when asking a widget for a value.  This is
+	useful if a widget supports setting more then one key.  Normally,
+	just leave this blank.  The "Default:" is the default value of
+	this key.  First set the type as described in the following paragraph,
+	however.
+      </P
+><P
+>	On the "Type" pane, you specify the type of the GConf key.  For
+	"sounds/enable", this should be "Bool"
+      </P
+><P
+>	On the "Sensitivities" page you can make the value of this key
+	affect sensitivity of certain other widgets on the dialog.  This
+	is useful for example if a boolean value disables a lot of
+	functionality so you can have the preferences for that functionality
+	be insensitive.
+      </P
+><P
+>	On the "Schema" page you can set up the GConf schema data for this
+	key.  You can leave the "Owner" blank if it should use the global
+	default you set on the the "Configuration" page.  The short
+	and long description should be a description of this key.  It should
+	be in english ("C" locale) as other langauges will be added by
+	xml-i18n-tools.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="upe-configuration-pane.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="upe-dialog-pane.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>"Configuration" Notebook Pane</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="using-pong-edit.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>"Dialog panes" Notebook Pane</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

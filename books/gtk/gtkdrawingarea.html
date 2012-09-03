@@ -1,0 +1,621 @@
+<HTML
+><HEAD
+><TITLE
+>GtkDrawingArea</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkDialog"
+HREF="gtkdialog.html"><LINK
+REL="NEXT"
+TITLE="GtkEditable"
+HREF="gtkeditable.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkdialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkeditable.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKDRAWINGAREA"
+>GtkDrawingArea</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN24286"
+></A
+><H2
+>Name</H2
+>GtkDrawingArea&nbsp;--&nbsp;a widget for custom user interface elements.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN24289"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkdrawingarea.html#GTKDRAWINGAREA-STRUCT"
+>GtkDrawingArea</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkdrawingarea.html#GTK-DRAWING-AREA-NEW"
+>gtk_drawing_area_new</A
+>            (void);
+void        <A
+HREF="gtkdrawingarea.html#GTK-DRAWING-AREA-SIZE"
+>gtk_drawing_area_size</A
+>           (<A
+HREF="gtkdrawingarea.html"
+>GtkDrawingArea</A
+> *darea,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24299"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----GtkDrawingArea</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24304"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkdrawingarea.html"
+>GtkDrawingArea</A
+> widget is used for creating custom
+user interface elements. After creating a drawing
+area, the application may want to connect to:
+<P
+></P
+><UL
+><LI
+><P
+>    Mouse and button press signals to respond to input from
+    the user.
+    </P
+></LI
+><LI
+><P
+>    The "realize" signal to take any necessary actions
+    when the widget
+    </P
+></LI
+><LI
+><P
+>    The "size_allocate" signal to take any necessary actions
+    when the widget changes size.
+    </P
+></LI
+><LI
+><P
+>    The "expose_event" signal to handle redrawing the
+    contents of the widget.
+    </P
+></LI
+></UL
+>
+As a convenience, the <A
+HREF="gtkdrawingarea.html"
+>GtkDrawingArea</A
+> widget synthesizes
+a "configure_event" when the widget is realized
+and any time the size of a widget changes when it
+is realized. It often suffices to connect to this
+signal instead of "realize" and "size_allocate".</P
+><P
+>The following code portion demonstrates using a drawing
+area to implement a widget that draws a circle.
+As this example demonstrates, an expose handler should
+draw only the pixels within the requested area and
+should draw or clear all these pixels.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>gboolean
+expose_event (GdkWidget *widget, GdkEventExpose *event, gpointer data)
+{
+  gdk_window_clear_area (widget-&#62;window,
+                         event-&#62;area.x, event-&#62;area.y,
+                         event-&#62;area.width, event-&#62;area.height);
+  gdk_gc_set_clip_rectangle (widget-&#62;style-&#62;fg_gc[widget-&#62;state],
+                             &amp;event-&#62;area);
+  gdk_draw_arc (widget-&#62;window,
+                widget-&#62;style-&#62;fg_gc[widget-&#62;state],
+                TRUE,
+                0, 0, widget-&#62;allocation.width, widget-&#62;allocation.height,
+                0, 64 * 360);
+  gdk_gc_set_clip_rectangle (widget-&#62;style-&#62;fg_gc[widget-&#62;state],
+                             NULL);
+
+  return TRUE;
+}
+[...]
+  GtkWidget *drawing_area = gdk_drawing_area_new();
+  gdk_drawing_area_size (GTK_DRAWING_AREA (drawing_area),
+                         100, 100);
+  gtk_signal_connect (GTK_OBJECT (drawing_area), </PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24321"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24323"
+></A
+><H3
+><A
+NAME="GTKDRAWINGAREA-STRUCT"
+></A
+>struct GtkDrawingArea</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkDrawingArea;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkdrawingarea.html#GTKDRAWINGAREA-STRUCT"
+>GtkDrawingArea</A
+> struct contains private data only, and
+should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24329"
+></A
+><H3
+><A
+NAME="GTK-DRAWING-AREA-NEW"
+></A
+>gtk_drawing_area_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_drawing_area_new            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new drawing area.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24335"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24344"
+></A
+><H3
+><A
+NAME="GTK-DRAWING-AREA-SIZE"
+></A
+>gtk_drawing_area_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_drawing_area_size           (<A
+HREF="gtkdrawingarea.html"
+>GtkDrawingArea</A
+> *darea,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the size that the drawing area will request
+in response to a "size_request" signal. The 
+drawing area may actually be allocated a size
+larger than this depending on how it is packed
+within the enclosing containers.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24352"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>darea</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkdrawingarea.html"
+>GtkDrawingArea</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width to request.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height to request.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkdialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkeditable.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkDialog</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkEditable</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

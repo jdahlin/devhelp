@@ -1,0 +1,920 @@
+<HTML
+><HEAD
+><TITLE
+>Key Values</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Input Devices"
+HREF="gdk-input-devices.html"><LINK
+REL="NEXT"
+TITLE="Input Methods"
+HREF="gdk-input-methods.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-input-devices.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-input-methods.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-KEY-VALUES"
+>Key Values</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12417"
+></A
+><H2
+>Name</H2
+>Key Values&nbsp;--&nbsp;functions for manipulating keyboard codes.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12420"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gdk-key-values.html#GDK-KEYVAL-NAME"
+>gdk_keyval_name</A
+>                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gdk-key-values.html#GDK-KEYVAL-FROM-NAME"
+>gdk_keyval_from_name</A
+>            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *keyval_name);
+
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-key-values.html#GDK-KEYVAL-IS-UPPER"
+>gdk_keyval_is_upper</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-key-values.html#GDK-KEYVAL-IS-LOWER"
+>gdk_keyval_is_lower</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);
+
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gdk-key-values.html#GDK-KEYVAL-TO-UPPER"
+>gdk_keyval_to_upper</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gdk-key-values.html#GDK-KEYVAL-TO-LOWER"
+>gdk_keyval_to_lower</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12441"
+></A
+><H2
+>Description</H2
+><P
+>Key values are the codes which are sent whenever a key is pressed or released.
+They appear in the <TT
+CLASS="STRUCTFIELD"
+><I
+>keyval</I
+></TT
+> field of the
+<A
+HREF="gdk-event-structures.html#GDKEVENTKEY"
+>GdkEventKey</A
+> structure, which is passed to signal handlers for the
+"key-press-event" and "key-release-event" signals.
+The complete list of key values can be found in the &lt;gdk/gdkkeysyms.h&gt;
+header file.</P
+><P
+>Key values can be converted into a string representation using
+<A
+HREF="gdk-key-values.html#GDK-KEYVAL-NAME"
+>gdk_keyval_name</A
+>(). The reverse function, converting a string to a key value,
+is provided by <A
+HREF="gdk-key-values.html#GDK-KEYVAL-FROM-NAME"
+>gdk_keyval_from_name</A
+>().</P
+><P
+>The case of key values can be determined using <A
+HREF="gdk-key-values.html#GDK-KEYVAL-IS-UPPER"
+>gdk_keyval_is_upper</A
+>() and
+<A
+HREF="gdk-key-values.html#GDK-KEYVAL-IS-LOWER"
+>gdk_keyval_is_lower</A
+>(). Key values can be converted to upper or lower case
+using <A
+HREF="gdk-key-values.html#GDK-KEYVAL-TO-UPPER"
+>gdk_keyval_to_upper</A
+>() and <A
+HREF="gdk-key-values.html#GDK-KEYVAL-TO-LOWER"
+>gdk_keyval_to_lower</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12454"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12456"
+></A
+><H3
+><A
+NAME="GDK-KEYVAL-NAME"
+></A
+>gdk_keyval_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gdk_keyval_name                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a key value into a symbolic name.
+The names are the same as those in the &lt;gdk/gdkkeysyms.h&gt; header file
+but without the leading "GDK_".</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12463"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string containing the name of the key, or NULL if <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+> is not
+a valid key. The string should not be modified.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12477"
+></A
+><H3
+><A
+NAME="GDK-KEYVAL-FROM-NAME"
+></A
+>gdk_keyval_from_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gdk_keyval_from_name            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *keyval_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a key name to a key value.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12484"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key name.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the corresponding key value, or <TT
+CLASS="LITERAL"
+>GDK_VoidSymbol</TT
+> if the key name is
+not a valid key.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12498"
+></A
+><H3
+><A
+NAME="GDK-KEYVAL-IS-UPPER"
+></A
+>gdk_keyval_is_upper ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_keyval_is_upper             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if the given key value is in upper case.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12505"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+> is in upper case, or if <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+> is not subject to
+case conversion.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12520"
+></A
+><H3
+><A
+NAME="GDK-KEYVAL-IS-LOWER"
+></A
+>gdk_keyval_is_lower ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_keyval_is_lower             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if the given key value is in lower case.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12527"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+> is in lower case, or if <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+> is not subject to
+case conversion.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12542"
+></A
+><H3
+><A
+NAME="GDK-KEYVAL-TO-UPPER"
+></A
+>gdk_keyval_to_upper ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gdk_keyval_to_upper             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a key value to upper case, if applicable.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12549"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the upper case form of <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>, or <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+> itself if it is already
+in upper case or it is not subject to case conversion.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12564"
+></A
+><H3
+><A
+NAME="GDK-KEYVAL-TO-LOWER"
+></A
+>gdk_keyval_to_lower ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gdk_keyval_to_lower             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a key value to lower case, if applicable.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12571"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the lower case form of <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>, or <TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+> itself if it is already
+in lower case or it is not subject to case conversion.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-input-devices.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-input-methods.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Input Devices</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Input Methods</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1853 @@
+<HTML
+><HEAD
+><TITLE
+>Datasets</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Keyed Data Lists"
+HREF="glib-keyed-data-lists.html"><LINK
+REL="NEXT"
+TITLE="Relations and Tuples"
+HREF="glib-relations-and-tuples.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-keyed-data-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-relations-and-tuples.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-DATASETS"
+>Datasets</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN17418"
+></A
+><H2
+>Name</H2
+>Datasets&nbsp;--&nbsp;associate groups of data elements with particular memory locations.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN17421"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+#define     <A
+HREF="glib-datasets.html#G-DATASET-ID-SET-DATA"
+>g_dataset_id_set_data</A
+>           (l, k, d)
+void        <A
+HREF="glib-datasets.html#G-DATASET-ID-SET-DATA-FULL"
+>g_dataset_id_set_data_full</A
+>      (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> destroy_func);
+void        (<A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>*GDestroyNotify</A
+>)               (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-datasets.html#G-DATASET-ID-GET-DATA"
+>g_dataset_id_get_data</A
+>           (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id);
+#define     <A
+HREF="glib-datasets.html#G-DATASET-ID-REMOVE-DATA"
+>g_dataset_id_remove_data</A
+>        (l, k)
+void        <A
+HREF="glib-datasets.html#G-DATASET-ID-REMOVE-NO-NOTIFY"
+>g_dataset_id_remove_no_notify</A
+>   (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id);
+
+#define     <A
+HREF="glib-datasets.html#G-DATASET-SET-DATA"
+>g_dataset_set_data</A
+>              (l, k, d)
+#define     <A
+HREF="glib-datasets.html#G-DATASET-SET-DATA-FULL"
+>g_dataset_set_data_full</A
+>         (l, k, d, f)
+#define     <A
+HREF="glib-datasets.html#G-DATASET-GET-DATA"
+>g_dataset_get_data</A
+>              (l, k)
+#define     <A
+HREF="glib-datasets.html#G-DATASET-REMOVE-DATA"
+>g_dataset_remove_data</A
+>           (l, k)
+#define     <A
+HREF="glib-datasets.html#G-DATASET-REMOVE-NO-NOTIFY"
+>g_dataset_remove_no_notify</A
+>      (l, k)
+
+void        <A
+HREF="glib-datasets.html#G-DATASET-FOREACH"
+>g_dataset_foreach</A
+>               (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-datasets.html#GDATAFOREACHFUNC"
+>GDataForeachFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+void        (<A
+HREF="glib-datasets.html#GDATAFOREACHFUNC"
+>*GDataForeachFunc</A
+>)             (<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+void        <A
+HREF="glib-datasets.html#G-DATASET-DESTROY"
+>g_dataset_destroy</A
+>               (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17455"
+></A
+><H2
+>Description</H2
+><P
+>Datasets associate groups of data elements with particular memory locations.
+These are useful if you need to associate data with a structure returned
+from an external library. Since you cannot modify the structure, you use
+its location in memory as the key into a dataset, where you can associate
+any number of data elements with it.</P
+><P
+>There are two forms of most of the dataset functions.
+The first form uses strings to identify the data elements associated with
+a location. The second form uses <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> identifiers, which are created
+with a call to <A
+HREF="glib-quarks.html#G-QUARK-FROM-STRING"
+>g_quark_from_string</A
+>() or <A
+HREF="glib-quarks.html#G-QUARK-FROM-STATIC-STRING"
+>g_quark_from_static_string</A
+>().
+The second form is quicker, since it does not require looking up the string
+in the hash table of <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> identifiers.</P
+><P
+>There is no function to create a dataset. It is automatically created as
+soon as you add elements to it.</P
+><P
+>To add data elements to a dataset use <A
+HREF="glib-datasets.html#G-DATASET-ID-SET-DATA"
+>g_dataset_id_set_data</A
+>(),
+<A
+HREF="glib-datasets.html#G-DATASET-ID-SET-DATA-FULL"
+>g_dataset_id_set_data_full</A
+>(), <A
+HREF="glib-datasets.html#G-DATASET-SET-DATA"
+>g_dataset_set_data</A
+>()
+and <A
+HREF="glib-datasets.html#G-DATASET-SET-DATA-FULL"
+>g_dataset_set_data_full</A
+>().</P
+><P
+>To get data elements from a dataset use <A
+HREF="glib-datasets.html#G-DATASET-ID-GET-DATA"
+>g_dataset_id_get_data</A
+>() and
+<A
+HREF="glib-datasets.html#G-DATASET-GET-DATA"
+>g_dataset_get_data</A
+>().</P
+><P
+>To iterate over all data elements in a dataset use <A
+HREF="glib-datasets.html#G-DATASET-FOREACH"
+>g_dataset_foreach</A
+>().</P
+><P
+>To remove data elements from a dataset use <A
+HREF="glib-datasets.html#G-DATASET-ID-REMOVE-DATA"
+>g_dataset_id_remove_data</A
+>() and
+<A
+HREF="glib-datasets.html#G-DATASET-REMOVE-DATA"
+>g_dataset_remove_data</A
+>().</P
+><P
+>To destroy a dataset, use <A
+HREF="glib-datasets.html#G-DATASET-DESTROY"
+>g_dataset_destroy</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17479"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17481"
+></A
+><H3
+><A
+NAME="G-DATASET-ID-SET-DATA"
+></A
+>g_dataset_id_set_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_dataset_id_set_data(l, k, d)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the data element associated with the given <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id.
+Any previous data with the same key is removed, and its destroy function
+is called.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17487"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>l</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>k</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id to identify the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>d</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17505"
+></A
+><H3
+><A
+NAME="G-DATASET-ID-SET-DATA-FULL"
+></A
+>g_dataset_id_set_data_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_dataset_id_set_data_full      (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> destroy_func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the data element associated with the given <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id, and also the
+function to call when the data element is destroyed.
+Any previous data with the same key is removed, and its
+destroy function is called.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17515"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dataset_location</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id to identify the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the data element is removed. This
+function will be called with the data element and can be used to free any
+memory allocated for it.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17537"
+></A
+><H3
+><A
+NAME="GDESTROYNOTIFY"
+></A
+>GDestroyNotify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GDestroyNotify)               (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function which is called when a data element is
+destroyed. It is passed the pointer to the data element and should free
+any memory and resources allocated for it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17543"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17552"
+></A
+><H3
+><A
+NAME="G-DATASET-ID-GET-DATA"
+></A
+>g_dataset_id_get_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_dataset_id_get_data           (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the data element corresponding to a <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17561"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dataset_location</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id to identify the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element corresponding to the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>, or NULL if it is
+not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17580"
+></A
+><H3
+><A
+NAME="G-DATASET-ID-REMOVE-DATA"
+></A
+>g_dataset_id_remove_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_dataset_id_remove_data(l, k)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes a data element from a dataset.
+The data element's destroy function is called if it has been set.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17585"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>l</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>k</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id identifying the data element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17599"
+></A
+><H3
+><A
+NAME="G-DATASET-ID-REMOVE-NO-NOTIFY"
+></A
+>g_dataset_id_remove_no_notify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_dataset_id_remove_no_notify   (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17606"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dataset_location</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17619"
+></A
+><H3
+><A
+NAME="G-DATASET-SET-DATA"
+></A
+>g_dataset_set_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_dataset_set_data(l, k, d)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the data corresponding to the given string identifier.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17624"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>l</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>k</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to identify the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>d</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17641"
+></A
+><H3
+><A
+NAME="G-DATASET-SET-DATA-FULL"
+></A
+>g_dataset_set_data_full()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_dataset_set_data_full(l, k, d, f)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the data corresponding to the given string identifier, and the function
+to call when the data element is destroyed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17646"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>l</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>k</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to identify the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>d</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>f</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the data element is removed. This
+function will be called with the data element and can be used to free any
+memory allocated for it.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17667"
+></A
+><H3
+><A
+NAME="G-DATASET-GET-DATA"
+></A
+>g_dataset_get_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_dataset_get_data(l, k)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the data element corresponding to a string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17672"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>l</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>k</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string identifying the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element corresponding to the string, or NULL if it is not
+found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17689"
+></A
+><H3
+><A
+NAME="G-DATASET-REMOVE-DATA"
+></A
+>g_dataset_remove_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_dataset_remove_data(l, k)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes a data element corresponding to a string.
+Its destroy function is called if it has been set.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17694"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>l</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>k</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string identifying the data element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17707"
+></A
+><H3
+><A
+NAME="G-DATASET-REMOVE-NO-NOTIFY"
+></A
+>g_dataset_remove_no_notify()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_dataset_remove_no_notify(l, k)</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17712"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>l</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>k</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17725"
+></A
+><H3
+><A
+NAME="G-DATASET-FOREACH"
+></A
+>g_dataset_foreach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_dataset_foreach               (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location,
+                                             <A
+HREF="glib-datasets.html#GDATAFOREACHFUNC"
+>GDataForeachFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calls the given function for each data element which is associated with the
+given location.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17733"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dataset_location</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call for each data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17750"
+></A
+><H3
+><A
+NAME="GDATAFOREACHFUNC"
+></A
+>GDataForeachFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GDataForeachFunc)             (<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> key_id,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function passed to <A
+HREF="glib-datasets.html#G-DATASET-FOREACH"
+>g_dataset_foreach</A
+>().
+It is called with each <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id and associated data element,
+together with the <TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+> parameter supplied to <A
+HREF="glib-datasets.html#G-DATASET-FOREACH"
+>g_dataset_foreach</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17762"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> id to identifying the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to <A
+HREF="glib-datasets.html#G-DATASET-FOREACH"
+>g_dataset_foreach</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17781"
+></A
+><H3
+><A
+NAME="G-DATASET-DESTROY"
+></A
+>g_dataset_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_dataset_destroy               (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> dataset_location);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys the dataset, freeing all memory allocated, and calling any
+destroy functions set for data elements.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17787"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dataset_location</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location identifying the dataset.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-keyed-data-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-relations-and-tuples.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Keyed Data Lists</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Relations and Tuples</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

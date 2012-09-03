@@ -1,0 +1,211 @@
+<HTML
+><HEAD
+><TITLE
+>Using the PonG library</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Testing the dialog"
+HREF="upe-testing.html"><LINK
+REL="NEXT"
+TITLE="Basic Usage"
+HREF="upl-basic-usage.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="upe-testing.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="upl-basic-usage.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="USING-PONG-LIBRARY"
+>Using the PonG library</A
+></H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="UPL-HELLO-WORLD"
+>The Hello World of PonG</A
+></H1
+><P
+>	The simplest use of PonG could be illustrated in the following,
+	it will just load the dialog box upon loading.  It will however
+	run until it is stopped by ^C from the terminal as there is no
+	controlling window.
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 1. Hello world of PonG</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#include &#60;config.h&#62;
+#include &#60;gnome.h&#62;
+#include &#60;gconf/gconf-client.h&#62;
+#include &#60;pong/pong.h&#62;
+
+int
+main (int argc, char **argv)
+{
+	GError *error;
+
+        /* Initialize the i18n stuff */
+        bindtextdomain (PACKAGE, GNOMELOCALEDIR);
+        textdomain (PACKAGE);
+
+	/* Initialize GNOME */
+	gnome_init ("hello-world-pong", VERSION, argc, argv);
+
+	/* Initialize GConf */
+	if ( ! gconf_init (argc, argv, &#38;error)) {
+		g_assert (error != NULL);
+		g_warning (_("GConf init failed:\n  %s"), error-&#62;str);
+		gconf_error_destroy (error);
+		error = NULL;
+		return 1;
+	}
+
+	/* Initialize PonG */
+	if ( ! pong_init ()) {
+		g_warning (_("PonG init failed"));
+		return 1;
+	}
+
+	/* Add a directory for where to look for .pong files */
+	pong_add_directory ("/path/where/we/were/installed");
+
+	/* Create a our dialog */
+	widget = pong_run_simple_dialog ("hello-world-pong.pong");
+
+	gtk_main ();
+
+	return 0;
+}
+          </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	As you can see the majority of code is spent not with PonG
+	specific stuff.  The only relevant calls are pong_init,
+	pong_add_directory and pong_run_simple_dialog.
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="upe-testing.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="upl-basic-usage.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Testing the dialog</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Basic Usage</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

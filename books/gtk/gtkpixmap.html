@@ -1,0 +1,874 @@
+<HTML
+><HEAD
+><TITLE
+>GtkPixmap</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkPaned"
+HREF="gtkpaned.html"><LINK
+REL="NEXT"
+TITLE="GtkPlug"
+HREF="gtkplug.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkpaned.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkplug.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKPIXMAP"
+>GtkPixmap</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN35992"
+></A
+><H2
+>Name</H2
+>GtkPixmap&nbsp;--&nbsp;a widget displaying a graphical image or icon.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN35995"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkpixmap.html#GTKPIXMAP-STRUCT"
+>GtkPixmap</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkpixmap.html#GTK-PIXMAP-NEW"
+>gtk_pixmap_new</A
+>                  (<A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);
+void        <A
+HREF="gtkpixmap.html#GTK-PIXMAP-SET"
+>gtk_pixmap_set</A
+>                  (<A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *val,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);
+void        <A
+HREF="gtkpixmap.html#GTK-PIXMAP-GET"
+>gtk_pixmap_get</A
+>                  (<A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **val,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask);
+void        <A
+HREF="gtkpixmap.html#GTK-PIXMAP-SET-BUILD-INSENSITIVE"
+>gtk_pixmap_set_build_insensitive</A
+>
+                                            (<A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> *pixmap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> build);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN36014"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkmisc.html"
+>GtkMisc</A
+>
+               +----GtkPixmap</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN36020"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> widget displays a graphical image or icon.
+The icon is typically created using <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDK-PIXMAP-COLORMAP-CREATE-FROM-XPM
+>gdk_pixmap_colormap_create_from_xpm</A>()
+or <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDK-PIXMAP-COLORMAP-CREATE-FROM-XPM-D
+>gdk_pixmap_colormap_create_from_xpm_d</A>().</P
+><P
+>The pixels in a <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> cannot be manipulated by the application after
+creation, since under the X Window system the pixel data is stored on the
+X server and so is not available to the client application.
+If you want to create graphical images which can be manipulated by the
+application, look at <A
+HREF="gtkimage.html"
+>GtkImage</A
+> and GdkRGB.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN36030"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36032"
+></A
+><H3
+><A
+NAME="GTKPIXMAP-STRUCT"
+></A
+>struct GtkPixmap</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPixmap;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkpixmap.html#GTKPIXMAP-STRUCT"
+>GtkPixmap</A
+> struct contains private data only, and
+should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36038"
+></A
+><H3
+><A
+NAME="GTK-PIXMAP-NEW"
+></A
+>gtk_pixmap_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_pixmap_new                  (<A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+>, using the given GDK pixmap and mask.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36047"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GDKPixmap</A>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GDKBitmap</A> which indicates which parts of the <TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+> should be
+transparent.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36068"
+></A
+><H3
+><A
+NAME="GTK-PIXMAP-SET"
+></A
+>gtk_pixmap_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_pixmap_set                  (<A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *val,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> and <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> mask.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36078"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A>, which indicates which parts of the <TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+> should be
+transparent. This can be NULL, in which case none of the <TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+> is
+transparent.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36100"
+></A
+><H3
+><A
+NAME="GTK-PIXMAP-GET"
+></A
+>gtk_pixmap_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_pixmap_get                  (<A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **val,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the current <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> and <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> mask.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36110"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returns the current <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returns the current <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> mask.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36130"
+></A
+><H3
+><A
+NAME="GTK-PIXMAP-SET-BUILD-INSENSITIVE"
+></A
+>gtk_pixmap_set_build_insensitive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_pixmap_set_build_insensitive
+                                            (<A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> *pixmap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> build);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36137"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>build</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>set to TRUE if an extra pixmap should be automatically created to use
+when the pixmap is insensitive.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkpaned.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkplug.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPaned</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPlug</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

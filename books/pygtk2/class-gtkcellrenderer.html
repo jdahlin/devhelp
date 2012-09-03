@@ -1,0 +1,627 @@
+<HTML
+><HEAD
+><TITLE
+>Class GtkCellRenderer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.54"><LINK
+REL="HOME"
+TITLE="PyGTK Docs"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Class GtkCalendar"
+HREF="class-gtkcalendar.html"><LINK
+REL="NEXT"
+TITLE="Class GtkCellRendererPixbuf"
+HREF="class-gtkcellrendererpixbuf.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PyGTK Docs</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="class-gtkcalendar.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="class-gtkcellrendererpixbuf.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CLASS-GTKCELLRENDERER"
+>Class GtkCellRenderer</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9089"
+>Ancestry</A
+></H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>+-- GObject
+  +-- <A
+HREF="class-gtkobject.html"
+>GtkObject</A
+>
+    +-- <A
+HREF="class-gtkcellrenderer.html"
+>GtkCellRenderer</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9095"
+>Methods</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKCELLRENDERER--GET-SIZE"
+>GtkCellRenderer.get_size</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_size</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>widget</VAR
+>, <VAR
+CLASS="PDPARAM"
+>width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>height</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+></DT
+><DD
+><P
+>the widget the renderer is rendering to</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></DT
+><DD
+><P
+>location to return width needed to render a cell, or <TT
+CLASS="LITERAL"
+>NULL</TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></DT
+><DD
+><P
+>location to return height needed to render a cell, or <TT
+CLASS="LITERAL"
+>NULL</TT
+></P
+></DD
+></DL
+></DIV
+><P
+>Obtains the width and height needed to render the cell. Used by view widgets
+to determine the appropriate size for the cell_area passed to
+<A
+HREF="class-gtkcellrenderer.html#METHOD-GTKCELLRENDERER--RENDER"
+><TT
+CLASS="FUNCTION"
+>GtkCellRenderer.render()</TT
+></A
+>.  If <TT
+CLASS="PARAMETER"
+><I
+>cell_area</I
+></TT
+> is not <TT
+CLASS="LITERAL"
+>NULL</TT
+>, fills in the x and y
+offsets (if set) of the cell relative to this location.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKCELLRENDERER--RENDER"
+>GtkCellRenderer.render</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>render</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>window</VAR
+>, <VAR
+CLASS="PDPARAM"
+>widget</VAR
+>, <VAR
+CLASS="PDPARAM"
+>background_area</VAR
+>, <VAR
+CLASS="PDPARAM"
+>cell_area</VAR
+>, <VAR
+CLASS="PDPARAM"
+>expose_area</VAR
+>, <VAR
+CLASS="PDPARAM"
+>flags</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+></DT
+><DD
+><P
+>a <A
+HREF="class-gdkdrawable.html"
+><SPAN
+CLASS="TYPE"
+>GdkDrawable</SPAN
+></A
+> to draw to</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+></DT
+><DD
+><P
+>the widget owning <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>background_area</I
+></TT
+></DT
+><DD
+><P
+>entire cell area (including tree expanders and maybe padding on the sides)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>cell_area</I
+></TT
+></DT
+><DD
+><P
+>area normally rendered by a cell renderer</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>expose_area</I
+></TT
+></DT
+><DD
+><P
+>area that actually needs updating</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+></DT
+><DD
+><P
+>flags that affect rendering</P
+></DD
+></DL
+></DIV
+><P
+>Invokes the virtual render function of the <A
+HREF="class-gtkcellrenderer.html"
+><SPAN
+CLASS="TYPE"
+>GtkCellRenderer</SPAN
+></A
+>. The
+three passed-in rectangles are areas of <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>. Most renderers
+will draw to <TT
+CLASS="PARAMETER"
+><I
+>cell_area</I
+></TT
+>; the xalign, yalign, xpad, and ypad fields
+of the <A
+HREF="class-gtkcellrenderer.html"
+><SPAN
+CLASS="TYPE"
+>GtkCellRenderer</SPAN
+></A
+> should be honored with respect to
+<TT
+CLASS="PARAMETER"
+><I
+>cell_area</I
+></TT
+>. <TT
+CLASS="PARAMETER"
+><I
+>background_area</I
+></TT
+> includes the blank space around the
+cell, and also the area containing the tree expander; so the
+<TT
+CLASS="PARAMETER"
+><I
+>background_area</I
+></TT
+> rectangles for all cells tile to cover the entire
+<TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>. Cell renderers can use the <TT
+CLASS="PARAMETER"
+><I
+>background_area</I
+></TT
+> to draw custom expanders, for
+example. <TT
+CLASS="PARAMETER"
+><I
+>expose_area</I
+></TT
+> is a clip rectangle.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKCELLRENDERER--EVENT"
+>GtkCellRenderer.event</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>event</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>event</VAR
+>, <VAR
+CLASS="PDPARAM"
+>widget</VAR
+>, <VAR
+CLASS="PDPARAM"
+>path</VAR
+>, <VAR
+CLASS="PDPARAM"
+>background_area</VAR
+>, <VAR
+CLASS="PDPARAM"
+>cell_area</VAR
+>, <VAR
+CLASS="PDPARAM"
+>flags</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+></DT
+><DD
+><P
+>a <TT
+CLASS="LITERAL"
+>GdkEvent</TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+></DT
+><DD
+><P
+>widget that received the event</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+></DT
+><DD
+><P
+>widget-dependent string representation of the event location; e.g. for <A
+HREF="class-gtktreeview.html"
+><SPAN
+CLASS="TYPE"
+>GtkTreeView</SPAN
+></A
+>, a string representation of <TT
+CLASS="LITERAL"
+>GtkTreePath</TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>background_area</I
+></TT
+></DT
+><DD
+><P
+>background area as passed to <A
+HREF="class-gtkcellrenderer.html#METHOD-GTKCELLRENDERER--RENDER"
+><TT
+CLASS="FUNCTION"
+>GtkCellRenderer.render()</TT
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>cell_area</I
+></TT
+></DT
+><DD
+><P
+>cell area as passed to <A
+HREF="class-gtkcellrenderer.html#METHOD-GTKCELLRENDERER--RENDER"
+><TT
+CLASS="FUNCTION"
+>GtkCellRenderer.render()</TT
+></A
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+></DT
+><DD
+><P
+>render flags</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the event was consumed/handled</P
+></DD
+></DL
+></DIV
+><P
+>Passes an event to the cell renderer for possible processing.  Some
+cell renderers may use events; for example, <A
+HREF="class-gtkcellrenderertoggle.html"
+><SPAN
+CLASS="TYPE"
+>GtkCellRendererToggle</SPAN
+></A
+>
+toggles when it gets a mouse click.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="class-gtkcalendar.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="class-gtkcellrendererpixbuf.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class GtkCalendar</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class GtkCellRendererPixbuf</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

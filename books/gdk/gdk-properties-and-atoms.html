@@ -1,0 +1,2053 @@
+<HTML
+><HEAD
+><TITLE
+>Properties and Atoms</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Drag and Drop"
+HREF="gdk-drag-and-drop.html"><LINK
+REL="NEXT"
+TITLE="Threads"
+HREF="gdk-threads.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-threads.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-PROPERTIES-AND-ATOMS"
+>Properties and Atoms</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11150"
+></A
+><H2
+>Name</H2
+>Properties and Atoms&nbsp;--&nbsp;functions to manipulate properties on windows.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11153"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+typedef     <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+>;
+#define     <A
+HREF="gdk-properties-and-atoms.html#GDK-NONE-CAPS"
+>GDK_NONE</A
+>
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-properties-and-atoms.html#GDK-TEXT-PROPERTY-TO-TEXT-LIST"
+>gdk_text_property_to_text_list</A
+>  (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> encoding,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***list);
+void        <A
+HREF="gdk-properties-and-atoms.html#GDK-FREE-TEXT-LIST"
+>gdk_free_text_list</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **list);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-properties-and-atoms.html#GDK-STRING-TO-COMPOUND-TEXT"
+>gdk_string_to_compound_text</A
+>     (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> *encoding,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> **ctext,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *length);
+void        <A
+HREF="gdk-properties-and-atoms.html#GDK-FREE-COMPOUND-TEXT"
+>gdk_free_compound_text</A
+>          (<A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *ctext);
+<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+>     <A
+HREF="gdk-properties-and-atoms.html#GDK-ATOM-INTERN"
+>gdk_atom_intern</A
+>                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *atom_name,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> only_if_exists);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gdk-properties-and-atoms.html#GDK-ATOM-NAME"
+>gdk_atom_name</A
+>                   (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> atom);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-properties-and-atoms.html#GDK-PROPERTY-GET"
+>gdk_property_get</A
+>                (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> offset,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> pdelete,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> *actual_property_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *actual_format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *actual_length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> **data);
+void        <A
+HREF="gdk-properties-and-atoms.html#GDK-PROPERTY-CHANGE"
+>gdk_property_change</A
+>             (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> format,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKPROPMODE"
+>GdkPropMode</A
+> mode,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nelements);
+enum        <A
+HREF="gdk-properties-and-atoms.html#GDKPROPMODE"
+>GdkPropMode</A
+>;
+void        <A
+HREF="gdk-properties-and-atoms.html#GDK-PROPERTY-DELETE"
+>gdk_property_delete</A
+>             (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11207"
+></A
+><H2
+>Description</H2
+><P
+>Each window under X can have any number of associated
+<I
+CLASS="FIRSTTERM"
+>properties</I
+> attached to it.
+Properties are arbitrary chunks of data identified by
+<I
+CLASS="FIRSTTERM"
+>atom</I
+>s. (An <I
+CLASS="FIRSTTERM"
+>atom</I
+>
+is a numeric index into a string table on the X server. They are used
+to transfer strings efficiently between clients without
+having to transfer the entire string.) A property
+has an associated type, which is also identified
+using an atom.</P
+><P
+>A property has an associated <I
+CLASS="FIRSTTERM"
+>format</I
+>,
+an integer describing how many bits are in each unit
+of data inside the property. It must be 8, 16, or 32.
+When data is transfered between the server and client,
+if they are of different endianesses it will be byteswapped
+as necessary according to the format of the property.
+Note that on the client side, properties of format 32
+will be stored with one unit per <I
+CLASS="EMPHASIS"
+>long</I
+>,
+even if a long integer has more than 32 bits on the platform.
+(This decision was apparently made for Xlib to maintain
+compatibility with programs that assumed longs were 32
+bits, at the expense of programs that knew better.)</P
+><P
+>The functions in this section are used to add, remove
+and change properties on windows, to convert atoms
+to and from strings and to manipulate some types of
+data commonly stored in X window properties.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11217"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11219"
+></A
+><H3
+><A
+NAME="GDKATOM"
+></A
+>GdkAtom</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef gulong			      GdkAtom;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A numeric type representing a string as an index into a table
+of strings on the X server.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11224"
+></A
+><H3
+><A
+NAME="GDK-NONE-CAPS"
+></A
+>GDK_NONE</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GDK_NONE	     0L</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11229"
+></A
+><H3
+><A
+NAME="GDK-TEXT-PROPERTY-TO-TEXT-LIST"
+></A
+>gdk_text_property_to_text_list ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_text_property_to_text_list  (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> encoding,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Convert a text string from the encoding as it is stored in
+a property into an array of strings in the encoding of
+the current local. (The elements of the array represent
+the null-separated elements of the original text string.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11240"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>encoding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an atom representing the encoding. The most common
+           values for this are <TT
+CLASS="LITERAL"
+>STRING</TT
+>,
+           or <TT
+CLASS="LITERAL"
+>COMPOUND_TEXT</TT
+>. This is
+           value used as the type for the property.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the format of the property.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the property, in item.s</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store a terminated array of strings
+       in the encoding of the current locale. This
+       array should be freed using <A
+HREF="gdk-properties-and-atoms.html#GDK-FREE-TEXT-LIST"
+>gdk_free_text_list</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of strings stored in <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>, or 0,
+          if the conversion failed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11273"
+></A
+><H3
+><A
+NAME="GDK-FREE-TEXT-LIST"
+></A
+>gdk_free_text_list ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_free_text_list              (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Free the array of strings created by
+<A
+HREF="gdk-properties-and-atoms.html#GDK-TEXT-PROPERTY-TO-TEXT-LIST"
+>gdk_text_property_to_text_list</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11280"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value stored in the <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> parameter by
+       a call to <A
+HREF="gdk-properties-and-atoms.html#GDK-TEXT-PROPERTY-TO-TEXT-LIST"
+>gdk_text_property_to_text_list</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11291"
+></A
+><H3
+><A
+NAME="GDK-STRING-TO-COMPOUND-TEXT"
+></A
+>gdk_string_to_compound_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_string_to_compound_text     (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> *encoding,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> **ctext,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Convert a string from the encoding of the current locale 
+into a form suitable for storing in a window property.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11302"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a null-terminated string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>encoding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the encoding atom (to be used as the type for the property).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the format for the property.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctext</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store newly allocated data for the property.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the length of <TT
+CLASS="PARAMETER"
+><I
+>ctext</I
+></TT
+> in items.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>0 upon sucess, non-zero upon failure.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11332"
+></A
+><H3
+><A
+NAME="GDK-FREE-COMPOUND-TEXT"
+></A
+>gdk_free_compound_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_free_compound_text          (<A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *ctext);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Free the data returned from <A
+HREF="gdk-properties-and-atoms.html#GDK-STRING-TO-COMPOUND-TEXT"
+>gdk_string_to_compound_text</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11339"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctext</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pointer stored in <TT
+CLASS="PARAMETER"
+><I
+>ctext</I
+></TT
+> from a call to <A
+HREF="gdk-properties-and-atoms.html#GDK-STRING-TO-COMPOUND-TEXT"
+>gdk_string_to_compound_text</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11350"
+></A
+><H3
+><A
+NAME="GDK-ATOM-INTERN"
+></A
+>gdk_atom_intern ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+>     gdk_atom_intern                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *atom_name,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> only_if_exists);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Find or create an atom corresponding to a given string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11358"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>atom_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>only_if_exists</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, do not create a new atom, but
+                 just return the atom if it already exists.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the atom corresponding to <TT
+CLASS="PARAMETER"
+><I
+>atom_name</I
+></TT
+>, or, if
+          <TT
+CLASS="PARAMETER"
+><I
+>only_if_exists</I
+></TT
+> is false, and an atom does not
+          already exists for the string, <TT
+CLASS="LITERAL"
+>GDK_NONE</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11379"
+></A
+><H3
+><A
+NAME="GDK-ATOM-NAME"
+></A
+>gdk_atom_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gdk_atom_name                   (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> atom);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine the string corresponding to an atom.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11386"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>atom</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly allocated string containing the string
+          corresponding to <TT
+CLASS="PARAMETER"
+><I
+>atom</I
+></TT
+>. When you are done
+          with the return value, you should free it 
+          using <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11402"
+></A
+><H3
+><A
+NAME="GDK-PROPERTY-GET"
+></A
+>gdk_property_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_property_get                (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> offset,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> pdelete,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> *actual_property_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *actual_format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *actual_length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> **data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves a portion of the contents of a property. If the
+property does not exist, then the function returns FALSE,
+and <TT
+CLASS="LITERAL"
+>GDK_NONE</TT
+> will be stored in <TT
+CLASS="PARAMETER"
+><I
+>actual_property_type</I
+></TT
+>.
+
+Note: the <TT
+CLASS="FUNCTION"
+>XGetWindowProperty()</TT
+>
+function that <A
+HREF="gdk-properties-and-atoms.html#GDK-PROPERTY-GET"
+>gdk_property_get</A
+>()
+uses has a very confusing and complicated set of semantics.
+Unfortunately, <A
+HREF="gdk-properties-and-atoms.html#GDK-PROPERTY-GET"
+>gdk_property_get</A
+>() makes the situation
+worse instead of better (the semantics should be considered
+undefined), and also prints warnings to stderr in cases where it
+should return a useful error to the program. You are advised to use 
+<TT
+CLASS="FUNCTION"
+>XGetWindowProperty()</TT
+>
+directly until a replacement function for <A
+HREF="gdk-properties-and-atoms.html#GDK-PROPERTY-GET"
+>gdk_property_get</A
+>()
+is provided. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11427"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>property</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the property to retrieve.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the desired property type, or 0, if any type of data
+       is acceptable. If this does not match the actual
+       type, then <TT
+CLASS="PARAMETER"
+><I
+>actual_format</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>actual_length</I
+></TT
+> will
+       be filled in, a warning will be printed to stderr
+       and no data will be returned.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the offset into the property at which to begin
+         retrieving data. (in 4 byte units!)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the data to delete. (in bytes, but
+         the actual retrieved length will be the next
+         integer multiple multiple of four greater than 
+         this!)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pdelete</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, delete the property after retrieving the
+          data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>actual_property_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the actual type of 
+                       the property.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>actual_format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the actual format of the data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>actual_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the length of the retrieved
+                data, in bytes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store a pointer to the data. The retrieved
+       data should be freed with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>() when you are finished
+       using it.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if data was sucessfully received and stored
+          in <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>, otherwise <TT
+CLASS="LITERAL"
+>FALSE</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11484"
+></A
+><H3
+><A
+NAME="GDK-PROPERTY-CHANGE"
+></A
+>gdk_property_change ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_property_change             (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> format,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKPROPMODE"
+>GdkPropMode</A
+> mode,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nelements);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Change the contents of a property on a window.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11496"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>property</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the property to change.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new type for the property. If <TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+> is
+       <TT
+CLASS="LITERAL"
+>GDK_PROP_MODE_REPLACE</TT
+> or <TT
+CLASS="LITERAL"
+>GDK_PROP_MODE_APPEND</TT
+>, then this 
+       must match the existing type or an error will occur.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new format for the property. If <TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+> is
+         <TT
+CLASS="LITERAL"
+>GDK_PROP_MODE_REPLACE</TT
+> or <TT
+CLASS="LITERAL"
+>GDK_PROP_MODE_APPEND</TT
+>, then this 
+         must match the existing format or an error will occur.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value describing how the new data is to be combined
+       with the current data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data
+       (a <TT
+CLASS="LITERAL"
+>guchar *</TT
+>
+        <TT
+CLASS="LITERAL"
+>gushort *</TT
+>, or 
+        <TT
+CLASS="LITERAL"
+>gulong *</TT
+>, depending on <TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>), cast to a 
+        <TT
+CLASS="LITERAL"
+>guchar *</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nelements</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements of size determined by the format,
+            contained in <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11542"
+></A
+><H3
+><A
+NAME="GDKPROPMODE"
+></A
+>enum GdkPropMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_PROP_MODE_REPLACE,
+  GDK_PROP_MODE_PREPEND,
+  GDK_PROP_MODE_APPEND
+} GdkPropMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Describes how existing data is combined with new data when
+using <A
+HREF="gdk-properties-and-atoms.html#GDK-PROPERTY-CHANGE"
+>gdk_property_change</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11548"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROP_MODE_REPLACE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new data replaces the existing data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROP_MODE_PREPEND</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new data is prepended to the existing data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROP_MODE_APPEND</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new data is appended to the existing data.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11565"
+></A
+><H3
+><A
+NAME="GDK-PROPERTY-DELETE"
+></A
+>gdk_property_delete ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_property_delete             (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Delete a property from a window.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11572"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>property</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the property to delete.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-threads.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Drag and Drop</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Threads</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,3203 @@
+<HTML
+><HEAD
+><TITLE
+>GdkRGB</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Bitmaps and Pixmaps"
+HREF="gdk-bitmaps-and-pixmaps.html"><LINK
+REL="NEXT"
+TITLE="Images"
+HREF="gdk-images.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-images.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-GDKRGB"
+>GdkRGB</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN3271"
+></A
+><H2
+>Name</H2
+>GdkRGB&nbsp;--&nbsp;displays RGB images (as well as grayscale and colormapped) to
+the native window.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN3274"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+void        <A
+HREF="gdk-gdkrgb.html#GDK-RGB-INIT"
+>gdk_rgb_init</A
+>                    (void);
+
+void        <A
+HREF="gdk-gdkrgb.html#GDK-DRAW-RGB-IMAGE"
+>gdk_draw_rgb_image</A
+>              (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *rgb_buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-DRAW-RGB-IMAGE-DITHALIGN"
+>gdk_draw_rgb_image_dithalign</A
+>    (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *rgb_buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xdith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ydith);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-DRAW-INDEXED-IMAGE"
+>gdk_draw_indexed_image</A
+>          (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> *cmap);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-DRAW-GRAY-IMAGE"
+>gdk_draw_gray_image</A
+>             (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-DRAW-RGB-32-IMAGE"
+>gdk_draw_rgb_32_image</A
+>           (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride);
+enum        <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+>;
+
+<A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+>* <A
+HREF="gdk-gdkrgb.html#GDK-RGB-CMAP-NEW"
+>gdk_rgb_cmap_new</A
+>                (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> n_colors);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-RGB-CMAP-FREE"
+>gdk_rgb_cmap_free</A
+>               (<A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> *cmap);
+struct      <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+>;
+
+void        <A
+HREF="gdk-gdkrgb.html#GDK-RGB-GC-SET-FOREGROUND"
+>gdk_rgb_gc_set_foreground</A
+>       (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> rgb);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-RGB-GC-SET-BACKGROUND"
+>gdk_rgb_gc_set_background</A
+>       (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> rgb);
+<A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A>      <A
+HREF="gdk-gdkrgb.html#GDK-RGB-XPIXEL-FROM-RGB"
+>gdk_rgb_xpixel_from_rgb</A
+>         (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> rgb);
+
+void        <A
+HREF="gdk-gdkrgb.html#GDK-RGB-SET-INSTALL"
+>gdk_rgb_set_install</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> install);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-RGB-SET-MIN-COLORS"
+>gdk_rgb_set_min_colors</A
+>          (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_colors);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-VISUAL"
+>gdk_rgb_get_visual</A
+>              (void);
+<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* <A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-CMAP"
+>gdk_rgb_get_cmap</A
+>               (void);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-gdkrgb.html#GDK-RGB-DITHERABLE"
+>gdk_rgb_ditherable</A
+>              (void);
+void        <A
+HREF="gdk-gdkrgb.html#GDK-RGB-SET-VERBOSE"
+>gdk_rgb_set_verbose</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> verbose);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN3360"
+></A
+><H2
+>Description</H2
+><P
+>&#13;GdkRgb converts RGB, grayscale, and colormapped images into the native
+window pixel format and displays them. It takes care of colormaps,
+visuals, dithering, and management of the temporary buffers.&#13;</P
+><P
+>You must call <A
+HREF="gdk-gdkrgb.html#GDK-RGB-INIT"
+>gdk_rgb_init</A
+>() before using any GdkRgb functionality. If
+you fail to do so, expect coredumps. All Gtk+ widgets that use GdkRgb
+(including <A
+HREF=../gtk/gtkpreview.html
+>GtkPreview</A>) call <A
+HREF="gdk-gdkrgb.html#GDK-RGB-INIT"
+>gdk_rgb_init</A
+>() in their class_init method.
+Thus, if you use GdkRgb only indirectly, you don't need to worry
+about it.</P
+><P
+>GdkRgb tries to use the system default visual and colormap, but
+doesn't always succeed. Thus, you have to be prepared to install the
+visual and colormap generated by GdkRgb. The following code sequence
+(before any widgets are created) should work in most applications:</P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN3368"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  <A
+HREF="gdk-gdkrgb.html#GDK-RGB-INIT"
+>gdk_rgb_init</A
+>();
+
+  gtk_widget_set_default_colormap (<A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-CMAP"
+>gdk_rgb_get_cmap</A
+>());
+  gtk_widget_set_default_visual (<A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-VISUAL"
+>gdk_rgb_get_visual</A
+>());</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><P
+>You can also push the colormap and visual, but in general it doesn't
+work unless the push wraps the window creation call. If you wrap the
+push around a widget which is embedded in a window without the GdkRgb
+colormap and visual, it probably won't work, and is likely to cause
+colormap flashing, as well.</P
+><P
+>On 8-bit systems, the colormaps used by Imlib and GdkRgb may
+conflict. There is no good general solution to this other than phasing
+out the dependence on Imlib.</P
+><P
+>You can set the threshold for installing colormaps with
+<A
+HREF="gdk-gdkrgb.html#GDK-RGB-SET-MIN-COLORS"
+>gdk_rgb_set_min_colors</A
+>(). The default is 5x5x5 (125). If a colorcube
+of this size or larger can be allocated in the default colormap, then
+that's done. Otherwise, GdkRgb creates its own private colormap.
+Setting it to 0 means that it always tries to use the default
+colormap, and setting it to 216 means that it always creates a private
+one if it cannot allocate the 6x6x6 colormap in the default. If you
+always want a private colormap (to avoid consuming too many colormap
+entries for other apps, say), you can use gdk_rgb_set_install(TRUE).
+Setting the value greater than 216 exercises a bug in older versions
+of GdkRgb. Note, however, that setting it to 0 doesn't let you get
+away with ignoring the colormap and visual - a colormap is always
+created in grayscale and direct color modes, and the visual is changed
+in cases where a "better" visual than the default is available.</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3377"
+></A
+><P
+><B
+>Example 1. A simple example program using GdkRGB.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>include &lt;gtk/gtk.h&gt;
+
+define IMAGE_WIDTH	256
+define IMAGE_HEIGHT	256
+
+guchar rgbbuf[IMAGE_WIDTH * IMAGE_HEIGHT * 3];
+
+gboolean on_darea_expose (GtkWidget *widget,
+			  GdkEventExpose *event,
+			  gpointer user_data);
+
+int
+main (int argc, char *argv[])
+{
+  GtkWidget *window, *darea;
+  gint x, y;
+  guchar *pos;
+
+  gtk_init (&amp;argc, &amp;argv);
+  <A
+HREF="gdk-gdkrgb.html#GDK-RGB-INIT"
+>gdk_rgb_init</A
+>();
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  darea = <A
+HREF=../gtk/gtkdrawingarea.html#GTK-DRAWING-AREA-NEW
+>gtk_drawing_area_new</A>();
+  gtk_drawing_area_size (GTK_DRAWING_AREA (darea), IMAGE_WIDTH, IMAGE_HEIGHT);
+  gtk_container_add (GTK_CONTAINER (window), darea);
+  gtk_signal_connect (GTK_OBJECT (darea), "expose-event",
+                      GTK_SIGNAL_FUNC (on_darea_expose), NULL);
+  gtk_widget_show_all (window);
+
+  /* Set up the RGB buffer. */
+  pos = rgbbuf;
+  for (y = 0; y &#60; IMAGE_HEIGHT; y++)
+    {
+      for (x = 0; x &#60; IMAGE_WIDTH; x++)
+	{
+	  *pos++ = x - x % 32;			/* Red. */
+	  *pos++ = (x / 32) * 4 + y - y % 32;	/* Green. */
+	  *pos++ = y - y % 32;			/* Blue. */
+	}
+    }
+
+  <A
+HREF=../gtk/gtk-general.html#GTK-MAIN
+>gtk_main</A>();
+  return 0;
+}
+
+
+gboolean
+on_darea_expose (GtkWidget *widget,
+		 GdkEventExpose *event,
+		 gpointer user_data)
+{
+  gdk_draw_rgb_image (widget-&#62;window, widget-&#62;style-&#62;fg_gc[GTK_STATE_NORMAL],
+		      0, 0, IMAGE_WIDTH, IMAGE_HEIGHT,
+		      GDK_RGB_DITHER_MAX, rgbbuf, IMAGE_WIDTH * 3);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN3386"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3388"
+></A
+><H3
+><A
+NAME="GDK-RGB-INIT"
+></A
+>gdk_rgb_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rgb_init                    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initializes GdkRgb statically. It may be called more than once with no
+ill effects. It must, however, be called before any other GdkRgb
+operations are performed.</P
+><P
+>The GdkRgb "context" is allocated statically. Thus, GdkRgb may be used
+to drive only one visual in any given application. GdkRgb
+automatically selects a best visual and sets its own colormap, if
+necessary. <A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-VISUAL"
+>gdk_rgb_get_visual</A
+>() and <A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-CMAP"
+>gdk_rgb_get_cmap</A
+>() retrieve
+the chosen visual and colormap, respectively.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3396"
+></A
+><H3
+><A
+NAME="GDK-DRAW-RGB-IMAGE"
+></A
+>gdk_draw_rgb_image ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_rgb_image              (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *rgb_buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws an RGB image in the drawable. This is the core GdkRgb
+function, and likely the only one you will need to use other than the
+initialization stuff.</P
+><P
+>The <TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+> parameter allows for lines to be aligned more flexibly.
+For example, lines may be allocated to begin on 32-bit boundaries,
+even if the width of the rectangle is odd. Rowstride is also useful
+when drawing a subrectangle of a larger image in memory. Finally, to
+replicate the same line a number of times, the trick of setting
+<TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+> to 0 is allowed.</P
+><P
+>In general, for 0 &lt;= i &lt; <TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+> and 0 &lt;= j &lt; height,
+the pixel (x + i, y + j) is colored with red value <TT
+CLASS="PARAMETER"
+><I
+>rgb_buf</I
+></TT
+>[<TT
+CLASS="PARAMETER"
+><I
+>j</I
+></TT
+> *
+<TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+> + <TT
+CLASS="PARAMETER"
+><I
+>i</I
+></TT
+> * 3], green value <TT
+CLASS="PARAMETER"
+><I
+>rgb_buf</I
+></TT
+>[<TT
+CLASS="PARAMETER"
+><I
+>j</I
+></TT
+> * <TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+> + <TT
+CLASS="PARAMETER"
+><I
+>i</I
+></TT
+> * 3 +
+1], and blue value <TT
+CLASS="PARAMETER"
+><I
+>rgb_buf</I
+></TT
+>[<TT
+CLASS="PARAMETER"
+><I
+>j</I
+></TT
+> * <TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+> + <TT
+CLASS="PARAMETER"
+><I
+>i</I
+></TT
+> * 3 + 2].</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3427"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> to draw in (usually a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The graphics context (all Gdk drawing operations require one; its
+contents are ignored).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The x coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The y coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The width of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The height of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dith</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> value, selecting the desired dither mode.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rgb_buf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pixel data, represented as packed 24-bit data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of bytes from the start of one row in <TT
+CLASS="PARAMETER"
+><I
+>rgb_buf</I
+></TT
+> to the
+start of the next.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3472"
+></A
+><H3
+><A
+NAME="GDK-DRAW-RGB-IMAGE-DITHALIGN"
+></A
+>gdk_draw_rgb_image_dithalign ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_rgb_image_dithalign    (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *rgb_buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xdith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ydith);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws an RGB image in the drawable, with an adjustment for dither alignment.</P
+><P
+>This function is useful when drawing dithered images into a window
+that may be scrolled. Pixel (x, y) will be drawn dithered as if its
+actual location is (x + <TT
+CLASS="PARAMETER"
+><I
+>xdith</I
+></TT
+>, y + <TT
+CLASS="PARAMETER"
+><I
+>ydith</I
+></TT
+>). Thus, if you draw an
+image into a window using zero dither alignment, then scroll up one
+pixel, subsequent draws to the window should have <TT
+CLASS="PARAMETER"
+><I
+>ydith</I
+></TT
+> = 1.</P
+><P
+>Setting the dither alignment correctly allows updating of small parts
+of the screen while avoiding visible "seams" between the different
+dither textures.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3493"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> to draw in (usually a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The graphics context.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The x coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The y coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The width of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The height of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dith</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> value, selecting the desired dither mode.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rgb_buf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pixel data, represented as packed 24-bit data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of bytes from the start of one row in <TT
+CLASS="PARAMETER"
+><I
+>rgb_buf</I
+></TT
+> to the
+start of the next.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xdith</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An x offset for dither alignment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ydith</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A y offset for dither alignment.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3546"
+></A
+><H3
+><A
+NAME="GDK-DRAW-INDEXED-IMAGE"
+></A
+>gdk_draw_indexed_image ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_indexed_image          (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> *cmap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws an indexed image in the drawable, using a <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> to assign
+actual colors to the color indices.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3562"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> to draw in (usually a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The graphics context.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The x coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The y coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The width of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The height of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dith</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> value, selecting the desired dither mode.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pixel data, represented as 8-bit color indices.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of bytes from the start of one row in <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> to the
+start of the next.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> used to assign colors to the color indices.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3612"
+></A
+><H3
+><A
+NAME="GDK-DRAW-GRAY-IMAGE"
+></A
+>gdk_draw_gray_image ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_gray_image             (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a grayscale image in the drawable.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3626"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> to draw in (usually a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The graphics context.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The x coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The y coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The width of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The height of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dith</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> value, selecting the desired dither mode.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pixel data, represented as 8-bit gray values.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of bytes from the start of one row in <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> to the
+start of the next.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3671"
+></A
+><H3
+><A
+NAME="GDK-DRAW-RGB-32-IMAGE"
+></A
+>gdk_draw_rgb_32_image ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_rgb_32_image           (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> dith,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *buf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> rowstride);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a padded RGB image in the drawable. The image is stored as one
+pixel per 32-bit word. It is laid out as a red byte, a green byte, a
+blue byte, and a padding byte.</P
+><P
+>It's unlikely that this function will give significant performance
+gains in practice. In my experience, the performance gain from having
+pixels aligned to 32-bit boundaries is cancelled out by the increased
+memory bandwidth.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3686"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> to draw in (usually a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The graphics context.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The x coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The y coordinate of the top-left corner in the drawable.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The width of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The height of the rectangle to be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dith</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gdk-gdkrgb.html#GDKRGBDITHER"
+>GdkRgbDither</A
+> value, selecting the desired dither mode.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pixel data, represented as padded 32-bit data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rowstride</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of bytes from the start of one row in <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> to the
+start of the next.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3731"
+></A
+><H3
+><A
+NAME="GDKRGBDITHER"
+></A
+>enum GdkRgbDither</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_RGB_DITHER_NONE,
+  GDK_RGB_DITHER_NORMAL,
+  GDK_RGB_DITHER_MAX
+} GdkRgbDither;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Selects whether or not GdkRgb applies dithering
+to the image on display. There are three values:</P
+><P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GDK_RGB_DITHER_NONE</TT
+>: Never use dithering.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GDK_RGB_DITHER_NORMAL</TT
+>: Use dithering in 8 bits per pixel (and below)
+only.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GDK_RGB_DITHER_MAX</TT
+>: Use dithering in 16 bits per pixel and below.</P
+></LI
+></UL
+><P
+>Since GdkRgb currently only handles images with 8 bits per component,
+dithering on 24 bit per pixel displays is a moot point.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3747"
+></A
+><H3
+><A
+NAME="GDK-RGB-CMAP-NEW"
+></A
+>gdk_rgb_cmap_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+>* gdk_rgb_cmap_new                (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> n_colors);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> structure. The cmap maps color indexes to
+RGB colors. If <TT
+CLASS="PARAMETER"
+><I
+>n_colors</I
+></TT
+> is less than 256, then images containing
+color values greater than or equal to <TT
+CLASS="PARAMETER"
+><I
+>n_colors</I
+></TT
+> will produce undefined
+results, including possibly segfaults.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3758"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The colors, represented as 0xRRGGBB integer values.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of colors in the cmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The newly created <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3776"
+></A
+><H3
+><A
+NAME="GDK-RGB-CMAP-FREE"
+></A
+>gdk_rgb_cmap_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rgb_cmap_free               (<A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> *cmap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the memory associated with a <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> created by <A
+HREF="gdk-gdkrgb.html#GDK-RGB-CMAP-NEW"
+>gdk_rgb_cmap_new</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3784"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-gdkrgb.html#GDKRGBCMAP"
+>GdkRgbCmap</A
+> to free.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3794"
+></A
+><H3
+><A
+NAME="GDKRGBCMAP"
+></A
+>struct GdkRgbCmap</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkRgbCmap {
+  guint32 colors[256];
+  guchar lut[256]; /* for 8-bit modes */
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A private data structure which maps color indices to actual RGB
+colors. This is used only for <A
+HREF="gdk-gdkrgb.html#GDK-DRAW-INDEXED-IMAGE"
+>gdk_draw_indexed_image</A
+>().</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3800"
+></A
+><H3
+><A
+NAME="GDK-RGB-GC-SET-FOREGROUND"
+></A
+>gdk_rgb_gc_set_foreground ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rgb_gc_set_foreground       (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> rgb);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the foreground color in <TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+> to the specified color (or the
+closest approximation, in the case of limited visuals).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3808"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> to modify.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rgb</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The color, represented as a 0xRRGGBB integer value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3822"
+></A
+><H3
+><A
+NAME="GDK-RGB-GC-SET-BACKGROUND"
+></A
+>gdk_rgb_gc_set_background ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rgb_gc_set_background       (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> rgb);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the background color in <TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+> to the specified color (or the
+closest approximation, in the case of limited visuals).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3830"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> to modify.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rgb</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The color, represented as a 0xRRGGBB integer value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3844"
+></A
+><H3
+><A
+NAME="GDK-RGB-XPIXEL-FROM-RGB"
+></A
+>gdk_rgb_xpixel_from_rgb ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A>      gdk_rgb_xpixel_from_rgb         (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> rgb);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds the X pixel closest in color to the <TT
+CLASS="PARAMETER"
+><I
+>rgb</I
+></TT
+> color specified. This
+value may be used to set the <TT
+CLASS="STRUCTFIELD"
+><I
+>pixel</I
+></TT
+> field of
+a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> struct.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3854"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rgb</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The color, represented as a 0xRRGGBB integer value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The X pixel value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3867"
+></A
+><H3
+><A
+NAME="GDK-RGB-SET-INSTALL"
+></A
+>gdk_rgb_set_install ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rgb_set_install             (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> install);</PRE
+></TD
+></TR
+></TABLE
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>install</I
+></TT
+> is TRUE, directs GdkRgb to always install a new "private"
+colormap rather than trying to find a best fit with the colors already
+allocated. Ordinarily, GdkRgb will install a colormap only if a
+sufficient cube cannot be allocated.</P
+><P
+>A private colormap has more colors, leading to better quality display,
+but also leads to the dreaded "colormap flashing" effect.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3875"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>install</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE to set install mode.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3884"
+></A
+><H3
+><A
+NAME="GDK-RGB-SET-MIN-COLORS"
+></A
+>gdk_rgb_set_min_colors ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rgb_set_min_colors          (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_colors);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the minimum number of colors for the color cube. Generally,
+GdkRgb tries to allocate the largest color cube it can. If it can't
+allocate a color cube at least as large as <TT
+CLASS="PARAMETER"
+><I
+>min_colors</I
+></TT
+>, it installs a
+private colormap.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3891"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The minimum number of colors accepted.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3900"
+></A
+><H3
+><A
+NAME="GDK-RGB-GET-VISUAL"
+></A
+>gdk_rgb_get_visual ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_rgb_get_visual              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the visual chosen by GdkRgb. This visual and the corresponding
+colormap should be used when creating windows that will be drawn in by GdkRgb.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3906"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> chosen by GdkRgb.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3916"
+></A
+><H3
+><A
+NAME="GDK-RGB-GET-CMAP"
+></A
+>gdk_rgb_get_cmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* gdk_rgb_get_cmap               (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the colormap set by GdkRgb. This colormap and the corresponding
+visual should be used when creating windows that will be drawn in by GdkRgb.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3922"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> set by GdkRgb.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3932"
+></A
+><H3
+><A
+NAME="GDK-RGB-DITHERABLE"
+></A
+>gdk_rgb_ditherable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_rgb_ditherable              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine whether the visual is ditherable. This function may be
+useful for presenting a user interface choice to the user about which
+dither mode is desired; if the display is not ditherable, it may make
+sense to gray out or hide the corresponding UI widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3938"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the visual is ditherable.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3947"
+></A
+><H3
+><A
+NAME="GDK-RGB-SET-VERBOSE"
+></A
+>gdk_rgb_set_verbose ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rgb_set_verbose             (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> verbose);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the "verbose" flag. This is generally only useful for debugging.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3953"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>verbose</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if verbose messages are desired.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN3962"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+></DT
+><DD
+><P
+>The underlying Gdk mechanism for allocating
+colors.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-images.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Bitmaps and Pixmaps</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Images</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

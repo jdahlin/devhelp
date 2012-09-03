@@ -1,0 +1,5199 @@
+<HTML
+><HEAD
+><TITLE
+>GtkNotebook</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkMisc"
+HREF="gtkmisc.html"><LINK
+REL="NEXT"
+TITLE="GtkObject"
+HREF="gtkobject.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkmisc.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkobject.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKNOTEBOOK"
+>GtkNotebook</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN32338"
+></A
+><H2
+>Name</H2
+>GtkNotebook&nbsp;--&nbsp;Set of pages with bookmarks.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN32341"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtknotebook.html#GTKNOTEBOOK-STRUCT"
+>GtkNotebook</A
+>;
+#define     <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-PAGE-CAPS"
+>GTK_NOTEBOOK_PAGE</A
+>               (_glist_)
+struct      <A
+HREF="gtknotebook.html#GTKNOTEBOOKPAGE"
+>GtkNotebookPage</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-NEW"
+>gtk_notebook_new</A
+>                (void);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-APPEND-PAGE"
+>gtk_notebook_append_page</A
+>        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-APPEND-PAGE-MENU"
+>gtk_notebook_append_page_menu</A
+>   (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-PREPEND-PAGE"
+>gtk_notebook_prepend_page</A
+>       (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-PREPEND-PAGE-MENU"
+>gtk_notebook_prepend_page_menu</A
+>  (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-INSERT-PAGE"
+>gtk_notebook_insert_page</A
+>        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-INSERT-PAGE-MENU"
+>gtk_notebook_insert_page_menu</A
+>   (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-REMOVE-PAGE"
+>gtk_notebook_remove_page</A
+>        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num);
+#define     <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-CURRENT-PAGE"
+>gtk_notebook_current_page</A
+>
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-PAGE-NUM"
+>gtk_notebook_page_num</A
+>           (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-PAGE"
+>gtk_notebook_set_page</A
+>           (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-NEXT-PAGE"
+>gtk_notebook_next_page</A
+>          (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-PREV-PAGE"
+>gtk_notebook_prev_page</A
+>          (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-REORDER-CHILD"
+>gtk_notebook_reorder_child</A
+>      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-TAB-POS"
+>gtk_notebook_set_tab_pos</A
+>        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> pos);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-SHOW-TABS"
+>gtk_notebook_set_show_tabs</A
+>      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_tabs);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-SHOW-BORDER"
+>gtk_notebook_set_show_border</A
+>    (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_border);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-SCROLLABLE"
+>gtk_notebook_set_scrollable</A
+>     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> scrollable);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-TAB-BORDER"
+>gtk_notebook_set_tab_border</A
+>     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border_width);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-POPUP-ENABLE"
+>gtk_notebook_popup_enable</A
+>       (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-POPUP-DISABLE"
+>gtk_notebook_popup_disable</A
+>      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-GET-CURRENT-PAGE"
+>gtk_notebook_get_current_page</A
+>   (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-GET-MENU-LABEL"
+>gtk_notebook_get_menu_label</A
+>     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-GET-NTH-PAGE"
+>gtk_notebook_get_nth_page</A
+>       (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-GET-TAB-LABEL"
+>gtk_notebook_get_tab_label</A
+>      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-QUERY-TAB-LABEL-PACKING"
+>gtk_notebook_query_tab_label_packing</A
+>
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *fill,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> *pack_type);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-HOMOGENEOUS-TABS"
+>gtk_notebook_set_homogeneous_tabs</A
+>
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-MENU-LABEL"
+>gtk_notebook_set_menu_label</A
+>     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-MENU-LABEL-TEXT"
+>gtk_notebook_set_menu_label_text</A
+>
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *menu_text);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-TAB-HBORDER"
+>gtk_notebook_set_tab_hborder</A
+>    (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> tab_hborder);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-TAB-LABEL"
+>gtk_notebook_set_tab_label</A
+>      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-TAB-LABEL-PACKING"
+>gtk_notebook_set_tab_label_packing</A
+>
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> pack_type);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-TAB-LABEL-TEXT"
+>gtk_notebook_set_tab_label_text</A
+> (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tab_text);
+void        <A
+HREF="gtknotebook.html#GTK-NOTEBOOK-SET-TAB-VBORDER"
+>gtk_notebook_set_tab_vborder</A
+>    (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> tab_vborder);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN32468"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkNotebook</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN32474"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--PAGE"
+>page</A
+>&quot;                 <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>                 : Read / Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--TAB-POS"
+>tab-pos</A
+>&quot;              <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+>      : Read / Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--TAB-BORDER"
+>tab-border</A
+>&quot;           <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--TAB-HBORDER"
+>tab-hborder</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--TAB-VBORDER"
+>tab-vborder</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--SHOW-TABS"
+>show-tabs</A
+>&quot;            <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--SHOW-BORDER"
+>show-border</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--SCROLLABLE"
+>scrollable</A
+>&quot;           <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK--ENABLE-POPUP"
+>enable-popup</A
+>&quot;         <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN32495"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtknotebook.html#GTKNOTEBOOK-SWITCH-PAGE"
+>switch-page</A
+>&quot;
+            void        user_function      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                            <A
+HREF="gtknotebook.html#GTKNOTEBOOKPAGE"
+>GtkNotebookPage</A
+> *page,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN32503"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> widget is a <A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+> whose children are pages that
+can be accessed through bookmarks. The pages are displayed all at the same
+place. </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN32508"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32510"
+></A
+><H3
+><A
+NAME="GTKNOTEBOOK-STRUCT"
+></A
+>struct GtkNotebook</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkNotebook;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32515"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32520"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-PAGE-CAPS"
+></A
+>GTK_NOTEBOOK_PAGE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_NOTEBOOK_PAGE(_glist_)         ((GtkNotebookPage *)((GList *)(_glist_))-&gt;data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Extracts the contents of the current element of <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> <TT
+CLASS="PARAMETER"
+><I
+>_glist_</I
+></TT
+> as a
+<A
+HREF="gtknotebook.html#GTKNOTEBOOKPAGE"
+>GtkNotebookPage</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32528"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>_glist_</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32537"
+></A
+><H3
+><A
+NAME="GTKNOTEBOOKPAGE"
+></A
+>struct GtkNotebookPage</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkNotebookPage
+{
+  GtkWidget *child;
+  GtkWidget *tab_label;
+  GtkWidget *menu_label;
+
+  guint default_menu : 1;
+  guint default_tab  : 1;
+  guint expand       : 1;
+  guint fill         : 1;
+  guint pack         : 1;
+
+  GtkRequisition requisition;
+  GtkAllocation allocation;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtknotebook.html#GTKNOTEBOOKPAGE"
+>GtkNotebookPage</A
+> structure is used to store the pages of a notebook. It
+is not an object.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32543"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>child</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the contents of the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>tab_label</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the label shown in the bookmark</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>menu_label</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the label shown in the popup menu</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>default_menu</I
+></TT
+> : 1</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>default_tab</I
+></TT
+> : 1</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+> : 1</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+> : 1</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>pack</I
+></TT
+> : 1</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html#GTKREQUISITION"
+>GtkRequisition</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>requisition</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html#GTKALLOCATION"
+>GtkAllocation</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>allocation</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32598"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-NEW"
+></A
+>gtk_notebook_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_notebook_new                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> widget</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32605"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created G=<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32615"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-APPEND-PAGE"
+></A
+>gtk_notebook_append_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_append_page        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends to <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> a page whose content is <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, and whose bookmark is
+<TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32626"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the content of the new page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bookmark for the page
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32643"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-APPEND-PAGE-MENU"
+></A
+>gtk_notebook_append_page_menu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_append_page_menu   (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends to <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> a page whose content is <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, whose bookmark is
+<TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>, and whose menu label is <TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32656"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the content of the new page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bookmark of the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu label of the page
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32677"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-PREPEND-PAGE"
+></A
+>gtk_notebook_prepend_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_prepend_page       (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prepends to <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> a page whose content is <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, whose bookmark is
+<TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>, and whose menu label is <TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32689"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the content of the new page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bookmark of the page
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32706"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-PREPEND-PAGE-MENU"
+></A
+>gtk_notebook_prepend_page_menu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_prepend_page_menu  (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends to <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> a page whose content is <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, whose bookmark is
+<TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>, and whose menu label is <TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32719"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the content of the new page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bookmark of the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu label of the page
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32740"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-INSERT-PAGE"
+></A
+>gtk_notebook_insert_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_insert_page        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts in <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> a new page whose content is <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, and whose
+bookmark is <TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>. The page is inserted just
+before the page number <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>, starting with 0. If <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+> is out of
+bounds, it is assumed to be the current number of pages.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32754"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the content of the new page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bookmark of the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to insert the page
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32775"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-INSERT-PAGE-MENU"
+></A
+>gtk_notebook_insert_page_menu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_insert_page_menu   (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts in <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> a new page whose content is <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, whose bookmark is
+<TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>, and whose menu label is <TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>. The page is inserted just
+before the page number <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>, starting with 0. If <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+> is out of
+bounds, it is assumed to be the current number of pages.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32791"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the content of the new page </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bookmark of the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu label of the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to insert the page
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32816"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-REMOVE-PAGE"
+></A
+>gtk_notebook_remove_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_remove_page        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the page <TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+> form <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>. Pages are numbered starting at
+zero. Negative values stand for the last page; too large values are
+ignored.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32825"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page number
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32838"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-CURRENT-PAGE"
+></A
+>gtk_notebook_current_page</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	gtk_notebook_current_page               gtk_notebook_get_current_page</PRE
+></TD
+></TR
+></TABLE
+><P
+>Compatibility macro; in gtkcompat.h.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32843"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-PAGE-NUM"
+></A
+>gtk_notebook_page_num ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_notebook_page_num           (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the page number of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> in <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32853"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page number, or -1 if <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is not in <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32872"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-PAGE"
+></A
+>gtk_notebook_set_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_page           (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Switches to the page number <TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+>. Negative values stand for the last
+page; too large values are ignored.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32880"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page number
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32893"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-NEXT-PAGE"
+></A
+>gtk_notebook_next_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_next_page          (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Switches to the next page. Nothing happens if the current page is the last
+page.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32899"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32908"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-PREV-PAGE"
+></A
+>gtk_notebook_prev_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_prev_page          (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Switches to the previous page. Nothing happens if the current page is the
+first page.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32914"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32923"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-REORDER-CHILD"
+></A
+>gtk_notebook_reorder_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_reorder_child      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Moves the page <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, so that it appears in position <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>. Out of
+bounds <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+> will be clamped.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32934"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to deplace</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new position
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32951"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-TAB-POS"
+></A
+>gtk_notebook_set_tab_pos ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_tab_pos        (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> pos);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the position of the bookmarks.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32958"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32971"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-SHOW-TABS"
+></A
+>gtk_notebook_set_show_tabs ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_show_tabs      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_tabs);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether to show the bookmarks or not.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32978"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>show_tabs</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN32991"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-SHOW-BORDER"
+></A
+>gtk_notebook_set_show_border ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_show_border    (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_border);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether to show the border of the notebook or not. Bookmarks are in the
+border.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN32998"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>show_border</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33011"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-SCROLLABLE"
+></A
+>gtk_notebook_set_scrollable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_scrollable     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> scrollable);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether the bookmarks area may be scrollable or not if there are too
+many bookmarks to fit in the allocated area.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33018"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrollable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33031"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-TAB-BORDER"
+></A
+>gtk_notebook_set_tab_border ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_tab_border     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border_width);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether there should be a border around the bookmarks or not.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33038"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>border_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33051"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-POPUP-ENABLE"
+></A
+>gtk_notebook_popup_enable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_popup_enable       (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Enables the popup menu: if the user clicks with the right mouse button on
+the bookmarks, a menu with all the pages will be popped up.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33057"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33066"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-POPUP-DISABLE"
+></A
+>gtk_notebook_popup_disable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_popup_disable      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Disables the popup menu</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33072"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33081"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-GET-CURRENT-PAGE"
+></A
+>gtk_notebook_get_current_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_notebook_get_current_page   (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the page number of the current page.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33088"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page number
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33101"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-GET-MENU-LABEL"
+></A
+>gtk_notebook_get_menu_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_notebook_get_menu_label     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the menu label of the page <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>. NULL is returned if <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is not
+in <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> or NULL if it has the default menu label.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33112"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu label
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33129"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-GET-NTH-PAGE"
+></A
+>gtk_notebook_get_nth_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_notebook_get_nth_page       (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the content of the page number <TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+>, or NULL if <TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+> is
+out of bounds.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33139"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page number</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the content of the page
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33156"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-GET-TAB-LABEL"
+></A
+>gtk_notebook_get_tab_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_notebook_get_tab_label      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the menu tab of the page <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>. NULL is returned if <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is not
+in <TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+> or NULL if it has the default tab label.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33167"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the tab label
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33184"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-QUERY-TAB-LABEL-PACKING"
+></A
+>gtk_notebook_query_tab_label_packing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_query_tab_label_packing
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *fill,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> *pack_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Looks for the packing attributes of the bookmarks of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33195"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to return the expand value (or NULL) </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to return the fill value (or NULL)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pack_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to return the pack_type (or NULL)
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33220"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-HOMOGENEOUS-TABS"
+></A
+>gtk_notebook_set_homogeneous_tabs ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_homogeneous_tabs
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether the tabs must have all the same size or not.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33227"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>homogeneous</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33240"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-MENU-LABEL"
+></A
+>gtk_notebook_set_menu_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_menu_label     (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes the menu label of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>. Nothing happens if <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is not in
+<TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33251"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu label, or NULL for default
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33268"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-MENU-LABEL-TEXT"
+></A
+>gtk_notebook_set_menu_label_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_menu_label_text
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *menu_text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new label and sets it as the menu label of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33277"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the label text
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33294"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-TAB-HBORDER"
+></A
+>gtk_notebook_set_tab_hborder ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_tab_hborder    (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> tab_hborder);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether the tabs should have a horizontal border.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33301"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_hborder</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33314"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-TAB-LABEL"
+></A
+>gtk_notebook_set_tab_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_tab_label      (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *tab_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes the bookmark label of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>. Nothing happens if <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is not in
+<TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33325"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bookmark label, or NULL for default
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33342"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-TAB-LABEL-PACKING"
+></A
+>gtk_notebook_set_tab_label_packing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_tab_label_packing
+                                            (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> pack_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the packing parameters for the bookmark of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>. See
+GtkBoxPackStart for the exact meanings.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33354"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether to expand the bookmark or not</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether the bookmark should fill the allocated area or not</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pack_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the bookmark
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33379"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-TAB-LABEL-TEXT"
+></A
+>gtk_notebook_set_tab_label_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_tab_label_text (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tab_text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new label and sets it as the bookmark label of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33388"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the label text
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33405"
+></A
+><H3
+><A
+NAME="GTK-NOTEBOOK-SET-TAB-VBORDER"
+></A
+>gtk_notebook_set_tab_vborder ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_notebook_set_tab_vborder    (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> tab_vborder);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether the tabs should have a vertical border.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33412"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the notebook widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tab_vborder</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN33425"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKNOTEBOOK--PAGE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>page</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> : Read / Write)</DT
+><DD
+><P
+>The current page</P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--TAB-POS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>tab-pos</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--TAB-BORDER"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>tab-border</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--TAB-HBORDER"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>tab-hborder</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--TAB-VBORDER"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>tab-vborder</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--SHOW-TABS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>show-tabs</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--SHOW-BORDER"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>show-border</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--SCROLLABLE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>scrollable</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>Whether the bookmarks should be scrollable or not</P
+></DD
+><DT
+><A
+NAME="GTKNOTEBOOK--ENABLE-POPUP"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>enable-popup</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN33491"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN33493"
+></A
+><H3
+><A
+NAME="GTKNOTEBOOK-SWITCH-PAGE"
+></A
+>The &quot;switch-page&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+> *notebook,
+                                            <A
+HREF="gtknotebook.html#GTKNOTEBOOKPAGE"
+>GtkNotebookPage</A
+> *page,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> page_num,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the user or a function changes the current page.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN33502"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notebook</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>page</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new current page</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>page_num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the page&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN33523"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+></DT
+><DD
+><P
+>For functions that apply to every <A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+(like <A
+HREF="gtklist.html"
+>GtkList</A
+>).</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkmisc.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkobject.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkMisc</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkObject</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1353 @@
+<HTML
+><HEAD
+><TITLE
+>Byte Arrays</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Pointer Arrays"
+HREF="glib-pointer-arrays.html"><LINK
+REL="NEXT"
+TITLE="Balanced Binary Trees"
+HREF="glib-balanced-binary-trees.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-pointer-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-balanced-binary-trees.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-BYTE-ARRAYS"
+>Byte Arrays</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN15019"
+></A
+><H2
+>Name</H2
+>Byte Arrays&nbsp;--&nbsp;arrays of bytes, which grow automatically as elements are added.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN15022"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>;
+<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-NEW"
+>g_byte_array_new</A
+>                (void);
+<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-APPEND"
+>g_byte_array_append</A
+>             (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             const <A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+> *data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);
+<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-PREPEND"
+>g_byte_array_prepend</A
+>            (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             const <A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+> *data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);
+<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-REMOVE-INDEX"
+>g_byte_array_remove_index</A
+>       (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);
+<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-REMOVE-INDEX-FAST"
+>g_byte_array_remove_index_fast</A
+>  (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);
+<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-SET-SIZE"
+>g_byte_array_set_size</A
+>           (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> length);
+void        <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-FREE"
+>g_byte_array_free</A
+>               (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> free_segment);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15053"
+></A
+><H2
+>Description</H2
+><P
+>GByteArray is based on <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>, to provide arrays of bytes which grow
+automatically as elements are added.</P
+><P
+>To create a new <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> use <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-NEW"
+>g_byte_array_new</A
+>().</P
+><P
+>To add elements to a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>, use <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-APPEND"
+>g_byte_array_append</A
+>(), and
+<A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-PREPEND"
+>g_byte_array_prepend</A
+>().</P
+><P
+>To set the size of a GByteArray, use <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-SET-SIZE"
+>g_byte_array_set_size</A
+>().</P
+><P
+>To free a GByteArray, use <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-FREE"
+>g_byte_array_free</A
+>().</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN15068"
+></A
+><P
+><B
+>Example 1. Using a GByteArray.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  GByteArray *gbarray;
+  gint i;
+
+  gbarray = <A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-NEW"
+>g_byte_array_new</A
+>();
+  for (i = 0; i &#60; 10000; i++)
+    g_byte_array_append (gbarray, (guint8*) "abcd", 4);
+
+  for (i = 0; i &#60; 10000; i++)
+    {
+      g_assert (gbarray-&#62;data[4*i] == 'a');
+      g_assert (gbarray-&#62;data[4*i+1] == 'b');
+      g_assert (gbarray-&#62;data[4*i+2] == 'c');
+      g_assert (gbarray-&#62;data[4*i+3] == 'd');
+    }
+
+  g_byte_array_free (gbarray, TRUE);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15072"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15074"
+></A
+><H3
+><A
+NAME="GBYTEARRAY"
+></A
+>struct GByteArray</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GByteArray
+{
+  guint8 *data;
+  guint	  len;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> struct allows access to the public fields of a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15081"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>data</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the element data. The data may be moved as elements are
+added to the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>len</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements in the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15098"
+></A
+><H3
+><A
+NAME="G-BYTE-ARRAY-NEW"
+></A
+>g_byte_array_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* g_byte_array_new                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15105"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15115"
+></A
+><H3
+><A
+NAME="G-BYTE-ARRAY-APPEND"
+></A
+>g_byte_array_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* g_byte_array_append             (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             const <A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+> *data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the given bytes to the end of the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+The array will grow in size automatically if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15125"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the byte data to be added.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15148"
+></A
+><H3
+><A
+NAME="G-BYTE-ARRAY-PREPEND"
+></A
+>g_byte_array_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* g_byte_array_prepend            (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             const <A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+> *data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the given data to the start of the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+The array will grow in size automatically if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15158"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the byte data to be added.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15181"
+></A
+><H3
+><A
+NAME="G-BYTE-ARRAY-REMOVE-INDEX"
+></A
+>g_byte_array_remove_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* g_byte_array_remove_index       (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the byte at the given index from a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+The following bytes are moved down one place.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15190"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the byte to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15209"
+></A
+><H3
+><A
+NAME="G-BYTE-ARRAY-REMOVE-INDEX-FAST"
+></A
+>g_byte_array_remove_index_fast ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* g_byte_array_remove_index_fast  (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the byte at the given index from a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+The last element in the array is used to fill in the space, so this function
+does not preserve the order of the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>. But it is faster than
+<A
+HREF="glib-byte-arrays.html#G-BYTE-ARRAY-REMOVE-INDEX"
+>g_byte_array_remove_index</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15220"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the byte to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15239"
+></A
+><H3
+><A
+NAME="G-BYTE-ARRAY-SET-SIZE"
+></A
+>g_byte_array_set_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>* g_byte_array_set_size           (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the size of the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>, expanding it if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15248"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new size of the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15268"
+></A
+><H3
+><A
+NAME="G-BYTE-ARRAY-FREE"
+></A
+>g_byte_array_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_byte_array_free               (<A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> free_segment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the memory allocated by the <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.
+If free_segment is TRUE it frees the actual byte data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15276"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-byte-arrays.html#GBYTEARRAY"
+>GByteArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>free_segment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if TRUE the actual byte data is freed as well.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-pointer-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-balanced-binary-trees.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Pointer Arrays</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Balanced Binary Trees</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

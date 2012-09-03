@@ -1,0 +1,2897 @@
+<HTML
+><HEAD
+><TITLE
+>GtkBox</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkBin"
+HREF="gtkbin.html"><LINK
+REL="NEXT"
+TITLE="GtkButton"
+HREF="gtkbutton.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkbin.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKBOX"
+>GtkBox</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN14097"
+></A
+><H2
+>Name</H2
+>GtkBox&nbsp;--&nbsp;a base class for box containers</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14100"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>;
+struct      <A
+HREF="gtkbox.html#GTKBOXCHILD"
+>GtkBoxChild</A
+>;
+void        <A
+HREF="gtkbox.html#GTK-BOX-PACK-START"
+>gtk_box_pack_start</A
+>              (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> padding);
+void        <A
+HREF="gtkbox.html#GTK-BOX-PACK-END"
+>gtk_box_pack_end</A
+>                (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> padding);
+void        <A
+HREF="gtkbox.html#GTK-BOX-PACK-START-DEFAULTS"
+>gtk_box_pack_start_defaults</A
+>     (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);
+void        <A
+HREF="gtkbox.html#GTK-BOX-PACK-END-DEFAULTS"
+>gtk_box_pack_end_defaults</A
+>       (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);
+void        <A
+HREF="gtkbox.html#GTK-BOX-SET-HOMOGENEOUS"
+>gtk_box_set_homogeneous</A
+>         (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);
+void        <A
+HREF="gtkbox.html#GTK-BOX-SET-SPACING"
+>gtk_box_set_spacing</A
+>             (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> spacing);
+void        <A
+HREF="gtkbox.html#GTK-BOX-REORDER-CHILD"
+>gtk_box_reorder_child</A
+>           (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtkbox.html#GTK-BOX-QUERY-CHILD-PACKING"
+>gtk_box_query_child_packing</A
+>     (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *padding,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> *pack_type);
+void        <A
+HREF="gtkbox.html#GTK-BOX-SET-CHILD-PACKING"
+>gtk_box_set_child_packing</A
+>       (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> padding,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> pack_type);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14147"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkBox</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14153"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkbox.html#GTKBOX--SPACING"
+>spacing</A
+>&quot;              <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>                 : Read / Write
+  &quot;<A
+HREF="gtkbox.html#GTKBOX--HOMOGENEOUS"
+>homogeneous</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14160"
+></A
+><H2
+>Description</H2
+><P
+>&#13;GtkBox is an abstract widget which encapsulates functionallity for a
+
+particular kind of container, one that organizes a variable number of
+
+widgets into a rectangular area.  GtkBox currently has two derived
+
+classes, <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> and <A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>.&#13;</P
+><P
+>&#13;The rectangular area of a GtkBox is organized into either a single row
+
+or a single column of child widgets depending upon whether the box is
+
+of type <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> or <A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>, respectively.  Thus, all children of a
+
+GtkBox are allocated one dimension in common, which is the height of a
+
+row, or the width of a column.&#13;</P
+><P
+>&#13;GtkBox uses a notion of <I
+CLASS="EMPHASIS"
+>packing</I
+>.  Packing refers to
+
+adding widgets with reference to a particular position in a
+
+<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>.  For a GtkBox, there are two reference positions: the
+
+<I
+CLASS="EMPHASIS"
+>start</I
+> and the <I
+CLASS="EMPHASIS"
+>end</I
+> of the box.  For a
+
+<A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>, the start is defined as the top of the box and the end is
+
+defined as the bottom.  For a <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> the start is defined as the
+
+left side and the end is defined as the right side.&#13;</P
+><P
+>&#13;Use repeated calls to <A
+HREF="gtkbox.html#GTK-BOX-PACK-START"
+>gtk_box_pack_start</A
+>() to pack widgets into a
+
+GtkBox from start to end.  Use <A
+HREF="gtkbox.html#GTK-BOX-PACK-END"
+>gtk_box_pack_end</A
+>() to add widgets from
+
+end to start.  You may intersperse these calls and add widgets from
+
+both ends of the same GtkBox.&#13;</P
+><P
+>&#13;Use <A
+HREF="gtkbox.html#GTK-BOX-PACK-START-DEFAULTS"
+>gtk_box_pack_start_defaults</A
+>() or <A
+HREF="gtkbox.html#GTK-BOX-PACK-END-DEFAULTS"
+>gtk_box_pack_end_defaults</A
+>()
+
+to pack widgets into a GtkBox if you do not need to specify the
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+>, or
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+> attributes of the child to be
+
+added.&#13;</P
+><P
+>&#13;Because GtkBox is a <A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>, you may also use
+
+<A
+HREF="gtkcontainer.html#GTK-CONTAINER-ADD"
+>gtk_container_add</A
+>() to insert widgets into the box, and they will be
+
+packed as if with <A
+HREF="gtkbox.html#GTK-BOX-PACK-START-DEFAULTS"
+>gtk_box_pack_start_defaults</A
+>().  Use
+
+<A
+HREF="gtkcontainer.html#GTK-CONTAINER-REMOVE"
+>gtk_container_remove</A
+>() to remove widgets from the GtkBox.&#13;</P
+><P
+>&#13;Use <A
+HREF="gtkbox.html#GTK-BOX-SET-HOMOGENEOUS"
+>gtk_box_set_homogeneous</A
+>() to specify whether or not all children
+
+of the GtkBox are forced to get the same amount of space.&#13;</P
+><P
+>&#13;Use <A
+HREF="gtkbox.html#GTK-BOX-SET-SPACING"
+>gtk_box_set_spacing</A
+>() to determine how much space will be
+
+minimally placed between all children in the GtkBox.&#13;</P
+><P
+>&#13;Use <A
+HREF="gtkbox.html#GTK-BOX-REORDER-CHILD"
+>gtk_box_reorder_child</A
+>() to move a GtkBox child to a different
+
+place in the box.&#13;</P
+><P
+>&#13;Use <A
+HREF="gtkbox.html#GTK-BOX-SET-CHILD-PACKING"
+>gtk_box_set_child_packing</A
+>() to reset the
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+>,
+
+and <TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+> attributes of any GtkBox child.
+
+Use <A
+HREF="gtkbox.html#GTK-BOX-QUERY-CHILD-PACKING"
+>gtk_box_query_child_packing</A
+>() to query these fields.&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14201"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14203"
+></A
+><H3
+><A
+NAME="GTKBOX-STRUCT"
+></A
+>struct GtkBox</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkBox;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;The <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+> describes an instance of GtkBox and contains the following fields.
+
+(These fields should be considered read-only. They should never be set by
+
+an application.)
+
+
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14209"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> * <TT
+CLASS="STRUCTFIELD"
+><I
+>children</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a list of children belonging the GtkBox.  The data is a list of
+
+structures of type GtkBoxChild.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>spacing</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels to put between children of the GtkBox, zero
+
+by default.  Use <A
+HREF="gtkbox.html#GTK-BOX-SET-SPACING"
+>gtk_box_set_spacing</A
+>() to set this field.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>homogeneous</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a flag that if <TT
+CLASS="LITERAL"
+>TRUE</TT
+> forces all children to get equal space in
+
+the GtkBox; <TT
+CLASS="LITERAL"
+>FALSE</TT
+> by default.  Use <A
+HREF="gtkbox.html#GTK-BOX-SET-HOMOGENEOUS"
+>gtk_box_set_homogeneous</A
+>() to set this
+
+field.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14234"
+></A
+><H3
+><A
+NAME="GTKBOXCHILD"
+></A
+>struct GtkBoxChild</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkBoxChild
+{
+  GtkWidget *widget;
+  guint16 padding;
+  guint expand : 1;
+  guint fill : 1;
+  guint pack : 1;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;The GtkBoxChild holds a child widget of GtkBox and describes
+
+how the child is to be packed into the GtkBox.  Use
+
+<A
+HREF="gtkbox.html#GTK-BOX-QUERY-CHILD-PACKING"
+>gtk_box_query_child_packing</A
+>() and <A
+HREF="gtkbox.html#GTK-BOX-SET-CHILD-PACKING"
+>gtk_box_set_child_packing</A
+>() to query
+
+and reset the <TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+>,
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+>,
+
+and <TT
+CLASS="STRUCTFIELD"
+><I
+>pack</I
+></TT
+> fields.&#13;</P
+><P
+>&#13;GtkBoxChild contains the following fields.  (These fields
+
+should be considered read-only. They should never be directly set by an
+
+application.)
+
+
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14248"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> * <TT
+CLASS="STRUCTFIELD"
+><I
+>widget</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child widget, packed into the GtkBox.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of extra pixels to put between this child and its
+
+neighbors, set when packed, zero by default.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>flag indicates whether extra space should be given to this
+
+child.  Any extra space given to the parent GtkBox is divided up among
+
+all children with this attribute set to <TT
+CLASS="LITERAL"
+>TRUE</TT
+>; set when packed, <TT
+CLASS="LITERAL"
+>TRUE</TT
+> by
+
+default.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>flag indicates whether any extra space given to this child due to its
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+> attribute being set is actually
+
+allocated to the child, rather than being used as padding
+
+around the widget; set when packed, <TT
+CLASS="LITERAL"
+>TRUE</TT
+> by default.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>pack</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>one of
+
+<A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> indicating whether the child is packed with reference to
+
+the start (top/left) or end (bottom/right) of the GtkBox.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14283"
+></A
+><H3
+><A
+NAME="GTK-BOX-PACK-START"
+></A
+>gtk_box_pack_start ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_pack_start              (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> padding);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Adds <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>, packed with reference to the start of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.  The
+
+<TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is packed after any other child packed with reference to the
+
+start of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14298"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to be added to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the new child is to be given extra space allocated to
+
+<TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.  The extra space will be divided evenly between all children of
+
+<TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+> that use this option.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if space given to <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> by the <TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+> option is
+
+actually allocated to <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, rather than just padding it.  This
+
+parameter has no effect if <TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+> is set to <TT
+CLASS="LITERAL"
+>FALSE</TT
+>.  A child is
+
+always allocated the full height of a <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> and the full width of a
+
+<A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>.  This option affects the other dimension.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>padding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>extra space in pixels to put between this child and its
+
+neighbors, over and above the global amount specified by
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>spacing</I
+></TT
+> in <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>.  If <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is a
+
+widget at one of the reference ends of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>, then <TT
+CLASS="PARAMETER"
+><I
+>padding</I
+></TT
+> pixels are also put
+
+between <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> and the reference edge of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14344"
+></A
+><H3
+><A
+NAME="GTK-BOX-PACK-END"
+></A
+>gtk_box_pack_end ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_pack_end                (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> padding);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Adds <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>, packed with reference to the end of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.  The
+
+<TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is packed after (away from end of) any other child packed with reference to the
+
+end of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14359"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to be added to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the new child is to be given extra space allocated to
+
+<TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.  The extra space will be divided evenly between all children of
+
+<TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+> that use this option.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if space given to <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> by the <TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+> option is
+
+actually allocated to <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>, rather than just padding it.  This
+
+parameter has no effect if <TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+> is set to <TT
+CLASS="LITERAL"
+>FALSE</TT
+>.  A child is
+
+always allocated the full height of a <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> and the full width of a
+
+<A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>.  This option affects the other dimension.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>padding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>extra space in pixels to put between this child and its
+
+neighbors, over and above the global amount specified by
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>spacing</I
+></TT
+> in <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>.  If <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is a
+
+widget at one of the reference ends of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>, then <TT
+CLASS="PARAMETER"
+><I
+>padding</I
+></TT
+> pixels are also put
+
+between <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> and the reference edge of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14405"
+></A
+><H3
+><A
+NAME="GTK-BOX-PACK-START-DEFAULTS"
+></A
+>gtk_box_pack_start_defaults ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_pack_start_defaults     (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Adds <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>, packed with reference to the start of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.  The
+
+child is packed after any other child packed with reference to the
+
+start of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><P
+>&#13;Parameters for how to pack the child <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>,
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+>,
+
+and <TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+> in GtkBoxChild, are given their default
+
+values, <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, and 0, respectively.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14424"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to be added to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14440"
+></A
+><H3
+><A
+NAME="GTK-BOX-PACK-END-DEFAULTS"
+></A
+>gtk_box_pack_end_defaults ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_pack_end_defaults       (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Adds <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>, packed with reference to the end of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.  The
+
+child is packed after (away from end of) any other child packed with
+
+reference to the end of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><P
+>&#13;Parameters for how to pack the child <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>,
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+>,
+
+and <TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+> in GtkBoxChild, are given their default
+
+values, <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, and 0, respectively.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14459"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to be added to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14475"
+></A
+><H3
+><A
+NAME="GTK-BOX-SET-HOMOGENEOUS"
+></A
+>gtk_box_set_homogeneous ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_set_homogeneous         (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the <TT
+CLASS="STRUCTFIELD"
+><I
+>homogeneous</I
+></TT
+> field of
+
+<A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>, controlling whether or not all children of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+> are
+
+given equal space in the box.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14485"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>homogeneous</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean value, <TT
+CLASS="LITERAL"
+>TRUE</TT
+> to create equal allotments,
+
+<TT
+CLASS="LITERAL"
+>FALSE</TT
+> for variable allotments.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14501"
+></A
+><H3
+><A
+NAME="GTK-BOX-SET-SPACING"
+></A
+>gtk_box_set_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_set_spacing             (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the <TT
+CLASS="STRUCTFIELD"
+><I
+>spacing</I
+></TT
+> field of <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>,
+
+which is the number of pixels to place between children of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14511"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels to put between children.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14525"
+></A
+><H3
+><A
+NAME="GTK-BOX-REORDER-CHILD"
+></A
+>gtk_box_reorder_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_reorder_child           (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Moves <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> to a new <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+> in the list of <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+> children.  The
+
+list is the <TT
+CLASS="STRUCTFIELD"
+><I
+>children</I
+></TT
+> field of
+
+<A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>, and contains both widgets packed GTK_PACK_START as
+
+well as widgets packed GTK_PACK_END, in the order that these widgets
+
+were added to <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><P
+>&#13;A widget's position in the <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+> children list determines where the
+
+widget is packed into <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.  A child widget at some position in the
+
+list will be packed just after all other widgets of the same packing
+
+type that appear earlier in the list.  A negative value of <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+> is
+
+interpreted as position 0.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14545"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to move.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new position for <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> in the
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>children</I
+></TT
+> list of <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>, starting
+
+from 0.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14567"
+></A
+><H3
+><A
+NAME="GTK-BOX-QUERY-CHILD-PACKING"
+></A
+>gtk_box_query_child_packing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_query_child_packing     (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *padding,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> *pack_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns information about how <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is packed into <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14580"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> of the child to query.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the returned value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+>
+
+field in GtkBoxChild.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the returned value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+> field
+
+in GtkBoxChild.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>padding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the returned value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+>
+
+field in GtkBoxChild.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pack_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the returned value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>pack</I
+></TT
+>
+
+field in GtkBoxChild.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14619"
+></A
+><H3
+><A
+NAME="GTK-BOX-SET-CHILD-PACKING"
+></A
+>gtk_box_set_child_packing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_box_set_child_packing       (<A
+HREF="gtkbox.html"
+>GtkBox</A
+> *box,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expand,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> fill,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> padding,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPACKTYPE"
+>GtkPackType</A
+> pack_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the way <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is packed into <TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14632"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbox.html"
+>GtkBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> of the child to set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>expand</I
+></TT
+> field
+
+in GtkBoxChild.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>fill</I
+></TT
+> field in
+
+GtkBoxChild.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>padding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>padding</I
+></TT
+>
+
+field in GtkBoxChild.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pack_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new value of the <TT
+CLASS="STRUCTFIELD"
+><I
+>pack</I
+></TT
+> field
+
+in GtkBoxChild.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14671"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKBOX--SPACING"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>spacing</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> : Read / Write)</DT
+><DD
+><P
+>&#13;the minimum amount of space to put between children.  Refers to the
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>spacing</I
+></TT
+> field of <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>.&#13;</P
+></DD
+><DT
+><A
+NAME="GTKBOX--HOMOGENEOUS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>homogeneous</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>&#13;how to allocate space for children, equally or variably.  Refers to
+
+the <TT
+CLASS="STRUCTFIELD"
+><I
+>homogeneous</I
+></TT
+> field of <A
+HREF="gtkbox.html#GTKBOX-STRUCT"
+>GtkBox</A
+>.&#13;</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14692"
+></A
+><H2
+>See Also</H2
+><P
+>&#13;<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkhbox.html"
+>GtkHBox</A
+></DT
+><DD
+><P
+>a derived class that organizes widgets into a row.</P
+></DD
+><DT
+><A
+HREF="gtkvbox.html"
+>GtkVBox</A
+></DT
+><DD
+><P
+>a derived class that organizes widgets into a column.</P
+></DD
+><DT
+><A
+HREF="gtkframe.html"
+>GtkFrame</A
+></DT
+><DD
+><P
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> useful for drawing a border around a GtkBox.</P
+></DD
+><DT
+><A
+HREF="gtktable.html"
+>GtkTable</A
+></DT
+><DD
+><P
+>a <A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+> for organizing widgets into a grid,
+
+rather than independent rows or columns.</P
+></DD
+><DT
+><A
+HREF="gtklayout.html"
+>GtkLayout</A
+></DT
+><DD
+><P
+>a <A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+> for organizing widgets into arbitrary
+
+layouts.</P
+></DD
+></DL
+></DIV
+>
+
+&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkbin.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkBin</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkButton</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

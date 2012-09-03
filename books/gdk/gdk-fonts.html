@@ -1,0 +1,4009 @@
+<HTML
+><HEAD
+><TITLE
+>Fonts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Visuals"
+HREF="gdk-visuals.html"><LINK
+REL="NEXT"
+TITLE="Cursors"
+HREF="gdk-cursors.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-visuals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-cursors.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-FONTS"
+>Fonts</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN6040"
+></A
+><H2
+>Name</H2
+>Fonts&nbsp;--&nbsp;loading and manipulating fonts</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN6043"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>;
+enum        <A
+HREF="gdk-fonts.html#GDKFONTTYPE"
+>GdkFontType</A
+>;
+<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>*    <A
+HREF="gdk-fonts.html#GDK-FONT-LOAD"
+>gdk_font_load</A
+>                   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *font_name);
+<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>*    <A
+HREF="gdk-fonts.html#GDK-FONTSET-LOAD"
+>gdk_fontset_load</A
+>                (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *fontset_name);
+<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>*    <A
+HREF="gdk-fonts.html#GDK-FONT-REF"
+>gdk_font_ref</A
+>                    (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);
+void        <A
+HREF="gdk-fonts.html#GDK-FONT-UNREF"
+>gdk_font_unref</A
+>                  (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-FONT-ID"
+>gdk_font_id</A
+>                     (const <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-FONT-EQUAL"
+>gdk_font_equal</A
+>                  (const <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *fonta,
+                                             const <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *fontb);
+
+void        <A
+HREF="gdk-fonts.html#GDK-STRING-EXTENTS"
+>gdk_string_extents</A
+>              (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *lbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *rbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ascent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *descent);
+void        <A
+HREF="gdk-fonts.html#GDK-TEXT-EXTENTS"
+>gdk_text_extents</A
+>                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *lbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *rbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ascent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *descent);
+void        <A
+HREF="gdk-fonts.html#GDK-TEXT-EXTENTS-WC"
+>gdk_text_extents_wc</A
+>             (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *lbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *rbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ascent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *descent);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-STRING-WIDTH"
+>gdk_string_width</A
+>                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-TEXT-WIDTH"
+>gdk_text_width</A
+>                  (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-TEXT-WIDTH-WC"
+>gdk_text_width_wc</A
+>               (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-CHAR-WIDTH"
+>gdk_char_width</A
+>                  (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> character);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-CHAR-WIDTH-WC"
+>gdk_char_width_wc</A
+>               (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> character);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-STRING-MEASURE"
+>gdk_string_measure</A
+>              (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-TEXT-MEASURE"
+>gdk_text_measure</A
+>                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-CHAR-MEASURE"
+>gdk_char_measure</A
+>                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> character);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-STRING-HEIGHT"
+>gdk_string_height</A
+>               (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-TEXT-HEIGHT"
+>gdk_text_height</A
+>                 (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-CHAR-HEIGHT"
+>gdk_char_height</A
+>                 (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> character);
+
+typedef     <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+>;
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gdk-fonts.html#GDK-WCSTOMBS"
+>gdk_wcstombs</A
+>                    (const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *src);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-fonts.html#GDK-MBSTOWCS"
+>gdk_mbstowcs</A
+>                    (<A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *dest,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *src,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dest_max);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6149"
+></A
+><H2
+>Description</H2
+><P
+>The GdkFont data type represents a font for drawing on
+the screen. These functions provide support for
+loading fonts, and also for determining the dimensions
+of characters and strings when drawn with a particular
+font.</P
+><P
+>Fonts in X are specified by a
+<I
+CLASS="FIRSTTERM"
+>X Logical Font Description</I
+>. 
+The following description is considerably simplified.
+For definitive information about XLFD's see the 
+X reference documentation. A X Logical Font Description (XLFD)
+consists of a sequence of fields separated (and surrounded by) '-'
+characters. For example, Adobe Helvetica Bold 12 pt, has the
+full description: 
+
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>"-adobe-helvetica-bold-r-normal--12-120-75-75-p-70-iso8859-1"</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>The fields in the XLFD are:
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6156"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFFFFF"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Foundry</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the company or organization where the font originated.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Family</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the font family (a group of related font designs).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Weight</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A name for the font's typographic weight
+For example, 'bold' or 'medium').</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Slant</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The slant of the font. Common values are 'R' for Roman,
+'I' for italoc, and 'O' for oblique.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Set Width</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A name for the width of the font. For example,
+'normal' or 'condensed'.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Add Style</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Additional information to distinguish a font from
+other fonts of the same family.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Pixel Size</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The body size of the font in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Point Size</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The body size of the font in 10ths of a point.
+(A <I
+CLASS="FIRSTTERM"
+>point</I
+> is 1/72.27 inch) </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Resolution X</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The horizontal resolution that the font was designed for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Resolution Y</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The vertical resolution that the font was designed for .</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Spacing</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The type of spacing for the font - can be 'p' for proportional,
+'m' for monospaced or 'c' for charcell.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Average Width</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The average width of a glyph in the font. For monospaced
+and charcell fonts, all glyphs in the font have this width</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Charset Registry</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The registration authority that owns the encoding for
+the font. Together with the Charset Encoding field, this
+defines the character set for the font.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Charset Encoding</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An identifier for the particular character set encoding.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+>When specifying a font via a X logical Font Description,
+'*' can be used as a wildcard to match any portion of
+the XLFD. For instance, the above example could
+also be specified as
+
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>"-*-helvetica-bold-r-normal--*-120-*-*-*-*-iso8859-1"</PRE
+></TD
+></TR
+></TABLE
+>
+
+It is generally a good idea to use wildcards for any
+portion of the XLFD that your program does not care
+about specifically, since that will improve the
+chances of finding a matching font.</P
+><P
+>A <I
+CLASS="FIRSTTERM"
+>fontset</I
+> is a list of fonts
+that is used for drawing international text that may
+contain characters from a number of different character
+sets. It is represented by a list of XLFD's. </P
+><P
+>The font for a given character set is determined by going
+through the list of XLFD's in order. For each one, if
+the registry and and encoding fields match the desired
+character set, then that font is used, otherwise if
+the XLFD contains wild-cards for the registry and encoding
+fields, the registry and encoding for the desired character
+set are subsituted in and a lookup is done. If a match is found
+that font is used. Otherwise, processing continues
+on to the next font in the list.</P
+><P
+>The functions for determining the metrics of a string
+come in several varieties that can take a number
+of forms of string input:
+
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>8-bit string</DT
+><DD
+><P
+>    When using functions like <A
+HREF="gdk-fonts.html#GDK-STRING-WIDTH"
+>gdk_string_width</A
+>() that
+    take a <SPAN
+CLASS="TYPE"
+>gchar *</SPAN
+>, if the font is of type
+    <TT
+CLASS="LITERAL"
+>GDK_FONT_FONT</TT
+> and is an 8-bit font, then each
+    <SPAN
+CLASS="TYPE"
+>gchar</SPAN
+> indexes the glyphs in the font directly.
+    </P
+></DD
+><DT
+>16-bit string</DT
+><DD
+><P
+>    For functions taking a <SPAN
+CLASS="TYPE"
+>gchar *</SPAN
+>, if the
+    font is of type <TT
+CLASS="LITERAL"
+>GDK_FONT_FONT</TT
+>, and is a 16-bit
+    font, then the <SPAN
+CLASS="TYPE"
+>gchar *</SPAN
+> argument is
+    interpreted as a <SPAN
+CLASS="TYPE"
+>guint16 *</SPAN
+> cast to
+    a <SPAN
+CLASS="TYPE"
+>gchar *</SPAN
+> and each <SPAN
+CLASS="TYPE"
+>guint16</SPAN
+>
+    indexes the glyphs in the font directly.
+    </P
+></DD
+><DT
+>Multibyte string</DT
+><DD
+><P
+>    For functions taking a <SPAN
+CLASS="TYPE"
+>gchar *</SPAN
+>, if the
+    font is of type <TT
+CLASS="LITERAL"
+>GDK_FONT_FONTSET</TT
+>, then the input
+    string is interpreted as a <I
+CLASS="FIRSTTERM"
+>multibyte</I
+>
+    encoded according to the current locale. (A multibyte
+    string is one in which each character may consist
+    of one or more bytes, with different lengths for different
+    characters in the string). They can be converted to and
+    from wide character strings (see below) using
+    <A
+HREF="gdk-fonts.html#GDK-WCSTOMBS"
+>gdk_wcstombs</A
+>() and <A
+HREF="gdk-fonts.html#GDK-MBSTOWCS"
+>gdk_mbstowcs</A
+>().) The string will
+    be rendered using one or more different fonts from
+    the fontset.
+    </P
+></DD
+><DT
+>Wide character string</DT
+><DD
+><P
+>    For a number of the text-measuring functions, GTK+
+    provides a variant (such as <A
+HREF="gdk-fonts.html#GDK-TEXT-WIDTH-WC"
+>gdk_text_width_wc</A
+>()) which
+    takes a <SPAN
+CLASS="TYPE"
+>GdkWChar *</SPAN
+> instead of a 
+    <SPAN
+CLASS="TYPE"
+>gchar *</SPAN
+>. The input is then taken to
+    be a wide character string in the encoding of the
+    current locale. (A wide character string is a string
+    in which each character consists of several bytes,
+    and the width of each character in the string is 
+    constant.)
+    </P
+></DD
+></DL
+></DIV
+></P
+><P
+>GDK provides functions to determine a number of different
+measurements (metrics) for a given string. (Need diagram
+here).
+
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>ascent</DT
+><DD
+><P
+>    The vertical distance from the origin of the drawing
+    opereration to the top of the drawn character.
+    </P
+></DD
+><DT
+>descent</DT
+><DD
+><P
+>    The vertical distance from the origin of the drawing
+    opereration to the bottom of the drawn character.
+    </P
+></DD
+><DT
+>left bearing</DT
+><DD
+><P
+>    The horizontal distance from the origin of the drawing
+    operation to the left-most part of the drawn character.
+    </P
+></DD
+><DT
+>right bearing</DT
+><DD
+><P
+>    The horizontal distance from the origin of the drawing
+    operation to the right-most part of the drawn character.
+    </P
+></DD
+><DT
+>width bearing</DT
+><DD
+><P
+>    The horizontal distance from the origin of the drawing
+    operation to the correct origin for drawing another
+    string to follow the current one. Depending on the
+    font, this could be greater than or less than the 
+    right bearing.
+    </P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6267"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6269"
+></A
+><H3
+><A
+NAME="GDKFONT"
+></A
+>struct GdkFont</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkFont
+{
+  GdkFontType type;
+  gint ascent;
+  gint descent;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The GdkFont structure represents a font or fontset. It
+contains the following public fields. A new GdkFont
+structure is returned by <A
+HREF="gdk-fonts.html#GDK-FONT-LOAD"
+>gdk_font_load</A
+>() or <A
+HREF="gdk-fonts.html#GDK-FONTSET-LOAD"
+>gdk_fontset_load</A
+>(),
+and is reference counted with <A
+HREF="gdk-fonts.html#GDK-FONT-REF"
+>gdk_font_ref</A
+>() and <A
+HREF="gdk-fonts.html#GDK-FONT-UNREF"
+>gdk_font_unref</A
+>()
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6278"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>type</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value of type <A
+HREF="gdk-fonts.html#GDKFONTTYPE"
+>GdkFontType</A
+> which indicates
+whether this font is a single font or a fontset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>ascent</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum distance that the font, when drawn,
+ascends above the baseline.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>descent</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum distance that the font, when drawn,
+descends below the baseline.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6296"
+></A
+><H3
+><A
+NAME="GDKFONTTYPE"
+></A
+>enum GdkFontType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_FONT_FONT,
+  GDK_FONT_FONTSET
+} GdkFontType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Indicates the type of a font. The possible values
+are currently:
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6301"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_FONT_FONT</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the font is a single font.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_FONT_FONT</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the font is a fontset.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6312"
+></A
+><H3
+><A
+NAME="GDK-FONT-LOAD"
+></A
+>gdk_font_load ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>*    gdk_font_load                   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *font_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Loads a font.</P
+><P
+>Currently, this function will always return a new
+font, however, in the future, it may be changed to
+look up the font in a cache. You should make no
+assumptions about the initial reference count.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6320"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a XLFD describing the font to load.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>, or NULL if the font could not be loaded.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6334"
+></A
+><H3
+><A
+NAME="GDK-FONTSET-LOAD"
+></A
+>gdk_fontset_load ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>*    gdk_fontset_load                (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *fontset_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Loads a fontset.</P
+><P
+>Currently this function will always return a new
+font, however, in the future, it may be changed to
+look up the font in a cache. You should make no
+assumptions about the initial reference count.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6342"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontset_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a comma-separated list of XLFDs describing
+   the component fonts of the fontset to load.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>, or NULL if the fontset could not be loaded.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6356"
+></A
+><H3
+><A
+NAME="GDK-FONT-REF"
+></A
+>gdk_font_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>*    gdk_font_ref                    (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Increase the reference count of a count by one.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6363"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6378"
+></A
+><H3
+><A
+NAME="GDK-FONT-UNREF"
+></A
+>gdk_font_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_font_unref                  (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Decrease the reference count of a count by one.
+If the result is zero, destroys the font.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6384"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6394"
+></A
+><H3
+><A
+NAME="GDK-FONT-ID"
+></A
+>gdk_font_id ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_font_id                     (const <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the X Font ID for the given font. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6401"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the numeric X Font ID
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6415"
+></A
+><H3
+><A
+NAME="GDK-FONT-EQUAL"
+></A
+>gdk_font_equal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_font_equal                  (const <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *fonta,
+                                             const <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *fontb);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Compares two fonts for equality. Single fonts compare equal
+if they have the same X font ID. This operation does
+not currently work correctly for fontsets.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6423"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fonta</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontb</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>another <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the fonts are equal.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6443"
+></A
+><H3
+><A
+NAME="GDK-STRING-EXTENTS"
+></A
+>gdk_string_extents ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_string_extents              (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *lbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *rbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ascent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *descent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the metrics of a NULL-terminated string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6455"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the NULL-terminated string to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lbearing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the left bearing of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rbearing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the right bearing of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ascent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the ascent of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>descent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the descent of the string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6489"
+></A
+><H3
+><A
+NAME="GDK-TEXT-EXTENTS"
+></A
+>gdk_text_extents ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_text_extents                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *lbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *rbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ascent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *descent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the metrics of a string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6502"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to measure</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text in bytes. (If the
+  font is a 16-bit font, this is twice the length
+  of the text in characters.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lbearing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the left bearing of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rbearing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the right bearing of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ascent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the ascent of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>descent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the descent of the string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6540"
+></A
+><H3
+><A
+NAME="GDK-TEXT-EXTENTS-WC"
+></A
+>gdk_text_extents_wc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_text_extents_wc             (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *lbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *rbearing,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ascent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *descent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the metrics of a string of wide characters.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6553"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text in character.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lbearing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the left bearing of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rbearing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the right bearing of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ascent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the ascent of the string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>descent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the descent of the string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6591"
+></A
+><H3
+><A
+NAME="GDK-STRING-WIDTH"
+></A
+>gdk_string_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_string_width                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine the width of a NULL-terminated string.
+(The distance from the origin of the string to the 
+point where the next string in a sequence of strings
+should be drawn)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6599"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the NULL-terminated string to measure</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the string in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6617"
+></A
+><H3
+><A
+NAME="GDK-TEXT-WIDTH"
+></A
+>gdk_text_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_text_width                  (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine the width of a given string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6626"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text in bytes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the string in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6648"
+></A
+><H3
+><A
+NAME="GDK-TEXT-WIDTH-WC"
+></A
+>gdk_text_width_wc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_text_width_wc               (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine the width of a given wide-character string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6657"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text in characters.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the string in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6679"
+></A
+><H3
+><A
+NAME="GDK-CHAR-WIDTH"
+></A
+>gdk_char_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_char_width                  (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> character);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine the width of a given character.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6687"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>character</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the character in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6705"
+></A
+><H3
+><A
+NAME="GDK-CHAR-WIDTH-WC"
+></A
+>gdk_char_width_wc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_char_width_wc               (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> character);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine the width of a given wide character. (Encoded
+in the wide-character encoding of the current locale).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6713"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>character</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the character in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6731"
+></A
+><H3
+><A
+NAME="GDK-STRING-MEASURE"
+></A
+>gdk_string_measure ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_string_measure              (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the distance from the origin to the rightmost
+portion of a NULL-terminated string when drawn. This is not the
+correct value for determining the origin of the next
+portion when drawing text in multiple pieces.
+See <A
+HREF="gdk-fonts.html#GDK-STRING-WIDTH"
+>gdk_string_width</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6740"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the NULL-terminated string to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the right bearing of the string in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6758"
+></A
+><H3
+><A
+NAME="GDK-TEXT-MEASURE"
+></A
+>gdk_text_measure ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_text_measure                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the distance from the origin to the rightmost
+portion of a string when drawn. This is not the
+correct value for determining the origin of the next
+portion when drawing text in multiple pieces. 
+See <A
+HREF="gdk-fonts.html#GDK-TEXT-WIDTH"
+>gdk_text_width</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6768"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text in bytes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the right bearing of the string in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6790"
+></A
+><H3
+><A
+NAME="GDK-CHAR-MEASURE"
+></A
+>gdk_char_measure ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_char_measure                (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> character);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the distance from the origin to the rightmost
+portion of a character when drawn. This is not the
+correct value for determining the origin of the next
+portion when drawing text in multiple pieces. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6798"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>character</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the right bearing of the character in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6816"
+></A
+><H3
+><A
+NAME="GDK-STRING-HEIGHT"
+></A
+>gdk_string_height ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_string_height               (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the total height of a given NULL-terminated
+string. This value is not generally useful, because you
+cannot determine how this total height will be drawn in
+relation to the baseline. See <A
+HREF="gdk-fonts.html#GDK-STRING-EXTENTS"
+>gdk_string_extents</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6825"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the NULL-terminated string to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the string in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6843"
+></A
+><H3
+><A
+NAME="GDK-TEXT-HEIGHT"
+></A
+>gdk_text_height ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_text_height                 (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the total height of a given string.
+This value is not generally useful, because you cannot
+determine how this total height will be drawn in
+relation to the baseline. See <A
+HREF="gdk-fonts.html#GDK-TEXT-EXTENTS"
+>gdk_text_extents</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6853"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text in bytes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the string in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6875"
+></A
+><H3
+><A
+NAME="GDK-CHAR-HEIGHT"
+></A
+>gdk_char_height ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_char_height                 (<A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> character);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the total height of a given character.
+This value is not generally useful, because you cannot
+determine how this total height will be drawn in
+relation to the baseline. See <A
+HREF="gdk-fonts.html#GDK-TEXT-EXTENTS"
+>gdk_text_extents</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6884"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>character</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the character to measure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the character in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6902"
+></A
+><H3
+><A
+NAME="GDKWCHAR"
+></A
+>GdkWChar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef guint32			    GdkWChar;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies a wide character type, used to represent character codes.
+This is needed since some native languages have character sets which have
+more than 256 characters (Japanese and Chinese, for example).</P
+><P
+>Wide character values between 0 and 127 are always identical in meaning to
+the ASCII character codes. The wide character value 0 is often used to
+terminate strings of wide characters in a similar way to normal strings
+using the char type.</P
+><P
+>An alternative to wide characters is multi-byte characters, which extend
+normal char strings to cope with larger character sets. As the name suggests,
+multi-byte characters use a different number of bytes to store different
+character codes. For example codes 0-127 (i.e. the ASCII codes) often
+use just one byte of memory, while other codes may use 2, 3 or even 4 bytes.
+Multi-byte characters have the advantage that they can often be used in an
+application with little change, since strings are still represented as arrays
+of char values. However multi-byte strings are much easier to manipulate since
+the character are all of the same size.</P
+><P
+>Applications typically use wide characters to represent character codes
+internally, and multi-byte strings when saving the characters to a file.
+The <A
+HREF="gdk-fonts.html#GDK-WCSTOMBS"
+>gdk_wcstombs</A
+>() and <A
+HREF="gdk-fonts.html#GDK-MBSTOWCS"
+>gdk_mbstowcs</A
+>() functions can be used to convert from
+one representation to the other.</P
+><P
+>See the 'Extended Characters' section of the GNU C Library Reference Manual
+for more detailed information on wide and multi-byte characters.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6913"
+></A
+><H3
+><A
+NAME="GDK-WCSTOMBS"
+></A
+>gdk_wcstombs ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gdk_wcstombs                    (const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *src);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a wide character string to a multi-byte string.
+(The function name comes from an acronym of 'Wide Character String TO
+Multi-Byte String').</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6920"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a wide character string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the multi-byte string corresponding to <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>, or NULL if the
+conversion failed. The returned string should be freed with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>() when no
+longer needed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6935"
+></A
+><H3
+><A
+NAME="GDK-MBSTOWCS"
+></A
+>gdk_mbstowcs ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_mbstowcs                    (<A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *dest,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *src,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dest_max);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a multi-byte string to a wide character string.
+(The function name comes from an acronym of 'Multi-Byte String TO Wide
+Character String').</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6944"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the space to place the converted wide character string into.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the multi-byte string to convert, which must be null-terminated.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dest_max</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum number of wide characters to place in <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of wide characters written into <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>, or -1 if the
+conversion failed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-visuals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-cursors.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Visuals</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Cursors</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,2198 @@
+<HTML
+><HEAD
+><TITLE
+>Arrays</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="String Chunks"
+HREF="glib-string-chunks.html"><LINK
+REL="NEXT"
+TITLE="Pointer Arrays"
+HREF="glib-pointer-arrays.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-string-chunks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-pointer-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-ARRAYS"
+>Arrays</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN14262"
+></A
+><H2
+>Name</H2
+>Arrays&nbsp;--&nbsp;arrays of arbitrary elements which grow automatically as elements are added.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14265"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>;
+<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     <A
+HREF="glib-arrays.html#G-ARRAY-NEW"
+>g_array_new</A
+>                     (<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> zero_terminated,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> clear,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> element_size);
+#define     <A
+HREF="glib-arrays.html#G-ARRAY-APPEND-VAL"
+>g_array_append_val</A
+>              (a,v)
+<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     <A
+HREF="glib-arrays.html#G-ARRAY-APPEND-VALS"
+>g_array_append_vals</A
+>             (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);
+#define     <A
+HREF="glib-arrays.html#G-ARRAY-PREPEND-VAL"
+>g_array_prepend_val</A
+>             (a,v)
+<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     <A
+HREF="glib-arrays.html#G-ARRAY-PREPEND-VALS"
+>g_array_prepend_vals</A
+>            (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);
+#define     <A
+HREF="glib-arrays.html#G-ARRAY-INSERT-VAL"
+>g_array_insert_val</A
+>              (a,i,v)
+<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     <A
+HREF="glib-arrays.html#G-ARRAY-INSERT-VALS"
+>g_array_insert_vals</A
+>             (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);
+<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     <A
+HREF="glib-arrays.html#G-ARRAY-REMOVE-INDEX"
+>g_array_remove_index</A
+>            (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);
+<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     <A
+HREF="glib-arrays.html#G-ARRAY-REMOVE-INDEX-FAST"
+>g_array_remove_index_fast</A
+>       (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);
+#define     <A
+HREF="glib-arrays.html#G-ARRAY-INDEX"
+>g_array_index</A
+>                   (a,t,i)
+<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     <A
+HREF="glib-arrays.html#G-ARRAY-SET-SIZE"
+>g_array_set_size</A
+>                (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> length);
+void        <A
+HREF="glib-arrays.html#G-ARRAY-FREE"
+>g_array_free</A
+>                    (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> free_segment);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14309"
+></A
+><H2
+>Description</H2
+><P
+>Arrays are similar to standard C arrays, except that they grow automatically
+as elements are added.</P
+><P
+>Array elements can be of any size (though all elements of one array are the
+same size), and the array can be automatically cleared to '0's and
+zero-terminated.</P
+><P
+>To create a new array use <A
+HREF="glib-arrays.html#G-ARRAY-NEW"
+>g_array_new</A
+>().</P
+><P
+>To add elements to an array, use <A
+HREF="glib-arrays.html#G-ARRAY-APPEND-VAL"
+>g_array_append_val</A
+>(), <A
+HREF="glib-arrays.html#G-ARRAY-APPEND-VALS"
+>g_array_append_vals</A
+>(),
+<A
+HREF="glib-arrays.html#G-ARRAY-PREPEND-VAL"
+>g_array_prepend_val</A
+>(), and <A
+HREF="glib-arrays.html#G-ARRAY-PREPEND-VALS"
+>g_array_prepend_vals</A
+>().</P
+><P
+>To access an element of an array, use <A
+HREF="glib-arrays.html#G-ARRAY-INDEX"
+>g_array_index</A
+>().</P
+><P
+>To set the size of an array, use <A
+HREF="glib-arrays.html#G-ARRAY-SET-SIZE"
+>g_array_set_size</A
+>().</P
+><P
+>To free an array, use <A
+HREF="glib-arrays.html#G-ARRAY-FREE"
+>g_array_free</A
+>().</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN14326"
+></A
+><P
+><B
+>Example 1. Using a GArray to store gint values.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  GArray *garray;
+  gint i;
+
+  /* We create a new array to store gint values.
+     We don't want it zero-terminated or cleared to 0's. */
+  garray = g_array_new (FALSE, FALSE, sizeof (gint));
+  for (i = 0; i &#60; 10000; i++)
+    g_array_append_val (garray, i);
+
+  for (i = 0; i &#60; 10000; i++)
+    if (g_array_index (garray, gint, i) != i)
+      g_print ("ERROR: got <TT
+CLASS="LITERAL"
+>d</TT
+> instead of <TT
+CLASS="LITERAL"
+>d</TT
+>\n",
+               g_array_index (garray, gint, i), i);
+
+  g_array_free (garray, TRUE);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14331"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14333"
+></A
+><H3
+><A
+NAME="GARRAY"
+></A
+>struct GArray</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GArray
+{
+  gchar *data;
+  guint len;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Contains the public fields of an <A
+HREF="glib-arrays.html"
+>Array</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14339"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>data</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the element data. The data may be moved as elements are
+added to the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>len</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements in the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14356"
+></A
+><H3
+><A
+NAME="G-ARRAY-NEW"
+></A
+>g_array_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     g_array_new                     (<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> zero_terminated,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> clear,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> element_size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14366"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>zero_terminated</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the array should have an extra element at the end
+which is set to '0'.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>clear</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> elements should be automatically cleared to '0'
+when they are allocated.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>element_size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the size of each element in bytes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14389"
+></A
+><H3
+><A
+NAME="G-ARRAY-APPEND-VAL"
+></A
+>g_array_append_val()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_array_append_val(a,v)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the value on to the end of the array.
+The array will grow in size automatically if necessary.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+><A
+HREF="glib-arrays.html#G-ARRAY-APPEND-VAL"
+>g_array_append_val</A
+>() is a macro which uses a reference to the value
+parameter <TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>. This means that you cannot use it with literal values
+such as "27". You must use variables.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14398"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to append to the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14418"
+></A
+><H3
+><A
+NAME="G-ARRAY-APPEND-VALS"
+></A
+>g_array_append_vals ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     g_array_append_vals             (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> elements onto the end of the array.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14428"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the elements to append to the end of the array.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements to append.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14451"
+></A
+><H3
+><A
+NAME="G-ARRAY-PREPEND-VAL"
+></A
+>g_array_prepend_val()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_array_prepend_val(a,v)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the value on to the start of the array.
+The array will grow in size automatically if necessary.</P
+><P
+>This operation is slower than <A
+HREF="glib-arrays.html#G-ARRAY-APPEND-VAL"
+>g_array_append_val</A
+>() since the existing elements
+in the array have to be moved to make space for the new element.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+><A
+HREF="glib-arrays.html#G-ARRAY-PREPEND-VAL"
+>g_array_prepend_val</A
+>() is a macro which uses a reference to the value
+parameter <TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>. This means that you cannot use it with literal values
+such as "27". You must use variables.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14462"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to prepend to the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14482"
+></A
+><H3
+><A
+NAME="G-ARRAY-PREPEND-VALS"
+></A
+>g_array_prepend_vals ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     g_array_prepend_vals            (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> elements onto the start of the array.</P
+><P
+>This operation is slower than <A
+HREF="glib-arrays.html#G-ARRAY-APPEND-VALS"
+>g_array_append_vals</A
+>() since the existing elements
+in the array have to be moved to make space for the new elements.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14494"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the elements to prepend to the start of the array.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements to prepend.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14517"
+></A
+><H3
+><A
+NAME="G-ARRAY-INSERT-VAL"
+></A
+>g_array_insert_val()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_array_insert_val(a,i,v)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts an element into an array at the given index.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+><A
+HREF="glib-arrays.html#G-ARRAY-INSERT-VAL"
+>g_array_insert_val</A
+>() is a macro which uses a reference to the value
+parameter <TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>. This means that you cannot use it with literal values
+such as "27". You must use variables.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14526"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index to place the element at.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to insert into the array.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14549"
+></A
+><H3
+><A
+NAME="G-ARRAY-INSERT-VALS"
+></A
+>g_array_insert_vals ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     g_array_insert_vals             (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> len);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> elements into a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> at the given index.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14561"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index to place the elements at.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the elements to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14588"
+></A
+><H3
+><A
+NAME="G-ARRAY-REMOVE-INDEX"
+></A
+>g_array_remove_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     g_array_remove_index            (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the element at the given index from a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+The following elements are moved down one place.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14597"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the element to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14616"
+></A
+><H3
+><A
+NAME="G-ARRAY-REMOVE-INDEX-FAST"
+></A
+>g_array_remove_index_fast ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     g_array_remove_index_fast       (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the element at the given index from a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+The last element in the array is used to fill in the space, so this function
+does not preserve the order of the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>. But it is faster than
+<A
+HREF="glib-arrays.html#G-ARRAY-REMOVE-INDEX"
+>g_array_remove_index</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14627"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <TT
+CLASS="PARAMETER"
+><I
+>GArray</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the element to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14646"
+></A
+><H3
+><A
+NAME="G-ARRAY-INDEX"
+></A
+>g_array_index()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_array_index(a,t,i)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the element of a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> at the given index.
+The return value is cast to the given type.
+
+<DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN14652"
+></A
+><P
+><B
+>Example 2. Getting a pointer to an element in a GArray.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  EDayViewEvent *event;
+
+  /* This gets a pointer to the 3rd element in the array of EDayViewEvent
+     structs. */
+  event = &amp;g_array_index (events, EDayViewEvent, 3);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14655"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>t</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the elements.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the element to return.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element of the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> at the index given by <TT
+CLASS="PARAMETER"
+><I
+>i</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14679"
+></A
+><H3
+><A
+NAME="G-ARRAY-SET-SIZE"
+></A
+>g_array_set_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>*     g_array_set_size                (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the size of the array, expanding it if necessary.
+If the array was created with clear set to TRUE, the new elements are set to 0.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14687"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new size of the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14707"
+></A
+><H3
+><A
+NAME="G-ARRAY-FREE"
+></A
+>g_array_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_array_free                    (<A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> free_segment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the memory allocated for the <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.
+If free_segment is TRUE it frees the actual element data as well.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14715"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-arrays.html#GARRAY"
+>GArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>free_segment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if TRUE the actual element data is freed as well.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-string-chunks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-pointer-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>String Chunks</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Pointer Arrays</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

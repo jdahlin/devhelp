@@ -1,0 +1,1570 @@
+<HTML
+><HEAD
+><TITLE
+>GtkScrolledWindow</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkScrollbar"
+HREF="gtkscrollbar.html"><LINK
+REL="NEXT"
+TITLE="GtkSeparator"
+HREF="gtkseparator.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkscrollbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkseparator.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKSCROLLEDWINDOW"
+>GtkScrolledWindow</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN38649"
+></A
+><H2
+>Name</H2
+>GtkScrolledWindow&nbsp;--&nbsp;
+Adds scrollbars to its child widget.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN38652"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkscrolledwindow.html#GTKSCROLLEDWINDOW-STRUCT"
+>GtkScrolledWindow</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-NEW"
+>gtk_scrolled_window_new</A
+>         (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadjustment,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *vadjustment);
+<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>* <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-GET-HADJUSTMENT"
+>gtk_scrolled_window_get_hadjustment</A
+>
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window);
+<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>* <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-GET-VADJUSTMENT"
+>gtk_scrolled_window_get_vadjustment</A
+>
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window);
+void        <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-SET-POLICY"
+>gtk_scrolled_window_set_policy</A
+>  (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+> hscrollbar_policy,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+> vscrollbar_policy);
+void        <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-ADD-WITH-VIEWPORT"
+>gtk_scrolled_window_add_with_viewport</A
+>
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-SET-HADJUSTMENT"
+>gtk_scrolled_window_set_hadjustment</A
+>
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadjustment);
+void        <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-SET-PLACEMENT"
+>gtk_scrolled_window_set_placement</A
+>
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKCORNERTYPE"
+>GtkCornerType</A
+> window_placement);
+void        <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-SET-VADJUSTMENT"
+>gtk_scrolled_window_set_vadjustment</A
+>
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadjustment);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38682"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----GtkScrolledWindow</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38689"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkscrolledwindow.html#GTKSCROLLEDWINDOW--HADJUSTMENT"
+>hadjustment</A
+>&quot;          <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>        : Read / Write / Construct
+  &quot;<A
+HREF="gtkscrolledwindow.html#GTKSCROLLEDWINDOW--VADJUSTMENT"
+>vadjustment</A
+>&quot;          <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>        : Read / Write / Construct
+  &quot;<A
+HREF="gtkscrolledwindow.html#GTKSCROLLEDWINDOW--HSCROLLBAR-POLICY"
+>hscrollbar-policy</A
+>&quot;    <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+>        : Read / Write
+  &quot;<A
+HREF="gtkscrolledwindow.html#GTKSCROLLEDWINDOW--VSCROLLBAR-POLICY"
+>vscrollbar-policy</A
+>&quot;    <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+>        : Read / Write
+  &quot;<A
+HREF="gtkscrolledwindow.html#GTKSCROLLEDWINDOW--WINDOW-PLACEMENT"
+>window-placement</A
+>&quot;     <A
+HREF="gtk-standard-enumerations.html#GTKCORNERTYPE"
+>GtkCornerType</A
+>        : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38702"
+></A
+><H2
+>Description</H2
+><P
+>&#13;<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> is a <A
+HREF="gtkbin.html"
+>GtkBin</A
+> subclass: it's a container 
+
+the accepts a single child widget. <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> adds scrollbars
+
+to the child widget.&#13;</P
+><P
+>&#13;The scrolled window can work in two ways. Some widgets have native
+
+scrolling support; these widgets have "slots" for <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>
+
+objects. The scrolled window installs <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> objects in the
+
+child window's slots using the set_scroll_adjustments_signal, found in
+
+GtkWidgetClass. (Conceptually, these widgets implement a "Scrollable"
+
+interface; because GTK+ 1.2 lacks multiple inheritance, this interface
+
+is hackily implemented as a signal in GtkWidgetClass.)&#13;</P
+><P
+>&#13;The second way to use the scrolled window is useful with widgets that
+
+lack the set_scroll_adjustments_signal. The <A
+HREF="gtkviewport.html"
+>GtkViewport</A
+> widget acts as
+
+a proxy, implementing scrollability for child widgets that lack their
+
+own scrolling capabilities. &#13;</P
+><P
+>&#13;If a widget has native scrolling abilities, it can be added to the
+
+<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> with <A
+HREF="gtkcontainer.html#GTK-CONTAINER-ADD"
+>gtk_container_add</A
+>(). If a widget does not, you
+
+must first add the widget to a <A
+HREF="gtkviewport.html"
+>GtkViewport</A
+>, then add the GtkViewport
+
+to the scrolled window. The convenience function
+
+<A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-ADD-WITH-VIEWPORT"
+>gtk_scrolled_window_add_with_viewport</A
+>() does exactly this, so you can
+
+ignore the presence of the viewport.&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38720"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38722"
+></A
+><H3
+><A
+NAME="GTKSCROLLEDWINDOW-STRUCT"
+></A
+>struct GtkScrolledWindow</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkScrolledWindow;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;There are no public fields in the <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> struct; it should 
+
+only be accessed using the functions below.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38728"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-NEW"
+></A
+>gtk_scrolled_window_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_scrolled_window_new         (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadjustment,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *vadjustment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Creates a new scrolled window. The two arguments are the scrolled
+
+window's adjustments; these will be shared with the scrollbars and the
+
+child widget to keep the bars in sync with the child. Usually you want
+
+to pass NULL for the adjustments, which will cause the scrolled window
+
+to create them for you.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38736"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hadjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Horizontal adjustment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vadjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Vertical adjustment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>New scrolled window.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38753"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-GET-HADJUSTMENT"
+></A
+>gtk_scrolled_window_get_hadjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>* gtk_scrolled_window_get_hadjustment
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns the horizontal scrollbar's adjustment, used to connect the
+
+horizontal scrollbar to the child widget's horizontal scroll
+
+functionality.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38760"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrolled_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The horizontal <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38775"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-GET-VADJUSTMENT"
+></A
+>gtk_scrolled_window_get_vadjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>* gtk_scrolled_window_get_vadjustment
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns the vertical scrollbar's adjustment, used to connect the
+
+vertical scrollbar to the child widget's vertical scroll
+
+functionality.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38782"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrolled_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The vertical <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38797"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-SET-POLICY"
+></A
+>gtk_scrolled_window_set_policy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scrolled_window_set_policy  (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+> hscrollbar_policy,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+> vscrollbar_policy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the scrollbar policy for the horizontal and vertical scrollbars. 
+
+The policy determines when the scrollbar should appear; it is a value
+
+from the <A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+> enumeration. If <TT
+CLASS="LITERAL"
+>GTK_POLICY_ALWAYS</TT
+>, the
+
+scrollbar is always present; if <TT
+CLASS="LITERAL"
+>GTK_POLICY_NEVER</TT
+>, the scrollbar is
+
+never present; if <TT
+CLASS="LITERAL"
+>GTK_POLICY_AUTOMATIC</TT
+>, the scrollbar is present only
+
+if needed (that is, if the slider part of the bar would be smaller
+
+than the trough - the display is larger than the page size).&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38809"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrolled_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hscrollbar_policy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Policy for horizontal bar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vscrollbar_policy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Policy for vertical bar.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38827"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-ADD-WITH-VIEWPORT"
+></A
+>gtk_scrolled_window_add_with_viewport ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scrolled_window_add_with_viewport
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Used to add children without native scrolling capabilities. This is
+
+simply a convenience function; it is equivalent to adding the
+
+unscrollable child to a viewport, then adding the viewport to the
+
+scrolled window. If a child has native scrolling, use
+
+<A
+HREF="gtkcontainer.html#GTK-CONTAINER-ADD"
+>gtk_container_add</A
+>() instead of this function.&#13;</P
+><P
+>&#13;The viewport scrolls the child by moving its <A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A>, and takes the
+
+size of the child to be the size of its toplevel <A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A>. This will
+
+be very wrong for most widgets that support native scrolling; for
+
+example, if you add a <A
+HREF="gtkclist.html"
+>GtkCList</A
+> with a viewport, the whole widget will
+
+scroll, including the column headings. Thus <A
+HREF="gtkclist.html"
+>GtkCList</A
+> supports
+
+scrolling already, and should not be used with the <A
+HREF="gtkviewport.html"
+>GtkViewport</A
+> proxy.&#13;</P
+><P
+>&#13;A widget supports scrolling natively if the
+
+set_scroll_adjustments_signal field in GtkWidgetClass is non-zero,
+
+i.e. has been filled in with a valid signal identifier.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38843"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrolled_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Widget you want to scroll.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38857"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-SET-HADJUSTMENT"
+></A
+>gtk_scrolled_window_set_hadjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scrolled_window_set_hadjustment
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadjustment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> for the horizontal scrollbar.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38865"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrolled_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hadjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Horizontal scroll adjustment.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38879"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-SET-PLACEMENT"
+></A
+>gtk_scrolled_window_set_placement ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scrolled_window_set_placement
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKCORNERTYPE"
+>GtkCornerType</A
+> window_placement);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Determines the location of the child widget with respect to the
+
+scrollbars. The default is <TT
+CLASS="LITERAL"
+>GTK_CORNER_TOP_LEFT</TT
+>, meaning the child is
+
+in the top left, with the scrollbars underneath and to the right.
+
+Other values in <A
+HREF="gtk-standard-enumerations.html#GTKCORNERTYPE"
+>GtkCornerType</A
+> are <TT
+CLASS="LITERAL"
+>GTK_CORNER_TOP_RIGHT</TT
+>,
+
+<TT
+CLASS="LITERAL"
+>GTK_CORNER_BOTTOM_LEFT</TT
+>, and <TT
+CLASS="LITERAL"
+>GTK_CORNER_BOTTOM_RIGHT</TT
+>.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38891"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrolled_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window_placement</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Position of the child window.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38905"
+></A
+><H3
+><A
+NAME="GTK-SCROLLED-WINDOW-SET-VADJUSTMENT"
+></A
+>gtk_scrolled_window_set_vadjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scrolled_window_set_vadjustment
+                                            (<A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+> *scrolled_window,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadjustment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> for the vertical scrollbar.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38913"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scrolled_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="gtkscrolledwindow.html"
+>GtkScrolledWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hadjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38927"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKSCROLLEDWINDOW--HADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>hadjustment</TT
+>&quot; (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> : Read / Write / Construct)</DT
+><DD
+><P
+>&#13;Horizontal adjustment. See <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-SET-HADJUSTMENT"
+>gtk_scrolled_window_set_hadjustment</A
+>(), <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-GET-HADJUSTMENT"
+>gtk_scrolled_window_get_hadjustment</A
+>().&#13;</P
+></DD
+><DT
+><A
+NAME="GTKSCROLLEDWINDOW--VADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>vadjustment</TT
+>&quot; (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> : Read / Write / Construct)</DT
+><DD
+><P
+>&#13;Vertical adjustment. See <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-SET-VADJUSTMENT"
+>gtk_scrolled_window_set_vadjustment</A
+>(), <A
+HREF="gtkscrolledwindow.html#GTK-SCROLLED-WINDOW-GET-VADJUSTMENT"
+>gtk_scrolled_window_get_vadjustment</A
+>().&#13;</P
+></DD
+><DT
+><A
+NAME="GTKSCROLLEDWINDOW--HSCROLLBAR-POLICY"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>hscrollbar-policy</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKSCROLLEDWINDOW--VSCROLLBAR-POLICY"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>vscrollbar-policy</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKPOLICYTYPE"
+>GtkPolicyType</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKSCROLLEDWINDOW--WINDOW-PLACEMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>window-placement</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKCORNERTYPE"
+>GtkCornerType</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38969"
+></A
+><H2
+>See Also</H2
+><P
+>&#13;<A
+HREF="gtkviewport.html"
+>GtkViewport</A
+>, <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>, GtkWidgetClass&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkscrollbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkseparator.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkScrollbar</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkSeparator</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,3080 @@
+<HTML
+><HEAD
+><TITLE
+>gnome-dialog-util</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="Gnome User Interface Library Reference Manual"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Gnome User Interface Library"
+HREF="libgnomeui.html"><LINK
+REL="PREVIOUS"
+TITLE="gnome-canvas-util"
+HREF="gnomeui-gnome-canvas-util.html"><LINK
+REL="NEXT"
+TITLE="gnome-dns"
+HREF="gnomeui-gnome-dns.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>Gnome User Interface Library Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeui-gnome-canvas-util.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="libgnomeui.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeui-gnome-dns.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GNOMEUI-GNOME-DIALOG-UTIL"
+>gnome-dialog-util</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN3286"
+></A
+><H2
+>Name</H2
+>gnome-dialog-util&nbsp;--&nbsp;Convenience functions for making dialogs.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN3289"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gnome.h&gt;
+
+
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-OK-DIALOG"
+>gnome_ok_dialog</A
+>                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-OK-DIALOG-PARENTED"
+>gnome_ok_dialog_parented</A
+>        (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-ERROR-DIALOG"
+>gnome_error_dialog</A
+>              (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *error);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-ERROR-DIALOG-PARENTED"
+>gnome_error_dialog_parented</A
+>     (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *error,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-WARNING-DIALOG"
+>gnome_warning_dialog</A
+>            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *warning);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-WARNING-DIALOG-PARENTED"
+>gnome_warning_dialog_parented</A
+>   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *warning,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-QUESTION-DIALOG"
+>gnome_question_dialog</A
+>           (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-QUESTION-DIALOG-PARENTED"
+>gnome_question_dialog_parented</A
+>  (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-QUESTION-DIALOG-MODAL"
+>gnome_question_dialog_modal</A
+>     (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-QUESTION-DIALOG-MODAL-PARENTED"
+>gnome_question_dialog_modal_parented</A
+>
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-OK-CANCEL-DIALOG"
+>gnome_ok_cancel_dialog</A
+>          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-OK-CANCEL-DIALOG-PARENTED"
+>gnome_ok_cancel_dialog_parented</A
+> (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-OK-CANCEL-DIALOG-MODAL"
+>gnome_ok_cancel_dialog_modal</A
+>    (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-OK-CANCEL-DIALOG-MODAL-PARENTED"
+>gnome_ok_cancel_dialog_modal_parented</A
+>
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-STRING-DIALOG"
+>gnome_request_string_dialog</A
+>     (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-STRING-DIALOG-PARENTED"
+>gnome_request_string_dialog_parented</A
+>
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-PASSWORD-DIALOG"
+>gnome_request_password_dialog</A
+>   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-PASSWORD-DIALOG-PARENTED"
+>gnome_request_password_dialog_parented</A
+>
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-DIALOG"
+>gnome_request_dialog</A
+>            (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> password,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *default_text,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> max_length,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN3388"
+></A
+><H2
+>Description</H2
+><P
+>These functions create common dialogs for you. In all cases, you
+should prefer the _parented() variants, because they will properly
+call <A
+HREF="gnomedialog.html#GNOME-DIALOG-SET-PARENT"
+>gnome_dialog_set_parent</A
+>() prior to showing the dialog. All of
+these functions automatically show the dialog before they return.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN3393"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3395"
+></A
+><H3
+><A
+NAME="GNOME-OK-DIALOG"
+></A
+>gnome_ok_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_ok_dialog                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows a simple message dialog.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3403"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3416"
+></A
+><H3
+><A
+NAME="GNOME-OK-DIALOG-PARENTED"
+></A
+>gnome_ok_dialog_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_ok_dialog_parented        (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows a simple message dialog.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3425"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3442"
+></A
+><H3
+><A
+NAME="GNOME-ERROR-DIALOG"
+></A
+>gnome_error_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_error_dialog              (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *error);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows a error dialog.  This is an OK
+dialog to display on fatally failed operations.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3450"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>error</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3463"
+></A
+><H3
+><A
+NAME="GNOME-ERROR-DIALOG-PARENTED"
+></A
+>gnome_error_dialog_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_error_dialog_parented     (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *error,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows a error dialog.  This is an OK
+dialog to display on fatally failed operations.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3472"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>error</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3489"
+></A
+><H3
+><A
+NAME="GNOME-WARNING-DIALOG"
+></A
+>gnome_warning_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_warning_dialog            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *warning);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows a warning dialog.  For non-fatal
+warnings.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3497"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>warning</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3510"
+></A
+><H3
+><A
+NAME="GNOME-WARNING-DIALOG-PARENTED"
+></A
+>gnome_warning_dialog_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_warning_dialog_parented   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *warning,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows a warning dialog.  For non-fatal
+warnings.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3519"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>warning</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3536"
+></A
+><H3
+><A
+NAME="GNOME-QUESTION-DIALOG"
+></A
+>gnome_question_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_question_dialog           (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a question dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'Yes', 1 for 'No'</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3548"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>question</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Question to ask</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3569"
+></A
+><H3
+><A
+NAME="GNOME-QUESTION-DIALOG-PARENTED"
+></A
+>gnome_question_dialog_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_question_dialog_parented  (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a question dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'Yes', 1 for 'No'</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3582"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>question</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Question to ask</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3607"
+></A
+><H3
+><A
+NAME="GNOME-QUESTION-DIALOG-MODAL"
+></A
+>gnome_question_dialog_modal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_question_dialog_modal     (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a question dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'Yes', 1 for 'No'.  The dialog is created as a modal
+dialog and the user will have to answer this before proceeding.</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3619"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>question</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Question to ask</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3640"
+></A
+><H3
+><A
+NAME="GNOME-QUESTION-DIALOG-MODAL-PARENTED"
+></A
+>gnome_question_dialog_modal_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_question_dialog_modal_parented
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *question,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a question dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'Yes', 1 for 'No'.  The dialog is created as a modal
+dialog and the user will have to answer this before proceeding.</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3653"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>question</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Question to ask</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3678"
+></A
+><H3
+><A
+NAME="GNOME-OK-CANCEL-DIALOG"
+></A
+>gnome_ok_cancel_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_ok_cancel_dialog          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates an OK/Cancel dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'OK', 1 for 'Cancel'.</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3690"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3711"
+></A
+><H3
+><A
+NAME="GNOME-OK-CANCEL-DIALOG-PARENTED"
+></A
+>gnome_ok_cancel_dialog_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_ok_cancel_dialog_parented (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates an OK/Cancel dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'OK', 1 for 'Cancel'.</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3724"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3749"
+></A
+><H3
+><A
+NAME="GNOME-OK-CANCEL-DIALOG-MODAL"
+></A
+>gnome_ok_cancel_dialog_modal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_ok_cancel_dialog_modal    (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates an OK/Cancel dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'OK', 1 for 'Cancel'.  The dialog is created as a modal
+dialog and the user will have to answer this before proceeding.</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3761"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3782"
+></A
+><H3
+><A
+NAME="GNOME-OK-CANCEL-DIALOG-MODAL-PARENTED"
+></A
+>gnome_ok_cancel_dialog_modal_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_ok_cancel_dialog_modal_parented
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *message,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMEREPLYCALLBACK"
+>GnomeReplyCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows an OK/Cancel dialog and calls <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>
+when user answers the button number is passed onto 'reply'.
+0 is for 'OK', 1 for 'Cancel'.  The dialog is created as a modal
+dialog and the user will have to answer this before proceeding.</P
+><P
+>void (* GnomeReplyCallback)(gint reply, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3795"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Message to display</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data to pass to callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3820"
+></A
+><H3
+><A
+NAME="GNOME-REQUEST-STRING-DIALOG"
+></A
+>gnome_request_string_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_request_string_dialog     (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deprecated, use <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-DIALOG"
+>gnome_request_dialog</A
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3831"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prompt</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3852"
+></A
+><H3
+><A
+NAME="GNOME-REQUEST-STRING-DIALOG-PARENTED"
+></A
+>gnome_request_string_dialog_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_request_string_dialog_parented
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deprecated, use <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-DIALOG"
+>gnome_request_dialog</A
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3864"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prompt</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3889"
+></A
+><H3
+><A
+NAME="GNOME-REQUEST-PASSWORD-DIALOG"
+></A
+>gnome_request_password_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_request_password_dialog   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deprecated, use <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-DIALOG"
+>gnome_request_dialog</A
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3900"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prompt</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3921"
+></A
+><H3
+><A
+NAME="GNOME-REQUEST-PASSWORD-DIALOG-PARENTED"
+></A
+>gnome_request_password_dialog_parented ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_request_password_dialog_parented
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Deprecated, use <A
+HREF="gnomeui-gnome-dialog-util.html#GNOME-REQUEST-DIALOG"
+>gnome_request_dialog</A
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3933"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prompt</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3958"
+></A
+><H3
+><A
+NAME="GNOME-REQUEST-DIALOG"
+></A
+>gnome_request_dialog ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_request_dialog            (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> password,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *prompt,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *default_text,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> max_length,
+                                             <A
+HREF="gnomeui-gnome-types.html#GNOMESTRINGCALLBACK"
+>GnomeStringCallback</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtkwindow.html
+>GtkWindow</A> *parent);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates and shows a GNOME text entry request dialog.
+<TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+> is called when the dialog closes, passing the text entry
+input or <TT
+CLASS="LITERAL"
+>NULL</TT
+> if the user cancelled.  <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+> is defined as</P
+><P
+>void (* GnomeStringCallback)(gchar * string, gpointer data);</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3976"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>password</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> <TT
+CLASS="LITERAL"
+>TRUE</TT
+> if on-screen text input is masked</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prompt</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Text of the prompt to be displayed</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>default_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Default text in entry widget, <TT
+CLASS="LITERAL"
+>NULL</TT
+> if none</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Maximum input chars allowed</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Callback function for handling dialog results</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Data passed to the callback</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Parent window, or <TT
+CLASS="LITERAL"
+>NULL</TT
+> for no parent.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Pointer to new GNOME dialog object.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeui-gnome-canvas-util.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="libgnomeui.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeui-gnome-dns.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>gnome-canvas-util</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>gnome-dns</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

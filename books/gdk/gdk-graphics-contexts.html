@@ -1,0 +1,3895 @@
+<HTML
+><HEAD
+><TITLE
+>Graphics Contexts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Points, Rectangles and Regions"
+HREF="gdk-points-rectangles-and-regions.html"><LINK
+REL="NEXT"
+TITLE="Drawing Primitives"
+HREF="gdk-drawing-primitives.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-points-rectangles-and-regions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-drawing-primitives.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-GRAPHICS-CONTEXTS"
+>Graphics Contexts</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN1179"
+></A
+><H2
+>Name</H2
+>Graphics Contexts&nbsp;--&nbsp;objects to encapsulate drawing properties.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN1182"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>;
+struct      <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+>;
+enum        <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUESMASK"
+>GdkGCValuesMask</A
+>;
+enum        <A
+HREF="gdk-graphics-contexts.html#GDKFUNCTION"
+>GdkFunction</A
+>;
+<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>*      <A
+HREF="gdk-graphics-contexts.html#GDK-GC-NEW"
+>gdk_gc_new</A
+>                      (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window);
+<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>*      <A
+HREF="gdk-graphics-contexts.html#GDK-GC-NEW-WITH-VALUES"
+>gdk_gc_new_with_values</A
+>          (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+> *values,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUESMASK"
+>GdkGCValuesMask</A
+> values_mask);
+<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>*      <A
+HREF="gdk-graphics-contexts.html#GDK-GC-REF"
+>gdk_gc_ref</A
+>                      (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-UNREF"
+>gdk_gc_unref</A
+>                    (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-DESTROY"
+>gdk_gc_destroy</A
+>                  (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-GET-VALUES"
+>gdk_gc_get_values</A
+>               (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+> *values);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-FOREGROUND"
+>gdk_gc_set_foreground</A
+>           (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-BACKGROUND"
+>gdk_gc_set_background</A
+>           (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-FONT"
+>gdk_gc_set_font</A
+>                 (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-FUNCTION"
+>gdk_gc_set_function</A
+>             (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKFUNCTION"
+>GdkFunction</A
+> function);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-FILL"
+>gdk_gc_set_fill</A
+>                 (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKFILL"
+>GdkFill</A
+> fill);
+enum        <A
+HREF="gdk-graphics-contexts.html#GDKFILL"
+>GdkFill</A
+>;
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-TILE"
+>gdk_gc_set_tile</A
+>                 (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *tile);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-STIPPLE"
+>gdk_gc_set_stipple</A
+>              (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *stipple);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-TS-ORIGIN"
+>gdk_gc_set_ts_origin</A
+>            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-ORIGIN"
+>gdk_gc_set_clip_origin</A
+>          (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-MASK"
+>gdk_gc_set_clip_mask</A
+>            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKBITMAP"
+>GdkBitmap</A
+> *mask);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-RECTANGLE"
+>gdk_gc_set_clip_rectangle</A
+>       (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rectangle);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-REGION"
+>gdk_gc_set_clip_region</A
+>          (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-SUBWINDOW"
+>gdk_gc_set_subwindow</A
+>            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKSUBWINDOWMODE"
+>GdkSubwindowMode</A
+> mode);
+enum        <A
+HREF="gdk-graphics-contexts.html#GDKSUBWINDOWMODE"
+>GdkSubwindowMode</A
+>;
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-EXPOSURES"
+>gdk_gc_set_exposures</A
+>            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> exposures);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-LINE-ATTRIBUTES"
+>gdk_gc_set_line_attributes</A
+>      (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> line_width,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKLINESTYLE"
+>GdkLineStyle</A
+> line_style,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKCAPSTYLE"
+>GdkCapStyle</A
+> cap_style,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKJOINSTYLE"
+>GdkJoinStyle</A
+> join_style);
+enum        <A
+HREF="gdk-graphics-contexts.html#GDKLINESTYLE"
+>GdkLineStyle</A
+>;
+enum        <A
+HREF="gdk-graphics-contexts.html#GDKCAPSTYLE"
+>GdkCapStyle</A
+>;
+enum        <A
+HREF="gdk-graphics-contexts.html#GDKJOINSTYLE"
+>GdkJoinStyle</A
+>;
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-DASHES"
+>gdk_gc_set_dashes</A
+>               (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dash_offset,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> dash_list[],
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> n);
+void        <A
+HREF="gdk-graphics-contexts.html#GDK-GC-COPY"
+>gdk_gc_copy</A
+>                     (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *dst_gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *src_gc);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1270"
+></A
+><H2
+>Description</H2
+><P
+>All drawing operations in GDK take a 
+<I
+CLASS="FIRSTTERM"
+>graphics context</I
+> (GC) argument. 
+A graphics context encapsulates information about
+the way things are drawn, such as the foreground
+color or line width. By using graphics contexts, 
+the number of arguments to each drawing call is
+greatly reduced, and communication overhead is
+minimized, since identical arguments do not need
+to be passed repeatedly.</P
+><P
+>Most values of a graphics context can be set at
+creation time by using <A
+HREF="gdk-graphics-contexts.html#GDK-GC-NEW-WITH-VALUES"
+>gdk_gc_new_with_values</A
+>(),
+or can be set one-by-one using functions such
+as <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-FOREGROUND"
+>gdk_gc_set_foreground</A
+>(). A few of the values
+in the GC, such as the dash pattern, can only
+be set by the latter method.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1277"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1279"
+></A
+><H3
+><A
+NAME="GDKGC"
+></A
+>struct GdkGC</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkGC
+{
+  gint dummy_var;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> structure represents a graphics context.
+It is an opaque structure with no user-visible
+elements.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1285"
+></A
+><H3
+><A
+NAME="GDKGCVALUES"
+></A
+>struct GdkGCValues</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkGCValues
+{
+  GdkColor	    foreground;
+  GdkColor	    background;
+  GdkFont	   *font;
+  GdkFunction	    function;
+  GdkFill	    fill;
+  GdkPixmap	   *tile;
+  GdkPixmap	   *stipple;
+  GdkPixmap	   *clip_mask;
+  GdkSubwindowMode  subwindow_mode;
+  gint		    ts_x_origin;
+  gint		    ts_y_origin;
+  gint		    clip_x_origin;
+  gint		    clip_y_origin;
+  gint		    graphics_exposures;
+  gint		    line_width;
+  GdkLineStyle	    line_style;
+  GdkCapStyle	    cap_style;
+  GdkJoinStyle	    join_style;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+> structure holds a set of values used
+to create or modify a graphics context.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1291"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>	foreground;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the foreground color.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>	background;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the background color.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default font..</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-graphics-contexts.html#GDKFUNCTION"
+>GdkFunction</A
+> function;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the bitwise operation used when drawing.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-graphics-contexts.html#GDKFILL"
+>GdkFill</A
+> fill;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the fill style.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *tile;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the tile pixmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *stipple;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the stipple bitmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *clip_mask;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the clip mask bitmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-graphics-contexts.html#GDKSUBWINDOWMODE"
+>GdkSubwindowMode</A
+> subwindow_mode;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the subwindow mode.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ts_x_origin;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x origin of the tile or stipple.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ts_y_origin;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y origin of the tile or stipple.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> clip_x_origin;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x origin of the clip mask.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> clip_y_origin;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y origin of the clip mask.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> graphics_exposures;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether graphics exposures are enabled.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> line_width;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the line width</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-graphics-contexts.html#GDKLINESTYLE"
+>GdkLineStyle</A
+> line_style;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the way dashed lines are drawn</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-graphics-contexts.html#GDKCAPSTYLE"
+>GdkCapStyle</A
+> cap_style;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the way the ends of lines are drawn</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-graphics-contexts.html#GDKJOINSTYLE"
+>GdkJoinStyle</A
+> join_style;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the way joins between lines are drawn</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1368"
+></A
+><H3
+><A
+NAME="GDKGCVALUESMASK"
+></A
+>enum GdkGCValuesMask</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_GC_FOREGROUND    = 1 &lt;&lt; 0,
+  GDK_GC_BACKGROUND    = 1 &lt;&lt; 1,
+  GDK_GC_FONT	       = 1 &lt;&lt; 2,
+  GDK_GC_FUNCTION      = 1 &lt;&lt; 3,
+  GDK_GC_FILL	       = 1 &lt;&lt; 4,
+  GDK_GC_TILE	       = 1 &lt;&lt; 5,
+  GDK_GC_STIPPLE       = 1 &lt;&lt; 6,
+  GDK_GC_CLIP_MASK     = 1 &lt;&lt; 7,
+  GDK_GC_SUBWINDOW     = 1 &lt;&lt; 8,
+  GDK_GC_TS_X_ORIGIN   = 1 &lt;&lt; 9,
+  GDK_GC_TS_Y_ORIGIN   = 1 &lt;&lt; 10,
+  GDK_GC_CLIP_X_ORIGIN = 1 &lt;&lt; 11,
+  GDK_GC_CLIP_Y_ORIGIN = 1 &lt;&lt; 12,
+  GDK_GC_EXPOSURES     = 1 &lt;&lt; 13,
+  GDK_GC_LINE_WIDTH    = 1 &lt;&lt; 14,
+  GDK_GC_LINE_STYLE    = 1 &lt;&lt; 15,
+  GDK_GC_CAP_STYLE     = 1 &lt;&lt; 16,
+  GDK_GC_JOIN_STYLE    = 1 &lt;&lt; 17
+} GdkGCValuesMask;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A set of bit flags used to indicate which fields
+<A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+> structure are set.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1374"
+></A
+><H3
+><A
+NAME="GDKFUNCTION"
+></A
+>enum GdkFunction</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_COPY,
+  GDK_INVERT,
+  GDK_XOR,
+  GDK_CLEAR,
+  GDK_AND,
+  GDK_AND_REVERSE,
+  GDK_AND_INVERT,
+  GDK_NOOP,
+  GDK_OR,
+  GDK_EQUIV,
+  GDK_OR_REVERSE,
+  GDK_COPY_INVERT,
+  GDK_OR_INVERT,
+  GDK_NAND,
+  GDK_SET
+} GdkFunction;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines how the bit values for the source pixels are combined with
+the bit values for destination pixels to produce the final result. The
+sixteen values here correspond to the 16 different possible 2x2 truth
+tables.  Only a couple of these values are usually useful; for colored
+images, only <TT
+CLASS="LITERAL"
+>GDK_COPY</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_XOR</TT
+> and <TT
+CLASS="LITERAL"
+>GDK_INVERT</TT
+> are generally
+useful. For bitmaps, <TT
+CLASS="LITERAL"
+>GDK_AND</TT
+> and <TT
+CLASS="LITERAL"
+>GDK_OR</TT
+> are also useful.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1384"
+></A
+><H3
+><A
+NAME="GDK-GC-NEW"
+></A
+>gdk_gc_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>*      gdk_gc_new                      (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new graphics context with default values. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1391"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+>. The created GC must always be used
+ with drawables of the same depth as this one.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new graphics context.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1405"
+></A
+><H3
+><A
+NAME="GDK-GC-NEW-WITH-VALUES"
+></A
+>gdk_gc_new_with_values ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>*      gdk_gc_new_with_values          (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+> *values,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUESMASK"
+>GdkGCValuesMask</A
+> values_mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new GC with the given initial values.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1414"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+>. The created GC must always be used
+ with drawables of the same depth as this one.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a structure containing initial values for the GC.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>values_mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a bit mask indicating which fields in <TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+>
+   are set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new graphics context.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1437"
+></A
+><H3
+><A
+NAME="GDK-GC-REF"
+></A
+>gdk_gc_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>*      gdk_gc_ref                      (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Increase the reference count on a graphics context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1444"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1459"
+></A
+><H3
+><A
+NAME="GDK-GC-UNREF"
+></A
+>gdk_gc_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_unref                    (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Decrease the reference count on a graphics context. If
+the resulting reference count is zero, the graphics
+context will be destroyed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1465"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1475"
+></A
+><H3
+><A
+NAME="GDK-GC-DESTROY"
+></A
+>gdk_gc_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_destroy                  (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Identical to <A
+HREF="gdk-graphics-contexts.html#GDK-GC-UNREF"
+>gdk_gc_unref</A
+>(). This function is obsolete
+and should not be used.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1482"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1492"
+></A
+><H3
+><A
+NAME="GDK-GC-GET-VALUES"
+></A
+>gdk_gc_get_values ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_get_values               (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+> *values);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the current values from a graphics context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1499"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-graphics-contexts.html#GDKGCVALUES"
+>GdkGCValues</A
+> structure in which to store the results.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1514"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-FOREGROUND"
+></A
+>gdk_gc_set_foreground ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_foreground           (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the foreground color for a graphics context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1521"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new foreground color.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1535"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-BACKGROUND"
+></A
+>gdk_gc_set_background ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_background           (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the background color for a graphics context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1542"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new background color.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1556"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-FONT"
+></A
+>gdk_gc_set_font ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_font                 (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the font for a graphics context. (Note that
+all text-drawing functions in GDK take a <TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>
+argument; the value set here is used when that
+argument is <TT
+CLASS="LITERAL"
+>NULL</TT
+>.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1565"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new font.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1579"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-FUNCTION"
+></A
+>gdk_gc_set_function ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_function             (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKFUNCTION"
+>GdkFunction</A
+> function);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines how the current pixel values and the
+pixel values being drawn are combined to produce
+the final pixel values.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1586"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1600"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-FILL"
+></A
+>gdk_gc_set_fill ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_fill                 (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKFILL"
+>GdkFill</A
+> fill);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the fill mode for a graphics context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1607"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new fill mode.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1621"
+></A
+><H3
+><A
+NAME="GDKFILL"
+></A
+>enum GdkFill</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_SOLID,
+  GDK_TILED,
+  GDK_STIPPLED,
+  GDK_OPAQUE_STIPPLED
+} GdkFill;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines how primitives are drawn.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1626"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_SOLID</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>draw with the foreground color.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_TILED</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>draw with a tiled pixmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_STIPPLED</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>draw using the stipple bitmap. Pixels corresponding
+to bits in the stipple bitmap that are set will be drawn in the 
+foreground color; pixels corresponding to bits that are
+not set will be left untouched.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_OPAQUE_STIPPLED</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>draw using the stipple bitmap. Pixels corresponding
+to bits in the stipple bitmap that are set will be drawn in the 
+foreground color; pixels corresponding to bits that are
+not set will be drawn with the background color.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1643"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-TILE"
+></A
+>gdk_gc_set_tile ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_tile                 (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *tile);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set a tile pixmap for a graphics context.
+This will only be used if the fill mode
+is <TT
+CLASS="LITERAL"
+>GDK_TILED</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1651"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tile</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new tile pixmap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1665"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-STIPPLE"
+></A
+>gdk_gc_set_stipple ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_stipple              (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *stipple);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the stipple bitmap for a graphics context. The
+stipple will only be used if the fill mode is
+<TT
+CLASS="LITERAL"
+>GDK_STIPPLED</TT
+> or <TT
+CLASS="LITERAL"
+>GDK_OPAQUE_STIPPLED</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1674"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>stipple</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new stipple bitmap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1688"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-TS-ORIGIN"
+></A
+>gdk_gc_set_ts_origin ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_ts_origin            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the origin when using tiles or stipples with
+the GC. The tile or stipple will be aligned such
+that the upper left corner of the tile or stipple
+will coincide with this point.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1696"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x-coordinate of the origin.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y-coordinate of the origin.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1714"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-CLIP-ORIGIN"
+></A
+>gdk_gc_set_clip_origin ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_clip_origin          (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the origin of the clip mask. The coordinates are
+interpreted relative to the upper-left corner of
+the destination drawable of the current operation.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1722"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x-coordinate of the origin.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y-coordinate of the origin.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1740"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-CLIP-MASK"
+></A
+>gdk_gc_set_clip_mask ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_clip_mask            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKBITMAP"
+>GdkBitmap</A
+> *mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the clip mask for a graphics context from a bitmap.
+The clip mask is interpreted relative to the clip
+origin. (See <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-ORIGIN"
+>gdk_gc_set_clip_origin</A
+>()).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1748"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a bitmap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1762"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-CLIP-RECTANGLE"
+></A
+>gdk_gc_set_clip_rectangle ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_clip_rectangle       (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rectangle);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the clip mask for a graphics context from a
+rectangle. The clip mask is interpreted relative to the clip
+origin. (See <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-ORIGIN"
+>gdk_gc_set_clip_origin</A
+>()).&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1770"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rectangle</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the rectangle to clip to.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1784"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-CLIP-REGION"
+></A
+>gdk_gc_set_clip_region ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_clip_region          (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the clip mask for a graphics context from a region structure.
+The clip mask is interpreted relative to the clip origin. (See
+<A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-ORIGIN"
+>gdk_gc_set_clip_origin</A
+>()).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1792"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1807"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-SUBWINDOW"
+></A
+>gdk_gc_set_subwindow ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_subwindow            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKSUBWINDOWMODE"
+>GdkSubwindowMode</A
+> mode);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets how drawing with this GC on a window will affect child
+windows of that window. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1814"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the subwindow mode.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1828"
+></A
+><H3
+><A
+NAME="GDKSUBWINDOWMODE"
+></A
+>enum GdkSubwindowMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_CLIP_BY_CHILDREN	= 0,
+  GDK_INCLUDE_INFERIORS = 1
+} GdkSubwindowMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Determines how drawing onto a window will affect child
+windows of that window. 
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1833"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="30%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_CLIP_BY_CHILDREN</TD
+><TD
+WIDTH="70%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>only draw onto the window itself.</TD
+></TR
+><TR
+><TD
+WIDTH="30%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_INCLUDE_INFERIORS</TD
+><TD
+WIDTH="70%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Draw onto the window and child windows.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1844"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-EXPOSURES"
+></A
+>gdk_gc_set_exposures ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_exposures            (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> exposures);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether copying non-visible portions of a drawable
+using this graphics context generate exposure events
+for the corresponding regions of the destination
+drawable. (See <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-PIXMAP"
+>gdk_draw_pixmap</A
+>()).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1852"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>exposures</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, exposure events will be generated.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1867"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-LINE-ATTRIBUTES"
+></A
+>gdk_gc_set_line_attributes ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_line_attributes      (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> line_width,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKLINESTYLE"
+>GdkLineStyle</A
+> line_style,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKCAPSTYLE"
+>GdkCapStyle</A
+> cap_style,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKJOINSTYLE"
+>GdkJoinStyle</A
+> join_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets various attributes of how lines are drawn. See
+the corresponding members of GdkGCValues for full
+explanations of the arguments.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1877"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>line_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of lines.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>line_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the dash-style for lines.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cap_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the manner in which the ends of lines are drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>join_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the in which lines are joined together.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1903"
+></A
+><H3
+><A
+NAME="GDKLINESTYLE"
+></A
+>enum GdkLineStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_LINE_SOLID,
+  GDK_LINE_ON_OFF_DASH,
+  GDK_LINE_DOUBLE_DASH
+} GdkLineStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines how lines are drawn.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1908"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_LINE_SOLID</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>lines are drawn solid.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_LINE_ON_OFF_DASH</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>even segments are drawn; odd segments are not drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_LINE_DOUBLE_DASH</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>even segments are normally. Odd segments are drawn 
+in the background color if the fill style is <TT
+CLASS="LITERAL"
+>GDK_SOLID</TT
+>,
+or in the background color masked by the stipple if the
+fill style is <TT
+CLASS="LITERAL"
+>GDK_STIPPLED</TT
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1924"
+></A
+><H3
+><A
+NAME="GDKCAPSTYLE"
+></A
+>enum GdkCapStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_CAP_NOT_LAST,
+  GDK_CAP_BUTT,
+  GDK_CAP_ROUND,
+  GDK_CAP_PROJECTING
+} GdkCapStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines how the end of lines are drawn.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1929"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_CAP_NOT_LAST</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the same as <TT
+CLASS="LITERAL"
+>GDK_CAP_BUTT</TT
+> for lines of non-zero width.
+       for zero width lines, the final point on the line
+       will not be drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_CAP_BUTT</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the ends of the lines are drawn squared off and extending
+       to the coordinates of the end point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_CAP_ROUND</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the ends of the lines are drawn as semicircles with the
+       diameter equal to the line width and centered at the
+       end point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_CAP_PROJECTING</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the ends of the lines are drawn squared off and extending
+       half the width of the line beyond the end point.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1947"
+></A
+><H3
+><A
+NAME="GDKJOINSTYLE"
+></A
+>enum GdkJoinStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_JOIN_MITER,
+  GDK_JOIN_ROUND,
+  GDK_JOIN_BEVEL
+} GdkJoinStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines how the joins between segments of a polygon are drawn.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1952"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_JOIN_MITER</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the sides of each line are extended to meet at an angle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_JOIN_ROUND</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the sides of the two lines are joined by a circular arc.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_JOIN_BEVEL</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the sides of the two lines are joined by a straight line which
+       makes an equal angle with each line.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1966"
+></A
+><H3
+><A
+NAME="GDK-GC-SET-DASHES"
+></A
+>gdk_gc_set_dashes ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_set_dashes               (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dash_offset,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> dash_list[],
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the way dashed-lines are drawn. Lines will be
+drawn with alternating on and off segments of the
+lengths specified in <TT
+CLASS="PARAMETER"
+><I
+>dash_list</I
+></TT
+>. The manner in
+which the on and off segments are drawn is determined
+by the <TT
+CLASS="PARAMETER"
+><I
+>line_style</I
+></TT
+> value of the GC. (This can
+be changed with gdk_gc_set_line_attributes)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1977"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dash_offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dash_list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of dash lengths.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements in <TT
+CLASS="PARAMETER"
+><I
+>dash_list</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2000"
+></A
+><H3
+><A
+NAME="GDK-GC-COPY"
+></A
+>gdk_gc_copy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_gc_copy                     (<A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *dst_gc,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *src_gc);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Copy the set of values from one graphics context
+onto another graphics context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2007"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dst_gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the destination graphics context.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src_gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the source graphics context.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-points-rectangles-and-regions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-drawing-primitives.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Points, Rectangles and Regions</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Drawing Primitives</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

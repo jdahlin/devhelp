@@ -1,0 +1,5682 @@
+<HTML
+><HEAD
+><TITLE
+>Date and Time Functions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Utilities"
+HREF="glib-utilities.html"><LINK
+REL="PREVIOUS"
+TITLE="String Utility Functions"
+HREF="glib-string-utility-functions.html"><LINK
+REL="NEXT"
+TITLE="Hook Functions"
+HREF="glib-hook-functions.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-string-utility-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-hook-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-DATE-AND-TIME-FUNCTIONS"
+>Date and Time Functions</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN6489"
+></A
+><H2
+>Name</H2
+>Date and Time Functions&nbsp;--&nbsp;calendrical calculations and miscellaneous time stuff.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN6492"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+>;
+void        <A
+HREF="glib-date-and-time-functions.html#G-GET-CURRENT-TIME"
+>g_get_current_time</A
+>              (<A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+> *result);
+
+struct      <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>;
+typedef     <A
+HREF="glib-date-and-time-functions.html#GTIME"
+>GTime</A
+>;
+enum        <A
+HREF="glib-date-and-time-functions.html#GDATEDMY"
+>GDateDMY</A
+>;
+typedef     <A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+>;
+enum        <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+>;
+typedef     <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+>;
+enum        <A
+HREF="glib-date-and-time-functions.html#GDATEWEEKDAY"
+>GDateWeekday</A
+>;
+
+#define     <A
+HREF="glib-date-and-time-functions.html#G-DATE-BAD-DAY-CAPS"
+>G_DATE_BAD_DAY</A
+>
+#define     <A
+HREF="glib-date-and-time-functions.html#G-DATE-BAD-JULIAN-CAPS"
+>G_DATE_BAD_JULIAN</A
+>
+#define     <A
+HREF="glib-date-and-time-functions.html#G-DATE-BAD-YEAR-CAPS"
+>G_DATE_BAD_YEAR</A
+>
+
+<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>*      <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW"
+>g_date_new</A
+>                      (void);
+<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>*      <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW-DMY"
+>g_date_new_dmy</A
+>                  (<A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>*      <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW-JULIAN"
+>g_date_new_julian</A
+>               (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> julian_day);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-CLEAR"
+>g_date_clear</A
+>                    (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_dates);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-FREE"
+>g_date_free</A
+>                     (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-DAY"
+>g_date_set_day</A
+>                  (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-MONTH"
+>g_date_set_month</A
+>                (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-YEAR"
+>g_date_set_year</A
+>                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-DMY"
+>g_date_set_dmy</A
+>                  (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> y);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-JULIAN"
+>g_date_set_julian</A
+>               (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> julian_date);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-TIME"
+>g_date_set_time</A
+>                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GTIME"
+>GTime</A
+> time);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-PARSE"
+>g_date_set_parse</A
+>                (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *str);
+
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-ADD-DAYS"
+>g_date_add_days</A
+>                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_days);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SUBTRACT-DAYS"
+>g_date_subtract_days</A
+>            (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_days);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-ADD-MONTHS"
+>g_date_add_months</A
+>               (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_months);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SUBTRACT-MONTHS"
+>g_date_subtract_months</A
+>          (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_months);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-ADD-YEARS"
+>g_date_add_years</A
+>                (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_years);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-SUBTRACT-YEARS"
+>g_date_subtract_years</A
+>           (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_years);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-date-and-time-functions.html#G-DATE-COMPARE"
+>g_date_compare</A
+>                  (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *lhs,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *rhs);
+
+<A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-DAY"
+>g_date_day</A
+>                      (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+>  <A
+HREF="glib-date-and-time-functions.html#G-DATE-MONTH"
+>g_date_month</A
+>                    (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+>   <A
+HREF="glib-date-and-time-functions.html#G-DATE-YEAR"
+>g_date_year</A
+>                     (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+>     <A
+HREF="glib-date-and-time-functions.html#G-DATE-JULIAN"
+>g_date_julian</A
+>                   (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-date-and-time-functions.html#GDATEWEEKDAY"
+>GDateWeekday</A
+> <A
+HREF="glib-date-and-time-functions.html#G-DATE-WEEKDAY"
+>g_date_weekday</A
+>                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-date-and-time-functions.html#G-DATE-DAY-OF-YEAR"
+>g_date_day_of_year</A
+>              (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+
+<A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>      <A
+HREF="glib-date-and-time-functions.html#G-DATE-DAYS-IN-MONTH"
+>g_date_days_in_month</A
+>            (<A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-IS-FIRST-OF-MONTH"
+>g_date_is_first_of_month</A
+>        (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-IS-LAST-OF-MONTH"
+>g_date_is_last_of_month</A
+>         (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-IS-LEAP-YEAR"
+>g_date_is_leap_year</A
+>             (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-date-and-time-functions.html#G-DATE-MONDAY-WEEK-OF-YEAR"
+>g_date_monday_week_of_year</A
+>      (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>      <A
+HREF="glib-date-and-time-functions.html#G-DATE-MONDAY-WEEKS-IN-YEAR"
+>g_date_monday_weeks_in_year</A
+>     (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-date-and-time-functions.html#G-DATE-SUNDAY-WEEK-OF-YEAR"
+>g_date_sunday_week_of_year</A
+>      (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>      <A
+HREF="glib-date-and-time-functions.html#G-DATE-SUNDAY-WEEKS-IN-YEAR"
+>g_date_sunday_weeks_in_year</A
+>     (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+
+<A
+HREF="glib-basic-types.html#GSIZE"
+>gsize</A
+>       <A
+HREF="glib-date-and-time-functions.html#G-DATE-STRFTIME"
+>g_date_strftime</A
+>                 (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s,
+                                             <A
+HREF="glib-basic-types.html#GSIZE"
+>gsize</A
+> slen,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+void        <A
+HREF="glib-date-and-time-functions.html#G-DATE-TO-STRUCT-TM"
+>g_date_to_struct_tm</A
+>             (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             struct tm *tm);
+
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID"
+>g_date_valid</A
+>                    (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID-DAY"
+>g_date_valid_day</A
+>                (<A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID-MONTH"
+>g_date_valid_month</A
+>              (<A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID-YEAR"
+>g_date_valid_year</A
+>               (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID-DMY"
+>g_date_valid_dmy</A
+>                (<A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID-JULIAN"
+>g_date_valid_julian</A
+>             (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> julian_date);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID-WEEKDAY"
+>g_date_valid_weekday</A
+>            (<A
+HREF="glib-date-and-time-functions.html#GDATEWEEKDAY"
+>GDateWeekday</A
+> weekday);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6643"
+></A
+><H2
+>Description</H2
+><P
+>&#13;The <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> data structure represents a day between January 1, Year 1,
+
+and sometime a few thousand years in the future (right now it will go
+
+to the year 65535 or so, but <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-PARSE"
+>g_date_set_parse</A
+>() only parses up to the
+
+year 8000 or so - just count on "a few thousand"). <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> is meant to
+
+represent everyday dates, not astronomical dates or historical dates
+
+or ISO timestamps or the like. It extrapolates the current Gregorian
+
+calendar forward and backward in time; there is no attempt to change
+
+the calendar to match time periods or locations. <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> does not store
+
+time information; it represents a <I
+CLASS="EMPHASIS"
+>day</I
+>.&#13;</P
+><P
+>&#13;The <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> implementation has several nice features; it is only a
+
+64-bit struct, so storing large numbers of dates is very efficient. It
+
+can keep both a Julian and Day-Month-Year representation of the date,
+
+since some calculations are much easier with one representation or the
+
+other. A Julian representation is simply a count of days since some
+
+fixed day in the past; for <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> the fixed day is January 1, 1 AD.
+
+("Julian" dates in the <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> API aren't really Julian dates in the
+
+technical sense; technically, Julian dates count from the start of the
+
+Julian period, Jan 1, 4713 BC).&#13;</P
+><P
+>&#13;<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> is simple to use. First you need a "blank" date; you can get a
+
+dynamically allocated date from <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW"
+>g_date_new</A
+>(), or you can declare an
+
+automatic variable or array and initialize it to a sane state by
+
+calling <A
+HREF="glib-date-and-time-functions.html#G-DATE-CLEAR"
+>g_date_clear</A
+>(). A cleared date is sane; it's safe to call
+
+<A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-DMY"
+>g_date_set_dmy</A
+>() and the other mutator functions to initialize the
+
+value of a cleared date. However, a cleared date is initially
+
+<I
+CLASS="EMPHASIS"
+>invalid</I
+>, meaning that it doesn't represent a day
+
+that exists. It is undefined to call any of the date calculation
+
+routines on an invalid date. If you obtain a date from a user or other
+
+unpredictable source, you should check its validity with the
+
+<A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID"
+>g_date_valid</A
+>() predicate. <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID"
+>g_date_valid</A
+>() is also used to check for
+
+errors with <A
+HREF="glib-date-and-time-functions.html#G-DATE-SET-PARSE"
+>g_date_set_parse</A
+>() and other functions that can
+
+fail. Dates can be invalidated by calling <A
+HREF="glib-date-and-time-functions.html#G-DATE-CLEAR"
+>g_date_clear</A
+>() again.&#13;</P
+><P
+>&#13;<I
+CLASS="EMPHASIS"
+>It is very important to use the API to access the <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>
+
+struct.</I
+> Often only the DMY or only the Julian
+
+representation is valid. Sometimes neither is valid. Use the API.&#13;</P
+><P
+>&#13;glib doesn't contain any time-manipulation functions; however, there
+
+is a <A
+HREF="glib-date-and-time-functions.html#GTIME"
+>GTime</A
+> typedef which is equivalent to time_t, and a <A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+>
+
+struct which represents a more precise time (with microseconds). You
+
+can request the current time as a <A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+> with <A
+HREF="glib-date-and-time-functions.html#G-GET-CURRENT-TIME"
+>g_get_current_time</A
+>().&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6673"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6675"
+></A
+><H3
+><A
+NAME="GTIMEVAL"
+></A
+>struct GTimeVal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GTimeVal
+{
+  glong tv_sec;
+  glong tv_usec;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Represents a precise time, with seconds and microseconds. Same as the
+
+<SPAN
+CLASS="STRUCTNAME"
+>struct timeval</SPAN
+> returned by the
+
+<TT
+CLASS="FUNCTION"
+>gettimeofday()</TT
+> UNIX call.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6683"
+></A
+><H3
+><A
+NAME="G-GET-CURRENT-TIME"
+></A
+>g_get_current_time ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_get_current_time              (<A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+> *result);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Equivalent to <TT
+CLASS="FUNCTION"
+>gettimeofday()</TT
+>, but also works on
+
+Win32. Returns the current time.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6691"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>result</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6700"
+></A
+><H3
+><A
+NAME="GDATE"
+></A
+>struct GDate</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GDate
+{ 
+  guint julian_days : 32; /* julian days representation - we use a
+                           *  bitfield hoping that 64 bit platforms
+                           *  will pack this whole struct in one big
+                           *  int 
+                           */
+
+  guint julian : 1;    /* julian is valid */
+  guint dmy    : 1;    /* dmy is valid */
+
+  /* DMY representation */
+  guint day    : 6;  
+  guint month  : 4; 
+  guint year   : 16; 
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Represents a day between January 1, Year 1 and a few thousand years in
+
+the future. None of its members should be accessed directly. If the
+
+<SPAN
+CLASS="STRUCTNAME"
+>GDate</SPAN
+> is obtained from <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW"
+>g_date_new</A
+>(), it will
+
+be safe to mutate but invalid and thus not safe for calendrical computations.
+
+If it's declared on the stack, it will contain garbage so must be
+
+initialized with <A
+HREF="glib-date-and-time-functions.html#G-DATE-CLEAR"
+>g_date_clear</A
+>(). <A
+HREF="glib-date-and-time-functions.html#G-DATE-CLEAR"
+>g_date_clear</A
+>() makes the date invalid
+
+but sane. An invalid date doesn't represent a day, it's "empty." A
+
+date becomes valid after you set it to a Julian day or you set a day,
+
+month, and year.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6709"
+></A
+><H3
+><A
+NAME="GTIME"
+></A
+>GTime</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef gint32	GTime;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Simply a replacement for time_t. Unrelated to GTimer.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6714"
+></A
+><H3
+><A
+NAME="GDATEDMY"
+></A
+>enum GDateDMY</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  G_DATE_DAY   = 0,
+  G_DATE_MONTH = 1,
+  G_DATE_YEAR  = 2
+} GDateDMY;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;This enumeration isn't used in the API, but may be useful if you need
+
+to mark a number as a day, month, or year.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6719"
+></A
+><H3
+><A
+NAME="GDATEDAY"
+></A
+>GDateDay</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef guint8  GDateDay;   /* day of the month */</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Integer representing a day of the month; between 1 and
+
+31. <A
+HREF="glib-date-and-time-functions.html#G-DATE-BAD-DAY-CAPS"
+>G_DATE_BAD_DAY</A
+> represents an invalid day of the month.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6725"
+></A
+><H3
+><A
+NAME="GDATEMONTH"
+></A
+>enum GDateMonth</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  G_DATE_BAD_MONTH = 0,
+  G_DATE_JANUARY   = 1,
+  G_DATE_FEBRUARY  = 2,
+  G_DATE_MARCH     = 3,
+  G_DATE_APRIL     = 4,
+  G_DATE_MAY       = 5,
+  G_DATE_JUNE      = 6,
+  G_DATE_JULY      = 7,
+  G_DATE_AUGUST    = 8,
+  G_DATE_SEPTEMBER = 9,
+  G_DATE_OCTOBER   = 10,
+  G_DATE_NOVEMBER  = 11,
+  G_DATE_DECEMBER  = 12
+} GDateMonth;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Enumeration representing a month; values are G_DATE_JANUARY,
+
+G_DATE_FEBRUARY, etc. G_DATE_BAD_MONTH is the "invalid" value.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6733"
+></A
+><H3
+><A
+NAME="GDATEYEAR"
+></A
+>GDateYear</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef guint16 GDateYear;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Integer representing a year; <A
+HREF="glib-date-and-time-functions.html#G-DATE-BAD-YEAR-CAPS"
+>G_DATE_BAD_YEAR</A
+> is the invalid
+
+value. The year must be 1 or higher; negative (BC) years are not
+
+allowed. The year is represented with four digits.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6739"
+></A
+><H3
+><A
+NAME="GDATEWEEKDAY"
+></A
+>enum GDateWeekday</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  G_DATE_BAD_WEEKDAY  = 0,
+  G_DATE_MONDAY       = 1,
+  G_DATE_TUESDAY      = 2,
+  G_DATE_WEDNESDAY    = 3,
+  G_DATE_THURSDAY     = 4,
+  G_DATE_FRIDAY       = 5,
+  G_DATE_SATURDAY     = 6,
+  G_DATE_SUNDAY       = 7
+} GDateWeekday;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Enumeration representing a day of the week; G_DATE_MONDAY,
+
+G_DATE_TUESDAY, etc. G_DATE_BAD_WEEKDAY is an invalid weekday.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6747"
+></A
+><H3
+><A
+NAME="G-DATE-BAD-DAY-CAPS"
+></A
+>G_DATE_BAD_DAY</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_DATE_BAD_DAY    0U</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Represents an invalid <A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+>.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6753"
+></A
+><H3
+><A
+NAME="G-DATE-BAD-JULIAN-CAPS"
+></A
+>G_DATE_BAD_JULIAN</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_DATE_BAD_JULIAN 0U</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Represents an invalid Julian day number.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6758"
+></A
+><H3
+><A
+NAME="G-DATE-BAD-YEAR-CAPS"
+></A
+>G_DATE_BAD_YEAR</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_DATE_BAD_YEAR   0U</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Represents an invalid year.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6763"
+></A
+><H3
+><A
+NAME="G-DATE-NEW"
+></A
+>g_date_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>*      g_date_new                      (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Allocate a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> and initialize it to a sane state. The new date will
+
+be cleared (as if you'd called <A
+HREF="glib-date-and-time-functions.html#G-DATE-CLEAR"
+>g_date_clear</A
+>()) but invalid (it won't
+
+represent an existing day). Free the return value with <A
+HREF="glib-date-and-time-functions.html#G-DATE-FREE"
+>g_date_free</A
+>().&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6772"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The newly-allocated <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6782"
+></A
+><H3
+><A
+NAME="G-DATE-NEW-DMY"
+></A
+>g_date_new_dmy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>*      g_date_new_dmy                  (<A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Like <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW"
+>g_date_new</A
+>(), but also sets the value of the date. Assuming the
+
+day/month/year triplet you pass in represents an existing day, the
+
+returned date will be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6792"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day of the month&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Month of the year&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Allocated date initialized with <TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>, and <TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6816"
+></A
+><H3
+><A
+NAME="G-DATE-NEW-JULIAN"
+></A
+>g_date_new_julian ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>*      g_date_new_julian               (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> julian_day);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Like <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW"
+>g_date_new</A
+>(), but also sets the value of the date. Assuming the
+
+Julian day number you pass in is valid (greater than 0, less than an
+
+unreasonably large number), the returned date will be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6824"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>julian_day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Days since January 1, Year 1&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Allocated date initialized with <TT
+CLASS="PARAMETER"
+><I
+>julian_day</I
+></TT
+>
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6838"
+></A
+><H3
+><A
+NAME="G-DATE-CLEAR"
+></A
+>g_date_clear ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_clear                    (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_dates);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Initialize one or more <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> structs to a sane but invalid
+
+state. The cleared dates will not represent an existing date, but will
+
+not contain garbage. Useful to init a date declared on the stack.
+
+Validity can be tested with <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID"
+>g_date_valid</A
+>().&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6847"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Pointer to one or more dates to clear&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_dates</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of dates to clear
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6860"
+></A
+><H3
+><A
+NAME="G-DATE-FREE"
+></A
+>g_date_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_free                     (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Free a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> returned from <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW"
+>g_date_new</A
+>()&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6868"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to free
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6877"
+></A
+><H3
+><A
+NAME="G-DATE-SET-DAY"
+></A
+>g_date_set_day ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_set_day                  (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set the day of the month for a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>. If the resulting day-month-year
+
+triplet is invalid, the date will be invalid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6885"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to set the day for&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day to set
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6898"
+></A
+><H3
+><A
+NAME="G-DATE-SET-MONTH"
+></A
+>g_date_set_month ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_set_month                (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set the month of the year for a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>.  If the resulting
+
+ day-month-year triplet is invalid, the date will be invalid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6906"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Month to set
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6919"
+></A
+><H3
+><A
+NAME="G-DATE-SET-YEAR"
+></A
+>g_date_set_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_set_year                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set the year for a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>.  If the resulting day-month-year triplet is
+
+  invalid, the date will be invalid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6927"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year to set
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6940"
+></A
+><H3
+><A
+NAME="G-DATE-SET-DMY"
+></A
+>g_date_set_dmy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_set_dmy                  (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set the value of a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> from a day, month, and year. The DMY triplet
+
+must be valid; if you aren't sure it is, call <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID-DMY"
+>g_date_valid_dmy</A
+>() to
+
+check before you set it.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6951"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to set the value of&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Month&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6972"
+></A
+><H3
+><A
+NAME="G-DATE-SET-JULIAN"
+></A
+>g_date_set_julian ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_set_julian               (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> julian_date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set the value of a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> from a Julian day number. &#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6980"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to set&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>julian_date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Julian day number (days since January 1, Year 1)
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6993"
+></A
+><H3
+><A
+NAME="G-DATE-SET-TIME"
+></A
+>g_date_set_time ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_set_time                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-date-and-time-functions.html#GTIME"
+>GTime</A
+> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set the value of a date from a <A
+HREF="glib-date-and-time-functions.html#GTIME"
+>GTime</A
+> (time_t) value. To set the value
+
+of a date to the current day, you could write:
+
+<DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN7001"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;  g_date_set_time(date, time(NULL));&#13;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7003"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to update&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-date-and-time-functions.html#GTIME"
+>GTime</A
+> value to set
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7017"
+></A
+><H3
+><A
+NAME="G-DATE-SET-PARSE"
+></A
+>g_date_set_parse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_set_parse                (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *str);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Parse a user-inputted string <TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>, and try to figure out what date it
+
+represents, taking the current locale into account. If the string is
+
+successfully parsed, the date will be valid after the call. Otherwise,
+
+it will be invalid. You should check using <A
+HREF="glib-date-and-time-functions.html#G-DATE-VALID"
+>g_date_valid</A
+>() to see
+
+whether the parsing succeeded.&#13;</P
+><P
+>&#13;This function is not appropriate for file formats and the like; it
+
+isn't very precise, and its exact behavior varies with the
+
+locale. It's intended to be a heuristic routine that guesses what the
+
+user means by a given string (and it does work pretty well in that
+
+capacity).&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7027"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to fill in&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>String to parse
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7040"
+></A
+><H3
+><A
+NAME="G-DATE-ADD-DAYS"
+></A
+>g_date_add_days ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_add_days                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_days);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Increment a date some number of days. To move forward by weeks, add
+
+weeks*7 days. The date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7047"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The date to increment&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_days</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of days to move the date forward
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7060"
+></A
+><H3
+><A
+NAME="G-DATE-SUBTRACT-DAYS"
+></A
+>g_date_subtract_days ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_subtract_days            (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_days);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Move a date some number of days into the past. To move by weeks, just
+
+move by weeks*7 days. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7067"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to decrement&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_days</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of days to move
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7080"
+></A
+><H3
+><A
+NAME="G-DATE-ADD-MONTHS"
+></A
+>g_date_add_months ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_add_months               (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_months);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Increment a date by some number of months. If the day of the month is
+
+greater than 28, this routine may change the day of the month (because
+
+the destination month may not have the current day in it). The date
+
+must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7087"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to increment&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_months</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of months to move forward
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7100"
+></A
+><H3
+><A
+NAME="G-DATE-SUBTRACT-MONTHS"
+></A
+>g_date_subtract_months ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_subtract_months          (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_months);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Move a date some number of months into the past. If the current day of
+
+the month doesn't exist in the destination month, the day of the month
+
+may change. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7107"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to decrement&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_months</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of months to move
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7120"
+></A
+><H3
+><A
+NAME="G-DATE-ADD-YEARS"
+></A
+>g_date_add_years ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_add_years                (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_years);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Increment a date by some number of years. If the date is February 29,
+
+and the destination year is not a leap year, the date will be changed
+
+to February 28. The date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7127"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to increment&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_years</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of years to move forward
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7140"
+></A
+><H3
+><A
+NAME="G-DATE-SUBTRACT-YEARS"
+></A
+>g_date_subtract_years ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_subtract_years           (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n_years);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Move a date some number of years into the past. If the current day
+
+doesn't exist in the destination year (i.e. it's February 29 and you
+
+move to a non-leap-year) then the day is changed to February 29. Date
+
+must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7147"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to decrement&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_years</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of years to move
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7160"
+></A
+><H3
+><A
+NAME="G-DATE-COMPARE"
+></A
+>g_date_compare ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_date_compare                  (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *lhs,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *rhs);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;<TT
+CLASS="FUNCTION"
+>qsort()</TT
+>-style comparsion function for dates. Both
+
+dates must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7170"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lhs</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>First date to compare&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rhs</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Second date to compare&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>0 for equal, less than zero if <TT
+CLASS="PARAMETER"
+><I
+>lhs</I
+></TT
+> is less than <TT
+CLASS="PARAMETER"
+><I
+>rhs</I
+></TT
+>,
+
+greater than zero if <TT
+CLASS="PARAMETER"
+><I
+>lhs</I
+></TT
+> is greater than <TT
+CLASS="PARAMETER"
+><I
+>rhs</I
+></TT
+>
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7191"
+></A
+><H3
+><A
+NAME="G-DATE-DAY"
+></A
+>g_date_day ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+>    g_date_day                      (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Return the day of the month; the <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7199"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to extract the day of the month from&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day of the month
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7212"
+></A
+><H3
+><A
+NAME="G-DATE-MONTH"
+></A
+>g_date_month ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+>  g_date_month                    (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Accessor for the month of the year. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7219"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to get the month from&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+>
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7233"
+></A
+><H3
+><A
+NAME="G-DATE-YEAR"
+></A
+>g_date_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+>   g_date_year                     (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Accessor; returns the year of a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>. The date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7241"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year in which the date falls
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7254"
+></A
+><H3
+><A
+NAME="G-DATE-JULIAN"
+></A
+>g_date_julian ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+>     g_date_julian                   (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Accessor, returns the Julian day or "serial number" of the <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>. The
+
+Julian day is simply the number of days since January 1, Year 1; i.e.,
+
+January 1, Year 1 is Julian day 1; January 2, Year 1 is Julian day 2,
+
+etc. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7262"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to extract the Julian day from&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Julian day
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7275"
+></A
+><H3
+><A
+NAME="G-DATE-WEEKDAY"
+></A
+>g_date_weekday ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-date-and-time-functions.html#GDATEWEEKDAY"
+>GDateWeekday</A
+> g_date_weekday                 (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns the day of the week for a <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>. The date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7283"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day of the week as a <A
+HREF="glib-date-and-time-functions.html#GDATEWEEKDAY"
+>GDateWeekday</A
+>
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7297"
+></A
+><H3
+><A
+NAME="G-DATE-DAY-OF-YEAR"
+></A
+>g_date_day_of_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_date_day_of_year              (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Return the day of the year, where Jan 1 is the first day of the
+
+year. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7304"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to extract day of year from&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day of the year
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7317"
+></A
+><H3
+><A
+NAME="G-DATE-DAYS-IN-MONTH"
+></A
+>g_date_days_in_month ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>      g_date_days_in_month            (<A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Return the number of days in a month, taking leap years into account.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7325"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Month&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of days in <TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+> during the year <TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>.
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7344"
+></A
+><H3
+><A
+NAME="G-DATE-IS-FIRST-OF-MONTH"
+></A
+>g_date_is_first_of_month ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_is_first_of_month        (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the date is on the first of a month. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7351"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to check&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, if the date is the first of the month
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7364"
+></A
+><H3
+><A
+NAME="G-DATE-IS-LAST-OF-MONTH"
+></A
+>g_date_is_last_of_month ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_is_last_of_month         (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the date is the last day of the month. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7371"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to check&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, if the date is the last day of the month
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7384"
+></A
+><H3
+><A
+NAME="G-DATE-IS-LEAP-YEAR"
+></A
+>g_date_is_leap_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_is_leap_year             (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the year is a leap year&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7391"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year to check&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, if the year is a leap year
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7404"
+></A
+><H3
+><A
+NAME="G-DATE-MONDAY-WEEK-OF-YEAR"
+></A
+>g_date_monday_week_of_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_date_monday_week_of_year      (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Return the week of the year, where weeks are understood to start on
+
+Monday. If the date is before the first Monday of the year, return
+
+0. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7411"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to use&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Week of the year
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7424"
+></A
+><H3
+><A
+NAME="G-DATE-MONDAY-WEEKS-IN-YEAR"
+></A
+>g_date_monday_weeks_in_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>      g_date_monday_weeks_in_year     (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Return the number of weeks in the year, where weeks are taken to start
+
+on Monday. Will be 52 or 53. Date must be valid. (Years always have 52
+
+7-day periods, plus 1 or 2 extra days depending on whether it's a leap
+
+year. This function is basically telling you how many Mondays are in
+
+the year, i.e. there are 53 Mondays if one of the extra days happens
+
+to be a Monday.)&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7431"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of Mondays in the year
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7444"
+></A
+><H3
+><A
+NAME="G-DATE-SUNDAY-WEEK-OF-YEAR"
+></A
+>g_date_sunday_week_of_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_date_sunday_week_of_year      (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Week of the year during which this date falls, if weeks are understood
+
+to being on Sunday. Date must be valid. Can return 0 if the day is
+
+before the first Sunday of the year.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7451"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Week number
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7464"
+></A
+><H3
+><A
+NAME="G-DATE-SUNDAY-WEEKS-IN-YEAR"
+></A
+>g_date_sunday_weeks_in_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>      g_date_sunday_weeks_in_year     (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Return the number of weeks in the year, where weeks are taken to start
+
+on Sunday. Will be 52 or 53. Date must be valid. (Years always have 52
+
+7-day periods, plus 1 or 2 extra days depending on whether it's a leap
+
+year. This function is basically telling you how many Sundays are in
+
+the year, i.e. there are 53 Sundays if one of the extra days happens
+
+to be a Sunday.)&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7471"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year to count weeks in&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of weeks
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7484"
+></A
+><H3
+><A
+NAME="G-DATE-STRFTIME"
+></A
+>g_date_strftime ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GSIZE"
+>gsize</A
+>       g_date_strftime                 (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *s,
+                                             <A
+HREF="glib-basic-types.html#GSIZE"
+>gsize</A
+> slen,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Generate a printed representation of the date, in a locale-specific
+
+way. Works just like the standard C <TT
+CLASS="FUNCTION"
+>strftime()</TT
+>
+
+function, but only accepts date-related formats; time-related formats
+
+give undefined results. Date must be valid.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7496"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>s</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Destination buffer&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>slen</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Max buffer size&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Format string&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>valid <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+>&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of characters written to the buffer, or 0 the buffer was too small
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7522"
+></A
+><H3
+><A
+NAME="G-DATE-TO-STRUCT-TM"
+></A
+>g_date_to_struct_tm ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_date_to_struct_tm             (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date,
+                                             struct tm *tm);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Fills in the date-related bits of a <SPAN
+CLASS="STRUCTNAME"
+>struct tm</SPAN
+>
+
+using the <TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+> value. Initializes the non-date parts with something
+
+sane but meaningless.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7531"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to set the <SPAN
+CLASS="STRUCTNAME"
+>struct tm</SPAN
+> from&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tm</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><SPAN
+CLASS="STRUCTNAME"
+>struct tm</SPAN
+> to fill
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7546"
+></A
+><H3
+><A
+NAME="G-DATE-VALID"
+></A
+>g_date_valid ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_valid                    (<A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> *date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> represents an existing day. <A
+HREF="glib-date-and-time-functions.html#GDATE"
+>GDate</A
+> must not
+
+contain garbage; it should have been initialized with <A
+HREF="glib-date-and-time-functions.html#G-DATE-CLEAR"
+>g_date_clear</A
+>()
+
+if it wasn't allocated by one of the <A
+HREF="glib-date-and-time-functions.html#G-DATE-NEW"
+>g_date_new</A
+>() variants.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7557"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Date to check&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether the date is valid.
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7570"
+></A
+><H3
+><A
+NAME="G-DATE-VALID-DAY"
+></A
+>g_date_valid_day ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_valid_day                (<A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the day of the month is valid (a day is valid if it's
+
+between 1 and 31 inclusive).&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7577"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day to check.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, whether the day is valid.
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7590"
+></A
+><H3
+><A
+NAME="G-DATE-VALID-MONTH"
+></A
+>g_date_valid_month ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_valid_month              (<A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the month value is valid. The 12 <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+>
+
+enumeration values are the only valid months.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7598"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Month&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, whether the month is valid
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7611"
+></A
+><H3
+><A
+NAME="G-DATE-VALID-YEAR"
+></A
+>g_date_valid_year ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_valid_year               (<A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the year is valid. Any year greater than 0 is valid,
+
+though there is a 16-bit limit to what GDate will understand.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7618"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, whether the year is valid.
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7631"
+></A
+><H3
+><A
+NAME="G-DATE-VALID-DMY"
+></A
+>g_date_valid_dmy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_valid_dmy                (<A
+HREF="glib-date-and-time-functions.html#GDATEDAY"
+>GDateDay</A
+> day,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEMONTH"
+>GDateMonth</A
+> month,
+                                             <A
+HREF="glib-date-and-time-functions.html#GDATEYEAR"
+>GDateYear</A
+> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the day/month/year triplet forms a valid, existing day
+
+in the range of days GDate understands (Year 1 or later, no more than
+
+a few thousand years in the future).&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7640"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Day&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Month&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Year&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, whether the date is a valid one
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7661"
+></A
+><H3
+><A
+NAME="G-DATE-VALID-JULIAN"
+></A
+>g_date_valid_julian ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_valid_julian             (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> julian_date);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the Julian day is valid. Anything greater than zero is basically a
+
+valid Julian, though there is a 32-bit limit.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7668"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>julian_date</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Julian day to check&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, whether the Julian day is valid.
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7681"
+></A
+><H3
+><A
+NAME="G-DATE-VALID-WEEKDAY"
+></A
+>g_date_valid_weekday ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_date_valid_weekday            (<A
+HREF="glib-date-and-time-functions.html#GDATEWEEKDAY"
+>GDateWeekday</A
+> weekday);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns TRUE if the weekday is valid. The 7 <A
+HREF="glib-date-and-time-functions.html#GDATEWEEKDAY"
+>GDateWeekday</A
+> enumeration
+
+values are the only valid weekdays.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7689"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>weekday</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Weekday&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Boolean, whether the weekday is valid.
+
+
+
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-string-utility-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-hook-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>String Utility Functions</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Hook Functions</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

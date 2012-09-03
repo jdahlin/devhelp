@@ -1,0 +1,4754 @@
+<HTML
+><HEAD
+><TITLE
+>GnomeIconList</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="Gnome User Interface Library Reference Manual"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="GNOME Widgets and Objects"
+HREF="gnome-objects.html"><LINK
+REL="PREVIOUS"
+TITLE="GnomeIconTextItem"
+HREF="gnomeicontextitem.html"><LINK
+REL="NEXT"
+TITLE="GnomeIconSelection"
+HREF="gnomeiconselection.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>Gnome User Interface Library Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeicontextitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeiconselection.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GNOMEICONLIST"
+>GnomeIconList</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN20586"
+></A
+><H2
+>Name</H2
+>GnomeIconList&nbsp;--&nbsp;A list of icons with captions, with optional caption editing.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN20589"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gnome.h&gt;
+
+
+typedef     <A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+>;
+#define     <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-IS-EDITABLE-CAPS"
+>GNOME_ICON_LIST_IS_EDITABLE</A
+>
+#define     <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-STATIC-TEXT-CAPS"
+>GNOME_ICON_LIST_STATIC_TEXT</A
+>
+enum        <A
+HREF="gnomeiconlist.html#GNOMEICONLISTMODE"
+>GnomeIconListMode</A
+>;
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-NEW"
+>gnome_icon_list_new</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> icon_width,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *adj,
+                                             int flags);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-NEW-FLAGS"
+>gnome_icon_list_new_flags</A
+>       (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> icon_width,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *adj,
+                                             int flags);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-CONSTRUCT"
+>gnome_icon_list_construct</A
+>       (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> icon_width,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *adj,
+                                             int flags);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-HADJUSTMENT"
+>gnome_icon_list_set_hadjustment</A
+> (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *hadj);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-VADJUSTMENT"
+>gnome_icon_list_set_vadjustment</A
+> (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *vadj);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-FREEZE"
+>gnome_icon_list_freeze</A
+>          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-THAW"
+>gnome_icon_list_thaw</A
+>            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-INSERT"
+>gnome_icon_list_insert</A
+>          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             const char *icon_filename,
+                                             const char *text);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-INSERT-IMLIB"
+>gnome_icon_list_insert_imlib</A
+>    (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             GdkImlibImage *im,
+                                             const char *text);
+int         <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-APPEND"
+>gnome_icon_list_append</A
+>          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             const char *icon_filename,
+                                             const char *text);
+int         <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-APPEND-IMLIB"
+>gnome_icon_list_append_imlib</A
+>    (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             GdkImlibImage *im,
+                                             const char *text);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-CLEAR"
+>gnome_icon_list_clear</A
+>           (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-REMOVE"
+>gnome_icon_list_remove</A
+>          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-SELECTION-MODE"
+>gnome_icon_list_set_selection_mode</A
+>
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSELECTIONMODE
+>GtkSelectionMode</A> mode);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SELECT-ICON"
+>gnome_icon_list_select_icon</A
+>     (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int idx);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-UNSELECT-ICON"
+>gnome_icon_list_unselect_icon</A
+>   (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);
+int         <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-UNSELECT-ALL"
+>gnome_icon_list_unselect_all</A
+>    (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> keep);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-ICON-WIDTH"
+>gnome_icon_list_set_icon_width</A
+>  (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int w);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-ROW-SPACING"
+>gnome_icon_list_set_row_spacing</A
+> (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-COL-SPACING"
+>gnome_icon_list_set_col_spacing</A
+> (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-TEXT-SPACING"
+>gnome_icon_list_set_text_spacing</A
+>
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-ICON-BORDER"
+>gnome_icon_list_set_icon_border</A
+> (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-SEPARATORS"
+>gnome_icon_list_set_separators</A
+>  (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             const char *sep);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-ICON-DATA"
+>gnome_icon_list_set_icon_data</A
+>   (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-ICON-DATA-FULL"
+>gnome_icon_list_set_icon_data_full</A
+>
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtk-types.html#GTKDESTROYNOTIFY
+>GtkDestroyNotify</A> destroy);
+int         <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-FIND-ICON-FROM-DATA"
+>gnome_icon_list_find_icon_from_data</A
+>
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-GET-ICON-DATA"
+>gnome_icon_list_get_icon_data</A
+>   (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);
+void        <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-MOVETO"
+>gnome_icon_list_moveto</A
+>          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             double yalign);
+<A
+HREF=../gtk/gtk-standard-enumerations.html#GTKVISIBILITY
+>GtkVisibility</A> <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-ICON-IS-VISIBLE"
+>gnome_icon_list_icon_is_visible</A
+>
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);
+int         <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-GET-ICON-AT"
+>gnome_icon_list_get_icon_at</A
+>     (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int x,
+                                             int y);
+int         <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-GET-ITEMS-PER-LINE"
+>gnome_icon_list_get_items_per_line</A
+>
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);
+&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20678"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF=../gtk/gtkobject.html
+>GtkObject</A>
+   +----<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>
+         +----<A
+HREF=../gtk/gtkcontainer.html
+>GtkContainer</A>
+               +----<A
+HREF=../gtk/gtklayout.html
+>GtkLayout</A>
+                     +----<A
+HREF="gnomecanvas.html"
+>GnomeCanvas</A
+>
+                           +----GnomeIconList</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20686"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gnomeiconlist.html#GNOMEICONLIST--HADJUSTMENT"
+>hadjustment</A
+>&quot;          <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A>        : Read / Write
+  &quot;<A
+HREF="gnomeiconlist.html#GNOMEICONLIST--VADJUSTMENT"
+>vadjustment</A
+>&quot;          <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A>        : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20693"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gnomeiconlist.html#GNOMEICONLIST-SELECT-ICON"
+>select-icon</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *iconlist,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeiconlist.html#GNOMEICONLIST-UNSELECT-ICON"
+>unselect-icon</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *iconlist,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomeiconlist.html#GNOMEICONLIST-TEXT-CHANGED"
+>text-changed</A
+>&quot;
+            <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    user_function      (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *iconlist,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> arg2,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20712"
+></A
+><H2
+>Description</H2
+><P
+>    The GNOME icon list widget can hold a number of icons with
+    captions.  The icons on the list can be selected (various
+    selection methods are supported).  The programmer can enable
+    caption-editing for the icons.  This parameters is configured when
+    you create the icon list widget.
+  </P
+><P
+>    You can control the type of selection mode you desire by using the
+    <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-SET-SELECTION-MODE"
+>gnome_icon_list_set_selection_mode</A
+>() function.
+  </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20717"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20719"
+></A
+><H3
+><A
+NAME="GNOMEICONLIST"
+></A
+>GnomeIconList</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct {
+	GnomeCanvas canvas;
+
+	/* Scroll adjustments */
+	GtkAdjustment *adj;
+	GtkAdjustment *hadj;
+
+	/* Number of icons in the list */
+	int icons;
+
+	/* Private data */
+	gpointer priv; /* was GList *icon_list */
+
+	int pad3; /* was int frozen */
+	int pad4; /* was int dirty */
+	int pad5; /* was int row_spacing */
+	int pad6; /* was int col_spacing */
+	int pad7; /* was int text_spacing */
+	int pad8; /* was int icon_border */
+	gpointer pad9; /* was char *separators */
+	GnomeIconListMode pad10; /* was GnomeIconListMode mode */
+	GtkSelectionMode pad11; /* was GtkSelectionMode selection_mode */
+
+	/* A list of integers with the indices of the currently selected icons */
+	GList *selection;
+
+	gpointer pad12; /* was GList *preserve_selection */
+	int pad13; /* was int icon_width */
+	unsigned int pad14 : 1; /* was unsigned int is_editable : 1 */
+	unsigned int pad15 : 1; /* was unsigned int static_text : 1 */
+	int pad16; /* was int last_selected */
+	gpointer pad17; /* was void *last_clicked */
+	int pad18; /* was int timer_tag */
+	int pad19; /* was int value_diff */
+	gdouble pad20; /* was gdouble event_last_x */
+	gdouble pad21; /* was gdouble event_last_y */
+	gpointer pad22; /* was GList *lines */
+	int pad23; /* was int total_height */
+	double pad24; /* was double sel_start_x */
+	double pad25; /* was double sel_start_y */
+	gpointer pad26; /* was GnomeCanvasItem *sel_rect */
+} GnomeIconList;</PRE
+></TD
+></TR
+></TABLE
+><P
+>    All fields in the <SPAN
+CLASS="STRUCTNAME"
+>GnomeIconList</SPAN
+> structure
+    are private, except for the <TT
+CLASS="STRUCTFIELD"
+><I
+>selection</I
+></TT
+>
+    field which you must query to get information about which icons
+    are currently selected in the icon list.
+  </P
+><P
+>    The <TT
+CLASS="STRUCTFIELD"
+><I
+>selection</I
+></TT
+> field of the
+    <SPAN
+CLASS="STRUCTNAME"
+>GnomeIconList</SPAN
+> structure is a linked list
+    that holds the indices of the icons that are selected at any one
+    time.  The <TT
+CLASS="STRUCTFIELD"
+><I
+>data</I
+></TT
+> pointer in each link of
+    the list can be casted to an integer, preferably using the
+    <TT
+CLASS="FUNCTION"
+><A
+HREF=../glib/glib-type-conversion-macros.html#GPOINTER-TO-INT-CAPS
+>GPOINTER_TO_INT</A>()</TT
+> macro, to get the index of
+    the icon represented by that link:
+
+    <TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>static void
+print_selected_icons (GnomeIconList *gil)
+{
+	GList *l;
+	int i;
+
+	for (l = gil-&gt;selection; l; l = l-&gt;next) {
+		i = GPOINTER_TO_INT (l-&#62;data)
+		printf ("Icon number &percnt;d is selected\n", i);
+	}
+}
+    </PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20733"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-IS-EDITABLE-CAPS"
+></A
+>GNOME_ICON_LIST_IS_EDITABLE</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_ICON_LIST_IS_EDITABLE 1</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This macro is a flag passed to the constructor functions.  It is
+    used to specify that the icon list should have editable text
+    captions.
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20738"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-STATIC-TEXT-CAPS"
+></A
+>GNOME_ICON_LIST_STATIC_TEXT</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_ICON_LIST_STATIC_TEXT 2</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This macro is a flag passed to the constructor functions.  It is
+    used to specify whether an icon list makes copies of the text in
+    the icon captions or whether it just keeps pointers to the text
+    strings supplied by the application.  If this flag is specified,
+    then the icon list will just store pointers to the original text
+    strings specified by the application, which must then guarantee
+    that they will not be freed or changed until the icon list no
+    longer needs them.  If it is not specified, then the icon list
+    will make copies of the text strings specified by the application.
+  </P
+><P
+>    Applications with very big icon lists can save memory by
+    specifying this flag and being careful about when to free the text
+    strings that are used for the icon captions.
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20744"
+></A
+><H3
+><A
+NAME="GNOMEICONLISTMODE"
+></A
+>enum GnomeIconListMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum {
+	GNOME_ICON_LIST_ICONS,
+	GNOME_ICON_LIST_TEXT_BELOW,
+	GNOME_ICON_LIST_TEXT_RIGHT
+} GnomeIconListMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+>    The use of this enumeration is currently not implemented.
+  </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20749"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-NEW"
+></A
+>gnome_icon_list_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_icon_list_new             (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> icon_width,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *adj,
+                                             int flags);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is kept for binary compatibility with old applications.  It is
+similar in purpose to <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-NEW-FLAGS"
+>gnome_icon_list_new_flags</A
+>(), but it will always turn on
+the <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_IS_EDITABLE</TT
+> flag.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20760"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Width for the icon columns.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Adjustment to be used for vertical scrolling.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A combination of <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_IS_EDITABLE</TT
+> and <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_STATIC_TEXT</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a newly-created icon list widget</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20783"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-NEW-FLAGS"
+></A
+>gnome_icon_list_new_flags ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_icon_list_new_flags       (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> icon_width,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *adj,
+                                             int flags);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new icon list widget.  The icon columns are allocated a width of
+<TT
+CLASS="PARAMETER"
+><I
+>icon_width</I
+></TT
+> pixels.  Icon captions will be word-wrapped to this width as
+well.</P
+><P
+>The adjustment is used to pass an existing adjustment to be used to control
+the icon list's vertical scrolling.  Normally NULL can be passed here; if the
+icon list is inserted into a &amp;GtkScrolledWindow, it will handle scrolling
+automatically.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+> has the <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_IS_EDITABLE</TT
+> flag set, then the user will be
+able to edit the text in the icon captions, and the "text_changed" signal
+will be emitted when an icon's text is changed.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+> has the <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_STATIC_TEXT</TT
+> flags set, then the text
+for the icon captions will not be copied inside the icon list; it will only
+store the pointers to the original text strings specified by the application.
+This is intended to save memory.  If this flag is not set, then the text
+strings will be copied and managed internally.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20800"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Width for the icon columns.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>        Adjustment to be used for vertical scrolling.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A combination of <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_IS_EDITABLE</TT
+> and <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_STATIC_TEXT</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a newly-created icon list widget</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20823"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-CONSTRUCT"
+></A
+>gnome_icon_list_construct ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_construct       (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> icon_width,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *adj,
+                                             int flags);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Constructor for the icon list, to be used by derived classes.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20832"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Width for the icon columns.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Adjustment to be used for vertical scrolling.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A combination of <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_IS_EDITABLE</TT
+> and <TT
+CLASS="LITERAL"
+>GNOME_ICON_LIST_STATIC_TEXT</TT
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20855"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-HADJUSTMENT"
+></A
+>gnome_icon_list_set_hadjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_hadjustment (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *hadj);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the adjustment to be used for horizontal scrolling.  This is normally
+not required, as the icon list can be simply inserted in a &amp;GtkScrolledWindow
+and scrolling will be handled automatically.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20863"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hadj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Adjustment to be used for horizontal scrolling.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20876"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-VADJUSTMENT"
+></A
+>gnome_icon_list_set_vadjustment ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_vadjustment (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> *vadj);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the adjustment to be used for vertical scrolling.  This is normally not
+required, as the icon list can be simply inserted in a &amp;GtkScrolledWindow and
+scrolling will be handled automatically.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20884"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vadj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20897"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-FREEZE"
+></A
+>gnome_icon_list_freeze ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_freeze          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Freezes an icon list so that any changes made to it will not be
+reflected on the screen until it is thawed with <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-THAW"
+>gnome_icon_list_thaw</A
+>().
+It is recommended to freeze the icon list before inserting or deleting
+many icons, for example, so that the layout process will only be executed
+once, when the icon list is finally thawed.</P
+><P
+>You can call this function multiple times, but it must be balanced with the
+same number of calls to <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-THAW"
+>gnome_icon_list_thaw</A
+>() before the changes will take
+effect.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20907"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  An icon list.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20916"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-THAW"
+></A
+>gnome_icon_list_thaw ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_thaw            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Thaws the icon list and performs any pending layout operations.  This
+is to be used in conjunction with <A
+HREF="gnomeiconlist.html#GNOME-ICON-LIST-FREEZE"
+>gnome_icon_list_freeze</A
+>().</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20924"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  An icon list.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20933"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-INSERT"
+></A
+>gnome_icon_list_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_insert          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             const char *icon_filename,
+                                             const char *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts an icon in the specified icon list.  The icon's image is loaded
+from the specified file, and it is inserted at the <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+> index.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20941"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>           An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>           Position at which the new icon should be inserted.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon_filename</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Name of the file that holds the icon's image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>          Text to be used for the icon's caption.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20962"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-INSERT-IMLIB"
+></A
+>gnome_icon_list_insert_imlib ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_insert_imlib    (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             GdkImlibImage *im,
+                                             const char *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts an icon in the specified icon list.  The icon is created from the
+specified Imlib image, and it is inserted at the <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+> index.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN20971"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  Position at which the new icon should be inserted.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>im</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>   Imlib image with the icon image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Text to be used for the icon's caption.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20992"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-APPEND"
+></A
+>gnome_icon_list_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_icon_list_append          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             const char *icon_filename,
+                                             const char *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends an icon to the specified icon list.  The icon's image is loaded from
+the specified file, and it is inserted at the <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+> index.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21000"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>           An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon_filename</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Name of the file that holds the icon's image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>          Text to be used for the icon's caption.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21021"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-APPEND-IMLIB"
+></A
+>gnome_icon_list_append_imlib ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_icon_list_append_imlib    (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             GdkImlibImage *im,
+                                             const char *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends an icon to the specified icon list.  The icon is created from
+the specified Imlib image.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21029"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>im</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>   Imlib image with the icon image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Text to be used for the icon's caption.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21050"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-CLEAR"
+></A
+>gnome_icon_list_clear ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_clear           (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Clears the contents for the icon list by removing all the icons.  If destroy
+handlers were specified for any of the icons, they will be called with the
+appropriate data.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21057"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21066"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-REMOVE"
+></A
+>gnome_icon_list_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_remove          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the icon at index position <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>.  If a destroy handler was specified
+for that icon, it will be called with the appropriate data.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21074"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Index of the icon that should be removed.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21087"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-SELECTION-MODE"
+></A
+>gnome_icon_list_set_selection_mode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_selection_mode
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSELECTIONMODE
+>GtkSelectionMode</A> mode);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the selection mode for an icon list.  The <TT
+CLASS="LITERAL"
+>GTK_SELECTION_MULTIPLE</TT
+> and
+<TT
+CLASS="LITERAL"
+>GTK_SELECTION_EXTENDED</TT
+> modes are considered equivalent.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21097"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> New selection mode.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21110"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SELECT-ICON"
+></A
+>gnome_icon_list_select_icon ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_select_icon     (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int idx);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects the icon at the index specified by <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21118"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>idx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21131"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-UNSELECT-ICON"
+></A
+>gnome_icon_list_unselect_icon ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_unselect_icon   (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unselects the icon at the index specified by <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21139"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Index of the icon to be unselected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21152"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-UNSELECT-ALL"
+></A
+>gnome_icon_list_unselect_all ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_icon_list_unselect_all    (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> keep);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unselects all the icons in the icon list.  The <TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>keep</I
+></TT
+> parameters
+must be NULL, since they are used only internally.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21163"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>   An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Unused, must be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keep</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>  For internal use only; must be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> the number of icons in the icon list</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21184"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-ICON-WIDTH"
+></A
+>gnome_icon_list_set_icon_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_icon_width  (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int w);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the amount of horizontal space allocated to the icons, i.e. the column
+width of the icon list.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21191"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>w</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>   New width for the icon columns.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21204"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-ROW-SPACING"
+></A
+>gnome_icon_list_set_row_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_row_spacing (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the spacing to be used between rows of icons.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21211"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Number of pixels for inter-row spacing.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21224"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-COL-SPACING"
+></A
+>gnome_icon_list_set_col_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_col_spacing (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the spacing to be used between columns of icons.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21231"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Number of pixels for inter-column spacing.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21244"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-TEXT-SPACING"
+></A
+>gnome_icon_list_set_text_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_text_spacing
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the spacing to be used between an icon's image and its text caption.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21251"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Number of pixels between an icon's image and its caption.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21264"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-ICON-BORDER"
+></A
+>gnome_icon_list_set_icon_border ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_icon_border (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pixels);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the width of the border to be displayed around an icon's image.  This is
+currently not implemented.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21271"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Number of border pixels to be used around an icon's image.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21284"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-SEPARATORS"
+></A
+>gnome_icon_list_set_separators ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_separators  (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             const char *sep);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the characters that can be used as word separators when doing
+word-wrapping in the icon text captions.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21291"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sep</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> String with characters to be used as word separators.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21304"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-ICON-DATA"
+></A
+>gnome_icon_list_set_icon_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_icon_data   (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21311"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21328"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-SET-ICON-DATA-FULL"
+></A
+>gnome_icon_list_set_icon_data_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_set_icon_data_full
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../gtk/gtk-types.html#GTKDESTROYNOTIFY
+>GtkDestroyNotify</A> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Associates the <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> pointer to the icon at the index specified by <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>.  The
+<TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+> argument points to a function that will be called when the icon is
+destroyed, or NULL if no function is to be called when this happens.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21340"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>     An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>     Index of an icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    User data to set on the icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Destroy notification handler for the icon.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21361"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-FIND-ICON-FROM-DATA"
+></A
+>gnome_icon_list_find_icon_from_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_icon_list_find_icon_from_data
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21369"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>   Data pointer associated to an icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the icon whose user data has been set to <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>,
+or -1 if no icon has this data associated to it.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21387"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-GET-ICON-DATA"
+></A
+>gnome_icon_list_get_icon_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    gnome_icon_list_get_icon_data   (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21395"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Index of an icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data pointer associated to the icon at the index specified
+by <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21413"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-MOVETO"
+></A
+>gnome_icon_list_moveto ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_icon_list_moveto          (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos,
+                                             double yalign);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Makes the icon whose index is <TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+> be visible on the screen.  The icon list
+gets scrolled so that the icon is visible.  An alignment of 0.0 represents
+the top of the visible part of the icon list, and 1.0 represents the bottom.
+An icon can be centered on the icon list.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21422"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>    Index of an icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Vertical alignment of the icon.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21439"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-ICON-IS-VISIBLE"
+></A
+>gnome_icon_list_icon_is_visible ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtk-standard-enumerations.html#GTKVISIBILITY
+>GtkVisibility</A> gnome_icon_list_icon_is_visible
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int pos);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21446"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21463"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-GET-ICON-AT"
+></A
+>gnome_icon_list_get_icon_at ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_icon_list_get_icon_at     (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil,
+                                             int x,
+                                             int y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21470"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>   X position in the icon list window.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>   Y position in the icon list window.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the icon that is under the specified coordinates, which
+are relative to the icon list's window.  If there is no icon in that
+position, -1 is returned.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21491"
+></A
+><H3
+><A
+NAME="GNOME-ICON-LIST-GET-ITEMS-PER-LINE"
+></A
+>gnome_icon_list_get_items_per_line ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_icon_list_get_items_per_line
+                                            (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *gil);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21498"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gil</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> An icon list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of icons that fit in a line or row.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21511"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GNOMEICONLIST--HADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>hadjustment</TT
+>&quot; (<A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> : Read / Write)</DT
+><DD
+><P
+>    This is a <SPAN
+CLASS="STRUCTNAME"
+>GtkHAdjustment</SPAN
+> that is used
+    internally to support the
+    <SPAN
+CLASS="STRUCTNAME"
+>GtkScrolledWindow</SPAN
+> scrolling interface.
+  </P
+></DD
+><DT
+><A
+NAME="GNOMEICONLIST--VADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>vadjustment</TT
+>&quot; (<A
+HREF=../gtk/gtkadjustment.html
+>GtkAdjustment</A> : Read / Write)</DT
+><DD
+><P
+>    This is a <SPAN
+CLASS="STRUCTNAME"
+>GtkVAdjustment</SPAN
+> that is used
+    internally to support the
+    <SPAN
+CLASS="STRUCTNAME"
+>GtkScrolledWindow</SPAN
+> scrolling interface.
+  </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21532"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21534"
+></A
+><H3
+><A
+NAME="GNOMEICONLIST-SELECT-ICON"
+></A
+>The &quot;select-icon&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *iconlist,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when an icon becomes selected.  If the
+    <SPAN
+CLASS="SYMBOL"
+>event</SPAN
+> argument is NULL, then it means the icon
+    became selected due to a range or rubberband selection.  If it is
+    non-NULL, it means the icon became selected due to an
+    user-initiated event such as a mouse button press.  The event can
+    be examined to get this information.
+  </P
+><DIV
+CLASS="IMPORTANT"
+><BLOCKQUOTE
+CLASS="IMPORTANT"
+><P
+><B
+>Important: </B
+>      You should not insert or delete icons, or otherwise change the
+      selection in the icon list, from within a callback to this
+      signal.
+    </P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21546"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iconlist</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon list which emitted the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Index of the icon that became selected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Event that triggered the selection, or NULL if none.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21567"
+></A
+><H3
+><A
+NAME="GNOMEICONLIST-UNSELECT-ICON"
+></A
+>The &quot;unselect-icon&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *iconlist,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when an icon becomes unselected.  The
+    meaning of the <SPAN
+CLASS="SYMBOL"
+>event</SPAN
+> argument is the same as for
+    the select-icon signal.
+  </P
+><DIV
+CLASS="IMPORTANT"
+><BLOCKQUOTE
+CLASS="IMPORTANT"
+><P
+><B
+>Important: </B
+>      You should not insert or delete icons, or otherwise change the
+      selection in the icon list, from within a callback to this
+      signal.
+    </P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21579"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iconlist</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon list which emitted the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Index of the icon that became unselected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Event that triggered the unselection, or NULL if none.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21600"
+></A
+><H3
+><A
+NAME="GNOMEICONLIST-TEXT-CHANGED"
+></A
+>The &quot;text-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    user_function                  (<A
+HREF="gnomeiconlist.html"
+>GnomeIconList</A
+> *iconlist,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> arg2,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>    This signal is emitted when the user has finished editing the text
+    of an icon's caption.  Typically this happens when the user
+    presses <B
+CLASS="KEYCAP"
+>Enter</B
+>.  The application must then decide
+    whether the text is valid or not.
+  </P
+><P
+>    The return value of this signal indicates whether the proposed
+    text is accepted by the application.  For example, an application
+    may need to check whether the user can rename a file to the
+    proposed name or not.  If the proposed text is valid, then a
+    signal handler should return <SPAN
+CLASS="SYMBOL"
+>TRUE</SPAN
+>, otherwise it
+    should return <SPAN
+CLASS="SYMBOL"
+>FALSE</SPAN
+>.  If the change is not
+    accepted, the text is automatically reset to its original state.
+  </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21614"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>iconlist</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Icon list which emitted the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Index of the icon whose text was edited.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Text entered by the user, which must be validated.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether the change is accepted by the application or not.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeicontextitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeiconselection.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeIconTextItem</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeIconSelection</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

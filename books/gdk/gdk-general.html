@@ -1,0 +1,2308 @@
+<HTML
+><HEAD
+><TITLE
+>General</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="NEXT"
+TITLE="Points, Rectangles and Regions"
+HREF="gdk-points-rectangles-and-regions.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-points-rectangles-and-regions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-GENERAL"
+>General</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11"
+></A
+><H2
+>Name</H2
+>General&nbsp;--&nbsp;library initialization and miscellaneous functions.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+void        <A
+HREF="gdk-general.html#GDK-INIT"
+>gdk_init</A
+>                        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *argc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***argv);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-general.html#GDK-INIT-CHECK"
+>gdk_init_check</A
+>                  (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *argc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***argv);
+void        <A
+HREF="gdk-general.html#GDK-EXIT"
+>gdk_exit</A
+>                        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> error_code);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gdk-general.html#GDK-SET-LOCALE"
+>gdk_set_locale</A
+>                  (void);
+void        <A
+HREF="gdk-general.html#GDK-SET-SM-CLIENT-ID"
+>gdk_set_sm_client_id</A
+>            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *sm_client_id);
+
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gdk-general.html#GDK-GET-DISPLAY"
+>gdk_get_display</A
+>                 (void);
+
+void        <A
+HREF="gdk-general.html#GDK-FLUSH"
+>gdk_flush</A
+>                       (void);
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-SCREEN-WIDTH"
+>gdk_screen_width</A
+>                (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-SCREEN-HEIGHT"
+>gdk_screen_height</A
+>               (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-SCREEN-WIDTH-MM"
+>gdk_screen_width_mm</A
+>             (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-SCREEN-HEIGHT-MM"
+>gdk_screen_height_mm</A
+>            (void);
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-POINTER-GRAB"
+>gdk_pointer_grab</A
+>                (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> owner_events,
+                                             <A
+HREF="gdk-events.html#GDKEVENTMASK"
+>GdkEventMask</A
+> event_mask,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *confine_to,
+                                             <A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+> *cursor,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+void        <A
+HREF="gdk-general.html#GDK-POINTER-UNGRAB"
+>gdk_pointer_ungrab</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-POINTER-IS-GRABBED"
+>gdk_pointer_is_grabbed</A
+>          (void);
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-KEYBOARD-GRAB"
+>gdk_keyboard_grab</A
+>               (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> owner_events,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+void        <A
+HREF="gdk-general.html#GDK-KEYBOARD-UNGRAB"
+>gdk_keyboard_ungrab</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+
+void        <A
+HREF="gdk-general.html#GDK-KEY-REPEAT-DISABLE"
+>gdk_key_repeat_disable</A
+>          (void);
+void        <A
+HREF="gdk-general.html#GDK-KEY-REPEAT-RESTORE"
+>gdk_key_repeat_restore</A
+>          (void);
+
+void        <A
+HREF="gdk-general.html#GDK-BEEP"
+>gdk_beep</A
+>                        (void);
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-GET-USE-XSHM"
+>gdk_get_use_xshm</A
+>                (void);
+void        <A
+HREF="gdk-general.html#GDK-SET-USE-XSHM"
+>gdk_set_use_xshm</A
+>                (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> use_xshm);
+
+void        <A
+HREF="gdk-general.html#GDK-ERROR-TRAP-PUSH"
+>gdk_error_trap_push</A
+>             (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-general.html#GDK-ERROR-TRAP-POP"
+>gdk_error_trap_pop</A
+>              (void);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN70"
+></A
+><H2
+>Description</H2
+><P
+>This section describes the GDK initialization functions and miscellaneous
+utility functions.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN73"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN75"
+></A
+><H3
+><A
+NAME="GDK-INIT"
+></A
+>gdk_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_init                        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *argc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***argv);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initializes the GDK library and connects to the X server.
+If initialization fails, a warning message is output and the application
+terminates with a call to exit(1).</P
+><P
+>Any arguments used by GDK are removed from the array and <TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+> are
+updated accordingly.</P
+><P
+>GTK+ initializes GDK in <A
+HREF=../gtk/gtk-general.html#GTK-INIT
+>gtk_init</A>() and so this function is not usually needed
+by GTK+ applications.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN87"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of command line arguments.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the array of command line arguments.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN100"
+></A
+><H3
+><A
+NAME="GDK-INIT-CHECK"
+></A
+>gdk_init_check ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_init_check                  (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *argc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***argv);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initializes the GDK library and connects to the X server, returning TRUE on
+success.</P
+><P
+>Any arguments used by GDK are removed from the array and <TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+> are
+updated accordingly.</P
+><P
+>GTK+ initializes GDK in <A
+HREF=../gtk/gtk-general.html#GTK-INIT
+>gtk_init</A>() and so this function is not usually needed
+by GTK+ applications.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN113"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of command line arguments.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the array of command line arguments.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if initialization succeeded.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN130"
+></A
+><H3
+><A
+NAME="GDK-EXIT"
+></A
+>gdk_exit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_exit                        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> error_code);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Exits the application using the exit() system call.</P
+><P
+>This routine is provided mainly for backwards compatability, since it used to
+perform tasks necessary to exit the application cleanly. Those tasks are now
+performed in a function which is automatically called on exit (via the use
+of <A
+HREF=../glib/glib-miscellaneous-utility-functions.html#G-ATEXIT
+>g_atexit</A>()).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN139"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>error_code</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the error code to pass to the exit() call.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN149"
+></A
+><H3
+><A
+NAME="GDK-SET-LOCALE"
+></A
+>gdk_set_locale ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gdk_set_locale                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initializes the support for internationalization by calling the setlocale()
+system call. This function is called by <A
+HREF=../gtk/gtk-general.html#GTK-SET-LOCALE
+>gtk_set_locale</A>() and so GTK+
+applications should use that instead.</P
+><P
+>The locale to use is determined by the LANG environment variable,
+so to run an application in a certain locale you can do something like this:
+<DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN158"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  export LANG="fr"
+  ... run application ...</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+>If the locale is not supported by X then it is reset to the standard "C"
+locale.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN161"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the resulting locale.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN170"
+></A
+><H3
+><A
+NAME="GDK-SET-SM-CLIENT-ID"
+></A
+>gdk_set_sm_client_id ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_set_sm_client_id            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *sm_client_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the SM_CLIENT_ID property on the application's leader window so that
+the window manager can save the application's state using the X11R6 ICCCM
+session management protocol.</P
+><P
+>The leader window is automatically created by GDK and never shown. It's only
+use is for session management. The WM_CLIENT_LEADER property is automatically
+set on all X windows created by the application to point to the leader window.</P
+><P
+>See the X Session Management Library documentation for more information on
+session management and the Inter-Client Communication Conventions Manual
+(ICCCM) for information on the WM_CLIENT_LEADER property. (Both documents are
+part of the X Windows distribution.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN178"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sm_client_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the client id assigned by the session manager when the
+connection was opened, or NULL to remove the property.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN187"
+></A
+><H3
+><A
+NAME="GDK-GET-DISPLAY"
+></A
+>gdk_get_display ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gdk_get_display                 (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the name of the display, which usually comes from the DISPLAY
+environment variable or the --display command line option.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN193"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the display.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN202"
+></A
+><H3
+><A
+NAME="GDK-FLUSH"
+></A
+>gdk_flush ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_flush                       (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Flushes the X output buffer and waits until all requests have been processed
+by the server. This is rarely needed by applications. It's main use is for
+trapping X errors with <A
+HREF="gdk-general.html#GDK-ERROR-TRAP-PUSH"
+>gdk_error_trap_push</A
+>() and <A
+HREF="gdk-general.html#GDK-ERROR-TRAP-POP"
+>gdk_error_trap_pop</A
+>().</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN209"
+></A
+><H3
+><A
+NAME="GDK-SCREEN-WIDTH"
+></A
+>gdk_screen_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_screen_width                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the width of the screen in pixels.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN215"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the screen in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN224"
+></A
+><H3
+><A
+NAME="GDK-SCREEN-HEIGHT"
+></A
+>gdk_screen_height ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_screen_height               (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the height of the screen in pixels.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN230"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the screen in pixels.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN239"
+></A
+><H3
+><A
+NAME="GDK-SCREEN-WIDTH-MM"
+></A
+>gdk_screen_width_mm ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_screen_width_mm             (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the width of the screen in millimeters.
+Note that on many X servers this value will not be correct.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN245"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the screen in millimeters, though it is not always
+correct.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN254"
+></A
+><H3
+><A
+NAME="GDK-SCREEN-HEIGHT-MM"
+></A
+>gdk_screen_height_mm ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_screen_height_mm            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the height of the screen in millimeters.
+Note that on many X servers this value will not be correct.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN260"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the screen in millimeters, though it is not always
+correct.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN269"
+></A
+><H3
+><A
+NAME="GDK-POINTER-GRAB"
+></A
+>gdk_pointer_grab ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_pointer_grab                (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> owner_events,
+                                             <A
+HREF="gdk-events.html#GDKEVENTMASK"
+>GdkEventMask</A
+> event_mask,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *confine_to,
+                                             <A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+> *cursor,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Grabs the pointer (usually a mouse) so that all events are passed to this
+application until the pointer is ungrabbed with <A
+HREF="gdk-general.html#GDK-POINTER-UNGRAB"
+>gdk_pointer_ungrab</A
+>(), or
+the grab window becomes unviewable.
+This overrides any previous pointer grab by this client.</P
+><P
+>Pointer grabs are used for operations which need complete control over mouse
+events, even if the mouse leaves the application.
+For example in GTK+ it is used for Drag and Drop, for dragging the handle in
+the <A
+HREF=../gtk/gtkhpaned.html
+>GtkHPaned</A> and <A
+HREF=../gtk/gtkvpaned.html
+>GtkVPaned</A> widgets, and for resizing columns in <A
+HREF=../gtk/gtkclist.html
+>GtkCList</A>
+widgets.</P
+><P
+>Note that if the event mask of an X window has selected both button press and
+button release events, then a button press event will cause an automatic
+pointer grab until the button is released.
+X does this automatically since most applications expect to receive button
+press and release events in pairs.
+It is equivalent to a pointer grab on the window with <TT
+CLASS="PARAMETER"
+><I
+>owner_events</I
+></TT
+> set to
+TRUE.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN288"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> which will own the grab (the grab window).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>owner_events</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if FALSE then all pointer events are reported with respect to
+<TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+> and are only reported if selected by <TT
+CLASS="PARAMETER"
+><I
+>event_mask</I
+></TT
+>. If TRUE then pointer
+events for this application are reported as normal, but pointer events outside
+this application are reported with respect to <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+> and only if selected by
+<TT
+CLASS="PARAMETER"
+><I
+>event_mask</I
+></TT
+>. In either mode, unreported events are discarded.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event_mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>specifies the event mask, which is used in accordance with
+<TT
+CLASS="PARAMETER"
+><I
+>owner_events</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>confine_to</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If non-<TT
+CLASS="LITERAL"
+>NULL</TT
+>, the pointer will be confined to this
+window during the grab. If the pointer is outside <TT
+CLASS="PARAMETER"
+><I
+>confine_to</I
+></TT
+>, it will
+automatically be moved to the closest edge of <TT
+CLASS="PARAMETER"
+><I
+>confine_to</I
+></TT
+> and enter
+and leave events will be generated as necessary.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cursor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the cursor to display while the grab is active. If this is NULL then
+the normal cursors are used for <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+> and its descendants, and the cursor
+for <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+> is used for all other windows.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the timestamp of the event which led to this pointer grab. This usually
+comes from a <A
+HREF="gdk-event-structures.html#GDKEVENTBUTTON"
+>GdkEventButton</A
+> struct, though <A
+HREF="gdk-events.html#GDK-CURRENT-TIME-CAPS"
+>GDK_CURRENT_TIME</A
+> can be used if
+the time isn't known.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>0 if the grab was successful.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN334"
+></A
+><H3
+><A
+NAME="GDK-POINTER-UNGRAB"
+></A
+>gdk_pointer_ungrab ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_pointer_ungrab              (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Ungrabs the pointer, if it is grabbed by this application.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN340"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a timestamp from a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>, or <A
+HREF="gdk-events.html#GDK-CURRENT-TIME-CAPS"
+>GDK_CURRENT_TIME</A
+> if no timestamp is
+available.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN351"
+></A
+><H3
+><A
+NAME="GDK-POINTER-IS-GRABBED"
+></A
+>gdk_pointer_is_grabbed ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_pointer_is_grabbed          (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if the pointer is currently grabbed by this application.</P
+><P
+>Note that the return value is not completely reliable since the X server may
+automatically ungrab the pointer, without informing the application, if the
+grab window becomes unviewable. It also does not take passive pointer grabs
+into account.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN358"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the pointer is currently grabbed by this application.
+Though this value is not always correct.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN367"
+></A
+><H3
+><A
+NAME="GDK-KEYBOARD-GRAB"
+></A
+>gdk_keyboard_grab ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_keyboard_grab               (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> owner_events,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Grabs the keyboard so that all events are passed to this
+application until the keyboard is ungrabbed with <A
+HREF="gdk-general.html#GDK-KEYBOARD-UNGRAB"
+>gdk_keyboard_ungrab</A
+>().
+This overrides any previous keyboard grab by this client.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN377"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> which will own the grab (the grab window).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>owner_events</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if FALSE then all keyboard events are reported with respect to
+<TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>. If TRUE then keyboard events for this application are reported as
+normal, but keyboard events outside this application are reported with respect
+to <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>. Both key press and key release events are always reported,
+independant of the event mask set by the application.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a timestamp from a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>, or <A
+HREF="gdk-events.html#GDK-CURRENT-TIME-CAPS"
+>GDK_CURRENT_TIME</A
+> if no timestamp is
+available.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>0 if the grab was successful.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN403"
+></A
+><H3
+><A
+NAME="GDK-KEYBOARD-UNGRAB"
+></A
+>gdk_keyboard_ungrab ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_keyboard_ungrab             (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Ungrabs the keyboard, if it is grabbed by this application.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN409"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a timestamp from a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>, or <A
+HREF="gdk-events.html#GDK-CURRENT-TIME-CAPS"
+>GDK_CURRENT_TIME</A
+> if no timestamp is
+available.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN420"
+></A
+><H3
+><A
+NAME="GDK-KEY-REPEAT-DISABLE"
+></A
+>gdk_key_repeat_disable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_key_repeat_disable          (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Disables the keyboard auto-repeat mode.
+This should be used with care as it may affect other applications.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN425"
+></A
+><H3
+><A
+NAME="GDK-KEY-REPEAT-RESTORE"
+></A
+>gdk_key_repeat_restore ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_key_repeat_restore          (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Restores the keyboard auto-repeat mode to its state when the application was
+started.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN430"
+></A
+><H3
+><A
+NAME="GDK-BEEP"
+></A
+>gdk_beep ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_beep                        (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits a short beep.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN435"
+></A
+><H3
+><A
+NAME="GDK-GET-USE-XSHM"
+></A
+>gdk_get_use_xshm ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_get_use_xshm                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if GDK will attempt to use the MIT-SHM shared memory extension.</P
+><P
+>The shared memory extension is used for <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>, and consequently for
+<A
+HREF="gdk-gdkrgb.html"
+>GdkRGB</A
+>.
+It enables much faster drawing by communicating with the X server through
+SYSV shared memory calls. However, it can only be used if the X client and
+server are on the same machine and the server supports it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN444"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if use of the MIT shared memory extension will be attempted.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN453"
+></A
+><H3
+><A
+NAME="GDK-SET-USE-XSHM"
+></A
+>gdk_set_use_xshm ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_set_use_xshm                (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> use_xshm);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether the use of the MIT shared memory extension should be attempted.
+This function is mainly for internal use. It is only safe for an application
+to set this to FALSE, since if it is set to TRUE and the server does not
+support the extension it may cause warning messages to be output.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN459"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>use_xshm</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if use of the MIT shared memory extension should be attempted.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN468"
+></A
+><H3
+><A
+NAME="GDK-ERROR-TRAP-PUSH"
+></A
+>gdk_error_trap_push ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_error_trap_push             (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function allows X errors to be trapped instead of the normal behavior
+of exiting the application. It should only be used if it is not possible to
+avoid the X error in any other way.</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN473"
+></A
+><P
+><B
+>Example 1. Trapping an X error.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  <A
+HREF="gdk-general.html#GDK-ERROR-TRAP-PUSH"
+>gdk_error_trap_push</A
+>();
+
+  /* ... Call the X function which may cause an error here ... */
+
+  /* Flush the X queue to catch errors now. */
+  <A
+HREF="gdk-general.html#GDK-FLUSH"
+>gdk_flush</A
+>();
+
+  if (<A
+HREF="gdk-general.html#GDK-ERROR-TRAP-POP"
+>gdk_error_trap_pop</A
+>())
+    {
+      /* ... Handle the error here ... */
+    }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN479"
+></A
+><H3
+><A
+NAME="GDK-ERROR-TRAP-POP"
+></A
+>gdk_error_trap_pop ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_error_trap_pop              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the X error trap installed with <A
+HREF="gdk-general.html#GDK-ERROR-TRAP-PUSH"
+>gdk_error_trap_push</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN486"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the X error code, or 0 if no error occurred.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-points-rectangles-and-regions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GDK</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Points, Rectangles and Regions</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

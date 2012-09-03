@@ -1,0 +1,874 @@
+<HTML
+><HEAD
+><TITLE
+>String Chunks</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Strings"
+HREF="glib-strings.html"><LINK
+REL="NEXT"
+TITLE="Arrays"
+HREF="glib-arrays.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-strings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-STRING-CHUNKS"
+>String Chunks</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN14096"
+></A
+><H2
+>Name</H2
+>String Chunks&nbsp;--&nbsp;efficient storage of groups of strings.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14099"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>;
+<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>* <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-NEW"
+>g_string_chunk_new</A
+>            (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> size);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT"
+>g_string_chunk_insert</A
+>           (<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> *chunk,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT-CONST"
+>g_string_chunk_insert_const</A
+>     (<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> *chunk,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+void        <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-FREE"
+>g_string_chunk_free</A
+>             (<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> *chunk);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14116"
+></A
+><H2
+>Description</H2
+><P
+>String chunks are used to store groups of strings.
+Memory is allocated in blocks, and as strings are added to the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>
+they are copied into the next free position in a block. When a block is
+full a new block is allocated.</P
+><P
+>When storing a large number of strings, string chunks are more efficient
+than using <A
+HREF="glib-string-utility-functions.html#G-STRDUP"
+>g_strdup</A
+>() since fewer calls to <TT
+CLASS="FUNCTION"
+>malloc()</TT
+>
+are needed, and less memory is wasted in memory allocation overheads.</P
+><P
+>By adding strings with <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT-CONST"
+>g_string_chunk_insert_const</A
+>() it is also possible
+to remove duplicates.</P
+><P
+>To create a new <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> use <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-NEW"
+>g_string_chunk_new</A
+>().</P
+><P
+>To add strings to a <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> use <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT"
+>g_string_chunk_insert</A
+>().</P
+><P
+>To add strings to a <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>, but without duplicating strings which are
+already in the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>, use <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT-CONST"
+>g_string_chunk_insert_const</A
+>().</P
+><P
+>To free the entire <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> use <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-FREE"
+>g_string_chunk_free</A
+>().
+It is not possible to free individual strings.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14139"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14141"
+></A
+><H3
+><A
+NAME="GSTRINGCHUNK"
+></A
+>struct GStringChunk</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GStringChunk;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An opaque data structure representing String Chunks.
+It should only be accessed by using the following functions.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14146"
+></A
+><H3
+><A
+NAME="G-STRING-CHUNK-NEW"
+></A
+>g_string_chunk_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>* g_string_chunk_new            (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14154"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default size of the blocks of memory which are allocated to store
+the strings. If a particular string is larger than this default size, a larger
+block of memory will be allocated for it.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14168"
+></A
+><H3
+><A
+NAME="G-STRING-CHUNK-INSERT"
+></A
+>g_string_chunk_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_string_chunk_insert           (<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> *chunk,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a copy of <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+> to the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.
+It returns a pointer to the new copy of the string in the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.
+The characters in the string can be changed, if necessary, though you
+should not change anything after the end of the string.</P
+><P
+>Unlike <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT-CONST"
+>g_string_chunk_insert_const</A
+>(), this function does not check for
+duplicates. Also strings added with <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT"
+>g_string_chunk_insert</A
+>() will not be
+searched by <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT-CONST"
+>g_string_chunk_insert_const</A
+>() when looking for duplicates.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14183"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>chunk</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the copy of <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+> within the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14203"
+></A
+><H3
+><A
+NAME="G-STRING-CHUNK-INSERT-CONST"
+></A
+>g_string_chunk_insert_const ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_string_chunk_insert_const     (<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> *chunk,
+                                             const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a copy of <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+> to the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>, unless the same string has
+already been added to the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> with <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT-CONST"
+>g_string_chunk_insert_const</A
+>().</P
+><P
+>This function is useful if you need to copy a large number of strings
+but do not want to waste space storing duplicates. But you must remember
+that there may be several pointers to the same string, and so any changes
+made to the strings should be done very carefully.</P
+><P
+>Note that <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT-CONST"
+>g_string_chunk_insert_const</A
+>() will not return a pointer to a string
+added with <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-INSERT"
+>g_string_chunk_insert</A
+>(), even if they do match.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14219"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>chunk</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the new or existing copy of <TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+> within the
+<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14239"
+></A
+><H3
+><A
+NAME="G-STRING-CHUNK-FREE"
+></A
+>g_string_chunk_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_string_chunk_free             (<A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+> *chunk);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees all memory allocated by the <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.
+After calling <A
+HREF="glib-string-chunks.html#G-STRING-CHUNK-FREE"
+>g_string_chunk_free</A
+>() it is not safe to
+access any of the strings which were contained within it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14247"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>chunk</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-string-chunks.html#GSTRINGCHUNK"
+>GStringChunk</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-strings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Strings</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Arrays</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

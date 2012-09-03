@@ -1,0 +1,2053 @@
+<HTML
+><HEAD
+><TITLE
+>Visuals</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Color Contexts"
+HREF="gdk-color-contexts.html"><LINK
+REL="NEXT"
+TITLE="Fonts"
+HREF="gdk-fonts.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-color-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-fonts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-VISUALS"
+>Visuals</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN5628"
+></A
+><H2
+>Name</H2
+>Visuals&nbsp;--&nbsp;manipulation of visuals.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN5631"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>;
+enum        <A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+>;
+enum        <A
+HREF="gdk-visuals.html#GDKBYTEORDER"
+>GdkByteOrder</A
+>;
+void        <A
+HREF="gdk-visuals.html#GDK-QUERY-DEPTHS"
+>gdk_query_depths</A
+>                (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> **depths,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *count);
+void        <A
+HREF="gdk-visuals.html#GDK-QUERY-VISUAL-TYPES"
+>gdk_query_visual_types</A
+>          (<A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> **visual_types,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *count);
+<A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      <A
+HREF="gdk-visuals.html#GDK-LIST-VISUALS"
+>gdk_list_visuals</A
+>                (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-BEST-DEPTH"
+>gdk_visual_get_best_depth</A
+>       (void);
+<A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-BEST-TYPE"
+>gdk_visual_get_best_type</A
+>      (void);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-SYSTEM"
+>gdk_visual_get_system</A
+>           (void);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-BEST"
+>gdk_visual_get_best</A
+>             (void);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-BEST-WITH-DEPTH"
+>gdk_visual_get_best_with_depth</A
+>  (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-BEST-WITH-TYPE"
+>gdk_visual_get_best_with_type</A
+>   (<A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> visual_type);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-BEST-WITH-BOTH"
+>gdk_visual_get_best_with_both</A
+>   (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> visual_type);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-visuals.html#GDK-VISUAL-REF"
+>gdk_visual_ref</A
+>                  (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual);
+void        <A
+HREF="gdk-visuals.html#GDK-VISUAL-UNREF"
+>gdk_visual_unref</A
+>                (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5668"
+></A
+><H2
+>Description</H2
+><P
+>The way that the data stored on the screen is stored
+in memory can vary considerably between different X
+servers; some X servers even support multiple formats
+used simultaneously. An X <I
+CLASS="FIRSTTERM"
+>visual</I
+>
+represents a particular format for screen data.
+It includes information about the number of bits
+used for each color, the way the bits are translated
+into an RGB value for display, and the way the bits
+are stored in memory.</P
+><P
+>There are several standard visuals. The visual returned
+by <A
+HREF="gdk-visuals.html#GDK-VISUAL-GET-SYSTEM"
+>gdk_visual_get_system</A
+>() is the system's default
+visual. <A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-VISUAL"
+>gdk_rgb_get_visual</A
+>() return the visual most
+suited to displaying full-color image data. If you
+use the calls in GdkRGB, you should create your windows
+using this visual (and the colormap returned by
+gdk_rgb_get_colormap()).</P
+><P
+>A number of functions are provided for determining
+the "best" available visual. For the purposes of
+making this determination, higher bit depths are
+considered better, and for visuals of the same
+bit depth, <TT
+CLASS="LITERAL"
+>GDK_VISUAL_PSEUDO_COLOR</TT
+> is preferred at
+8bpp, otherwise, the visual types are ranked in the
+order of (highest to lowest) <TT
+CLASS="LITERAL"
+>GDK_VISUAL_DIRECT_COLOR</TT
+>,
+<TT
+CLASS="LITERAL"
+>GDK_VISUAL_TRUE_COLOR</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_VISUAL_PSEUDO_COLOR</TT
+>,
+<TT
+CLASS="LITERAL"
+>GDK_VISUAL_STATIC_COLOR</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_VISUAL_GRAYSCALE</TT
+>, 
+then <TT
+CLASS="LITERAL"
+>GDK_VISUAL_STATIC_GRAY</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5684"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5686"
+></A
+><H3
+><A
+NAME="GDKVISUAL"
+></A
+>struct GdkVisual</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkVisual
+{
+  GdkVisualType type;
+  gint depth;
+  GdkByteOrder byte_order;
+  gint colormap_size;
+  gint bits_per_rgb;
+
+  guint32 red_mask;
+  gint red_shift;
+  gint red_prec;
+
+  guint32 green_mask;
+  gint green_shift;
+  gint green_prec;
+
+  guint32 blue_mask;
+  gint blue_shift;
+  gint blue_prec;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The GdkVisual structure contains information about
+a particular visual. It contains the following
+public fields.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5691"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>type</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The type of this visual.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>depth</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of bits per pixel.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>byte_order</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The byte-order for this visual.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>colormap_size</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of entries in the colormap, for
+visuals of type GDK_VISUAL_PSEUDO_COLOR or 
+GDK_VISUAL_GRAY_SCALE. For other visual types, it
+is the number of possible levels per color component.
+If the visual has different numbers of levels for
+different components, the value of this field is
+undefined.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>bits_per_rgb</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of significant bits per red, green, or blue
+when specifying colors for this visual. (For instance, 
+for <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-ALLOC-COLOR"
+>gdk_colormap_alloc_color</A
+>())</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>red_mask</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A mask giving the bits in a pixel value that
+correspond to the red field. Significant only for 
+<TT
+CLASS="LITERAL"
+>GDK_VISUAL_PSEUDOCOLOR</TT
+> and <TT
+CLASS="LITERAL"
+>GDK_VISUAL_DIRECTCOLOR</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>red_shift, red_prec</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>red_shift</I
+></TT
+> and 
+<TT
+CLASS="STRUCTFIELD"
+><I
+>red_prec</I
+></TT
+> give an alternate presentation
+of the information in <TT
+CLASS="STRUCTFIELD"
+><I
+>red_mask</I
+></TT
+>.
+<TT
+CLASS="STRUCTFIELD"
+><I
+>red_mask</I
+></TT
+> is a contiguous sequence
+of <TT
+CLASS="STRUCTFIELD"
+><I
+>red_prec</I
+></TT
+> starting at bit
+number <TT
+CLASS="STRUCTFIELD"
+><I
+>red_shift</I
+></TT
+>. For example,
+<A
+HREF="gdk-visuals.html#RGBMASK"
+>Figure 1</A
+> shows constructing a pixel value
+out of three 16 bit color values.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>green_mask</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A mask giving the bits in a pixel value that
+correspond to the green field.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>green_shift, green_prec</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>green_shift</I
+></TT
+> and 
+<TT
+CLASS="STRUCTFIELD"
+><I
+>green_prec</I
+></TT
+> give an alternate presentation
+of the information in <TT
+CLASS="STRUCTFIELD"
+><I
+>green_mask</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>blue_mask</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A mask giving the bits in a pixel value that
+correspond to the blue field.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>blue_shift, blue_prec</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>blue_shift</I
+></TT
+> and 
+<TT
+CLASS="STRUCTFIELD"
+><I
+>blue_prec</I
+></TT
+> give an alternate presentation
+of the information in <TT
+CLASS="STRUCTFIELD"
+><I
+>blue_mask</I
+></TT
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="RGBMASK"
+></A
+><P
+><B
+>Figure 1. Constructing a pixel value from components</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>guint 
+pixel_from_rgb (GdkVisual *visual,
+                guchar r, guchar b, guchar g) 
+{
+  return ((r &#62;&#62; (16 - visual-&#62;red_prec))   &#60;&#60; visual-&#62;red_shift) |
+         ((g &#62;&#62; (16 - visual-&#62;green_prec)) &#60;&#60; visual-&#62;green_shift) |
+         ((r &#62;&#62; (16 - visual-&#62;blue_prec))  &#60;&#60; visual-&#62;blue_shift);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5759"
+></A
+><H3
+><A
+NAME="GDKVISUALTYPE"
+></A
+>enum GdkVisualType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_VISUAL_STATIC_GRAY,
+  GDK_VISUAL_GRAYSCALE,
+  GDK_VISUAL_STATIC_COLOR,
+  GDK_VISUAL_PSEUDO_COLOR,
+  GDK_VISUAL_TRUE_COLOR,
+  GDK_VISUAL_DIRECT_COLOR
+} GdkVisualType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A set of values that describe the manner in which the
+pixel values for a visual are converted into RGB
+values for display.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5764"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_VISUAL_STATIC_GRAY</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Each pixel value indexes a grayscale value directly.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_VISUAL_GRAYSCALE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Each pixel is an index into a color map that maps
+pixel values into grayscale values. The color map can
+be changed by an application.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_VISUAL_STATIC_COLOR</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Each pixel value is an index into a predefined,
+unmodifiable color map that maps pixel values into
+rgb values.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_VISUAL_PSEUDO_COLOR</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Each pixel is an index into a color map that maps
+pixel values into rgb values. The color map can
+be changed by an application.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_TRUE_COLOR</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Each pixel value directly contains red, green,
+and blue components. The <TT
+CLASS="STRUCTFIELD"
+><I
+>red_mask</I
+></TT
+>,
+<TT
+CLASS="STRUCTFIELD"
+><I
+>green_mask</I
+></TT
+>, and 
+<TT
+CLASS="STRUCTFIELD"
+><I
+>blue_mask</I
+></TT
+> fields of the <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>
+structure describe how the components are assembled into
+a pixel value.
+.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_DIRECT_COLOR</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Each pixel value contains red, green, and blue
+components as for <TT
+CLASS="LITERAL"
+>GDK_TRUE_COLOR</TT
+>, but the components
+are mapped via a color table into the final output
+table instead of being converted directly..</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5792"
+></A
+><H3
+><A
+NAME="GDKBYTEORDER"
+></A
+>enum GdkByteOrder</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_LSB_FIRST,
+  GDK_MSB_FIRST
+} GdkByteOrder;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A set of values describing the possible byte-orders
+for storing pixel values in memory.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5797"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_LSB_FIRST</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The values are stored with the least-significant byte
+first. For instance, the 32-bit value 0xffeecc would be stored
+in memory as 0xcc, 0xee, 0xff, 0x00.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_MSB_FIRST</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The values are stored with the least-significant byte
+first. For instance, the 32-bit value 0xffeecc would be stored
+in memory as 0xff, 0xee, 0xcc, 0x00.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5808"
+></A
+><H3
+><A
+NAME="GDK-QUERY-DEPTHS"
+></A
+>gdk_query_depths ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_query_depths                (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> **depths,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *count);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Lists the available color depths. The returned values
+are pointers to static storage and should not be
+modified or freed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5815"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depths</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a location to store a pointer to an array
+   holding the available color depths.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a location to store the number of values in <TT
+CLASS="PARAMETER"
+><I
+>depths</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5829"
+></A
+><H3
+><A
+NAME="GDK-QUERY-VISUAL-TYPES"
+></A
+>gdk_query_visual_types ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_query_visual_types          (<A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> **visual_types,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *count);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Lists the available visual types. The returned values
+are pointers to static storage and should not be
+modified or freed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5836"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual_types</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a location to store a pointer to an 
+   array holding the available visual types.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a location to store the number of values in <TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+> types.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5850"
+></A
+><H3
+><A
+NAME="GDK-LIST-VISUALS"
+></A
+>gdk_list_visuals ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      gdk_list_visuals                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Lists the available visuals.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5856"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> of the available visuals. The list
+should be freed this list with <A
+HREF=../glib/glib-doubly-linked-lists.html#G-LIST-FREE
+>g_list_free</A>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5867"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-GET-BEST-DEPTH"
+></A
+>gdk_visual_get_best_depth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_visual_get_best_depth       (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the best available color depth.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5873"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the best available color depth.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5882"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-GET-BEST-TYPE"
+></A
+>gdk_visual_get_best_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> gdk_visual_get_best_type      (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the best available visual type.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5888"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the best available visual type.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5897"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-GET-SYSTEM"
+></A
+>gdk_visual_get_system ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_visual_get_system           (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the system's default visual.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5903"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the system's default visual.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5912"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-GET-BEST"
+></A
+>gdk_visual_get_best ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_visual_get_best             (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the best available visual.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5918"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the best available visual.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5927"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-GET-BEST-WITH-DEPTH"
+></A
+>gdk_visual_get_best_with_depth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_visual_get_best_with_depth  (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the best available visual with a certain depth.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5934"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the desired color depth</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the best available visual with <TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+> bits per pixel
+or <TT
+CLASS="LITERAL"
+>NULL</TT
+> if no visuals with that type are available.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5949"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-GET-BEST-WITH-TYPE"
+></A
+>gdk_visual_get_best_with_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_visual_get_best_with_type   (<A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> visual_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the best available visual of a certain visual type.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5956"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the desired visual type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the visual of the given type with the highest depth
+or <TT
+CLASS="LITERAL"
+>NULL</TT
+> if no visuals of that type are available.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5970"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-GET-BEST-WITH-BOTH"
+></A
+>gdk_visual_get_best_with_both ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_visual_get_best_with_both   (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF="gdk-visuals.html#GDKVISUALTYPE"
+>GdkVisualType</A
+> visual_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the best available visual </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5978"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the desired visual type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the desired depth.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the best available visual with the given depth
+and visual type, or <TT
+CLASS="LITERAL"
+>NULL</TT
+> if no matching visuals are
+available.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5996"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-REF"
+></A
+>gdk_visual_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_visual_ref                  (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual);</PRE
+></TD
+></TR
+></TABLE
+><P
+>In theory, increases the reference count of a visual. However,
+the set of visuals is determined statically when GTK+ is
+initialized, so this operation does nothing.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6003"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6018"
+></A
+><H3
+><A
+NAME="GDK-VISUAL-UNREF"
+></A
+>gdk_visual_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_visual_unref                (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual);</PRE
+></TD
+></TR
+></TABLE
+><P
+>In theory, decreases the reference count of a visual. Like
+<A
+HREF="gdk-visuals.html#GDK-VISUAL-REF"
+>gdk_visual_ref</A
+>(), this operation does nothing.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6025"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-color-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-fonts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Color Contexts</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Fonts</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,798 @@
+<HTML
+><HEAD
+><TITLE
+>Quarks</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="N-ary Trees"
+HREF="glib-n-ary-trees.html"><LINK
+REL="NEXT"
+TITLE="Keyed Data Lists"
+HREF="glib-keyed-data-lists.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-n-ary-trees.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-keyed-data-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-QUARKS"
+>Quarks</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN16910"
+></A
+><H2
+>Name</H2
+>Quarks&nbsp;--&nbsp;a 2-way association between a string and a unique integer identifier.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN16913"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+typedef     <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>;
+<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>      <A
+HREF="glib-quarks.html#G-QUARK-FROM-STRING"
+>g_quark_from_string</A
+>             (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>      <A
+HREF="glib-quarks.html#G-QUARK-FROM-STATIC-STRING"
+>g_quark_from_static_string</A
+>      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-quarks.html#G-QUARK-TO-STRING"
+>g_quark_to_string</A
+>               (<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> quark);
+<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>      <A
+HREF="glib-quarks.html#G-QUARK-TRY-STRING"
+>g_quark_try_string</A
+>              (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16929"
+></A
+><H2
+>Description</H2
+><P
+>Quarks are associations between strings and integer identifiers.
+Given either the string or the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> identifier it is possible to
+retrieve the other.</P
+><P
+>Quarks are used for both
+<A
+HREF="glib-datasets.html"
+>Datasets</A
+> and
+<A
+HREF="glib-keyed-data-lists.html"
+>Keyed Data Lists</A
+>.</P
+><P
+>To create a new quark from a string, use <A
+HREF="glib-quarks.html#G-QUARK-FROM-STRING"
+>g_quark_from_string</A
+>() or
+<A
+HREF="glib-quarks.html#G-QUARK-FROM-STATIC-STRING"
+>g_quark_from_static_string</A
+>().</P
+><P
+>To find the string corresponding to a given <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>, use <A
+HREF="glib-quarks.html#G-QUARK-TO-STRING"
+>g_quark_to_string</A
+>().</P
+><P
+>To find the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> corresponding to a given string, use <A
+HREF="glib-quarks.html#G-QUARK-TRY-STRING"
+>g_quark_try_string</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16945"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16947"
+></A
+><H3
+><A
+NAME="GQUARK"
+></A
+>GQuark</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef guint32 GQuark;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A GQuark is an integer which uniquely identifies a particular string.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16952"
+></A
+><H3
+><A
+NAME="G-QUARK-FROM-STRING"
+></A
+>g_quark_from_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>      g_quark_from_string             (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> identifying the given string.
+If the string does not currently have an associated <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>, a new
+<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> is created, using a copy of the string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16962"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> identifying the string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16976"
+></A
+><H3
+><A
+NAME="G-QUARK-FROM-STATIC-STRING"
+></A
+>g_quark_from_static_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>      g_quark_from_static_string      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> identifying the given (static) string.
+If the string does not currently have an associated <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>, a new
+<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> is created, linked to the given string.</P
+><P
+>Note that this function is identical to <A
+HREF="glib-quarks.html#G-QUARK-FROM-STRING"
+>g_quark_from_string</A
+>() except
+that if a new <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> is created the string itself is used rather than
+a copy. This saves memory, but can only be used if the string will
+always exist (if, for example, it is a statically-allocated string).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16989"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> identifying the string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17003"
+></A
+><H3
+><A
+NAME="G-QUARK-TO-STRING"
+></A
+>g_quark_to_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_quark_to_string               (<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> quark);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the string associated with the given <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17011"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>quark</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string associated with the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17026"
+></A
+><H3
+><A
+NAME="G-QUARK-TRY-STRING"
+></A
+>g_quark_try_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>      g_quark_try_string              (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> associated with the given string, or 0 if the string has
+no associated <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+>.</P
+><P
+>If you want the GQuark to be created if it doesn't already exist, use
+<A
+HREF="glib-quarks.html#G-QUARK-FROM-STRING"
+>g_quark_from_string</A
+>() or <A
+HREF="glib-quarks.html#G-QUARK-FROM-STATIC-STRING"
+>g_quark_from_static_string</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17038"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> associated with the string, or 0 if there is no
+<A
+HREF="glib-quarks.html#GQUARK"
+>GQuark</A
+> associated with the string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-n-ary-trees.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-keyed-data-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>N-ary Trees</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Keyed Data Lists</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,901 @@
+<HTML
+><HEAD
+><TITLE
+>GtkFrame</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkFontSelectionDialog"
+HREF="gtkfontselectiondialog.html"><LINK
+REL="NEXT"
+TITLE="GtkGammaCurve"
+HREF="gtkgammacurve.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkfontselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkgammacurve.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKFRAME"
+>GtkFrame</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN26661"
+></A
+><H2
+>Name</H2
+>GtkFrame&nbsp;--&nbsp;A bin with a decorative frame and optional label.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN26664"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkframe.html#GTKFRAME-STRUCT"
+>GtkFrame</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkframe.html#GTK-FRAME-NEW"
+>gtk_frame_new</A
+>                   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);
+void        <A
+HREF="gtkframe.html#GTK-FRAME-SET-LABEL"
+>gtk_frame_set_label</A
+>             (<A
+HREF="gtkframe.html"
+>GtkFrame</A
+> *frame,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);
+void        <A
+HREF="gtkframe.html#GTK-FRAME-SET-LABEL-ALIGN"
+>gtk_frame_set_label_align</A
+>       (<A
+HREF="gtkframe.html"
+>GtkFrame</A
+> *frame,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign);
+void        <A
+HREF="gtkframe.html#GTK-FRAME-SET-SHADOW-TYPE"
+>gtk_frame_set_shadow_type</A
+>       (<A
+HREF="gtkframe.html"
+>GtkFrame</A
+> *frame,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> type);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26681"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----GtkFrame</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26688"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkframe.html#GTKFRAME--LABEL"
+>label</A
+>&quot;                <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*               : Read / Write
+  &quot;<A
+HREF="gtkframe.html#GTKFRAME--LABEL-XALIGN"
+>label-xalign</A
+>&quot;         <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write
+  &quot;<A
+HREF="gtkframe.html#GTKFRAME--LABEL-YALIGN"
+>label-yalign</A
+>&quot;         <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write
+  &quot;<A
+HREF="gtkframe.html#GTKFRAME--SHADOW"
+>shadow</A
+>&quot;               <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+>        : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26699"
+></A
+><H2
+>Description</H2
+><P
+>The frame widget is a Bin that surrounds its child
+with a decorative frame and an optional label.
+If present, the label is drawn in a gap in the
+top side of the frame. The position of the
+label can be controlled with <A
+HREF="gtkframe.html#GTK-FRAME-SET-LABEL-ALIGN"
+>gtk_frame_set_label_align</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26703"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26705"
+></A
+><H3
+><A
+NAME="GTKFRAME-STRUCT"
+></A
+>struct GtkFrame</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkFrame;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26710"
+></A
+><H3
+><A
+NAME="GTK-FRAME-NEW"
+></A
+>gtk_frame_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_frame_new                   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new Frame, with optional label <TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>.
+If <TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, the label is omitted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26720"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26733"
+></A
+><H3
+><A
+NAME="GTK-FRAME-SET-LABEL"
+></A
+>gtk_frame_set_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_frame_set_label             (<A
+HREF="gtkframe.html"
+>GtkFrame</A
+> *frame,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set the text of the label. If <TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>,
+the current label, if any, is removed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26742"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>frame</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26755"
+></A
+><H3
+><A
+NAME="GTK-FRAME-SET-LABEL-ALIGN"
+></A
+>gtk_frame_set_label_align ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_frame_set_label_align       (<A
+HREF="gtkframe.html"
+>GtkFrame</A
+> *frame,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the alignment of the Frame widget's label. The
+default value for a newly created Frame is 0.0.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26763"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>frame</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The Frame widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The position of the label along the top edge
+  of the widget. A value of 0.0 represents left alignment;
+  1.0 represents right alignment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The y alignment of the label. Currently ignored.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26780"
+></A
+><H3
+><A
+NAME="GTK-FRAME-SET-SHADOW-TYPE"
+></A
+>gtk_frame_set_shadow_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_frame_set_shadow_type       (<A
+HREF="gtkframe.html"
+>GtkFrame</A
+> *frame,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the shadow type for the Frame widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26787"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>frame</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The Frame widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>New shadow type.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26800"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKFRAME--LABEL"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>label</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>* : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKFRAME--LABEL-XALIGN"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>label-xalign</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKFRAME--LABEL-YALIGN"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>label-yalign</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKFRAME--SHADOW"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>shadow</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkfontselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkgammacurve.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkFontSelectionDialog</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkGammaCurve</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,924 @@
+<HTML
+><HEAD
+><TITLE
+>GtkScale</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkRuler"
+HREF="gtkruler.html"><LINK
+REL="NEXT"
+TITLE="GtkScrollbar"
+HREF="gtkscrollbar.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkruler.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkscrollbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKSCALE"
+>GtkScale</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN38423"
+></A
+><H2
+>Name</H2
+>GtkScale&nbsp;--&nbsp;a base class for <A
+HREF="gtkhscale.html"
+>GtkHScale</A
+> and <A
+HREF="gtkvscale.html"
+>GtkVScale</A
+>.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN38428"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkscale.html#GTKSCALE-STRUCT"
+>GtkScale</A
+>;
+void        <A
+HREF="gtkscale.html#GTK-SCALE-SET-DIGITS"
+>gtk_scale_set_digits</A
+>            (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> digits);
+void        <A
+HREF="gtkscale.html#GTK-SCALE-SET-DRAW-VALUE"
+>gtk_scale_set_draw_value</A
+>        (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> draw_value);
+void        <A
+HREF="gtkscale.html#GTK-SCALE-SET-VALUE-POS"
+>gtk_scale_set_value_pos</A
+>         (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> pos);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkscale.html#GTK-SCALE-GET-VALUE-WIDTH"
+>gtk_scale_get_value_width</A
+>       (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale);
+&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38444"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkrange.html"
+>GtkRange</A
+>
+               +----GtkScale</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38450"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkscale.html#GTKSCALE--DIGITS"
+>digits</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>                 : Read / Write
+  &quot;<A
+HREF="gtkscale.html#GTKSCALE--DRAW-VALUE"
+>draw-value</A
+>&quot;           <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkscale.html#GTKSCALE--VALUE-POS"
+>value-pos</A
+>&quot;            <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+>      : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38459"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkscale.html"
+>GtkScale</A
+> widget is an abstract class, used only for deriving the
+subclasses <A
+HREF="gtkhscale.html"
+>GtkHScale</A
+> and <A
+HREF="gtkvscale.html"
+>GtkVScale</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38465"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38467"
+></A
+><H3
+><A
+NAME="GTKSCALE-STRUCT"
+></A
+>struct GtkScale</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkScale;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkscale.html#GTKSCALE-STRUCT"
+>GtkScale</A
+> struct contains the following fields.
+(These fields should be considered read-only. They should never be set by
+an application.)
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38473"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>draw_value</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>non-zero if the scale's current value is displayed next to the
+slider.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>value_pos</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position in which the textual value is displayed, selected from
+<A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38489"
+></A
+><H3
+><A
+NAME="GTK-SCALE-SET-DIGITS"
+></A
+>gtk_scale_set_digits ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scale_set_digits            (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> digits);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the number of decimal places that are displayed in the value.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38496"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkscale.html"
+>GtkScale</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>digits</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of decimal places to display, e.g. use 1 to display 1.0,
+2 to display 1.00 etc.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38510"
+></A
+><H3
+><A
+NAME="GTK-SCALE-SET-DRAW-VALUE"
+></A
+>gtk_scale_set_draw_value ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scale_set_draw_value        (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> draw_value);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies whether the current value is displayed as a string next to the
+slider.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38517"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkscale.html"
+>GtkScale</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>draw_value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38531"
+></A
+><H3
+><A
+NAME="GTK-SCALE-SET-VALUE-POS"
+></A
+>gtk_scale_set_value_pos ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_scale_set_value_pos         (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> pos);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the position in which the current value is displayed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38538"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkscale.html"
+>GtkScale</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pos</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position in which the current value is displayed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38552"
+></A
+><H3
+><A
+NAME="GTK-SCALE-GET-VALUE-WIDTH"
+></A
+>gtk_scale_get_value_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_scale_get_value_width       (<A
+HREF="gtkscale.html"
+>GtkScale</A
+> *scale);</PRE
+></TD
+></TR
+></TABLE
+><P
+>An internal function used to get the maximum width needed to display the value
+string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38559"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkscale.html"
+>GtkScale</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum width needed to display the value string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38573"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKSCALE--DIGITS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>digits</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> : Read / Write)</DT
+><DD
+><P
+>The number of decimal places that are displayed in the value.</P
+></DD
+><DT
+><A
+NAME="GTKSCALE--DRAW-VALUE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>draw-value</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKSCALE--VALUE-POS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>value-pos</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkruler.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkscrollbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkRuler</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkScrollbar</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

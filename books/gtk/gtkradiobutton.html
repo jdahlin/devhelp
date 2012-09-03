@@ -1,0 +1,1223 @@
+<HTML
+><HEAD
+><TITLE
+>GtkRadioButton</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkProgressBar"
+HREF="gtkprogressbar.html"><LINK
+REL="NEXT"
+TITLE="GtkRadioMenuItem"
+HREF="gtkradiomenuitem.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkprogressbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkradiomenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKRADIOBUTTON"
+>GtkRadioButton</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN37477"
+></A
+><H2
+>Name</H2
+>GtkRadioButton&nbsp;--&nbsp;A choice from multiple check buttons.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN37480"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkradiobutton.html#GTKRADIOBUTTON-STRUCT"
+>GtkRadioButton</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW"
+>gtk_radio_button_new</A
+>            (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW-FROM-WIDGET"
+>gtk_radio_button_new_from_widget</A
+>
+                                            (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *group);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW-WITH-LABEL"
+>gtk_radio_button_new_with_label</A
+> (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW-WITH-LABEL-FROM-WIDGET"
+>gtk_radio_button_new_with_label_from_widget</A
+>
+                                            (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *group,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);
+<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-GROUP"
+>gtk_radio_button_group</A
+>          (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *radio_button);
+void        <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-SET-GROUP"
+>gtk_radio_button_set_group</A
+>      (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *radio_button,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37504"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkbutton.html"
+>GtkButton</A
+>
+                           +----<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>
+                                 +----<A
+HREF="gtkcheckbutton.html"
+>GtkCheckButton</A
+>
+                                       +----GtkRadioButton</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37514"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkradiobutton.html#GTKRADIOBUTTON--GROUP"
+>group</A
+>&quot;                <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>       : Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37519"
+></A
+><H2
+>Description</H2
+><P
+>A single radio button performs the same basic function as a <A
+HREF="gtkcheckbutton.html"
+>GtkCheckButton</A
+>,
+as it's position in the object hierarchy reflects. It is only when multiple
+radio buttons are grouped together that they become a different user
+interface component in their own right.</P
+><P
+>Every radio button is a member of some group of radio buttons. When one is selected, all other
+radio buttons in the same group are deselected. A <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> is one way
+of giving the user a choice from many options.</P
+><P
+>Radio button widgets are created with <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW"
+>gtk_radio_button_new</A
+>(), passing NULL
+as the argument if this is the first radio button in a group. In subsequent
+calls, the group you wish to add this button to should be passed as an
+argument. Optionally, <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW-WITH-LABEL"
+>gtk_radio_button_new_with_label</A
+>() can be used if you
+want a text label on the radio button.</P
+><P
+>Alternatively, when adding widgets to an existing group of radio buttons,
+use <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW-FROM-WIDGET"
+>gtk_radio_button_new_from_widget</A
+>() with a <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> that already
+has a group assigned to it. The convenience function
+<A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW-WITH-LABEL-FROM-WIDGET"
+>gtk_radio_button_new_with_label_from_widget</A
+>() is also provided.</P
+><P
+>To retrieve the group a <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> is assigned to, use
+<A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-GROUP"
+>gtk_radio_button_group</A
+>().</P
+><P
+>To remove a <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> from one group and make it part of a new one, use <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-SET-GROUP"
+>gtk_radio_button_set_group</A
+>().</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN37539"
+></A
+><P
+><B
+>Example 1. How to create a group of two radio buttons.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;void create_radio_buttons(void) {
+
+   GtkWidget *window, *radio1, *radio2, *box, *entry;
+   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+   box = gtk_vbox_new(TRUE, 2);
+   
+   /* Create a radio button with a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> widget */
+   radio1 = gtk_radio_button_new(NULL);
+   entry = <A
+HREF="gtkentry.html#GTK-ENTRY-NEW"
+>gtk_entry_new</A
+>();
+   gtk_container_add(GTK_CONTAINER(radio1), entry);
+   
+   
+   /* Create a radio button with a label */
+   radio2 = gtk_radio_button_new_with_label_from_widget (GTK_RADIO_BUTTON(radio1),
+							"I'm the second radio button.");
+   
+   /* Pack them into a box, then show all the widgets */
+   gtk_box_pack_start (GTK_BOX (box), radio1, TRUE, TRUE, 2);
+   gtk_box_pack_start(GTK_BOX(box), radio2, TRUE, TRUE, 2);
+   gtk_container_add(GTK_CONTAINER(window), box);
+   gtk_widget_show_all (window);
+   return;
+}&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37544"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37546"
+></A
+><H3
+><A
+NAME="GTKRADIOBUTTON-STRUCT"
+></A
+>struct GtkRadioButton</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkRadioButton;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Contains only private data that should be read and manipulated using the
+functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37551"
+></A
+><H3
+><A
+NAME="GTK-RADIO-BUTTON-NEW"
+></A
+>gtk_radio_button_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_radio_button_new            (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>. To be of any practical value, a widget should
+then be packed into the radio button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37559"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an existing radio button group, or NULL if you are creating a new group.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new radio button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37572"
+></A
+><H3
+><A
+NAME="GTK-RADIO-BUTTON-NEW-FROM-WIDGET"
+></A
+>gtk_radio_button_new_from_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_radio_button_new_from_widget
+                                            (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *group);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>, adding it to the same group as <TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>. As
+with <A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-NEW"
+>gtk_radio_button_new</A
+>(), a widget should be packed into the radio button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37582"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an existing <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new radio button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37596"
+></A
+><H3
+><A
+NAME="GTK-RADIO-BUTTON-NEW-WITH-LABEL"
+></A
+>gtk_radio_button_new_with_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_radio_button_new_with_label (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> with a text label.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37605"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an existing radio button group, or NULL if you are creating a new
+group.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text label to display next to the radio button.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new radio button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37622"
+></A
+><H3
+><A
+NAME="GTK-RADIO-BUTTON-NEW-WITH-LABEL-FROM-WIDGET"
+></A
+>gtk_radio_button_new_with_label_from_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_radio_button_new_with_label_from_widget
+                                            (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *group,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> with a text label, adding it to the same group
+as <TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37632"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an existing <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a text string to display next to the radio button.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new radio button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37650"
+></A
+><H3
+><A
+NAME="GTK-RADIO-BUTTON-GROUP"
+></A
+>gtk_radio_button_group ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     gtk_radio_button_group          (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *radio_button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the group assigned to a radio button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37657"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>radio_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a linked list containing all the radio buttons in the same group
+as <TT
+CLASS="PARAMETER"
+><I
+>radio_button</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37672"
+></A
+><H3
+><A
+NAME="GTK-RADIO-BUTTON-SET-GROUP"
+></A
+>gtk_radio_button_set_group ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_radio_button_set_group      (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> *radio_button,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets a <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>'s group. It should be noted that this does not change
+the layout of your interface in any way, so if you are changing the group,
+it is likely you will need to re-arrange the user interface to reflect these
+changes.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37680"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>radio_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an existing radio button group, such as one returned from
+<A
+HREF="gtkradiobutton.html#GTK-RADIO-BUTTON-GROUP"
+>gtk_radio_button_group</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37695"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKRADIOBUTTON--GROUP"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>group</TT
+>&quot; (<A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+> : Write)</DT
+><DD
+><P
+>Sets a new group for a radio button.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37705"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+></DT
+><DD
+><P
+>Another way of offering the user a single choice from
+many.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkprogressbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkradiomenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkProgressBar</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkRadioMenuItem</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

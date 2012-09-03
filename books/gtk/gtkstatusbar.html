@@ -1,0 +1,1355 @@
+<HTML
+><HEAD
+><TITLE
+>GtkStatusbar</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkSpinButton"
+HREF="gtkspinbutton.html"><LINK
+REL="NEXT"
+TITLE="GtkTable"
+HREF="gtktable.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkspinbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktable.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKSTATUSBAR"
+>GtkStatusbar</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN39747"
+></A
+><H2
+>Name</H2
+>GtkStatusbar&nbsp;--&nbsp;report messages of minor importance to the user.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN39750"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkstatusbar.html#GTKSTATUSBAR-STRUCT"
+>GtkStatusbar</A
+>;
+struct      <A
+HREF="gtkstatusbar.html#GTKSTATUSBARMSG"
+>GtkStatusbarMsg</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-NEW"
+>gtk_statusbar_new</A
+>               (void);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-GET-CONTEXT-ID"
+>gtk_statusbar_get_context_id</A
+>    (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *context_description);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-PUSH"
+>gtk_statusbar_push</A
+>              (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);
+void        <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-POP"
+>gtk_statusbar_pop</A
+>               (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id);
+void        <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-REMOVE"
+>gtk_statusbar_remove</A
+>            (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> message_id);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39773"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbox.html"
+>GtkBox</A
+>
+                     +----<A
+HREF="gtkhbox.html"
+>GtkHBox</A
+>
+                           +----GtkStatusbar</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39781"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkstatusbar.html#GTKSTATUSBAR-TEXT-PUSHED"
+>text-pushed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkstatusbar.html#GTKSTATUSBAR-TEXT-POPPED"
+>text-popped</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39794"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> is usually placed along the bottom of an application's main
+<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+>. It may provide a regular commentary of the application's status
+(as is usually the case in a web browser, for example), or may be used to
+simply output a message when the status changes, (when an upload is complete
+in an FTP client, for example).</P
+><P
+>Status bars in Gtk+ maintain a stack of messages. The message at
+the top of the each bar's stack is the one that will currently be displayed.</P
+><P
+>Any messages added to a statusbar's stack must specify a <I
+CLASS="EMPHASIS"
+>context_id</I
+>
+that is used to uniquely identify the source of a message. This context_id can be 
+generated by <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-GET-CONTEXT-ID"
+>gtk_statusbar_get_context_id</A
+>(), given a message and the
+statusbar that it will be added to. Note that messages are stored in a
+stack, and when choosing which message to display, the stack structure is
+adhered to, regardless of the context identifier of a message.</P
+><P
+>Status bars are created using <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-NEW"
+>gtk_statusbar_new</A
+>().</P
+><P
+>Messages are added to the bar's stack with <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-PUSH"
+>gtk_statusbar_push</A
+>().</P
+><P
+>The message at the top of the stack can be removed using <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-POP"
+>gtk_statusbar_pop</A
+>(). A message can be removed from anywhere in the stack if it's message_id was recorded at the time it was added. This is done using <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-REMOVE"
+>gtk_statusbar_remove</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39810"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39812"
+></A
+><H3
+><A
+NAME="GTKSTATUSBAR-STRUCT"
+></A
+>struct GtkStatusbar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkStatusbar;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Contains private data that should be modified with the functions described below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39817"
+></A
+><H3
+><A
+NAME="GTKSTATUSBARMSG"
+></A
+>struct GtkStatusbarMsg</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkStatusbarMsg
+{
+  gchar *text;
+  guint context_id;
+  guint message_id;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Holds the data for a statusbar message. <TT
+CLASS="STRUCTFIELD"
+><I
+>text</I
+></TT
+> holds the actual text string. <TT
+CLASS="STRUCTFIELD"
+><I
+>context_id</I
+></TT
+> is the context that this message is associated with, and <TT
+CLASS="STRUCTFIELD"
+><I
+>message_id</I
+></TT
+> is this particular message's identifier. However, these fields should not be modified directly.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39825"
+></A
+><H3
+><A
+NAME="GTK-STATUSBAR-NEW"
+></A
+>gtk_statusbar_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_statusbar_new               (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> ready for messages.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39832"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39842"
+></A
+><H3
+><A
+NAME="GTK-STATUSBAR-GET-CONTEXT-ID"
+></A
+>gtk_statusbar_get_context_id ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_statusbar_get_context_id    (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *context_description);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns a new context identifier, given a description of the actual context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39850"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>statusbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context_description</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>textual description of what context the new message is
+being used in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an integer id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39868"
+></A
+><H3
+><A
+NAME="GTK-STATUSBAR-PUSH"
+></A
+>gtk_statusbar_push ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_statusbar_push              (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Pushes a new message onto a statusbar's stack.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39877"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>statusbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message's context id, as returned by
+gkt_statusbar_get_context_id().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message to add to the statusbar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message's new message id for use with <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-REMOVE"
+>gtk_statusbar_remove</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39901"
+></A
+><H3
+><A
+NAME="GTK-STATUSBAR-POP"
+></A
+>gtk_statusbar_pop ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_statusbar_pop               (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the message at the top of a <A
+HREF="gtkstatusbar.html"
+>GtkStatusBar</A
+>'s stack.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39909"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>statusbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkstatusbar.html"
+>GtkStatusBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a context identifier.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39923"
+></A
+><H3
+><A
+NAME="GTK-STATUSBAR-REMOVE"
+></A
+>gtk_statusbar_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_statusbar_remove            (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> message_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Forces the removal of a message from a statusbar's stack. The exact context_id and message_id must be specified.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39931"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>statusbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkstatusbar.html"
+>GtkStatusBar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a context identifier.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a message identifier, as returned by <A
+HREF="gtkstatusbar.html#GTK-STATUSBAR-PUSH"
+>gtk_statusbar_push</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39950"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39952"
+></A
+><H3
+><A
+NAME="GTKSTATUSBAR-TEXT-PUSHED"
+></A
+>The &quot;text-pushed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Is emitted whenever a new message gets pushed onto a statusbar's stack.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39961"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>statusbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the context id of the relevant message/statusbar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message that was pushed.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39982"
+></A
+><H3
+><A
+NAME="GTKSTATUSBAR-TEXT-POPPED"
+></A
+>The &quot;text-popped&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkstatusbar.html"
+>GtkStatusbar</A
+> *statusbar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> context_id,
+                                            <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Is emitted whenever a new message is popped off a statusbar's stack.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39991"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>statusbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the context id of the relevant message/statusbar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message that was just popped.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40012"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkdialog.html"
+>GtkDialog</A
+></DT
+><DD
+><P
+>another way of reporting information to the user.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkspinbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktable.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkSpinButton</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTable</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

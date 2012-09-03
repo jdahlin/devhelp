@@ -1,0 +1,3042 @@
+<HTML
+><HEAD
+><TITLE
+>Points, Rectangles and Regions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="General"
+HREF="gdk-general.html"><LINK
+REL="NEXT"
+TITLE="Graphics Contexts"
+HREF="gdk-graphics-contexts.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-general.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-graphics-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-POINTS-RECTANGLES-AND-REGIONS"
+>Points, Rectangles and Regions</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN500"
+></A
+><H2
+>Name</H2
+>Points, Rectangles and Regions&nbsp;--&nbsp;simple graphical data types.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN503"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+>;
+
+struct      <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+>;
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-RECTANGLE-INTERSECT"
+>gdk_rectangle_intersect</A
+>         (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src2,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *dest);
+void        <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-RECTANGLE-UNION"
+>gdk_rectangle_union</A
+>             (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src2,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *dest);
+
+struct      <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>;
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-NEW"
+>gdk_region_new</A
+>                  (void);
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-POLYGON"
+>gdk_region_polygon</A
+>              (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKFILLRULE"
+>GdkFillRule</A
+> fill_rule);
+enum        <A
+HREF="gdk-points-rectangles-and-regions.html#GDKFILLRULE"
+>GdkFillRule</A
+>;
+void        <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-DESTROY"
+>gdk_region_destroy</A
+>              (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region);
+
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGIONS-INTERSECT"
+>gdk_regions_intersect</A
+>           (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGIONS-UNION"
+>gdk_regions_union</A
+>               (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGIONS-SUBTRACT"
+>gdk_regions_subtract</A
+>            (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGIONS-XOR"
+>gdk_regions_xor</A
+>                 (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-UNION-WITH-RECT"
+>gdk_region_union_with_rect</A
+>      (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rect);
+void        <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-OFFSET"
+>gdk_region_offset</A
+>               (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dy);
+void        <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-SHRINK"
+>gdk_region_shrink</A
+>               (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dy);
+
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-EMPTY"
+>gdk_region_empty</A
+>                (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-EQUAL"
+>gdk_region_equal</A
+>                (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region2);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-POINT-IN"
+>gdk_region_point_in</A
+>             (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             int x,
+                                             int y);
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDKOVERLAPTYPE"
+>GdkOverlapType</A
+> <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-RECT-IN"
+>gdk_region_rect_in</A
+>           (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rect);
+enum        <A
+HREF="gdk-points-rectangles-and-regions.html#GDKOVERLAPTYPE"
+>GdkOverlapType</A
+>;
+void        <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-GET-CLIPBOX"
+>gdk_region_get_clipbox</A
+>          (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rectangle);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN574"
+></A
+><H2
+>Description</H2
+><P
+>GDK provides the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+>, <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> and <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> data types for
+representing pixels and sets of pixels on the screen.</P
+><P
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> is a simple structure containing an x and y coordinate of a point.</P
+><P
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> is a structure holding the position and size of a rectangle.
+The intersection of two rectangles can be computed with
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDK-RECTANGLE-INTERSECT"
+>gdk_rectangle_intersect</A
+>(). To find the union of two rectangles use
+<A
+HREF="gdk-points-rectangles-and-regions.html#GDK-RECTANGLE-UNION"
+>gdk_rectangle_union</A
+>().</P
+><P
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> is an opaque data type holding a set of arbitrary pixels, and is
+usually used for clipping graphical operations (see <A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-CLIP-REGION"
+>gdk_gc_set_clip_region</A
+>()).</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN589"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN591"
+></A
+><H3
+><A
+NAME="GDKPOINT"
+></A
+>struct GdkPoint</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkPoint
+{
+  gint16 x;
+  gint16 y;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Defines the x and y coordinates of a point.
+Note that both are defined as <A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> values, so the coordinates are limited
+to between -32,768 and 32,767.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN597"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>x</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>y</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the point.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN612"
+></A
+><H3
+><A
+NAME="GDKRECTANGLE"
+></A
+>struct GdkRectangle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkRectangle
+{
+  gint16 x;
+  gint16 y;
+  guint16 width;
+  guint16 height;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Defines the position and size of a rectangle.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN617"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>x</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the left edge of the rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>y</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the top of the rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>width</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>height</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the rectangle.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN642"
+></A
+><H3
+><A
+NAME="GDK-RECTANGLE-INTERSECT"
+></A
+>gdk_rectangle_intersect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_rectangle_intersect         (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src2,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *dest);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calculates the intersection of two rectangles.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN651"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the intersection of <TT
+CLASS="PARAMETER"
+><I
+>src1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>src2</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the rectangles intersect.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN676"
+></A
+><H3
+><A
+NAME="GDK-RECTANGLE-UNION"
+></A
+>gdk_rectangle_union ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_rectangle_union             (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *src2,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *dest);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calculates the union of two rectangles.
+The union of rectangles <TT
+CLASS="PARAMETER"
+><I
+>src1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>src2</I
+></TT
+> is the smallest rectangle which
+includes both <TT
+CLASS="PARAMETER"
+><I
+>src1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>src2</I
+></TT
+> within it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN688"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the union of <TT
+CLASS="PARAMETER"
+><I
+>src1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>src2</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN709"
+></A
+><H3
+><A
+NAME="GDKREGION"
+></A
+>struct GdkRegion</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkRegion
+{
+  gpointer user_data;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A GdkRegion represents a set of pixels on the screen.
+The only user-visible field of the structure is the user_data member, which
+can be used to attach arbitrary data to the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN715"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>user_data</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>arbitrary data attached to the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN726"
+></A
+><H3
+><A
+NAME="GDK-REGION-NEW"
+></A
+>gdk_region_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  gdk_region_new                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new empty <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN733"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new empty <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN743"
+></A
+><H3
+><A
+NAME="GDK-REGION-POLYGON"
+></A
+>gdk_region_polygon ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  gdk_region_polygon              (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKFILLRULE"
+>GdkFillRule</A
+> fill_rule);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> using the polygon defined by a number of points.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN753"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>points</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> structs.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>npoints</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements in the <TT
+CLASS="PARAMETER"
+><I
+>points</I
+></TT
+> array.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fill_rule</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>specifies which pixels are included in the region when the polygon
+overlaps itself.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> based on the given polygon.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN777"
+></A
+><H3
+><A
+NAME="GDKFILLRULE"
+></A
+>enum GdkFillRule</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_EVEN_ODD_RULE,
+  GDK_WINDING_RULE
+} GdkFillRule;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The method for determining which pixels are included in a region, when
+creating a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> from a polygon.
+The fill rule is only relevant for polygons which overlap themselves.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN783"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_EVEN_ODD_RULE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>areas which are overlapped an odd number of times are
+included in the region, while areas overlapped an even number of times are not.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_WINDING_RULE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>overlapping areas are always included.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN796"
+></A
+><H3
+><A
+NAME="GDK-REGION-DESTROY"
+></A
+>gdk_region_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_region_destroy              (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN803"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN813"
+></A
+><H3
+><A
+NAME="GDK-REGIONS-INTERSECT"
+></A
+>gdk_regions_intersect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  gdk_regions_intersect           (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the intersection of two regions.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN821"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the intersection of <TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN842"
+></A
+><H3
+><A
+NAME="GDK-REGIONS-UNION"
+></A
+>gdk_regions_union ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  gdk_regions_union               (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the union of two regions.
+This is all pixels in either of <TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN852"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the union of <TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN873"
+></A
+><H3
+><A
+NAME="GDK-REGIONS-SUBTRACT"
+></A
+>gdk_regions_subtract ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  gdk_regions_subtract            (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Subtracts one region from another.
+The result is a region containing all the pixels which are in <TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+>, but
+which are not in <TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN883"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> to subtract from <TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+> - <TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN905"
+></A
+><H3
+><A
+NAME="GDK-REGIONS-XOR"
+></A
+>gdk_regions_xor ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  gdk_regions_xor                 (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *source2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the difference between the union and the intersection of two regions.
+This is a region containing the pixels that are in one of the source regions,
+but which are not in both.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN913"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the difference between the union and the intersection of <TT
+CLASS="PARAMETER"
+><I
+>source1</I
+></TT
+>
+and <TT
+CLASS="PARAMETER"
+><I
+>source2</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN934"
+></A
+><H3
+><A
+NAME="GDK-REGION-UNION-WITH-RECT"
+></A
+>gdk_region_union_with_rect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>*  gdk_region_union_with_rect      (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rect);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the union of a region and a rectangle.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN942"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rect</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the union of <TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>rect</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN963"
+></A
+><H3
+><A
+NAME="GDK-REGION-OFFSET"
+></A
+>gdk_region_offset ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_region_offset               (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Moves a region the specified distance.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN971"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the distance to move the region horizontally.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the distance to move the region vertically.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN989"
+></A
+><H3
+><A
+NAME="GDK-REGION-SHRINK"
+></A
+>gdk_region_shrink ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_region_shrink               (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> dy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Resizes a region by the specified amount.
+Positive values shrink the region. Negative values expand it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN997"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels to shrink the region horizontally.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels to shrink the region vertically.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1015"
+></A
+><H3
+><A
+NAME="GDK-REGION-EMPTY"
+></A
+>gdk_region_empty ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_region_empty                (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> is empty.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1023"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if <TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+> is empty.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1038"
+></A
+><H3
+><A
+NAME="GDK-REGION-EQUAL"
+></A
+>gdk_region_equal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_region_equal                (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region1,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if the two regions are the same.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1046"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if <TT
+CLASS="PARAMETER"
+><I
+>region1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>region2</I
+></TT
+> are equal.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1067"
+></A
+><H3
+><A
+NAME="GDK-REGION-POINT-IN"
+></A
+>gdk_region_point_in ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_region_point_in             (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             int x,
+                                             int y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if a point is in a region.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1074"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of a point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of a point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the point is in <TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1097"
+></A
+><H3
+><A
+NAME="GDK-REGION-RECT-IN"
+></A
+>gdk_region_rect_in ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKOVERLAPTYPE"
+>GdkOverlapType</A
+> gdk_region_rect_in           (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rect);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Tests whether a rectangle is within a region.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1105"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rect</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_OVERLAP_RECTANGLE_IN, GDK_OVERLAP_RECTANGLE_OUT, or
+GDK_OVERLAP_RECTANGLE_PART, depending on whether the rectangle is inside,
+outside, or partly inside the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>, respectively.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1125"
+></A
+><H3
+><A
+NAME="GDKOVERLAPTYPE"
+></A
+>enum GdkOverlapType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_OVERLAP_RECTANGLE_IN,
+  GDK_OVERLAP_RECTANGLE_OUT,
+  GDK_OVERLAP_RECTANGLE_PART
+} GdkOverlapType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the possible values returned by <A
+HREF="gdk-points-rectangles-and-regions.html#GDK-REGION-RECT-IN"
+>gdk_region_rect_in</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1131"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_OVERLAP_RECTANGLE_IN</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if the rectangle is inside the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_OVERLAP_RECTANGLE_OUT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if the rectangle is outside the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_OVERLAP_RECTANGLE_PART</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if the rectangle is partly inside the <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1151"
+></A
+><H3
+><A
+NAME="GDK-REGION-GET-CLIPBOX"
+></A
+>gdk_region_get_clipbox ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_region_get_clipbox          (<A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+> *region,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> *rectangle);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the smallest rectangle which includes the entire <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1159"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-points-rectangles-and-regions.html#GDKREGION"
+>GdkRegion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rectangle</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returns the smallest rectangle which includes all of <TT
+CLASS="PARAMETER"
+><I
+>region</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-general.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-graphics-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>General</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Graphics Contexts</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

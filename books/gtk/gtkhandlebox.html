@@ -1,0 +1,1211 @@
+<HTML
+><HEAD
+><TITLE
+>GtkHandleBox</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkGammaCurve"
+HREF="gtkgammacurve.html"><LINK
+REL="NEXT"
+TITLE="GtkHButtonBox"
+HREF="gtkhbuttonbox.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkgammacurve.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkhbuttonbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKHANDLEBOX"
+>GtkHandleBox</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN26892"
+></A
+><H2
+>Name</H2
+>GtkHandleBox&nbsp;--&nbsp;a widget for  detachable window portions.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN26895"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkhandlebox.html#GTKHANDLEBOX-STRUCT"
+>GtkHandleBox</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkhandlebox.html#GTK-HANDLE-BOX-NEW"
+>gtk_handle_box_new</A
+>              (void);
+void        <A
+HREF="gtkhandlebox.html#GTK-HANDLE-BOX-SET-SHADOW-TYPE"
+>gtk_handle_box_set_shadow_type</A
+>  (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handle_box,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> type);
+void        <A
+HREF="gtkhandlebox.html#GTK-HANDLE-BOX-SET-HANDLE-POSITION"
+>gtk_handle_box_set_handle_position</A
+>
+                                            (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handle_box,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> position);
+void        <A
+HREF="gtkhandlebox.html#GTK-HANDLE-BOX-SET-SNAP-EDGE"
+>gtk_handle_box_set_snap_edge</A
+>    (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handle_box,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> edge);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26910"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----GtkHandleBox</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26917"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkhandlebox.html#GTKHANDLEBOX--SHADOW"
+>shadow</A
+>&quot;               <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+>        : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26922"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkhandlebox.html#GTKHANDLEBOX-CHILD-ATTACHED"
+>child-attached</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handlebox,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkhandlebox.html#GTKHANDLEBOX-CHILD-DETACHED"
+>child-detached</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handlebox,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26933"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> widget allows a portion of a window to be "torn
+off". It is a bin widget which displays its child and a handle that
+the user can drag to tear off a separate window (the <I
+CLASS="FIRSTTERM"
+>float
+window</I
+>) containing the child widget. A thin
+<I
+CLASS="FIRSTTERM"
+>ghost</I
+> is drawn in the original location of the
+handlebox. By dragging the separate window back to its original
+location, it can be reattached.</P
+><P
+>When reattaching, the ghost and float window, must be aligned
+along one of the edges, the <I
+CLASS="FIRSTTERM"
+>snap edge</I
+>.
+This either can be specified by the application programmer
+explicitely, or GTK+ will pick a reasonable default based
+on the handle position.</P
+><P
+>To make detaching and reattaching the handlebox as minimally confusing
+as possible to the user, it is important to set the snap edge so that
+the snap edge does not move when the handlebox is deattached. For
+instance, if the handlebox is packed at the bottom of a VBox, then
+when the handlebox is detached, the bottom edge of the handlebox's
+allocation will remain fixed as the height of the handlebox shrinks,
+so the snap edge should be set to <TT
+CLASS="LITERAL"
+>GTK_POS_BOTTOM</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26943"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26945"
+></A
+><H3
+><A
+NAME="GTKHANDLEBOX-STRUCT"
+></A
+>struct GtkHandleBox</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkHandleBox;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkhandlebox.html#GTKHANDLEBOX-STRUCT"
+>GtkHandleBox</A
+> struct contains the following fields.
+(These fields should be considered read-only. They should never be set by
+an application.)
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26951"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkShadowType shadow_type;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The shadow type for the entry. (See <A
+HREF="gtkhandlebox.html#GTK-HANDLE-BOX-SET-SHADOW-TYPE"
+>gtk_handle_box_set_shadow_type</A
+>()).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkPositionType handle_position;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The position of the handlebox's handle with respect
+to the child. (See <A
+HREF="gtkhandlebox.html#GTK-HANDLE-BOX-SET-HANDLE-POSITION"
+>gtk_handle_box_set_handle_position</A
+>())</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gint snap_edge;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A value of type GtkPosition type indicating snap edge for the widget.
+(See gtk_handle_box_set_snap_edge). The value of -1 indicates
+that this value has not been set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> child_detached;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A boolean value indicating whether the handlebox's
+child is attached or detached.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26972"
+></A
+><H3
+><A
+NAME="GTK-HANDLE-BOX-NEW"
+></A
+>gtk_handle_box_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_handle_box_new              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new handle box.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26978"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26988"
+></A
+><H3
+><A
+NAME="GTK-HANDLE-BOX-SET-SHADOW-TYPE"
+></A
+>gtk_handle_box_set_shadow_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_handle_box_set_shadow_type  (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handle_box,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the type of shadow to be drawn around the border
+of the </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26995"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handle_box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the shadow type.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN27009"
+></A
+><H3
+><A
+NAME="GTK-HANDLE-BOX-SET-HANDLE-POSITION"
+></A
+>gtk_handle_box_set_handle_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_handle_box_set_handle_position
+                                            (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handle_box,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the side of the handlebox where the handle is drawn.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN27016"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handle_box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the side of the handlebox where the handle should be drawn.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN27030"
+></A
+><H3
+><A
+NAME="GTK-HANDLE-BOX-SET-SNAP-EDGE"
+></A
+>gtk_handle_box_set_snap_edge ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_handle_box_set_snap_edge    (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handle_box,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPOSITIONTYPE"
+>GtkPositionType</A
+> edge);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the snap edge of a handlebox. The snap edge is
+the edge of the detached child that must be aligned
+with the corresponding edge of the "ghost" left
+behind when the child was detached to reattach
+the torn-off window. Usually, the snap edge should
+be chosen so that it stays in the same place on
+the screen when the handlebox is torn off.</P
+><P
+>If the snap edge is not set, then an appropriate value
+will be guessed from the handle position. If the
+handle position is <TT
+CLASS="LITERAL"
+>GTK_POS_RIGHT</TT
+> or <TT
+CLASS="LITERAL"
+>GTK_POS_LEFT</TT
+>,
+then the snap edge will be <TT
+CLASS="LITERAL"
+>GTK_POS_TOP</TT
+>, otherwise
+it will be <TT
+CLASS="LITERAL"
+>GTK_POS_LEFT</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN27042"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handle_box</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>edge</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the snap edge, or -1 to unset the value; in which
+case GTK+ will try to guess an appropriate value
+in the future.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN27056"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKHANDLEBOX--SHADOW"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>shadow</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> : Read / Write)</DT
+><DD
+><P
+>Determines the shadow type for the handlebox.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN27066"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN27068"
+></A
+><H3
+><A
+NAME="GTKHANDLEBOX-CHILD-ATTACHED"
+></A
+>The &quot;child-attached&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handlebox,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted when the contents of the
+handlebox are reattached to the main window.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN27076"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handlebox</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child widget of the handlebox.
+         (this argument provides no extra information
+          and is here only for backwards-compatibility)&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN27093"
+></A
+><H3
+><A
+NAME="GTKHANDLEBOX-CHILD-DETACHED"
+></A
+>The &quot;child-detached&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkhandlebox.html"
+>GtkHandleBox</A
+> *handlebox,
+                                            <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted when the contents of the
+handlebox are detached from the main window.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN27101"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handlebox</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child widget of the handlebox. 
+         (this argument provides no extra information
+          and is here only for backwards-compatibility)&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkgammacurve.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkhbuttonbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkGammaCurve</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkHButtonBox</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

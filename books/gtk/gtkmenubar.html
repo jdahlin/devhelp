@@ -1,0 +1,985 @@
+<HTML
+><HEAD
+><TITLE
+>GtkMenuBar</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkMenu"
+HREF="gtkmenu.html"><LINK
+REL="NEXT"
+TITLE="GtkMenuItem"
+HREF="gtkmenuitem.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkmenu.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKMENUBAR"
+>GtkMenuBar</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN31310"
+></A
+><H2
+>Name</H2
+>GtkMenuBar&nbsp;--&nbsp;A subclass widget for <A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+> which holds <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> widgets</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN31315"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkmenubar.html#GTKMENUBAR-STRUCT"
+>GtkMenuBar</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkmenubar.html#GTK-MENU-BAR-NEW"
+>gtk_menu_bar_new</A
+>                (void);
+void        <A
+HREF="gtkmenubar.html#GTK-MENU-BAR-APPEND"
+>gtk_menu_bar_append</A
+>             (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtkmenubar.html#GTK-MENU-BAR-PREPEND"
+>gtk_menu_bar_prepend</A
+>            (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtkmenubar.html#GTK-MENU-BAR-INSERT"
+>gtk_menu_bar_insert</A
+>             (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtkmenubar.html#GTK-MENU-BAR-SET-SHADOW-TYPE"
+>gtk_menu_bar_set_shadow_type</A
+>    (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> type);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31334"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+>
+                     +----GtkMenuBar</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31341"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkmenubar.html#GTKMENUBAR--SHADOW"
+>shadow</A
+>&quot;               <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+>        : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31346"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> is a subclass of <A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+> which contains one to many <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>. The result is a standard menu bar which can hold many menu items. <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> allows for a shadow type to be set for aesthetic purposes. The shadow types are defined in the <A
+HREF="gtkmenubar.html#GTK-MENU-BAR-SET-SHADOW-TYPE"
+>gtk_menu_bar_set_shadow_type</A
+> function.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31354"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31356"
+></A
+><H3
+><A
+NAME="GTKMENUBAR-STRUCT"
+></A
+>struct GtkMenuBar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkMenuBar;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> struct contains the following fields. (These fields should be considered read-only.  They should never be set by an application.)</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31362"
+></A
+><H3
+><A
+NAME="GTK-MENU-BAR-NEW"
+></A
+>gtk_menu_bar_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_menu_bar_new                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates the new <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31369"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31379"
+></A
+><H3
+><A
+NAME="GTK-MENU-BAR-APPEND"
+></A
+>gtk_menu_bar_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_bar_append             (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to the end of the GtkMenuBar</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31387"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_bar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to add
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31402"
+></A
+><H3
+><A
+NAME="GTK-MENU-BAR-PREPEND"
+></A
+>gtk_menu_bar_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_bar_prepend            (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to the beginning of the GtkMenuBar</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31410"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_bar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to add
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31425"
+></A
+><H3
+><A
+NAME="GTK-MENU-BAR-INSERT"
+></A
+>gtk_menu_bar_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_bar_insert             (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to the GtkMenuBar at the position defined by <TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31435"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_bar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> to add</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position in the item list where the <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is added.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31455"
+></A
+><H3
+><A
+NAME="GTK-MENU-BAR-SET-SHADOW-TYPE"
+></A
+>gtk_menu_bar_set_shadow_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_bar_set_shadow_type    (<A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> *menu_bar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the shadow type to use on the GtkMenuBar. The shadow types to use are:
+GTK_SHADOW_NONE, GTK_SHADOW_IN, GTK_SHADOW_OUT, GTK_SHADOW_ETCHED_IN, and GTK_SHADOW_ETCHED_OUT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31462"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_bar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the GtkShadowtype
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31476"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKMENUBAR--SHADOW"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>shadow</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKSHADOWTYPE"
+>GtkShadowType</A
+> : Read / Write)</DT
+><DD
+><P
+>Used by <A
+HREF="gtkmenubar.html"
+>GtkMenuBar</A
+> to determine the shadow type.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31487"
+></A
+><H2
+>See Also</H2
+><P
+><A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+>, <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+>, <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkmenu.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkMenu</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkMenuItem</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

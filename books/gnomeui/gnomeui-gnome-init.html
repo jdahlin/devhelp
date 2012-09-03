@@ -1,0 +1,1039 @@
+<HTML
+><HEAD
+><TITLE
+>gnome-init</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="Gnome User Interface Library Reference Manual"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Gnome User Interface Library"
+HREF="libgnomeui.html"><LINK
+REL="PREVIOUS"
+TITLE="gnome-icon-text"
+HREF="gnomeui-gnome-icon-text.html"><LINK
+REL="NEXT"
+TITLE="gnome-mdi-session"
+HREF="gnomeui-gnome-mdi-session.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>Gnome User Interface Library Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeui-gnome-icon-text.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="libgnomeui.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeui-gnome-mdi-session.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GNOMEUI-GNOME-INIT"
+>gnome-init</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4399"
+></A
+><H2
+>Name</H2
+>gnome-init&nbsp;--&nbsp;Initialize GNOME libraries.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4402"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gnome.h&gt;
+
+
+int         <A
+HREF="gnomeui-gnome-init.html#GNOME-INIT"
+>gnome_init</A
+>                      (const char *app_id,
+                                             const char *app_version,
+                                             int argc,
+                                             char **argv);
+int         <A
+HREF="gnomeui-gnome-init.html#GNOME-INIT-WITH-POPT-TABLE"
+>gnome_init_with_popt_table</A
+>      (const char *app_id,
+                                             const char *app_version,
+                                             int argc,
+                                             char **argv,
+                                             const struct poptOption *options,
+                                             int flags,
+                                             poptContext *return_ctx);
+struct      <A
+HREF="gnomeui-gnome-init.html#GNOMEGURU-STRUCT"
+>GnomeGuru</A
+>;
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-NEW"
+>gnome_guru_new</A
+>                  (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *graphic,
+                                             <A
+HREF="gnomedialog.html"
+>GnomeDialog</A
+> *dialog);
+void        <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-CONSTRUCT"
+>gnome_guru_construct</A
+>            (GnomeGuru *guru,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *graphic,
+                                             <A
+HREF="gnomedialog.html"
+>GnomeDialog</A
+> *dialog);
+void        <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-APPEND-PAGE"
+>gnome_guru_append_page</A
+>          (GnomeGuru *guru,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *widget);
+void        <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-NEXT-SET-SENSITIVE"
+>gnome_guru_next_set_sensitive</A
+>   (GnomeGuru *guru,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> sensitivity);
+void        <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-BACK-SET-SENSITIVE"
+>gnome_guru_back_set_sensitive</A
+>   (GnomeGuru *guru,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> sensitivity);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-CURRENT-PAGE"
+>gnome_guru_current_page</A
+>         (GnomeGuru *guru);
+#define     <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-CAPS"
+>GNOME_GURU</A
+>                      (obj)
+#define     <A
+HREF="gnomeui-gnome-init.html#GNOME-IS-GURU-CAPS"
+>GNOME_IS_GURU</A
+>                   (obj)
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-GET-TYPE"
+>gnome_guru_get_type</A
+>             (void);
+#define     <A
+HREF="gnomeui-gnome-init.html#GNOME-GURU-CLASS-CAPS"
+>GNOME_GURU_CLASS</A
+>                (klass)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4438"
+></A
+><H2
+>Description</H2
+><P
+>    These routines initialize the GNOME libraries in an application.  As
+    part of the initialization these routines do command line argument
+    parsing.
+  </P
+><P
+>    The <A
+HREF="gnomeui-gnome-init.html#GNOME-INIT"
+>gnome_init</A
+>() function family initializes the Gtk+ toolkit, the
+    Imlib graphics library, initializes session management for the
+    application and loads the user preferences.  During this process it
+    parses the command line arguments and dispatches the arguments to
+    the proper argument parsers.
+  </P
+><P
+>    To provide your own arguments, you need to provide a
+    <SPAN
+CLASS="STRUCTNAME"
+>poptOption</SPAN
+> array (see the man page for
+    popt(3) for more information) that contains the list of arguments
+    that your application recognizes.
+  </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4445"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4447"
+></A
+><H3
+><A
+NAME="GNOME-INIT"
+></A
+>gnome_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_init                      (const char *app_id,
+                                             const char *app_version,
+                                             int argc,
+                                             char **argv);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initializes the application.  This sets up all of the GNOME
+internals and prepares them (imlib, gdk, session-management, triggers,
+sound, user preferences)</P
+><P
+>    </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4453"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>app_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Application id.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>app_version</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Application version.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> argument count (for example argc as received by main)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> argument vector (for example argv as received by main)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4478"
+></A
+><H3
+><A
+NAME="GNOME-INIT-WITH-POPT-TABLE"
+></A
+>gnome_init_with_popt_table ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         gnome_init_with_popt_table      (const char *app_id,
+                                             const char *app_version,
+                                             int argc,
+                                             char **argv,
+                                             const struct poptOption *options,
+                                             int flags,
+                                             poptContext *return_ctx);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initializes the application.  This sets up all of the GNOME
+internals and prepares them (imlib, gdk, session-management, triggers,
+sound, user preferences)</P
+><P
+>Unlike gnome_init, with gnome_init_with_popt_table you can provide
+a table of popt options (popt is the command line argument parsing
+library).</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4487"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>app_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Application id.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>app_version</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Application version.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> argument count (for example argc as received by main)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> argument vector (for example argv as received by main)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>options</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> poptOption table with options to parse</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> popt flags.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>return_ctx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> if non-NULL, the popt context is returned here.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4524"
+></A
+><H3
+><A
+NAME="GNOMEGURU-STRUCT"
+></A
+>struct GnomeGuru</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GnomeGuru;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4528"
+></A
+><H3
+><A
+NAME="GNOME-GURU-NEW"
+></A
+>gnome_guru_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_guru_new                  (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *graphic,
+                                             <A
+HREF="gnomedialog.html"
+>GnomeDialog</A
+> *dialog);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4536"
+></A
+><H3
+><A
+NAME="GNOME-GURU-CONSTRUCT"
+></A
+>gnome_guru_construct ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_guru_construct            (GnomeGuru *guru,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *graphic,
+                                             <A
+HREF="gnomedialog.html"
+>GnomeDialog</A
+> *dialog);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4544"
+></A
+><H3
+><A
+NAME="GNOME-GURU-APPEND-PAGE"
+></A
+>gnome_guru_append_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_guru_append_page          (GnomeGuru *guru,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *widget);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4551"
+></A
+><H3
+><A
+NAME="GNOME-GURU-NEXT-SET-SENSITIVE"
+></A
+>gnome_guru_next_set_sensitive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_guru_next_set_sensitive   (GnomeGuru *guru,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> sensitivity);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4557"
+></A
+><H3
+><A
+NAME="GNOME-GURU-BACK-SET-SENSITIVE"
+></A
+>gnome_guru_back_set_sensitive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_guru_back_set_sensitive   (GnomeGuru *guru,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> sensitivity);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4563"
+></A
+><H3
+><A
+NAME="GNOME-GURU-CURRENT-PAGE"
+></A
+>gnome_guru_current_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_guru_current_page         (GnomeGuru *guru);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4569"
+></A
+><H3
+><A
+NAME="GNOME-GURU-CAPS"
+></A
+>GNOME_GURU()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_GURU(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_GURU, GnomeGuru))</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4573"
+></A
+><H3
+><A
+NAME="GNOME-IS-GURU-CAPS"
+></A
+>GNOME_IS_GURU()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_IS_GURU(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_GURU))</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4577"
+></A
+><H3
+><A
+NAME="GNOME-GURU-GET-TYPE"
+></A
+>gnome_guru_get_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gnome_guru_get_type             (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4582"
+></A
+><H3
+><A
+NAME="GNOME-GURU-CLASS-CAPS"
+></A
+>GNOME_GURU_CLASS()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GNOME_GURU_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_GURU, GnomeGuruClass))</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4586"
+></A
+><H2
+>See Also</H2
+><P
+>    Manual page popt(3).
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomeui-gnome-icon-text.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="libgnomeui.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomeui-gnome-mdi-session.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>gnome-icon-text</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>gnome-mdi-session</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

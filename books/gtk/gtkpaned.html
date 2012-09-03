@@ -1,0 +1,1510 @@
+<HTML
+><HEAD
+><TITLE
+>GtkPaned</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkPacker"
+HREF="gtkpacker.html"><LINK
+REL="NEXT"
+TITLE="GtkPixmap"
+HREF="gtkpixmap.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkpacker.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkpixmap.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKPANED"
+>GtkPaned</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN35702"
+></A
+><H2
+>Name</H2
+>GtkPaned&nbsp;--&nbsp;Base class for widgets with two adjustable panes</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN35705"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkpaned.html#GTKPANED-STRUCT"
+>GtkPaned</A
+>;
+void        <A
+HREF="gtkpaned.html#GTK-PANED-ADD1"
+>gtk_paned_add1</A
+>                  (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+void        <A
+HREF="gtkpaned.html#GTK-PANED-ADD2"
+>gtk_paned_add2</A
+>                  (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);
+#define     <A
+HREF="gtkpaned.html#GTK-PANED-HANDLE-SIZE"
+>gtk_paned_handle_size</A
+>
+#define     <A
+HREF="gtkpaned.html#GTK-PANED-GUTTER-SIZE"
+>gtk_paned_gutter_size</A
+>
+void        <A
+HREF="gtkpaned.html#GTK-PANED-COMPUTE-POSITION"
+>gtk_paned_compute_position</A
+>      (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allocation,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> child1_req,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> child2_req);
+void        <A
+HREF="gtkpaned.html#GTK-PANED-PACK1"
+>gtk_paned_pack1</A
+>                 (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> resize,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> shrink);
+void        <A
+HREF="gtkpaned.html#GTK-PANED-PACK2"
+>gtk_paned_pack2</A
+>                 (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> resize,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> shrink);
+void        <A
+HREF="gtkpaned.html#GTK-PANED-SET-GUTTER-SIZE"
+>gtk_paned_set_gutter_size</A
+>       (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> size);
+void        <A
+HREF="gtkpaned.html#GTK-PANED-SET-HANDLE-SIZE"
+>gtk_paned_set_handle_size</A
+>       (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> size);
+void        <A
+HREF="gtkpaned.html#GTK-PANED-SET-POSITION"
+>gtk_paned_set_position</A
+>          (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35741"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkPaned</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35747"
+></A
+><H2
+>Description</H2
+><P
+>GtkPaned is the base class for widgets with two panes,
+arranged either horizontally (<A
+HREF="gtkhpaned.html"
+>GtkHPaned</A
+>) or
+vertically (<A
+HREF="gtkvpaned.html"
+>GtkVPaned</A
+>). Child widgets are 
+added to the panes of the widget with
+<A
+HREF="gtkpaned.html#GTK-PANED-PACK1"
+>gtk_paned_pack1</A
+>() and <A
+HREF="gtkpaned.html#GTK-PANED-PACK2"
+>gtk_paned_pack2</A
+>(). The division
+beween the two children is set by default from the
+size requests of the children, but it can be adjusted
+by the user.</P
+><P
+>A paned widget draws a separator between the two
+child widgets and a small handle that the user
+can drag to adjust the division. It does not
+draw any relief around the children or around
+the separator. (The space in which the separator
+is called the gutter). Often, it is useful
+to put each child inside a <A
+HREF="gtkframe.html"
+>GtkFrame</A
+> with the
+shadow type set to <TT
+CLASS="LITERAL"
+>GTK_SHADOW_IN</TT
+> so that the
+gutter appears as a ridge.</P
+><P
+>Each child has two options that can be set, 
+<TT
+CLASS="PARAMETER"
+><I
+>resize</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>shrink</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>resize</I
+></TT
+> is true, then when the
+<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> is resized, that child will expand
+or shrink along with the paned widget. If <TT
+CLASS="PARAMETER"
+><I
+>shrink</I
+></TT
+>
+is true, then when that child can be made smaller
+than it's requisition by the user. Setting <TT
+CLASS="PARAMETER"
+><I
+>shrink</I
+></TT
+>
+to FALSE allows the application to set a minimum
+size. If <TT
+CLASS="PARAMETER"
+><I
+>resize</I
+></TT
+> is false for both children, then
+this is treated as if <TT
+CLASS="PARAMETER"
+><I
+>resize</I
+></TT
+> is true for both
+children.</P
+><P
+>The application can set the position of the slider
+as if it were set by the user, by calling
+<A
+HREF="gtkpaned.html#GTK-PANED-SET-POSITION"
+>gtk_paned_set_position</A
+>().</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN35768"
+></A
+><P
+><B
+>Example 1.  Creating a paned widget with minimum sizes </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GtkWidget *hpaned = <A
+HREF="gtkhpaned.html#GTK-HPANED-NEW"
+>gtk_hpaned_new</A
+>();
+GtkWidget *frame1 = gtk_frame_new(NULL);
+GtkWidget *frame2 = gtk_frame_new(NULL);
+gtk_frame_set_shadow_type (GTK_FRAME (frame1), GTK_SHADOW_IN);
+gtk_frame_set_shadow_type (GTK_FRAME (frame2), GTK_SHADOW_IN);
+
+gtk_widget_set_usize (hpaned, 200 + GTK_PANED (hpaned)-&#62;gutter_size, -1);
+
+gtk_paned_pack1 (GTK_PANED (hpaned), frame1, TRUE, FALSE);
+gtk_widget_set_usize (frame1, 50, -1);
+
+gtk_paned_pack2 (GTK_PANED (hpaned), frame1, FALSE, FALSE);
+gtk_widget_set_usize (frame1, 50, -1);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35772"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35774"
+></A
+><H3
+><A
+NAME="GTKPANED-STRUCT"
+></A
+>struct GtkPaned</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPaned {
+  guint16 handle_size;
+  guint16 gutter_size;
+
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35779"
+></A
+><H3
+><A
+NAME="GTK-PANED-ADD1"
+></A
+>gtk_paned_add1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_add1                  (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a child to the top or left pane with
+default parameters. This is equivalent
+to
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>gtk_paned_pack1(paned, FALSE, TRUE);</PRE
+></TD
+></TR
+></TABLE
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35787"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a paned widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to add
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35800"
+></A
+><H3
+><A
+NAME="GTK-PANED-ADD2"
+></A
+>gtk_paned_add2 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_add2                  (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a child to the bottom or right pane with default
+parameters. This is equivalent to 
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>gtk_paned_pack1(paned, FALSE, FALSE);</PRE
+></TD
+></TR
+></TABLE
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35808"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a paned widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to add
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35821"
+></A
+><H3
+><A
+NAME="GTK-PANED-HANDLE-SIZE"
+></A
+>gtk_paned_handle_size</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	gtk_paned_handle_size			gtk_paned_set_handle_size</PRE
+></TD
+></TR
+></TABLE
+><P
+>Old name for <A
+HREF="gtkpaned.html#GTK-PANED-SET-HANDLE-SIZE"
+>gtk_paned_set_handle_size</A
+>()</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35827"
+></A
+><H3
+><A
+NAME="GTK-PANED-GUTTER-SIZE"
+></A
+>gtk_paned_gutter_size</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	gtk_paned_gutter_size			gtk_paned_set_gutter_size</PRE
+></TD
+></TR
+></TABLE
+><P
+>Old name for <A
+HREF="gtkpaned.html#GTK-PANED-SET-GUTTER-SIZE"
+>gtk_paned_set_gutter_size</A
+>()</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35833"
+></A
+><H3
+><A
+NAME="GTK-PANED-COMPUTE-POSITION"
+></A
+>gtk_paned_compute_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_compute_position      (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allocation,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> child1_req,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> child2_req);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function used by <A
+HREF="gtkhpaned.html"
+>GtkHPaned</A
+> and <A
+HREF="gtkvpaned.html"
+>GtkVPaned</A
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35844"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>allocation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child1_req</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child2_req</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35865"
+></A
+><H3
+><A
+NAME="GTK-PANED-PACK1"
+></A
+>gtk_paned_pack1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_pack1                 (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> resize,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> shrink);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a child to the top or left pane.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35874"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a paned widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to add</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>resize</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>should this child expand when the paned widget is resized.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>shrink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>can this child be made smaller than its requsition.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35895"
+></A
+><H3
+><A
+NAME="GTK-PANED-PACK2"
+></A
+>gtk_paned_pack2 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_pack2                 (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> resize,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> shrink);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a child to the bottom or right pane.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35904"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a paned widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child to add</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>resize</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>should this child expand when the paned widget is resized.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>shrink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>can this child be made smaller than its requsition.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35925"
+></A
+><H3
+><A
+NAME="GTK-PANED-SET-GUTTER-SIZE"
+></A
+>gtk_paned_set_gutter_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_set_gutter_size       (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the width of the gutter. (The area between the two panes).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35932"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a paned widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the widget in pixels
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35945"
+></A
+><H3
+><A
+NAME="GTK-PANED-SET-HANDLE-SIZE"
+></A
+>gtk_paned_set_handle_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_set_handle_size       (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the the handle size to <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> x <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> pixels.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35954"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a paned widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the size in pixels
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35967"
+></A
+><H3
+><A
+NAME="GTK-PANED-SET-POSITION"
+></A
+>gtk_paned_set_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_paned_set_position          (<A
+HREF="gtkpaned.html"
+>GtkPaned</A
+> *paned,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the position of the separator, as if set by the user.
+If position is negative, the remembered position is
+forgotten, and the division is recomputed from the
+the requisitions of the children.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35974"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>paned</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a paned widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new position of the separator.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkpacker.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkpixmap.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPacker</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPixmap</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

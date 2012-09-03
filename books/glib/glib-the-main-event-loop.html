@@ -1,0 +1,3554 @@
+<HTML
+><HEAD
+><TITLE
+>The Main Event Loop</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Core Application Support"
+HREF="glib-core.html"><LINK
+REL="PREVIOUS"
+TITLE="GLib Core Application Support"
+HREF="glib-core.html"><LINK
+REL="NEXT"
+TITLE="Threads"
+HREF="glib-threads.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-threads.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-THE-MAIN-EVENT-LOOP"
+>The Main Event Loop</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN2116"
+></A
+><H2
+>Name</H2
+>The Main Event Loop&nbsp;--&nbsp;manages all available sources of events.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN2119"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>;
+<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>*  <A
+HREF="glib-the-main-event-loop.html#G-MAIN-NEW"
+>g_main_new</A
+>                      (<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> is_running);
+void        <A
+HREF="glib-the-main-event-loop.html#G-MAIN-DESTROY"
+>g_main_destroy</A
+>                  (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);
+void        <A
+HREF="glib-the-main-event-loop.html#G-MAIN-RUN"
+>g_main_run</A
+>                      (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-MAIN-IS-RUNNING"
+>g_main_is_running</A
+>               (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-MAIN-PENDING"
+>g_main_pending</A
+>                  (void);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-MAIN-ITERATION"
+>g_main_iteration</A
+>                (<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> may_block);
+void        <A
+HREF="glib-the-main-event-loop.html#G-MAIN-QUIT"
+>g_main_quit</A
+>                     (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);
+
+#define     <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-CAPS"
+>G_PRIORITY_HIGH</A
+>
+#define     <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-CAPS"
+>G_PRIORITY_DEFAULT</A
+>
+#define     <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-IDLE-CAPS"
+>G_PRIORITY_HIGH_IDLE</A
+>
+#define     <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-IDLE-CAPS"
+>G_PRIORITY_DEFAULT_IDLE</A
+>
+#define     <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-LOW-CAPS"
+>G_PRIORITY_LOW</A
+>
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-the-main-event-loop.html#G-TIMEOUT-ADD"
+>g_timeout_add</A
+>                   (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> interval,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-the-main-event-loop.html#G-TIMEOUT-ADD-FULL"
+>g_timeout_add_full</A
+>              (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> interval,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (<A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>*GSourceFunc</A
+>)                  (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-the-main-event-loop.html#G-IDLE-ADD"
+>g_idle_add</A
+>                      (<A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-the-main-event-loop.html#G-IDLE-ADD-FULL"
+>g_idle_add_full</A
+>                 (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> destroy);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-IDLE-REMOVE-BY-DATA"
+>g_idle_remove_by_data</A
+>           (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+void        <A
+HREF="glib-the-main-event-loop.html#G-MAIN-ADD-POLL"
+>g_main_add_poll</A
+>                 (<A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> *fd,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority);
+struct      <A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+>;
+void        <A
+HREF="glib-the-main-event-loop.html#G-MAIN-REMOVE-POLL"
+>g_main_remove_poll</A
+>              (<A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> *fd);
+
+void        <A
+HREF="glib-the-main-event-loop.html#G-MAIN-SET-POLL-FUNC"
+>g_main_set_poll_func</A
+>            (<A
+HREF="glib-the-main-event-loop.html#GPOLLFUNC"
+>GPollFunc</A
+> func);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        (<A
+HREF="glib-the-main-event-loop.html#GPOLLFUNC"
+>*GPollFunc</A
+>)                    (<A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> *ufds,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> nfsd,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> timeout);
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-ADD"
+>g_source_add</A
+>                    (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> can_recurse,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+> *funcs,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> source_data,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);
+struct      <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+>;
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-REMOVE"
+>g_source_remove</A
+>                 (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> tag);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-REMOVE-BY-FUNCS-USER-DATA"
+>g_source_remove_by_funcs_user_data</A
+>
+                                            (<A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+> *funcs,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-REMOVE-BY-SOURCE-DATA"
+>g_source_remove_by_source_data</A
+>  (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> source_data);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-REMOVE-BY-USER-DATA"
+>g_source_remove_by_user_data</A
+>    (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN2208"
+></A
+><H2
+>Description</H2
+><P
+>The main event loop manages all the available sources of events for GLib
+and GTK+ applications. These events can come from any number of different
+types of sources such as file descriptors (plain files, pipes or sockets)
+and timeouts.
+New types of event sources can also be added using <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-ADD"
+>g_source_add</A
+>().</P
+><P
+>Each event source is assigned a priority.
+The default priority, <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-CAPS"
+>G_PRIORITY_DEFAULT</A
+>, is 0.
+Values less than 0 denote higher priorities.
+Values greater than 0 denote lower priorities.
+Events from high priority sources
+are always processed before events from lower priority sources.</P
+><P
+>Idle functions can also be added, and assigned a priority. These will be
+run whenever no events with a higher priority are ready to be processed.</P
+><P
+>The <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> data type represents a main event loop.
+A <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> is created with <A
+HREF="glib-the-main-event-loop.html#G-MAIN-NEW"
+>g_main_new</A
+>(). After adding the initial event
+sources, <A
+HREF="glib-the-main-event-loop.html#G-MAIN-RUN"
+>g_main_run</A
+>() is called. This continuously checks for new events
+from each of the event sources and dispatches them.
+Finally, the processing of an event from one of the sources leads to a call
+to <A
+HREF="glib-the-main-event-loop.html#G-MAIN-QUIT"
+>g_main_quit</A
+>() to exit the main loop, and <A
+HREF="glib-the-main-event-loop.html#G-MAIN-RUN"
+>g_main_run</A
+>() returns.</P
+><P
+>It is possible to create new instances of <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> recursively.
+This is often used in GTK+ applications when showing modal dialog boxes.
+However, all event sources are global; they are not tied to a particular
+<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.</P
+><P
+>GTK+ contains wrappers of many of these functions,
+e.g. <A
+HREF=../gtk/gtk-general.html#GTK-MAIN
+>gtk_main</A>(), <A
+HREF=../gtk/gtk-general.html#GTK-MAIN-QUIT
+>gtk_main_quit</A>(), <A
+HREF=../gtk/gtk-general.html#GTK-EVENTS-PENDING
+>gtk_events_pending</A>(), <A
+HREF=../gtk/gtk-general.html#GTK-IDLE-ADD
+>gtk_idle_add</A>(),
+<A
+HREF=../gtk/gtk-general.html#GTK-TIMEOUT-ADD
+>gtk_timeout_add</A>() and <A
+HREF=../gtk/gtk-general.html#GTK-INPUT-ADD-FULL
+>gtk_input_add_full</A>().
+In a GTK+ application, these wrapper functions should be used instead.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN2232"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2234"
+></A
+><H3
+><A
+NAME="GMAINLOOP"
+></A
+>struct GMainLoop</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GMainLoop;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> struct is an opaque data type representing the main event loop
+of a GLib or GTK+ application.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2240"
+></A
+><H3
+><A
+NAME="G-MAIN-NEW"
+></A
+>g_main_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>*  g_main_new                      (<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> is_running);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2248"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_running</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>set to TRUE to indicate that the loop is running. This is not
+very important since calling <A
+HREF="glib-the-main-event-loop.html#G-MAIN-RUN"
+>g_main_run</A
+>() will set this to TRUE anyway.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2263"
+></A
+><H3
+><A
+NAME="G-MAIN-DESTROY"
+></A
+>g_main_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_main_destroy                  (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees the memory allocated for the <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2270"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>loop</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2280"
+></A
+><H3
+><A
+NAME="G-MAIN-RUN"
+></A
+>g_main_run ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_main_run                      (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Runs a main loop until it stops running, which occurs when <A
+HREF="glib-the-main-event-loop.html#G-MAIN-QUIT"
+>g_main_quit</A
+>()
+is called.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2287"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>loop</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2297"
+></A
+><H3
+><A
+NAME="G-MAIN-IS-RUNNING"
+></A
+>g_main_is_running ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_main_is_running               (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if the main loop is running.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2304"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>loop</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the main loop is running.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2318"
+></A
+><H3
+><A
+NAME="G-MAIN-PENDING"
+></A
+>g_main_pending ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_main_pending                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if any events are pending (i.e. ready to be processed).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2324"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if any events are pending.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2333"
+></A
+><H3
+><A
+NAME="G-MAIN-ITERATION"
+></A
+>g_main_iteration ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_main_iteration                (<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> may_block);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Runs a single iteration of the main loop.
+This will check which event sources are ready to be processed, and will
+process the highest priority event sources which are ready.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2340"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>may_block</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>set to TRUE if it should block (i.e. wait) until an event source
+becomes ready. It will return after an event source has been processed.
+If set to FALSE it will return immediately if no event source is ready to be
+processed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if more events are pending.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2353"
+></A
+><H3
+><A
+NAME="G-MAIN-QUIT"
+></A
+>g_main_quit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_main_quit                     (<A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+> *loop);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Stops the <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>. If <A
+HREF="glib-the-main-event-loop.html#G-MAIN-RUN"
+>g_main_run</A
+>() was called to run the <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>,
+it will now return.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2362"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>loop</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-the-main-event-loop.html#GMAINLOOP"
+>GMainLoop</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2372"
+></A
+><H3
+><A
+NAME="G-PRIORITY-HIGH-CAPS"
+></A
+>G_PRIORITY_HIGH</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_PRIORITY_HIGH            -100</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this for high priority event sources.
+It is not used within GLib or GTK+.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2377"
+></A
+><H3
+><A
+NAME="G-PRIORITY-DEFAULT-CAPS"
+></A
+>G_PRIORITY_DEFAULT</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_PRIORITY_DEFAULT          0</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this for default priority event sources.
+In GLib this priority is used when adding timeout functions with
+<A
+HREF="glib-the-main-event-loop.html#G-TIMEOUT-ADD"
+>g_timeout_add</A
+>().
+In GDK this priority is used for events from the X Windows server.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2383"
+></A
+><H3
+><A
+NAME="G-PRIORITY-HIGH-IDLE-CAPS"
+></A
+>G_PRIORITY_HIGH_IDLE</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_PRIORITY_HIGH_IDLE        100</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this for high priority idle functions.
+GTK+ uses <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-IDLE-CAPS"
+>G_PRIORITY_HIGH_IDLE</A
+> + 10 for resizing operations, and
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-IDLE-CAPS"
+>G_PRIORITY_HIGH_IDLE</A
+> + 20 for redrawing operations. (This is done to
+ensure that any pending resizes are processed before any pending redraws,
+so that widgets are not redrawn twice unnecessarily.)</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2390"
+></A
+><H3
+><A
+NAME="G-PRIORITY-DEFAULT-IDLE-CAPS"
+></A
+>G_PRIORITY_DEFAULT_IDLE</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_PRIORITY_DEFAULT_IDLE     200</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this for default priority idle functions.
+In GLib this priority is used when adding idle functions with <A
+HREF="glib-the-main-event-loop.html#G-IDLE-ADD"
+>g_idle_add</A
+>().</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2396"
+></A
+><H3
+><A
+NAME="G-PRIORITY-LOW-CAPS"
+></A
+>G_PRIORITY_LOW</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_PRIORITY_LOW	            300</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this for very low priority background tasks.
+It is not used within GLib or GTK+.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2401"
+></A
+><H3
+><A
+NAME="G-TIMEOUT-ADD"
+></A
+>g_timeout_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_timeout_add                   (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> interval,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets a function to be called at regular intervals, with the default priority,
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-CAPS"
+>G_PRIORITY_DEFAULT</A
+>.
+The function is called repeatedly until it returns FALSE, at which point
+the timeout is automatically destroyed and the function will not be called
+again.
+The first call to the function will be at the end of the first <TT
+CLASS="PARAMETER"
+><I
+>interval</I
+></TT
+>.</P
+><P
+>Note that timeout functions may be delayed, due to the processing of other
+event sources. Thus they should not be relied on for precise timing.
+After each call to the timeout function, the time of the next
+timeout is recalculated based on the current time and the given interval
+(it does not try to 'catch up' time lost in delays).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2413"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>interval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the time between calls to <TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>, in milliseconds (1/1000ths
+of a second.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call at each interval.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>data to pass to <TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of the event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2436"
+></A
+><H3
+><A
+NAME="G-TIMEOUT-ADD-FULL"
+></A
+>g_timeout_add_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_timeout_add_full              (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> interval,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets a function to be called at regular intervals, with the given priority.
+The function is called repeatedly until it returns FALSE, at which point
+the timeout is automatically destroyed and the function will not be called
+again.
+The <TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+> function is called when the timeout is destroyed.
+The first call to the function will be at the end of the first <TT
+CLASS="PARAMETER"
+><I
+>interval</I
+></TT
+>.</P
+><P
+>Note that timeout functions may be delayed, due to the processing of other
+event sources. Thus they should not be relied on for precise timing.
+After each call to the timeout function, the time of the next
+timeout is recalculated based on the current time and the given interval
+(it does not try to 'catch up' time lost in delays).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2450"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the priority of the function. See <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-CAPS"
+>G_PRIORITY_DEFAULT</A
+>,
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-IDLE-CAPS"
+>G_PRIORITY_DEFAULT_IDLE</A
+>, <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-CAPS"
+>G_PRIORITY_HIGH</A
+>, <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-IDLE-CAPS"
+>G_PRIORITY_HIGH_IDLE</A
+>, and
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-LOW-CAPS"
+>G_PRIORITY_LOW</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>interval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the time between calls to the function, in milliseconds (1/1000ths
+of a second.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call at each interval.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>data to pass to <TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+> (and <TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the timeout is destroyed, or NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2486"
+></A
+><H3
+><A
+NAME="GSOURCEFUNC"
+></A
+>GSourceFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (*GSourceFunc)                  (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function passed to <A
+HREF="glib-the-main-event-loop.html#G-TIMEOUT-ADD"
+>g_timeout_add</A
+>(), <A
+HREF="glib-the-main-event-loop.html#G-TIMEOUT-ADD-FULL"
+>g_timeout_add_full</A
+>(),
+<A
+HREF="glib-the-main-event-loop.html#G-IDLE-ADD"
+>g_idle_add</A
+>(), and <A
+HREF="glib-the-main-event-loop.html#G-IDLE-ADD-FULL"
+>g_idle_add_full</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2497"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>data passed to the function, set when the source was created with one
+of the above functions.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>it should return FALSE if the source should be removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2510"
+></A
+><H3
+><A
+NAME="G-IDLE-ADD"
+></A
+>g_idle_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_idle_add                      (<A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a function to be called whenever there are no higher priority events
+pending. The function is given the default idle priority,
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-IDLE-CAPS"
+>G_PRIORITY_DEFAULT_IDLE</A
+>.
+If the function returns FALSE it is automatically removed from the list of
+event sources and will not be called again.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2519"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>data to pass to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of the event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2536"
+></A
+><H3
+><A
+NAME="G-IDLE-ADD-FULL"
+></A
+>g_idle_add_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_idle_add_full                 (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNC"
+>GSourceFunc</A
+> function,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a function to be called whenever there are no higher priority events
+pending.
+If the function returns FALSE it is automatically removed from the list of
+event sources and will not be called again.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2546"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the priority of the idle function, which should be somewhere around
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-IDLE-CAPS"
+>G_PRIORITY_DEFAULT_IDLE</A
+> and <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-IDLE-CAPS"
+>G_PRIORITY_HIGH_IDLE</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>data to pass to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the timeout is destroyed, or NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of the event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2573"
+></A
+><H3
+><A
+NAME="G-IDLE-REMOVE-BY-DATA"
+></A
+>g_idle_remove_by_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_idle_remove_by_data           (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the idle function with the given data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2580"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data which is passed to the idle function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the idle function was found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2593"
+></A
+><H3
+><A
+NAME="G-MAIN-ADD-POLL"
+></A
+>g_main_add_poll ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_main_add_poll                 (<A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> *fd,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a file descriptor to be polled.
+This is usually combined with <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-ADD"
+>g_source_add</A
+>() to add an event source.
+The event source's check function will typically test the revents
+field in the <A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> struct and return TRUE if events need to be processed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2602"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+>, which is a file descriptor together with a bitwise
+combination of <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+> flags determining which events to poll for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the priority of the poll, which should be the same as the priority
+used for <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-ADD"
+>g_source_add</A
+>() to ensure that the file descriptor is polled whenever
+the results may be needed.
+See <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-CAPS"
+>G_PRIORITY_DEFAULT</A
+>, <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-IDLE-CAPS"
+>G_PRIORITY_DEFAULT_IDLE</A
+>, <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-CAPS"
+>G_PRIORITY_HIGH</A
+>,
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-IDLE-CAPS"
+>G_PRIORITY_HIGH_IDLE</A
+>, and <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-LOW-CAPS"
+>G_PRIORITY_LOW</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2623"
+></A
+><H3
+><A
+NAME="GPOLLFD"
+></A
+>struct GPollFD</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GPollFD
+{
+  gint		fd;
+  gushort 	events;
+  gushort 	revents;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2628"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> fd;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the file descriptor to poll (or a HANDLE on Win32 platforms).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-basic-types.html#GUSHORT"
+>gushort</A
+> events;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a bitwise combination of flags from <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+>, specifying which
+events should be polled for. Typically for reading from a file descriptor
+you would use <TT
+CLASS="LITERAL"
+>G_IO_IN</TT
+> | <TT
+CLASS="LITERAL"
+>G_IO_HUP</TT
+> | <TT
+CLASS="LITERAL"
+>G_IO_ERR</TT
+>, and for writing you would use
+<TT
+CLASS="LITERAL"
+>G_IO_OUT</TT
+> | <TT
+CLASS="LITERAL"
+>G_IO_ERR</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="glib-basic-types.html#GUSHORT"
+>gushort</A
+> revents;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a bitwise combination of flags from <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+>, returned from the
+poll() function to indicate which events occurred.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2653"
+></A
+><H3
+><A
+NAME="G-MAIN-REMOVE-POLL"
+></A
+>g_main_remove_poll ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_main_remove_poll              (<A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> *fd);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes a file descriptor from the list being polled.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2659"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> to remove.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2669"
+></A
+><H3
+><A
+NAME="G-MAIN-SET-POLL-FUNC"
+></A
+>g_main_set_poll_func ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_main_set_poll_func            (<A
+HREF="glib-the-main-event-loop.html#GPOLLFUNC"
+>GPollFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the function to use to handle polling of file descriptors.
+It will be used instead of the <TT
+CLASS="FUNCTION"
+>poll()</TT
+> system call
+(or GLib's replacement function, which is used where
+<TT
+CLASS="FUNCTION"
+>poll()</TT
+> isn't available).</P
+><P
+>This function could possibly be used to integrate the GLib event loop
+with an external event loop.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2680"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call to poll all file descriptors.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2689"
+></A
+><H3
+><A
+NAME="GPOLLFUNC"
+></A
+>GPollFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        (*GPollFunc)                    (<A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> *ufds,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> nfsd,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> timeout);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function passed to <A
+HREF="glib-the-main-event-loop.html#G-MAIN-SET-POLL-FUNC"
+>g_main_set_poll_func</A
+>().
+The semantics of the function should match those of the
+<TT
+CLASS="FUNCTION"
+>poll()</TT
+> system call.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2701"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ufds</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of <A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> elements.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nfsd</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements in <TT
+CLASS="PARAMETER"
+><I
+>ufds</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>timeout</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum time to wait for an event of the file descriptors.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of <A
+HREF="glib-the-main-event-loop.html#GPOLLFD"
+>GPollFD</A
+> elements which have events or errors reported,
+or -1 if an error occurred.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2725"
+></A
+><H3
+><A
+NAME="G-SOURCE-ADD"
+></A
+>g_source_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_source_add                    (<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> can_recurse,
+                                             <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+> *funcs,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> source_data,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds an event source to the main loop.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2737"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the priority of the event source. See <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-CAPS"
+>G_PRIORITY_DEFAULT</A
+>,
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-DEFAULT-IDLE-CAPS"
+>G_PRIORITY_DEFAULT_IDLE</A
+>, <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-CAPS"
+>G_PRIORITY_HIGH</A
+>, <A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-HIGH-IDLE-CAPS"
+>G_PRIORITY_HIGH_IDLE</A
+>, and
+<A
+HREF="glib-the-main-event-loop.html#G-PRIORITY-LOW-CAPS"
+>G_PRIORITY_LOW</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>can_recurse</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if it is safe to call the source functions recursively.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>funcs</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the functions to handle the source.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>data specific to the type of event source.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data which will be passed to the user function handling the
+source.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the source is destroyed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of the event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2775"
+></A
+><H3
+><A
+NAME="GSOURCEFUNCS"
+></A
+>struct GSourceFuncs</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GSourceFuncs
+{
+  gboolean (*prepare)  (gpointer  source_data, 
+			GTimeVal *current_time,
+			gint     *timeout,
+			gpointer  user_data);
+  gboolean (*check)    (gpointer  source_data,
+			GTimeVal *current_time,
+			gpointer  user_data);
+  gboolean (*dispatch) (gpointer  source_data, 
+			GTimeVal *current_time,
+			gpointer  user_data);
+  GDestroyNotify destroy;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+> struct contains a table of functions used to handle
+event sources in a generic manner.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2781"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>prepare</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Called before all the file descriptors are polled.
+If the source can determine that it is ready here (without waiting for the
+results of the poll() call) it should return TRUE.
+It can also return a <TT
+CLASS="PARAMETER"
+><I
+>timeout</I
+></TT
+> value which should be the maximum timeout
+(in milliseconds) which should be passed to the poll() call.
+The actual timeout used will be -1 if all sources returned -1, or it will
+be the minimum of all the <TT
+CLASS="PARAMETER"
+><I
+>timeout</I
+></TT
+> values returned which were &#62;= 0.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>check</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Called after all the file descriptors are polled.
+The source should return TRUE if it is ready to be processed.
+Note that some time may have passed since the previous prepare function was
+called, so the source should be checked again here.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>dispatch</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Called to process the event source, after it has returned TRUE in either
+its <TT
+CLASS="PARAMETER"
+><I
+>prepare</I
+></TT
+> or its <TT
+CLASS="PARAMETER"
+><I
+>check</I
+></TT
+> function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>destroy</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Called when the source is destroyed. It will be called with the user data
+parameter passed to the <A
+HREF="glib-the-main-event-loop.html#G-SOURCE-ADD"
+>g_source_add</A
+>() and related functions.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+>For idle sources, the prepare and check functions always return TRUE to
+indicate that the source is always ready to be processed.
+The prepare function also returns a timeout value of 0 to ensure that the
+poll() call doesn't block (since that would be time wasted which could have
+been spent running the idle function).</P
+><P
+>For timeout sources, the prepare and check functions both return TRUE if the
+timeout interval has expired.
+The prepare function also returns a timeout value to ensure that the poll()
+call doesn't block too long and miss the next timeout.</P
+><P
+>For file descriptor sources, the prepare function typically returns FALSE,
+since it must wait until poll() has been called before it knows whether any
+events need to be processed. It sets the returned timeout to -1 to indicate
+that it doesn't mind how long the poll() call blocks.
+In the check function, it tests the results of the poll() call to see if
+the required condition has been met, and returns TRUE if so.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2813"
+></A
+><H3
+><A
+NAME="G-SOURCE-REMOVE"
+></A
+>g_source_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_source_remove                 (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> tag);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the event source with the given id.
+The id is returned when the source is created, either directly with
+<A
+HREF="glib-the-main-event-loop.html#G-SOURCE-ADD"
+>g_source_add</A
+>(), or indirectly with <A
+HREF="glib-the-main-event-loop.html#G-IDLE-ADD"
+>g_idle_add</A
+>(), <A
+HREF="glib-the-main-event-loop.html#G-IDLE-ADD-FULL"
+>g_idle_add_full</A
+>(),
+<A
+HREF="glib-the-main-event-loop.html#G-TIMEOUT-ADD"
+>g_timeout_add</A
+>() and <A
+HREF="glib-the-main-event-loop.html#G-TIMEOUT-ADD-FULL"
+>g_timeout_add_full</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2825"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tag</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the id of the event source to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the source was found and removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2838"
+></A
+><H3
+><A
+NAME="G-SOURCE-REMOVE-BY-FUNCS-USER-DATA"
+></A
+>g_source_remove_by_funcs_user_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_source_remove_by_funcs_user_data
+                                            (<A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+> *funcs,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the first event source found with the given <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+> and user
+data.</P
+><P
+>Event sources are sorted with the highest priority first. Sources with equal
+priority are stored in the order in which they were added.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2848"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>funcs</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-the-main-event-loop.html#GSOURCEFUNCS"
+>GSourceFuncs</A
+> of the source to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data of the source to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if an event source was found and removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2866"
+></A
+><H3
+><A
+NAME="G-SOURCE-REMOVE-BY-SOURCE-DATA"
+></A
+>g_source_remove_by_source_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_source_remove_by_source_data  (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> source_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the first event source found with the given source data.</P
+><P
+>Event sources are sorted with the highest priority first. Sources with equal
+priority are stored in the order in which they were added.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2874"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the source data, which contains information specific to the
+type of source.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if an event source was found and removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2887"
+></A
+><H3
+><A
+NAME="G-SOURCE-REMOVE-BY-USER-DATA"
+></A
+>g_source_remove_by_user_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_source_remove_by_user_data    (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the first event source found with the given user data.</P
+><P
+>Event sources are sorted with the highest priority first. Sources with equal
+priority are stored in the order in which they were added.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2895"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data of the source to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if an event source was found and removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-threads.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GLib Core Application Support</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Threads</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

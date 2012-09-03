@@ -1,0 +1,2608 @@
+<HTML
+><HEAD
+><TITLE
+>Input Devices</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Input"
+HREF="gdk-input.html"><LINK
+REL="NEXT"
+TITLE="Key Values"
+HREF="gdk-key-values.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-input.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-key-values.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-INPUT-DEVICES"
+>Input Devices</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11853"
+></A
+><H2
+>Name</H2
+>Input Devices&nbsp;--&nbsp;Functions for handling extended input devices.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11856"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+#define     <A
+HREF="gdk-input-devices.html#GDK-CORE-POINTER-CAPS"
+>GDK_CORE_POINTER</A
+>
+<A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      <A
+HREF="gdk-input-devices.html#GDK-INPUT-LIST-DEVICES"
+>gdk_input_list_devices</A
+>          (void);
+struct      <A
+HREF="gdk-input-devices.html#GDKDEVICEINFO"
+>GdkDeviceInfo</A
+>;
+struct      <A
+HREF="gdk-input-devices.html#GDKDEVICEKEY"
+>GdkDeviceKey</A
+>;
+void        <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-EXTENSION-EVENTS"
+>gdk_input_set_extension_events</A
+>  (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> mask,
+                                             <A
+HREF="gdk-input-devices.html#GDKEXTENSIONMODE"
+>GdkExtensionMode</A
+> mode);
+enum        <A
+HREF="gdk-input-devices.html#GDKEXTENSIONMODE"
+>GdkExtensionMode</A
+>;
+void        <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-SOURCE"
+>gdk_input_set_source</A
+>            (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF="gdk-input-devices.html#GDKINPUTSOURCE"
+>GdkInputSource</A
+> source);
+enum        <A
+HREF="gdk-input-devices.html#GDKINPUTSOURCE"
+>GdkInputSource</A
+>;
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-MODE"
+>gdk_input_set_mode</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF="gdk-input-devices.html#GDKINPUTMODE"
+>GdkInputMode</A
+> mode);
+enum        <A
+HREF="gdk-input-devices.html#GDKINPUTMODE"
+>GdkInputMode</A
+>;
+void        <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-AXES"
+>gdk_input_set_axes</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF="gdk-input-devices.html#GDKAXISUSE"
+>GdkAxisUse</A
+> *axes);
+enum        <A
+HREF="gdk-input-devices.html#GDKAXISUSE"
+>GdkAxisUse</A
+>;
+void        <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-KEY"
+>gdk_input_set_key</A
+>               (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF="gdk-windows.html#GDKMODIFIERTYPE"
+>GdkModifierType</A
+> modifiers);
+void        <A
+HREF="gdk-input-devices.html#GDK-INPUT-WINDOW-GET-POINTER"
+>gdk_input_window_get_pointer</A
+>    (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *pressure,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *xtilt,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *ytilt,
+                                             <A
+HREF="gdk-windows.html#GDKMODIFIERTYPE"
+>GdkModifierType</A
+> *mask);
+<A
+HREF="gdk-input-devices.html#GDKTIMECOORD"
+>GdkTimeCoord</A
+>* <A
+HREF="gdk-input-devices.html#GDK-INPUT-MOTION-EVENTS"
+>gdk_input_motion_events</A
+>       (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> stop,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *nevents_return);
+struct      <A
+HREF="gdk-input-devices.html#GDKTIMECOORD"
+>GdkTimeCoord</A
+>;&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11904"
+></A
+><H2
+>Description</H2
+><P
+>In addition to the normal keyboard and mouse input devices, GTK+ also
+contains support for <I
+CLASS="FIRSTTERM"
+>extended input devices</I
+>. In
+particular, this support is targeted at graphics tablets. Graphics
+tablets typically return sub-pixel positioning information and possibly
+information about the pressure and tilt of the stylus. Under
+X, the support for extended devices is done through the 
+<I
+CLASS="FIRSTTERM"
+>XInput</I
+> extension.</P
+><P
+>Because handling extended input devices may involve considerable
+overhead, they need to be turned on for each <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>
+individually using <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-EXTENSION-EVENTS"
+>gdk_input_set_extension_events</A
+>().
+(Or, more typically, for GtkWidgets, using <A
+HREF=../gtk/gtkwidget.html#GTK-WIDGET-SET-EXTENSION-EVENTS
+>gtk_widget_set_extension_events</A>()).
+As an additional complication, depending on the support from
+the windowing system, its possible that a normal mouse
+cursor will not be displayed for a particular extension
+device. If an application does not want to deal with displaying
+a cursor itself, it can ask only to get extension events
+from devices that will display a cursor, by passing the
+<TT
+CLASS="LITERAL"
+>GDK_EXTENSION_EVENTS_CURSOR</TT
+> value to
+<A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-EXTENSION-EVENTS"
+>gdk_input_set_extension_events</A
+>(). Otherwise, the application
+must retrieve the device information using <A
+HREF="gdk-input-devices.html#GDK-INPUT-LIST-DEVICES"
+>gdk_input_list_devices</A
+>(),
+check the <TT
+CLASS="STRUCTFIELD"
+><I
+>has_cursor</I
+></TT
+> field, and, 
+if it is <TT
+CLASS="LITERAL"
+>FALSE</TT
+>, draw a cursor itself when it receives 
+motion events.</P
+><P
+>Each pointing device is assigned a unique integer ID; events from a
+particular device can be identified by the
+<TT
+CLASS="STRUCTFIELD"
+><I
+>deviceid</I
+></TT
+> field in the event structure. The
+events generated by pointer devices have also been extended to contain
+<TT
+CLASS="STRUCTFIELD"
+><I
+>pressure</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>xtilt</I
+></TT
+>
+and <TT
+CLASS="STRUCTFIELD"
+><I
+>ytilt</I
+></TT
+> fields which contain the extended
+information reported as additional <I
+CLASS="FIRSTTERM"
+>valuators</I
+>
+from the device. The <TT
+CLASS="STRUCTFIELD"
+><I
+>pressure</I
+></TT
+> field is a 
+a double value ranging from 0.0 to 1.0, while the tilt fields are
+double values ranging from -1.0 to 1.0. (With -1.0 representing the
+maximum title to the left or up, and 1.0 representing the maximum
+tilt to the right or down.)</P
+><P
+>One additional field in each event is the
+<TT
+CLASS="STRUCTFIELD"
+><I
+>source</I
+></TT
+> field, which contains an
+enumeration value describing the type of device; this currently
+can be one of 
+<TT
+CLASS="LITERAL"
+>GDK_SOURCE_MOUSE</TT
+>,
+ <TT
+CLASS="LITERAL"
+>GDK_SOURCE_PEN</TT
+>,
+<TT
+CLASS="LITERAL"
+>GDK_SOURCE_ERASER</TT
+>,
+or <TT
+CLASS="LITERAL"
+>GDK_SOURCE_CURSOR</TT
+>. This field is present to allow simple
+applications to (for instance) delete when they detect eraser
+devices without having to keep track of complicated per-device
+settings.</P
+><P
+>Various aspects of each device may be configured. The easiest way of
+creating a GUI to allow the user to conifigure such a device
+is to use to use the <A
+HREF=../gtk/gtkinputdialog.html
+>GtkInputDialog</A> widget in GTK+. 
+However, even when using this widget, application writers
+will need to directly query and set the configuration parameters
+in order to save the state between invocations of the application.
+The configuration of devices is queried using gdk_input_list_devices.
+Each device must is activated using <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-MODE"
+>gdk_input_set_mode</A
+>(), which
+also controls whether the device's range is mapped to the
+entire screen or to a single window. The mapping of the valuators of
+the device onto the predefined valuator types is set using
+gdk_input_set_axes. And the source type for each device
+can be set with <A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-SOURCE"
+>gdk_input_set_source</A
+>().</P
+><P
+>Devices may also have associated <I
+CLASS="FIRSTTERM"
+>keys</I
+>
+or macro buttons. Such keys can be globally set to map
+into normal X keyboard events. The mapping is set using
+<A
+HREF="gdk-input-devices.html#GDK-INPUT-SET-KEY"
+>gdk_input_set_key</A
+>().</P
+><P
+>The interfaces in this section will most likely be considerably
+modified in the future to accomodate devices that may have different
+sets of additional valuators than the pressure xtilt and ytilt.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11939"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11941"
+></A
+><H3
+><A
+NAME="GDK-CORE-POINTER-CAPS"
+></A
+>GDK_CORE_POINTER</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GDK_CORE_POINTER 0xfedc</PRE
+></TD
+></TR
+></TABLE
+><P
+>This macro contains an integer value representing
+the device ID for the core pointer device.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11946"
+></A
+><H3
+><A
+NAME="GDK-INPUT-LIST-DEVICES"
+></A
+>gdk_input_list_devices ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      gdk_input_list_devices          (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Lists all available input devices, along with their
+configuration information.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11952"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> of <A
+HREF="gdk-input-devices.html#GDKDEVICEINFO"
+>GdkDeviceInfo</A
+> structures. This list
+          is internal data of GTK+ and should not be modified 
+          or freed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11963"
+></A
+><H3
+><A
+NAME="GDKDEVICEINFO"
+></A
+>struct GdkDeviceInfo</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkDeviceInfo
+{
+  guint32 deviceid;
+  gchar *name;
+  GdkInputSource source;
+  GdkInputMode mode;
+  gint has_cursor;	/* TRUE if the X pointer follows device motion */
+  gint num_axes;
+  GdkAxisUse *axes;    /* Specifies use for each axis */
+  gint num_keys;
+  GdkDeviceKey *keys;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-input-devices.html#GDKDEVICEINFO"
+>GdkDeviceInfo</A
+> structure contains information about a 
+device. It has the following fields:</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11969"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>deviceid</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a unique integer ID for this device.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *<TT
+CLASS="STRUCTFIELD"
+><I
+>name</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the human-readable name for the device.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-input-devices.html#GDKINPUTSOURCE"
+>GdkInputSource</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>source</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of device.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-input-devices.html#GDKINPUTMODE"
+>GdkInputMode</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>mode</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value indicating whether the device is enabled and
+       how the device coordinates map to the screen.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>has_cursor</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, a cursor will be displayed indicating 
+             the current on-screen location to the user. Otherwise,
+             the application is responsible for drawing a cursor 
+             itself.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>num_axes</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of axes for this device.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-input-devices.html#GDKAXISUSE"
+>GdkAxisUse</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>axes</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to an array of GdkAxisUse values which
+       give the mapping of axes onto the possible valuators
+       for a GDK device.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>num_keys</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of macro buttons.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-input-devices.html#GDKDEVICEKEY"
+>GdkDeviceKey</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>keys</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to an array of <A
+HREF="gdk-input-devices.html#GDKDEVICEKEY"
+>GdkDeviceKey</A
+> structures  
+       which describe what key press events are generated
+       for each macro button.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12021"
+></A
+><H3
+><A
+NAME="GDKDEVICEKEY"
+></A
+>struct GdkDeviceKey</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkDeviceKey
+{
+  guint keyval;
+  GdkModifierType modifiers;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-input-devices.html#GDKDEVICEKEY"
+>GdkDeviceKey</A
+> structure contains information
+about the mapping of one device macro button onto
+a normal X key event. It has the following fields:</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12027"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>keyval</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the keyval to generate when the macro button is pressed.
+         If this is 0, no keypress will be generated.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-windows.html#GDKMODIFIERTYPE"
+>GdkModifierType</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>modifiers</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the modifiers set for the generated key event.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12042"
+></A
+><H3
+><A
+NAME="GDK-INPUT-SET-EXTENSION-EVENTS"
+></A
+>gdk_input_set_extension_events ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_input_set_extension_events  (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> mask,
+                                             <A
+HREF="gdk-input-devices.html#GDKEXTENSIONMODE"
+>GdkExtensionMode</A
+> mode);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Turns extension events on or off for a particular window,
+and specifies the event mask for extension events.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12050"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the event mask</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of extension events that are desired.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12068"
+></A
+><H3
+><A
+NAME="GDKEXTENSIONMODE"
+></A
+>enum GdkExtensionMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_EXTENSION_EVENTS_NONE,
+  GDK_EXTENSION_EVENTS_ALL,
+  GDK_EXTENSION_EVENTS_CURSOR
+} GdkExtensionMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration used to specify which extension events
+are desired for a particular widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12073"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_EXTENSION_EVENTS_NONE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>no extension events are desired.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_EXTENSION_EVENTS_ALL</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>all extension events are desired.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_EXTENSION_EVENTS_CURSOR</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>extension events are desired only if a cursor
+                              will be displayed for the device.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12090"
+></A
+><H3
+><A
+NAME="GDK-INPUT-SET-SOURCE"
+></A
+>gdk_input_set_source ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_input_set_source            (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF="gdk-input-devices.html#GDKINPUTSOURCE"
+>GdkInputSource</A
+> source);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the source type for a device.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12097"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>deviceid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device to configure</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new source type.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12110"
+></A
+><H3
+><A
+NAME="GDKINPUTSOURCE"
+></A
+>enum GdkInputSource</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_SOURCE_MOUSE,
+  GDK_SOURCE_PEN,
+  GDK_SOURCE_ERASER,
+  GDK_SOURCE_CURSOR
+} GdkInputSource;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration describing the type of an input device
+in general terms.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12115"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SOURCE_MOUSE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device is a mouse. (This will be reported for the core
+                    pointer, even if it is something else, such as a trackball.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SOURCE_PEN</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device is a stylus of a graphics tablet or similar device.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SOURCE_ERASER</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device is an eraser. Typically, this would be the other end
+                    of a stylus on a graphics tablet.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SOURCE_CURSOR</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device is a graphics tablet "puck" or similar device.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12136"
+></A
+><H3
+><A
+NAME="GDK-INPUT-SET-MODE"
+></A
+>gdk_input_set_mode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_input_set_mode              (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF="gdk-input-devices.html#GDKINPUTMODE"
+>GdkInputMode</A
+> mode);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Enables or disables a device, and determines how the
+device maps onto the screen.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12144"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>deviceid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device to configure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new mode.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the device supports the given mode, otherwise 
+          <TT
+CLASS="LITERAL"
+>FALSE</TT
+> and the device's mode is unchanged.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12163"
+></A
+><H3
+><A
+NAME="GDKINPUTMODE"
+></A
+>enum GdkInputMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_MODE_DISABLED,
+  GDK_MODE_SCREEN,
+  GDK_MODE_WINDOW
+} GdkInputMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration that describes the mode of an input device.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12168"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_MODE_DISABLED</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device is disabled and will not report any events.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_MODE_SCREEN</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device is enabled. The device's coordinate space
+                    maps to the entire screen.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_MODE_WINDOW</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device is enabled. The device's coordinate space
+                    is mapped to a single window. The manner in which this window
+                    is chosen is undefined, but it will typically be the same
+                    way in which the focus window for key events is determined.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12185"
+></A
+><H3
+><A
+NAME="GDK-INPUT-SET-AXES"
+></A
+>gdk_input_set_axes ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_input_set_axes              (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF="gdk-input-devices.html#GDKAXISUSE"
+>GdkAxisUse</A
+> *axes);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the mapping of the axes (valuators) of a device
+onto the predefined valuator types that GTK+ understands.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12192"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>deviceid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device to configure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>axes</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of GdkAxisUse. This length of this array
+       must match the number of axes for the device.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12205"
+></A
+><H3
+><A
+NAME="GDKAXISUSE"
+></A
+>enum GdkAxisUse</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_AXIS_IGNORE,
+  GDK_AXIS_X,
+  GDK_AXIS_Y,
+  GDK_AXIS_PRESSURE,
+  GDK_AXIS_XTILT,
+  GDK_AXIS_YTILT,
+  GDK_AXIS_LAST
+} GdkAxisUse;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration describing the way in which a device
+axis (valuator) maps onto the predefined valuator
+types that GTK+ understands.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12210"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_AXIS_IGNORE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the axis is ignored.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_AXIS_X</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the axis is used as the x axis.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_AXIS_Y</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the axis is used as the y axis.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_AXIS_PRESSURE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the axis is used for pressure information.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_AXIS_XTILT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the axis is used for x tilt information.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_AXIS_YTILT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the axis is used for x tilt information.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_AXIS_LAST</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a constant equal to the numerically highest axis value.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12243"
+></A
+><H3
+><A
+NAME="GDK-INPUT-SET-KEY"
+></A
+>gdk_input_set_key ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_input_set_key               (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF="gdk-windows.html#GDKMODIFIERTYPE"
+>GdkModifierType</A
+> modifiers);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the key event generated when a macro button is pressed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12252"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>deviceid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device to configure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the macro button.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the key value for the GdkKeypressEvent to generate.
+         (a value of 0 means no event will be generated.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the modifier field for the generated 
+            GdkKeyPressEvent.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12275"
+></A
+><H3
+><A
+NAME="GDK-INPUT-WINDOW-GET-POINTER"
+></A
+>gdk_input_window_get_pointer ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_input_window_get_pointer    (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *pressure,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *xtilt,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *ytilt,
+                                             <A
+HREF="gdk-windows.html#GDKMODIFIERTYPE"
+>GdkModifierType</A
+> *mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns information about the current position of the pointer
+within a window, including extended device information.
+Any of the return parameters may be <TT
+CLASS="LITERAL"
+>NULL</TT
+>, in which case,
+they will be ignored.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12289"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>deviceid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a device ID.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store current x postion.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store current y postion.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pressure</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store current pressure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xtilt</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store current tilt in the x direction.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ytilt</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store current tilt in the y direction.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the current modifier state.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12327"
+></A
+><H3
+><A
+NAME="GDK-INPUT-MOTION-EVENTS"
+></A
+>gdk_input_motion_events ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-devices.html#GDKTIMECOORD"
+>GdkTimeCoord</A
+>* gdk_input_motion_events       (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> deviceid,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> stop,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *nevents_return);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the motion history for a given device/window pair.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12338"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>deviceid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the device for which to retrieve motion history.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start time.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>stop</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the stop time.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nevents_return</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the number of events returned.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a newly allocated array containing all the events
+          from <TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>stop</I
+></TT
+>. This array should be freed
+          with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>() when you are finished using it.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12371"
+></A
+><H3
+><A
+NAME="GDKTIMECOORD"
+></A
+>struct GdkTimeCoord</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkTimeCoord
+{
+  guint32 time;
+  gdouble x;
+  gdouble y;
+  gdouble pressure;
+  gdouble xtilt;
+  gdouble ytilt;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-input-devices.html#GDKTIMECOORD"
+>GdkTimeCoord</A
+> structure stores a single event in a
+motion history. It contains the following fields:</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12377"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>time</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The timestamp for this event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>x</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x position.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>y</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y position.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>pressure</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pressure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>xtilt</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the tilt in the x direction.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>ytilt</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the tilt in the y direction.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-input.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-key-values.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Input</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Key Values</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

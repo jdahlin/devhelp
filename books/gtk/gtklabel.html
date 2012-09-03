@@ -1,0 +1,1307 @@
+<HTML
+><HEAD
+><TITLE
+>GtkLabel</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkItemFactory"
+HREF="gtkitemfactory.html"><LINK
+REL="NEXT"
+TITLE="GtkLayout"
+HREF="gtklayout.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkitemfactory.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtklayout.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKLABEL"
+>GtkLabel</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN29010"
+></A
+><H2
+>Name</H2
+>GtkLabel&nbsp;--&nbsp;A widget that displays a small to medium amount of text.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN29013"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtklabel.html#GTKLABEL-STRUCT"
+>GtkLabel</A
+>;
+struct      <A
+HREF="gtklabel.html#GTKLABELWORD"
+>GtkLabelWord</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtklabel.html#GTK-LABEL-NEW"
+>gtk_label_new</A
+>                   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str);
+#define     <A
+HREF="gtklabel.html#GTK-LABEL-SET"
+>gtk_label_set</A
+>
+void        <A
+HREF="gtklabel.html#GTK-LABEL-SET-PATTERN"
+>gtk_label_set_pattern</A
+>           (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);
+void        <A
+HREF="gtklabel.html#GTK-LABEL-SET-JUSTIFY"
+>gtk_label_set_justify</A
+>           (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKJUSTIFICATION"
+>GtkJustification</A
+> jtype);
+void        <A
+HREF="gtklabel.html#GTK-LABEL-GET"
+>gtk_label_get</A
+>                   (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **str);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtklabel.html#GTK-LABEL-PARSE-ULINE"
+>gtk_label_parse_uline</A
+>           (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+void        <A
+HREF="gtklabel.html#GTK-LABEL-SET-LINE-WRAP"
+>gtk_label_set_line_wrap</A
+>         (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> wrap);
+void        <A
+HREF="gtklabel.html#GTK-LABEL-SET-TEXT"
+>gtk_label_set_text</A
+>              (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29041"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkmisc.html"
+>GtkMisc</A
+>
+               +----GtkLabel</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29047"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtklabel.html#GTKLABEL--LABEL"
+>label</A
+>&quot;                <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*               : Read / Write
+  &quot;<A
+HREF="gtklabel.html#GTKLABEL--PATTERN"
+>pattern</A
+>&quot;              <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*               : Read / Write
+  &quot;<A
+HREF="gtklabel.html#GTKLABEL--JUSTIFY"
+>justify</A
+>&quot;              <A
+HREF="gtk-standard-enumerations.html#GTKJUSTIFICATION"
+>GtkJustification</A
+>     : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29056"
+></A
+><H2
+>Description</H2
+><P
+>&#13;The <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget is usually used directly by the programmer to display
+
+word(s) describing an adjacent widget or its use.  It is also used internally
+
+by Gtk+ as <A
+HREF="gtkbutton.html"
+>GtkButton</A
+> labels, <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> items, and many other widgets which
+
+use text.&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29062"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29064"
+></A
+><H3
+><A
+NAME="GTKLABEL-STRUCT"
+></A
+>struct GtkLabel</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkLabel;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;This should not be accessed directly.  Use the accessor functions as
+
+described below.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29069"
+></A
+><H3
+><A
+NAME="GTKLABELWORD"
+></A
+>struct GtkLabelWord</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkLabelWord;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Internal to <A
+HREF="gtklabel.html"
+>GtkLabel</A
+>.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29075"
+></A
+><H3
+><A
+NAME="GTK-LABEL-NEW"
+></A
+>gtk_label_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_label_new                   (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Creates a new label with the given string of text inside it.  You can
+
+pass NULL to get an empty label widget.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29082"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The string you want to display in the <A
+HREF="gtklabel.html"
+>GtkLabel</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The newly allocated <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29097"
+></A
+><H3
+><A
+NAME="GTK-LABEL-SET"
+></A
+>gtk_label_set</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#  define gtk_label_set				gtk_label_set_text</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Aliases gtk_label_set_text.  Probably used for backward compatibility with
+
+Gtk+ 1.0.x.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29102"
+></A
+><H3
+><A
+NAME="GTK-LABEL-SET-PATTERN"
+></A
+>gtk_label_set_pattern ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_label_set_pattern           (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;The pattern of underlines you want under the existing text within the
+
+<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget.  For example if the current text of the label says
+
+&quot;FooBarBaz&quot; passing a pattern of &quot;___   ___&quot; will underline
+
+&quot;Foo&quot; and &quot;Baz&quot; but not &quot;Bar&quot;.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29110"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> you want to set the pattern to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pattern as described above.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29124"
+></A
+><H3
+><A
+NAME="GTK-LABEL-SET-JUSTIFY"
+></A
+>gtk_label_set_justify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_label_set_justify           (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKJUSTIFICATION"
+>GtkJustification</A
+> jtype);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set where the text within the <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> will align to.  This can be one of
+
+four values: GTK_JUSTIFY_LEFT, GTK_JUSTIFY_RIGHT, GTK_JUSTIFY_CENTER,
+
+and GTK_JUSTIFY_FILL.  GTK_JUSTIFY_CENTER is the default value when the
+
+widget is first created with <A
+HREF="gtklabel.html#GTK-LABEL-NEW"
+>gtk_label_new</A
+>().&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29133"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget you want to set justification for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>jtype</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtk-standard-enumerations.html#GTKJUSTIFICATION"
+>GtkJustification</A
+> type as described above.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29148"
+></A
+><H3
+><A
+NAME="GTK-LABEL-GET"
+></A
+>gtk_label_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_label_get                   (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **str);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Gets the current string of text within the <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> and writes it to
+
+the given str argument.  It does not make a copy of this string so you
+
+must not write to it.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29156"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget you want to get the text from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The reference to the pointer you want to point to the text.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29170"
+></A
+><H3
+><A
+NAME="GTK-LABEL-PARSE-ULINE"
+></A
+>gtk_label_parse_uline ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_label_parse_uline           (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Parses the given string for underscores and converts the next
+
+character to an underlined character.  The last character that
+
+was underlined will have its lower-cased accelerator keyval returned  (i.e.
+
+&quot;_File&quot; would return the keyval for &quot;f&quot;.  This is
+
+probably only used within the Gtk+ library itself for menu items and such.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29178"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> you want to affect.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The string you want to parse for underlines.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The lowercase keyval of the last character underlined.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29196"
+></A
+><H3
+><A
+NAME="GTK-LABEL-SET-LINE-WRAP"
+></A
+>gtk_label_set_line_wrap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_label_set_line_wrap         (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> wrap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Toggles line wrapping within the <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget.  TRUE makes it break
+
+lines if text exceeds the widget's size.  FALSE lets the text get cut off
+
+by the edge of the widget if it exceeds the widget size.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29204"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> you want to set line wrapping for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>wrap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE turns it on; FALSE turns it off.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29218"
+></A
+><H3
+><A
+NAME="GTK-LABEL-SET-TEXT"
+></A
+>gtk_label_set_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_label_set_text              (<A
+HREF="gtklabel.html"
+>GtkLabel</A
+> *label,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *str);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the text within the <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> widget.  It overwrites any text that
+
+was there before.  Note that underlines that were there before do not
+
+get overwritten.  If you want to erase underlines just send NULL to
+
+<A
+HREF="gtklabel.html#GTK-LABEL-SET-PATTERN"
+>gtk_label_set_pattern</A
+>().&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN29227"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> you want to set the text for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>str</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The text you want to add.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29241"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKLABEL--LABEL"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>label</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>* : Read / Write)</DT
+><DD
+><P
+>&#13;The actual label text.  Do not write to this pointer, it is not copied.&#13;</P
+></DD
+><DT
+><A
+NAME="GTKLABEL--PATTERN"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>pattern</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>* : Read / Write)</DT
+><DD
+><P
+>&#13;The pattern of underlines under the existing text.  Do not change the
+
+pointer, it isn't copied.&#13;</P
+></DD
+><DT
+><A
+NAME="GTKLABEL--JUSTIFY"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>justify</TT
+>&quot; (<A
+HREF="gtk-standard-enumerations.html#GTKJUSTIFICATION"
+>GtkJustification</A
+> : Read / Write)</DT
+><DD
+><P
+>&#13;The <A
+HREF="gtk-standard-enumerations.html#GTKJUSTIFICATION"
+>GtkJustification</A
+> setting.  See <A
+HREF="gtklabel.html#GTK-LABEL-SET-JUSTIFY"
+>gtk_label_set_justify</A
+>() for more info.&#13;</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkitemfactory.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtklayout.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkItemFactory</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkLayout</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

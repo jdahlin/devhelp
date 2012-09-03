@@ -1,0 +1,863 @@
+<HTML
+><HEAD
+><TITLE
+>GtkAlignment</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkAdjustment"
+HREF="gtkadjustment.html"><LINK
+REL="NEXT"
+TITLE="GtkArrow"
+HREF="gtkarrow.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkadjustment.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkarrow.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKALIGNMENT"
+>GtkAlignment</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13173"
+></A
+><H2
+>Name</H2
+>GtkAlignment&nbsp;--&nbsp;a widget which controls the alignment and size of its child.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13176"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkalignment.html#GTKALIGNMENT-STRUCT"
+>GtkAlignment</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkalignment.html#GTK-ALIGNMENT-NEW"
+>gtk_alignment_new</A
+>               (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xscale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yscale);
+void        <A
+HREF="gtkalignment.html#GTK-ALIGNMENT-SET"
+>gtk_alignment_set</A
+>               (<A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+> *alignment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xscale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yscale);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13192"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----GtkAlignment</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13199"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkalignment.html#GTKALIGNMENT--XALIGN"
+>xalign</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write
+  &quot;<A
+HREF="gtkalignment.html#GTKALIGNMENT--YALIGN"
+>yalign</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write
+  &quot;<A
+HREF="gtkalignment.html#GTKALIGNMENT--XSCALE"
+>xscale</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write
+  &quot;<A
+HREF="gtkalignment.html#GTKALIGNMENT--YSCALE"
+>yscale</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A>               : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13210"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+> widget controls the alignment and size of its child widget.
+It has four settings: xscale, yscale, xalign, and yalign.</P
+><P
+>The scale settings are used to specify how much the child widget should
+expand to fill the space allocated to the <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>.
+The values can range from 0 (meaning the child doesn't expand at all) to
+1 (meaning the child expands to fill all of the available space).</P
+><P
+>The align settings are used to place the child widget within the available
+area. The values range from 0 (top or left) to 1 (bottom or right).
+Of course, if the scale settings are both set to 1, the alignment settings
+have no effect.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13217"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13219"
+></A
+><H3
+><A
+NAME="GTKALIGNMENT-STRUCT"
+></A
+>struct GtkAlignment</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkAlignment;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkalignment.html#GTKALIGNMENT-STRUCT"
+>GtkAlignment</A
+> struct contains private data only, and should
+be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13225"
+></A
+><H3
+><A
+NAME="GTK-ALIGNMENT-NEW"
+></A
+>gtk_alignment_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_alignment_new               (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xscale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yscale);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13236"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the horizontal alignment of the child widget, from 0 (left) to 1
+(right).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the vertical alignment of the child widget, from 0 (top) to 1
+(bottom).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xscale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the amount that the child widget expands horizontally to fill up
+unused space, from 0 to 1.
+A value of 0 indicates that the child widget should never expand.
+A value of 1 indicates that the child widget will expand to fill all of the
+space allocated for the <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yscale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the amount that the child widget expands vertically to fill up
+unused space, from 0 to 1. The values are similar to <TT
+CLASS="PARAMETER"
+><I
+>xscale</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13264"
+></A
+><H3
+><A
+NAME="GTK-ALIGNMENT-SET"
+></A
+>gtk_alignment_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_alignment_set               (<A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+> *alignment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xscale,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yscale);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+> values.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13275"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>alignment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the horizontal alignment of the child widget, from 0 (left) to 1
+(right).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the vertical alignment of the child widget, from 0 (top) to 1
+(bottom).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xscale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the amount that the child widget expands horizontally to fill up
+unused space, from 0 to 1.
+A value of 0 indicates that the child widget should never expand.
+A value of 1 indicates that the child widget will expand to fill all of the
+space allocated for the <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yscale</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the amount that the child widget expands vertically to fill up
+unused space, from 0 to 1. The values are similar to <TT
+CLASS="PARAMETER"
+><I
+>xscale</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13303"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKALIGNMENT--XALIGN"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>xalign</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+>the horizontal alignment of the child widget, from 0 (left) to 1 (right).</P
+></DD
+><DT
+><A
+NAME="GTKALIGNMENT--YALIGN"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>yalign</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+>the vertical alignment of the child widget, from 0 (top) to 1 (bottom).</P
+></DD
+><DT
+><A
+NAME="GTKALIGNMENT--XSCALE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>xscale</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+>the amount that the child widget expands horizontally to fill up
+unused space, from 0 to 1.
+A value of 0 indicates that the child widget should never expand.
+A value of 1 indicates that the child widget will expand to fill all of the
+space allocated for the <A
+HREF="gtkalignment.html"
+>GtkAlignment</A
+>.</P
+></DD
+><DT
+><A
+NAME="GTKALIGNMENT--YSCALE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>yscale</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> : Read / Write)</DT
+><DD
+><P
+>the amount that the child widget expands vertically to fill up
+unused space, from 0 to 1. The values are similar to <TT
+CLASS="PARAMETER"
+><I
+>xscale</I
+></TT
+>.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkadjustment.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkarrow.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkAdjustment</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkArrow</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

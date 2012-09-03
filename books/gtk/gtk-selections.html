@@ -1,0 +1,2862 @@
+<HTML
+><HEAD
+><TITLE
+>Selections</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Keyboard Accelerators"
+HREF="gtk-keyboard-accelerators.html"><LINK
+REL="NEXT"
+TITLE="Drag and Drop"
+HREF="gtk-drag-and-drop.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-keyboard-accelerators.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-SELECTIONS"
+>Selections</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN6317"
+></A
+><H2
+>Name</H2
+>Selections&nbsp;--&nbsp;Functions for handling inter-process communication via selections.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN6320"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+>;
+struct      <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+>;
+struct      <A
+HREF="gtk-selections.html#GTKTARGETPAIR"
+>GtkTargetPair</A
+>;
+<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+>* <A
+HREF="gtk-selections.html#GTK-TARGET-LIST-NEW"
+>gtk_target_list_new</A
+>          (const <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> *targets,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ntargets);
+void        <A
+HREF="gtk-selections.html#GTK-TARGET-LIST-REF"
+>gtk_target_list_ref</A
+>             (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list);
+void        <A
+HREF="gtk-selections.html#GTK-TARGET-LIST-UNREF"
+>gtk_target_list_unref</A
+>           (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list);
+void        <A
+HREF="gtk-selections.html#GTK-TARGET-LIST-ADD"
+>gtk_target_list_add</A
+>             (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> info);
+void        <A
+HREF="gtk-selections.html#GTK-TARGET-LIST-ADD-TABLE"
+>gtk_target_list_add_table</A
+>       (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             const <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> *targets,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ntargets);
+void        <A
+HREF="gtk-selections.html#GTK-TARGET-LIST-REMOVE"
+>gtk_target_list_remove</A
+>          (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-selections.html#GTK-TARGET-LIST-FIND"
+>gtk_target_list_find</A
+>            (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *info);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-selections.html#GTK-SELECTION-OWNER-SET"
+>gtk_selection_owner_set</A
+>         (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+void        <A
+HREF="gtk-selections.html#GTK-SELECTION-ADD-TARGET"
+>gtk_selection_add_target</A
+>        (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> info);
+void        <A
+HREF="gtk-selections.html#GTK-SELECTION-ADD-TARGETS"
+>gtk_selection_add_targets</A
+>       (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             const <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> *targets,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ntargets);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-selections.html#GTK-SELECTION-CONVERT"
+>gtk_selection_convert</A
+>           (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+void        <A
+HREF="gtk-selections.html#GTK-SELECTION-DATA-SET"
+>gtk_selection_data_set</A
+>          (<A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> *selection_data,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> length);
+void        <A
+HREF="gtk-selections.html#GTK-SELECTION-REMOVE-ALL"
+>gtk_selection_remove_all</A
+>        (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);
+GtkSelectioData* <A
+HREF="gtk-selections.html#GTK-SELECTION-DATA-COPY"
+>gtk_selection_data_copy</A
+>    (<A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> *data);
+void        <A
+HREF="gtk-selections.html#GTK-SELECTION-DATA-FREE"
+>gtk_selection_data_free</A
+>         (<A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> *data);
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-selections.html#GTK-SELECTION-CLEAR"
+>gtk_selection_clear</A
+>             (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTSELECTION
+>GdkEventSelection</A> *event);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-selections.html#GTK-SELECTION-INCR-EVENT"
+>gtk_selection_incr_event</A
+>        (<A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A> *window,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTPROPERTY
+>GdkEventProperty</A> *event);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-selections.html#GTK-SELECTION-NOTIFY"
+>gtk_selection_notify</A
+>            (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTSELECTION
+>GdkEventSelection</A> *event);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-selections.html#GTK-SELECTION-PROPERTY-NOTIFY"
+>gtk_selection_property_notify</A
+>   (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTPROPERTY
+>GdkEventProperty</A> *event);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-selections.html#GTK-SELECTION-REQUEST"
+>gtk_selection_request</A
+>           (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTSELECTION
+>GdkEventSelection</A> *event);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6405"
+></A
+><H2
+>Description</H2
+><P
+>See the documentation for <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> for descriptions
+of the "selection_get" and "selection_received" signals.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6409"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6411"
+></A
+><H3
+><A
+NAME="GTKTARGETENTRY"
+></A
+>struct GtkTargetEntry</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTargetEntry {
+  gchar *target;
+  guint  flags;
+  guint  info;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> structure represents a single type of
+data than can be supplied for by a widget for a selection
+or for supplied or received during drag-and-drop. It 
+contains a string representing the drag type, a flags
+field (used only for drag and drop - see <A
+HREF="gtk-drag-and-drop.html#GTKTARGETFLAGS"
+>GtkTargetFlags</A
+>),
+and an application assigned integer ID. The integer
+ID will later be passed as a signal parameter for signals
+like "selection_get". It allows the application to identify
+the target type without extensive string compares.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6418"
+></A
+><H3
+><A
+NAME="GTKTARGETLIST"
+></A
+>struct GtkTargetList</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTargetList {
+  GList *list;
+  guint ref_count;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> structure is a reference counted list
+of <A
+HREF="gtk-selections.html#GTKTARGETPAIR"
+>GtkTargetPair</A
+>. It is used to represent the same
+information as a table of <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+>, but in
+an efficient form. This structure should be treated as
+opaque.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6426"
+></A
+><H3
+><A
+NAME="GTKTARGETPAIR"
+></A
+>struct GtkTargetPair</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTargetPair {
+  GdkAtom   target;
+  guint     flags;
+  guint     info;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internally used structure in the drag-and-drop and 
+selection handling code.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6431"
+></A
+><H3
+><A
+NAME="GTK-TARGET-LIST-NEW"
+></A
+>gtk_target_list_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+>* gtk_target_list_new          (const <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> *targets,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ntargets);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> from an array of <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6441"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>targets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Pointer to an array of <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ntargets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of entries in <TT
+CLASS="PARAMETER"
+><I
+>targets</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6461"
+></A
+><H3
+><A
+NAME="GTK-TARGET-LIST-REF"
+></A
+>gtk_target_list_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_target_list_ref             (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Increase the reference count of a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> by one.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6468"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6478"
+></A
+><H3
+><A
+NAME="GTK-TARGET-LIST-UNREF"
+></A
+>gtk_target_list_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_target_list_unref           (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Decrease the reference count of a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> by one.
+If the resulting reference count is zero, free the list.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6485"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6495"
+></A
+><H3
+><A
+NAME="GTK-TARGET-LIST-ADD"
+></A
+>gtk_target_list_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_target_list_add             (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> info);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add another target to a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6505"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the interned atom representing the target</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the flags for this target</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an ID that will be passed back to the application
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6527"
+></A
+><H3
+><A
+NAME="GTK-TARGET-LIST-ADD-TABLE"
+></A
+>gtk_target_list_add_table ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_target_list_add_table       (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             const <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> *targets,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ntargets);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a table of <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> into a target list</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6536"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>targets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the table of <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ntargets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of targets in the table
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6555"
+></A
+><H3
+><A
+NAME="GTK-TARGET-LIST-REMOVE"
+></A
+>gtk_target_list_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_target_list_remove          (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Remove a target from a target list</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6562"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the interned atom representing the target
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6576"
+></A
+><H3
+><A
+NAME="GTK-TARGET-LIST-FIND"
+></A
+>gtk_target_list_find ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_target_list_find            (<A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+> *list,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *info);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Look up a given target in a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6586"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-selections.html#GTKTARGETLIST"
+>GtkTargetList</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an interned atom representing the target to search for</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the location to store application info for target</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the target was found, otherwise <TT
+CLASS="LITERAL"
+>FALSE</TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6610"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-OWNER-SET"
+></A
+>gtk_selection_owner_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_selection_owner_set         (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Claim ownership of a given selection for a particular widget,
+or, if <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, release ownership of the selection.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6621"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>, or <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an interned atom representing the selection to claim</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the time stamp for claiming the selection</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the operation succeeded
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6645"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-ADD-TARGET"
+></A
+>gtk_selection_add_target ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_selection_add_target        (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> info);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add specified target to the list of supported targets for a 
+given widget and selection.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6654"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkTarget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the selection</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>target to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A unsigned integer which will be passed back to the application.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6676"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-ADD-TARGETS"
+></A
+>gtk_selection_add_targets ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_selection_add_targets       (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             const <A
+HREF="gtk-selections.html#GTKTARGETENTRY"
+>GtkTargetEntry</A
+> *targets,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ntargets);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a table of targets to the list of supported targets
+for a given widget and selection.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6685"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the selection</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>targets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a table of targets to add</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ntargets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of entries in <TT
+CLASS="PARAMETER"
+><I
+>targets</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6708"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-CONVERT"
+></A
+>gtk_selection_convert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_selection_convert           (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> selection,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Request the contents of a selection. When received, 
+a "selection_received" signal will be generated.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6718"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The widget which acts as requestor</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Which selection to get</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Form of information desired (e.g., STRING)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Time of request (usually of triggering event)
+       In emergency, you could use GDK_CURRENT_TIME</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if requested succeeded. FALSE if we could not process
+          request. (e.g., there was already a request in process for
+          this widget).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6743"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-DATA-SET"
+></A
+>gtk_selection_data_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_selection_data_set          (<A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> *selection_data,
+                                             <A
+HREF=../gdk/gdk-properties-and-atoms.html#GDKATOM
+>GdkAtom</A> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> format,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Store new data into a GtkSelectionData object. Should
+_only_ by called from a selection handler callback.
+Null terminates the stored data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6753"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of selection data</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>format (number of bits in a unit)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>pointer to the data (will be copied)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>length of the data
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6778"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-REMOVE-ALL"
+></A
+>gtk_selection_remove_all ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_selection_remove_all        (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes all handlers and unsets ownership of all 
+selections for a widget. Called when widget is being
+destroyed. This function will not generally be
+called by applications.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6784"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6794"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-DATA-COPY"
+></A
+>gtk_selection_data_copy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GtkSelectioData* gtk_selection_data_copy    (<A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> *data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Make a copy of a GtkSelection data structure and its
+data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6802"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> structure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a copy of <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6817"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-DATA-FREE"
+></A
+>gtk_selection_data_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_selection_data_free         (<A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> *data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Free a <A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> structure returned from
+<A
+HREF="gtk-selections.html#GTK-SELECTION-DATA-COPY"
+>gtk_selection_data_copy</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6825"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="gtkwidget.html#GTKSELECTIONDATA"
+>GtkSelectionData</A
+> structure.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6835"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-CLEAR"
+></A
+>gtk_selection_clear ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_selection_clear             (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTSELECTION
+>GdkEventSelection</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6843"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6860"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-INCR-EVENT"
+></A
+>gtk_selection_incr_event ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_selection_incr_event        (<A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A> *window,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTPROPERTY
+>GdkEventProperty</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6868"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6885"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-NOTIFY"
+></A
+>gtk_selection_notify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_selection_notify            (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTSELECTION
+>GdkEventSelection</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6893"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6910"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-PROPERTY-NOTIFY"
+></A
+>gtk_selection_property_notify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_selection_property_notify   (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTPROPERTY
+>GdkEventProperty</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6918"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6935"
+></A
+><H3
+><A
+NAME="GTK-SELECTION-REQUEST"
+></A
+>gtk_selection_request ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_selection_request           (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTSELECTION
+>GdkEventSelection</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6943"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-keyboard-accelerators.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Keyboard Accelerators</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Drag and Drop</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

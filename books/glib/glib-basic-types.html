@@ -1,0 +1,1269 @@
+<HTML
+><HEAD
+><TITLE
+>Basic Types</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Fundamentals"
+HREF="glib-fundamentals.html"><LINK
+REL="PREVIOUS"
+TITLE="GLib Fundamentals"
+HREF="glib-fundamentals.html"><LINK
+REL="NEXT"
+TITLE="Limits of Basic Types"
+HREF="glib-limits-of-basic-types.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-limits-of-basic-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-BASIC-TYPES"
+>Basic Types</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11"
+></A
+><H2
+>Name</H2
+>Basic Types&nbsp;--&nbsp;standard GLib types, defined for ease-of-use and portability.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+typedef     <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GUCHAR"
+>guchar</A
+>;
+
+typedef     <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GSHORT"
+>gshort</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GUSHORT"
+>gushort</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GLONG"
+>glong</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+>;
+
+typedef     <A
+HREF="glib-basic-types.html#GINT8"
+>gint8</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GINT16"
+>gint16</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GUINT16"
+>guint16</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GINT32"
+>gint32</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+>;
+
+#define     <A
+HREF="glib-basic-types.html#G-HAVE-GINT64-CAPS"
+>G_HAVE_GINT64</A
+>
+typedef     <A
+HREF="glib-basic-types.html#GINT64"
+>gint64</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GUINT64"
+>guint64</A
+>;
+#define     <A
+HREF="glib-basic-types.html#G-GINT64-CONSTANT-CAPS"
+>G_GINT64_CONSTANT</A
+>               (val)
+
+typedef     <A
+HREF="glib-basic-types.html#GFLOAT"
+>gfloat</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GDOUBLE"
+>gdouble</A
+>;
+
+typedef     <A
+HREF="glib-basic-types.html#GSIZE"
+>gsize</A
+>;
+typedef     <A
+HREF="glib-basic-types.html#GSSIZE"
+>gssize</A
+>;&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42"
+></A
+><H2
+>Description</H2
+><P
+>GLib defines a number of commonly used types, which can be divided into
+4 groups:
+
+<P
+></P
+><UL
+><LI
+><P
+>New types which are not part of standard C - <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>, <A
+HREF="glib-basic-types.html#GSIZE"
+>gsize</A
+>, <A
+HREF="glib-basic-types.html#GSSIZE"
+>gssize</A
+>.</P
+></LI
+><LI
+><P
+>Integer types which are guaranteed to be the same size across all platforms -
+<A
+HREF="glib-basic-types.html#GINT8"
+>gint8</A
+>, <A
+HREF="glib-basic-types.html#GUINT8"
+>guint8</A
+>, <A
+HREF="glib-basic-types.html#GINT16"
+>gint16</A
+>, <A
+HREF="glib-basic-types.html#GUINT16"
+>guint16</A
+>, <A
+HREF="glib-basic-types.html#GINT32"
+>gint32</A
+>, <A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+>, <A
+HREF="glib-basic-types.html#GINT64"
+>gint64</A
+>, <A
+HREF="glib-basic-types.html#GUINT64"
+>guint64</A
+>.</P
+></LI
+><LI
+><P
+>Types which are easier to use than their standard C counterparts -
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>, <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+>, <A
+HREF="glib-basic-types.html#GUCHAR"
+>guchar</A
+>, <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>, <A
+HREF="glib-basic-types.html#GUSHORT"
+>gushort</A
+>, <A
+HREF="glib-basic-types.html#GULONG"
+>gulong</A
+>.</P
+></LI
+><LI
+><P
+>Types which correspond exactly to standard C types, but are included
+for completeness - <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>, <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>, <A
+HREF="glib-basic-types.html#GSHORT"
+>gshort</A
+>, <A
+HREF="glib-basic-types.html#GLONG"
+>glong</A
+>, <A
+HREF="glib-basic-types.html#GFLOAT"
+>gfloat</A
+>, <A
+HREF="glib-basic-types.html#GDOUBLE"
+>gdouble</A
+>.</P
+></LI
+></UL
+>&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN77"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN79"
+></A
+><H3
+><A
+NAME="GBOOLEAN"
+></A
+>gboolean</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef gint   gboolean;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A standard <SPAN
+CLASS="TYPE"
+>boolean</SPAN
+> type.
+Variables of this type should only contain the value <A
+HREF="glib-standard-macros.html#TRUE-CAPS"
+>TRUE</A
+> or <A
+HREF="glib-standard-macros.html#FALSE-CAPS"
+>FALSE</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN87"
+></A
+><H3
+><A
+NAME="GPOINTER"
+></A
+>gpointer</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef void* gpointer;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An untyped pointer.
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> looks better and is easier to use than <SPAN
+CLASS="TYPE"
+>void*</SPAN
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN94"
+></A
+><H3
+><A
+NAME="GCONSTPOINTER"
+></A
+>gconstpointer</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef const void *gconstpointer;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An untyped pointer to constant data.
+The data pointed to should not be changed.</P
+><P
+>This is typically used in function prototypes to indicate that the
+data pointed to will not be altered by the function.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN100"
+></A
+><H3
+><A
+NAME="GCHAR"
+></A
+>gchar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef char   gchar;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>char</SPAN
+> type.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN106"
+></A
+><H3
+><A
+NAME="GUCHAR"
+></A
+>guchar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef unsigned char	guchar;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>unsigned char</SPAN
+> type.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN112"
+></A
+><H3
+><A
+NAME="GINT"
+></A
+>gint</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef int    gint;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>int</SPAN
+> type.
+Values of this type can range from <A
+HREF="glib-limits-of-basic-types.html#G-MININT-CAPS"
+>G_MININT</A
+> to <A
+HREF="glib-limits-of-basic-types.html#G-MAXINT-CAPS"
+>G_MAXINT</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN120"
+></A
+><H3
+><A
+NAME="GUINT"
+></A
+>guint</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef unsigned int	guint;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>unsigned int</SPAN
+> type.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN126"
+></A
+><H3
+><A
+NAME="GSHORT"
+></A
+>gshort</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef short  gshort;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>short</SPAN
+> type.
+Values of this type can range from <A
+HREF="glib-limits-of-basic-types.html#G-MINSHORT-CAPS"
+>G_MINSHORT</A
+> to <A
+HREF="glib-limits-of-basic-types.html#G-MAXSHORT-CAPS"
+>G_MAXSHORT</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN134"
+></A
+><H3
+><A
+NAME="GUSHORT"
+></A
+>gushort</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef unsigned short	gushort;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>unsigned short</SPAN
+> type.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN140"
+></A
+><H3
+><A
+NAME="GLONG"
+></A
+>glong</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef long   glong;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>long</SPAN
+> type.
+Values of this type can range from <A
+HREF="glib-limits-of-basic-types.html#G-MINLONG-CAPS"
+>G_MINLONG</A
+> to <A
+HREF="glib-limits-of-basic-types.html#G-MAXLONG-CAPS"
+>G_MAXLONG</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN148"
+></A
+><H3
+><A
+NAME="GULONG"
+></A
+>gulong</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef unsigned long	gulong;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>unsigned long</SPAN
+> type.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN154"
+></A
+><H3
+><A
+NAME="GINT8"
+></A
+>gint8</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef signed char gint8;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A signed integer guaranteed to be 8 bits on all platforms.
+Values of this type can range from -128 to 127.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN159"
+></A
+><H3
+><A
+NAME="GUINT8"
+></A
+>guint8</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef unsigned char guint8;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An unsigned integer guaranteed to be 8 bits on all platforms.
+Values of this type can range from 0 to 255.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN164"
+></A
+><H3
+><A
+NAME="GINT16"
+></A
+>gint16</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef signed short gint16;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A signed integer guaranteed to be 16 bits on all platforms.
+Values of this type can range from -32,768 to 32,767.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN169"
+></A
+><H3
+><A
+NAME="GUINT16"
+></A
+>guint16</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef unsigned short guint16;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An unsigned integer guaranteed to be 16 bits on all platforms.
+Values of this type can range from 0 to 65,535.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN174"
+></A
+><H3
+><A
+NAME="GINT32"
+></A
+>gint32</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef signed int gint32;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A signed integer guaranteed to be 32 bits on all platforms.
+Values of this type can range from -2,147,483,648 to 2,147,483,647.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN179"
+></A
+><H3
+><A
+NAME="GUINT32"
+></A
+>guint32</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef unsigned int guint32;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An unsigned integer guaranteed to be 32 bits on all platforms.
+Values of this type can range from 0 to 4,294,967,295.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN184"
+></A
+><H3
+><A
+NAME="G-HAVE-GINT64-CAPS"
+></A
+>G_HAVE_GINT64</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_HAVE_GINT64 1</PRE
+></TD
+></TR
+></TABLE
+><P
+>This macro is defined if 64-bit signed and unsigned integers are available
+on the platform.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN189"
+></A
+><H3
+><A
+NAME="GINT64"
+></A
+>gint64</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>G_GNUC_EXTENSION typedef signed long long gint64;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A signed integer guaranteed to be 64 bits on all platforms on which it is
+available (see <A
+HREF="glib-basic-types.html#G-HAVE-GINT64-CAPS"
+>G_HAVE_GINT64</A
+>).
+Values of this type can range from -9,223,372,036,854,775,808 to
+9,223,372,036,854,775,807.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN195"
+></A
+><H3
+><A
+NAME="GUINT64"
+></A
+>guint64</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>G_GNUC_EXTENSION typedef unsigned long long guint64;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An unsigned integer guaranteed to be 64 bits on all platforms on which it is
+available (see <A
+HREF="glib-basic-types.html#G-HAVE-GINT64-CAPS"
+>G_HAVE_GINT64</A
+>).
+Values of this type can range from 0 to 18,446,744,073,709,551,615.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN201"
+></A
+><H3
+><A
+NAME="G-GINT64-CONSTANT-CAPS"
+></A
+>G_GINT64_CONSTANT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_GINT64_CONSTANT(val)	(G_GNUC_EXTENSION (val##LL))</PRE
+></TD
+></TR
+></TABLE
+><P
+>This macro is used to insert 64-bit integer literals into the source code.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN206"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a literal integer value, e.g. 0x1d636b02300a7aa7U.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN215"
+></A
+><H3
+><A
+NAME="GFLOAT"
+></A
+>gfloat</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef float	gfloat;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>float</SPAN
+> type.
+Values of this type can range from <A
+HREF="glib-limits-of-basic-types.html#G-MINFLOAT-CAPS"
+>G_MINFLOAT</A
+> to <A
+HREF="glib-limits-of-basic-types.html#G-MAXFLOAT-CAPS"
+>G_MAXFLOAT</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN223"
+></A
+><H3
+><A
+NAME="GDOUBLE"
+></A
+>gdouble</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef double	gdouble;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Corresponds to the standard C <SPAN
+CLASS="TYPE"
+>double</SPAN
+> type.
+Values of this type can range from <A
+HREF="glib-limits-of-basic-types.html#G-MINDOUBLE-CAPS"
+>G_MINDOUBLE</A
+> to <A
+HREF="glib-limits-of-basic-types.html#G-MAXDOUBLE-CAPS"
+>G_MAXDOUBLE</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN231"
+></A
+><H3
+><A
+NAME="GSIZE"
+></A
+>gsize</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef guint32 gsize;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An unsigned 32-bit integer intended to represent sizes of data structures.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN236"
+></A
+><H3
+><A
+NAME="GSSIZE"
+></A
+>gssize</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef gint32	gssize;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A signed 32-bit integer intended to represent sizes of data structures.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-limits-of-basic-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GLib Fundamentals</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Limits of Basic Types</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

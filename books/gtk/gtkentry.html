@@ -1,0 +1,1635 @@
+<HTML
+><HEAD
+><TITLE
+>GtkEntry</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkEditable"
+HREF="gtkeditable.html"><LINK
+REL="NEXT"
+TITLE="GtkEventBox"
+HREF="gtkeventbox.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkeditable.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkeventbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKENTRY"
+>GtkEntry</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN25291"
+></A
+><H2
+>Name</H2
+>GtkEntry&nbsp;--&nbsp;a single line text entry field.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN25294"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkentry.html#GTKENTRY-STRUCT"
+>GtkEntry</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkentry.html#GTK-ENTRY-NEW"
+>gtk_entry_new</A
+>                   (void);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkentry.html#GTK-ENTRY-NEW-WITH-MAX-LENGTH"
+>gtk_entry_new_with_max_length</A
+>   (<A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> max);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-SET-TEXT"
+>gtk_entry_set_text</A
+>              (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-APPEND-TEXT"
+>gtk_entry_append_text</A
+>           (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-PREPEND-TEXT"
+>gtk_entry_prepend_text</A
+>          (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-SET-POSITION"
+>gtk_entry_set_position</A
+>          (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtkentry.html#GTK-ENTRY-GET-TEXT"
+>gtk_entry_get_text</A
+>              (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-SELECT-REGION"
+>gtk_entry_select_region</A
+>         (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> end);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-SET-VISIBILITY"
+>gtk_entry_set_visibility</A
+>        (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> visible);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-SET-EDITABLE"
+>gtk_entry_set_editable</A
+>          (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> editable);
+void        <A
+HREF="gtkentry.html#GTK-ENTRY-SET-MAX-LENGTH"
+>gtk_entry_set_max_length</A
+>        (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> max);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25331"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkeditable.html"
+>GtkEditable</A
+>
+               +----GtkEntry</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25337"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkentry.html#GTKENTRY--MAX-LENGTH"
+>max-length</A
+>&quot;           <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkentry.html#GTKENTRY--VISIBILITY"
+>visibility</A
+>&quot;           <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25344"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> widget is a single line text entry
+widget. A fairly large set of key bindings are supported
+by default. If the entered text is longer than the allocation
+of the widget, the widget will scroll so that the cursor
+position is visible. </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25348"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25350"
+></A
+><H3
+><A
+NAME="GTKENTRY-STRUCT"
+></A
+>struct GtkEntry</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkEntry;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkentry.html#GTKENTRY-STRUCT"
+>GtkEntry</A
+> struct contains only private data.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25356"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-NEW"
+></A
+>gtk_entry_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_entry_new                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25363"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25373"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-NEW-WITH-MAX-LENGTH"
+></A
+>gtk_entry_new_with_max_length ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_entry_new_with_max_length   (<A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> max);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkentry.html"
+>GtkEntry</A
+> widget with the given maximum
+length.</P
+><P
+>Note: the existance of this function is inconsistent
+with the rest of the GTK+ API. The normal setup would
+be to just require the user to make an extra call
+to <A
+HREF="gtkentry.html#GTK-ENTRY-SET-MAX-LENGTH"
+>gtk_entry_set_max_length</A
+>() instead. It is not
+expected that this function will be removed, but
+it would be better practice not to use it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25383"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new maximum length.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25397"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-SET-TEXT"
+></A
+>gtk_entry_set_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_set_text              (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the text in the widget to the given
+value, replacing the current contents.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25404"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new text.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25418"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-APPEND-TEXT"
+></A
+>gtk_entry_append_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_append_text           (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends the given text to the contents of the widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25425"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to append.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25439"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-PREPEND-TEXT"
+></A
+>gtk_entry_prepend_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_prepend_text          (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prepends the given text to the contents of th ewidget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25446"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to prepend.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25460"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-SET-POSITION"
+></A
+>gtk_entry_set_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_set_position          (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the cursor position in an entry to the given 
+value. This function is obsolete. You should use
+<A
+HREF="gtkeditable.html#GTK-EDITABLE-SET-POSITION"
+>gtk_editable_set_position</A
+>() instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25468"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the cursor. The cursor is displayed
+           before the character with the given (base 0) index
+           in the widget. The value must be less than or
+           equal to the number of characters in the widget.
+           A value of -1 indicates that the position should
+           be set after the last character in the entry.
+           Note that this position is in characters, not in
+           bytes.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25482"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-GET-TEXT"
+></A
+>gtk_entry_get_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_entry_get_text              (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the contents of the entry widget. The returned
+pointer points to internally allocated storage in the
+widget and must not be freed, modified or stored. For
+this reason, this function is deprecated. Use 
+<A
+HREF="gtkeditable.html#GTK-EDITABLE-GET-CHARS"
+>gtk_editable_get_chars</A
+>() instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25490"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer the the contents of the text widget as a
+          string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25504"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-SELECT-REGION"
+></A
+>gtk_entry_select_region ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_select_region         (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> start,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> end);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects a region of text. The characters that
+are selected are those characters at positions from
+<TT
+CLASS="PARAMETER"
+><I
+>start_pos</I
+></TT
+> up to, but not including <TT
+CLASS="PARAMETER"
+><I
+>end_pos</I
+></TT
+>. If 
+<TT
+CLASS="PARAMETER"
+><I
+>end_pos</I
+></TT
+> is negative, then the the characters selected
+will be those characters from <TT
+CLASS="PARAMETER"
+><I
+>start_pos</I
+></TT
+> to the end
+of the text. This function is obsolete. You should
+use <A
+HREF="gtkeditable.html#GTK-EDITABLE-SELECT-REGION"
+>gtk_editable_select_region</A
+>() instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25517"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>start</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the starting position.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>end</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the end position.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25535"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-SET-VISIBILITY"
+></A
+>gtk_entry_set_visibility ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_set_visibility        (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> visible);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether the contents of the entry are visible or
+not. When visibility is set to <TT
+CLASS="LITERAL"
+>FALSE</TT
+>, characters
+are displayed as asterisks (*'s), and will also appear
+that way when the text in the entry widget is copied
+elsewhere.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25543"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visible</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the contents of the entry are displayd
+          as plaintext.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25558"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-SET-EDITABLE"
+></A
+>gtk_entry_set_editable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_set_editable          (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> editable);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines if the user can edit the text in the editable
+widget or not. This function is obsolete. You should
+use <A
+HREF="gtkeditable.html#GTK-EDITABLE-SET-EDITABLE"
+>gtk_editable_set_editable</A
+>() instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25566"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>editable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the user is allowed to edit the text
+  in the widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25581"
+></A
+><H3
+><A
+NAME="GTK-ENTRY-SET-MAX-LENGTH"
+></A
+>gtk_entry_set_max_length ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_entry_set_max_length        (<A
+HREF="gtkentry.html"
+>GtkEntry</A
+> *entry,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> max);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the maximum allowed length of the contents 
+of the widget. If the current contents are longer
+than the given length, then they will be truncated
+to fit.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25588"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new maximum length.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25602"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKENTRY--MAX-LENGTH"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>max-length</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKENTRY--VISIBILITY"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>visibility</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>Determines whether the contents of the entry widget
+are visible or not. See <A
+HREF="gtkentry.html#GTK-ENTRY-SET-VISIBILITY"
+>gtk_entry_set_visibility</A
+>().</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25620"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtktext.html"
+>GtkText</A
+></DT
+><DD
+><P
+>a widget for handling multi-line text entry.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkeditable.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkeventbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkEditable</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkEventBox</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

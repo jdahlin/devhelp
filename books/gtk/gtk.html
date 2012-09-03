@@ -1,0 +1,349 @@
+<HTML
+><HEAD
+><TITLE
+>GTK+ </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="NEXT"
+TITLE="General"
+HREF="gtk-general.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&nbsp;</B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-general.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="GTK"
+>GTK+ </A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="gtk-general.html"
+>General</A
+> &#8212; Mainloop and event handling</DT
+><DT
+><A
+HREF="gtk-feature-test-macros.html"
+>Version Information</A
+> &#8212; variables and functions to check the GTK+ version.</DT
+><DT
+><A
+HREF="gtk-graphics-contexts.html"
+>Graphics Contexts</A
+> &#8212; provides access to a shared pool of <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> objects.</DT
+><DT
+><A
+HREF="gtk-styles.html"
+>Styles</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-themes.html"
+>Themes</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-resource-files.html"
+>Resource Files</A
+> &#8212; Routines for handling resource files</DT
+><DT
+><A
+HREF="gtk-keyboard-accelerators.html"
+>Keyboard Accelerators</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-selections.html"
+>Selections</A
+> &#8212; Functions for handling inter-process communication via selections.</DT
+><DT
+><A
+HREF="gtk-drag-and-drop.html"
+>Drag and Drop</A
+> &#8212; Functions for controlling drag and drop handling.</DT
+><DT
+><A
+HREF="gtk-signals.html"
+>Signals</A
+> &#8212; Object methods and callbacks.</DT
+><DT
+><A
+HREF="gtk-signal-marshallers.html"
+>Signal Marshallers</A
+> &#8212; Functions to adapt C structures to native calling convention.</DT
+><DT
+><A
+HREF="gtk-object-properties.html"
+>Implementation of Object Properties</A
+> &#8212; Utility function to manipulate lists of named, typed arguments.</DT
+><DT
+><A
+HREF="gtk-types.html"
+>Types</A
+> &#8212; Handle run-time type creation.</DT
+><DT
+><A
+HREF="gtk-bindings.html"
+>Bindings</A
+> &#8212; </DT
+><DT
+><A
+HREF="gtk-standard-enumerations.html"
+>Standard Enumerations</A
+> &#8212; Public enumerated types used throughout GTK+.</DT
+><DT
+><A
+HREF="gtk-private-information.html"
+>Private Information</A
+> &#8212; </DT
+></DL
+></DIV
+><P
+>GTK+ is a multi-platform open source GUI Toolkit. Everything about
+GTK+ from the object-oriented design to the Free Software LGPL
+licensing allows you to code your project with the most freedom
+possible. You can develop open software, free software, or even
+commercial non-free software without having to spend a dime for
+licenses or royalties.
+    </P
+><P
+>GTK+ is a set of libraries to create graphical user interfaces. It
+works on many Unix-like platforms, and a Windows version is in
+development. GTK+ is released under the GNU Library General Public
+License (GNU LGPL), which allows for flexible licensing of client
+applications. GTK+ has a C-based object-oriented architecture that
+allows for maximum flexibility.  Bindings for other languages have
+been written, including C++, Objective-C, Guile/Scheme, Perl, Python,
+TOM, Ada95, Free Pascal, and Eiffel.
+    </P
+><P
+>GTK+ consists of the following component libraries:
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>GLib</DT
+><DD
+><P
+>Provides many useful data types, macros, type conversions,
+string utilities and a lexical scanner. Includes Win32 support.</P
+></DD
+><DT
+>GDK</DT
+><DD
+><P
+>A wrapper for low-level windowing functions.</P
+></DD
+><DT
+>GTK+</DT
+><DD
+><P
+>An advanced widget set.</P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&nbsp;</B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-general.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GTK+ Reference Manual</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>General</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

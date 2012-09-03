@@ -1,0 +1,674 @@
+<HTML
+><HEAD
+><TITLE
+>GtkRuler</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkRange"
+HREF="gtkrange.html"><LINK
+REL="NEXT"
+TITLE="GtkScale"
+HREF="gtkscale.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkrange.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkscale.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKRULER"
+>GtkRuler</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN38318"
+></A
+><H2
+>Name</H2
+>GtkRuler&nbsp;--&nbsp;Base class for horizontal or vertical rulers</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN38321"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkruler.html#GTKRULER-STRUCT"
+>GtkRuler</A
+>;
+struct      <A
+HREF="gtkruler.html#GTKRULERMETRIC"
+>GtkRulerMetric</A
+>;
+void        <A
+HREF="gtkruler.html#GTK-RULER-SET-METRIC"
+>gtk_ruler_set_metric</A
+>            (<A
+HREF="gtkruler.html"
+>GtkRuler</A
+> *ruler,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKMETRICTYPE"
+>GtkMetricType</A
+> metric);
+void        <A
+HREF="gtkruler.html#GTK-RULER-SET-RANGE"
+>gtk_ruler_set_range</A
+>             (<A
+HREF="gtkruler.html"
+>GtkRuler</A
+> *ruler,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> lower,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> upper,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> max_size);
+&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38335"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----GtkRuler</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38340"
+></A
+><H2
+>Description</H2
+><P
+>The GTKRuler widget is a base class for horizontal and vertical rulers. Rulers
+are used to show the mouse pointer's location in a window. The ruler can either
+be horizontal or vertical on the window. Within the ruler a small triangle
+indicates the location of the mouse relative to the horixontal or vertical
+ruler. See <A
+HREF="gtkhruler.html"
+>GtkHRuler</A
+> to learn how to create a new horizontal ruler. See
+<A
+HREF="gtkvruler.html"
+>GtkVRuler</A
+> to learn how to create a new vertical ruler.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38345"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38347"
+></A
+><H3
+><A
+NAME="GTKRULER-STRUCT"
+></A
+>struct GtkRuler</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkRuler;</PRE
+></TD
+></TR
+></TABLE
+><P
+>All distances are in 1/72nd's of an inch. (According to Adobe thats a point, but
+points are really 1/72.27 in.)</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38352"
+></A
+><H3
+><A
+NAME="GTKRULERMETRIC"
+></A
+>struct GtkRulerMetric</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkRulerMetric
+{
+  gchar *metric_name;
+  gchar *abbrev;
+  /* This should be points_per_unit. This is the size of the unit
+   * in 1/72nd's of an inch and has nothing to do with screen pixels */
+  gfloat pixels_per_unit;
+  gfloat ruler_scale[10];
+  gint subdivide[5];        /* five possible modes of subdivision */
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>This should be points_per_unit. This is the size of the unit in 1/72nd's of an inch and has nothing to do with screen pixels. </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38357"
+></A
+><H3
+><A
+NAME="GTK-RULER-SET-METRIC"
+></A
+>gtk_ruler_set_metric ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ruler_set_metric            (<A
+HREF="gtkruler.html"
+>GtkRuler</A
+> *ruler,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKMETRICTYPE"
+>GtkMetricType</A
+> metric);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This calls the <A
+HREF="gtk-standard-enumerations.html#GTKMETRICTYPE"
+>GTKMetricType</A
+> to set the ruler to units defined. Available units
+are GTK_PIXELS, GTK_INCHES, or GTK_CENTIMETERS. The default unit of measurement
+is GTK_PIXELS.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38365"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ruler</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the gtkruler</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>metric</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the unit of measurement
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN38378"
+></A
+><H3
+><A
+NAME="GTK-RULER-SET-RANGE"
+></A
+>gtk_ruler_set_range ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ruler_set_range             (<A
+HREF="gtkruler.html"
+>GtkRuler</A
+> *ruler,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> lower,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> upper,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> position,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> max_size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This sets the range of the ruler using gfloat lower, gfloat upper, gfloat position, and gfloat max_size. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN38388"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ruler</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the gtkruler</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lower</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the upper limit of the ruler</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>upper</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the lower limit of the ruler</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the mark on the ruler</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max_size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum size of the ruler
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN38413"
+></A
+><H2
+>See Also</H2
+><P
+><A
+HREF="gtkhruler.html"
+>GtkHRuler</A
+>, <A
+HREF="gtkvruler.html"
+>GtkVRuler</A
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkrange.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkscale.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkRange</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkScale</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1027 @@
+<HTML
+><HEAD
+><TITLE
+>GtkColorSelection</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkCList"
+HREF="gtkclist.html"><LINK
+REL="NEXT"
+TITLE="GtkColorSelectionDialog"
+HREF="gtkcolorselectiondialog.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkclist.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcolorselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKCOLORSELECTION"
+>GtkColorSelection</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN19172"
+></A
+><H2
+>Name</H2
+>GtkColorSelection&nbsp;--&nbsp;a widget used to select a color.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN19175"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkcolorselection.html#GTKCOLORSELECTION-STRUCT"
+>GtkColorSelection</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkcolorselection.html#GTK-COLOR-SELECTION-NEW"
+>gtk_color_selection_new</A
+>         (void);
+void        <A
+HREF="gtkcolorselection.html#GTK-COLOR-SELECTION-SET-UPDATE-POLICY"
+>gtk_color_selection_set_update_policy</A
+>
+                                            (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKUPDATETYPE"
+>GtkUpdateType</A
+> policy);
+void        <A
+HREF="gtkcolorselection.html#GTK-COLOR-SELECTION-SET-OPACITY"
+>gtk_color_selection_set_opacity</A
+> (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> use_opacity);
+void        <A
+HREF="gtkcolorselection.html#GTK-COLOR-SELECTION-SET-COLOR"
+>gtk_color_selection_set_color</A
+>   (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *color);
+void        <A
+HREF="gtkcolorselection.html#GTK-COLOR-SELECTION-GET-COLOR"
+>gtk_color_selection_get_color</A
+>   (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *color);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19193"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbox.html"
+>GtkBox</A
+>
+                     +----<A
+HREF="gtkvbox.html"
+>GtkVBox</A
+>
+                           +----GtkColorSelection</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19201"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkcolorselection.html#GTKCOLORSELECTION-COLOR-CHANGED"
+>color-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorselection,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19207"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> is a widget that is used to select 
+a color.  It consists of a color wheel and number of sliders
+and entry boxes for color parameters such as hue, saturation,
+value, red, green, blue, and opacity.  It is found on the standard 
+color selection dialog box <A
+HREF="gtkcolorselectiondialog.html"
+>GtkColorSelectionDialog</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19212"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19214"
+></A
+><H3
+><A
+NAME="GTKCOLORSELECTION-STRUCT"
+></A
+>struct GtkColorSelection</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkColorSelection;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkcolorselection.html#GTKCOLORSELECTION-STRUCT"
+>GtkColorSelection</A
+> struct contains private data only, 
+and should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19220"
+></A
+><H3
+><A
+NAME="GTK-COLOR-SELECTION-NEW"
+></A
+>gtk_color_selection_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_color_selection_new         (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19227"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19237"
+></A
+><H3
+><A
+NAME="GTK-COLOR-SELECTION-SET-UPDATE-POLICY"
+></A
+>gtk_color_selection_set_update_policy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_color_selection_set_update_policy
+                                            (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKUPDATETYPE"
+>GtkUpdateType</A
+> policy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the policy controlling when the color_changed signals are emitted.
+The available policies are:
+<P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_UPDATE_CONTINUOUS</TT
+> - signals are sent continuously as the color
+selection changes.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_UPDATE_DISCONTINUOUS</TT
+> - signals are sent only when the mouse 
+button is released.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>GTK_UPDATE_DELAYED</TT
+> - signals are sent when the mouse button is
+released or when the mouse has been motionless for a period of
+time.</P
+></LI
+></UL
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19254"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colorsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>policy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-standard-enumerations.html#GTKUPDATETYPE"
+>GtkUpdateType</A
+> value indicating the desired policy.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19269"
+></A
+><H3
+><A
+NAME="GTK-COLOR-SELECTION-SET-OPACITY"
+></A
+>gtk_color_selection_set_opacity ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_color_selection_set_opacity (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> use_opacity);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Controls whether opacity can be set with the <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>.
+If this functionality is enabled, the necessary additional widgets
+are added to the <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> and the opacity value can be
+retrieved via the fourth value in the color array returned by
+the <A
+HREF="gtkcolorselection.html#GTK-COLOR-SELECTION-GET-COLOR"
+>gtk_color_selection_get_color</A
+>() function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19279"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colorsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>use_opacity</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a boolean indicating whether the opacity selection
+is enabled.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19293"
+></A
+><H3
+><A
+NAME="GTK-COLOR-SELECTION-SET-COLOR"
+></A
+>gtk_color_selection_set_color ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_color_selection_set_color   (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the color in the <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>.  The widgets are updated
+to reflect the new color.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19301"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colorsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a color array consisting of 4 gfloat values for red, green,
+blue, and opacity.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19315"
+></A
+><H3
+><A
+NAME="GTK-COLOR-SELECTION-GET-COLOR"
+></A
+>gtk_color_selection_get_color ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_color_selection_get_color   (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorsel,
+                                             <A
+HREF=../glib/glib-basic-types.html#GDOUBLE
+>gdouble</A> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the currently selected color value.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19322"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colorsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a color array consisting of 4 gfloat values for red, green,
+blue, and opacity.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19336"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19338"
+></A
+><H3
+><A
+NAME="GTKCOLORSELECTION-COLOR-CHANGED"
+></A
+>The &quot;color-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+> *colorselection,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted when the color changes in the <A
+HREF="gtkcolorselection.html"
+>GtkColorSelection</A
+>
+according to its update policy.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN19346"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colorselection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkclist.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcolorselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkCList</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkColorSelectionDialog</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

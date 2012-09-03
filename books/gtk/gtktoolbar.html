@@ -1,0 +1,4015 @@
+<HTML
+><HEAD
+><TITLE
+>GtkToolbar</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkToggleButton"
+HREF="gtktogglebutton.html"><LINK
+REL="NEXT"
+TITLE="GtkTooltips"
+HREF="gtktooltips.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktogglebutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktooltips.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKTOOLBAR"
+>GtkToolbar</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN41669"
+></A
+><H2
+>Name</H2
+>GtkToolbar&nbsp;--&nbsp;create bars of buttons and other widgets.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN41672"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtktoolbar.html#GTKTOOLBAR-STRUCT"
+>GtkToolbar</A
+>;
+enum        <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+>;
+enum        <A
+HREF="gtktoolbar.html#GTKTOOLBARSPACESTYLE"
+>GtkToolbarSpaceStyle</A
+>;
+struct      <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILD"
+>GtkToolbarChild</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-NEW"
+>gtk_toolbar_new</A
+>                 (<A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+> orientation,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+> style);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-APPEND-ITEM"
+>gtk_toolbar_append_item</A
+>         (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-PREPEND-ITEM"
+>gtk_toolbar_prepend_item</A
+>        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-INSERT-ITEM"
+>gtk_toolbar_insert_item</A
+>         (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-APPEND-SPACE"
+>gtk_toolbar_append_space</A
+>        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-PREPEND-SPACE"
+>gtk_toolbar_prepend_space</A
+>       (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-INSERT-SPACE"
+>gtk_toolbar_insert_space</A
+>        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-APPEND-ELEMENT"
+>gtk_toolbar_append_element</A
+>      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> type,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-PREPEND-ELEMENT"
+>gtk_toolbar_prepend_element</A
+>     (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> type,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-INSERT-ELEMENT"
+>gtk_toolbar_insert_element</A
+>      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> type,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-APPEND-WIDGET"
+>gtk_toolbar_append_widget</A
+>       (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-PREPEND-WIDGET"
+>gtk_toolbar_prepend_widget</A
+>      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-INSERT-WIDGET"
+>gtk_toolbar_insert_widget</A
+>       (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-SET-ORIENTATION"
+>gtk_toolbar_set_orientation</A
+>     (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+> orientation);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-SET-STYLE"
+>gtk_toolbar_set_style</A
+>           (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+> style);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-SET-SPACE-SIZE"
+>gtk_toolbar_set_space_size</A
+>      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> space_size);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-SET-SPACE-STYLE"
+>gtk_toolbar_set_space_style</A
+>     (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARSPACESTYLE"
+>GtkToolbarSpaceStyle</A
+> space_style);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-SET-TOOLTIPS"
+>gtk_toolbar_set_tooltips</A
+>        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> enable);
+void        <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-SET-BUTTON-RELIEF"
+>gtk_toolbar_set_button_relief</A
+>   (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKRELIEFSTYLE"
+>GtkReliefStyle</A
+> relief);
+<A
+HREF="gtk-standard-enumerations.html#GTKRELIEFSTYLE"
+>GtkReliefStyle</A
+> <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-GET-BUTTON-RELIEF"
+>gtk_toolbar_get_button_relief</A
+>
+                                            (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41765"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkToolbar</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41771"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtktoolbar.html#GTKTOOLBAR-ORIENTATION-CHANGED"
+>orientation-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                            <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+> orientation,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtktoolbar.html#GTKTOOLBAR-STYLE-CHANGED"
+>style-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                            <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+> style,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41782"
+></A
+><H2
+>Description</H2
+><P
+>A toolbar is created with a call to <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-NEW"
+>gtk_toolbar_new</A
+>().</P
+><P
+>Buttons with text and/or images are added with <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-APPEND-ITEM"
+>gtk_toolbar_append_item</A
+>(), <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-PREPEND-ITEM"
+>gtk_toolbar_prepend_item</A
+>(), and <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-INSERT-ITEM"
+>gtk_toolbar_insert_item</A
+>().</P
+><P
+>Any of <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>, <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>, or an arbitrary widget can be added to the toolbar with <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-APPEND-ELEMENT"
+>gtk_toolbar_append_element</A
+>(), <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-PREPEND-ELEMENT"
+>gtk_toolbar_prepend_element</A
+>(), and <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-INSERT-ELEMENT"
+>gtk_toolbar_insert_element</A
+>().</P
+><P
+>Widgets can be visibily grouped by adding gaps between widgets using <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-APPEND-SPACE"
+>gtk_toolbar_append_space</A
+>(), gtk_toolbar_prepend_space, and <A
+HREF="gtktoolbar.html#GTK-TOOLBAR-INSERT-SPACE"
+>gtk_toolbar_insert_space</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41799"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41801"
+></A
+><H3
+><A
+NAME="GTKTOOLBAR-STRUCT"
+></A
+>struct GtkToolbar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkToolbar;</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>num_children</I
+></TT
+> is an integer specifying how many toolbar items the <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> contains. <TT
+CLASS="STRUCTFIELD"
+><I
+>children</I
+></TT
+> is a <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> of the child widgets of the toolbar.</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>orientation</I
+></TT
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41812"
+></A
+><H3
+><A
+NAME="GTKTOOLBARCHILDTYPE"
+></A
+>enum GtkToolbarChildType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_TOOLBAR_CHILD_SPACE,
+  GTK_TOOLBAR_CHILD_BUTTON,
+  GTK_TOOLBAR_CHILD_TOGGLEBUTTON,
+  GTK_TOOLBAR_CHILD_RADIOBUTTON,
+  GTK_TOOLBAR_CHILD_WIDGET
+} GtkToolbarChildType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>is used to set the type of new elements that are added to a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</P
+><P
+>SPACE is just a space in the style of the toolbar's GtkToolbarSpaceStyle. BUTTON denotes a <A
+HREF="gtkbutton.html"
+>GtkButton</A
+>. TOGGLEBUTTON denotes a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>, RADIOBUTTON denotes a <A
+HREF="gtkradiobutton.html"
+>GtkRadioButton</A
+>, and WIDGET denotes a standard <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41823"
+></A
+><H3
+><A
+NAME="GTKTOOLBARSPACESTYLE"
+></A
+>enum GtkToolbarSpaceStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_TOOLBAR_SPACE_EMPTY,
+  GTK_TOOLBAR_SPACE_LINE
+} GtkToolbarSpaceStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41828"
+></A
+><H3
+><A
+NAME="GTKTOOLBARCHILD"
+></A
+>struct GtkToolbarChild</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkToolbarChild
+{
+  GtkToolbarChildType type;
+  GtkWidget *widget;
+  GtkWidget *icon;
+  GtkWidget *label;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41833"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-NEW"
+></A
+>gtk_toolbar_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toolbar_new                 (<A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+> orientation,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+> style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>creates a new toolbar. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41841"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>orientation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+>. It determines whether the toolbar appears horizontally or vertically.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+>. It determines if the toolbar will contain buttons with just labels, just images, or both.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created toolbar.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41860"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-APPEND-ITEM"
+></A
+>gtk_toolbar_append_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toolbar_append_item         (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>adds a new button to the beginning (left or top edges) of the given toolbar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41870"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>give your toolbar button a label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string that appears when the user holds the mouse over this item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>use with <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that should be used as the button's icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to be executed when the button is pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to any data you wish to be passed to the callback.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new toolbar item as a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41911"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-PREPEND-ITEM"
+></A
+>gtk_toolbar_prepend_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toolbar_prepend_item        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>adds a new button to the beginning of the given toolbar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41921"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>give your toolbar button a label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string that appears when the user holds the mouse over this item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>use with <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that should be used as the button's icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to be executed when the button is pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to any data you wish to be passed to the callback.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new toolbar item as a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41962"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-INSERT-ITEM"
+></A
+>gtk_toolbar_insert_item ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toolbar_insert_item         (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>inserts a new item into the toolbar. You must specify the position in the toolbar where it will be inserted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41973"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>give your toolbar button a label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string that appears when the user holds the mouse over this item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>use with <A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that should be used as the button's icon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to be executed when the button is pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to any data you wish to be passed to the callback.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of widgets to insert this item after.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new toolbar item as a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42018"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-APPEND-SPACE"
+></A
+>gtk_toolbar_append_space ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_append_space        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar);</PRE
+></TD
+></TR
+></TABLE
+><P
+>adds a new space to the end of the toolbar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42024"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42034"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-PREPEND-SPACE"
+></A
+>gtk_toolbar_prepend_space ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_prepend_space       (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar);</PRE
+></TD
+></TR
+></TABLE
+><P
+>adds a new space to the beginning of the toolbar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42040"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42050"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-INSERT-SPACE"
+></A
+>gtk_toolbar_insert_space ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_insert_space        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>inserts a new space in the toolbar at the specified position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42057"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of widgets after which a space should be inserted.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42071"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-APPEND-ELEMENT"
+></A
+>gtk_toolbar_append_element ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toolbar_append_element      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> type,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>adds a new element to the end of a toolbar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42083"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value of type <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> that determines what <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> will be.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to add to the toolbar. (FIXME: double check this).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's tooltip.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>used for context-sensitive help about this toolbar element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that provides pictorial representation of the element's function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to be executed when the button is pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>any data you wish to pass to the callback.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new toolbar element as a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42134"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-PREPEND-ELEMENT"
+></A
+>gtk_toolbar_prepend_element ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toolbar_prepend_element     (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> type,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>adds a new element to the beginning of a toolbar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42146"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value of type <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> that determines what <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> will be.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to add to the toolbar. (FIXME: double check this).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's tooltip.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>used for context-sensitive help about this toolbar element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that provides pictorial representation of the element's function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to be executed when the button is pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>any data you wish to pass to the callback.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new toolbar element as a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42197"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-INSERT-ELEMENT"
+></A
+>gtk_toolbar_insert_element ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toolbar_insert_element      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> type,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *text,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *icon,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> callback,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42210"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value of type <A
+HREF="gtktoolbar.html#GTKTOOLBARCHILDTYPE"
+>GtkToolbarChildType</A
+> that determines what <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+> will be.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> to add to the toolbar. (FIXME: double check this).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's label.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's tooltip.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>used for context-sensitive help about this toolbar element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>icon</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that provides pictorial representation of the element's function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to be executed when the button is pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>any data you wish to pass to the callback.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of widgets to insert this element after.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new toolbar element as a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42265"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-APPEND-WIDGET"
+></A
+>gtk_toolbar_append_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_append_widget       (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42272"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42293"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-PREPEND-WIDGET"
+></A
+>gtk_toolbar_prepend_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_prepend_widget      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42300"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42321"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-INSERT-WIDGET"
+></A
+>gtk_toolbar_insert_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_insert_widget       (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const char *tooltip_text,
+                                             const char *tooltip_private_text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42329"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltip_private_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42354"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-SET-ORIENTATION"
+></A
+>gtk_toolbar_set_orientation ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_set_orientation     (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+> orientation);</PRE
+></TD
+></TR
+></TABLE
+><P
+>sets whether a toolbar should appear horizontally or vertically.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42361"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>orientation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42376"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-SET-STYLE"
+></A
+>gtk_toolbar_set_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_set_style           (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+> style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>alters the view of <TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+> to display either icons only, text only, or both.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42384"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new style for <TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42399"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-SET-SPACE-SIZE"
+></A
+>gtk_toolbar_set_space_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_set_space_size      (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> space_size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>should be used to set the number of pixels each item of space takes up in a toolbar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42406"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>space_size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new number of pixels that spaces should consume.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42420"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-SET-SPACE-STYLE"
+></A
+>gtk_toolbar_set_space_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_set_space_style     (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtktoolbar.html#GTKTOOLBARSPACESTYLE"
+>GtkToolbarSpaceStyle</A
+> space_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>sets whether a 'space' in the toolbar appears as a line or just plain empty space.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42427"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>space_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new style for the toolbar's spaces.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42441"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-SET-TOOLTIPS"
+></A
+>gtk_toolbar_set_tooltips ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_set_tooltips        (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> enable);</PRE
+></TD
+></TR
+></TABLE
+><P
+>sets if the tooltips of a toolbar should be active or not.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42448"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>enable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>set to 0 to disable the tooltips, or 1 to enable them.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42462"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-SET-BUTTON-RELIEF"
+></A
+>gtk_toolbar_set_button_relief ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toolbar_set_button_relief   (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKRELIEFSTYLE"
+>GtkReliefStyle</A
+> relief);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42469"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>relief</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42482"
+></A
+><H3
+><A
+NAME="GTK-TOOLBAR-GET-BUTTON-RELIEF"
+></A
+>gtk_toolbar_get_button_relief ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-standard-enumerations.html#GTKRELIEFSTYLE"
+>GtkReliefStyle</A
+> gtk_toolbar_get_button_relief
+                                            (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42489"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42502"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42504"
+></A
+><H3
+><A
+NAME="GTKTOOLBAR-ORIENTATION-CHANGED"
+></A
+>The &quot;orientation-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                            <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+> orientation,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>should be used if you wish to perform an action when the orientation of a toolbar is changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42512"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>orientation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtk-standard-enumerations.html#GTKORIENTATION"
+>GtkOrientation</A
+> of the toolbar.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42530"
+></A
+><H3
+><A
+NAME="GTKTOOLBAR-STYLE-CHANGED"
+></A
+>The &quot;style-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+> *toolbar,
+                                            <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+> style,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>should be used if you wish to perform an action when ever the style of a toolbar is adjusted. For example, this would be a useful signal to connect to if you want to display more items on the toolbar when it is in icon-only mode; each item takes less space on the bar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42538"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtk-standard-enumerations.html#GTKTOOLBARSTYLE"
+>GtkToolbarStyle</A
+> of <TT
+CLASS="PARAMETER"
+><I
+>toolbar</I
+></TT
+>.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42557"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtktooltips.html"
+>GtkToolTips</A
+></DT
+><DD
+><P
+>Change the properties of a <A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+>'s <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+>.</P
+></DD
+><DT
+><A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+></DT
+><DD
+><P
+>Make use of the private tips of toolbar elements.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktogglebutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktooltips.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkToggleButton</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTooltips</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

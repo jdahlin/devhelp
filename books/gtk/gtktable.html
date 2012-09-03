@@ -1,0 +1,2066 @@
+<HTML
+><HEAD
+><TITLE
+>GtkTable</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkStatusbar"
+HREF="gtkstatusbar.html"><LINK
+REL="NEXT"
+TITLE="GtkTearoffMenuItem"
+HREF="gtktearoffmenuitem.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkstatusbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktearoffmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKTABLE"
+>GtkTable</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN40026"
+></A
+><H2
+>Name</H2
+>GtkTable&nbsp;--&nbsp;Pack widgets in regular patterns.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN40029"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtktable.html#GTKTABLE-STRUCT"
+>GtkTable</A
+>;
+struct      <A
+HREF="gtktable.html#GTKTABLECHILD"
+>GtkTableChild</A
+>;
+struct      <A
+HREF="gtktable.html#GTKTABLEROWCOL"
+>GtkTableRowCol</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktable.html#GTK-TABLE-NEW"
+>gtk_table_new</A
+>                   (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> rows,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);
+void        <A
+HREF="gtktable.html#GTK-TABLE-RESIZE"
+>gtk_table_resize</A
+>                (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> rows,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> columns);
+void        <A
+HREF="gtktable.html#GTK-TABLE-ATTACH"
+>gtk_table_attach</A
+>                (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> left_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> right_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> top_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> bottom_attach,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKATTACHOPTIONS"
+>GtkAttachOptions</A
+> xoptions,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKATTACHOPTIONS"
+>GtkAttachOptions</A
+> yoptions,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> xpadding,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ypadding);
+void        <A
+HREF="gtktable.html#GTK-TABLE-ATTACH-DEFAULTS"
+>gtk_table_attach_defaults</A
+>       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> left_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> right_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> top_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> bottom_attach);
+void        <A
+HREF="gtktable.html#GTK-TABLE-SET-ROW-SPACING"
+>gtk_table_set_row_spacing</A
+>       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> row,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);
+void        <A
+HREF="gtktable.html#GTK-TABLE-SET-COL-SPACING"
+>gtk_table_set_col_spacing</A
+>       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);
+void        <A
+HREF="gtktable.html#GTK-TABLE-SET-ROW-SPACINGS"
+>gtk_table_set_row_spacings</A
+>      (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);
+void        <A
+HREF="gtktable.html#GTK-TABLE-SET-COL-SPACINGS"
+>gtk_table_set_col_spacings</A
+>      (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);
+void        <A
+HREF="gtktable.html#GTK-TABLE-SET-HOMOGENEOUS"
+>gtk_table_set_homogeneous</A
+>       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40079"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkTable</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40085"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtktable.html#GTKTABLE--N-ROWS"
+>n-rows</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtktable.html#GTKTABLE--N-COLUMNS"
+>n-columns</A
+>&quot;            <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtktable.html#GTKTABLE--ROW-SPACING"
+>row-spacing</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtktable.html#GTKTABLE--COLUMN-SPACING"
+>column-spacing</A
+>&quot;       <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtktable.html#GTKTABLE--HOMOGENEOUS"
+>homogeneous</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40098"
+></A
+><H2
+>Description</H2
+><P
+>The GtkTable functions allow the programmer to arrange widgets in rows and
+columns, making it easy to align many widgets next to each other,
+horizontally and vertically.</P
+><P
+>Tables are created with a call to <A
+HREF="gtktable.html#GTK-TABLE-NEW"
+>gtk_table_new</A
+>(), the size of which can
+later be changed with <A
+HREF="gtktable.html#GTK-TABLE-RESIZE"
+>gtk_table_resize</A
+>().</P
+><P
+>Widgets can be added to a table using <A
+HREF="gtktable.html#GTK-TABLE-ATTACH"
+>gtk_table_attach</A
+>() or the more
+convenient (but slightly less flexible) <A
+HREF="gtktable.html#GTK-TABLE-ATTACH-DEFAULTS"
+>gtk_table_attach_defaults</A
+>().</P
+><P
+>To alter the space next to a specific row, use <A
+HREF="gtktable.html#GTK-TABLE-SET-ROW-SPACING"
+>gtk_table_set_row_spacing</A
+>(),
+and for a column, <A
+HREF="gtktable.html#GTK-TABLE-SET-COL-SPACING"
+>gtk_table_set_col_spacing</A
+>().</P
+><P
+>The gaps between <I
+CLASS="EMPHASIS"
+>all</I
+> rows or columns can be changed by calling
+<A
+HREF="gtktable.html#GTK-TABLE-SET-ROW-SPACINGS"
+>gtk_table_set_row_spacings</A
+>() or <A
+HREF="gtktable.html#GTK-TABLE-SET-COL-SPACINGS"
+>gtk_table_set_col_spacings</A
+>() respectively.</P
+><P
+><A
+HREF="gtktable.html#GTK-TABLE-SET-HOMOGENEOUS"
+>gtk_table_set_homogeneous</A
+>(), can be used to set whether all cells in the
+table will resize themselves to the size of the largest widget in the table.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40116"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40118"
+></A
+><H3
+><A
+NAME="GTKTABLE-STRUCT"
+></A
+>struct GtkTable</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTable;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The GtkTable structure holds the data for the actual table itself. 
+
+<TT
+CLASS="STRUCTFIELD"
+><I
+>children</I
+></TT
+> is a <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> of all the widgets the table contains. <TT
+CLASS="STRUCTFIELD"
+><I
+>rows</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>columns</I
+></TT
+> are pointers to <A
+HREF="gtktable.html#GTKTABLEROWCOL"
+>GtkTableRowCol</A
+> structures, which contain the default spacing and expansion details for the <A
+HREF="gtktable.html"
+>GtkTable</A
+>'s rows and columns, respectively.</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>nrows</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>ncols</I
+></TT
+> are 16bit integers storing the number of rows and columns the table has. </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40132"
+></A
+><H3
+><A
+NAME="GTKTABLECHILD"
+></A
+>struct GtkTableChild</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTableChild
+{
+  GtkWidget *widget;
+  guint16 left_attach;
+  guint16 right_attach;
+  guint16 top_attach;
+  guint16 bottom_attach;
+  guint16 xpadding;
+  guint16 ypadding;
+  guint xexpand : 1;
+  guint yexpand : 1;
+  guint xshrink : 1;
+  guint yshrink : 1;
+  guint xfill : 1;
+  guint yfill : 1;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>widget</I
+></TT
+> field is a pointer to the widget that 
+this <TT
+CLASS="LITERAL"
+>GtkTableChild</TT
+> structure is keeping track of.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>left_attach</I
+></TT
+>,
+<TT
+CLASS="STRUCTFIELD"
+><I
+>right_attach</I
+></TT
+>,
+<TT
+CLASS="STRUCTFIELD"
+><I
+>top_attach</I
+></TT
+>, and
+<TT
+CLASS="STRUCTFIELD"
+><I
+>bottom_attach</I
+></TT
+> fields specify the row and column
+numbers which make up the invisible rectangle that the child widget is packed into.</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>xpadding</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>ypadding</I
+></TT
+>
+specify the space between this widget and the surrounding table cells.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40146"
+></A
+><H3
+><A
+NAME="GTKTABLEROWCOL"
+></A
+>struct GtkTableRowCol</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTableRowCol
+{
+  guint16 requisition;
+  guint16 allocation;
+  guint16 spacing;
+  guint need_expand : 1;
+  guint need_shrink : 1;
+  guint expand : 1;
+  guint shrink : 1;
+  guint empty : 1;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>These fields should be considered read-only and not be modified directly.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40151"
+></A
+><H3
+><A
+NAME="GTK-TABLE-NEW"
+></A
+>gtk_table_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_table_new                   (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> rows,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used to create a new table widget. An initial size must be given by specifying how many rows and columns the table should have, although this can be changed later with <A
+HREF="gtktable.html#GTK-TABLE-RESIZE"
+>gtk_table_resize</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40161"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rows</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of rows the new table should have.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>columns</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of columns the new table should have.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>homogeneous</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If set to TRUE, all table cells are resized to the size of the cell
+containing the largest widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to the the newly created table widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40182"
+></A
+><H3
+><A
+NAME="GTK-TABLE-RESIZE"
+></A
+>gtk_table_resize ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_resize                (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> rows,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> columns);</PRE
+></TD
+></TR
+></TABLE
+><P
+>If you need to change a table's size <I
+CLASS="EMPHASIS"
+>after</I
+> it has been created, this function allows you to do so.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40191"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtktable.html"
+>GtkTable</A
+> you wish to change the size of.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rows</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new number of rows.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>columns</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new number of columns.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40209"
+></A
+><H3
+><A
+NAME="GTK-TABLE-ATTACH"
+></A
+>gtk_table_attach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_attach                (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> left_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> right_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> top_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> bottom_attach,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKATTACHOPTIONS"
+>GtkAttachOptions</A
+> xoptions,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKATTACHOPTIONS"
+>GtkAttachOptions</A
+> yoptions,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> xpadding,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ypadding);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a widget to a table. The number of 'cells' that a widget will occupy is
+specified by <TT
+CLASS="PARAMETER"
+><I
+>left_attach</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>right_attach</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>top_attach</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>bottom_attach</I
+></TT
+>.
+These each represent the leftmost, rightmost, uppermost and lowest column
+and row numbers of the table. (Columns and rows are indexed from zero).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40228"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtktable.html"
+>GtkTable</A
+> to add a new widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The widget to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>left_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the column number to attach the left side of a child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>right_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the column number to attach the right side of a child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>top_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the row number to attach the left side of a child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>bottom_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the column number to attach the right side of a child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xoptions</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Used to specify the properties of the child widget when the table is resized.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yoptions</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The same as xoptions, except this field determines behaviour of vertical resizing.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xpadding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An integer value specifying the padding on the left and right of the widget being added to the table.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ypadding</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The amount of padding above and below the child widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40274"
+></A
+><H3
+><A
+NAME="GTK-TABLE-ATTACH-DEFAULTS"
+></A
+>gtk_table_attach_defaults ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_attach_defaults       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> left_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> right_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> top_attach,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> bottom_attach);</PRE
+></TD
+></TR
+></TABLE
+><P
+>As there are many options associated with <A
+HREF="gtktable.html#GTK-TABLE-ATTACH"
+>gtk_table_attach</A
+>(), this convenience function provides the programmer with a means to add children to a table with identical padding and expansion options.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40286"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The table to add a new child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The child widget to add.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>left_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The column number to attach the left side of the child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>right_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The column number to attach the right side of the child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>top_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The row number to attach the top of the child widget to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>bottom_attach</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The row number to attach the bottom of the child widget to.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40315"
+></A
+><H3
+><A
+NAME="GTK-TABLE-SET-ROW-SPACING"
+></A
+>gtk_table_set_row_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_set_row_spacing       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> row,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+>changes the space between a given table row and its surrounding rows.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40323"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktable.html"
+>GtkTable</A
+> containing the row whose properties you wish to change.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>row</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>row number whose spacing will be changed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of pixels that the spacing should take up.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40341"
+></A
+><H3
+><A
+NAME="GTK-TABLE-SET-COL-SPACING"
+></A
+>gtk_table_set_col_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_set_col_spacing       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+>alters the amount of space between a given table column and the adjacent columns.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40349"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktable.html"
+>GtkTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the column whose spacing should be changed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>number of pixels that the spacing should take up.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40367"
+></A
+><H3
+><A
+NAME="GTK-TABLE-SET-ROW-SPACINGS"
+></A
+>gtk_table_set_row_spacings ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_set_row_spacings      (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+>sets the space between every row in <TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+> equal to <TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40376"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktable.html"
+>GtkTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels of space to place between every row in the table.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40390"
+></A
+><H3
+><A
+NAME="GTK-TABLE-SET-COL-SPACINGS"
+></A
+>gtk_table_set_col_spacings ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_set_col_spacings      (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+>sets the space between every column in <TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+> equal to <TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40399"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktable.html"
+>GtkTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels of space to place between every column in the table.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40413"
+></A
+><H3
+><A
+NAME="GTK-TABLE-SET-HOMOGENEOUS"
+></A
+>gtk_table_set_homogeneous ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_table_set_homogeneous       (<A
+HREF="gtktable.html"
+>GtkTable</A
+> *table,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> homogeneous);</PRE
+></TD
+></TR
+></TABLE
+><P
+>changes the homogenous property of table cells. Ie. whether all cells are an equal size or not.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40420"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The GtkTable you wish to set the homogeneous properties of.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>homogeneous</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Set to TRUE to ensure all table cells are the same size. Set
+to FALSE if this is not your desired behaviour.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40433"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKTABLE--N-ROWS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>n-rows</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKTABLE--N-COLUMNS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>n-columns</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKTABLE--ROW-SPACING"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>row-spacing</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKTABLE--COLUMN-SPACING"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>column-spacing</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKTABLE--HOMOGENEOUS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>homogeneous</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>whether each cell in the table should be the same size or not.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40471"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkvbox.html"
+>GtkVBox</A
+></DT
+><DD
+><P
+>For packing widgets vertically only.</P
+></DD
+><DT
+><A
+HREF="gtkhbox.html"
+>GtkHBox</A
+></DT
+><DD
+><P
+>For packing widgets horizontally only.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkstatusbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktearoffmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkStatusbar</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTearoffMenuItem</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,4277 @@
+<HTML
+><HEAD
+><TITLE
+>Threads</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Core Application Support"
+HREF="glib-core.html"><LINK
+REL="PREVIOUS"
+TITLE="The Main Event Loop"
+HREF="glib-the-main-event-loop.html"><LINK
+REL="NEXT"
+TITLE="Dynamic Loading of Modules"
+HREF="glib-dynamic-loading-of-modules.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-the-main-event-loop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-dynamic-loading-of-modules.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-THREADS"
+>Threads</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN2913"
+></A
+><H2
+>Name</H2
+>Threads&nbsp;--&nbsp;thread abstraction; including mutexes, conditions and thread private data.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN2916"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+
+#define     <A
+HREF="glib-threads.html#G-THREADS-ENABLED-CAPS"
+>G_THREADS_ENABLED</A
+>
+#define     <A
+HREF="glib-threads.html#G-THREADS-IMPL-POSIX-CAPS"
+>G_THREADS_IMPL_POSIX</A
+>
+#define     <A
+HREF="glib-threads.html#G-THREADS-IMPL-SOLARIS-CAPS"
+>G_THREADS_IMPL_SOLARIS</A
+>
+#define     <A
+HREF="glib-threads.html#G-THREADS-IMPL-NONE-CAPS"
+>G_THREADS_IMPL_NONE</A
+>
+
+struct      <A
+HREF="glib-threads.html#GTHREADFUNCTIONS"
+>GThreadFunctions</A
+>;
+void        <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>                   (<A
+HREF="glib-threads.html#GTHREADFUNCTIONS"
+>GThreadFunctions</A
+> *vtable);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-threads.html#G-THREAD-SUPPORTED"
+>g_thread_supported</A
+>              ();
+
+struct      <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>;
+<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>*     <A
+HREF="glib-threads.html#G-MUTEX-NEW"
+>g_mutex_new</A
+>                     ();
+void        <A
+HREF="glib-threads.html#G-MUTEX-LOCK"
+>g_mutex_lock</A
+>                    (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-threads.html#G-MUTEX-TRYLOCK"
+>g_mutex_trylock</A
+>                 (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);
+void        <A
+HREF="glib-threads.html#G-MUTEX-UNLOCK"
+>g_mutex_unlock</A
+>                  (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);
+void        <A
+HREF="glib-threads.html#G-MUTEX-FREE"
+>g_mutex_free</A
+>                    (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);
+
+struct      <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>;
+#define     <A
+HREF="glib-threads.html#G-STATIC-MUTEX-INIT-CAPS"
+>G_STATIC_MUTEX_INIT</A
+>
+void        <A
+HREF="glib-threads.html#G-STATIC-MUTEX-LOCK"
+>g_static_mutex_lock</A
+>             (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-threads.html#G-STATIC-MUTEX-TRYLOCK"
+>g_static_mutex_trylock</A
+>          (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);
+void        <A
+HREF="glib-threads.html#G-STATIC-MUTEX-UNLOCK"
+>g_static_mutex_unlock</A
+>           (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);
+<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>*     <A
+HREF="glib-threads.html#G-STATIC-MUTEX-GET-MUTEX"
+>g_static_mutex_get_mutex</A
+>        (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);
+
+#define     <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+>                   (name)
+#define     <A
+HREF="glib-threads.html#G-LOCK-DEFINE-STATIC-CAPS"
+>G_LOCK_DEFINE_STATIC</A
+>            (name)
+#define     <A
+HREF="glib-threads.html#G-LOCK-EXTERN-CAPS"
+>G_LOCK_EXTERN</A
+>                   (name)
+#define     <A
+HREF="glib-threads.html#G-LOCK-CAPS"
+>G_LOCK</A
+>                          (name)
+#define     <A
+HREF="glib-threads.html#G-TRYLOCK-CAPS"
+>G_TRYLOCK</A
+>                       (name)
+#define     <A
+HREF="glib-threads.html#G-UNLOCK-CAPS"
+>G_UNLOCK</A
+>                        (name)
+
+struct      <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>;
+<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>*      <A
+HREF="glib-threads.html#G-COND-NEW"
+>g_cond_new</A
+>                      ();
+void        <A
+HREF="glib-threads.html#G-COND-SIGNAL"
+>g_cond_signal</A
+>                   (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond);
+void        <A
+HREF="glib-threads.html#G-COND-BROADCAST"
+>g_cond_broadcast</A
+>                (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond);
+void        <A
+HREF="glib-threads.html#G-COND-WAIT"
+>g_cond_wait</A
+>                     (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond,
+                                             <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-threads.html#G-COND-TIMED-WAIT"
+>g_cond_timed_wait</A
+>               (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond,
+                                             <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex,
+                                             <A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+> *abs_time);
+void        <A
+HREF="glib-threads.html#G-COND-FREE"
+>g_cond_free</A
+>                     (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond);
+
+struct      <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>;
+<A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>*   <A
+HREF="glib-threads.html#G-PRIVATE-NEW"
+>g_private_new</A
+>                   (<A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> destructor);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-threads.html#G-PRIVATE-GET"
+>g_private_get</A
+>                   (<A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> *private_key);
+void        <A
+HREF="glib-threads.html#G-PRIVATE-SET"
+>g_private_set</A
+>                   (<A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> *private_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+struct      <A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+>;
+#define     <A
+HREF="glib-threads.html#G-STATIC-PRIVATE-INIT-CAPS"
+>G_STATIC_PRIVATE_INIT</A
+>
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-threads.html#G-STATIC-PRIVATE-GET"
+>g_static_private_get</A
+>            (<A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+> *private_key);
+void        <A
+HREF="glib-threads.html#G-STATIC-PRIVATE-SET"
+>g_static_private_set</A
+>            (<A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+> *private_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN2994"
+></A
+><H2
+>Description</H2
+><P
+>Threads act almost like processes, but unlike processes all threads of
+one process share the same memory. This is good, as it provides easy
+communication between the involved threads via this shared memory, and
+it is bad, because strange things (so called Heisenbugs) might happen,
+when the program is not carefully designed. Especially bad is, that due
+to the concurrent nature of threads no assumptions on the order of
+execution of different threads can be done unless explictly forced by
+the programmer through synchronization primitives.</P
+><P
+>The aim of the thread related functions in GLib is to provide a
+portable means for writing multithread safe software. There are
+primitives for mutexes to protect the access to portions of memory
+(<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>, <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>, <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+> and friends), there are
+primitives for condition variables to allow synchronization of threads
+(<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>) and finally there are primitives for thread-private data,
+that every thread has a private instance of (<A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>,
+<A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+>).</P
+><P
+>Currently there is only as much thread support included in GLib as is
+necessary to make GLib itself multithread safe. Version 1.4 of GLib
+will contain full thread support. For now the most portable way to
+create threads is to require the macro <A
+HREF="glib-threads.html#G-THREADS-IMPL-POSIX-CAPS"
+>G_THREADS_IMPL_POSIX</A
+> to be
+defined and use POSIX threads then. This will work on almost all
+platforms (except most notably Solaris and DCE threads.).</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN3006"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3008"
+></A
+><H3
+><A
+NAME="G-THREADS-ENABLED-CAPS"
+></A
+>G_THREADS_ENABLED</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_THREADS_ENABLED</PRE
+></TD
+></TR
+></TABLE
+><P
+>This macro is defined, if GLib was compiled with thread support. This
+does not necessarily mean, that there is a thread implementation
+available, but the infrastructure is in place and once you provide a
+thread implementation to <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>(), GLib will be multithread
+safe. It isn't and can't be, if <A
+HREF="glib-threads.html#G-THREADS-ENABLED-CAPS"
+>G_THREADS_ENABLED</A
+> is not defined.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3015"
+></A
+><H3
+><A
+NAME="G-THREADS-IMPL-POSIX-CAPS"
+></A
+>G_THREADS_IMPL_POSIX</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_THREADS_IMPL_POSIX</PRE
+></TD
+></TR
+></TABLE
+><P
+>This macro is defined, if POSIX style threads are used.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3020"
+></A
+><H3
+><A
+NAME="G-THREADS-IMPL-SOLARIS-CAPS"
+></A
+>G_THREADS_IMPL_SOLARIS</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_THREADS_IMPL_SOLARIS</PRE
+></TD
+></TR
+></TABLE
+><P
+>This macro is defined, if the SOLARIS thread system is used.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3025"
+></A
+><H3
+><A
+NAME="G-THREADS-IMPL-NONE-CAPS"
+></A
+>G_THREADS_IMPL_NONE</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_THREADS_IMPL_NONE</PRE
+></TD
+></TR
+></TABLE
+><P
+>This macro is defined, if no thread implementation is used. You can
+however provide one to <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() to make GLib multithread safe.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3031"
+></A
+><H3
+><A
+NAME="GTHREADFUNCTIONS"
+></A
+>struct GThreadFunctions</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GThreadFunctions
+{
+  GMutex*  (*mutex_new)       (void);
+  void     (*mutex_lock)      (GMutex		*mutex);
+  gboolean (*mutex_trylock)   (GMutex		*mutex);
+  void     (*mutex_unlock)    (GMutex		*mutex);
+  void     (*mutex_free)      (GMutex		*mutex);
+  GCond*   (*cond_new)        (void);
+  void     (*cond_signal)     (GCond		*cond);
+  void     (*cond_broadcast)  (GCond		*cond);
+  void     (*cond_wait)       (GCond		*cond,
+			       GMutex		*mutex);
+  gboolean (*cond_timed_wait) (GCond		*cond,
+			       GMutex		*mutex, 
+			       GTimeVal 	*end_time);
+  void      (*cond_free)      (GCond		*cond);
+  GPrivate* (*private_new)    (GDestroyNotify	 destructor);
+  gpointer  (*private_get)    (GPrivate		*private_key);
+  void      (*private_set)    (GPrivate		*private_key,
+			       gpointer		 data);
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function table is used by <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() to initialize the
+thread system. The functions in that table are directly used by their
+g_* prepended counterparts, that are described here, e.g. if you call
+<A
+HREF="glib-threads.html#G-MUTEX-NEW"
+>g_mutex_new</A
+>() then mutex_new() from the table provided to
+<A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() will be called.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This struct should only be used, if you know, what you are doing.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3042"
+></A
+><H3
+><A
+NAME="G-THREAD-INIT"
+></A
+>g_thread_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_thread_init                   (<A
+HREF="glib-threads.html#GTHREADFUNCTIONS"
+>GThreadFunctions</A
+> *vtable);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Before you use a thread related function in GLib, you should
+initialize the thread system. This is done by calling
+<A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>(). Most of the time you will only have to call
+g_thread_init(NULL). </P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>You should only call <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() with a non-NULL parameter, if you
+really know, what you are doing.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+><A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() must not be called directly or indirectly as a
+callback from GLib.</P
+></BLOCKQUOTE
+></DIV
+><P
+><A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() might only be called once. On the second call
+it will abort with an error. If you want to make sure, that the thread
+system is initialized, you can do that too:</P
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN3058"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>if (!<A
+HREF="glib-threads.html#G-THREAD-SUPPORTED"
+>g_thread_supported</A
+>()) g_thread_init (NULL);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+>After that line either the thread system is initialized or the program
+will abort, if no thread system is available in GLib, i.e. either
+<A
+HREF="glib-threads.html#G-THREADS-ENABLED-CAPS"
+>G_THREADS_ENABLED</A
+> is not defined or <A
+HREF="glib-threads.html#G-THREADS-IMPL-NONE-CAPS"
+>G_THREADS_IMPL_NONE</A
+> is defined.</P
+><P
+>If no thread system is available and <TT
+CLASS="PARAMETER"
+><I
+>vtable</I
+></TT
+> is NULL or if not all
+elements of <TT
+CLASS="PARAMETER"
+><I
+>vtable</I
+></TT
+> are non-NULL, then <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() will abort.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>To use <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() in your program, you have to link with the
+libraries, that the command "glib-config --libs gthread" outputs. This
+is not the case for all the other thread related functions of
+GLib. Those can be used without having to link with the thread
+libraries.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3071"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vtable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function table of type <A
+HREF="glib-threads.html#GTHREADFUNCTIONS"
+>GThreadFunctions</A
+>, that provides the
+entry points to the thread system to be used.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3081"
+></A
+><H3
+><A
+NAME="G-THREAD-SUPPORTED"
+></A
+>g_thread_supported ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_thread_supported              ();</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function returns, whether the thread system is initialized or
+not.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This function is actually a macro. Apart from taking the address of it
+you can however use it as if it was a function.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3089"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE, if the thread system is initialized.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3098"
+></A
+><H3
+><A
+NAME="GMUTEX"
+></A
+>struct GMutex</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GMutex;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> struct is an opaque data structure to represent a mutex
+(mutual exclusion). It can be used to protect data against shared
+access. Take for example the following function:
+
+<DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3104"
+></A
+><P
+><B
+>Example 1. A function which will not work in a threaded environment</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  int give_me_next_number()
+  {
+    static int current_number = 0;
+
+    /* now do a very complicated calculation to calculate the new number,
+       this might for example be a random number generator */
+    current_number = calc_next_number (current_number); 
+    return current_number;
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+>It is easy to see, that this won't work in a multithreaded
+application. There current_number must be protected against shared
+access. A first naive implementation would be:</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3110"
+></A
+><P
+><B
+>Example 2. The wrong way to write a thread-safe function</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  int give_me_next_number()
+  {
+    static int current_number = 0;
+    int ret_val;
+    static GMutex * mutex = NULL;
+
+    if (!mutex)
+      mutex = <A
+HREF="glib-threads.html#G-MUTEX-NEW"
+>g_mutex_new</A
+>();
+    g_mutex_lock (mutex);
+    ret_val = current_number = calc_next_number (current_number); 
+    g_mutex_unlock (mutex);
+    return ret_val;
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+>This looks like it would work, but there is a race condition while
+constructing the mutex and this code can't work reliable. So please do
+not use such constructs in your own programs. One working solution is:</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3117"
+></A
+><P
+><B
+>Example 3. A correct thread-safe function</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  static GMutex *give_me_next_number_mutex = NULL;
+
+  /* this function must be called before any call to give_me_next_number()
+     it must be called exactly once. */
+  void init_give_me_next_number() 
+  {
+    g_assert (give_me_next_number_mutex == NULL);
+    give_me_next_number_mutex = <A
+HREF="glib-threads.html#G-MUTEX-NEW"
+>g_mutex_new</A
+>();
+  }
+
+  int give_me_next_number()
+  {
+    static int current_number = 0;
+    int ret_val;
+
+    g_mutex_lock (give_me_next_number_mutex);
+    ret_val = current_number = calc_next_number (current_number); 
+    g_mutex_unlock (give_me_next_number_mutex);
+    return ret_val;
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+><A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> provides a simpler and safer way of doing this.</P
+><P
+>A <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> should only be accessed via the following functions.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>All of the g_mutex_* functions are actually macros. Apart from taking
+the addresses of them, you can however use them as if they were functions.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3130"
+></A
+><H3
+><A
+NAME="G-MUTEX-NEW"
+></A
+>g_mutex_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>*     g_mutex_new                     ();</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>. </P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This function will abort, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not been called yet.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3140"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3150"
+></A
+><H3
+><A
+NAME="G-MUTEX-LOCK"
+></A
+>g_mutex_lock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_mutex_lock                    (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Locks the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>. If the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> is already locked by another thread,
+the current thread will block until the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> is unlocked by the
+other thread.</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been
+called and will do nothing then.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+><A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> is not guaranteed to be recursive, i.e. a thread might block,
+if it already has locked the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>. It will deadlock then, of
+course.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3165"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3175"
+></A
+><H3
+><A
+NAME="G-MUTEX-TRYLOCK"
+></A
+>g_mutex_trylock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_mutex_trylock                 (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Tries to lock the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>. If the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> is already locked by another
+thread, it immediately returns FALSE. Otherwise it locks the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>
+and returns TRUE.</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been
+called and will immediately return TRUE then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3187"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE, if the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> could be locked.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3202"
+></A
+><H3
+><A
+NAME="G-MUTEX-UNLOCK"
+></A
+>g_mutex_unlock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_mutex_unlock                  (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unlocks the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>. If another thread is blocked in a <A
+HREF="glib-threads.html#G-MUTEX-LOCK"
+>g_mutex_lock</A
+>()
+call, it will be woken and can lock the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> itself. This function
+can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been called and will
+do nothing then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3212"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3222"
+></A
+><H3
+><A
+NAME="G-MUTEX-FREE"
+></A
+>g_mutex_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_mutex_free                    (<A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3229"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3239"
+></A
+><H3
+><A
+NAME="GSTATICMUTEX"
+></A
+>struct GStaticMutex</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GStaticMutex;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> works like a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>, but it has one significant
+advantage. It doesn't need to be created at run-time like a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>,
+but can be defined at compile-time. Here is a shorter, easier and
+safer version of our give_me_next_number() example:</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3249"
+></A
+><P
+><B
+>Example 4. Using GStaticMutex to simplify thread-safe programming</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  int give_me_next_number()
+  {
+    static int current_number = 0;
+    int ret_val;
+    static GStaticMutex mutex = G_STATIC_MUTEX_INIT;
+
+    g_static_mutex_lock (&amp;mutex);
+    ret_val = current_number = calc_next_number (current_number); 
+    g_static_mutex_unlock (&amp;mutex);
+    return ret_val;
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+>Even though <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> is not opaque, it should only be used with
+the following functions, as it is defined differently on different
+platforms.</P
+><P
+>All of the g_static_mutex_* functions can also be used, if
+<A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>All of the g_static_mutex_* functions are actually macros. Apart from
+taking the addresses of them, you can however use them as if they were
+functions.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3259"
+></A
+><H3
+><A
+NAME="G-STATIC-MUTEX-INIT-CAPS"
+></A
+>G_STATIC_MUTEX_INIT</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_STATIC_MUTEX_INIT</PRE
+></TD
+></TR
+></TABLE
+><P
+>Every <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> must be initialized with this macro, before it can
+be used.</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3266"
+></A
+><P
+><B
+>Example 5. Initializing a GStaticMutext</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GStaticMutex my_mutex = G_STATIC_MUTEX_INIT;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3269"
+></A
+><H3
+><A
+NAME="G-STATIC-MUTEX-LOCK"
+></A
+>g_static_mutex_lock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_static_mutex_lock             (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>works like <A
+HREF="glib-threads.html#G-MUTEX-LOCK"
+>g_mutex_lock</A
+>(), but for a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3277"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3287"
+></A
+><H3
+><A
+NAME="G-STATIC-MUTEX-TRYLOCK"
+></A
+>g_static_mutex_trylock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_static_mutex_trylock          (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>works like <A
+HREF="glib-threads.html#G-MUTEX-TRYLOCK"
+>g_mutex_trylock</A
+>(), but for a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3296"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE, if the <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> could be locked.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3311"
+></A
+><H3
+><A
+NAME="G-STATIC-MUTEX-UNLOCK"
+></A
+>g_static_mutex_unlock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_static_mutex_unlock           (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>works like <A
+HREF="glib-threads.html#G-MUTEX-UNLOCK"
+>g_mutex_unlock</A
+>(), but for a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3319"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3329"
+></A
+><H3
+><A
+NAME="G-STATIC-MUTEX-GET-MUTEX"
+></A
+>g_static_mutex_get_mutex ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>*     g_static_mutex_get_mutex        (<A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>For some operations (like <A
+HREF="glib-threads.html#G-COND-WAIT"
+>g_cond_wait</A
+>()) you must have a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>
+instead of a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>. This function will return the
+corresponding <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> for every <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3341"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the corresponding <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3356"
+></A
+><H3
+><A
+NAME="G-LOCK-DEFINE-CAPS"
+></A
+>G_LOCK_DEFINE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_LOCK_DEFINE(name)</PRE
+></TD
+></TR
+></TABLE
+><P
+>The G_LOCK_* macros provide a convenient interface to <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>
+with the advantage that they will expand to nothing in programs
+compiled against a thread-disabled GLib, saving code and memory
+there. <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+> defines a lock. It can occur, where variable
+definitions may occur in programs, i.e. in the first block of a
+function or outside of functions. The <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+> parameter will be mangled
+to get the name of the <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>. This means, that you can use
+names of existing variables as the parameter, e.g. the name of the
+variable you intent to protect with the lock. Look at our
+give_me_next_number() example using the G_LOCK_* macros:</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3367"
+></A
+><P
+><B
+>Example 6. Using the G_LOCK_* convenience macros</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>G_LOCK_DEFINE (current_number);
+
+int give_me_next_number()
+  {
+    static int current_number = 0;
+    int ret_val;
+
+    G_LOCK (current_number);
+    ret_val = current_number = calc_next_number (current_number); 
+    G_UNLOCK (current_number);
+    return ret_val;
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3371"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the lock.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3380"
+></A
+><H3
+><A
+NAME="G-LOCK-DEFINE-STATIC-CAPS"
+></A
+>G_LOCK_DEFINE_STATIC()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_LOCK_DEFINE_STATIC(name)</PRE
+></TD
+></TR
+></TABLE
+><P
+>This works like <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+>, but it creates a static object.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3386"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the lock.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3395"
+></A
+><H3
+><A
+NAME="G-LOCK-EXTERN-CAPS"
+></A
+>G_LOCK_EXTERN()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_LOCK_EXTERN(name)</PRE
+></TD
+></TR
+></TABLE
+><P
+>This declares a lock, that is defined with <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+> in another module.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3401"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the lock.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3410"
+></A
+><H3
+><A
+NAME="G-LOCK-CAPS"
+></A
+>G_LOCK()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_LOCK(name)</PRE
+></TD
+></TR
+></TABLE
+><P
+>works like <A
+HREF="glib-threads.html#G-MUTEX-LOCK"
+>g_mutex_lock</A
+>(), but for a lock defined with <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3417"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the lock.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3426"
+></A
+><H3
+><A
+NAME="G-TRYLOCK-CAPS"
+></A
+>G_TRYLOCK()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_TRYLOCK(name)</PRE
+></TD
+></TR
+></TABLE
+><P
+>works like <A
+HREF="glib-threads.html#G-MUTEX-TRYLOCK"
+>g_mutex_trylock</A
+>(), but for a lock defined with <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3433"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the lock.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE, if the lock could be locked.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3446"
+></A
+><H3
+><A
+NAME="G-UNLOCK-CAPS"
+></A
+>G_UNLOCK()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_UNLOCK(name)</PRE
+></TD
+></TR
+></TABLE
+><P
+>works like <A
+HREF="glib-threads.html#G-MUTEX-UNLOCK"
+>g_mutex_unlock</A
+>(), but for a lock defined with <A
+HREF="glib-threads.html#G-LOCK-DEFINE-CAPS"
+>G_LOCK_DEFINE</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3453"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the lock.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3462"
+></A
+><H3
+><A
+NAME="GCOND"
+></A
+>struct GCond</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GCond;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> struct is an opaque data structure to represent a
+condition. A <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> is an object, that threads can block on, if they
+find a certain condition to be false. If other threads change the
+state of this condition they can signal the <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>, such that the
+waiting thread is woken up. </P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3471"
+></A
+><P
+><B
+>Example 7. Using GCond to block a thread until a condition is satisfied</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GCond* data_cond = NULL;   /* Must be initialized somewhere */
+GMutex* data_mutex = NULL; /* Must be initialized somewhere */
+gpointer current_data = NULL;
+
+void push_data (gpointer data)
+{
+  g_mutex_lock (data_mutex);
+  current_data = data;
+  g_cond_signal (data_cond);
+  g_mutex_unlock (data_mutex);
+}
+
+gpointer pop_data()
+{
+  gpointer data;
+
+  g_mutex_lock (data_mutex);
+  while (!current_data)
+      g_cond_wait (data_cond, data_mutex);
+  data = current_data;
+  current_data = NULL;
+  g_mutex_unlock (data_mutex);
+  return data;
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+>Whenever a thread calls pop_data() now, it will wait until
+current_data is non-NULL, i.e. until some other thread has called
+push_data().</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>It is important to use the <A
+HREF="glib-threads.html#G-COND-WAIT"
+>g_cond_wait</A
+>() and <A
+HREF="glib-threads.html#G-COND-TIMED-WAIT"
+>g_cond_timed_wait</A
+>()
+functions only inside a loop, which checks for the condition to be
+true as it is not guaranteed that the waiting thread will find it
+fulfilled, even if the signaling thread left the condition
+in that state. This is because another thread can have altered the
+condition, before the waiting thread got the chance to be woken up,
+even if the condition itself is protected by a <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>, like above.</P
+></BLOCKQUOTE
+></DIV
+><P
+>A <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> should only be accessed via the following functions.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>All of the g_cond_* functions are actually macros. Apart from taking
+the addresses of them, you can however use them as if they were functions.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3487"
+></A
+><H3
+><A
+NAME="G-COND-NEW"
+></A
+>g_cond_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>*      g_cond_new                      ();</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>. This function will abort, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>()
+has not been called yet.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3495"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3505"
+></A
+><H3
+><A
+NAME="G-COND-SIGNAL"
+></A
+>g_cond_signal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_cond_signal                   (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond);</PRE
+></TD
+></TR
+></TABLE
+><P
+>If threads are waiting for <TT
+CLASS="PARAMETER"
+><I
+>cond</I
+></TT
+>, exactly one of them is woken up. It
+is good practice to hold the same lock as the waiting thread, while
+calling this function, though not required.</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has
+not yet been called and will do nothing then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3514"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cond</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3524"
+></A
+><H3
+><A
+NAME="G-COND-BROADCAST"
+></A
+>g_cond_broadcast ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_cond_broadcast                (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond);</PRE
+></TD
+></TR
+></TABLE
+><P
+>If threads are waiting for <TT
+CLASS="PARAMETER"
+><I
+>cond</I
+></TT
+>, all of them are woken up. It is good
+practice to lock the same mutex as the waiting threads, while calling
+this function, though not required.</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has
+not yet been called and will do nothing then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3533"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cond</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3543"
+></A
+><H3
+><A
+NAME="G-COND-WAIT"
+></A
+>g_cond_wait ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_cond_wait                     (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond,
+                                             <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Waits until this thread is woken up on the <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>. The <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> is
+unlocked before falling asleep and locked again before resuming.</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been
+called and will immediately return then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3554"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cond</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>, that is currently locked.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3569"
+></A
+><H3
+><A
+NAME="G-COND-TIMED-WAIT"
+></A
+>g_cond_timed_wait ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_cond_timed_wait               (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond,
+                                             <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> *mutex,
+                                             <A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+> *abs_time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Waits until this thread is woken up on the <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>, but not longer than
+until the time, that is specified by <TT
+CLASS="PARAMETER"
+><I
+>abs_time</I
+></TT
+>. The <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> is
+unlocked before falling asleep and locked again before resuming.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>abs_time</I
+></TT
+> is NULL, <A
+HREF="glib-threads.html#G-COND-TIMED-WAIT"
+>g_cond_timed_wait</A
+>() acts like <A
+HREF="glib-threads.html#G-COND-WAIT"
+>g_cond_wait</A
+>().</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been
+called and will immediately return TRUE then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3587"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cond</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mutex</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+>, that is currently locked.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>abs_time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-date-and-time-functions.html#GTIMEVAL"
+>GTimeVal</A
+>, determining the final time.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE, if the thread is woken up in time.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3611"
+></A
+><H3
+><A
+NAME="G-COND-FREE"
+></A
+>g_cond_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_cond_free                     (<A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+> *cond);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys the <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3618"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cond</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GCOND"
+>GCond</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3628"
+></A
+><H3
+><A
+NAME="GPRIVATE"
+></A
+>struct GPrivate</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GPrivate;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> struct is an opaque data structure to represent a thread
+private data key. Threads can thereby obtain and set a pointer, which
+is private to the current thread. Take our give_me_next_number()
+example from above.  Now we don't want current_number to be shared
+between the threads, but to be private to each thread. This can be
+done as follows:
+
+<DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3635"
+></A
+><P
+><B
+>Example 8. Using GPrivate for per-thread data</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  GPrivate* current_number_key = NULL; /* Must be initialized somewhere */
+                                       /* with g_private_new (g_free); */
+
+  int give_me_next_number()
+  {
+    int *current_number = g_private_get (current_number_key);
+
+    if (!current_number)
+    {
+      current_number = g_new (int,1);
+      *current_number = 0;
+      g_private_set (current_number_key, current_number);
+    }
+    *current_number = calc_next_number (*current_number); 
+    return *current_number;
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+>Here the pointer belonging to the key current_number_key is read. If
+it is NULL, it has not been set yet. Then get memory for an integer
+value, assign this memory to the pointer and write the pointer
+back. Now we have an integer value, that is private to the current
+thread.</P
+><P
+>The <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> struct should only be accessed via the following functions.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>All of the g_private_* functions are actually macros. Apart from taking
+the addresses of them, you can however use them as if they were functions.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3644"
+></A
+><H3
+><A
+NAME="G-PRIVATE-NEW"
+></A
+>g_private_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>*   g_private_new                   (<A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> destructor);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>. If <TT
+CLASS="PARAMETER"
+><I
+>destructor</I
+></TT
+> is non-NULL, it is a pointer
+to a destructor function. Whenever a thread ends and the corresponding
+pointer keyed to this instance of <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> is non-NULL, the
+destructor is called with this pointer as the argument.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>The <TT
+CLASS="PARAMETER"
+><I
+>destructor</I
+></TT
+> is working quite differently from <TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+> in
+<A
+HREF="glib-threads.html#G-STATIC-PRIVATE-SET"
+>g_static_private_set</A
+>().</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>A <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> can not be destroyed. Reuse it instead, if you can to
+avoid shortage.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This function will abort, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not been called yet.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3665"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destructor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function to handle the data keyed to <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>, when a
+thread ends.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3675"
+></A
+><H3
+><A
+NAME="G-PRIVATE-GET"
+></A
+>g_private_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_private_get                   (<A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> *private_key);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the pointer keyed to <TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+> for the current thread. This
+pointer is NULL, when <A
+HREF="glib-threads.html#G-PRIVATE-SET"
+>g_private_set</A
+>() hasn't been called for the
+current <TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+> and thread yet.</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been
+called and will return the value of <TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+> casted to <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3689"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the corresponding pointer.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3703"
+></A
+><H3
+><A
+NAME="G-PRIVATE-SET"
+></A
+>g_private_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_private_set                   (<A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+> *private_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the pointer keyed to <TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+> for the current thread.</P
+><P
+>This function can also be used, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been
+called and will set <TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> casted to <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>* then.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3716"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3730"
+></A
+><H3
+><A
+NAME="GSTATICPRIVATE"
+></A
+>struct GStaticPrivate</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GStaticPrivate
+{
+  guint index;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A <A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+> works almost like a <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>, but it has one
+significant advantage. It doesn't need to be created at run-time like
+a <A
+HREF="glib-threads.html#GPRIVATE"
+>GPrivate</A
+>, but can be defined at compile-time. This is similar to
+the difference between <A
+HREF="glib-threads.html#GMUTEX"
+>GMutex</A
+> and <A
+HREF="glib-threads.html#GSTATICMUTEX"
+>GStaticMutex</A
+>. Now look at our
+give_me_next_number() example with <A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+>:</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN3743"
+></A
+><P
+><B
+>Example 9. Using GStaticPrivate for per-thread data</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  int give_me_next_number()
+  {
+    static GStaticPrivate current_number_key = G_STATIC_PRIVATE_INIT;
+    int *current_number = g_static_private_get (&amp;current_number_key);
+
+    if (!current_number)
+    {
+      current_number = g_new (int,1);
+      *current_number = 0;
+      g_static_private_set (&amp;current_number_key, current_number, g_free);
+    }
+    *current_number = calc_next_number (*current_number); 
+    return *current_number;
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3747"
+></A
+><H3
+><A
+NAME="G-STATIC-PRIVATE-INIT-CAPS"
+></A
+>G_STATIC_PRIVATE_INIT</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define G_STATIC_PRIVATE_INIT </PRE
+></TD
+></TR
+></TABLE
+><P
+>Every <A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+> must be initialized with this macro, before it can
+be used.</P
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN3754"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GStaticPrivate my_private = G_STATIC_PRIVATE_INIT;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3756"
+></A
+><H3
+><A
+NAME="G-STATIC-PRIVATE-GET"
+></A
+>g_static_private_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_static_private_get            (<A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+> *private_key);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Works like <A
+HREF="glib-threads.html#G-PRIVATE-GET"
+>g_private_get</A
+>() only for a <A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+>.</P
+><P
+>This function also works, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been called.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3767"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the corresponding pointer.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN3781"
+></A
+><H3
+><A
+NAME="G-STATIC-PRIVATE-SET"
+></A
+>g_static_private_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_static_private_set            (<A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+> *private_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the pointer keyed to <TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+> for the current thread and the
+function <TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+> to be called with that pointer (NULL or non-NULL),
+whenever the pointer is set again or whenever the current thread ends.</P
+><P
+>This function also works, if <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() has not yet been
+called. If <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>() is called later, the <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> keyed to
+<TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+> will be inherited only by the main thread, i.e. the one that
+called <A
+HREF="glib-threads.html#G-THREAD-INIT"
+>g_thread_init</A
+>().</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>The <TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+> is working quite differently from <TT
+CLASS="PARAMETER"
+><I
+>destructor</I
+></TT
+> in
+<A
+HREF="glib-threads.html#G-PRIVATE-NEW"
+>g_private_new</A
+>().</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN3802"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>private_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-threads.html#GSTATICPRIVATE"
+>GStaticPrivate</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new pointer.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function to be called with the pointer, whenever the
+current thread ends or sets this pointer again.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-the-main-event-loop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-dynamic-loading-of-modules.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>The Main Event Loop</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Dynamic Loading of Modules</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,3576 @@
+<HTML
+><HEAD
+><TITLE
+>Keyboard Accelerators</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Resource Files"
+HREF="gtk-resource-files.html"><LINK
+REL="NEXT"
+TITLE="Selections"
+HREF="gtk-selections.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-resource-files.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-selections.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-KEYBOARD-ACCELERATORS"
+>Keyboard Accelerators</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN5501"
+></A
+><H2
+>Name</H2
+>Keyboard Accelerators&nbsp;--&nbsp;</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN5504"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+>;
+struct      <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELENTRY"
+>GtkAccelEntry</A
+>;
+<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+>* <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-NEW"
+>gtk_accel_group_new</A
+>          (void);
+<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+>* <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-GET-DEFAULT"
+>gtk_accel_group_get_default</A
+>  (void);
+<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+>* <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-REF"
+>gtk_accel_group_ref</A
+>          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-UNREF"
+>gtk_accel_group_unref</A
+>           (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-ACTIVATE"
+>gtk_accel_group_activate</A
+>        (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUPS-ACTIVATE"
+>gtk_accel_groups_activate</A
+>       (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-ATTACH"
+>gtk_accel_group_attach</A
+>          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-DETACH"
+>gtk_accel_group_detach</A
+>          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-LOCK"
+>gtk_accel_group_lock</A
+>            (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-UNLOCK"
+>gtk_accel_group_unlock</A
+>          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);
+<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELENTRY"
+>GtkAccelEntry</A
+>* <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-GET-ENTRY"
+>gtk_accel_group_get_entry</A
+>    (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-LOCK-ENTRY"
+>gtk_accel_group_lock_entry</A
+>      (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-UNLOCK-ENTRY"
+>gtk_accel_group_unlock_entry</A
+>    (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-ADD"
+>gtk_accel_group_add</A
+>             (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKACCELFLAGS"
+>GtkAccelFlags</A
+> accel_flags,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *accel_signal);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-REMOVE"
+>gtk_accel_group_remove</A
+>          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-HANDLE-ADD"
+>gtk_accel_group_handle_add</A
+>      (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_signal_id,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKACCELFLAGS"
+>GtkAccelFlags</A
+> accel_flags);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-HANDLE-REMOVE"
+>gtk_accel_group_handle_remove</A
+>   (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-CREATE-ADD"
+>gtk_accel_group_create_add</A
+>      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> class_type,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_offset);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-CREATE-REMOVE"
+>gtk_accel_group_create_remove</A
+>   (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> class_type,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_offset);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-MARSHAL-ADD"
+>gtk_accel_group_marshal_add</A
+>     (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-MARSHAL-REMOVE"
+>gtk_accel_group_marshal_remove</A
+>  (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);
+<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUPS-FROM-OBJECT"
+>gtk_accel_groups_from_object</A
+>    (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-ENTRIES-FROM-OBJECT"
+>gtk_accel_group_entries_from_object</A
+>
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCELERATOR-VALID"
+>gtk_accelerator_valid</A
+>           (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> modifiers);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCELERATOR-PARSE"
+>gtk_accelerator_parse</A
+>           (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *accelerator,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *accelerator_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> *accelerator_mods);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCELERATOR-NAME"
+>gtk_accelerator_name</A
+>            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accelerator_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accelerator_mods);
+void        <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCELERATOR-SET-DEFAULT-MOD-MASK"
+>gtk_accelerator_set_default_mod_mask</A
+>
+                                            (<A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> default_mod_mask);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCELERATOR-GET-DEFAULT-MOD-MASK"
+>gtk_accelerator_get_default_mod_mask</A
+>
+                                            (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5617"
+></A
+><H2
+>Description</H2
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5620"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5622"
+></A
+><H3
+><A
+NAME="GTKACCELGROUP"
+></A
+>struct GtkAccelGroup</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkAccelGroup
+{
+  guint	          ref_count;
+  guint	          lock_count;
+  GdkModifierType modifier_mask;
+  GSList         *attach_objects;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5627"
+></A
+><H3
+><A
+NAME="GTKACCELENTRY"
+></A
+>struct GtkAccelEntry</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkAccelEntry
+{
+  /* key portion
+   */
+  GtkAccelGroup		*accel_group;
+  guint			 accelerator_key;
+  GdkModifierType	 accelerator_mods;
+  
+  GtkAccelFlags		 accel_flags;
+  GtkObject		*object;
+  guint			 signal_id;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5632"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-NEW"
+></A
+>gtk_accel_group_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+>* gtk_accel_group_new          (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5638"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5647"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-GET-DEFAULT"
+></A
+>gtk_accel_group_get_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+>* gtk_accel_group_get_default  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5653"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5662"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-REF"
+></A
+>gtk_accel_group_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+>* gtk_accel_group_ref          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5669"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5682"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-UNREF"
+></A
+>gtk_accel_group_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_unref           (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5688"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5697"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-ACTIVATE"
+></A
+>gtk_accel_group_activate ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_accel_group_activate        (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5706"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5727"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUPS-ACTIVATE"
+></A
+>gtk_accel_groups_activate ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_accel_groups_activate       (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5736"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5757"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-ATTACH"
+></A
+>gtk_accel_group_attach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_attach          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5764"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5777"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-DETACH"
+></A
+>gtk_accel_group_detach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_detach          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5784"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5797"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-LOCK"
+></A
+>gtk_accel_group_lock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_lock            (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5803"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5812"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-UNLOCK"
+></A
+>gtk_accel_group_unlock ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_unlock          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5818"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5827"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-GET-ENTRY"
+></A
+>gtk_accel_group_get_entry ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-keyboard-accelerators.html#GTKACCELENTRY"
+>GtkAccelEntry</A
+>* gtk_accel_group_get_entry    (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5836"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5857"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-LOCK-ENTRY"
+></A
+>gtk_accel_group_lock_entry ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_lock_entry      (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5865"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5882"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-UNLOCK-ENTRY"
+></A
+>gtk_accel_group_unlock_entry ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_unlock_entry    (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5890"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5907"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-ADD"
+></A
+>gtk_accel_group_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_add             (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKACCELFLAGS"
+>GtkAccelFlags</A
+> accel_flags,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *accel_signal);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5918"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_signal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5947"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-REMOVE"
+></A
+>gtk_accel_group_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_remove          (<A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5956"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5977"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-HANDLE-ADD"
+></A
+>gtk_accel_group_handle_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_handle_add      (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_signal_id,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKACCELFLAGS"
+>GtkAccelFlags</A
+> accel_flags);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5988"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_signal_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6017"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-HANDLE-REMOVE"
+></A
+>gtk_accel_group_handle_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_handle_remove   (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> *accel_group,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accel_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accel_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6026"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6047"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-CREATE-ADD"
+></A
+>gtk_accel_group_create_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_accel_group_create_add      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> class_type,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_offset);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6056"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>class_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handler_offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6077"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-CREATE-REMOVE"
+></A
+>gtk_accel_group_create_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_accel_group_create_remove   (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> class_type,
+                                             <A
+HREF="gtk-signals.html#GTKSIGNALRUNTYPE"
+>GtkSignalRunType</A
+> signal_flags,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> handler_offset);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6086"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>class_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal_flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>handler_offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6107"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-MARSHAL-ADD"
+></A
+>gtk_accel_group_marshal_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_marshal_add     (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6116"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6137"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-MARSHAL-REMOVE"
+></A
+>gtk_accel_group_marshal_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_group_marshal_remove  (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6146"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6167"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUPS-FROM-OBJECT"
+></A
+>gtk_accel_groups_from_object ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     gtk_accel_groups_from_object    (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6174"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6187"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-GROUP-ENTRIES-FROM-OBJECT"
+></A
+>gtk_accel_group_entries_from_object ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     gtk_accel_group_entries_from_object
+                                            (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6194"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6207"
+></A
+><H3
+><A
+NAME="GTK-ACCELERATOR-VALID"
+></A
+>gtk_accelerator_valid ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_accelerator_valid           (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> keyval,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> modifiers);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6215"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>modifiers</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6232"
+></A
+><H3
+><A
+NAME="GTK-ACCELERATOR-PARSE"
+></A
+>gtk_accelerator_parse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accelerator_parse           (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *accelerator,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *accelerator_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> *accelerator_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6240"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accelerator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accelerator_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accelerator_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6257"
+></A
+><H3
+><A
+NAME="GTK-ACCELERATOR-NAME"
+></A
+>gtk_accelerator_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_accelerator_name            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> accelerator_key,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> accelerator_mods);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6265"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accelerator_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accelerator_mods</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6282"
+></A
+><H3
+><A
+NAME="GTK-ACCELERATOR-SET-DEFAULT-MOD-MASK"
+></A
+>gtk_accelerator_set_default_mod_mask ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accelerator_set_default_mod_mask
+                                            (<A
+HREF=../gdk/gdk-windows.html#GDKMODIFIERTYPE
+>GdkModifierType</A> default_mod_mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6288"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>default_mod_mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6297"
+></A
+><H3
+><A
+NAME="GTK-ACCELERATOR-GET-DEFAULT-MOD-MASK"
+></A
+>gtk_accelerator_get_default_mod_mask ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_accelerator_get_default_mod_mask
+                                            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN6303"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-resource-files.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-selections.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Resource Files</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Selections</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

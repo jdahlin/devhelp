@@ -1,0 +1,221 @@
+<HTML
+><HEAD
+><TITLE
+>PongXML object</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Using the PonG library"
+HREF="using-pong-library.html"><LINK
+REL="PREVIOUS"
+TITLE="Basic Usage"
+HREF="upl-basic-usage.html"><LINK
+REL="NEXT"
+TITLE="Plugs (Glade, Bonobo)"
+HREF="upl-plugs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="upl-basic-usage.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Using the PonG library</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="upl-plugs.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="UPL-PONG-XML"
+>PongXML object</A
+></H1
+><P
+>	If you want to do something more complex with PonG, you may want to use
+	the PongXML object.  This object loads the XML file and can display a
+	dialog on request.  It also has the advantage that if you request a
+	dialog while the first dialog is still running, the existing one will
+	just be raised again, rather then another dialog starting.  You can
+	also have more control over what PonG does this way.
+      </P
+><P
+>	For a simple case scenarion, you will need the pong_xml_new function,
+	and the pong_xml_show_dialog.  The first takes the filename as an
+	argument, and the second shows the dialog.  If the dialog is already
+	shown, it just shows and raises it again.  So a basically equivalent
+	case to the pong_run_simple_dialog example would be:
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 6. Running the dialog with PongXML</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void
+show_preferences (void)
+{
+  static PongXML *xml = NULL;
+
+  if (xml == NULL) {
+    xml = pong_xml_new ("mypongfile.pong");
+  }
+
+  if (xml == NULL) {
+    g_warning ("Cannot load mypongfile.pong");
+    return;
+  }
+
+  pong_xml_show_dialog (xml);
+}
+	  </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	If you need to load a .pong file from memory, you can use the
+	pong_xml_from_memory function which takes a buffer and the size of
+	the buffer as arguments.
+      </P
+><P
+>	When you are done with the object you can just use gtk_object_unref,
+	just like on any other GTK+ object.  Do note however that if the
+	dialog is still on screen, it also holds a reference to the PongXML
+	object and the object may not actually die until the user closes the
+	dialog.  If you wish to close the dialog, you can use the
+	pong_xml_close_dialog method with the PongXML object as argument.
+      </P
+><P
+>	Also note that "show_dialog" and "close_dialog" are signals, so you
+	can bind these if you need something to happen on those actions. 
+	However note that "close_dialog" is not a good signal to track
+	if the dialog is up or not, for that use the "destroy" signal of the
+	dialog.  "close_dialog" simply means that some code requested the
+	dialog to be closed.
+      </P
+><P
+>	You will also probably want to set the dialog widget to be parented
+	(transient for) your main window.  The dialog is a widget of type
+	GnomeDialog so you can use gnome_dialog_set_parent.  You can get
+	the dialog widget from the PongXML object by use of the
+	pong_xml_get_dialog_widget function, which returns a GtkWidget *
+	pointer.
+      </P
+><P
+>	The documentation for this object is in the inline API guide, though
+	I didn't get that to work for 1.0.0, so you may want to read the
+	source code, it has documentation inline using the standard gtk-doc
+	format.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="upl-basic-usage.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="upl-plugs.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Basic Usage</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="using-pong-library.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Plugs (Glade, Bonobo)</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

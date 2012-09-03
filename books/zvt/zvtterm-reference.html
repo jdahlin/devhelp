@@ -1,0 +1,3794 @@
+<HTML
+><HEAD
+><TITLE
+>API Reference</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="ZVT Terminal Widget Reference Guide"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Retrieving data from terminal"
+HREF="x119.html"><LINK
+REL="NEXT"
+TITLE="Implementation notes"
+HREF="zvtterm-notes.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>ZVT Terminal Widget Reference Guide</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="x119.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&nbsp;</B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="zvtterm-notes.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="ZVTTERM-REFERENCE"
+>API Reference</A
+></H1
+><P
+>The following pages contain the complete API reference.
+    </P
+><BR
+CLEAR="all"><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN129"
+>Terminal functions</A
+></H1
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN131"
+>zvt_term_set_blink</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN133"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_blink </CODE
+>(ZvtTerm * term, int state);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN140"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      The blinking state.  If <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+>, the cursor will blink.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN155"
+>Description</A
+></H3
+><P
+>   Use this to control the way the cursor is displayed (blinking/solid)</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN158"
+>zvt_term_set_scroll_on_keystroke</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN160"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_scroll_on_keystroke </CODE
+>(ZvtTerm * term, int state);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN167"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Desired state.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN181"
+>Description</A
+></H3
+><P
+>   If <TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+> is <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+>, forces the terminal to jump out of the
+   scrollback buffer whenever a keypress is received.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN186"
+>zvt_term_set_scroll_on_output</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN188"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_scroll_on_output </CODE
+>(ZvtTerm * term, int state);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN195"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Desired state.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN209"
+>Description</A
+></H3
+><P
+>   If <TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+> is <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+>, forces the terminal to scroll on output
+   being generated by a child process or by <TT
+CLASS="FUNCTION"
+>zvt_term_feed()</TT
+>.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN215"
+>zvt_term_set_wordclass</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN217"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_wordclass </CODE
+>(ZvtTerm * term, unsigned char * class);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN224"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>class</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A string of characters to consider a "word" character.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN238"
+>Description</A
+></H3
+><P
+>   Sets the list of characters (character class) that are considered
+   part of a word, when selecting by word.  The <TT
+CLASS="PARAMETER"
+><I
+>class</I
+></TT
+> is defined
+   the same was as a regular expression character class (as normally
+   defined using []'s, but without those included).  A leading or trailing
+   hypen (-) is used to include a hyphen in the character class.
+   </P
+><P
+>&#13;   Passing a <TT
+CLASS="REPLACEABLE"
+><I
+>NULL</I
+></TT
+> <TT
+CLASS="PARAMETER"
+><I
+>class</I
+></TT
+> restores the default behaviour of alphanumerics
+   plus "_"  (i.e. "A-Za-z0-9_").</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN245"
+>zvt_term_new_with_size</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN247"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>GtkWidget* zvt_term_new_with_size </CODE
+>(int cols, int rows);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN254"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cols</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Number of columns required.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rows</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Number of rows required.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN267"
+>Description</A
+></H3
+><P
+>   Creates a new ZVT Terminal widget of the given character dimentions.
+   If the encompassing widget is resizable, then this size may change
+   afterwards, but should be correct at realisation time.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN270"
+>Return Value</A
+></H3
+><P
+>    A pointer to a <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget is returned, or <TT
+CLASS="REPLACEABLE"
+><I
+>NULL</I
+></TT
+>
+   on error.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN275"
+>zvt_term_new</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN277"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>GtkWidget* zvt_term_new </CODE
+>( void);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN282"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>void</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>     -- undescribed --
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN291"
+>Description</A
+></H3
+><P
+>   </P
+><P
+>&#13;   Creates a new ZVT Terminal widget.  By default the terminal will be
+   setup as 80 colmns x 24 rows, but it will size automatically to its
+   encompassing widget, and may be smaller or larger upon realisation.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN295"
+>Return Value</A
+></H3
+><P
+>    A pointer to a <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget is returned, or <TT
+CLASS="REPLACEABLE"
+><I
+>NULL</I
+></TT
+>
+   on error.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN300"
+>zvt_term_reset</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN302"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_reset </CODE
+>(ZvtTerm * term, int hard);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN309"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hard</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      If <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+>, then perform a HARD reset.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN324"
+>Description</A
+></H3
+><P
+>   Performs a complete reset on the terminal.  Resets all
+   attributes, and if <TT
+CLASS="PARAMETER"
+><I
+>hard</I
+></TT
+> is <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+>, also clears the screen.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN329"
+>zvt_term_set_color_scheme</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN331"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_color_scheme </CODE
+>(ZvtTerm * term, gushort * red, gushort * grn, gushort * blu);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN342"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>red</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>       pointer to a gushort array of 18 elements with red values.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>grn</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>       pointer to a gushort array of 18 elements with green values.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blu</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>       pointer to a gushort array of 18 elements with blue values.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN364"
+>Description</A
+></H3
+><P
+>   This function sets the colour palette for the terminal <TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+>.  Each
+   pointer points to a gushort array of 18 elements.  White is 0xffff
+   in all elements.
+   </P
+><P
+>&#13;   The elements 0 trough 15 are the first 16 colours for the terminal,
+   with element 16 and 17 the default foreground and background colour
+   respectively.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN369"
+>zvt_term_set_default_color_scheme</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN371"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_default_color_scheme </CODE
+>(ZvtTerm * term);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN376"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN386"
+>Description</A
+></H3
+><P
+>   Resets the color values to the default color scheme.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN389"
+>zvt_term_set_size</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN391"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_size </CODE
+>(ZvtTerm * term, guint width, guint height);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN400"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Width of terminal, in columns.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Height of terminal, in rows.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN418"
+>Description</A
+></H3
+><P
+>   Causes the terminal to attempt to resize to the absolute character
+   size of <TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+> rows by <TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+> columns.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN423"
+>zvt_term_show_pointer</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN425"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_show_pointer </CODE
+>(ZvtTerm * term);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN430"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN440"
+>Description</A
+></H3
+><P
+>   Show the default I beam pointer.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN443"
+>zvt_term_hide_pointer</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN445"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_hide_pointer </CODE
+>(ZvtTerm * term);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN450"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN460"
+>Description</A
+></H3
+><P
+>   Hide the pointer.  In reality the pointer is changed to a
+   single-pixel black dot.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN463"
+>zvt_term_set_scrollback</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN465"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_scrollback </CODE
+>(ZvtTerm * term, int lines);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN472"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lines</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Number of lines desired for the scrollback buffer.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN486"
+>Description</A
+></H3
+><P
+>   Set the maximum number of scrollback lines for the widget <TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+> to
+   <TT
+CLASS="PARAMETER"
+><I
+>lines</I
+></TT
+> lines.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN491"
+>zvt_term_set_fonts</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN493"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_fonts </CODE
+>(ZvtTerm * term, GdkFont * font, GdkFont * font_bold);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN502"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Font used for regular text.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font_bold</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Font used for bold text.  May be null, in which case the bold
+     font is rendered by over-striking.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN520"
+>Description</A
+></H3
+><P
+>   Load a set of fonts into the terminal.
+   </P
+><P
+>&#13;   These fonts should be the same size, otherwise it could get messy ...</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN524"
+>zvt_term_set_font_name</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN526"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_font_name </CODE
+>(ZvtTerm * term, char * name);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN533"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A full X11 font name string.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN547"
+>Description</A
+></H3
+><P
+>   Set a font by name only.  If font aliases such as 'fixed' or
+   '10x20' are passed to this function, then both the bold and
+   non-bold font will be identical.  In colour mode bold fonts are
+   always the top 8 colour scheme entries, and so bold is still
+   rendered.
+   </P
+><P
+>&#13;   Tries to calculate bold font name from the base name.  This only
+   works with fonts where the names are alike.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN551"
+>zvt_term_writechild</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN553"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>int zvt_term_writechild </CODE
+>(ZvtTerm * term, char * data, int len);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN562"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Data to write.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Length of data to write.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN580"
+>Description</A
+></H3
+><P
+>   Writes <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> bytes of data, starting from <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> to the subordinate
+   child process.  If the child is unable to handle all of the data
+   at once, then it will return, and asynchronously continue to feed
+   the data to the child.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN585"
+>Return Value</A
+></H3
+><P
+>    The number of bytes written initially.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN588"
+>zvt_term_forkpty</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN590"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>int zvt_term_forkpty </CODE
+>(ZvtTerm * term, int do_uwtmp_log);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN597"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>do_uwtmp_log</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      If <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+>, then log the session in wtmp(4) and utmp(4).
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN612"
+>Description</A
+></H3
+><P
+>   Fork a child process, with a master controlling terminal.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN615"
+>zvt_term_killchild</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN617"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>int zvt_term_killchild </CODE
+>(ZvtTerm * term, int signal);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN624"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>signal</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A signal number.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN638"
+>Description</A
+></H3
+><P
+>   Send the signal <TT
+CLASS="PARAMETER"
+><I
+>signal</I
+></TT
+> to the child process.  Note that a child
+   process must have first been started using <TT
+CLASS="FUNCTION"
+>zvt_term_forkpty()</TT
+>.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN643"
+>Return Value</A
+></H3
+><P
+>    See kill(2).</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN646"
+>See Also</A
+></H3
+><P
+>    signal(5).</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN649"
+>zvt_term_closepty</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN651"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>int zvt_term_closepty </CODE
+>(ZvtTerm * term);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN656"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN666"
+>Description</A
+></H3
+><P
+>   Close master pty to the child process.  It is upto the child to
+   recognise its pty has been closed, and to exit appropriately.
+   </P
+><P
+>&#13;   Note that a child process must have first been started using
+   <TT
+CLASS="FUNCTION"
+>zvt_term_forkpty()</TT
+>.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN671"
+>Return Value</A
+></H3
+><P
+>    See close(2).</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN674"
+>zvt_term_match_add</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN676"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>int zvt_term_match_add </CODE
+>(ZvtTerm * term, char * regex, uint32 highlight_mask, void * data);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN687"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      An initialised <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+>.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>regex</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A regular expression to match.  It should be concise
+     enough so that it doesn't match whole lines.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>highlight_mask</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Mask of bits used to set the attributes used
+     to highlight the match as the mouse moves over it.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      User data.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN709"
+>Description</A
+></H3
+><P
+>   Add a new auto-match regular expression.  The
+   <TT
+CLASS="FUNCTION"
+>zvt_term_match_check()</TT
+> function can be used to check for matches
+   using screen coordinates.
+   </P
+><P
+>&#13;   Each regular expression <TT
+CLASS="PARAMETER"
+><I
+>regex</I
+></TT
+> will be matched against each
+   line in the visible buffer.
+   </P
+><P
+>&#13;   The <TT
+CLASS="PARAMETER"
+><I
+>highlight_mask</I
+></TT
+> is taken from the VTATTR_* bits, as defined
+   in vt.h.  These include VTATTR_BOLD, VTATTR_UNDERLINE, etc.
+   Colours may also be set by including the colour index in the
+   appropriate bit position.  Colours and attributes may be combined.
+   </P
+><P
+>&#13;   e.g. to set foreground colour 2, and background colour 5, use
+   highlight_mask = (2&#60;<FONT
+COLOR="RED"
+>FORECOLOURB)|(5&#60;<FONT
+COLOR="RED"
+>BACKCOLOURB).</FONT
+></FONT
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN720"
+>Return value</A
+></H3
+><P
+>    Returns -1 when the regular expression is invalid
+   and cannot be compiled (see regcomp(3c)).  Otherwise returns 0.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN723"
+>zvt_term_match_clear</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN725"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_match_clear </CODE
+>(ZvtTerm * term, char * regex);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN732"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      An initialised <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+>.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>regex</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A regular expression to remove, or <TT
+CLASS="REPLACEABLE"
+><I
+>NULL</I
+></TT
+> to remove
+     all match strings.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN747"
+>Description</A
+></H3
+><P
+>   Remove a specific match string, or all match strings
+   from the terminal <TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+>.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN751"
+>zvt_term_match_check</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN753"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>char * zvt_term_match_check </CODE
+>(ZvtTerm * term, int x, int y, void ** user_data_ptr);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN764"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      An initialised <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+>.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      X coordinate, in character coordinates.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Y coordinate to check, in character coordinates.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data_ptr</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A pointer to a location to hold the user-data
+     associated with this match.  If NULL, then this is ignored.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN786"
+>Description</A
+></H3
+><P
+>   Check for a match at a given character location.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN789"
+>Return Values</A
+></H3
+><P
+>    Returns the string matched.  If <TT
+CLASS="PARAMETER"
+><I
+>user_data_ptr</I
+></TT
+> is
+   non-NULL, then it is set to the user_data associated with this
+   match type.  The return value is only guaranteed valid until the next
+   iteration of the gtk main loop.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN793"
+>zvt_term_feed</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN795"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_feed </CODE
+>(ZvtTerm * term, char * text, int len);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN804"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      The text to feed.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>       The text length.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN822"
+>Description</A
+></H3
+><P
+>   This makes the terminal emulator process the stream of
+   characters in <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> for <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> bytes.  The text is interpreted
+   by the terminal emulator as if it were generated by a child
+   process.
+   </P
+><P
+>&#13;   This is used by code that needs a terminal emulator, but
+   does not use a child process.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN828"
+>zvt_term_set_background</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN830"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_background </CODE
+>(ZvtTerm * terminal, char * pixmap_file, int transparent, int flags);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN841"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>terminal</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_file</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      file containing the pixmap image
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>transparent</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      true if we want to run in transparent mode
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A bitmask of background options:
+     ZVT_BACKGROUND_SHADED, shade the transparency pixmap.
+     ZVT_BACKGROUND_SCROLL, allow smart scrolling of the pixmap,
+     ignored if transparency is requested.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN863"
+>Description</A
+></H3
+><P
+>   Sets the background of the <TT
+CLASS="PARAMETER"
+><I
+>terminal</I
+></TT
+>.  If <TT
+CLASS="PARAMETER"
+><I
+>pixmap_file</I
+></TT
+> and
+   <TT
+CLASS="PARAMETER"
+><I
+>transparent</I
+></TT
+> are <TT
+CLASS="REPLACEABLE"
+><I
+>NULL</I
+></TT
+> and <TT
+CLASS="REPLACEABLE"
+><I
+>FALSE</I
+></TT
+>, then a standard filled background
+   is set.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN871"
+>zvt_term_set_del_key_swap</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN873"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_del_key_swap </CODE
+>(ZvtTerm * term, int state);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN880"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>        A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>       If true it swaps the del/backspace definitions
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN894"
+>Description</A
+></H3
+><P
+>   Sets the mode for interpreting the DEL and Backspace keys.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN897"
+>zvt_term_set_del_is_del</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN899"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_del_is_del </CODE
+>(ZvtTerm * term, int state);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN906"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>        A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>       If true it uses DEL/^H for Delete key
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN920"
+>Description</A
+></H3
+><P
+>   Sets Delete code to DEL/^H or Esc[3~ sequences.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN923"
+>zvt_term_set_bell</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN925"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>void zvt_term_set_bell </CODE
+>(ZvtTerm * term, int state);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN932"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      New bell state.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN946"
+>Description</A
+></H3
+><P
+>   Enable or disable the terminal bell.  If <TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+> is <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+>, then the
+   bell is enabled.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN951"
+>zvt_term_get_bell</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN953"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>gboolean zvt_term_get_bell </CODE
+>(ZvtTerm * term);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN958"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN968"
+>Description</A
+></H3
+><P
+>   get the terminal bell state.  If the bell on then <TT
+CLASS="REPLACEABLE"
+><I
+>TRUE</I
+></TT
+> is
+   returned, otherwise <TT
+CLASS="REPLACEABLE"
+><I
+>FALSE</I
+></TT
+>.</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN973"
+>zvt_term_get_capabilities</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN975"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>guint32 zvt_term_get_capabilities </CODE
+>(ZvtTerm * term);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN980"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      A <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN990"
+>Description</A
+></H3
+><P
+>    Gets the compiled in capabilities of the terminal widget.
+   </P
+><P
+>&#13;   <TT
+CLASS="REPLACEABLE"
+><I
+>ZVT_TERM_PIXMAP_SUPPORT</I
+></TT
+>; Pixmaps can be loaded into the background
+   using the background setting function.
+   </P
+><P
+>&#13;   <TT
+CLASS="REPLACEABLE"
+><I
+>ZVT_TERM_PIXMAPSCROLL_SUPPORT</I
+></TT
+>; The background scrolling flag of the
+   background setting function is honoured.
+   </P
+><P
+>&#13;   <TT
+CLASS="REPLACEABLE"
+><I
+>ZVT_TERM_EMBOLDEN_SUPPORT</I
+></TT
+>; Bold fonts are autogenerated, and can
+   be requested by setting the bold_font of the font setting function
+   to NULL.
+   </P
+><P
+>&#13;   <TT
+CLASS="REPLACEABLE"
+><I
+>ZVT_TERM_MATCH_SUPPORT</I
+></TT
+>; The <TT
+CLASS="FUNCTION"
+>zvt_term_add_match()</TT
+> functions exist,
+   and can be used to receive the match_clicked signal when the user
+   clicks on matching text.
+   </P
+><P
+>&#13;   <TT
+CLASS="REPLACEABLE"
+><I
+>ZVT_TERM_TRANSPARENCY_SUPPORT</I
+></TT
+>; A transparent background can be
+   requested on the current display.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN1004"
+>Returns</A
+></H3
+><P
+>    a bitmask of the capabilities</P
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1007"
+>zvt_term_get_buffer</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><A
+NAME="AEN1009"
+></A
+><P
+></P
+><CODE
+CLASS="FUNCDEF"
+>char * zvt_term_get_buffer </CODE
+>(ZvtTerm * term, int * len, int type, int sx, int sy, int ex, int ey);<P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1026"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>term</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Valid <SPAN
+CLASS="STRUCTNAME"
+>ZvtTerm</SPAN
+> widget.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Placeholder to store the length of text selected.  May be
+     <TT
+CLASS="REPLACEABLE"
+><I
+>NULL</I
+></TT
+> in which case the value is not returned.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Type of selection.  <TT
+CLASS="REPLACEABLE"
+><I
+>VT_SELTYPE_LINE</I
+></TT
+>, select by line,
+     <TT
+CLASS="REPLACEABLE"
+><I
+>VT_SELTYPE_WORD</I
+></TT
+>, select by word, or <TT
+CLASS="REPLACEABLE"
+><I
+>VT_SELTYPE_CHAR</I
+></TT
+>, select
+     by character.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sx</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Start of selection, horizontal.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sy</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      Start of selection, vertical.  0 is the top of the visible
+     screen, &#60;0 is scrollback lines, &#62;0 is visible lines (upto the
+     height of the window).
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ex</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      End of selection, horizontal.
+    </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ey</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>      End of selection, vertical, as above.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN1064"
+>Description</A
+></H3
+><P
+>   Convert the buffer memory into a contiguous array which may be
+   saved or processed.  Note that this is not gauranteed to match the
+   order of characters processed by the terminal, only the order in
+   which they were displayed.  Tabs will normally be preserved in
+   the output.
+   </P
+><P
+>&#13;   All inputs are range-checked first, so it is possible to fudge
+   a full buffer grab.</P
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN1068"
+>Examples</A
+></H3
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN1070"
+></A
+><P
+><B
+>Example 1. </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><P
+>   data = zvt_term_get_buffer(term, NULL, VT_SELTYPE_LINE,
+   -term-&#62;vx-&#62;vt.scrollbackmax, 0,
+   term-&#62;vx-&#62;vt.height, 0);
+   or, as a rule -
+   data = zvt_term_get_buffer(term, NULL, VT_SELTYPE_LINE,
+   -10000, 0, 10000, 0);
+   </P
+><P
+>&#13;   Will return the contents of the entire scrollback and on-screen
+   buffers, remembering that all inputs are range-checked first.
+   </P
+><P
+>&#13;   data = zvt_term_get_buffer(term, NULL, VT_SELTYPE_CHAR,
+   0, 0, 5, 10);
+   </P
+><P
+>&#13;   Will return the first 5 lines of the visible screen, and the 6th
+   line upto column 10.</P
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><BR
+CLEAR="all"><DIV
+CLASS="SIMPLESECT"
+><H3
+CLASS="SIMPLESECT"
+><A
+NAME="AEN1077"
+>Return value</A
+></H3
+><P
+>    A pointer to a <TT
+CLASS="REPLACEABLE"
+><I
+>NUL</I
+></TT
+> terminated buffer containing the
+   raw text from the buffer.  If memory could not be allocated, then
+   returns <TT
+CLASS="REPLACEABLE"
+><I
+>NULL</I
+></TT
+>.  Note that it is upto the caller to free the memory,
+   using g_free(3c).  If <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> was supplied, then the length of data is
+   stored there.</P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="x119.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&nbsp;</B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="zvtterm-notes.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Retrieving data from terminal</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Implementation notes</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,307 @@
+<HTML
+><HEAD
+><TITLE
+>Basic Usage</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Using the PonG library"
+HREF="using-pong-library.html"><LINK
+REL="PREVIOUS"
+TITLE="Using the PonG library"
+HREF="using-pong-library.html"><LINK
+REL="NEXT"
+TITLE="PongXML object"
+HREF="upl-pong-xml.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="using-pong-library.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Using the PonG library</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="upl-pong-xml.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="UPL-BASIC-USAGE"
+>Basic Usage</A
+></H1
+><P
+>	Let's look at PonG usage in a bit more detail.  First off there are
+	3 basic file includes.  The first is pong/pong.h this is the basic
+	PonG library interface.  Second is pong/pong-glade.h, which is the
+	interface to the PonG module, and third the pong-bonobo/pong-bonobo.h
+	which will pull in all the headers neccessary for the PonG bonobo
+	functionality.  So includes would look like this
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 2. Includes example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#include &#60;pong/pong.h&#62;
+#include &#60;pong/pong-glade.h&#62;
+#include &#60;pong-bonobo/pong-bonobo.h&#62;
+	  </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	The first thing a program will do is initialize the library.  This
+	is not a memory or time intensive function, so it can safely be done
+	at the beginning of the program, but it doesn't matter, you can just
+	as well do it before your first use of PonG.  The initializing function
+	is called pong_init.  Normally you might want to also enable some
+	extra modules (plugs, more about that later) of PonG, such as the
+	bonobo and/or glade modules.  In that case you can also run
+	pong_bonobo_init and pong_glade_init, that will set up the library
+	to understand the bonobo and glade plugs.  In that case make sure
+	to use the pong_bonobo and pong_glade arguments to gnome-config, or
+	just add glade and bonobo to the PONG_CHECK macro as described below.
+	The initialization functions return a boolean which can indicate
+	an error in initialization, that is, they return FALSE, if
+	initialization of PonG failed.  So you would do something like:
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 3. Initializing</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  if ( ! pong_init () || ! pong_glade_init () || ! pong_bonobo_init ()) {
+    g_warning ("Initializing PonG failed!");
+    exit (1);
+  }
+	  </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	After initialization, you will want to let PonG know the directory
+	where your PonG files are stored.  This is done with
+	pong_add_directory which takes a single string argument with the
+	directory.  This will most likely come from your Makefile as a define,
+	depending on the prefix that the user chose.  If you are also using
+	glade, you should also call pong_add_glade_directory.  This will allow
+	you (and the .pong files) to refer to .pong and .glade files by their
+	basename only, making things look a lot neater, and more relocatable.
+	Assuming that you made a define DATADIR which expands to the prefix
+	of the data directory the application uses (say "/usr/share"), this
+	could be a possible setup:
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 4. Directories</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  pong_add_directory (DATADIR "/application/pong/");
+  pong_add_glade_directory (DATADIR "/application/glade/");
+	  </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	Now next thing you want to do is to load the file and show the dialog.
+	This can be simply done with the pong_run_simple_dialog function.  This
+	takes a single argument which is the filename of the file to load and
+	display.  It returns a GtkWidget pointer of the dialog shown.  It will
+	return NULL, if it couldn't load a dialog from that file, so you
+	should check for that condition too.
+	You probably only want to show the dialog once, so you
+	may want to do womething like this:
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 5. Running the dialog</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void
+show_preferences (void)
+{
+  static GtkWidget *dialog = NULL;
+
+  /* if the dialog exists, just show and raise it */
+  if (dialog != NULL) {
+    gtk_widget_show_now (dialog);
+    gdk_window_raise (dialog-&#62;window);
+    return;
+  }
+
+  dialog = pong_run_simple_dialog ("mypongfile.pong");
+  if (dialog == NULL) {
+    g_warning ("Cannot load mypongfile.pong");
+  } else {
+    /* on destruction of the dialog, make the dialog
+     * variable NULL again */
+    gtk_signal_connect (GTK_OBJECT (dialog), "destroy",
+                        GTK_SIGNAL_FUNC (gtk_widget_destroyed), &#38;dialog);
+  }
+}
+	  </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	When you are done with using PonG and want the library to give up as
+	much memory as possible you can call the pong_free_unused_data
+	function, which takes no arguments.  You can call this at any moment,
+	what it does is clear any caches, or any other storage that can be
+	easily rebuilt.  This means that calling it is transparent, and only
+	affect performance of PonG.  A good idea is to bind the "destroy"
+	signal of the dialog or the PongXML object (more on that in next
+	section) and call this function from there.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="using-pong-library.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="upl-pong-xml.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Using the PonG library</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="using-pong-library.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PongXML object</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1286 @@
+<HTML
+><HEAD
+><TITLE
+>GtkFontSelection</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkFixed"
+HREF="gtkfixed.html"><LINK
+REL="NEXT"
+TITLE="GtkFontSelectionDialog"
+HREF="gtkfontselectiondialog.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkfixed.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkfontselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKFONTSELECTION"
+>GtkFontSelection</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN26062"
+></A
+><H2
+>Name</H2
+>GtkFontSelection&nbsp;--&nbsp;a widget for selecting fonts.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN26065"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkfontselection.html#GTKFONTSELECTION-STRUCT"
+>GtkFontSelection</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-NEW"
+>gtk_font_selection_new</A
+>          (void);
+<A
+HREF=../gdk/gdk-fonts.html#GDKFONT
+>GdkFont</A>*    <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-GET-FONT"
+>gtk_font_selection_get_font</A
+>     (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-GET-FONT-NAME"
+>gtk_font_selection_get_font_name</A
+>
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-SET-FONT-NAME"
+>gtk_font_selection_set_font_name</A
+>
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *fontname);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-GET-PREVIEW-TEXT"
+>gtk_font_selection_get_preview_text</A
+>
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel);
+void        <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-SET-PREVIEW-TEXT"
+>gtk_font_selection_set_preview_text</A
+>
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);
+void        <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-SET-FILTER"
+>gtk_font_selection_set_filter</A
+>   (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel,
+                                             <A
+HREF="gtkfontselectiondialog.html#GTKFONTFILTERTYPE"
+>GtkFontFilterType</A
+> filter_type,
+                                             <A
+HREF="gtkfontselectiondialog.html#GTKFONTTYPE"
+>GtkFontType</A
+> font_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **foundries,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **weights,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **slants,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **setwidths,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **spacings,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **charsets);
+&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26097"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtknotebook.html"
+>GtkNotebook</A
+>
+                     +----GtkFontSelection</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26104"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> widget lists the available fonts, styles and sizes,
+allowing the user to select a font.
+It is used in the <A
+HREF="gtkfontselectiondialog.html"
+>GtkFontSelectionDialog</A
+> widget to provide a dialog box for
+selecting fonts.</P
+><P
+>To set the font which is initially selected, use
+<A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-SET-FONT-NAME"
+>gtk_font_selection_set_font_name</A
+>().</P
+><P
+>To get the selected font use <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-GET-FONT"
+>gtk_font_selection_get_font</A
+>()
+or <A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-GET-FONT-NAME"
+>gtk_font_selection_get_font_name</A
+>().</P
+><P
+>To change the text which is shown in the preview area, use
+<A
+HREF="gtkfontselection.html#GTK-FONT-SELECTION-SET-PREVIEW-TEXT"
+>gtk_font_selection_set_preview_text</A
+>().</P
+><P
+>Filters can be used to limit the fonts shown. There are 2 filters in the
+<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> - a base filter and a user filter. The base filter
+can not be changed by the user, so this can be used when the user must choose
+from the restricted set of fonts (e.g. for a terminal-type application you may
+want to force the user to select a fixed-width font). The user filter can be
+changed or reset by the user, by using the 'Reset Filter' button or changing
+the options on the 'Filter' page of the widget.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26118"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26120"
+></A
+><H3
+><A
+NAME="GTKFONTSELECTION-STRUCT"
+></A
+>struct GtkFontSelection</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkFontSelection;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> struct contains private data only, and should
+only be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26126"
+></A
+><H3
+><A
+NAME="GTK-FONT-SELECTION-NEW"
+></A
+>gtk_font_selection_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_font_selection_new          (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26133"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26143"
+></A
+><H3
+><A
+NAME="GTK-FONT-SELECTION-GET-FONT"
+></A
+>gtk_font_selection_get_font ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gdk/gdk-fonts.html#GDKFONT
+>GdkFont</A>*    gtk_font_selection_get_font     (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the currently-selected font.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26150"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the currently-selected font, or NULL if no font is selected.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26164"
+></A
+><H3
+><A
+NAME="GTK-FONT-SELECTION-GET-FONT-NAME"
+></A
+>gtk_font_selection_get_font_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_font_selection_get_font_name
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the currently-selected font name.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26171"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26185"
+></A
+><H3
+><A
+NAME="GTK-FONT-SELECTION-SET-FONT-NAME"
+></A
+>gtk_font_selection_set_font_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_font_selection_set_font_name
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *fontname);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the currently-selected font.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26193"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontname</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a fontname.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the font was found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26211"
+></A
+><H3
+><A
+NAME="GTK-FONT-SELECTION-GET-PREVIEW-TEXT"
+></A
+>gtk_font_selection_get_preview_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_font_selection_get_preview_text
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the text displayed in the preview area.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26218"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text displayed in the preview area.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26232"
+></A
+><H3
+><A
+NAME="GTK-FONT-SELECTION-SET-PREVIEW-TEXT"
+></A
+>gtk_font_selection_set_preview_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_font_selection_set_preview_text
+                                            (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the text displayed in the preview area.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26239"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text to display in the preview area.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26253"
+></A
+><H3
+><A
+NAME="GTK-FONT-SELECTION-SET-FILTER"
+></A
+>gtk_font_selection_set_filter ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_font_selection_set_filter   (<A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+> *fontsel,
+                                             <A
+HREF="gtkfontselectiondialog.html#GTKFONTFILTERTYPE"
+>GtkFontFilterType</A
+> filter_type,
+                                             <A
+HREF="gtkfontselectiondialog.html#GTKFONTTYPE"
+>GtkFontType</A
+> font_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **foundries,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **weights,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **slants,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **setwidths,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **spacings,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **charsets);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets one of the two font filters, to limit the fonts shown.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN26267"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fontsel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filter_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>which of the two font filters to set, either
+GTK_FONT_FILTER_BASE or GTK_FONT_FILTER_USER. The user filter
+can be changed by the user, but the base filter is permanent.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the types of font to be shown. This is a bitwise combination of
+GTK_FONT_BITMAP, GTK_FONT_SCALABLE and GTK_FONT_SCALABLE_BITMAP,
+or GTK_FONT_ALL to show all three font types.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>foundries</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings containing foundry names which
+will be shown, or NULL to show all foundries.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>weights</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings containing weight names which
+will be shown, or NULL to show all weights.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>slants</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings containing slant names which
+will be shown, or NULL to show all slants.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>setwidths</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings containing setwidth names which
+will be shown, or NULL to show all setwidths.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacings</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings containing spacings which
+will be shown, or NULL to show all spacings.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>charsets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a NULL-terminated array of strings containing charset names which
+will be shown, or NULL to show all charsets.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26315"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkfontselectiondialog.html"
+>GtkFontSelectionDialog</A
+></DT
+><DD
+><P
+>a dialog box which uses <A
+HREF="gtkfontselection.html"
+>GtkFontSelection</A
+>.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkfixed.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkfontselectiondialog.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkFixed</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkFontSelectionDialog</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

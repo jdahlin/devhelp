@@ -1,0 +1,1929 @@
+<HTML
+><HEAD
+><TITLE
+>Input Contexts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Input Methods"
+HREF="gdk-input-methods.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-input-methods.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+>&nbsp;</TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-INPUT-CONTEXTS"
+>Input Contexts</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12838"
+></A
+><H2
+>Name</H2
+>Input Contexts&nbsp;--&nbsp;internationalized text input properties.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12841"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>;
+<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>*      <A
+HREF="gdk-input-contexts.html#GDK-IC-NEW"
+>gdk_ic_new</A
+>                      (<A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask);
+void        <A
+HREF="gdk-input-contexts.html#GDK-IC-DESTROY"
+>gdk_ic_destroy</A
+>                  (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic);
+<A
+HREF="gdk-events.html#GDKEVENTMASK"
+>GdkEventMask</A
+> <A
+HREF="gdk-input-contexts.html#GDK-IC-GET-EVENTS"
+>gdk_ic_get_events</A
+>              (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic);
+<A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+>  <A
+HREF="gdk-input-contexts.html#GDK-IC-GET-STYLE"
+>gdk_ic_get_style</A
+>                (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic);
+<A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> <A
+HREF="gdk-input-contexts.html#GDK-IC-GET-ATTR"
+>gdk_ic_get_attr</A
+>         (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask);
+<A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> <A
+HREF="gdk-input-contexts.html#GDK-IC-SET-ATTR"
+>gdk_ic_set_attr</A
+>         (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask);
+
+struct      <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+>;
+enum        <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+>;
+<A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+>*  <A
+HREF="gdk-input-contexts.html#GDK-IC-ATTR-NEW"
+>gdk_ic_attr_new</A
+>                 (void);
+void        <A
+HREF="gdk-input-contexts.html#GDK-IC-ATTR-DESTROY"
+>gdk_ic_attr_destroy</A
+>             (<A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12873"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> input context is used for each user interface element which supports
+internationalized text input. See the
+<A
+HREF="gdk-input-methods.html"
+>Input Methods</A
+> section for an overview
+of how internationalized text input works in GTK+.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12878"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12880"
+></A
+><H3
+><A
+NAME="GDKIC"
+></A
+>struct GdkIC</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkIC;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> struct is an opaque structure representing an input context
+for use with the global <A
+HREF="gdk-input-methods.html"
+>Input Method</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12887"
+></A
+><H3
+><A
+NAME="GDK-IC-NEW"
+></A
+>gdk_ic_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>*      gdk_ic_new                      (<A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> using the given attributes.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12896"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct containing attributes to use for the input context.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask specifying which of the attributes in <TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>
+are set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12917"
+></A
+><H3
+><A
+NAME="GDK-IC-DESTROY"
+></A
+>gdk_ic_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_ic_destroy                  (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys the input context.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12923"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ic</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12933"
+></A
+><H3
+><A
+NAME="GDK-IC-GET-EVENTS"
+></A
+>gdk_ic_get_events ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-events.html#GDKEVENTMASK"
+>GdkEventMask</A
+> gdk_ic_get_events              (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the mask of events that the input method needs to function properly.
+This is typically called in a widget's realize method after creating the
+<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>. The returned event mask is then combined with the widget's
+own event mask and applied using <A
+HREF="gdk-windows.html#GDK-WINDOW-SET-EVENTS"
+>gdk_window_set_events</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12942"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ic</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the mask of events that the input method needs to function
+properly.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12956"
+></A
+><H3
+><A
+NAME="GDK-IC-GET-STYLE"
+></A
+>gdk_ic_get_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+>  gdk_ic_get_style                (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the pre-edit and status style of the <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12964"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ic</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pre-edit and status style of the <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12979"
+></A
+><H3
+><A
+NAME="GDK-IC-GET-ATTR"
+></A
+>gdk_ic_get_attr ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> gdk_ic_get_attr         (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets attributes of a <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12989"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ic</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct to contain the returned attributes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask specifying which attributes to get.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask specifying which of the attributes
+were not retrieved succesfully.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13014"
+></A
+><H3
+><A
+NAME="GDK-IC-SET-ATTR"
+></A
+>gdk_ic_set_attr ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> gdk_ic_set_attr         (<A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+> *ic,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr,
+                                             <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets attributes of the <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</P
+><P
+>Note that the GDK_IC_STYLE and GDK_IC_CLIENT_WINDOW attributes can only be set
+when creating the <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>, and the GDK_IC_FILTER_EVENTS attribute is read-only.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13026"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ic</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct containing attributes to use for the input context.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask specifying which of the attributes in <TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>
+are set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask indicating which of the attributes
+were not set successfully.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13052"
+></A
+><H3
+><A
+NAME="GDKICATTR"
+></A
+>struct GdkICAttr</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkICAttr
+{
+  GdkIMStyle style;
+  GdkWindow *client_window;
+  GdkWindow *focus_window;
+  GdkEventMask filter_events;
+  GdkPoint spot_location;
+  gint line_spacing;
+  GdkCursor *cursor;
+
+  GdkFont *preedit_fontset;
+  GdkRectangle preedit_area;
+  GdkRectangle preedit_area_needed; 
+  GdkColor preedit_foreground;
+  GdkColor preedit_background;
+  GdkPixmap *preedit_pixmap;
+  GdkColormap *preedit_colormap;
+
+  GdkFont *status_fontset;
+  GdkRectangle status_area;
+  GdkRectangle status_area_needed; 
+  GdkColor status_foreground;
+  GdkColor status_background;
+  GdkPixmap *status_pixmap;
+  GdkColormap *status_colormap;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct is used when getting and setting attributes of the
+input context. It is used together with a <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> mask which
+specifies which of the fields are being set or returned.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13059"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-input-methods.html#GDKIMSTYLE"
+>GdkIMStyle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>style</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pre-edit and status style. This attribute is required when
+creating the <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>, and cannot be changed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>client_window</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> in which the input method will display its
+pre-edit and status areas or create subwindows.
+The preedit_area and status_area attributes are specified relative to this
+window. This attribute is required when creating the <A
+HREF="gdk-input-contexts.html#GDKIC"
+>GdkIC</A
+>, and cannot be
+changed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>focus_window</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> which is to be used when editing text.
+<A
+HREF="gdk-input-methods.html#GDK-IM-BEGIN"
+>gdk_im_begin</A
+>() sets this attribute before starting the text input process,
+so it is normally not necessary to set it elsewhere.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-events.html#GDKEVENTMASK"
+>GdkEventMask</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>filter_events</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the mask of events that the input method requires.
+See the <A
+HREF="gdk-input-contexts.html#GDK-IC-GET-EVENTS"
+>gdk_ic_get_events</A
+>() function. This attribute is read-only and is
+never changed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>spot_location</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the insertion cursor, for use with the
+<TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_POSITION</TT
+> style. The y coordinate specifies the baseline of
+the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>line_spacing</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the line spacing to be used in the pre-edit and status areas
+when displaying multi-line text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>cursor</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the cursor to use in the input method's windows.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>preedit_fontset</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the font to use for the pre-edit area.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>preedit_area</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the area in which the input method will display pre-editing
+data, used for the <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_POSITION</TT
+> and <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_AREA</TT
+> styles.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>preedit_area_needed</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the area that the input method requests for displaying
+pre-editing data, used for the <TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_POSITION</TT
+> and
+<TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_AREA</TT
+> styles.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>preedit_foreground</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the foreground color to use for the pre-edit area.
+This color must already be allocated in the preedit_colormap.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>preedit_background</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the background color to use for the pre-edit area.
+This color must already be allocated in the preedit_colormap.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>preedit_pixmap</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the background pixmap to use for the pre-edit area.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>preedit_colormap</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the colormap the input method should use to allocate colors.
+The default value is the colormap of client_window.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>status_fontset</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the font to use for the status area.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>status_area</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the are that the input method will display status information in.
+This is used for the <TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_AREA</TT
+> style.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-points-rectangles-and-regions.html#GDKRECTANGLE"
+>GdkRectangle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>status_area_needed</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the size that the input method requests for displaying
+status information, for the <TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_AREA</TT
+> style.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>status_foreground</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the foreground color to use for the status area.
+This color must already be allocated in the status_colormap.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>status_background</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the background color to use for the status area.
+This color must already be allocated in the status_colormap.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>status_pixmap</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the background pixmap to use for the status area.
+If this attribute isn't set it is determined by the input method.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>status_colormap</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the colormap the input method should use to allocate colors.
+The default value is the colormap of client_window.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13182"
+></A
+><H3
+><A
+NAME="GDKICATTRIBUTESTYPE"
+></A
+>enum GdkICAttributesType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_IC_STYLE			= 1 &lt;&lt; 0,
+  GDK_IC_CLIENT_WINDOW		= 1 &lt;&lt; 1,
+  GDK_IC_FOCUS_WINDOW		= 1 &lt;&lt; 2,
+  GDK_IC_FILTER_EVENTS		= 1 &lt;&lt; 3,
+  GDK_IC_SPOT_LOCATION		= 1 &lt;&lt; 4,
+  GDK_IC_LINE_SPACING		= 1 &lt;&lt; 5,
+  GDK_IC_CURSOR			= 1 &lt;&lt; 6,
+
+  GDK_IC_PREEDIT_FONTSET	= 1 &lt;&lt; 10,
+  GDK_IC_PREEDIT_AREA		= 1 &lt;&lt; 11,
+  GDK_IC_PREEDIT_AREA_NEEDED	= 1 &lt;&lt; 12,
+  GDK_IC_PREEDIT_FOREGROUND	= 1 &lt;&lt; 13,
+  GDK_IC_PREEDIT_BACKGROUND	= 1 &lt;&lt; 14,
+  GDK_IC_PREEDIT_PIXMAP		= 1 &lt;&lt; 15,
+  GDK_IC_PREEDIT_COLORMAP	= 1 &lt;&lt; 16,
+
+  GDK_IC_STATUS_FONTSET		= 1 &lt;&lt; 21,
+  GDK_IC_STATUS_AREA		= 1 &lt;&lt; 22,
+  GDK_IC_STATUS_AREA_NEEDED	= 1 &lt;&lt; 23,
+  GDK_IC_STATUS_FOREGROUND	= 1 &lt;&lt; 24,
+  GDK_IC_STATUS_BACKGROUND	= 1 &lt;&lt; 25,
+  GDK_IC_STATUS_PIXMAP		= 1 &lt;&lt; 26,
+  GDK_IC_STATUS_COLORMAP	= 1 &lt;&lt; 27,
+
+  GDK_IC_ALL_REQ		= GDK_IC_STYLE |
+    				  GDK_IC_CLIENT_WINDOW,
+
+  GDK_IC_PREEDIT_AREA_REQ	= GDK_IC_PREEDIT_AREA | 
+				  GDK_IC_PREEDIT_FONTSET,
+  GDK_IC_PREEDIT_POSITION_REQ	= GDK_IC_PREEDIT_AREA | GDK_IC_SPOT_LOCATION |
+				  GDK_IC_PREEDIT_FONTSET,
+
+  GDK_IC_STATUS_AREA_REQ	= GDK_IC_STATUS_AREA | 
+				  GDK_IC_STATUS_FONTSET
+} GdkICAttributesType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-input-contexts.html#GDKICATTRIBUTESTYPE"
+>GdkICAttributesType</A
+> contains a set of bit-flags which are used to
+specify which of the attributes in a <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> are being set or returned.</P
+><P
+>It also contains several combinations of the flags which specify required
+attributes for the various styles:
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="LITERAL"
+>GDK_IC_ALL_REQ</TT
+>:</DT
+><DD
+><P
+>the set of attributes required for all styles.</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>GDK_IC_PREEDIT_AREA_REQ</TT
+>:</DT
+><DD
+><P
+>the set of additional attributes required for the
+<TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_AREA</TT
+> pre-edit style.</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>GDK_IC_PREEDIT_POSITION_REQ</TT
+>:</DT
+><DD
+><P
+>the set of additional attributes required for the
+<TT
+CLASS="LITERAL"
+>GDK_IM_PREEDIT_POSITION</TT
+> pre-edit style.</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>GDK_IC_STATUS_AREA_REQ</TT
+>:</DT
+><DD
+><P
+>the set of additional attributes required for the
+<TT
+CLASS="LITERAL"
+>GDK_IM_STATUS_AREA</TT
+> status style.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13214"
+></A
+><H3
+><A
+NAME="GDK-IC-ATTR-NEW"
+></A
+>gdk_ic_attr_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+>*  gdk_ic_attr_new                 (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct, with all fields set to 0.
+The <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct should be freed with <A
+HREF="gdk-input-contexts.html#GDK-IC-ATTR-DESTROY"
+>gdk_ic_attr_destroy</A
+>() when no
+longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13223"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13233"
+></A
+><H3
+><A
+NAME="GDK-IC-ATTR-DESTROY"
+></A
+>gdk_ic_attr_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_ic_attr_destroy             (<A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> *attr);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys the given <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct, freeing the allocated memory.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13240"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-input-contexts.html#GDKICATTR"
+>GdkICAttr</A
+> struct.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-input-methods.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Input Methods</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+>&nbsp;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

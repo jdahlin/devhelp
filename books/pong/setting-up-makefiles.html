@@ -1,0 +1,226 @@
+<HTML
+><HEAD
+><TITLE
+>Setting up Your Makefiles</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Custom Bonobo Controls"
+HREF="upl-custom-bonobo-controls.html"><LINK
+REL="NEXT"
+TITLE="Setting up xml-i18n-tools"
+HREF="sum-xml-i18n-tools.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="upl-custom-bonobo-controls.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="sum-xml-i18n-tools.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="SETTING-UP-MAKEFILES"
+>Setting up Your Makefiles</A
+></H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SUM-AUTOTOOLS"
+>Setting up with automake and autoconf</A
+></H1
+><P
+>	First at the top of your configure.in file, add the AM_PROG_PONG
+	macro.  This will define the neccessary rule macros that you need
+	to use in your makefiles.  Make sure to put it all the way at the top
+	of the file right after AC_INIT and AM_PROG_XML_I18N_TOOLS.  Then
+	somewhere beyond your normal Gnome checks, add the PONG_CHECK macro,
+	giving a minimum version and the extra modules of PonG you are using
+	(bonobo, glade or manual).  For example:
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 1. configure.in example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>AC_INIT(src/some-file.h)
+
+dnl
+dnl Due to the sed scripts being split on 90 line
+dnl blocks, this macro needs to be right at the beggining.
+dnl
+AM_PROG_XML_I18N_TOOLS
+
+dnl
+dnl Another one of these for PonG
+dnl
+AM_PROG_PONG
+
+... Somewhere else in the file ...
+
+dnl
+dnl PonG, at least version 1.0.0, and use the bonobo and glade
+dnl modules
+dnl
+PONG_CHECK(1.0.0,bonobo glade)
+	  </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	Since PonG takes care of schema generation, there is a standard
+	schema rule defined for you.  You also need to use the xml-i18n-tools
+	for generating your .pong files.  For example suppose you make
+	a PonG file called foobar.pong.in, which you wish to install
+	in $(datadir)/foobar as foobar.pong. You would add the following,
+	to your Makefile.am:
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 2. Makefile.am example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>pongdir  = $(datadir)/foobar
+pong_in_files = foobar.in
+pong_DATA = $(pong_in_files:.pong.in=.pong)
+
+@XML_I18N_MERGE_PONG_RULE@
+
+schemadir  = $(sysconfdir)/gconf/schemas
+schema_DATA = foobar.schema
+
+@PONG_SCHEMA_RULE@
+	  </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="upl-custom-bonobo-controls.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="sum-xml-i18n-tools.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Custom Bonobo Controls</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Setting up xml-i18n-tools</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

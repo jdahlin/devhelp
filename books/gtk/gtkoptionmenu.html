@@ -1,0 +1,852 @@
+<HTML
+><HEAD
+><TITLE
+>GtkOptionMenu</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkObject"
+HREF="gtkobject.html"><LINK
+REL="NEXT"
+TITLE="GtkPacker"
+HREF="gtkpacker.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkobject.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkpacker.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKOPTIONMENU"
+>GtkOptionMenu</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN35099"
+></A
+><H2
+>Name</H2
+>GtkOptionMenu&nbsp;--&nbsp;a widget used to choose from a list of valid choices.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN35102"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkoptionmenu.html#GTKOPTIONMENU-STRUCT"
+>GtkOptionMenu</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkoptionmenu.html#GTK-OPTION-MENU-NEW"
+>gtk_option_menu_new</A
+>             (void);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkoptionmenu.html#GTK-OPTION-MENU-GET-MENU"
+>gtk_option_menu_get_menu</A
+>        (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu);
+void        <A
+HREF="gtkoptionmenu.html#GTK-OPTION-MENU-SET-MENU"
+>gtk_option_menu_set_menu</A
+>        (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu);
+void        <A
+HREF="gtkoptionmenu.html#GTK-OPTION-MENU-REMOVE-MENU"
+>gtk_option_menu_remove_menu</A
+>     (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu);
+void        <A
+HREF="gtkoptionmenu.html#GTK-OPTION-MENU-SET-HISTORY"
+>gtk_option_menu_set_history</A
+>     (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35119"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkbutton.html"
+>GtkButton</A
+>
+                           +----GtkOptionMenu</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35127"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> is a widget that allows the user to choose from a
+list of valid choices.  The <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> displays the selected 
+choice.  When activated the <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> displays a popup <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> 
+which allows the user to make a new choice.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35134"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35136"
+></A
+><H3
+><A
+NAME="GTKOPTIONMENU-STRUCT"
+></A
+>struct GtkOptionMenu</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkOptionMenu;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkoptionmenu.html#GTKOPTIONMENU-STRUCT"
+>GtkOptionMenu</A
+> struct contains private data only, and 
+should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35142"
+></A
+><H3
+><A
+NAME="GTK-OPTION-MENU-NEW"
+></A
+>gtk_option_menu_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_option_menu_new             (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35149"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35159"
+></A
+><H3
+><A
+NAME="GTK-OPTION-MENU-GET-MENU"
+></A
+>gtk_option_menu_get_menu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_option_menu_get_menu        (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> associated with the <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35168"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>option_menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> associated with the <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35184"
+></A
+><H3
+><A
+NAME="GTK-OPTION-MENU-SET-MENU"
+></A
+>gtk_option_menu_set_menu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_option_menu_set_menu        (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Provides the <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> that is popped up to allow the user to choose
+a new value.  You should provide a simple menu avoiding the
+use of tearoff menu items, submenus, and accelerators.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35192"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>option_menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkmenu.html"
+>GtkMenu</A
+> to associate with the <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35208"
+></A
+><H3
+><A
+NAME="GTK-OPTION-MENU-REMOVE-MENU"
+></A
+>gtk_option_menu_remove_menu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_option_menu_remove_menu     (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the menu from the option menu.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35214"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>option_menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35224"
+></A
+><H3
+><A
+NAME="GTK-OPTION-MENU-SET-HISTORY"
+></A
+>gtk_option_menu_set_history ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_option_menu_set_history     (<A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> *option_menu,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects the menu item specified by <TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+> making it the newly
+selected value for the option menu.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35232"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>option_menu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the menu item to select.  Index values are from 
+0 to n-1.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkobject.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkpacker.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkObject</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPacker</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

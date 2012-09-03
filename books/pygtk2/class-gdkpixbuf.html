@@ -1,0 +1,3370 @@
+<HTML
+><HEAD
+><TITLE
+>Class GdkPixbuf</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.54"><LINK
+REL="HOME"
+TITLE="PyGTK Docs"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Class GdkImage"
+HREF="class-gdkimage.html"><LINK
+REL="NEXT"
+TITLE="Class GdkPixbufAnimation"
+HREF="class-gdkpixbufanimation.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PyGTK Docs</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="class-gdkimage.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="class-gdkpixbufanimation.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CLASS-GDKPIXBUF"
+>Class GdkPixbuf</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2385"
+>Ancestry</A
+></H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>+-- GObject
+  +-- <A
+HREF="class-gdkpixbuf.html"
+>GdkPixbuf</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2390"
+>Constructor</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="FSFUNC"
+>GdkPixbuf</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>colorspace</VAR
+>, <VAR
+CLASS="PDPARAM"
+>has_alpha</VAR
+>, <VAR
+CLASS="PDPARAM"
+>bits_per_sample</VAR
+>, <VAR
+CLASS="PDPARAM"
+>width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>height</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>colorspace</I
+></TT
+></DT
+><DD
+><P
+>Color space for image.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>has_alpha</I
+></TT
+></DT
+><DD
+><P
+>Whether the image should have transparency information.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>bits_per_sample</I
+></TT
+></DT
+><DD
+><P
+>Number of bits per color sample.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></DT
+><DD
+><P
+>Width of image in pixels.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></DT
+><DD
+><P
+>Height of image in pixels.</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>A newly-created <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> with a reference count of 1, or NULL
+if not enough memory could be allocated for the image buffer.</P
+></DD
+></DL
+></DIV
+><P
+>Creates a new <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> structure and allocates a buffer for it.  The buffer
+has an optimal rowstride.  Note that the buffer is not cleared; you will have
+to fill it completely yourself.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2441"
+>Methods</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-COLORSPACE"
+>GdkPixbuf.get_colorspace</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_colorspace</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>Color space.</P
+></DD
+></DL
+></DIV
+><P
+>Queries the color space of a pixbuf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-N-CHANNELS"
+>GdkPixbuf.get_n_channels</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_n_channels</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>Number of channels.</P
+></DD
+></DL
+></DIV
+><P
+>Queries the number of channels of a pixbuf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-HAS-ALPHA"
+>GdkPixbuf.get_has_alpha</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_has_alpha</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>TRUE if it has an alpha channel, FALSE otherwise.</P
+></DD
+></DL
+></DIV
+><P
+>Queries whether a pixbuf has an alpha channel (opacity information).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-BITS-PER-SAMPLE"
+>GdkPixbuf.get_bits_per_sample</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_bits_per_sample</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>Number of bits per color sample.</P
+></DD
+></DL
+></DIV
+><P
+>Queries the number of bits per color sample in a pixbuf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-PIXELS"
+>GdkPixbuf.get_pixels</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_pixels</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>A pointer to the pixbuf's pixel data.</P
+></DD
+></DL
+></DIV
+><P
+>Queries a pointer to the pixel data of a pixbuf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-WIDTH"
+>GdkPixbuf.get_width</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_width</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>Width in pixels.</P
+></DD
+></DL
+></DIV
+><P
+>Queries the width of a pixbuf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-HEIGHT"
+>GdkPixbuf.get_height</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_height</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>Height in pixels.</P
+></DD
+></DL
+></DIV
+><P
+>Queries the height of a pixbuf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-ROWSTRIDE"
+>GdkPixbuf.get_rowstride</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_rowstride</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>Number of bytes between rows.</P
+></DD
+></DL
+></DIV
+><P
+>Queries the rowstride of a pixbuf, which is the number of bytes between rows.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--COPY"
+>GdkPixbuf.copy</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>copy</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>A newly-created pixbuf with a reference count of 1, or NULL if
+not enough memory could be allocated.</P
+></DD
+></DL
+></DIV
+><P
+>Creates a new <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> with a copy of the information in the specified
+<TT
+CLASS="PARAMETER"
+><I
+>pixbuf</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--SAVE"
+>GdkPixbuf.save</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>save</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>filename</VAR
+>, <VAR
+CLASS="PDPARAM"
+>type</VAR
+>, <VAR
+CLASS="PDPARAM"
+>error</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+></DT
+><DD
+><P
+>Name of file to save.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+></DT
+><DD
+><P
+>name of file format.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>error</I
+></TT
+></DT
+><DD
+><P
+>return location for error, or NULL</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether an error was set</P
+></DD
+></DL
+></DIV
+><P
+>Saves pixbuf to a file in <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>, which is currently "jpeg" or
+"png".  If <TT
+CLASS="PARAMETER"
+><I
+>error</I
+></TT
+> is set, FALSE will be returned. Possible errors include those
+in the <TT
+CLASS="LITERAL"
+>GDK_PIXBUF_ERROR</TT
+> domain and those in the <TT
+CLASS="LITERAL"
+>G_FILE_ERROR</TT
+> domain.</P
+><P
+>The variable argument list should be NULL-terminated; if not empty,
+it should contain pairs of strings that modify the save
+parameters. For example:</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>gdk_pixbuf_save (pixbuf, handle, "jpeg", ,
+"quality", "100", NULL);</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>The only save parameter that currently exists is the "quality" field
+for JPEG images; its value should be in the range [0,100].</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--SAVEV"
+>GdkPixbuf.savev</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>savev</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>filename</VAR
+>, <VAR
+CLASS="PDPARAM"
+>type</VAR
+>, <VAR
+CLASS="PDPARAM"
+>option_keys</VAR
+>, <VAR
+CLASS="PDPARAM"
+>option_values</VAR
+>, <VAR
+CLASS="PDPARAM"
+>error</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+></DT
+><DD
+><P
+>Name of file to save.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+></DT
+><DD
+><P
+>name of file format.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>option_keys</I
+></TT
+></DT
+><DD
+><P
+>name of options to set, NULL-terminated</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>option_values</I
+></TT
+></DT
+><DD
+><P
+>values for named options</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>error</I
+></TT
+></DT
+><DD
+><P
+>return location for error, or NULL</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>whether an error was set</P
+></DD
+></DL
+></DIV
+><P
+>Saves pixbuf to a file in <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>, which is currently "jpeg" or "png".
+If <TT
+CLASS="PARAMETER"
+><I
+>error</I
+></TT
+> is set, FALSE will be returned. See <A
+HREF="class-gdkpixbuf.html#METHOD-GDKPIXBUF--SAVE"
+><TT
+CLASS="FUNCTION"
+>GdkPixbuf.save()</TT
+></A
+> for more
+details.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--ADD-ALPHA"
+>GdkPixbuf.add_alpha</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add_alpha</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>substitute_color</VAR
+>, <VAR
+CLASS="PDPARAM"
+>r</VAR
+>, <VAR
+CLASS="PDPARAM"
+>g</VAR
+>, <VAR
+CLASS="PDPARAM"
+>b</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>substitute_color</I
+></TT
+></DT
+><DD
+><P
+>Whether to substitute a color for zero opacity.  If this
+is <TT
+CLASS="LITERAL"
+>FALSE</TT
+>, then the (<TT
+CLASS="PARAMETER"
+><I
+>r</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>g</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>b</I
+></TT
+>) arguments will be ignored.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>r</I
+></TT
+></DT
+><DD
+><P
+>Red value to substitute.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>g</I
+></TT
+></DT
+><DD
+><P
+>Green value to substitute.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>b</I
+></TT
+></DT
+><DD
+><P
+>Blue value to substitute.</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>A newly-created pixbuf with a reference count of 1.</P
+></DD
+></DL
+></DIV
+><P
+>Takes an existing pixbuf and adds an alpha channel to it.  If the original
+pixbuf already had alpha information, then the contents of the new pixbuf are
+exactly the same as the original's.  Otherwise, the new pixbuf will have all
+pixels with full opacity if <TT
+CLASS="PARAMETER"
+><I
+>substitute_color</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>FALSE</TT
+>.  If
+<TT
+CLASS="PARAMETER"
+><I
+>substitute_color</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, then the color specified by (<TT
+CLASS="PARAMETER"
+><I
+>r</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>g</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>b</I
+></TT
+>) will be
+substituted for zero opacity.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--COPY-AREA"
+>GdkPixbuf.copy_area</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>copy_area</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>src_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>src_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_pixbuf</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_y</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_x</I
+></TT
+></DT
+><DD
+><P
+>Source X coordinate within <TT
+CLASS="PARAMETER"
+><I
+>src_pixbuf</I
+></TT
+>.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_y</I
+></TT
+></DT
+><DD
+><P
+>Source Y coordinate within <TT
+CLASS="PARAMETER"
+><I
+>src_pixbuf</I
+></TT
+>.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></DT
+><DD
+><P
+>Width of the area to copy.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></DT
+><DD
+><P
+>Height of the area to copy.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_pixbuf</I
+></TT
+></DT
+><DD
+><P
+>Destination pixbuf.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+></DT
+><DD
+><P
+>X coordinate within <TT
+CLASS="PARAMETER"
+><I
+>dest_pixbuf</I
+></TT
+>.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+></DT
+><DD
+><P
+>Y coordinate within <TT
+CLASS="PARAMETER"
+><I
+>dest_pixbuf</I
+></TT
+>.</P
+></DD
+></DL
+></DIV
+><P
+>Copies a rectangular area from <TT
+CLASS="PARAMETER"
+><I
+>src_pixbuf</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>dest_pixbuf</I
+></TT
+>.  Conversion of
+pixbuf formats is done automatically.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--SATURATE-AND-PIXELATE"
+>GdkPixbuf.saturate_and_pixelate</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>saturate_and_pixelate</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>dest</VAR
+>, <VAR
+CLASS="PDPARAM"
+>saturation</VAR
+>, <VAR
+CLASS="PDPARAM"
+>pixelate</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+></DT
+><DD
+><P
+>place to write modified version of <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+></P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>saturation</I
+></TT
+></DT
+><DD
+><P
+>saturation factor</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>pixelate</I
+></TT
+></DT
+><DD
+><P
+>whether to pixelate</P
+></DD
+></DL
+></DIV
+><P
+>Modifies saturation and optionally pixelates <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>, placing the
+result in <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>. <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+> may be the same pixbuf with no ill
+effects.  If <TT
+CLASS="PARAMETER"
+><I
+>saturation</I
+></TT
+> is 1.0 then saturation is not changed. If
+it's less than 1.0, saturation is reduced (the image is darkened);
+if greater than 1.0, saturation is increased (the image is
+brightened). If <TT
+CLASS="PARAMETER"
+><I
+>pixelate</I
+></TT
+> is TRUE, then pixels are faded in a
+checkerboard pattern to create a pixelated image. <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>
+must have the same image format, size, and rowstride.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--SCALE"
+>GdkPixbuf.scale</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>scale</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>dest</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>offset_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>offset_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>scale_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>scale_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>interp_type</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+></DT
+><DD
+><P
+>the <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> into which to render the results</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+></DT
+><DD
+><P
+>the left coordinate for region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+></DT
+><DD
+><P
+>the top coordinate for region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+></DT
+><DD
+><P
+>the width of the region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+></DT
+><DD
+><P
+>the height of the region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>offset_x</I
+></TT
+></DT
+><DD
+><P
+>the offset in the X direction (currently rounded to an integer)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>offset_y</I
+></TT
+></DT
+><DD
+><P
+>the offset in the Y direction (currently rounded to an integer)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>scale_x</I
+></TT
+></DT
+><DD
+><P
+>the scale factor in the X direction</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>scale_y</I
+></TT
+></DT
+><DD
+><P
+>the scale factor in the Y direction</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>interp_type</I
+></TT
+></DT
+><DD
+><P
+>the interpolation type for the transformation.</P
+></DD
+></DL
+></DIV
+><P
+>Transforms the image by source image by scaling by <TT
+CLASS="PARAMETER"
+><I
+>scale_x</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>scale_y</I
+></TT
+> then
+translating by <TT
+CLASS="PARAMETER"
+><I
+>offset_x</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>offset_y</I
+></TT
+>, then renders the rectangle
+(<TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+>) of the resulting image onto the
+destination drawable replacing the previous contents.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--COMPOSITE"
+>GdkPixbuf.composite</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>composite</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>dest</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>offset_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>offset_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>scale_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>scale_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>interp_type</VAR
+>, <VAR
+CLASS="PDPARAM"
+>overall_alpha</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+></DT
+><DD
+><P
+>the <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> into which to render the results</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+></DT
+><DD
+><P
+>the left coordinate for region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+></DT
+><DD
+><P
+>the top coordinate for region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+></DT
+><DD
+><P
+>the width of the region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+></DT
+><DD
+><P
+>the height of the region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>offset_x</I
+></TT
+></DT
+><DD
+><P
+>the offset in the X direction (currently rounded to an integer)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>offset_y</I
+></TT
+></DT
+><DD
+><P
+>the offset in the Y direction (currently rounded to an integer)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>scale_x</I
+></TT
+></DT
+><DD
+><P
+>the scale factor in the X direction</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>scale_y</I
+></TT
+></DT
+><DD
+><P
+>the scale factor in the Y direction</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>interp_type</I
+></TT
+></DT
+><DD
+><P
+>the interpolation type for the transformation.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>overall_alpha</I
+></TT
+></DT
+><DD
+><P
+>overall alpha for source image (0..255)</P
+></DD
+></DL
+></DIV
+><P
+>Transforms the image by source image by scaling by <TT
+CLASS="PARAMETER"
+><I
+>scale_x</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>scale_y</I
+></TT
+> then
+translating by <TT
+CLASS="PARAMETER"
+><I
+>offset_x</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>offset_y</I
+></TT
+>, then composites the rectangle
+(<TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+>) of the resulting image onto the
+destination drawable.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--COMPOSITE-COLOR"
+>GdkPixbuf.composite_color</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>composite_color</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>dest</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>offset_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>offset_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>scale_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>scale_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>interp_type</VAR
+>, <VAR
+CLASS="PDPARAM"
+>overall_alpha</VAR
+>, <VAR
+CLASS="PDPARAM"
+>check_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>check_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>check_size</VAR
+>, <VAR
+CLASS="PDPARAM"
+>color1</VAR
+>, <VAR
+CLASS="PDPARAM"
+>color2</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+></DT
+><DD
+><P
+>the <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> into which to render the results</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+></DT
+><DD
+><P
+>the left coordinate for region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+></DT
+><DD
+><P
+>the top coordinate for region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+></DT
+><DD
+><P
+>the width of the region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+></DT
+><DD
+><P
+>the height of the region to render</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>offset_x</I
+></TT
+></DT
+><DD
+><P
+>the offset in the X direction (currently rounded to an integer)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>offset_y</I
+></TT
+></DT
+><DD
+><P
+>the offset in the Y direction (currently rounded to an integer)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>scale_x</I
+></TT
+></DT
+><DD
+><P
+>the scale factor in the X direction</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>scale_y</I
+></TT
+></DT
+><DD
+><P
+>the scale factor in the Y direction</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>interp_type</I
+></TT
+></DT
+><DD
+><P
+>the interpolation type for the transformation.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>overall_alpha</I
+></TT
+></DT
+><DD
+><P
+>overall alpha for source image (0..255)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>check_x</I
+></TT
+></DT
+><DD
+><P
+>the X offset for the checkboard (origin of checkboard is at -<TT
+CLASS="PARAMETER"
+><I
+>check_x</I
+></TT
+>, -<TT
+CLASS="PARAMETER"
+><I
+>check_y</I
+></TT
+>)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>check_y</I
+></TT
+></DT
+><DD
+><P
+>the Y offset for the checkboard</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>check_size</I
+></TT
+></DT
+><DD
+><P
+>the size of checks in the checkboard (must be a power of two)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>color1</I
+></TT
+></DT
+><DD
+><P
+>the color of check at upper left</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>color2</I
+></TT
+></DT
+><DD
+><P
+>the color of the other check</P
+></DD
+></DL
+></DIV
+><P
+>Transforms the image by source image by scaling by <TT
+CLASS="PARAMETER"
+><I
+>scale_x</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>scale_y</I
+></TT
+> then
+translating by <TT
+CLASS="PARAMETER"
+><I
+>offset_x</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>offset_y</I
+></TT
+>, then composites the rectangle
+(<TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+>,<TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+>) of the resulting image with
+a checkboard of the colors <TT
+CLASS="PARAMETER"
+><I
+>color1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>color2</I
+></TT
+> and renders it onto the
+destination drawable.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--SCALE-SIMPLE"
+>GdkPixbuf.scale_simple</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>scale_simple</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>dest_width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>interp_type</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+></DT
+><DD
+><P
+>the width of destination image</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+></DT
+><DD
+><P
+>the height of destination image</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>interp_type</I
+></TT
+></DT
+><DD
+><P
+>the interpolation type for the transformation.</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>the new <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+>, or NULL if not enough memory could be
+allocated for it.</P
+></DD
+></DL
+></DIV
+><P
+>Scale the <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+> x <TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+> and render the result into
+a new <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--COMPOSITE-COLOR-SIMPLE"
+>GdkPixbuf.composite_color_simple</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>composite_color_simple</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>dest_width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>interp_type</VAR
+>, <VAR
+CLASS="PDPARAM"
+>overall_alpha</VAR
+>, <VAR
+CLASS="PDPARAM"
+>check_size</VAR
+>, <VAR
+CLASS="PDPARAM"
+>color1</VAR
+>, <VAR
+CLASS="PDPARAM"
+>color2</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+></DT
+><DD
+><P
+>the width of destination image</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+></DT
+><DD
+><P
+>the height of destination image</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>interp_type</I
+></TT
+></DT
+><DD
+><P
+>the interpolation type for the transformation.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>overall_alpha</I
+></TT
+></DT
+><DD
+><P
+>overall alpha for source image (0..255)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>check_size</I
+></TT
+></DT
+><DD
+><P
+>the size of checks in the checkboard (must be a power of two)</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>color1</I
+></TT
+></DT
+><DD
+><P
+>the color of check at upper left</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>color2</I
+></TT
+></DT
+><DD
+><P
+>the color of the other check</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>the new <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+>, or NULL if not enough memory could be
+allocated for it.</P
+></DD
+></DL
+></DIV
+><P
+>Scale the <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+> <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>dest_width</I
+></TT
+> x <TT
+CLASS="PARAMETER"
+><I
+>dest_height</I
+></TT
+> composite the result with
+a checkboard of colors <TT
+CLASS="PARAMETER"
+><I
+>color1</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>color2</I
+></TT
+> and render the result into
+a new <A
+HREF="class-gdkpixbuf.html"
+><SPAN
+CLASS="TYPE"
+>GdkPixbuf</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--RENDER-TO-DRAWABLE"
+>GdkPixbuf.render_to_drawable</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>render_to_drawable</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>drawable</VAR
+>, <VAR
+CLASS="PDPARAM"
+>gc</VAR
+>, <VAR
+CLASS="PDPARAM"
+>src_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>src_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dither</VAR
+>, <VAR
+CLASS="PDPARAM"
+>x_dither</VAR
+>, <VAR
+CLASS="PDPARAM"
+>y_dither</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+></DT
+><DD
+><P
+>Destination drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+></DT
+><DD
+><P
+>GC used for rendering.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_x</I
+></TT
+></DT
+><DD
+><P
+>Source X coordinate within pixbuf.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_y</I
+></TT
+></DT
+><DD
+><P
+>Source Y coordinate within pixbuf.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+></DT
+><DD
+><P
+>Destination X coordinate within drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+></DT
+><DD
+><P
+>Destination Y coordinate within drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></DT
+><DD
+><P
+>Width of region to render, in pixels.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></DT
+><DD
+><P
+>Height of region to render, in pixels.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dither</I
+></TT
+></DT
+><DD
+><P
+>Dithering mode for GdkRGB.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>x_dither</I
+></TT
+></DT
+><DD
+><P
+>X offset for dither.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>y_dither</I
+></TT
+></DT
+><DD
+><P
+>Y offset for dither.</P
+></DD
+></DL
+></DIV
+><P
+>Renders a rectangular portion of a pixbuf to a drawable while using the
+specified GC.  This is done using GdkRGB, so the specified drawable must have
+the GdkRGB visual and colormap.  Note that this function will ignore the
+opacity information for images with an alpha channel; the GC must already
+have the clipping mask set if you want transparent regions to show through.</P
+><P
+>For an explanation of dither offsets, see the GdkRGB documentation.  In
+brief, the dither offset is important when re-rendering partial regions of an
+image to a rendered version of the full image, or for when the offsets to a
+base position change, as in scrolling.  The dither matrix has to be shifted
+for consistent visual results.  If you do not have any of these cases, the
+dither offsets can be both zero.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--RENDER-TO-DRAWABLE-ALPHA"
+>GdkPixbuf.render_to_drawable_alpha</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>render_to_drawable_alpha</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>drawable</VAR
+>, <VAR
+CLASS="PDPARAM"
+>src_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>src_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>height</VAR
+>, <VAR
+CLASS="PDPARAM"
+>alpha_mode</VAR
+>, <VAR
+CLASS="PDPARAM"
+>alpha_threshold</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dither</VAR
+>, <VAR
+CLASS="PDPARAM"
+>x_dither</VAR
+>, <VAR
+CLASS="PDPARAM"
+>y_dither</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+></DT
+><DD
+><P
+>Destination drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_x</I
+></TT
+></DT
+><DD
+><P
+>Source X coordinate within pixbuf.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_y</I
+></TT
+></DT
+><DD
+><P
+>Source Y coordinates within pixbuf.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+></DT
+><DD
+><P
+>Destination X coordinate within drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+></DT
+><DD
+><P
+>Destination Y coordinate within drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></DT
+><DD
+><P
+>Width of region to render, in pixels.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></DT
+><DD
+><P
+>Height of region to render, in pixels.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>alpha_mode</I
+></TT
+></DT
+><DD
+><P
+>If the image does not have opacity information, this is ignored.
+Otherwise, specifies how to handle transparency when rendering.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>alpha_threshold</I
+></TT
+></DT
+><DD
+><P
+>If the image does have opacity information and <TT
+CLASS="PARAMETER"
+><I
+>alpha_mode</I
+></TT
+>
+is GDK_PIXBUF_ALPHA_BILEVEL, specifies the threshold value for opacity
+values.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dither</I
+></TT
+></DT
+><DD
+><P
+>Dithering mode for GdkRGB.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>x_dither</I
+></TT
+></DT
+><DD
+><P
+>X offset for dither.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>y_dither</I
+></TT
+></DT
+><DD
+><P
+>Y offset for dither.</P
+></DD
+></DL
+></DIV
+><P
+>Renders a rectangular portion of a pixbuf to a drawable.  This is done using
+GdkRGB, so the specified drawable must have the GdkRGB visual and colormap.</P
+><P
+>When used with <TT
+CLASS="LITERAL"
+>GDK_PIXBUF_ALPHA_BILEVEL</TT
+>, this function has to create a bitmap
+out of the thresholded alpha channel of the image and, it has to set this
+bitmap as the clipping mask for the GC used for drawing.  This can be a
+significant performance penalty depending on the size and the complexity of
+the alpha channel of the image.  If performance is crucial, consider handling
+the alpha channel yourself (possibly by caching it in your application) and
+using <A
+HREF="class-gdkpixbuf.html#METHOD-GDKPIXBUF--RENDER-TO-DRAWABLE"
+><TT
+CLASS="FUNCTION"
+>GdkPixbuf.render_to_drawable()</TT
+></A
+> or GdkRGB directly instead.</P
+><P
+>The <TT
+CLASS="LITERAL"
+>GDK_PIXBUF_ALPHA_FULL</TT
+> mode involves round trips to the X
+server, and may also be somewhat slow in its current implementation
+(though in the future it could be made significantly faster, in
+principle).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--RENDER-PIXMAP-AND-MASK"
+>GdkPixbuf.render_pixmap_and_mask</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>render_pixmap_and_mask</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>pixmap_return</VAR
+>, <VAR
+CLASS="PDPARAM"
+>mask_return</VAR
+>, <VAR
+CLASS="PDPARAM"
+>alpha_threshold</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_return</I
+></TT
+></DT
+><DD
+><P
+>Return value for the created pixmap.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>mask_return</I
+></TT
+></DT
+><DD
+><P
+>Return value for the created mask.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>alpha_threshold</I
+></TT
+></DT
+><DD
+><P
+>Threshold value for opacity values.</P
+></DD
+></DL
+></DIV
+><P
+>Creates a pixmap and a mask bitmap which are returned in the <TT
+CLASS="PARAMETER"
+><I
+>pixmap_return</I
+></TT
+>
+and <TT
+CLASS="PARAMETER"
+><I
+>mask_return</I
+></TT
+> arguments, respectively, and renders a pixbuf and its
+corresponding tresholded alpha mask to them.  This is merely a convenience
+function; applications that need to render pixbufs with dither offsets or to
+given drawables should use <A
+HREF="class-gdkpixbuf.html#METHOD-GDKPIXBUF--RENDER-TO-DRAWABLE-ALPHA"
+><TT
+CLASS="FUNCTION"
+>GdkPixbuf.render_to_drawable_alpha()</TT
+></A
+> or
+<A
+HREF="class-gdkpixbuf.html#METHOD-GDKPIXBUF--RENDER-TO-DRAWABLE"
+><TT
+CLASS="FUNCTION"
+>GdkPixbuf.render_to_drawable()</TT
+></A
+>, and <TT
+CLASS="FUNCTION"
+>gdk_pixbuf_render_threshold_alpha()</TT
+>.</P
+><P
+>If the pixbuf does not have an alpha channel, then *<TT
+CLASS="PARAMETER"
+><I
+>mask_return</I
+></TT
+> will be set
+to NULL.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GDKPIXBUF--GET-FROM-DRAWABLE"
+>GdkPixbuf.get_from_drawable</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_from_drawable</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>src</VAR
+>, <VAR
+CLASS="PDPARAM"
+>cmap</VAR
+>, <VAR
+CLASS="PDPARAM"
+>src_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>src_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>dest_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>height</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+></DT
+><DD
+><P
+>Source drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>cmap</I
+></TT
+></DT
+><DD
+><P
+>A colormap if <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+> is a pixmap.  If it is a window, this argument will
+be ignored.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_x</I
+></TT
+></DT
+><DD
+><P
+>Source X coordinate within drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>src_y</I
+></TT
+></DT
+><DD
+><P
+>Source Y coordinate within drawable.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+></DT
+><DD
+><P
+>Destination X coordinate in pixbuf, or 0 if <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+> is NULL.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+></DT
+><DD
+><P
+>Destination Y coordinate in pixbuf, or 0 if <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+> is NULL.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></DT
+><DD
+><P
+>Width in pixels of region to get.</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></DT
+><DD
+><P
+>Height in pixels of region to get.</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>The same pixbuf as <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+> if it was non-NULL, or a newly-created
+pixbuf with a reference count of 1 if no destination pixbuf was specified; in
+the latter case, NULL will be returned if not enough memory could be
+allocated for the pixbuf to be created.</P
+></DD
+></DL
+></DIV
+><P
+>Transfers image data from a Gdk drawable and converts it to an RGB(A)
+representation inside a GdkPixbuf.</P
+><P
+>If the drawable <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+> is a pixmap, then a suitable colormap must be specified,
+since pixmaps are just blocks of pixel data without an associated colormap.
+If the drawable is a window, the <TT
+CLASS="PARAMETER"
+><I
+>cmap</I
+></TT
+> argument will be ignored and the
+window's own colormap will be used instead.</P
+><P
+>If the specified destination pixbuf <TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, then this function will
+create an RGB pixbuf with 8 bits per channel and no alpha, with the same size
+specified by the <TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+> arguments.  In this case, the <TT
+CLASS="PARAMETER"
+><I
+>dest_x</I
+></TT
+> and
+<TT
+CLASS="PARAMETER"
+><I
+>dest_y</I
+></TT
+> arguments must be specified as 0, otherwise the function will return
+<TT
+CLASS="LITERAL"
+>NULL</TT
+>.  If the specified destination pixbuf is not NULL and it contains alpha
+information, then the filled pixels will be set to full opacity.</P
+><P
+>If the specified drawable is a pixmap, then the requested source rectangle
+must be completely contained within the pixmap, otherwise the function will
+return <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</P
+><P
+>If the specified drawable is a window, then it must be viewable, i.e. all of
+its ancestors up to the root window must be mapped.  Also, the specified
+source rectangle must be completely contained within the window and within
+the screen.  If regions of the window are obscured by noninferior windows, the
+contents of those regions are undefined.  The contents of regions obscured by
+inferior windows of a different depth than that of the source window will also
+be undefined.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="class-gdkimage.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="class-gdkpixbufanimation.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class GdkImage</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class GdkPixbufAnimation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

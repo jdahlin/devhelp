@@ -1,0 +1,2675 @@
+<HTML
+><HEAD
+><TITLE
+>GnomeDockItem</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="Gnome User Interface Library Reference Manual"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="GNOME Widgets and Objects"
+HREF="gnome-objects.html"><LINK
+REL="PREVIOUS"
+TITLE="GnomeDockBand"
+HREF="gnomedockband.html"><LINK
+REL="NEXT"
+TITLE="GnomeDock"
+HREF="gnomedock.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>Gnome User Interface Library Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomedockband.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomedock.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GNOMEDOCKITEM"
+>GnomeDockItem</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN16415"
+></A
+><H2
+>Name</H2
+>GnomeDockItem&nbsp;--&nbsp;A dockable widget.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN16418"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gnome.h&gt;
+
+
+struct      <A
+HREF="gnomedockitem.html#GNOMEDOCKITEM-STRUCT"
+>GnomeDockItem</A
+>;
+enum        <A
+HREF="gnomedockitem.html#GNOMEDOCKITEMBEHAVIOR"
+>GnomeDockItemBehavior</A
+>;
+#define     <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-NOT-LOCKED-CAPS"
+>GNOME_DOCK_ITEM_NOT_LOCKED</A
+>      (x)
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-NEW"
+>gnome_dock_item_new</A
+>             (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gnomedockitem.html#GNOMEDOCKITEMBEHAVIOR"
+>GnomeDockItemBehavior</A
+> behavior);
+<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-GET-CHILD"
+>gnome_dock_item_get_child</A
+>       (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);
+char*       <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-GET-NAME"
+>gnome_dock_item_get_name</A
+>        (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);
+void        <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-SET-SHADOW-TYPE"
+>gnome_dock_item_set_shadow_type</A
+> (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item,
+                                             <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSHADOWTYPE
+>GtkShadowType</A> type);
+<A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSHADOWTYPE
+>GtkShadowType</A> <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-GET-SHADOW-TYPE"
+>gnome_dock_item_get_shadow_type</A
+>
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-SET-ORIENTATION"
+>gnome_dock_item_set_orientation</A
+> (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item,
+                                             <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKORIENTATION
+>GtkOrientation</A> orientation);
+<A
+HREF=../gtk/gtk-standard-enumerations.html#GTKORIENTATION
+>GtkOrientation</A> <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-GET-ORIENTATION"
+>gnome_dock_item_get_orientation</A
+>
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);
+<A
+HREF="gnomedockitem.html#GNOMEDOCKITEMBEHAVIOR"
+>GnomeDockItemBehavior</A
+> <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-GET-BEHAVIOR"
+>gnome_dock_item_get_behavior</A
+>
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-DETACH"
+>gnome_dock_item_detach</A
+>          (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-ATTACH"
+>gnome_dock_item_attach</A
+>          (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *parent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-GRAB-POINTER"
+>gnome_dock_item_grab_pointer</A
+>    (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item);
+void        <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-DRAG-FLOATING"
+>gnome_dock_item_drag_floating</A
+>   (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-HANDLE-SIZE-REQUEST"
+>gnome_dock_item_handle_size_request</A
+>
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../gtk/gtkwidget.html#GTKREQUISITION
+>GtkRequisition</A> *requisition);
+void        <A
+HREF="gnomedockitem.html#GNOME-DOCK-ITEM-GET-FLOATING-POSITION"
+>gnome_dock_item_get_floating_position</A
+>
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *y);
+&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16472"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF=../gtk/gtkobject.html
+>GtkObject</A>
+   +----<A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>
+         +----<A
+HREF=../gtk/gtkcontainer.html
+>GtkContainer</A>
+               +----<A
+HREF=../gtk/gtkbin.html
+>GtkBin</A>
+                     +----GnomeDockItem</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16479"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM--SHADOW"
+>shadow</A
+>&quot;               <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSHADOWTYPE
+>GtkShadowType</A>        : Read / Write
+  &quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM--ORIENTATION"
+>orientation</A
+>&quot;          <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKORIENTATION
+>GtkOrientation</A>       : Read / Write
+  &quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM--PREFERRED-WIDTH"
+>preferred-width</A
+>&quot;      <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read
+  &quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM--PREFERRED-HEIGHT"
+>preferred-height</A
+>&quot;     <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16490"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM-DOCK-DRAG-BEGIN"
+>dock-drag-begin</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM-DOCK-DRAG-END"
+>dock-drag-end</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM-DOCK-DRAG-MOTION"
+>dock-drag-motion</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg2,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gnomedockitem.html#GNOMEDOCKITEM-DOCK-DETACH"
+>dock-detach</A
+>&quot;
+            void        user_function      (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16507"
+></A
+><H2
+>Description</H2
+><P
+><SPAN
+CLASS="TYPE"
+>GnomeDockItem</SPAN
+> is a container widget that can be used to
+make widgets dockable.  "Making a widget dockable" means that the
+widget gets a handle through which users can drag it around the dock
+widget or detach it so that it gets displayed into its own window
+(thus becoming a "floating" item).</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16511"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16513"
+></A
+><H3
+><A
+NAME="GNOMEDOCKITEM-STRUCT"
+></A
+>struct GnomeDockItem</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GnomeDockItem;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16518"
+></A
+><H3
+><A
+NAME="GNOMEDOCKITEMBEHAVIOR"
+></A
+>enum GnomeDockItemBehavior</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GNOME_DOCK_ITEM_BEH_NORMAL = 0,
+  GNOME_DOCK_ITEM_BEH_EXCLUSIVE = 1 &lt;&lt; 0,
+  GNOME_DOCK_ITEM_BEH_NEVER_FLOATING = 1 &lt;&lt; 1,
+  GNOME_DOCK_ITEM_BEH_NEVER_VERTICAL = 1 &lt;&lt; 2,
+  GNOME_DOCK_ITEM_BEH_NEVER_HORIZONTAL = 1 &lt;&lt; 3,
+  GNOME_DOCK_ITEM_BEH_LOCKED = 1 &lt;&lt; 4
+} GnomeDockItemBehavior;</PRE
+></TD
+></TR
+></TABLE
+><P
+>This enumeration can be used to customize the behavior of a dock item.
+Every value represents a property bit, so that the properties can be
+combined together by using the OR (`|') operator.</P
+><P
+>The special value GNOME_DOCK_ITEM_BEH_NORMAL specifies the ``normal''
+(default) behavior, and means to have all the properties disabled (and
+thus the corresponding bits set to zero).</P
+><P
+></P
+><UL
+><LI
+><P
+>GNOME_DOCK_ITEM_BEH_EXCLUSIVE specifies that the dock
+item is always the only one in its band. </P
+></LI
+><LI
+><P
+>GNOME_DOCK_ITEM_BEH_NEVER_FLOATING specifies that
+users cannot detach the dock item from the dock. </P
+></LI
+><LI
+><P
+>GNOME_DOCK_ITEM_BEH_NEVER_VERTICAL specifies that the
+dock item must be kept horizontal, and users cannot move it to a
+vertical band.</P
+></LI
+><LI
+><P
+>GNOME_DOCK_ITEM_BEH_NEVER_HORIZONTAL specifies that
+the dock item must be kept horizontal, and users cannot move it to a
+vertical band.</P
+></LI
+><LI
+><P
+>GNOME_DOCK_ITEM_BEH_LOCKED specifies that users cannot
+drag the item around.</P
+></LI
+></UL
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16535"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-NOT-LOCKED-CAPS"
+></A
+>GNOME_DOCK_ITEM_NOT_LOCKED()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     GNOME_DOCK_ITEM_NOT_LOCKED(x)</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16540"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16549"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-NEW"
+></A
+>gnome_dock_item_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_dock_item_new             (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name,
+                                             <A
+HREF="gnomedockitem.html#GNOMEDOCKITEMBEHAVIOR"
+>GnomeDockItemBehavior</A
+> behavior);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new GnomeDockItem named <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>, with the
+specified <TT
+CLASS="PARAMETER"
+><I
+>behavior</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16560"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Name for the new item</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>behavior</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> Behavior for the new item</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A new GnomeDockItem widget.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16577"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-GET-CHILD"
+></A
+>gnome_dock_item_get_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A>*  gnome_dock_item_get_child       (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the child of <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16586"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The child of <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16600"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-GET-NAME"
+></A
+>gnome_dock_item_get_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>char*       gnome_dock_item_get_name        (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the name of <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16608"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The name of <TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+> as a malloc()ed zero-terminated
+string.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16623"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-SET-SHADOW-TYPE"
+></A
+>gnome_dock_item_set_shadow_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_dock_item_set_shadow_type (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item,
+                                             <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSHADOWTYPE
+>GtkShadowType</A> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the shadow type for <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16632"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A GnomeDockItem widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The shadow type for <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16646"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-GET-SHADOW-TYPE"
+></A
+>gnome_dock_item_get_shadow_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSHADOWTYPE
+>GtkShadowType</A> gnome_dock_item_get_shadow_type
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the shadow type of <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16655"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A GnomeDockItem widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>'s shadow type.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16669"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-SET-ORIENTATION"
+></A
+>gnome_dock_item_set_orientation ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gnome_dock_item_set_orientation (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item,
+                                             <A
+HREF=../gtk/gtk-standard-enumerations.html#GTKORIENTATION
+>GtkOrientation</A> orientation);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the orientation for <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16679"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A GnomeDockItem widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>orientation</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> New orientation for <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> <TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the operation succeeds, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> if it fails.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16699"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-GET-ORIENTATION"
+></A
+>gnome_dock_item_get_orientation ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gtk/gtk-standard-enumerations.html#GTKORIENTATION
+>GtkOrientation</A> gnome_dock_item_get_orientation
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the orientation of <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16708"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A GnomeDockItem widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The current orientation of <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16722"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-GET-BEHAVIOR"
+></A
+>gnome_dock_item_get_behavior ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gnomedockitem.html#GNOMEDOCKITEMBEHAVIOR"
+>GnomeDockItemBehavior</A
+> gnome_dock_item_get_behavior
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dock_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the behavior of <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16731"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> A GnomeDockItem widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The behavior of <TT
+CLASS="PARAMETER"
+><I
+>dock_item</I
+></TT
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16745"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-DETACH"
+></A
+>gnome_dock_item_detach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gnome_dock_item_detach          (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16754"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16775"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-ATTACH"
+></A
+>gnome_dock_item_attach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_dock_item_attach          (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../gtk/gtkwidget.html
+>GtkWidget</A> *parent,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16784"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16805"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-GRAB-POINTER"
+></A
+>gnome_dock_item_grab_pointer ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_dock_item_grab_pointer    (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16811"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16820"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-DRAG-FLOATING"
+></A
+>gnome_dock_item_drag_floating ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_dock_item_drag_floating   (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16828"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16845"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-HANDLE-SIZE-REQUEST"
+></A
+>gnome_dock_item_handle_size_request ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_dock_item_handle_size_request
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../gtk/gtkwidget.html#GTKREQUISITION
+>GtkRequisition</A> *requisition);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16852"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>requisition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16865"
+></A
+><H3
+><A
+NAME="GNOME-DOCK-ITEM-GET-FLOATING-POSITION"
+></A
+>gnome_dock_item_get_floating_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gnome_dock_item_get_floating_position
+                                            (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16873"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16890"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GNOMEDOCKITEM--SHADOW"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>shadow</TT
+>&quot; (<A
+HREF=../gtk/gtk-standard-enumerations.html#GTKSHADOWTYPE
+>GtkShadowType</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GNOMEDOCKITEM--ORIENTATION"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>orientation</TT
+>&quot; (<A
+HREF=../gtk/gtk-standard-enumerations.html#GTKORIENTATION
+>GtkOrientation</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GNOMEDOCKITEM--PREFERRED-WIDTH"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>preferred-width</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GNOMEDOCKITEM--PREFERRED-HEIGHT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>preferred-height</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16921"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16923"
+></A
+><H3
+><A
+NAME="GNOMEDOCKITEM-DOCK-DRAG-BEGIN"
+></A
+>The &quot;dock-drag-begin&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted as soon as the user starts dragging the dock item.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16930"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dockitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16943"
+></A
+><H3
+><A
+NAME="GNOMEDOCKITEM-DOCK-DRAG-END"
+></A
+>The &quot;dock-drag-end&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted at the end of a dock item drag.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16950"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dockitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16963"
+></A
+><H3
+><A
+NAME="GNOMEDOCKITEM-DOCK-DRAG-MOTION"
+></A
+>The &quot;dock-drag-motion&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg1,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> arg2,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted while the item is being dragged and reports
+that the pointer position has changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16972"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dockitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new X coordinate of the upper left corner of the item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new Y coordinate of the upper left corner of the item.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16993"
+></A
+><H3
+><A
+NAME="GNOMEDOCKITEM-DOCK-DETACH"
+></A
+>The &quot;dock-detach&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gnomedockitem.html"
+>GnomeDockItem</A
+> *dockitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This signal is emitted when an item is detached from its parent dock
+band and thus becomes a floating item.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN17000"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dockitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17013"
+></A
+><H2
+>See Also</H2
+><P
+><A
+HREF="gnomedock.html"
+>GnomeDock</A
+>
+<A
+HREF="gnomedockband.html"
+>GnomeDockBand</A
+>
+<A
+HREF="gnomedocklayout.html"
+>GnomeDockLayout</A
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gnomedockband.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="book1.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gnome-objects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gnomedock.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeDockBand</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GnomeDock</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

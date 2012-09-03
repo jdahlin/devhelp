@@ -1,0 +1,2760 @@
+<HTML
+><HEAD
+><TITLE
+>Class GtkWindow</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.54"><LINK
+REL="HOME"
+TITLE="PyGTK Docs"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Class GtkWidget"
+HREF="class-gtkwidget.html"><LINK
+REL="NEXT"
+TITLE="Class PyGtkTreeModel"
+HREF="class-pygtktreemodel.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PyGTK Docs</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="class-gtkwidget.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="class-pygtktreemodel.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CLASS-GTKWINDOW"
+>Class GtkWindow</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27334"
+>Ancestry</A
+></H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>+-- GObject
+  +-- <A
+HREF="class-gtkobject.html"
+>GtkObject</A
+>
+    +-- <A
+HREF="class-gtkwidget.html"
+>GtkWidget</A
+>
+      +-- <A
+HREF="class-gtkcontainer.html"
+>GtkContainer</A
+>
+        +-- <A
+HREF="class-gtkbin.html"
+>GtkBin</A
+>
+          +-- <A
+HREF="class-gtkwindow.html"
+>GtkWindow</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27343"
+>Constructor</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="FSFUNC"
+>GtkWindow</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>type</VAR
+>=GTK_WINDOW_TOPLEVEL);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+></DT
+><DD
+><P
+>type of window</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>a new <A
+HREF="class-gtkwindow.html"
+><SPAN
+CLASS="TYPE"
+>GtkWindow</SPAN
+></A
+>.</P
+></DD
+></DL
+></DIV
+><P
+>Creates a new <A
+HREF="class-gtkwindow.html"
+><SPAN
+CLASS="TYPE"
+>GtkWindow</SPAN
+></A
+>, which is a toplevel window that can
+contain other widgets. Nearly always, the type of the window should
+be <TT
+CLASS="LITERAL"
+>GTK_WINDOW_TOPLEVEL</TT
+>. If you're implementing something like a
+popup menu from scratch (which is a bad idea, just use <A
+HREF="class-gtkmenu.html"
+><SPAN
+CLASS="TYPE"
+>GtkMenu</SPAN
+></A
+>),
+you might use <TT
+CLASS="LITERAL"
+>GTK_WINDOW_POPUP</TT
+>. <TT
+CLASS="LITERAL"
+>GTK_WINDOW_POPUP</TT
+> is not for
+dialogs, though in some other toolkits dialogs are called "popups."
+In GTK+, <TT
+CLASS="LITERAL"
+>GTK_WINDOW_POPUP</TT
+> means a pop-up menu or pop-up tooltip.
+Popup windows are not controlled by the window manager.</P
+><P
+>If you simply want an undecorated window (no window borders), use
+<A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-DECORATED"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_decorated()</TT
+></A
+>, don't use <TT
+CLASS="LITERAL"
+>GTK_WINDOW_POPUP</TT
+>.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27376"
+>Methods</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-TITLE"
+>GtkWindow.set_title</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_title</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>title</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>title</I
+></TT
+></DT
+><DD
+><P
+>title of the window</P
+></DD
+></DL
+></DIV
+><P
+>Sets the title of the <A
+HREF="class-gtkwindow.html"
+><SPAN
+CLASS="TYPE"
+>GtkWindow</SPAN
+></A
+>. The title of a window will be displayed in
+its title bar; on the X Window System, the title bar is rendered by the
+window manager, so exactly how the title appears to users may vary according
+to a user's exact configuration. The title should help a user distinguish
+this window from other windows they may have open. A good title might
+include the application name and current document filename, for example.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-WMCLASS"
+>GtkWindow.set_wmclass</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_wmclass</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>wmclass_name</VAR
+>, <VAR
+CLASS="PDPARAM"
+>wmclass_class</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>wmclass_name</I
+></TT
+></DT
+><DD
+><P
+>window name hint</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>wmclass_class</I
+></TT
+></DT
+><DD
+><P
+>window class hint</P
+></DD
+></DL
+></DIV
+><P
+>Don't use this function. It sets the X Window System "class" and
+"name" hints for a window.  According to the ICCCM, you should
+always set these to the same value for all windows in an
+application, and GTK sets them to that value by default, so calling
+this function is sort of pointless. However, you may want to call
+<A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-ROLE"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_role()</TT
+></A
+> on each window in your application, for the
+benefit of the session manager. Setting the role allows the window
+manager to restore window positions when loading a saved session.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-ROLE"
+>GtkWindow.set_role</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_role</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>role</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>role</I
+></TT
+></DT
+><DD
+><P
+>unique identifier for the window to be used when restoring a session</P
+></DD
+></DL
+></DIV
+><P
+>In combination with the window title, the window role allows a
+window manager to identify "the same" window when an application is
+restarted. So for example you might set the "toolbox" role on your
+app's toolbox window, so that when the user restarts their session,
+the window manager can put the toolbox back in the same place.</P
+><P
+>If a window already has a unique title, you don't need to set the
+role, since the WM can use the title to identify the window when
+restoring the session.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--ADD-ACCEL-GROUP"
+>GtkWindow.add_accel_group</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add_accel_group</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>accel_group</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+></DT
+><DD
+><P
+>a GtkAccelGroup*</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--REMOVE-ACCEL-GROUP"
+>GtkWindow.remove_accel_group</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>remove_accel_group</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>accel_group</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>accel_group</I
+></TT
+></DT
+><DD
+><P
+>a GtkAccelGroup*</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-POSITION"
+>GtkWindow.set_position</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_position</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>position</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+></DT
+><DD
+><P
+>a GtkWindowPosition</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--ACTIVATE-FOCUS"
+>GtkWindow.activate_focus</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>activate_focus</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>a gint</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--ACTIVATE-DEFAULT"
+>GtkWindow.activate_default</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>activate_default</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>a gint</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-TRANSIENT-FOR"
+>GtkWindow.set_transient_for</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_transient_for</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>parent</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+></DT
+><DD
+><P
+>parent window</P
+></DD
+></DL
+></DIV
+><P
+>Dialog windows should be set transient for the main application
+window they were spawned from. This allows window managers to
+e.g. keep the dialog on top of the main window, or center the
+dialog over the main window. <TT
+CLASS="FUNCTION"
+>GtkDialog()</TT
+> and
+other convenience functions in GTK+ will sometimes call
+<A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-TRANSIENT-FOR"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_transient_for()</TT
+></A
+> on your behalf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-TYPE-HINT"
+>GtkWindow.set_type_hint</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_type_hint</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>hint</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>hint</I
+></TT
+></DT
+><DD
+><P
+>the window type</P
+></DD
+></DL
+></DIV
+><P
+>By setting the type hint for the window, you allow the window
+manager to decorate and handle the window in a way which is
+suitable to the function of the window in your application.</P
+><P
+>This function should be called before the window becomes visible.</P
+><P
+><TT
+CLASS="FUNCTION"
+>GtkDialog()</TT
+> and other convenience functions in GTK+
+will sometimes call <A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-TYPE-HINT"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_type_hint()</TT
+></A
+> on your behalf.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-DESTROY-WITH-PARENT"
+>GtkWindow.set_destroy_with_parent</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_destroy_with_parent</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>setting</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+></DT
+><DD
+><P
+>whether to destroy <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+> with its transient parent</P
+></DD
+></DL
+></DIV
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+> is TRUE, then destroying the transient parent of <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>
+will also destroy <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+> itself. This is useful for dialogs that
+shouldn't persist beyond the lifetime of the main window they're
+associated with, for example.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-RESIZEABLE"
+>GtkWindow.set_resizeable</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_resizeable</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>setting</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+></DL
+></DIV
+><P
+>Sets whether the user can resize a window. Windows are user resizeable
+by default.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--GET-RESIZEABLE"
+>GtkWindow.get_resizeable</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_resizeable</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the user can resize the window</P
+></DD
+></DL
+></DIV
+><P
+>Gets the value set by <A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-RESIZEABLE"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_resizeable()</TT
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-GRAVITY"
+>GtkWindow.set_gravity</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_gravity</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>gravity</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>gravity</I
+></TT
+></DT
+><DD
+><P
+>window gravity</P
+></DD
+></DL
+></DIV
+><P
+>Window gravity defines the "reference point" to be used when
+positioning or resizing a window. Calls to
+<A
+HREF="class-gtkwidget.html#METHOD-GTKWIDGET--SET-UPOSITION"
+><TT
+CLASS="FUNCTION"
+>GtkWidget.set_uposition()</TT
+></A
+> will position a different point on the
+window depending on the window gravity. When the window changes size
+the reference point determined by the window's gravity will stay in
+a fixed location.</P
+><P
+>See <TT
+CLASS="LITERAL"
+>GdkGravity</TT
+> for full details. To briefly summarize,
+<TT
+CLASS="LITERAL"
+>GDK_GRAVITY_NORTH_WEST</TT
+> means that the reference point is the
+northwest (top left) corner of the window
+frame. <TT
+CLASS="LITERAL"
+>GDK_GRAVITY_SOUTH_EAST</TT
+> would be the bottom right corner of
+the frame, and so on. If you want to position the window contents,
+rather than the window manager's frame, <TT
+CLASS="LITERAL"
+>GDK_GRAVITY_STATIC</TT
+> moves
+the reference point to the northwest corner of the <A
+HREF="class-gtkwindow.html"
+><SPAN
+CLASS="TYPE"
+>GtkWindow</SPAN
+></A
+>
+itself.</P
+><P
+>The default window gravity is <TT
+CLASS="LITERAL"
+>GDK_GRAVITY_NORTH_WEST</TT
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--GET-GRAVITY"
+>GtkWindow.get_gravity</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_gravity</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>window gravity</P
+></DD
+></DL
+></DIV
+><P
+>Gets the value set by <A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-GRAVITY"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_gravity()</TT
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-GEOMETRY-HINTS"
+>GtkWindow.set_geometry_hints</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_geometry_hints</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>geometry_widget</VAR
+>, <VAR
+CLASS="PDPARAM"
+>geometry</VAR
+>, <VAR
+CLASS="PDPARAM"
+>geom_mask</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>geometry_widget</I
+></TT
+></DT
+><DD
+><P
+>widget the geometry hints will be applied to</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>geometry</I
+></TT
+></DT
+><DD
+><P
+>struct containing geometry information</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>geom_mask</I
+></TT
+></DT
+><DD
+><P
+>mask indicating which struct fields should be paid attention to</P
+></DD
+></DL
+></DIV
+><P
+>This function sets up hints about how a window can be resized by
+the user.  You can set a minimum and maximum size; allowed resize
+increments (e.g. for xterm, you can only resize by the size of a
+character); aspect ratios; and more. See the <TT
+CLASS="LITERAL"
+>GdkGeometry</TT
+> struct.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-HAS-FRAME"
+>GtkWindow.set_has_frame</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_has_frame</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>If this function is called on a window before it is realized
+or showed it will have a "frame" window around widget-window,
+accessible in window-&#62;frame. Using the signal frame_event
+you can recieve all events targeted at the frame.</P
+><P
+>This function is used by the linux-fb port to implement managed
+windows, but it could concievably be used by X-programs that
+want to do their own window decorations.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-FRAME-DIMENSIONS"
+>GtkWindow.set_frame_dimensions</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_frame_dimensions</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>left</VAR
+>, <VAR
+CLASS="PDPARAM"
+>top</VAR
+>, <VAR
+CLASS="PDPARAM"
+>right</VAR
+>, <VAR
+CLASS="PDPARAM"
+>bottom</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>left</I
+></TT
+></DT
+><DD
+><P
+>The width of the left border</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>top</I
+></TT
+></DT
+><DD
+><P
+>The height of the top border</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>right</I
+></TT
+></DT
+><DD
+><P
+>The width of the right border</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>bottom</I
+></TT
+></DT
+><DD
+><P
+>The height of the bottom border</P
+></DD
+></DL
+></DIV
+><P
+>For windows with frames (see <A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-HAS-FRAME"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_has_frame</TT
+></A
+>) this function
+can be used to change the size of the frame border.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-DECORATED"
+>GtkWindow.set_decorated</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_decorated</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>setting</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+></DT
+><DD
+><P
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> to decorate the window</P
+></DD
+></DL
+></DIV
+><P
+>By default, windows are decorated with a title bar, resize
+controls, etc.  Some window managers allow GTK+ to disable these
+decorations, creating a borderless window. If you set the decorated
+property to <TT
+CLASS="LITERAL"
+>FALSE</TT
+> using this function, GTK+ will do its best to
+convince the window manager not to decorate the window.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-MODAL"
+>GtkWindow.set_modal</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_modal</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>modal</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>modal</I
+></TT
+></DT
+><DD
+><P
+>whether the window is modal</P
+></DD
+></DL
+></DIV
+><P
+>Sets a window modal or non-modal. Modal windows prevent interaction
+with other windows in the same application. To keep modal dialogs
+on top of main application windows, use
+<A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-TRANSIENT-FOR"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_transient_for()</TT
+></A
+> to make the dialog transient for the
+parent; most window managers will then disallow lowering the dialog
+below the parent.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--ADD-MNEMONIC"
+>GtkWindow.add_mnemonic</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add_mnemonic</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>keyval</VAR
+>, <VAR
+CLASS="PDPARAM"
+>target</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+></DT
+><DD
+><P
+>a guint</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+></DT
+><DD
+><P
+>a GtkWidget*</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--REMOVE-MNEMONIC"
+>GtkWindow.remove_mnemonic</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>remove_mnemonic</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>keyval</VAR
+>, <VAR
+CLASS="PDPARAM"
+>target</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+></DT
+><DD
+><P
+>a guint</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+></DT
+><DD
+><P
+>a GtkWidget*</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--MNEMONIC-ACTIVATE"
+>GtkWindow.mnemonic_activate</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>mnemonic_activate</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>keyval</VAR
+>, <VAR
+CLASS="PDPARAM"
+>modifier</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>keyval</I
+></TT
+></DT
+><DD
+><P
+>a guint</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>modifier</I
+></TT
+></DT
+><DD
+><P
+>a GdkModifierType</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>a gboolean</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-MNEMONIC-MODIFIER"
+>GtkWindow.set_mnemonic_modifier</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_mnemonic_modifier</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>modifier</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>modifier</I
+></TT
+></DT
+><DD
+><P
+>a GdkModifierType</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--PRESENT"
+>GtkWindow.present</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>present</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Presents a window to the user. This may mean raising the window
+in the stacking order, deiconifying it, moving it to the current
+desktop, and/or giving it the keyboard focus, possibly dependent
+on the user's platform, window manager, and preferences.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+> is hidden, this function calls <A
+HREF="class-gtkwidget.html#METHOD-GTKWIDGET--SHOW"
+><TT
+CLASS="FUNCTION"
+>GtkWidget.show()</TT
+></A
+>
+as well.</P
+><P
+>This function should be used when the user tries to open a window
+that's already open. Say for example the preferences dialog is
+currently open, and the user chooses Preferences from the menu
+a second time; use <A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--PRESENT"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.present()</TT
+></A
+> to move the already-open dialog
+where the user can see it.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--ICONIFY"
+>GtkWindow.iconify</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>iconify</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Asks to iconify <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>. Note that you shouldn't assume the window
+is definitely iconified afterward, because other entities (e.g. the
+user or window manager) could deiconify it again, or there may not
+be a window manager in which case iconification isn't possible,
+etc. But normally the window will end up iconified. Just don't write
+code that crashes if not.</P
+><P
+>It's permitted to call this function before showing a window,
+in which case the window will be iconified before it ever appears
+onscreen.</P
+><P
+>You can track iconification via the "window_state_event" signal
+on <A
+HREF="class-gtkwidget.html"
+><SPAN
+CLASS="TYPE"
+>GtkWidget</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--DEICONIFY"
+>GtkWindow.deiconify</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>deiconify</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Asks to deiconify <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>. Note that you shouldn't assume the
+window is definitely deiconified afterward, because other entities
+(e.g. the user or window manager) could iconify it again before
+your code which assumes deiconification gets to run.</P
+><P
+>You can track iconification via the "window_state_event" signal
+on <A
+HREF="class-gtkwidget.html"
+><SPAN
+CLASS="TYPE"
+>GtkWidget</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--STICK"
+>GtkWindow.stick</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>stick</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Asks to stick <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>, which means that it will appear on all user
+desktops. Note that you shouldn't assume the window is definitely
+stuck afterward, because other entities (e.g. the user or window
+manager) could unstick it again, and some window managers do not
+support sticking windows. But normally the window will end up
+stuck. Just don't write code that crashes if not.</P
+><P
+>It's permitted to call this function before showing a window.</P
+><P
+>You can track stickiness via the "window_state_event" signal
+on <A
+HREF="class-gtkwidget.html"
+><SPAN
+CLASS="TYPE"
+>GtkWidget</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--UNSTICK"
+>GtkWindow.unstick</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>unstick</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Asks to unstick <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>, which means that it will appear on only
+one of the user's desktops. Note that you shouldn't assume the
+window is definitely unstuck afterward, because other entities
+(e.g. the user or window manager) could stick it again. But
+normally the window will end up stuck. Just don't write code that
+crashes if not.</P
+><P
+>You can track stickiness via the "window_state_event" signal
+on <A
+HREF="class-gtkwidget.html"
+><SPAN
+CLASS="TYPE"
+>GtkWidget</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--MAXIMIZE"
+>GtkWindow.maximize</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>maximize</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Asks to maximize <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>, so that it becomes full-screen. Note that
+you shouldn't assume the window is definitely maximized afterward,
+because other entities (e.g. the user or window manager) could
+unmaximize it again, and not all window managers support
+maximization. But normally the window will end up maximized. Just
+don't write code that crashes if not.</P
+><P
+>It's permitted to call this function before showing a window,
+in which case the window will be maximized when it appears onscreen
+initially.</P
+><P
+>You can track maximization via the "window_state_event" signal
+on <A
+HREF="class-gtkwidget.html"
+><SPAN
+CLASS="TYPE"
+>GtkWidget</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--UNMAXIMIZE"
+>GtkWindow.unmaximize</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>unmaximize</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Asks to unmaximize <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>. Note that you shouldn't assume the
+window is definitely unmaximized afterward, because other entities
+(e.g. the user or window manager) could maximize it again, and not
+all window managers honor requests to unmaximize. But normally the
+window will end up unmaximized. Just don't write code that crashes
+if not.</P
+><P
+>You can track maximization via the "window_state_event" signal
+on <A
+HREF="class-gtkwidget.html"
+><SPAN
+CLASS="TYPE"
+>GtkWidget</SPAN
+></A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--BEGIN-RESIZE-DRAG"
+>GtkWindow.begin_resize_drag</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>begin_resize_drag</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>edge</VAR
+>, <VAR
+CLASS="PDPARAM"
+>button</VAR
+>, <VAR
+CLASS="PDPARAM"
+>root_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>root_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>timestamp</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>edge</I
+></TT
+></DT
+><DD
+><P
+>position of the resize control</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>button</I
+></TT
+></DT
+><DD
+><P
+>mouse button that initiated the drag</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>root_x</I
+></TT
+></DT
+><DD
+><P
+>X position where the user clicked to initiate the drag, in root window coordinates</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>root_y</I
+></TT
+></DT
+><DD
+><P
+>Y position where the user clicked to initiate the drag</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>timestamp</I
+></TT
+></DT
+><DD
+><P
+>timestamp from the click event that initiated the drag</P
+></DD
+></DL
+></DIV
+><P
+>Starts resizing a window. This function is used if an application
+has window resizing controls. When GDK can support it, the resize
+will be done using the standard mechanism for the window manager or
+windowing system. Otherwise, GDK will try to emulate window
+resizing, potentially not all that well, depending on the windowing system.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--BEGIN-MOVE-DRAG"
+>GtkWindow.begin_move_drag</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>begin_move_drag</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>button</VAR
+>, <VAR
+CLASS="PDPARAM"
+>root_x</VAR
+>, <VAR
+CLASS="PDPARAM"
+>root_y</VAR
+>, <VAR
+CLASS="PDPARAM"
+>timestamp</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>button</I
+></TT
+></DT
+><DD
+><P
+>mouse button that initiated the drag</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>root_x</I
+></TT
+></DT
+><DD
+><P
+>X position where the user clicked to initiate the drag, in root window coordinates</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>root_y</I
+></TT
+></DT
+><DD
+><P
+>Y position where the user clicked to initiate the drag</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>timestamp</I
+></TT
+></DT
+><DD
+><P
+>timestamp from the click event that initiated the drag</P
+></DD
+></DL
+></DIV
+><P
+>Starts moving a window. This function is used if an application
+has window movement grips. When GDK can support it, the window movement
+will be done using the standard mechanism for the window manager or
+windowing system. Otherwise, GDK will try to emulate window
+movement, potentially not all that well, depending on the windowing system.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-POLICY"
+>GtkWindow.set_policy</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_policy</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>allow_shrink</VAR
+>, <VAR
+CLASS="PDPARAM"
+>allow_grow</VAR
+>, <VAR
+CLASS="PDPARAM"
+>auto_shrink</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>allow_shrink</I
+></TT
+></DT
+><DD
+><P
+>a gint</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>allow_grow</I
+></TT
+></DT
+><DD
+><P
+>a gint</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>auto_shrink</I
+></TT
+></DT
+><DD
+><P
+>a gint</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-DEFAULT-SIZE"
+>GtkWindow.set_default_size</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_default_size</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>width</VAR
+>, <VAR
+CLASS="PDPARAM"
+>height</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+></DT
+><DD
+><P
+>width in pixels, 0 to unset, or -1 to leave the width unchanged</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+></DT
+><DD
+><P
+>height in pixels, 0 to unset, or -1 to leave the height unchanged</P
+></DD
+></DL
+></DIV
+><P
+>Sets the default size of a window. If the window's "natural" size
+(its size request) is larger than the default, the default will be
+ignored. So the default size is a minimum initial size.  Unlike
+<A
+HREF="class-gtkwidget.html#METHOD-GTKWIDGET--SET-USIZE"
+><TT
+CLASS="FUNCTION"
+>GtkWidget.set_usize()</TT
+></A
+>, which sets a size request for a widget and
+thus would keep users from shrinking the window, this function only
+sets the initial size, just as if the user had resized the window
+themselves. Users can still shrink the window again as they
+normally would. Setting a default size of 0 means to use the
+"natural" default size (the size request of the window).</P
+><P
+>For more control over a window's initial size and how resizing works,
+investigate <A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-GEOMETRY-HINTS"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_geometry_hints()</TT
+></A
+>.</P
+><P
+>A useful feature: if you set the "geometry widget" via
+<A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-GEOMETRY-HINTS"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_geometry_hints()</TT
+></A
+>, the default size specified by
+<A
+HREF="class-gtkwindow.html#METHOD-GTKWINDOW--SET-DEFAULT-SIZE"
+><TT
+CLASS="FUNCTION"
+>GtkWindow.set_default_size()</TT
+></A
+> will be the default size of that
+widget, not of the entire window.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-FOCUS"
+>GtkWindow.set_focus</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_focus</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>focus</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>focus</I
+></TT
+></DT
+><DD
+><P
+>widget to be the new focus widget</P
+></DD
+></DL
+></DIV
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>focus</I
+></TT
+> is not the current focus widget, and is focusable, emits
+the "set_focus" signal to set <TT
+CLASS="PARAMETER"
+><I
+>focus</I
+></TT
+> as the focus widget for the
+window.  This function is more or less GTK-internal; to focus an
+entry widget or the like, you should use <A
+HREF="class-gtkwidget.html#METHOD-GTKWIDGET--GRAB-FOCUS"
+><TT
+CLASS="FUNCTION"
+>GtkWidget.grab_focus()</TT
+></A
+>
+instead of this function.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKWINDOW--SET-DEFAULT"
+>GtkWindow.set_default</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_default</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>defaultw</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>defaultw</I
+></TT
+></DT
+><DD
+><P
+></P
+><P
+></P
+></DD
+></DL
+></DIV
+><P
+>The default widget is the widget that's activated when the user
+presses Enter in a dialog (for example). This function tells a
+<A
+HREF="class-gtkwindow.html"
+><SPAN
+CLASS="TYPE"
+>GtkWindow</SPAN
+></A
+> about the current default widget; it's really a GTK
+internal function and you shouldn't need it. Instead, to change the
+default widget, first set the <TT
+CLASS="LITERAL"
+>GTK_CAN_DEFAULT</TT
+> flag on the widget
+you'd like to make the default using <TT
+CLASS="FUNCTION"
+>GTK_WIDGET_SET_FLAGS()</TT
+>, then
+call <A
+HREF="class-gtkwidget.html#METHOD-GTKWIDGET--GRAB-DEFAULT"
+><TT
+CLASS="FUNCTION"
+>GtkWidget.grab_default()</TT
+></A
+> to move the default.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="class-gtkwidget.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="class-pygtktreemodel.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class GtkWidget</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class PyGtkTreeModel</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,168 @@
+<HTML
+><HEAD
+><TITLE
+>Plugs (Glade, Bonobo)</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Using the PonG library"
+HREF="using-pong-library.html"><LINK
+REL="PREVIOUS"
+TITLE="PongXML object"
+HREF="upl-pong-xml.html"><LINK
+REL="NEXT"
+TITLE="Levels and Prefixes"
+HREF="upl-levels-prefixes.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="upl-pong-xml.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Using the PonG library</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="upl-levels-prefixes.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="UPL-PLUGS"
+>Plugs (Glade, Bonobo)</A
+></H1
+><P
+>	Plugs are special add on modules to PonG.  There are two default
+	plugs, the bonobo control plug and the glade plug.  Plugs are an
+	alternate way to create widgets.  For example you can lay out
+	widgets using glade if the layout engine of PonG ends up too
+	constraining.  A plug can manage one or more widgets and must know
+	them by name.
+      </P
+><P
+>	The glade plug loads a file and displays a certain widget from it
+	in place of a group or a widget in a pane.  When PonG needs to set
+	a value on a certain widget.  It will first see if it itself doesn't
+	know of such a widget.  If not, it will ask all the plugs if they know
+	a widget of this name.  So the widget name you specified for keys is
+	that which you defined inside glade itself.  Of course you will need
+	to use the PonG native widgets inside of glade and for this purpose
+	all native widgets implement a _new method (e.g. pong_slider_new),
+	you will have to use the glade interface for custom widgets.
+      </P
+><P
+>	The bonobo plug is used only for a single widget as a replacement
+	for any builtin widget.  It is a standard BonoboControl, that however
+	implements the GNOME::PonG::ControlInterface interface.  More on that
+	later.  To use the bonobo control you define the query string by
+	which you will get this control, for example you could use the OAFIID
+	directly.
+      </P
+><P
+>	Both the glade and bonobo plugs can load widgets which are not
+	connected to any configuration keys which can be any widgets or
+	controls you want, and don't of course have to support the PonG
+	specific interfaces.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="upl-pong-xml.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="upl-levels-prefixes.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PongXML object</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="using-pong-library.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Levels and Prefixes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

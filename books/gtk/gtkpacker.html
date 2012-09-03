@@ -1,0 +1,2063 @@
+<HTML
+><HEAD
+><TITLE
+>GtkPacker</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkOptionMenu"
+HREF="gtkoptionmenu.html"><LINK
+REL="NEXT"
+TITLE="GtkPaned"
+HREF="gtkpaned.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkoptionmenu.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkpaned.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKPACKER"
+>GtkPacker</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN35251"
+></A
+><H2
+>Name</H2
+>GtkPacker&nbsp;--&nbsp;</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN35254"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkpacker.html#GTKPACKER-STRUCT"
+>GtkPacker</A
+>;
+enum        <A
+HREF="gtkpacker.html#GTKPACKEROPTIONS"
+>GtkPackerOptions</A
+>;
+enum        <A
+HREF="gtkpacker.html#GTKSIDETYPE"
+>GtkSideType</A
+>;
+enum        <A
+HREF="gtkpacker.html#GTKANCHORTYPE"
+>GtkAnchorType</A
+>;
+struct      <A
+HREF="gtkpacker.html#GTKPACKERCHILD"
+>GtkPackerChild</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkpacker.html#GTK-PACKER-NEW"
+>gtk_packer_new</A
+>                  (void);
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-ADD-DEFAULTS"
+>gtk_packer_add_defaults</A
+>         (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkpacker.html#GTKSIDETYPE"
+>GtkSideType</A
+> side,
+                                             <A
+HREF="gtkpacker.html#GTKANCHORTYPE"
+>GtkAnchorType</A
+> anchor,
+                                             <A
+HREF="gtkpacker.html#GTKPACKEROPTIONS"
+>GtkPackerOptions</A
+> options);
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-ADD"
+>gtk_packer_add</A
+>                  (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkpacker.html#GTKSIDETYPE"
+>GtkSideType</A
+> side,
+                                             <A
+HREF="gtkpacker.html#GTKANCHORTYPE"
+>GtkAnchorType</A
+> anchor,
+                                             <A
+HREF="gtkpacker.html#GTKPACKEROPTIONS"
+>GtkPackerOptions</A
+> options,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_y);
+#define     <A
+HREF="gtkpacker.html#GTK-PACKER-CONFIGURE"
+>gtk_packer_configure</A
+>
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-REORDER-CHILD"
+>gtk_packer_reorder_child</A
+>        (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-SET-SPACING"
+>gtk_packer_set_spacing</A
+>          (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-SET-DEFAULT-BORDER-WIDTH"
+>gtk_packer_set_default_border_width</A
+>
+                                            (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border);
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-SET-DEFAULT-PAD"
+>gtk_packer_set_default_pad</A
+>      (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_y);
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-SET-DEFAULT-IPAD"
+>gtk_packer_set_default_ipad</A
+>     (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_y);
+void        <A
+HREF="gtkpacker.html#GTK-PACKER-SET-CHILD-PACKING"
+>gtk_packer_set_child_packing</A
+>    (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkpacker.html#GTKSIDETYPE"
+>GtkSideType</A
+> side,
+                                             <A
+HREF="gtkpacker.html#GTKANCHORTYPE"
+>GtkAnchorType</A
+> anchor,
+                                             <A
+HREF="gtkpacker.html#GTKPACKEROPTIONS"
+>GtkPackerOptions</A
+> options,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_y);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35311"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkPacker</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35317"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkpacker.html#GTKPACKER--SPACING"
+>spacing</A
+>&quot;              <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkpacker.html#GTKPACKER--DEFAULT-BORDER-WIDTH"
+>default-border-width</A
+>&quot; <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkpacker.html#GTKPACKER--DEFAULT-PAD-X"
+>default-pad-x</A
+>&quot;        <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkpacker.html#GTKPACKER--DEFAULT-PAD-Y"
+>default-pad-y</A
+>&quot;        <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkpacker.html#GTKPACKER--DEFAULT-IPAD-X"
+>default-ipad-x</A
+>&quot;       <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkpacker.html#GTKPACKER--DEFAULT-IPAD-Y"
+>default-ipad-y</A
+>&quot;       <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35332"
+></A
+><H2
+>Description</H2
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35335"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35337"
+></A
+><H3
+><A
+NAME="GTKPACKER-STRUCT"
+></A
+>struct GtkPacker</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPacker;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35342"
+></A
+><H3
+><A
+NAME="GTKPACKEROPTIONS"
+></A
+>enum GtkPackerOptions</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+    GTK_PACK_EXPAND   = 1 &lt;&lt; 0,	/*&lt; nick=expand &gt;*/
+    GTK_FILL_X        = 1 &lt;&lt; 1,
+    GTK_FILL_Y        = 1 &lt;&lt; 2
+} GtkPackerOptions;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35347"
+></A
+><H3
+><A
+NAME="GTKSIDETYPE"
+></A
+>enum GtkSideType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+    GTK_SIDE_TOP,
+    GTK_SIDE_BOTTOM,
+    GTK_SIDE_LEFT,
+    GTK_SIDE_RIGHT
+} GtkSideType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35352"
+></A
+><H3
+><A
+NAME="GTKANCHORTYPE"
+></A
+>enum GtkAnchorType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_ANCHOR_CENTER,
+  GTK_ANCHOR_NORTH,
+  GTK_ANCHOR_NORTH_WEST,
+  GTK_ANCHOR_NORTH_EAST,
+  GTK_ANCHOR_SOUTH,
+  GTK_ANCHOR_SOUTH_WEST,
+  GTK_ANCHOR_SOUTH_EAST,
+  GTK_ANCHOR_WEST,
+  GTK_ANCHOR_EAST,
+  GTK_ANCHOR_N	=	GTK_ANCHOR_NORTH,
+  GTK_ANCHOR_NW	=	GTK_ANCHOR_NORTH_WEST,
+  GTK_ANCHOR_NE	=	GTK_ANCHOR_NORTH_EAST,
+  GTK_ANCHOR_S	=	GTK_ANCHOR_SOUTH,
+  GTK_ANCHOR_SW	=	GTK_ANCHOR_SOUTH_WEST,
+  GTK_ANCHOR_SE	=	GTK_ANCHOR_SOUTH_EAST,
+  GTK_ANCHOR_W	=	GTK_ANCHOR_WEST,
+  GTK_ANCHOR_E	=	GTK_ANCHOR_EAST
+} GtkAnchorType;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35357"
+></A
+><H3
+><A
+NAME="GTKPACKERCHILD"
+></A
+>struct GtkPackerChild</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPackerChild
+{
+  GtkWidget *widget;
+  
+  GtkAnchorType anchor;
+  GtkSideType side;
+  GtkPackerOptions options;
+  
+  guint use_default : 1;
+  
+  guint border_width : 16;
+  guint pad_x : 16;
+  guint pad_y : 16;
+  guint i_pad_x : 16;
+  guint i_pad_y : 16;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35362"
+></A
+><H3
+><A
+NAME="GTK-PACKER-NEW"
+></A
+>gtk_packer_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_packer_new                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35368"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35377"
+></A
+><H3
+><A
+NAME="GTK-PACKER-ADD-DEFAULTS"
+></A
+>gtk_packer_add_defaults ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_add_defaults         (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkpacker.html#GTKSIDETYPE"
+>GtkSideType</A
+> side,
+                                             <A
+HREF="gtkpacker.html#GTKANCHORTYPE"
+>GtkAnchorType</A
+> anchor,
+                                             <A
+HREF="gtkpacker.html#GTKPACKEROPTIONS"
+>GtkPackerOptions</A
+> options);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35387"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>side</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>anchor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>options</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35412"
+></A
+><H3
+><A
+NAME="GTK-PACKER-ADD"
+></A
+>gtk_packer_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_add                  (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkpacker.html#GTKSIDETYPE"
+>GtkSideType</A
+> side,
+                                             <A
+HREF="gtkpacker.html#GTKANCHORTYPE"
+>GtkAnchorType</A
+> anchor,
+                                             <A
+HREF="gtkpacker.html#GTKPACKEROPTIONS"
+>GtkPackerOptions</A
+> options,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35427"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>side</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>anchor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>options</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>border_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i_pad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i_pad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35472"
+></A
+><H3
+><A
+NAME="GTK-PACKER-CONFIGURE"
+></A
+>gtk_packer_configure</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	gtk_packer_configure                    gtk_packer_set_child_packing</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35477"
+></A
+><H3
+><A
+NAME="GTK-PACKER-REORDER-CHILD"
+></A
+>gtk_packer_reorder_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_reorder_child        (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35485"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35502"
+></A
+><H3
+><A
+NAME="GTK-PACKER-SET-SPACING"
+></A
+>gtk_packer_set_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_set_spacing          (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35509"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35522"
+></A
+><H3
+><A
+NAME="GTK-PACKER-SET-DEFAULT-BORDER-WIDTH"
+></A
+>gtk_packer_set_default_border_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_set_default_border_width
+                                            (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35529"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>border</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35542"
+></A
+><H3
+><A
+NAME="GTK-PACKER-SET-DEFAULT-PAD"
+></A
+>gtk_packer_set_default_pad ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_set_default_pad      (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35550"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35567"
+></A
+><H3
+><A
+NAME="GTK-PACKER-SET-DEFAULT-IPAD"
+></A
+>gtk_packer_set_default_ipad ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_set_default_ipad     (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35575"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i_pad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i_pad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN35592"
+></A
+><H3
+><A
+NAME="GTK-PACKER-SET-CHILD-PACKING"
+></A
+>gtk_packer_set_child_packing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_packer_set_child_packing    (<A
+HREF="gtkpacker.html"
+>GtkPacker</A
+> *packer,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *child,
+                                             <A
+HREF="gtkpacker.html#GTKSIDETYPE"
+>GtkSideType</A
+> side,
+                                             <A
+HREF="gtkpacker.html#GTKANCHORTYPE"
+>GtkAnchorType</A
+> anchor,
+                                             <A
+HREF="gtkpacker.html#GTKPACKEROPTIONS"
+>GtkPackerOptions</A
+> options,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> border_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> pad_y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> i_pad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN35607"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>packer</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>side</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>anchor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>options</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>border_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i_pad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>i_pad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35652"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKPACKER--SPACING"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>spacing</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPACKER--DEFAULT-BORDER-WIDTH"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>default-border-width</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPACKER--DEFAULT-PAD-X"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>default-pad-x</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPACKER--DEFAULT-PAD-Y"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>default-pad-y</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPACKER--DEFAULT-IPAD-X"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>default-ipad-x</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKPACKER--DEFAULT-IPAD-Y"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>default-ipad-y</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkoptionmenu.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkpaned.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkOptionMenu</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPaned</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

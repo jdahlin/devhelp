@@ -1,0 +1,986 @@
+<HTML
+><HEAD
+><TITLE
+>GtkAccelLabel</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="NEXT"
+TITLE="GtkAdjustment"
+HREF="gtkadjustment.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkadjustment.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKACCELLABEL"
+>GtkAccelLabel</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12696"
+></A
+><H2
+>Name</H2
+>GtkAccelLabel&nbsp;--&nbsp;a label which displays an accelerator key on the right of the text.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12699"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkaccellabel.html#GTKACCELLABEL-STRUCT"
+>GtkAccelLabel</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkaccellabel.html#GTK-ACCEL-LABEL-NEW"
+>gtk_accel_label_new</A
+>             (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+void        <A
+HREF="gtkaccellabel.html#GTK-ACCEL-LABEL-SET-ACCEL-WIDGET"
+>gtk_accel_label_set_accel_widget</A
+>
+                                            (<A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> *accel_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *accel_widget);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtkaccellabel.html#GTK-ACCEL-LABEL-GET-ACCEL-WIDTH"
+>gtk_accel_label_get_accel_width</A
+> (<A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> *accel_label);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtkaccellabel.html#GTK-ACCEL-LABEL-REFETCH"
+>gtk_accel_label_refetch</A
+>         (<A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> *accel_label);
+&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12715"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkmisc.html"
+>GtkMisc</A
+>
+               +----<A
+HREF="gtklabel.html"
+>GtkLabel</A
+>
+                     +----GtkAccelLabel</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12722"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkaccellabel.html#GTKACCELLABEL--ACCEL-WIDGET"
+>accel-widget</A
+>&quot;         <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>            : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12727"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> widget is a subclass of <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> that also displays an
+accelerator key on the right of the label text, e.g. 'Ctl+S'.
+It is commonly used in menus to show the keyboard short-cuts for commands.</P
+><P
+>The accelerator key to display is not set explicitly.
+Instead, the <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> displays the accelerators which have been added to
+a particular widget. This widget is set by calling
+<A
+HREF="gtkaccellabel.html#GTK-ACCEL-LABEL-SET-ACCEL-WIDGET"
+>gtk_accel_label_set_accel_widget</A
+>().</P
+><P
+>For example, a <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> widget may have an accelerator added to emit the
+"activate" signal when the 'Ctl+S' key combination is pressed.
+A <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> is created and added to the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>, and
+<A
+HREF="gtkaccellabel.html#GTK-ACCEL-LABEL-SET-ACCEL-WIDGET"
+>gtk_accel_label_set_accel_widget</A
+>() is called with the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> as the
+second argument. The <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> will now display 'Ctl+S' after its label.</P
+><P
+>Note that creating a <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> with <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-NEW-WITH-LABEL"
+>gtk_menu_item_new_with_label</A
+>() (or
+one of the similar functions for <A
+HREF="gtkcheckmenuitem.html"
+>GtkCheckMenuItem</A
+> and <A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+>)
+automatically adds a <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> to the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> and calls
+<A
+HREF="gtkaccellabel.html#GTK-ACCEL-LABEL-SET-ACCEL-WIDGET"
+>gtk_accel_label_set_accel_widget</A
+>() to set it up for you.</P
+><P
+>A <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> will only display accelerators which have GTK_ACCEL_VISIBLE
+set (see <A
+HREF="gtk-standard-enumerations.html#GTKACCELFLAGS"
+>GtkAccelFlags</A
+>).
+A <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> can display multiple accelerators and even signal names,
+though it is almost always used to display just one accelerator key.</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN12754"
+></A
+><P
+><B
+>Example 1. Creating a simple menu item with an accelerator key.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  GtkWidget *save_item;
+  GtkAccelGroup *accel_group;
+
+  /* Create a <A
+HREF="gtk-keyboard-accelerators.html#GTKACCELGROUP"
+>GtkAccelGroup</A
+> and add it to the window. */
+  accel_group = <A
+HREF="gtk-keyboard-accelerators.html#GTK-ACCEL-GROUP-NEW"
+>gtk_accel_group_new</A
+>();
+  gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
+
+  /* Create the menu item using the convenience function. */
+  save_item = gtk_menu_item_new_with_label ("Save");
+  gtk_widget_show (save_item);
+  gtk_container_add (GTK_CONTAINER (menu), save_item);
+
+  /* Now add the accelerator to the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>. Note that since we called
+     <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-NEW-WITH-LABEL"
+>gtk_menu_item_new_with_label</A
+>() to create the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> the
+     <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> is automatically set up to display the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>
+     accelerators. We just need to make sure we use GTK_ACCEL_VISIBLE here. */
+  gtk_widget_add_accelerator (save_item, "activate", accel_group,
+                              GDK_s, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12764"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12766"
+></A
+><H3
+><A
+NAME="GTKACCELLABEL-STRUCT"
+></A
+>struct GtkAccelLabel</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkAccelLabel;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkaccellabel.html#GTKACCELLABEL-STRUCT"
+>GtkAccelLabel</A
+> struct contains private data only, and
+should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12772"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-LABEL-NEW"
+></A
+>gtk_accel_label_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_accel_label_new             (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12780"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the label string.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12794"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-LABEL-SET-ACCEL-WIDGET"
+></A
+>gtk_accel_label_set_accel_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_accel_label_set_accel_widget
+                                            (<A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> *accel_label,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *accel_widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the widget whose accelerators are to be shown.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12801"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the widget whose accelerators are to be displayed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12815"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-LABEL-GET-ACCEL-WIDTH"
+></A
+>gtk_accel_label_get_accel_width ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_accel_label_get_accel_width (<A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> *accel_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the width needed to display the accelerator key(s).
+This is used by menus to align all of the <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> widgets, and shouldn't
+be needed by applications.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12823"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12837"
+></A
+><H3
+><A
+NAME="GTK-ACCEL-LABEL-REFETCH"
+></A
+>gtk_accel_label_refetch ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_accel_label_refetch         (<A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+> *accel_label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Recreates the string representing the accelerator keys.
+This should not be needed since the string is automatically updated whenever
+accelerators are added or removed from the associated widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12844"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>accel_label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkaccellabel.html"
+>GtkAccelLabel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>always returns FALSE.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12858"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKACCELLABEL--ACCEL-WIDGET"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>accel-widget</TT
+>&quot; (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12868"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtk-keyboard-accelerators.html"
+>Keyboard Accelerators</A
+></DT
+><DD
+><P
+>installing and using keyboard short-cuts.</P
+></DD
+><DT
+><A
+HREF="gtkitemfactory.html"
+>GtkItemFactory</A
+></DT
+><DD
+><P
+>an easier way to create menus.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkadjustment.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GTK+ Widgets and Objects</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkAdjustment</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

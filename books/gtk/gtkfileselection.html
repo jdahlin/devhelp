@@ -1,0 +1,1129 @@
+<HTML
+><HEAD
+><TITLE
+>GtkFileSelection</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkEventBox"
+HREF="gtkeventbox.html"><LINK
+REL="NEXT"
+TITLE="GtkFixed"
+HREF="gtkfixed.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkeventbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkfixed.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKFILESELECTION"
+>GtkFileSelection</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN25685"
+></A
+><H2
+>Name</H2
+>GtkFileSelection&nbsp;--&nbsp;prompt the user for a file or directory name.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN25688"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkfileselection.html#GTKFILESELECTION-STRUCT"
+>GtkFileSelection</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-NEW"
+>gtk_file_selection_new</A
+>          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *title);
+void        <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-SET-FILENAME"
+>gtk_file_selection_set_filename</A
+> (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-GET-FILENAME"
+>gtk_file_selection_get_filename</A
+> (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel);
+void        <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-COMPLETE"
+>gtk_file_selection_complete</A
+>     (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);
+void        <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-SHOW-FILEOP-BUTTONS"
+>gtk_file_selection_show_fileop_buttons</A
+>
+                                            (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel);
+void        <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-HIDE-FILEOP-BUTTONS"
+>gtk_file_selection_hide_fileop_buttons</A
+>
+                                            (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25708"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkwindow.html"
+>GtkWindow</A
+>
+                           +----GtkFileSelection</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25716"
+></A
+><H2
+>Description</H2
+><P
+>GtkFileSelection should be used to retrieve file or directory names from the user. It will create a new dialog window containing a directory list, and a file list corresponding to the current working directory. The filesystem can be navigated using the directory list or the drop-down history menu. Alternatively, the TAB key can be used to navigate using filename completion - common in text based editors such as emacs and jed.</P
+><P
+>File selection dialogs are created with a call to <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-NEW"
+>gtk_file_selection_new</A
+>().</P
+><P
+>The default filename can be set using <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-SET-FILENAME"
+>gtk_file_selection_set_filename</A
+>() and the selected filename retrieved using <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-GET-FILENAME"
+>gtk_file_selection_get_filename</A
+>().</P
+><P
+>Use <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-COMPLETE"
+>gtk_file_selection_complete</A
+>() to display files that match a given pattern. This can be used for example, to show only *.txt files, or only files beginning with gtk*.</P
+><P
+>Simple file operations; create directory, delete file, and rename file, are available from buttons at the top of the dialog. These can be hidden using <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-HIDE-FILEOP-BUTTONS"
+>gtk_file_selection_hide_fileop_buttons</A
+>() and shown again using <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-SHOW-FILEOP-BUTTONS"
+>gtk_file_selection_show_fileop_buttons</A
+>().</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN25730"
+></A
+><P
+><B
+>Example 1. Getting a filename from the user</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;/* The file selection widget and the string to store the chosen filename */
+
+GtkWidget *file_selector;
+gchar *selected_filename;
+
+void store_filename(GtkFileSelection *selector, gpointer user_data) {
+   selected_filename = gtk_file_selection_get_filename (GTK_FILE_SELECTION(file_selector));
+}
+
+void create_file_selection(void) {
+
+   /* Create the selector */
+   
+   file_selector = gtk_file_selection_new("Please select a file for editing.");
+   
+   gtk_signal_connect (GTK_OBJECT (GTK_FILE_SELECTION(file_selector)-&#62;ok_button),
+   			   "clicked", GTK_SIGNAL_FUNC (store_filename), NULL);
+   			   
+   /* Ensure that the dialog box is destroyed when the user clicks a button. */
+   
+   gtk_signal_connect_object (GTK_OBJECT (GTK_FILE_SELECTION(file_selector)-&#62;ok_button),
+   					  "clicked", GTK_SIGNAL_FUNC (gtk_widget_destroy),
+   					  (gpointer) file_selector);
+
+   gtk_signal_connect_object (GTK_OBJECT (GTK_FILE_SELECTION(file_selector)-&#62;cancel_button),
+   					  "clicked", GTK_SIGNAL_FUNC (gtk_widget_destroy),
+   					  (gpointer) file_selector);
+   
+   /* Display that dialog */
+   
+   gtk_widget_show (file_selector);
+}&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25733"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25735"
+></A
+><H3
+><A
+NAME="GTKFILESELECTION-STRUCT"
+></A
+>struct GtkFileSelection</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkFileSelection;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> struct contains the following <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> fields:
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25742"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>*fileop_dialog;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the dialog box used to display the <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+>. It can be customized by adding/removing widgets from it using the standard <A
+HREF="gtkdialog.html"
+>GtkDialog</A
+> functions.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>*dir_list, *file_list;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the two <A
+HREF="gtkclist.html"
+>GtkCList</A
+> widgets corresponding to directories and files.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>*ok_button, *cancel_button;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the two main buttons that signals should be connected to in order to perform an action when the user hits either OK or Cancel.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>*history_pulldown;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkoptionmenu.html"
+>GtkOptionMenu</A
+> used to create the drop-down directory history.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>*fileop_c_dir, *fileop_del_file, *fileop_ren_file;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the buttons that appear at the top of the file selection dialog. These "operation buttons" can be hidden and redisplayed with <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-HIDE-FILEOP-BUTTONS"
+>gtk_file_selection_hide_fileop_buttons</A
+>() and  <A
+HREF="gtkfileselection.html#GTK-FILE-SELECTION-SHOW-FILEOP-BUTTONS"
+>gtk_file_selection_show_fileop_buttons</A
+>() respectively.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25768"
+></A
+><H3
+><A
+NAME="GTK-FILE-SELECTION-NEW"
+></A
+>gtk_file_selection_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_file_selection_new          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *title);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new file selection dialog box. By default it will contain a <A
+HREF="gtkclist.html"
+>GtkCList</A
+> of the application's current working directory, and a file listing. Operation buttons that allow the user to create a directory, delete files and rename files, are also present.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25776"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>title</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a message that will be placed in the file requestor's titlebar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new file selection.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25789"
+></A
+><H3
+><A
+NAME="GTK-FILE-SELECTION-SET-FILENAME"
+></A
+>gtk_file_selection_set_filename ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_file_selection_set_filename (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets a default path for the file requestor. If <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> includes a directory path, then the requestor will open with that path as its current working directory.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25797"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filesel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to set as the default file name.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25811"
+></A
+><H3
+><A
+NAME="GTK-FILE-SELECTION-GET-FILENAME"
+></A
+>gtk_file_selection_get_filename ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_file_selection_get_filename (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the currently selected filename from the file selection dialog. If no file is selected then the selected directory path is returned.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25818"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filesel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string containing the selected file's full path.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25832"
+></A
+><H3
+><A
+NAME="GTK-FILE-SELECTION-COMPLETE"
+></A
+>gtk_file_selection_complete ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_file_selection_complete     (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Will attempt to match <TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+> to a valid filename in the current directory. If a match can be made, the matched filename will appear in the text entry field of the file selection dialog.
+If a partial match can be made, the "Files" list will contain those file names which have been partially matched.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25840"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filesel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string of characters which may or may not match any filenames in the current directory.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25854"
+></A
+><H3
+><A
+NAME="GTK-FILE-SELECTION-SHOW-FILEOP-BUTTONS"
+></A
+>gtk_file_selection_show_fileop_buttons ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_file_selection_show_fileop_buttons
+                                            (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Shows the file operation buttons, if they have previously been hidden. The rest of the widgets in the dialog will be resized accordingly.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25860"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filesel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN25870"
+></A
+><H3
+><A
+NAME="GTK-FILE-SELECTION-HIDE-FILEOP-BUTTONS"
+></A
+>gtk_file_selection_hide_fileop_buttons ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_file_selection_hide_fileop_buttons
+                                            (<A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+> *filesel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Hides the file operation buttons that normally appear at the top of the dialog. Useful if you wish to create a custom file selector, based on <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN25877"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filesel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN25887"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkdialog.html"
+>GtkDialog</A
+></DT
+><DD
+><P
+>Add your own widgets into the <A
+HREF="gtkfileselection.html"
+>GtkFileSelection</A
+>.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkeventbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkfixed.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkEventBox</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkFixed</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

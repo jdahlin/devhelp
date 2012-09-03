@@ -1,0 +1,1526 @@
+<HTML
+><HEAD
+><TITLE
+>GtkMenuItem</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkMenuBar"
+HREF="gtkmenubar.html"><LINK
+REL="NEXT"
+TITLE="GtkMenuShell"
+HREF="gtkmenushell.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkmenubar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkmenushell.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKMENUITEM"
+>GtkMenuItem</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN31498"
+></A
+><H2
+>Name</H2
+>GtkMenuItem&nbsp;--&nbsp;the widget used for item in menus</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN31501"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkmenuitem.html#GTKMENUITEM-STRUCT"
+>GtkMenuItem</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-NEW"
+>gtk_menu_item_new</A
+>               (void);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-NEW-WITH-LABEL"
+>gtk_menu_item_new_with_label</A
+>    (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-SET-SUBMENU"
+>gtk_menu_item_set_submenu</A
+>       (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *submenu);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-REMOVE-SUBMENU"
+>gtk_menu_item_remove_submenu</A
+>    (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-SET-PLACEMENT"
+>gtk_menu_item_set_placement</A
+>     (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSUBMENUPLACEMENT"
+>GtkSubmenuPlacement</A
+> placement);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-CONFIGURE"
+>gtk_menu_item_configure</A
+>         (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> show_toggle_indicator,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> show_submenu_indicator);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-SELECT"
+>gtk_menu_item_select</A
+>            (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-DESELECT"
+>gtk_menu_item_deselect</A
+>          (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-ACTIVATE"
+>gtk_menu_item_activate</A
+>          (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);
+void        <A
+HREF="gtkmenuitem.html#GTK-MENU-ITEM-RIGHT-JUSTIFY"
+>gtk_menu_item_right_justify</A
+>     (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31530"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkitem.html"
+>GtkItem</A
+>
+                           +----GtkMenuItem</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31538"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkmenuitem.html#GTKMENUITEM-ACTIVATE"
+>activate</A
+>&quot;  void        user_function      (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menuitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkmenuitem.html#GTKMENUITEM-ACTIVATE-ITEM"
+>activate-item</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menuitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31547"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> widget and the derived widgets are the only valid
+childs for menus. Their function is to correctly handle highlighting,
+alignment, events and submenus.</P
+><P
+>As it derives from <A
+HREF="gtkbin.html"
+>GtkBin</A
+> it can hold any valid child widget, altough
+only a few are really useful.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31553"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31555"
+></A
+><H3
+><A
+NAME="GTKMENUITEM-STRUCT"
+></A
+>struct GtkMenuItem</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkMenuItem;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31560"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31565"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-NEW"
+></A
+>gtk_menu_item_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_menu_item_new               (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31572"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31582"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-NEW-WITH-LABEL"
+></A
+>gtk_menu_item_new_with_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_menu_item_new_with_label    (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> whose child is a simple GtlLabel.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31591"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text for the label</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31605"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-SET-SUBMENU"
+></A
+>gtk_menu_item_set_submenu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_set_submenu       (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *submenu);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the widget submenu, or changes it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31612"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>submenu</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the submenu
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31625"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-REMOVE-SUBMENU"
+></A
+>gtk_menu_item_remove_submenu ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_remove_submenu    (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the widget's submenu.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31631"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item widget
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31640"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-SET-PLACEMENT"
+></A
+>gtk_menu_item_set_placement ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_set_placement     (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSUBMENUPLACEMENT"
+>GtkSubmenuPlacement</A
+> placement);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the placement of the submenu around the menu item. The placement
+is usually GTK_LEFT_RIGHT for menu items in a popup menu and
+GTK_TOP_BOTTOM in menu bars.</P
+><P
+>This function is useless in usual applications.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31650"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>placement</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the submenu placement
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31663"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-CONFIGURE"
+></A
+>gtk_menu_item_configure ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_configure         (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> show_toggle_indicator,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> show_submenu_indicator);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether the menu item should show a submenu indicator, which is a right
+arrow.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31671"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>show_toggle_indicator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>unused</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>show_submenu_indicator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether to show the arrow or not
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31688"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-SELECT"
+></A
+>gtk_menu_item_select ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_select            (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits the "select" signal on the given item. Behaves exactly like
+<A
+HREF="gtkitem.html#GTK-ITEM-SELECT"
+>gtk_item_select</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31695"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31704"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-DESELECT"
+></A
+>gtk_menu_item_deselect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_deselect          (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits the "deselect" signal on the given item. Behaves exactly like
+<A
+HREF="gtkitem.html#GTK-ITEM-DESELECT"
+>gtk_item_deselect</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31711"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31720"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-ACTIVATE"
+></A
+>gtk_menu_item_activate ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_activate          (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits the "activate" signal on the given item</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31726"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31735"
+></A
+><H3
+><A
+NAME="GTK-MENU-ITEM-RIGHT-JUSTIFY"
+></A
+>gtk_menu_item_right_justify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_menu_item_right_justify     (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menu_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the menu item to be right-justified. Only useful for menu bars.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31741"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the menu item
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31750"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31752"
+></A
+><H3
+><A
+NAME="GTKMENUITEM-ACTIVATE"
+></A
+>The &quot;activate&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menuitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the item is activated.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31759"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menuitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN31772"
+></A
+><H3
+><A
+NAME="GTKMENUITEM-ACTIVATE-ITEM"
+></A
+>The &quot;activate-item&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+> *menuitem,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the item is activated, but also if the menu item has a
+submenu. For normal applications, the relevant signal is "activate".</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN31779"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>menuitem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31792"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkbin.html"
+>GtkBin</A
+></DT
+><DD
+><P
+>for how to handle the child.</P
+></DD
+><DT
+><A
+HREF="gtkitem.html"
+>GtkItem</A
+></DT
+><DD
+><P
+>is the abstract class for all sorts of items.</P
+></DD
+><DT
+><A
+HREF="gtkmenushell.html"
+>GtkMenuShell</A
+></DT
+><DD
+><P
+>is always the parent of <A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkmenubar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkmenushell.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkMenuBar</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkMenuShell</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

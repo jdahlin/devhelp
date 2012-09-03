@@ -1,0 +1,413 @@
+<HTML
+><HEAD
+><TITLE
+>Class GtkCellRendererToggle</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.54"><LINK
+REL="HOME"
+TITLE="PyGTK Docs"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Class GtkCellRendererTextPixbuf"
+HREF="class-gtkcellrenderertextpixbuf.html"><LINK
+REL="NEXT"
+TITLE="Class GtkCheckButton"
+HREF="class-gtkcheckbutton.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PyGTK Docs</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="class-gtkcellrenderertextpixbuf.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="class-gtkcheckbutton.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CLASS-GTKCELLRENDERERTOGGLE"
+>Class GtkCellRendererToggle</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9358"
+>Ancestry</A
+></H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>+-- GObject
+  +-- <A
+HREF="class-gtkobject.html"
+>GtkObject</A
+>
+    +-- <A
+HREF="class-gtkcellrenderer.html"
+>GtkCellRenderer</A
+>
+      +-- <A
+HREF="class-gtkcellrenderertoggle.html"
+>GtkCellRendererToggle</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9365"
+>Constructor</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="FSFUNC"
+>GtkCellRendererToggle</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>the new cell renderer</P
+></DD
+></DL
+></DIV
+><P
+>Creates a new <A
+HREF="class-gtkcellrenderertoggle.html"
+><SPAN
+CLASS="TYPE"
+>GtkCellRendererToggle</SPAN
+></A
+>. Adjust rendering
+parameters using object properties. Object properties can be set
+globally (with <TT
+CLASS="FUNCTION"
+>g_object_set()</TT
+>). Also, with <A
+HREF="class-gtktreeviewcolumn.html"
+><SPAN
+CLASS="TYPE"
+>GtkTreeViewColumn</SPAN
+></A
+>, you
+can bind a property to a value in a <TT
+CLASS="LITERAL"
+>GtkTreeModel</TT
+>. For example, you
+can bind the "active" property on the cell renderer to a boolean value
+in the model, thus causing the check button to reflect the state of
+the model.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9384"
+>Methods</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKCELLRENDERERTOGGLE--SET-RADIO"
+>GtkCellRendererToggle.set_radio</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_radio</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>radio</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>radio</I
+></TT
+></DT
+><DD
+><P
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> to make the toggle look like a radio button</P
+></DD
+></DL
+></DIV
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>radio</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, the cell renderer renders a radio toggle
+(i.e. a toggle in a group of mutually-exclusive toggles).
+If <TT
+CLASS="LITERAL"
+>FALSE</TT
+>, it renders a check toggle (a standalone boolean option).
+This can be set globally for the cell renderer, or changed just
+before rendering each cell in the model (for <A
+HREF="class-gtktreeview.html"
+><SPAN
+CLASS="TYPE"
+>GtkTreeView</SPAN
+></A
+>, you set
+up a per-row setting using <A
+HREF="class-gtktreeviewcolumn.html"
+><SPAN
+CLASS="TYPE"
+>GtkTreeViewColumn</SPAN
+></A
+> to associate model
+columns with cell renderer properties).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKCELLRENDERERTOGGLE--GET-ACTIVE"
+>GtkCellRendererToggle.get_active</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>get_active</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>a gboolean</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKCELLRENDERERTOGGLE--SET-ACTIVE"
+>GtkCellRendererToggle.set_active</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>set_active</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>setting</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>setting</I
+></TT
+></DT
+><DD
+><P
+>a gboolean</P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="class-gtkcellrenderertextpixbuf.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="class-gtkcheckbutton.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class GtkCellRendererTextPixbuf</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class GtkCheckButton</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

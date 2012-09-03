@@ -1,0 +1,1567 @@
+<HTML
+><HEAD
+><TITLE
+>Selections</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Event Structures"
+HREF="gdk-event-structures.html"><LINK
+REL="NEXT"
+TITLE="Drag and Drop"
+HREF="gdk-drag-and-drop.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-event-structures.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-SELECTIONS"
+>Selections</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN10420"
+></A
+><H2
+>Name</H2
+>Selections&nbsp;--&nbsp;functions for transfering data via the X selection mechanism.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN10423"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+enum        <A
+HREF="gdk-selections.html#GDKSELECTION"
+>GdkSelection</A
+>;
+enum        <A
+HREF="gdk-selections.html#GDKSELECTIONTYPE"
+>GdkSelectionType</A
+>;
+enum        <A
+HREF="gdk-selections.html#GDKTARGET"
+>GdkTarget</A
+>;
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-selections.html#GDK-SELECTION-OWNER-SET"
+>gdk_selection_owner_set</A
+>         (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *owner,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> send_event);
+<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>*  <A
+HREF="gdk-selections.html#GDK-SELECTION-OWNER-GET"
+>gdk_selection_owner_get</A
+>         (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection);
+void        <A
+HREF="gdk-selections.html#GDK-SELECTION-CONVERT"
+>gdk_selection_convert</A
+>           (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *requestor,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-selections.html#GDK-SELECTION-PROPERTY-GET"
+>gdk_selection_property_get</A
+>      (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *requestor,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> **data,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> *prop_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *prop_format);
+void        <A
+HREF="gdk-selections.html#GDK-SELECTION-SEND-NOTIFY"
+>gdk_selection_send_notify</A
+>       (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> requestor,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> target,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN10455"
+></A
+><H2
+>Description</H2
+><P
+>The X selection mechanism provides a way to transfer
+arbitrary chunks of data between programs. 
+A <I
+CLASS="FIRSTTERM"
+>selection</I
+> is a essentially 
+a named clipboard, identified by a string interned
+as a <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+>. By claiming ownership of a selection,
+an application indicates that it will be responsible
+for supplying its contents. The most common 
+selections are <TT
+CLASS="LITERAL"
+>PRIMARY</TT
+> and 
+<TT
+CLASS="LITERAL"
+>CLIPBOARD</TT
+>.</P
+><P
+>The contents of a selection can be represented in
+a number of formats, called <I
+CLASS="FIRSTTERM"
+>targets</I
+>.
+Each target is identified by an atom. A list of
+all possible targets supported by the selection owner
+can be retrieved by requesting the special target
+<TT
+CLASS="LITERAL"
+>TARGETS</TT
+>. When a selection is 
+retrieved, the data is accompanied by a type
+(an atom), and a format (an integer, representing
+the number of bits per item).
+See <A
+HREF="gdk-properties-and-atoms.html"
+>Properties and Atoms</A
+>
+for more information.</P
+><P
+>The functions in this section only contain the lowlevel
+parts of the selection protocol. A considerably more
+complicated implementation is needed on top of this.
+GTK+ contains such an implementation in the functions
+in <TT
+CLASS="LITERAL"
+>gtkselection.h</TT
+> and programmers
+should use those functions instead of the ones presented 
+here. If you plan to implement selection handling
+directly on top of the functions here, you should refer
+to the X Inter-client Communication Conventions Manual
+(ICCCM).</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN10468"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10470"
+></A
+><H3
+><A
+NAME="GDKSELECTION"
+></A
+>enum GdkSelection</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_SELECTION_PRIMARY = 1,
+  GDK_SELECTION_SECONDARY = 2
+} GdkSelection;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-selections.html#GDKSELECTION"
+>GdkSelection</A
+> enumeration contains predefined 
+atom values for several common selections.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10476"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_PRIMARY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The primary X selection. Programs
+typically claim this selection when the user
+selects text and paste its contents in response
+to a middle button press.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_SECONDARY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An additional X selection.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10489"
+></A
+><H3
+><A
+NAME="GDKSELECTIONTYPE"
+></A
+>enum GdkSelectionType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_SELECTION_TYPE_ATOM = 4,
+  GDK_SELECTION_TYPE_BITMAP = 5,
+  GDK_SELECTION_TYPE_COLORMAP = 7,
+  GDK_SELECTION_TYPE_DRAWABLE = 17,
+  GDK_SELECTION_TYPE_INTEGER = 19,
+  GDK_SELECTION_TYPE_PIXMAP = 20,
+  GDK_SELECTION_TYPE_WINDOW = 33,
+  GDK_SELECTION_TYPE_STRING = 31
+} GdkSelectionType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-selections.html#GDKSELECTIONTYPE"
+>GdkSelectionType</A
+> enumeration contains predefined
+atom values used to represent the types of data transferred
+in response to a request for a target. See the
+ICCCM for details about what data should be transferred
+for each of these types. Other atoms can be used,
+and the recommended practice for GTK+ is to to use mime 
+types for this purpose. However, supporting these types
+may be useful for compatibility with older programs.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10495"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_ATOM</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An atom. (format 32)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_BITMAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A bitmap ID. (format 32)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_COLORMAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A colormap ID. (format 32)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_DRAWABLE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A drawable ID. (format 32)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_INTEGER</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An integer. (format 32)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_PIXMAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pixmap ID. (format 32)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_WINDOW</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A window ID. (format 32)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_TYPE_STRING</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A string encoded
+    in ISO Latin-1. (With the additional of <SPAN
+CLASS="SYMBOL"
+>TAB</SPAN
+>
+     and <SPAN
+CLASS="SYMBOL"
+>NEWLINE</SPAN
+>.) (format 8)&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10534"
+></A
+><H3
+><A
+NAME="GDKTARGET"
+></A
+>enum GdkTarget</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_TARGET_BITMAP = 5,
+  GDK_TARGET_COLORMAP = 7,
+  GDK_TARGET_DRAWABLE = 17,
+  GDK_TARGET_PIXMAP = 20,
+  GDK_TARGET_STRING = 31
+} GdkTarget;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-selections.html#GDKTARGET"
+>GdkTarget</A
+> enumeration contains predefined atom values which are
+used to describe possible targets for a selection. Other atoms can be
+used, and the recommended practice for GTK+ is to to use mime types
+for this purpose. However, supporting these types may be useful for
+compatibility with older programs.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10540"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_TARGET_BITMAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A bitmap ID.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_TARGET_COLORMAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A colormap ID.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_TARGET_DRAWABLE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A drawable ID.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_TARGET_PIXMAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pixmap ID.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_TARGET_STRING</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A string encoded in ISO Latin-1. 
+     (With the additional of <SPAN
+CLASS="SYMBOL"
+>TAB</SPAN
+>
+       and <SPAN
+CLASS="SYMBOL"
+>NEWLINE</SPAN
+>.)&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10567"
+></A
+><H3
+><A
+NAME="GDK-SELECTION-OWNER-SET"
+></A
+>gdk_selection_owner_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_selection_owner_set         (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *owner,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> send_event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the owner of the given selection.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10577"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>owner</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or NULL to indicate that the
+        the owner for the given should be unset.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an atom identifying a selection.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>timestamp to use when setting the selection.
+       If this is older than the timestamp given last
+       time the owner was set for the given selection, the 
+       request will be ignored.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>send_event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, and the new owner is different
+             from the current owner, the current owner
+             will be sent a SelectionClear event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the selection owner was succesfully
+          changed to <TT
+CLASS="PARAMETER"
+><I
+>owner</I
+></TT
+>, otherwise <TT
+CLASS="LITERAL"
+>FALSE</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10607"
+></A
+><H3
+><A
+NAME="GDK-SELECTION-OWNER-GET"
+></A
+>gdk_selection_owner_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>*  gdk_selection_owner_get         (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determine the owner of the given selection.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10614"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an atom indentifying a selection.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if there is a selection owner for this window,
+          and it is a window known to the current process,
+          the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> that owns the selection, otherwise
+          NULL. Note that the return value may be owned
+          by a different process if a foreign window
+          was previously created for that window, but
+          a new foreign window will never be created by
+          this call.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10628"
+></A
+><H3
+><A
+NAME="GDK-SELECTION-CONVERT"
+></A
+>gdk_selection_convert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_selection_convert           (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *requestor,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> target,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve the contents of a selection in a given
+form.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10637"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>requestor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an atom identifying the selection to get the
+            contents of.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the form in which to retrieve the selection.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the timestamp to use when retrieving the
+       selection. The selection owner may refuse the
+       request if it did not own the selection at 
+       the time indicated by the timestamp.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10659"
+></A
+><H3
+><A
+NAME="GDK-SELECTION-PROPERTY-GET"
+></A
+>gdk_selection_property_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_selection_property_get      (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *requestor,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> **data,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> *prop_type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *prop_format);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieve selection data that was stored by the selection
+data in response to a call to <A
+HREF="gdk-selections.html#GDK-SELECTION-CONVERT"
+>gdk_selection_convert</A
+>()</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10670"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>requestor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window on which the data is stored</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store a pointer to the retrieved data.
+       If the retrieval failed, NULL we be stored here, otherwise, it
+       will be non-NULL and the returned data should be freed with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>()
+       when you are finished using it. The length of the
+       allocated memory is one more than the the length
+       of the returned data, and the final byte will always
+       be zero, to ensure null-termination of strings.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prop_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the type of the property.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prop_format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>location to store the format of the property.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the retrieved data.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10696"
+></A
+><H3
+><A
+NAME="GDK-SELECTION-SEND-NOTIFY"
+></A
+>gdk_selection_send_notify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_selection_send_notify       (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> requestor,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> selection,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> target,
+                                             <A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> property,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Send a response to SelectionRequest event.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10706"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>requestor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>window to which to deliver response.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selection</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>selection that was requested.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>target</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>target that was selected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>property</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>property in which the selection owner stored the
+           data, or <TT
+CLASS="LITERAL"
+>GDK_NONE</TT
+> to indicate that the request
+           was rejected.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>timestamp.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-event-structures.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-drag-and-drop.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Event Structures</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Drag and Drop</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

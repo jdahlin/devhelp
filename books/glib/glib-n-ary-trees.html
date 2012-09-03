@@ -1,0 +1,5133 @@
+<HTML
+><HEAD
+><TITLE
+>N-ary Trees</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Balanced Binary Trees"
+HREF="glib-balanced-binary-trees.html"><LINK
+REL="NEXT"
+TITLE="Quarks"
+HREF="glib-quarks.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-balanced-binary-trees.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-quarks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-N-ARY-TREES"
+>N-ary Trees</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN15713"
+></A
+><H2
+>Name</H2
+>N-ary Trees&nbsp;--&nbsp;trees of data with any number of branches.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN15716"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>;
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-NEW"
+>g_node_new</A
+>                      (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT"
+>g_node_insert</A
+>                   (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *parent,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> position,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT-BEFORE"
+>g_node_insert_before</A
+>            (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *parent,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *sibling,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-APPEND"
+>g_node_append</A
+>                   (parent, node)
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-PREPEND"
+>g_node_prepend</A
+>                  (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *parent,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT-DATA"
+>g_node_insert_data</A
+>              (parent, position, data)
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT-DATA-BEFORE"
+>g_node_insert_data_before</A
+>       (parent, sibling, data)
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-APPEND-DATA"
+>g_node_append_data</A
+>              (parent, data)
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-PREPEND-DATA"
+>g_node_prepend_data</A
+>             (parent, data)
+
+void        <A
+HREF="glib-n-ary-trees.html#G-NODE-REVERSE-CHILDREN"
+>g_node_reverse_children</A
+>         (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+void        <A
+HREF="glib-n-ary-trees.html#G-NODE-TRAVERSE"
+>g_node_traverse</A
+>                 (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root,
+                                             <A
+HREF="glib-balanced-binary-trees.html#GTRAVERSETYPE"
+>GTraverseType</A
+> order,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> max_depth,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODETRAVERSEFUNC"
+>GNodeTraverseFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+enum        <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+>;
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (<A
+HREF="glib-n-ary-trees.html#GNODETRAVERSEFUNC"
+>*GNodeTraverseFunc</A
+>)            (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+void        <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILDREN-FOREACH"
+>g_node_children_foreach</A
+>         (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODEFOREACHFUNC"
+>GNodeForeachFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+void        (<A
+HREF="glib-n-ary-trees.html#GNODEFOREACHFUNC"
+>*GNodeForeachFunc</A
+>)             (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-GET-ROOT"
+>g_node_get_root</A
+>                 (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-FIND"
+>g_node_find</A
+>                     (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root,
+                                             <A
+HREF="glib-balanced-binary-trees.html#GTRAVERSETYPE"
+>GTraverseType</A
+> order,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-FIND-CHILD"
+>g_node_find_child</A
+>               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILD-INDEX"
+>g_node_child_index</A
+>              (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILD-POSITION"
+>g_node_child_position</A
+>           (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *child);
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-FIRST-CHILD"
+>g_node_first_child</A
+>              (node)
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-LAST-CHILD"
+>g_node_last_child</A
+>               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-NTH-CHILD"
+>g_node_nth_child</A
+>                (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-FIRST-SIBLING"
+>g_node_first_sibling</A
+>            (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-NEXT-SIBLING"
+>g_node_next_sibling</A
+>             (node)
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-PREV-SIBLING"
+>g_node_prev_sibling</A
+>             (node)
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      <A
+HREF="glib-n-ary-trees.html#G-NODE-LAST-SIBLING"
+>g_node_last_sibling</A
+>             (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-IS-LEAF-CAPS"
+>G_NODE_IS_LEAF</A
+>                  (node)
+#define     <A
+HREF="glib-n-ary-trees.html#G-NODE-IS-ROOT-CAPS"
+>G_NODE_IS_ROOT</A
+>                  (node)
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-n-ary-trees.html#G-NODE-DEPTH"
+>g_node_depth</A
+>                    (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-n-ary-trees.html#G-NODE-N-NODES"
+>g_node_n_nodes</A
+>                  (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-n-ary-trees.html#G-NODE-N-CHILDREN"
+>g_node_n_children</A
+>               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-n-ary-trees.html#G-NODE-IS-ANCESTOR"
+>g_node_is_ancestor</A
+>              (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *descendant);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-n-ary-trees.html#G-NODE-MAX-HEIGHT"
+>g_node_max_height</A
+>               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root);
+
+void        <A
+HREF="glib-n-ary-trees.html#G-NODE-UNLINK"
+>g_node_unlink</A
+>                   (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);
+void        <A
+HREF="glib-n-ary-trees.html#G-NODE-DESTROY"
+>g_node_destroy</A
+>                  (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root);
+
+void        <A
+HREF="glib-n-ary-trees.html#G-NODE-PUSH-ALLOCATOR"
+>g_node_push_allocator</A
+>           (<A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> *allocator);
+void        <A
+HREF="glib-n-ary-trees.html#G-NODE-POP-ALLOCATOR"
+>g_node_pop_allocator</A
+>            (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15828"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> struct and its associated functions provide a N-ary tree data
+structure, where nodes in the tree can contain arbitrary data.</P
+><P
+>To create a new tree use <A
+HREF="glib-n-ary-trees.html#G-NODE-NEW"
+>g_node_new</A
+>().</P
+><P
+>To insert a node into a tree use <A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT"
+>g_node_insert</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT-BEFORE"
+>g_node_insert_before</A
+>(),
+<A
+HREF="glib-n-ary-trees.html#G-NODE-APPEND"
+>g_node_append</A
+>() and <A
+HREF="glib-n-ary-trees.html#G-NODE-PREPEND"
+>g_node_prepend</A
+>().</P
+><P
+>To create a new node and insert it into a tree use <A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT-DATA"
+>g_node_insert_data</A
+>(), 
+<A
+HREF="glib-n-ary-trees.html#G-NODE-INSERT-DATA-BEFORE"
+>g_node_insert_data_before</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-APPEND-DATA"
+>g_node_append_data</A
+>() and <A
+HREF="glib-n-ary-trees.html#G-NODE-PREPEND-DATA"
+>g_node_prepend_data</A
+>().</P
+><P
+>To reverse the children of a node use <A
+HREF="glib-n-ary-trees.html#G-NODE-REVERSE-CHILDREN"
+>g_node_reverse_children</A
+>().</P
+><P
+>To find a node use <A
+HREF="glib-n-ary-trees.html#G-NODE-GET-ROOT"
+>g_node_get_root</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-FIND"
+>g_node_find</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-FIND-CHILD"
+>g_node_find_child</A
+>(),
+<A
+HREF="glib-n-ary-trees.html#G-NODE-CHILD-INDEX"
+>g_node_child_index</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILD-POSITION"
+>g_node_child_position</A
+>(), 
+<A
+HREF="glib-n-ary-trees.html#G-NODE-FIRST-CHILD"
+>g_node_first_child</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-LAST-CHILD"
+>g_node_last_child</A
+>(),
+<A
+HREF="glib-n-ary-trees.html#G-NODE-NTH-CHILD"
+>g_node_nth_child</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-FIRST-SIBLING"
+>g_node_first_sibling</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-PREV-SIBLING"
+>g_node_prev_sibling</A
+>(),
+<A
+HREF="glib-n-ary-trees.html#G-NODE-NEXT-SIBLING"
+>g_node_next_sibling</A
+>() or <A
+HREF="glib-n-ary-trees.html#G-NODE-LAST-SIBLING"
+>g_node_last_sibling</A
+>().</P
+><P
+>To get information about a node or tree use <A
+HREF="glib-n-ary-trees.html#G-NODE-IS-LEAF-CAPS"
+>G_NODE_IS_LEAF</A
+>(),
+<A
+HREF="glib-n-ary-trees.html#G-NODE-IS-ROOT-CAPS"
+>G_NODE_IS_ROOT</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-DEPTH"
+>g_node_depth</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-N-NODES"
+>g_node_n_nodes</A
+>(), <A
+HREF="glib-n-ary-trees.html#G-NODE-N-CHILDREN"
+>g_node_n_children</A
+>(),
+<A
+HREF="glib-n-ary-trees.html#G-NODE-IS-ANCESTOR"
+>g_node_is_ancestor</A
+>() or <A
+HREF="glib-n-ary-trees.html#G-NODE-MAX-HEIGHT"
+>g_node_max_height</A
+>().</P
+><P
+>To traverse a tree, calling a function for each node visited in the
+traversal, use <A
+HREF="glib-n-ary-trees.html#G-NODE-TRAVERSE"
+>g_node_traverse</A
+>() or <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILDREN-FOREACH"
+>g_node_children_foreach</A
+>().</P
+><P
+>To remove a node or subtree from a tree use <A
+HREF="glib-n-ary-trees.html#G-NODE-UNLINK"
+>g_node_unlink</A
+>() or
+<A
+HREF="glib-n-ary-trees.html#G-NODE-DESTROY"
+>g_node_destroy</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15873"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15875"
+></A
+><H3
+><A
+NAME="GNODE"
+></A
+>struct GNode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GNode
+{
+  gpointer data;
+  GNode	  *next;
+  GNode	  *prev;
+  GNode	  *parent;
+  GNode	  *children;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> struct represents one node in a
+<A
+HREF="glib-n-ary-trees.html"
+>N-ary Tree</A
+>.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>data</I
+></TT
+> field contains the actual data of the node.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>next</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>prev</I
+></TT
+>
+fields point to the node's siblings (a sibling is another <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> with the
+same parent).
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>parent</I
+></TT
+> field points to the parent of the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>,
+or is NULL if the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> is the root of the tree.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>children</I
+></TT
+> field points to the first child of the
+<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>. The other children are accessed by using the
+<TT
+CLASS="STRUCTFIELD"
+><I
+>next</I
+></TT
+> pointer of each child.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15892"
+></A
+><H3
+><A
+NAME="G-NODE-NEW"
+></A
+>g_node_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_new                      (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> containing the given data.
+Used to create the first node in a tree.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15900"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data of the new node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15914"
+></A
+><H3
+><A
+NAME="G-NODE-INSERT"
+></A
+>g_node_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_insert                   (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *parent,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> position,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> beneath the parent at the given position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15924"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to place <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> at, with respect to its siblings.
+If position is -1, <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is inserted as the last child of <TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the inserted <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15952"
+></A
+><H3
+><A
+NAME="G-NODE-INSERT-BEFORE"
+></A
+>g_node_insert_before ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_insert_before            (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *parent,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *sibling,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> beneath the parent before the given sibling.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15962"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the sibling <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> before. If sibling is NULL,
+the node is inserted as the last child of <TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the inserted <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15990"
+></A
+><H3
+><A
+NAME="G-NODE-APPEND"
+></A
+>g_node_append()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_append(parent, node)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> as the last child of the given parent.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15996"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the inserted <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16017"
+></A
+><H3
+><A
+NAME="G-NODE-PREPEND"
+></A
+>g_node_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_prepend                  (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *parent,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> as the first child of the given parent.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16026"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the inserted <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16047"
+></A
+><H3
+><A
+NAME="G-NODE-INSERT-DATA"
+></A
+>g_node_insert_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_insert_data(parent, position, data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> at the given position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16053"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> at.
+If position is -1, the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> is inserted as the last child of <TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16081"
+></A
+><H3
+><A
+NAME="G-NODE-INSERT-DATA-BEFORE"
+></A
+>g_node_insert_data_before()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_insert_data_before(parent, sibling, data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> before the given sibling.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16087"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the sibling <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> before.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16114"
+></A
+><H3
+><A
+NAME="G-NODE-APPEND-DATA"
+></A
+>g_node_append_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_append_data(parent, data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> as the last child of the given parent.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16120"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16141"
+></A
+><H3
+><A
+NAME="G-NODE-PREPEND-DATA"
+></A
+>g_node_prepend_data()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_prepend_data(parent, data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> as the first child of the given parent.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16147"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to place the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> under.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16168"
+></A
+><H3
+><A
+NAME="G-NODE-REVERSE-CHILDREN"
+></A
+>g_node_reverse_children ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_node_reverse_children         (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reverses the order of the children of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+(It doesn't change the order of the grandchildren.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16175"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16185"
+></A
+><H3
+><A
+NAME="G-NODE-TRAVERSE"
+></A
+>g_node_traverse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_node_traverse                 (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root,
+                                             <A
+HREF="glib-balanced-binary-trees.html#GTRAVERSETYPE"
+>GTraverseType</A
+> order,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> max_depth,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODETRAVERSEFUNC"
+>GNodeTraverseFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Traverses a tree starting at the given root <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+It calls the given function for each node visited.
+The traversal can be halted at any point by returning TRUE from <TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16198"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the root <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> of the tree to traverse.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>order</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the order in which nodes are visited - <TT
+CLASS="LITERAL"
+>G_IN_ORDER</TT
+>, <TT
+CLASS="LITERAL"
+>G_PRE_ORDER</TT
+>,
+<TT
+CLASS="LITERAL"
+>G_POST_ORDER</TT
+>, or <TT
+CLASS="LITERAL"
+>G_LEVEL_ORDER</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>which types of children are to be visited, one of <TT
+CLASS="LITERAL"
+>G_TRAVERSE_ALL</TT
+>,
+<TT
+CLASS="LITERAL"
+>G_TRAVERSE_LEAFS</TT
+> and <TT
+CLASS="LITERAL"
+>G_TRAVERSE_NON_LEAFS</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max_depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum depth of the traversal. Nodes below this
+depth will not be visited. If max_depth is -1 all nodes in the tree are
+visited. If depth is 1, only the root is visited. If depth is 2, the root
+and its children are visited. And so on.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call for each visited <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16236"
+></A
+><H3
+><A
+NAME="GTRAVERSEFLAGS"
+></A
+>enum GTraverseFlags</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  G_TRAVERSE_LEAFS	= 1 &lt;&lt; 0,
+  G_TRAVERSE_NON_LEAFS	= 1 &lt;&lt; 1,
+  G_TRAVERSE_ALL	= G_TRAVERSE_LEAFS | G_TRAVERSE_NON_LEAFS,
+  G_TRAVERSE_MASK	= 0x03
+} GTraverseFlags;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies which nodes are visited during several of the tree functions,
+including <A
+HREF="glib-n-ary-trees.html#G-NODE-TRAVERSE"
+>g_node_traverse</A
+>() and <A
+HREF="glib-n-ary-trees.html#G-NODE-FIND"
+>g_node_find</A
+>().
+<P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>G_TRAVERSE_LEAFS</TT
+> specifies that only leaf nodes should be visited.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>G_TRAVERSE_NON_LEAFS</TT
+> specifies that only non-leaf nodes should be visited.</P
+></LI
+><LI
+><P
+><TT
+CLASS="LITERAL"
+>G_TRAVERSE_ALL</TT
+> specifies that all nodes should be visited.</P
+></LI
+></UL
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16253"
+></A
+><H3
+><A
+NAME="GNODETRAVERSEFUNC"
+></A
+>GNodeTraverseFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (*GNodeTraverseFunc)            (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function passed to <A
+HREF="glib-n-ary-trees.html#G-NODE-TRAVERSE"
+>g_node_traverse</A
+>().
+The function is called with each of the nodes visited, together with the
+user data passed to <A
+HREF="glib-n-ary-trees.html#G-NODE-TRAVERSE"
+>g_node_traverse</A
+>().
+If the function returns TRUE, then the traversal is stopped.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16263"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to <A
+HREF="glib-n-ary-trees.html#G-NODE-TRAVERSE"
+>g_node_traverse</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE to stop the traversal.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16282"
+></A
+><H3
+><A
+NAME="G-NODE-CHILDREN-FOREACH"
+></A
+>g_node_children_foreach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_node_children_foreach         (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODEFOREACHFUNC"
+>GNodeForeachFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calls a function for each of the children of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+Note that it doesn't descend beneath the child nodes.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16292"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>which types of children are to be visited, one of <TT
+CLASS="LITERAL"
+>G_TRAVERSE_ALL</TT
+>,
+<TT
+CLASS="LITERAL"
+>G_TRAVERSE_LEAFS</TT
+> and <TT
+CLASS="LITERAL"
+>G_TRAVERSE_NON_LEAFS</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call for each visited node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16317"
+></A
+><H3
+><A
+NAME="GNODEFOREACHFUNC"
+></A
+>GNodeForeachFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GNodeForeachFunc)             (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function passed to <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILDREN-FOREACH"
+>g_node_children_foreach</A
+>().
+The function is called with each child node, together with the user data
+passed to <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILDREN-FOREACH"
+>g_node_children_foreach</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16326"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to <A
+HREF="glib-n-ary-trees.html#G-NODE-CHILDREN-FOREACH"
+>g_node_children_foreach</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16341"
+></A
+><H3
+><A
+NAME="G-NODE-GET-ROOT"
+></A
+>g_node_get_root ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_get_root                 (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the root of a tree.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16348"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the root of the tree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16362"
+></A
+><H3
+><A
+NAME="G-NODE-FIND"
+></A
+>g_node_find ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_find                     (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root,
+                                             <A
+HREF="glib-balanced-binary-trees.html#GTRAVERSETYPE"
+>GTraverseType</A
+> order,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> in a tree.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16373"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the root <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> of the tree to search.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>order</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the order in which nodes are visited - <TT
+CLASS="LITERAL"
+>G_IN_ORDER</TT
+>, <TT
+CLASS="LITERAL"
+>G_PRE_ORDER</TT
+>,
+<TT
+CLASS="LITERAL"
+>G_POST_ORDER</TT
+>, or <TT
+CLASS="LITERAL"
+>G_LEVEL_ORDER</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>which types of children are to be searched, one of <TT
+CLASS="LITERAL"
+>G_TRAVERSE_ALL</TT
+>,
+<TT
+CLASS="LITERAL"
+>G_TRAVERSE_LEAFS</TT
+> and <TT
+CLASS="LITERAL"
+>G_TRAVERSE_NON_LEAFS</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data to find.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the found <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>, or NULL if the data is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16407"
+></A
+><H3
+><A
+NAME="G-NODE-FIND-CHILD"
+></A
+>g_node_find_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_find_child               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds the first child of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> with the given data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16417"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>which types of children are to be searched, one of <TT
+CLASS="LITERAL"
+>G_TRAVERSE_ALL</TT
+>,
+<TT
+CLASS="LITERAL"
+>G_TRAVERSE_LEAFS</TT
+> and <TT
+CLASS="LITERAL"
+>G_TRAVERSE_NON_LEAFS</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data to find.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the found child <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>, or NULL if the data is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16443"
+></A
+><H3
+><A
+NAME="G-NODE-CHILD-INDEX"
+></A
+>g_node_child_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_node_child_index              (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the position of the first child of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> which contains the given data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16452"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data to find.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the child of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> which contains <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>, or -1
+if the data is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16472"
+></A
+><H3
+><A
+NAME="G-NODE-CHILD-POSITION"
+></A
+>g_node_child_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_node_child_position           (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the position of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> with respect to its siblings.
+<TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> must be a child of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>.
+The first child is numbered 0, the second 1, and so on.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16483"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a child of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> with respect to its siblings.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16503"
+></A
+><H3
+><A
+NAME="G-NODE-FIRST-CHILD"
+></A
+>g_node_first_child()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_first_child(node)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the first child of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16509"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the last child of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>, or NULL if <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is NULL or has no children.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16525"
+></A
+><H3
+><A
+NAME="G-NODE-LAST-CHILD"
+></A
+>g_node_last_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_last_child               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the last child of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16533"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> (must not be NULL).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the last child of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>, or NULL if <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> has no children.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16549"
+></A
+><H3
+><A
+NAME="G-NODE-NTH-CHILD"
+></A
+>g_node_nth_child ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_nth_child                (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets a child of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>, using the given index.
+The first child is at index 0. If the index is too big, NULL is returned.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16558"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the desired child.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the child of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> at index <TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16578"
+></A
+><H3
+><A
+NAME="G-NODE-FIRST-SIBLING"
+></A
+>g_node_first_sibling ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_first_sibling            (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the first sibling of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+This could possibly be the node itself.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16586"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the first sibling of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16601"
+></A
+><H3
+><A
+NAME="G-NODE-NEXT-SIBLING"
+></A
+>g_node_next_sibling()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_next_sibling(node)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the next sibling of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16607"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the next sibling of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>, or NULL if <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is NULL.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16623"
+></A
+><H3
+><A
+NAME="G-NODE-PREV-SIBLING"
+></A
+>g_node_prev_sibling()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_node_prev_sibling(node)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the previous sibling of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16629"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the previous sibling of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>, or NULL if <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is NULL.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16645"
+></A
+><H3
+><A
+NAME="G-NODE-LAST-SIBLING"
+></A
+>g_node_last_sibling ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>*      g_node_last_sibling             (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the last sibling of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+This could possibly be the node itself.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16653"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the last sibling of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16668"
+></A
+><H3
+><A
+NAME="G-NODE-IS-LEAF-CAPS"
+></A
+>G_NODE_IS_LEAF()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	 G_NODE_IS_LEAF(node)	(((GNode*) (node))-&gt;children == NULL)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> is a leaf node.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16674"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> is a leaf node (i.e. it has no children).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16689"
+></A
+><H3
+><A
+NAME="G-NODE-IS-ROOT-CAPS"
+></A
+>G_NODE_IS_ROOT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_NODE_IS_ROOT(node)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> is the root of a tree.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16695"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> is the root of a tree (i.e. it has no parent
+or siblings).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16710"
+></A
+><H3
+><A
+NAME="G-NODE-DEPTH"
+></A
+>g_node_depth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_node_depth                    (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the depth of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is NULL the depth is 0.
+The root node has a depth of 1.
+For the children of the root node the depth is 2. And so on.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16720"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the depth of the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16735"
+></A
+><H3
+><A
+NAME="G-NODE-N-NODES"
+></A
+>g_node_n_nodes ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_node_n_nodes                  (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root,
+                                             <A
+HREF="glib-n-ary-trees.html#GTRAVERSEFLAGS"
+>GTraverseFlags</A
+> flags);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the number of nodes in a tree.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16743"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>which types of children are to be counted, one of <TT
+CLASS="LITERAL"
+>G_TRAVERSE_ALL</TT
+>,
+<TT
+CLASS="LITERAL"
+>G_TRAVERSE_LEAFS</TT
+> and <TT
+CLASS="LITERAL"
+>G_TRAVERSE_NON_LEAFS</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of nodes in the tree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16764"
+></A
+><H3
+><A
+NAME="G-NODE-N-CHILDREN"
+></A
+>g_node_n_children ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_node_n_children               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the number of children of a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16772"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of children of <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16787"
+></A
+><H3
+><A
+NAME="G-NODE-IS-ANCESTOR"
+></A
+>g_node_is_ancestor ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_node_is_ancestor              (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node,
+                                             <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *descendant);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is an ancestor of <TT
+CLASS="PARAMETER"
+><I
+>descendant</I
+></TT
+>.
+This is true if node is the parent of descendant, or if node is the
+grandparent of descendant etc.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16797"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>descendant</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is an ancestor of <TT
+CLASS="PARAMETER"
+><I
+>descendant</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16818"
+></A
+><H3
+><A
+NAME="G-NODE-MAX-HEIGHT"
+></A
+>g_node_max_height ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_node_max_height               (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the maximum height of all branches beneath a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.
+This is the maximum distance from the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to all leaf nodes.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+> is NULL, 0 is returned. If <TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+> has no children, 1 is returned.
+If <TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+> has children, 2 is returned. And so on.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16831"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum height of the tree beneath <TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16846"
+></A
+><H3
+><A
+NAME="G-NODE-UNLINK"
+></A
+>g_node_unlink ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_node_unlink                   (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unlinks a <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> from a tree, resulting in two separate trees.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16853"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> to unlink, which becomes the root of a new tree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16863"
+></A
+><H3
+><A
+NAME="G-NODE-DESTROY"
+></A
+>g_node_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_node_destroy                  (<A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> *root);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> and its children from the tree, freeing any memory
+allocated.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16870"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the root of the tree/subtree to destroy.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16879"
+></A
+><H3
+><A
+NAME="G-NODE-PUSH-ALLOCATOR"
+></A
+>g_node_push_allocator ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_node_push_allocator           (<A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> *allocator);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the allocator to use to allocate <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> elements.
+Use <A
+HREF="glib-n-ary-trees.html#G-NODE-POP-ALLOCATOR"
+>g_node_pop_allocator</A
+>() to restore the previous allocator.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN16887"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>allocator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> to use when allocating <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16898"
+></A
+><H3
+><A
+NAME="G-NODE-POP-ALLOCATOR"
+></A
+>g_node_pop_allocator ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_node_pop_allocator            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Restores the previous <A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+>, used when allocating <A
+HREF="glib-n-ary-trees.html#GNODE"
+>GNode</A
+> elements.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-balanced-binary-trees.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-quarks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Balanced Binary Trees</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Quarks</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

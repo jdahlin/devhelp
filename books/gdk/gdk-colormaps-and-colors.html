@@ -1,0 +1,3445 @@
+<HTML
+><HEAD
+><TITLE
+>Colormaps and Colors</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Images"
+HREF="gdk-images.html"><LINK
+REL="NEXT"
+TITLE="Color Contexts"
+HREF="gdk-color-contexts.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-images.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-color-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-COLORMAPS-AND-COLORS"
+>Colormaps and Colors</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4353"
+></A
+><H2
+>Name</H2
+>Colormaps and Colors&nbsp;--&nbsp;manipulation of colors and colormaps.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4356"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>;
+struct      <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>;
+<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-NEW"
+>gdk_colormap_new</A
+>               (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allocate);
+<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-REF"
+>gdk_colormap_ref</A
+>               (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *cmap);
+void        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-UNREF"
+>gdk_colormap_unref</A
+>              (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *cmap);
+<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-GET-SYSTEM"
+>gdk_colormap_get_system</A
+>        (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-GET-SYSTEM-SIZE"
+>gdk_colormap_get_system_size</A
+>    (void);
+void        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-CHANGE"
+>gdk_colormap_change</A
+>             (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-ALLOC-COLORS"
+>gdk_colormap_alloc_colors</A
+>       (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> writeable,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> best_match,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *success);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-ALLOC-COLOR"
+>gdk_colormap_alloc_color</A
+>        (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> writeable,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> best_match);
+void        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-FREE-COLORS"
+>gdk_colormap_free_colors</A
+>        (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors);
+<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-GET-VISUAL"
+>gdk_colormap_get_visual</A
+>         (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap);
+void        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORS-STORE"
+>gdk_colors_store</A
+>                (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors);
+<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>*   <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-COPY"
+>gdk_color_copy</A
+>                  (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+void        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-FREE"
+>gdk_color_free</A
+>                  (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORS-ALLOC"
+>gdk_colors_alloc</A
+>                (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> contiguous,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *planes,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nplanes,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *pixels,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npixels);
+void        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORS-FREE"
+>gdk_colors_free</A
+>                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *pixels,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npixels,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> planes);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-WHITE"
+>gdk_color_white</A
+>                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-BLACK"
+>gdk_color_black</A
+>                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-PARSE"
+>gdk_color_parse</A
+>                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *spec,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-ALLOC"
+>gdk_color_alloc</A
+>                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-CHANGE"
+>gdk_color_change</A
+>                (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-EQUAL"
+>gdk_color_equal</A
+>                 (const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colora,
+                                             const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colorb);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-HASH"
+>gdk_color_hash</A
+>                  (const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colora,
+                                             const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colorb);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4448"
+></A
+><H2
+>Description</H2
+><P
+>These functions are used to modify colormaps.
+A colormap is an object that contains the mapping
+between the color values stored in memory and
+the RGB values that are used to display color
+values. In general, colormaps only contain
+significant information for pseudo-color visuals,
+but even for other visual types, a colormap object
+is required in some circumstances.</P
+><P
+>There are a couple of special colormaps that can
+be retrieved. The system colormap (retrieved 
+with <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-GET-SYSTEM"
+>gdk_colormap_get_system</A
+>()) is the default
+colormap of the system. If you are using GdkRGB,
+there is another colormap that is important - the
+colormap in which GdkRGB works, retrieved with
+<A
+HREF="gdk-gdkrgb.html#GDK-RGB-GET-CMAP"
+>gdk_rgb_get_cmap</A
+>(). However, when using GdkRGB, 
+it is not generally necessary to allocate colors
+directly.</P
+><P
+>In previous revisions of this interface, a number
+of functions that take a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> parameter
+were replaced with functions whose names began
+with "gdk_colormap_". This process will probably
+be extended somewhat in the future - 
+<A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-WHITE"
+>gdk_color_white</A
+>(), <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-BLACK"
+>gdk_color_black</A
+>(), and 
+<A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-CHANGE"
+>gdk_color_change</A
+>() will probably become aliases.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4459"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4461"
+></A
+><H3
+><A
+NAME="GDKCOLOR"
+></A
+>struct GdkColor</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkColor
+{
+  gulong  pixel;
+  gushort red;
+  gushort green;
+  gushort blue;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> structure is used to describe an 
+allocated or unallocated color.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4467"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>pixel</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>For allocated colors, the value used to
+draw this color on the screen.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>red</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The red component of the color. This is
+a value between 0 and 65535, with 65535 indicating
+full intensitiy.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>green</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the blue component of the color.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>blue</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the green component of the color..</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4488"
+></A
+><H3
+><A
+NAME="GDKCOLORMAP"
+></A
+>struct GdkColormap</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkColormap
+{
+  gint      size;
+  GdkColor *colors;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The colormap structure contains the following public
+fields.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4493"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>size</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>For pseudo-color colormaps, the number of colors
+in the colormap..</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="STRUCTFIELD"
+><I
+>colors</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An array containing the current values in the
+colormap. This can be used to map from pixel values
+back to RGB values. This is only meaningful for
+pseudo-color colormaps.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4506"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-NEW"
+></A
+>gdk_colormap_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* gdk_colormap_new               (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> allocate);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new colormap for the given visual.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4514"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>allocate</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, the newly created colormap will be
+  a private colormap, and all colors in it will be
+  allocated for the applications use.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4534"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-REF"
+></A
+>gdk_colormap_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* gdk_colormap_ref               (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *cmap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Increase the reference count of a colormap.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4541"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmap</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4556"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-UNREF"
+></A
+>gdk_colormap_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_colormap_unref              (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *cmap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Decrease the reference count of a colormap. If the
+resulting reference count is zero, destroys the colormap.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4562"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4572"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-GET-SYSTEM"
+></A
+>gdk_colormap_get_system ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>* gdk_colormap_get_system        (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the system's default colormap.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4578"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default colormap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4587"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-GET-SYSTEM-SIZE"
+></A
+>gdk_colormap_get_system_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_colormap_get_system_size    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the size of the system's default colormap.
+(See the description of struct <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> for an
+explanation of the size of a colormap.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4594"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the size of the system's default colormap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4603"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-CHANGE"
+></A
+>gdk_colormap_change ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_colormap_change             (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Change the value of the first <TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+> in a private colormap
+to match the values in the <TT
+CLASS="STRUCTFIELD"
+><I
+>colors</I
+></TT
+>
+array in the color map. This function is obsolete and
+should not be used. See <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-CHANGE"
+>gdk_color_change</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4613"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of colors to change.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4627"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-ALLOC-COLORS"
+></A
+>gdk_colormap_alloc_colors ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_colormap_alloc_colors       (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> writeable,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> best_match,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *success);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates colors from a colormap.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4639"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The color values to allocate. On return, the pixel
+ values for allocated colors will be filled in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of colors in <TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>writeable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, the colors are allocated writeable
+ (their values can later be changed using <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-CHANGE"
+>gdk_color_change</A
+>()).
+ Writeable colors cannot be shared between applications.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>best_match</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, GDK will attempt to do matching against
+ existing colors if the colors cannot be allocated as
+ requested.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>success</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An array of length <TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+>. On return, this
+ indicates whether the corresponding color in <TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+> was
+ sucessfully allocated or not.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of colors that were not sucessfully 
+ allocated.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4679"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-ALLOC-COLOR"
+></A
+>gdk_colormap_alloc_color ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_colormap_alloc_color        (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> writeable,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> best_match);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocate a single color from a colormap.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4689"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the color to allocate. On return the
+<TT
+CLASS="STRUCTFIELD"
+><I
+>pixel</I
+></TT
+> field will be
+filled in if allocation succeeds.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>writeable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, the color is allocated writeable
+ (their values can later be changed using <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-CHANGE"
+>gdk_color_change</A
+>()).
+ Writeable colors cannot be shared between applications.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>best_match</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, GDK will attempt to do matching against
+ existing colors if the color cannot be allocated as
+ requested.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the allocation succeeded.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4720"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-FREE-COLORS"
+></A
+>gdk_colormap_free_colors ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_colormap_free_colors        (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Free previously allocated colors.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4728"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the colors to free.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of colors in <TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4747"
+></A
+><H3
+><A
+NAME="GDK-COLORMAP-GET-VISUAL"
+></A
+>gdk_colormap_get_visual ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+>*  gdk_colormap_get_visual         (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return the visual for which a given colormap was created.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4754"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the visual of the colormap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4768"
+></A
+><H3
+><A
+NAME="GDK-COLORS-STORE"
+></A
+>gdk_colors_store ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_colors_store                (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Change the value of the first <TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+> colors in
+a private colormap. This function is obsolete and
+should not be used. See <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-CHANGE"
+>gdk_color_change</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4778"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new color values.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of colors to change.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4796"
+></A
+><H3
+><A
+NAME="GDK-COLOR-COPY"
+></A
+>gdk_color_copy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>*   gdk_color_copy                  (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Make a copy of a color structure. The result
+must be freed using <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-FREE"
+>gdk_color_free</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4804"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a copy of <TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4819"
+></A
+><H3
+><A
+NAME="GDK-COLOR-FREE"
+></A
+>gdk_color_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_color_free                  (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Free a color structure created with 
+<A
+HREF="gdk-colormaps-and-colors.html#GDK-COLOR-COPY"
+>gdk_color_copy</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4826"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4836"
+></A
+><H3
+><A
+NAME="GDK-COLORS-ALLOC"
+></A
+>gdk_colors_alloc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_colors_alloc                (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> contiguous,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *planes,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nplanes,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *pixels,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npixels);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocate colors from a colormap. This function
+is obsolete. See <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-ALLOC-COLORS"
+>gdk_colormap_alloc_colors</A
+>().
+For full documentation of the fields, see 
+the Xlib documentation for XAllocColorCells.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4849"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>contiguous</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, the colors should be allocated
+ in contiguous color cells.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>planes</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array in which to store the plane masks.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nplanes</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of planes to allocate. (Or zero,
+ to indicate that the color allocation should not be
+ planar.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array into which to store allocated pixel
+ values.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>npixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels in each plane to allocate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4884"
+></A
+><H3
+><A
+NAME="GDK-COLORS-FREE"
+></A
+>gdk_colors_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_colors_free                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *pixels,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npixels,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> planes);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Free colors allocated with <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORS-ALLOC"
+>gdk_colors_alloc</A
+>(). This
+function is obsolete. See <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-FREE-COLORS"
+>gdk_colormap_free_colors</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4895"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pixel values of the colors to free.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>npixels</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of values in <TT
+CLASS="PARAMETER"
+><I
+>pixels</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>planes</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the plane masks for all planes to free, OR'd
+ together.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4918"
+></A
+><H3
+><A
+NAME="GDK-COLOR-WHITE"
+></A
+>gdk_color_white ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_color_white                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return the white color for a given colormap. The resulting
+value has already allocated been allocated. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4926"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location to store the color.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the allocation succeeded.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4945"
+></A
+><H3
+><A
+NAME="GDK-COLOR-BLACK"
+></A
+>gdk_color_black ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_color_black                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return the black color for a given colormap. The resulting
+value has already benn allocated. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4953"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the location to store the color.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the allocation succeeded.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4972"
+></A
+><H3
+><A
+NAME="GDK-COLOR-PARSE"
+></A
+>gdk_color_parse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_color_parse                 (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *spec,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Parse a textual specification of a color and fill in
+the <TT
+CLASS="STRUCTFIELD"
+><I
+>red</I
+></TT
+>,
+<TT
+CLASS="STRUCTFIELD"
+><I
+>green</I
+></TT
+>, and 
+<TT
+CLASS="STRUCTFIELD"
+><I
+>blue</I
+></TT
+> fields of a 
+<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> structure. The color is <I
+CLASS="EMPHASIS"
+>not</I
+> 
+allocated, you must call <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-ALLOC-COLOR"
+>gdk_colormap_alloc_color</A
+>() yourself.
+The text string can be in any of the forms accepted
+by <TT
+CLASS="FUNCTION"
+>XParseColor</TT
+>; these include
+name for a color from <TT
+CLASS="FILENAME"
+>rgb.txt</TT
+>, such as
+<TT
+CLASS="LITERAL"
+>DarkSlateGray</TT
+>, or a hex specification
+such as <TT
+CLASS="LITERAL"
+>305050</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4990"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spec</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string specifying the color.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> to fill in</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5008"
+></A
+><H3
+><A
+NAME="GDK-COLOR-ALLOC"
+></A
+>gdk_color_alloc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_color_alloc                 (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocate a single color from a colormap.
+This function is obsolete. See <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-ALLOC-COLOR"
+>gdk_colormap_alloc_color</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5017"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The color to allocate. On return, the 
+<TT
+CLASS="STRUCTFIELD"
+><I
+>pixel</I
+></TT
+> field will be
+filled in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the allocation succeeded.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5037"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CHANGE"
+></A
+>gdk_color_change ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_color_change                (<A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Change the value of a color that has already
+been allocated. If <TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+> is not a private
+colormap, then the color must have been allocated
+using <A
+HREF="gdk-colormaps-and-colors.html#GDK-COLORMAP-ALLOC-COLORS"
+>gdk_colormap_alloc_colors</A
+>() with the 
+<TT
+CLASS="PARAMETER"
+><I
+>writeable</I
+></TT
+> set to <TT
+CLASS="LITERAL"
+>TRUE</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5049"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>, with the color to change
+in the <TT
+CLASS="STRUCTFIELD"
+><I
+>pixel</I
+></TT
+> field,
+and the new value in the remaining fields.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5069"
+></A
+><H3
+><A
+NAME="GDK-COLOR-EQUAL"
+></A
+>gdk_color_equal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_color_equal                 (const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colora,
+                                             const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colorb);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Compare two colors. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5077"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colora</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colorb</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>another <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the two colors compare equal
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5097"
+></A
+><H3
+><A
+NAME="GDK-COLOR-HASH"
+></A
+>gdk_color_hash ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gdk_color_hash                  (const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colora,
+                                             const <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colorb);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A hash function suitable for using for a hash
+table that stores <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>'s.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5106"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colora</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colorb</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>NOT USED.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The hash function appled to <TT
+CLASS="PARAMETER"
+><I
+>colora</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-images.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-color-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Images</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Color Contexts</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

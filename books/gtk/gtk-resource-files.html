@@ -1,0 +1,3872 @@
+<HTML
+><HEAD
+><TITLE
+>Resource Files</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Themes"
+HREF="gtk-themes.html"><LINK
+REL="NEXT"
+TITLE="Keyboard Accelerators"
+HREF="gtk-keyboard-accelerators.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-themes.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-keyboard-accelerators.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-RESOURCE-FILES"
+>Resource Files</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4594"
+></A
+><H2
+>Name</H2
+>Resource Files&nbsp;--&nbsp;Routines for handling resource files</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4597"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+>;
+enum        <A
+HREF="gtk-resource-files.html#GTKRCFLAGS"
+>GtkRcFlags</A
+>;
+<A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A>*  (<A
+HREF="gtk-resource-files.html#GTKIMAGELOADER"
+>*GtkImageLoader</A
+>)               (<A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A> *window,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> *colormap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *transparent_color,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);
+enum        <A
+HREF="gtk-resource-files.html#GTKRCTOKENTYPE"
+>GtkRcTokenType</A
+>;
+<A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+>*   <A
+HREF="gtk-resource-files.html#GTK-RC-GET-STYLE"
+>gtk_rc_get_style</A
+>                (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-ADD-WIDGET-NAME-STYLE"
+>gtk_rc_add_widget_name_style</A
+>    (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-ADD-WIDGET-CLASS-STYLE"
+>gtk_rc_add_widget_class_style</A
+>   (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-ADD-CLASS-STYLE"
+>gtk_rc_add_class_style</A
+>          (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-PARSE"
+>gtk_rc_parse</A
+>                    (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-PARSE-STRING"
+>gtk_rc_parse_string</A
+>             (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *rc_string);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-resource-files.html#GTK-RC-REPARSE-ALL"
+>gtk_rc_reparse_all</A
+>              (void);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-ADD-DEFAULT-FILE"
+>gtk_rc_add_default_file</A
+>         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>**     <A
+HREF="gtk-resource-files.html#GTK-RC-GET-DEFAULT-FILES"
+>gtk_rc_get_default_files</A
+>        (void);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-SET-DEFAULT-FILES"
+>gtk_rc_set_default_files</A
+>        (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **filenames);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-resource-files.html#GTK-RC-PARSE-COLOR"
+>gtk_rc_parse_color</A
+>              (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *color);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-resource-files.html#GTK-RC-PARSE-STATE"
+>gtk_rc_parse_state</A
+>              (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSTATETYPE"
+>GtkStateType</A
+> *state);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-resource-files.html#GTK-RC-PARSE-PRIORITY"
+>gtk_rc_parse_priority</A
+>           (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPATHPRIORITYTYPE"
+>GtkPathPriorityType</A
+> *priority);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-resource-files.html#GTK-RC-FIND-MODULE-IN-PATH"
+>gtk_rc_find_module_in_path</A
+>      (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *module_file);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-resource-files.html#GTK-RC-FIND-PIXMAP-IN-PATH"
+>gtk_rc_find_pixmap_in_path</A
+>      (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pixmap_file);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-resource-files.html#GTK-RC-GET-MODULE-DIR"
+>gtk_rc_get_module_dir</A
+>           (void);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-resource-files.html#GTK-RC-GET-THEME-DIR"
+>gtk_rc_get_theme_dir</A
+>            (void);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-SET-IMAGE-LOADER"
+>gtk_rc_set_image_loader</A
+>         (<A
+HREF="gtk-resource-files.html#GTKIMAGELOADER"
+>GtkImageLoader</A
+> loader);
+<A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A>*  <A
+HREF="gtk-resource-files.html#GTK-RC-LOAD-IMAGE"
+>gtk_rc_load_image</A
+>               (<A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> *colormap,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *transparent_color,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);
+<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+>* <A
+HREF="gtk-resource-files.html#GTK-RC-STYLE-NEW"
+>gtk_rc_style_new</A
+>                (void);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-STYLE-REF"
+>gtk_rc_style_ref</A
+>                (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style);
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-STYLE-UNREF"
+>gtk_rc_style_unref</A
+>              (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style);
+
+void        <A
+HREF="gtk-resource-files.html#GTK-RC-INIT"
+>gtk_rc_init</A
+>                     (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4671"
+></A
+><H2
+>Description</H2
+><P
+>GTK+ provides resource file mechanism for configuring
+various aspects of the operation of a GTK+ program
+at runtime.</P
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4674"
+></A
+><H3
+>Default files</H3
+><P
+>An application can cause GTK+ to parse a specific RC
+file by calling <A
+HREF="gtk-resource-files.html#GTK-RC-PARSE"
+>gtk_rc_parse</A
+>(). In addition to this,
+certain files will be read at the end of <A
+HREF="gtk-general.html#GTK-INIT"
+>gtk_init</A
+>().
+Unless modified, the files looked for will be <TT
+CLASS="FILENAME"
+>.gtkrc</TT
+>
+in the users home directory, and 
+<TT
+CLASS="FILENAME"
+>$localstatedir/gtk/gtkrc</TT
+> 
+(<TT
+CLASS="LITERAL"
+>$localstatedir</TT
+> defaults to 
+<TT
+CLASS="FILENAME"
+>/usr/local/etc</TT
+>).</P
+><P
+>The set of these <I
+CLASS="FIRSTTERM"
+>default</I
+> files
+can be retrieved with <A
+HREF="gtk-resource-files.html#GTK-RC-GET-DEFAULT-FILES"
+>gtk_rc_get_default_files</A
+>()
+and modified with <A
+HREF="gtk-resource-files.html#GTK-RC-ADD-DEFAULT-FILE"
+>gtk_rc_add_default_file</A
+>() and
+<A
+HREF="gtk-resource-files.html#GTK-RC-SET-DEFAULT-FILES"
+>gtk_rc_set_default_files</A
+>().</P
+><P
+>For each default file, in addition to the file itself,
+GTK+ will look for a locale-specific file that will
+be parsed in addition to the main file. For instance,
+if <TT
+CLASS="LITERAL"
+>LANG</TT
+> is set to <TT
+CLASS="LITERAL"
+>ja_JP.ujis</TT
+>,
+when loading the default file <TT
+CLASS="FILENAME"
+>~/.gtkrc</TT
+>
+then GTK+ looks for <TT
+CLASS="FILENAME"
+>~/.gtkrc.ja_JP.ujis</TT
+>,
+<TT
+CLASS="FILENAME"
+>~/.gtkrc.ja_JP</TT
+>, and
+<TT
+CLASS="FILENAME"
+>~/.gtkrc.ja</TT
+>, and parses the
+first one it finds.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4695"
+></A
+><H3
+>Pathnames and patterns</H3
+><P
+>A resource file defines a number of styles and key bindings and
+attaches them to particular widgets. The attachment is done
+by the <TT
+CLASS="LITERAL"
+>widget</TT
+>, <TT
+CLASS="LITERAL"
+>widget_class</TT
+>,
+and <TT
+CLASS="LITERAL"
+>class</TT
+> declarations. As an example
+of such a statement:
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>widget "mywindow.*.GtkEntry" style "my-entry-class"</PRE
+></TD
+></TR
+></TABLE
+>
+attaches the style <TT
+CLASS="LITERAL"
+>"my-entry-class"</TT
+>
+to all widgets whose <I
+CLASS="FIRSTTERM"
+>widget class</I
+>
+matches the <I
+CLASS="FIRSTTERM"
+>pattern</I
+>
+<TT
+CLASS="LITERAL"
+>"mywindow.*.GtkEntry"</TT
+>.</P
+><P
+>The patterns here are given in the standard shell glob
+syntax. The <TT
+CLASS="LITERAL"
+>"?"</TT
+> wildcard matches
+any character, while <TT
+CLASS="LITERAL"
+>"*"</TT
+> matches
+zero or more of any character. The three types of
+matching are against the widget path, the
+<I
+CLASS="FIRSTTERM"
+>class path</I
+> and the class
+heirarchy. Both the widget and the class paths consists of a
+<TT
+CLASS="LITERAL"
+>"."</TT
+> separated list of all the
+parents of the widget and the widget itself from
+outermost to innermost. The difference is that in
+the widget path, the name assigned by
+<TT
+CLASS="FUNCTION"
+><A
+HREF="gtkwidget.html#GTK-WIDGET-SET-NAME"
+>gtk_widget_set_name</A
+>()</TT
+> is used
+if present, otherwise the class name of the widget, while
+for the widget path, the class name is always used.</P
+><P
+>So, if you have a <TT
+CLASS="CLASSNAME"
+>GtkEntry</TT
+> named
+<TT
+CLASS="LITERAL"
+>"myentry"</TT
+>, inside of a of a window
+named <TT
+CLASS="LITERAL"
+>"mywindow"</TT
+>, then the
+widget path is:
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>"mwindow.GtkHBox.myentry"</PRE
+></TD
+></TR
+></TABLE
+>
+while the class path is:
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>"GtkWindow.GtkHBox.GtkEntry"</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>Matching against class is a little different. The pattern
+match is done against all class names in the widgets
+class heirarchy (not the layout heirarchy) in sequence, so the
+pattern:
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>class "GtkButton" style "my-style"</PRE
+></TD
+></TR
+></TABLE
+>
+will match not just <TT
+CLASS="CLASSNAME"
+>GtkButton</TT
+> widgets,
+but also <TT
+CLASS="CLASSNAME"
+>GtkToggleButton</TT
+> and
+<TT
+CLASS="CLASSNAME"
+>GtkCheckButton</TT
+> widgets, since
+those classes derive from <TT
+CLASS="CLASSNAME"
+>GtkButton</TT
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4725"
+></A
+><H3
+>Toplevel declarations</H3
+><P
+>An RC file is a text file which is composed of a sequence
+of declarations. '#' characters delimit comments and
+the portion of a line after a '#' is ignored when parsing
+an RC file.</P
+><P
+>The possible toplevel declarations are:
+
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="LITERAL"
+>binding <TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+>
+     { ... }</TT
+></DT
+><DD
+><P
+>Declare a binding set</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>class <TT
+CLASS="REPLACEABLE"
+><I
+>pattern</I
+></TT
+> 
+          [ style | binding [ : <TT
+CLASS="REPLACEABLE"
+><I
+>priority</I
+></TT
+> ]]
+          <TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Specify a style or binding set for a particular
+     branch of the inheritance heirarchy.</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>include <TT
+CLASS="REPLACEABLE"
+><I
+>filename</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Parse another file at this point</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>module_path <TT
+CLASS="REPLACEABLE"
+><I
+>path&#62;</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Sets a path (a list of directories separated
+      by colons) that will be searched for theme engines referenced in
+      RC files.</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>pixmap_path <TT
+CLASS="REPLACEABLE"
+><I
+>path&#62;</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Sets a path (a list of directories separated
+      by colons) that will be searched for pixmaps referenced in
+      RC files.</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>style <TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+> [ =
+    <TT
+CLASS="REPLACEABLE"
+><I
+>parent</I
+></TT
+> ] { ... }</TT
+></DT
+><DD
+><P
+>Declare a style</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>widget <TT
+CLASS="REPLACEABLE"
+><I
+>pattern</I
+></TT
+> 
+          [ style | binding [ : <TT
+CLASS="REPLACEABLE"
+><I
+>priority</I
+></TT
+> ]]
+          <TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Specify a style or binding set for a particular
+     group of widgets by matching on the widget pathname.</P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>widget_class <TT
+CLASS="REPLACEABLE"
+><I
+>pattern</I
+></TT
+> 
+          [ style | binding [ : <TT
+CLASS="REPLACEABLE"
+><I
+>priority</I
+></TT
+> ]]
+          <TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Specify a style or binding set for a particular
+     group of widgets by matching on the class pathname.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4785"
+></A
+><H3
+>Styles</H3
+><P
+>A RC style is specified by a <TT
+CLASS="LITERAL"
+>style</TT
+> 
+declaration in a RC file, and then bound to widgets
+with a <TT
+CLASS="LITERAL"
+>widget</TT
+>, <TT
+CLASS="LITERAL"
+>widget_class</TT
+>,
+or <TT
+CLASS="LITERAL"
+>class</TT
+> declaration. All styles
+applying to a particular widget are composited together
+with <TT
+CLASS="LITERAL"
+>widget</TT
+> declarations overriding
+<TT
+CLASS="LITERAL"
+>widget_class</TT
+> declarations which, in
+turn, override <TT
+CLASS="LITERAL"
+>widget</TT
+> declarations.
+Within each type of declaration, later declarations override
+earlier ones.</P
+><P
+>Within a <TT
+CLASS="LITERAL"
+>style</TT
+> declaration, the possible
+elements are:
+
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="LITERAL"
+>bg[<TT
+CLASS="REPLACEABLE"
+><I
+>state</I
+></TT
+>] =
+      <TT
+CLASS="REPLACEABLE"
+><I
+>color</I
+></TT
+></TT
+></DT
+><DD
+><P
+>         Set color used for the background of most widgets.
+       </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>fg[<TT
+CLASS="REPLACEABLE"
+><I
+>state</I
+></TT
+>] =
+      <TT
+CLASS="REPLACEABLE"
+><I
+>color</I
+></TT
+></TT
+></DT
+><DD
+><P
+>         Set color used for the foreground of most widgets.
+       </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>base[<TT
+CLASS="REPLACEABLE"
+><I
+>state</I
+></TT
+>] =
+      <TT
+CLASS="REPLACEABLE"
+><I
+>color</I
+></TT
+></TT
+></DT
+><DD
+><P
+>         Set color used for the background of widgets displaying
+         editable text. This color is used for the background
+         of, among others, <A
+HREF="gtktext.html"
+>GtkText</A
+>, <A
+HREF="gtkentry.html"
+>GtkEntry</A
+>, <A
+HREF="gtklist.html"
+>GtkList</A
+>, and <A
+HREF="gtkclist.html"
+>GtkClist</A
+>.
+       </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>text[<TT
+CLASS="REPLACEABLE"
+><I
+>state</I
+></TT
+>] =
+      <TT
+CLASS="REPLACEABLE"
+><I
+>color</I
+></TT
+></TT
+></DT
+><DD
+><P
+>         Set color used for foreground of widgets using
+         <TT
+CLASS="LITERAL"
+>base</TT
+> for the background color.
+       </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>bg_text[<TT
+CLASS="REPLACEABLE"
+><I
+>state</I
+></TT
+>] =
+      <TT
+CLASS="REPLACEABLE"
+><I
+>color</I
+></TT
+></TT
+></DT
+><DD
+><P
+>         Set a background pixmap to be used in place of
+         the <TT
+CLASS="LITERAL"
+>bg</TT
+> color (or for <A
+HREF="gtktext.html"
+>GtkText</A
+>,
+         in place of the <TT
+CLASS="LITERAL"
+>base</TT
+> color.
+       </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>font = <TT
+CLASS="REPLACEABLE"
+><I
+>font</I
+></TT
+></TT
+></DT
+><DD
+><P
+>         Set the font for a widget.
+       </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>fontset = <TT
+CLASS="REPLACEABLE"
+><I
+>font</I
+></TT
+></TT
+></DT
+><DD
+><P
+>         Set the fontset for a widget. Overrides any
+         <TT
+CLASS="LITERAL"
+>font</TT
+> declarations.
+       </P
+></DD
+></DL
+></DIV
+></P
+><P
+>The colors and background pixmaps are specified as a function of the
+state of the widget. The states are:
+
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="LITERAL"
+>NORMAL</TT
+></DT
+><DD
+><P
+>        A color used for a widget in its normal state
+      </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>ACTIVE</TT
+></DT
+><DD
+><P
+>        A variant of the <TT
+CLASS="LITERAL"
+>NORMAL</TT
+> color used when the
+        widget is in the <TT
+CLASS="LITERAL"
+>GTK_STATE_ACTIVE</TT
+> state, and also for
+        the trough of a ScrollBar, tabs of a NoteBook
+        other than the current tab and similar areas.
+        Frequently, this should be a darker variant
+        of the <TT
+CLASS="LITERAL"
+>NORMAL</TT
+> color.
+      </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>PRELIGHT</TT
+></DT
+><DD
+><P
+>        A color used for widgets in the <TT
+CLASS="LITERAL"
+>GTK_STATE_PRELIGHT</TT
+> state. This
+        state is the used for Buttons and MenuItems
+        that have the mouse cursor over them, and for 
+        their children.
+      </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>SELECTED</TT
+></DT
+><DD
+><P
+>        A color used to highlight data selected by the user.
+        for instance, the selected ListItems in a List widget, and the
+        selection in an Editable widget.
+      </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>INSENSITIVE</TT
+></DT
+><DD
+><P
+>        A color used for the background of widgets that have
+        been set insenstivie with gtk_widget_set_senstive()
+      </P
+></DD
+></DL
+></DIV
+></P
+><P
+>Colors can be specified as a string <TT
+CLASS="LITERAL"
+>"#rrrrggggbbbb"</TT
+>,
+<TT
+CLASS="LITERAL"
+>"#rrrgggbbb"</TT
+>, <TT
+CLASS="LITERAL"
+>"#rrggbb"</TT
+>,
+or <TT
+CLASS="LITERAL"
+>"#rgb"</TT
+>, where <TT
+CLASS="LITERAL"
+>r</TT
+>
+<TT
+CLASS="LITERAL"
+>g</TT
+>, and <TT
+CLASS="LITERAL"
+>b</TT
+> are
+hex digits, or they can be specified as a triplet of floats
+<TT
+CLASS="LITERAL"
+>{ <TT
+CLASS="REPLACEABLE"
+><I
+>r</I
+></TT
+>, <TT
+CLASS="REPLACEABLE"
+><I
+>g</I
+></TT
+>,
+<TT
+CLASS="REPLACEABLE"
+><I
+>b</I
+></TT
+>}</TT
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4898"
+></A
+><H3
+>Key bindings</H3
+><P
+>Key bindings allow the user to specify actions to be 
+taken on particular key presses. The form of a binding
+set declaration is:</P
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>binding <TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+> {
+  bind <TT
+CLASS="REPLACEABLE"
+><I
+>key</I
+></TT
+> { 
+    <TT
+CLASS="REPLACEABLE"
+><I
+>signalname</I
+></TT
+> (<TT
+CLASS="REPLACEABLE"
+><I
+>param</I
+></TT
+>, ...)
+    ...
+  }
+  ...
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="REPLACEABLE"
+><I
+>key</I
+></TT
+> is a string consisting of a 
+series of modifiers followed by the name of a key. The
+modifiers can be:
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;alt&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;control&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;mod1&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;mod2&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;mod3&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;mod4&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;mod5&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;release&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;shft&gt;</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>&lt;shift&gt;</TT
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+<TT
+CLASS="LITERAL"
+>&lt;shft&gt;</TT
+> is an alias for 
+<TT
+CLASS="LITERAL"
+>&lt;shift&gt;</TT
+> and 
+<TT
+CLASS="LITERAL"
+>&lt;alt&gt;</TT
+> is an alias for
+<TT
+CLASS="LITERAL"
+>&lt;mod1&gt;</TT
+>.</P
+><P
+>The action that is bound to the key is a sequence
+of signal names (strings) followed by parameters for 
+each signal. The signals must be action signals.
+(See <A
+HREF="gtk-signals.html#GTK-SIGNAL-NEW"
+>gtk_signal_new</A
+>()). Each parameter can be
+a float, integer, string, or unquoted string
+representing an enumeration value. The types of
+the parameters specified must match the types of the 
+parameters of the signal.</P
+><P
+>Binding sets are connected to widgets in the
+same manner as styles, with one addition. 
+A priority can be specified for each pattern,
+and within each type of pattern, binding sets
+override other binding sets first by priority,
+and only then by order of specification. (Later
+overrides earlier). The priorities that can
+be specified are (highest to lowest):
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>HIGHEST</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>RC</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>APPLICATION</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>GTK</TT
+></TD
+></TR
+><TR
+><TD
+><TT
+CLASS="LITERAL"
+>LOWEST</TT
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+<TT
+CLASS="LITERAL"
+>RC</TT
+> is the default for bindings
+read from an RC file, <TT
+CLASS="LITERAL"
+>APPLICATION</TT
+>
+should be used for bindings an application sets
+up, and <TT
+CLASS="LITERAL"
+>GTK</TT
+> is used for bindings
+that GTK+ creates internally.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4950"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4952"
+></A
+><H3
+><A
+NAME="GTKRCSTYLE"
+></A
+>struct GtkRcStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkRcStyle
+{
+  gchar *name;
+  gchar *font_name;
+  gchar *fontset_name;
+  gchar *bg_pixmap_name[5];
+
+  GtkRcFlags color_flags[5];
+  GdkColor   fg[5];
+  GdkColor   bg[5];
+  GdkColor   text[5];
+  GdkColor   base[5];
+
+  GtkThemeEngine *engine;
+  gpointer        engine_data;
+
+  /* Private */
+  guint ref_count;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> structure is used to represent a set
+of information about the appearance of a widget.
+This can later be composited together with other
+<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> structures to form a <A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4960"
+></A
+><H3
+><A
+NAME="GTKRCFLAGS"
+></A
+>enum GtkRcFlags</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum {
+  GTK_RC_FG   = 1 &lt;&lt; 0,
+  GTK_RC_BG   = 1 &lt;&lt; 1,
+  GTK_RC_TEXT = 1 &lt;&lt; 2,
+  GTK_RC_BASE = 1 &lt;&lt; 3
+} GtkRcFlags;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtk-resource-files.html#GTKRCFLAGS"
+>GtkRcFlags</A
+> enumeration is used as a bitmask
+to specify which fields of a <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> have been
+set for each state.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="LITERAL"
+>GTK_RC_FG</TT
+></DT
+><DD
+><P
+>   If present, the foreground color has been set for this state.
+   </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>GTK_RC_BG</TT
+></DT
+><DD
+><P
+>   If present, the background color has been set for this state.
+   </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>GTK_RC_TEXT</TT
+></DT
+><DD
+><P
+>   If present, the text color has been set for this state.
+   </P
+></DD
+><DT
+><TT
+CLASS="LITERAL"
+>GTK_RC_BASE</TT
+></DT
+><DD
+><P
+>   If present, the base color has been set for this state.
+   </P
+></DD
+></DL
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4988"
+></A
+><H3
+><A
+NAME="GTKIMAGELOADER"
+></A
+>GtkImageLoader ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A>*  (*GtkImageLoader)               (<A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A> *window,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> *colormap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *transparent_color,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A GtkImageLoader is used to load a filename found in
+a RC file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4999"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window for creating image</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the colormap for this image</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the location to store the mask</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>transparent_color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the transparent color for the image</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>filename to load</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> representing <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5030"
+></A
+><H3
+><A
+NAME="GTKRCTOKENTYPE"
+></A
+>enum GtkRcTokenType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum {
+  GTK_RC_TOKEN_INVALID = G_TOKEN_LAST,
+  GTK_RC_TOKEN_INCLUDE,
+  GTK_RC_TOKEN_NORMAL,
+  GTK_RC_TOKEN_ACTIVE,
+  GTK_RC_TOKEN_PRELIGHT,
+  GTK_RC_TOKEN_SELECTED,
+  GTK_RC_TOKEN_INSENSITIVE,
+  GTK_RC_TOKEN_FG,
+  GTK_RC_TOKEN_BG,
+  GTK_RC_TOKEN_BASE,
+  GTK_RC_TOKEN_TEXT,
+  GTK_RC_TOKEN_FONT,
+  GTK_RC_TOKEN_FONTSET,
+  GTK_RC_TOKEN_BG_PIXMAP,
+  GTK_RC_TOKEN_PIXMAP_PATH,
+  GTK_RC_TOKEN_STYLE,
+  GTK_RC_TOKEN_BINDING,
+  GTK_RC_TOKEN_BIND,
+  GTK_RC_TOKEN_WIDGET,
+  GTK_RC_TOKEN_WIDGET_CLASS,
+  GTK_RC_TOKEN_CLASS,
+  GTK_RC_TOKEN_LOWEST,
+  GTK_RC_TOKEN_GTK,
+  GTK_RC_TOKEN_APPLICATION,
+  GTK_RC_TOKEN_RC,
+  GTK_RC_TOKEN_HIGHEST,
+  GTK_RC_TOKEN_ENGINE,
+  GTK_RC_TOKEN_MODULE_PATH,
+  GTK_RC_TOKEN_LAST
+} GtkRcTokenType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtk-resource-files.html#GTKRCTOKENTYPE"
+>GtkRcTokenType</A
+> enumeration represents the tokens
+in the RC file. It is exposed so that theme engines
+can reuse these tokens when parsing the theme-engine
+specific portions of a RC file.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5036"
+></A
+><H3
+><A
+NAME="GTK-RC-GET-STYLE"
+></A
+>gtk_rc_get_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+>*   gtk_rc_get_style                (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds all matching RC styles for a given widget,
+composites them together, and then creates a 
+<A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+> representing the composite appearance.
+(GTK+ actually keeps a cache of previously 
+created styles, so a new style may not be
+created.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5044"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the resulting style. The caller should
+reference the result, since GTK+ will retain the
+initial reference count itself for the cache
+of created styles.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5058"
+></A
+><H3
+><A
+NAME="GTK-RC-ADD-WIDGET-NAME-STYLE"
+></A
+>gtk_rc_add_widget_name_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_add_widget_name_style    (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a RcStyle that will be looked up by a match against
+the widget's pathname. This is equivalent to a:
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>widget PATTERN style STYLE</PRE
+></TD
+></TR
+></TABLE
+>
+statement in a RC file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5066"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rc_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> to use for widgets matching <TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pattern
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5081"
+></A
+><H3
+><A
+NAME="GTK-RC-ADD-WIDGET-CLASS-STYLE"
+></A
+>gtk_rc_add_widget_class_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_add_widget_class_style   (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a RcStyle that will be looked up by a match against
+the widget's class pathname. This is equivalent to a:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>widget_class PATTERN style STYLE</PRE
+></TD
+></TR
+></TABLE
+>
+statement in a RC file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5089"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rc_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> to use for widgets matching <TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pattern
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5104"
+></A
+><H3
+><A
+NAME="GTK-RC-ADD-CLASS-STYLE"
+></A
+>gtk_rc_add_class_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_add_class_style          (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pattern);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Add a RcStyle that will be looked up by a matching against
+the class heirarchy of the widget. This is equivalent to a:
+<TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>class PATTERN style STYLE</PRE
+></TD
+></TR
+></TABLE
+>
+statement in a RC file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5112"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rc_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> to use for widgets deriving from <TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pattern</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pattern
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5127"
+></A
+><H3
+><A
+NAME="GTK-RC-PARSE"
+></A
+>gtk_rc_parse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_parse                    (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Parse a given resource file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5133"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the filename of a file to parse.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5142"
+></A
+><H3
+><A
+NAME="GTK-RC-PARSE-STRING"
+></A
+>gtk_rc_parse_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_parse_string             (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *rc_string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Parse resource information directly from a string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5148"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rc_string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string to parse.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5157"
+></A
+><H3
+><A
+NAME="GTK-RC-REPARSE-ALL"
+></A
+>gtk_rc_reparse_all ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_rc_reparse_all              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the modification time on any previously read file
+has changed, discard all style information
+and then reread all previously read RC files.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5163"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the files were reread.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5173"
+></A
+><H3
+><A
+NAME="GTK-RC-ADD-DEFAULT-FILE"
+></A
+>gtk_rc_add_default_file ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_add_default_file         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a file to the list of files to be parsed at the
+end of <A
+HREF="gtk-general.html#GTK-INIT"
+>gtk_init</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5180"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pathname to the file.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5189"
+></A
+><H3
+><A
+NAME="GTK-RC-GET-DEFAULT-FILES"
+></A
+>gtk_rc_get_default_files ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>**     gtk_rc_get_default_files        (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves the current list of RC files that will be parsed
+at the end of <A
+HREF="gtk-general.html#GTK-INIT"
+>gtk_init</A
+>()</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5196"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A NULL terminated array of filenames. This memory
+is owned by GTK+ and must not be freed by the application.
+If you want to store this information, you should make a 
+copy.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5205"
+></A
+><H3
+><A
+NAME="GTK-RC-SET-DEFAULT-FILES"
+></A
+>gtk_rc_set_default_files ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_set_default_files        (<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **filenames);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the list of files that GTK+ will read at the
+end of <A
+HREF="gtk-general.html#GTK-INIT"
+>gtk_init</A
+>()</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5212"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filenames</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A <TT
+CLASS="LITERAL"
+>NULL</TT
+> terminated list of filenames.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5222"
+></A
+><H3
+><A
+NAME="GTK-RC-PARSE-COLOR"
+></A
+>gtk_rc_parse_color ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_rc_parse_color              (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Parses a color in the format expected in a RC file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5230"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scanner</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkScanner</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a GtkColor structure in which to store the result</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>G_TOKEN_NONE</TT
+> if parsing suceeded, otherwise the token
+that was expected but not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5250"
+></A
+><H3
+><A
+NAME="GTK-RC-PARSE-STATE"
+></A
+>gtk_rc_parse_state ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_rc_parse_state              (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKSTATETYPE"
+>GtkStateType</A
+> *state);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Parses a <A
+HREF="gtk-standard-enumerations.html#GTKSTATETYPE"
+>GtkStateType</A
+> variable from the format expected
+in a RC file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5259"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scanner</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkScanner (must be initialized for parsing an RC file)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to a <A
+HREF="gtk-standard-enumerations.html#GTKSTATETYPE"
+>GtkStateType</A
+> variable in which to
+store the result.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>G_TOKEN_NONE</TT
+> if parsing suceeded, otherwise the token
+that was expected but not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5279"
+></A
+><H3
+><A
+NAME="GTK-RC-PARSE-PRIORITY"
+></A
+>gtk_rc_parse_priority ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_rc_parse_priority           (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKPATHPRIORITYTYPE"
+>GtkPathPriorityType</A
+> *priority);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Parses a <A
+HREF="gtk-standard-enumerations.html#GTKPATHPRIORITYTYPE"
+>GtkPathPriorityType</A
+> variable from the format expected
+in a RC file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5288"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scanner</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkScanner (must be initialized for parsing an RC file)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A pointer to <A
+HREF="gtk-standard-enumerations.html#GTKPATHPRIORITYTYPE"
+>GtkPathPriorityType</A
+> variable in which
+to store the result.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>G_TOKEN_NONE</TT
+> if parsing suceeded, otherwise the token
+that was expected but not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5308"
+></A
+><H3
+><A
+NAME="GTK-RC-FIND-MODULE-IN-PATH"
+></A
+>gtk_rc_find_module_in_path ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_rc_find_module_in_path      (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *module_file);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Looks up a file in the current module path.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5315"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>module_file</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The name of the module to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The filename, if found. (Must be freed with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>()),
+otherwise <TT
+CLASS="LITERAL"
+>NULL</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5330"
+></A
+><H3
+><A
+NAME="GTK-RC-FIND-PIXMAP-IN-PATH"
+></A
+>gtk_rc_find_pixmap_in_path ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_rc_find_pixmap_in_path      (<A
+HREF=../glib/glib-lexical-scanner.html#GSCANNER
+>GScanner</A> *scanner,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *pixmap_file);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Looks up a file in the current pixmap path. If the file is
+not found, it outputs a warning message using <A
+HREF=../glib/glib-message-logging.html#G-WARNING
+>g_warning</A>()
+and returns <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5340"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>scanner</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkScanner. Used for printing out warning messages
+if the file is not found.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_file</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The name of the file to search for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The filename, if found. (Must be freed with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>()),
+otherwise <TT
+CLASS="LITERAL"
+>NULL</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5360"
+></A
+><H3
+><A
+NAME="GTK-RC-GET-MODULE-DIR"
+></A
+>gtk_rc_get_module_dir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_rc_get_module_dir           (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the directory in which GTK+ will look for
+theme engines.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5366"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The directory. (Must be freed with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>())
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5376"
+></A
+><H3
+><A
+NAME="GTK-RC-GET-THEME-DIR"
+></A
+>gtk_rc_get_theme_dir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_rc_get_theme_dir            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the standard directory in which themes should
+be installed. (GTK+ does not actually use this directory
+itself.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5382"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The directory. (Must be freed with <A
+HREF=../glib/glib-memory-allocation.html#G-FREE
+>g_free</A>())
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5392"
+></A
+><H3
+><A
+NAME="GTK-RC-SET-IMAGE-LOADER"
+></A
+>gtk_rc_set_image_loader ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_set_image_loader         (<A
+HREF="gtk-resource-files.html#GTKIMAGELOADER"
+>GtkImageLoader</A
+> loader);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the function that GTK+ will use to load images </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5398"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>loader</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtk-resource-files.html#GTKIMAGELOADER"
+>GtkImageLoader</A
+> to use
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5408"
+></A
+><H3
+><A
+NAME="GTK-RC-LOAD-IMAGE"
+></A
+>gtk_rc_load_image ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A>*  gtk_rc_load_image               (<A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> *colormap,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *transparent_color,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *filename);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function. Loads an image using the current
+image loader.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5417"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the colormap to use for the image</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>transparent_color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the transparent color for the image</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the filename of the image file</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+> representing <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5440"
+></A
+><H3
+><A
+NAME="GTK-RC-STYLE-NEW"
+></A
+>gtk_rc_style_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+>* gtk_rc_style_new                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> with no fields set and
+a reference count of 1.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5447"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly create <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5457"
+></A
+><H3
+><A
+NAME="GTK-RC-STYLE-REF"
+></A
+>gtk_rc_style_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_style_ref                (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Increment the reference count of a <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5464"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rc_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5474"
+></A
+><H3
+><A
+NAME="GTK-RC-STYLE-UNREF"
+></A
+>gtk_rc_style_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_style_unref              (<A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> *rc_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Decrement the reference count of a <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+> and
+free if the result is 0.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5481"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>rc_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtk-resource-files.html#GTKRCSTYLE"
+>GtkRcStyle</A
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5491"
+></A
+><H3
+><A
+NAME="GTK-RC-INIT"
+></A
+>gtk_rc_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_rc_init                     (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Internal function.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-themes.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-keyboard-accelerators.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Themes</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Keyboard Accelerators</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

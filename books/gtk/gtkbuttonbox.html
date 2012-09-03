@@ -1,0 +1,2007 @@
+<HTML
+><HEAD
+><TITLE
+>GtkButtonBox</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkAspectFrame"
+HREF="gtkaspectframe.html"><LINK
+REL="NEXT"
+TITLE="GtkBin"
+HREF="gtkbin.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkaspectframe.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkbin.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKBUTTONBOX"
+>GtkButtonBox</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13624"
+></A
+><H2
+>Name</H2
+>GtkButtonBox&nbsp;--&nbsp;Base class for <A
+HREF="gtkhbuttonbox.html"
+>GtkHButtonBox</A
+> and <A
+HREF="gtkvbuttonbox.html"
+>GtkVButtonBox</A
+></DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13629"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkbuttonbox.html#GTKBUTTONBOX-STRUCT"
+>GtkButtonBox</A
+>;
+#define     <A
+HREF="gtkbuttonbox.html#GTK-BUTTONBOX-DEFAULT-CAPS"
+>GTK_BUTTONBOX_DEFAULT</A
+>
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-SIZE-DEFAULT"
+>gtk_button_box_get_child_size_default</A
+>
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_height);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-IPADDING-DEFAULT"
+>gtk_button_box_get_child_ipadding_default</A
+>
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_y);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-SIZE-DEFAULT"
+>gtk_button_box_set_child_size_default</A
+>
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_height);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-IPADDING-DEFAULT"
+>gtk_button_box_set_child_ipadding_default</A
+>
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_y);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-SPACING"
+>gtk_button_box_get_spacing</A
+>      (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget);
+<A
+HREF="gtk-standard-enumerations.html#GTKBUTTONBOXSTYLE"
+>GtkButtonBoxStyle</A
+> <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-LAYOUT"
+>gtk_button_box_get_layout</A
+> (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-SIZE"
+>gtk_button_box_get_child_size</A
+>   (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_height);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-IPADDING"
+>gtk_button_box_get_child_ipadding</A
+>
+                                            (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_y);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-SPACING"
+>gtk_button_box_set_spacing</A
+>      (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> spacing);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-LAYOUT"
+>gtk_button_box_set_layout</A
+>       (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKBUTTONBOXSTYLE"
+>GtkButtonBoxStyle</A
+> layout_style);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-SIZE"
+>gtk_button_box_set_child_size</A
+>   (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_height);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-IPADDING"
+>gtk_button_box_set_child_ipadding</A
+>
+                                            (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_y);
+void        <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-CHILD-REQUISITION"
+>gtk_button_box_child_requisition</A
+>
+                                            (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             int *nvis_children,
+                                             int *width,
+                                             int *height);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13676"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbox.html"
+>GtkBox</A
+>
+                     +----GtkButtonBox</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13683"
+></A
+><H2
+>Description</H2
+><P
+>&#13;The primary purpose of this class is to keep track of the various properties
+
+of <A
+HREF="gtkhbuttonbox.html"
+>GtkHButtonBox</A
+> and <A
+HREF="gtkvbuttonbox.html"
+>GtkVButtonBox</A
+> widgets.&#13;</P
+><P
+>&#13;<A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-SIZE-DEFAULT"
+>gtk_button_box_get_child_size_default</A
+>() retrieves the default minimum width and height 
+
+for widgets in any button box. <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-SIZE-DEFAULT"
+>gtk_button_box_set_child_size_default</A
+>()
+
+changes the default minimum child widget size.&#13;</P
+><P
+>&#13;<A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-SIZE"
+>gtk_button_box_get_child_size</A
+>() retrieves the minimum width and height 
+
+for widgets in a given button box. <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-SIZE"
+>gtk_button_box_set_child_size</A
+>() 
+
+allows those properties to be changed.&#13;</P
+><P
+>&#13;<A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-IPADDING-DEFAULT"
+>gtk_button_box_get_child_ipadding_default</A
+>() gets the default number of pixels of 
+
+horizontal and vertical padding that are applied to each button in every button box.
+
+<A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-IPADDING-DEFAULT"
+>gtk_button_box_set_child_ipadding_default</A
+>() allows these defaults to be
+
+changed.&#13;</P
+><P
+>&#13;The internal padding of buttons can be retrieved and changed per button box using
+
+<A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-CHILD-IPADDING"
+>gtk_button_box_get_child_ipadding</A
+>() and <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-CHILD-IPADDING"
+>gtk_button_box_set_child_ipadding</A
+>()
+
+respectively.&#13;</P
+><P
+>&#13;<A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-SPACING"
+>gtk_button_box_get_spacing</A
+>() and <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-SPACING"
+>gtk_button_box_set_spacing</A
+>() retrieve and
+
+change default number of pixels between buttons, respectively.&#13;</P
+><P
+>&#13;<A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-GET-LAYOUT"
+>gtk_button_box_get_layout</A
+>() and <A
+HREF="gtkbuttonbox.html#GTK-BUTTON-BOX-SET-LAYOUT"
+>gtk_button_box_set_layout</A
+>() retrieve and alter the method
+
+used to spread the buttons in a button box across the container, respectively.&#13;</P
+><P
+>&#13;&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13707"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13709"
+></A
+><H3
+><A
+NAME="GTKBUTTONBOX-STRUCT"
+></A
+>struct GtkButtonBox</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkButtonBox;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;This is a read-only struct; no members should be modified directly.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13714"
+></A
+><H3
+><A
+NAME="GTK-BUTTONBOX-DEFAULT-CAPS"
+></A
+>GTK_BUTTONBOX_DEFAULT</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_BUTTONBOX_DEFAULT -1</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Used internally only.&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13719"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-GET-CHILD-SIZE-DEFAULT"
+></A
+>gtk_button_box_get_child_size_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_get_child_size_default
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Retrieves the default minimum width and height for all button boxes, and
+
+places the values in <TT
+CLASS="PARAMETER"
+><I
+>min_width</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>min_height</I
+></TT
+>, respectively.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13728"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default minimum width of a child widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default minimum height of a child widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13741"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-GET-CHILD-IPADDING-DEFAULT"
+></A
+>gtk_button_box_get_child_ipadding_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_get_child_ipadding_default
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;The internal padding of a button is the amount of space between the outside
+
+of the button and the widget it contains. This function gets the default
+
+amount of horizontal and vertical padding, placing the results in <TT
+CLASS="PARAMETER"
+><I
+>ipad_x</I
+></TT
+>
+
+and <TT
+CLASS="PARAMETER"
+><I
+>ipad_y</I
+></TT
+>, respectively.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13750"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default horizontal internal button padding.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the default vertical internal button padding.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13763"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-SET-CHILD-SIZE-DEFAULT"
+></A
+>gtk_button_box_set_child_size_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_set_child_size_default
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the default size of child buttons.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13770"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>minimum default width for child buttons.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>minimum default height for child buttons.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13783"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-SET-CHILD-IPADDING-DEFAULT"
+></A
+>gtk_button_box_set_child_ipadding_default ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_set_child_ipadding_default
+                                            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the default number of pixels that pad each button in every button box.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13790"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>new default horizontal padding.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>new default vertical padding.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13803"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-GET-SPACING"
+></A
+>gtk_button_box_get_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_button_box_get_spacing      (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Retrieves how much space a button box is placing between each child button.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13810"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the current spacing applied to the buttons in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13825"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-GET-LAYOUT"
+></A
+>gtk_button_box_get_layout ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-standard-enumerations.html#GTKBUTTONBOXSTYLE"
+>GtkButtonBoxStyle</A
+> gtk_button_box_get_layout (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Retrieves the method being used to arrange the buttons in a button box.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13832"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the method used to layout buttons in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13847"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-GET-CHILD-SIZE"
+></A
+>gtk_button_box_get_child_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_get_child_size   (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *min_height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Retrieves the current width and height of all child widgets in a button box.
+
+<TT
+CLASS="PARAMETER"
+><I
+>min_width</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>min_height</I
+></TT
+> are filled with those values, respectively.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13857"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the buttons contained by <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the buttons contained by <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13877"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-GET-CHILD-IPADDING"
+></A
+>gtk_button_box_get_child_ipadding ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_get_child_ipadding
+                                            (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *ipad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Gets the default number of pixels that pad the buttons in a given button box.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13885"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the horizontal padding used by buttons in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the vertical padding used by buttons in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13905"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-SET-SPACING"
+></A
+>gtk_button_box_set_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_set_spacing      (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the amount of spacing between buttons in a given button box.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13912"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels of spacing.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13926"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-SET-LAYOUT"
+></A
+>gtk_button_box_set_layout ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_set_layout       (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKBUTTONBOXSTYLE"
+>GtkButtonBoxStyle</A
+> layout_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Changes the way buttons are arranged in their container.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13933"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>layout_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new layout style.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13947"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-SET-CHILD-SIZE"
+></A
+>gtk_button_box_set_child_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_set_child_size   (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> min_height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets a new default size for the children of a given button box.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13955"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a default width for buttons in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a default height for buttons in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13975"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-SET-CHILD-IPADDING"
+></A
+>gtk_button_box_set_child_ipadding ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_set_child_ipadding
+                                            (<A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+> *widget,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ipad_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Changes the amount of internal padding used by all buttons in a given button
+
+box.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13983"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the horizontal padding that should be used by each button in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ipad_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the vertical padding that should be used by each button in <TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14003"
+></A
+><H3
+><A
+NAME="GTK-BUTTON-BOX-CHILD-REQUISITION"
+></A
+>gtk_button_box_child_requisition ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_button_box_child_requisition
+                                            (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             int *nvis_children,
+                                             int *width,
+                                             int *height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;This is an internally used function and should never be called from an
+
+application.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14009"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nvis_children</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14030"
+></A
+><H2
+>See Also</H2
+><P
+>&#13;<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkvbuttonbox.html"
+>GtkVButtonBox</A
+></DT
+><DD
+><P
+>Vertical sub-class of <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</P
+></DD
+><DT
+><A
+HREF="gtkhbuttonbox.html"
+>GtkHButtonBox</A
+></DT
+><DD
+><P
+>Horizontal sub-class of <A
+HREF="gtkbuttonbox.html"
+>GtkButtonBox</A
+>.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkaspectframe.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkbin.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkAspectFrame</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkBin</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

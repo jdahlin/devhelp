@@ -1,0 +1,1423 @@
+<HTML
+><HEAD
+><TITLE
+>Pointer Arrays</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Arrays"
+HREF="glib-arrays.html"><LINK
+REL="NEXT"
+TITLE="Byte Arrays"
+HREF="glib-byte-arrays.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-byte-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-POINTER-ARRAYS"
+>Pointer Arrays</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN14734"
+></A
+><H2
+>Name</H2
+>Pointer Arrays&nbsp;--&nbsp;arrays of pointers to any type of data, which grow automatically as new
+elements are added.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14737"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>;
+<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>*  <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-NEW"
+>g_ptr_array_new</A
+>                 (void);
+void        <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-ADD"
+>g_ptr_array_add</A
+>                 (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE"
+>g_ptr_array_remove</A
+>              (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE-INDEX"
+>g_ptr_array_remove_index</A
+>        (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE-FAST"
+>g_ptr_array_remove_fast</A
+>         (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE-INDEX-FAST"
+>g_ptr_array_remove_index_fast</A
+>   (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);
+void        <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-SET-SIZE"
+>g_ptr_array_set_size</A
+>            (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> length);
+#define     <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-INDEX"
+>g_ptr_array_index</A
+>               (array,index)
+void        <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-FREE"
+>g_ptr_array_free</A
+>                (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> free_seg);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14769"
+></A
+><H2
+>Description</H2
+><P
+>Pointer Arrays are similar to Arrays but are used only for storing pointers.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>If you remove elements from the array, elements at the end of the array
+are moved into the space previously occupied by the removed element.
+This means that you should not rely on the index of particular elements
+remaining the same. You should also be careful when deleting elements while
+iterating over the array.</P
+></BLOCKQUOTE
+></DIV
+><P
+>To create a pointer array, use <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-NEW"
+>g_ptr_array_new</A
+>().</P
+><P
+>To add elements to a pointer array, use <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-ADD"
+>g_ptr_array_add</A
+>().</P
+><P
+>To remove elements from a pointer array, use <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE"
+>g_ptr_array_remove</A
+>(),
+<A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE-INDEX"
+>g_ptr_array_remove_index</A
+>() or <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE-INDEX-FAST"
+>g_ptr_array_remove_index_fast</A
+>().</P
+><P
+>To access an element of a pointer array, use <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-INDEX"
+>g_ptr_array_index</A
+>().</P
+><P
+>To set the size of a pointer array, use <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-SET-SIZE"
+>g_ptr_array_set_size</A
+>().</P
+><P
+>To free a pointer array, use <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-FREE"
+>g_ptr_array_free</A
+>().</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN14788"
+></A
+><P
+><B
+>Example 1. Using a GPtrArray.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  GPtrArray *gparray;
+  gchar *string1 = "one", *string2 = "two", *string3 = "three";
+
+  gparray = <A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-NEW"
+>g_ptr_array_new</A
+>();
+  g_ptr_array_add (gparray, (gpointer) string1);
+  g_ptr_array_add (gparray, (gpointer) string2);
+  g_ptr_array_add (gparray, (gpointer) string3);
+
+  if (g_ptr_array_index (gparray, 0) != (gpointer) string1)
+    g_print ("ERROR: got <TT
+CLASS="LITERAL"
+>p</TT
+> instead of <TT
+CLASS="LITERAL"
+>p</TT
+>\n",
+             g_ptr_array_index (gparray, 0), string1);
+
+  g_ptr_array_free (gparray, TRUE);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14794"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14796"
+></A
+><H3
+><A
+NAME="GPTRARRAY"
+></A
+>struct GPtrArray</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GPtrArray
+{
+  gpointer *pdata;
+  guint	    len;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Contains the public fields of a pointer array.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>pdata</I
+></TT
+> field points to the array of pointers,
+which may as when the array grows.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>len</I
+></TT
+> field is the number of pointers in the
+array.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14803"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-NEW"
+></A
+>g_ptr_array_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>*  g_ptr_array_new                 (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14810"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14820"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-ADD"
+></A
+>g_ptr_array_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_ptr_array_add                 (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a pointer to the end of the pointer array.
+The array will grow in size automatically if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14827"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer to add.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14841"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-REMOVE"
+></A
+>g_ptr_array_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_ptr_array_remove              (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the first occurrence of the given pointer from the pointer array.
+The following elements are moved down one place.</P
+><P
+>It returns TRUE if the pointer was removed, or FALSE if the pointer
+was not found.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14850"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the pointer is removed. FALSE if the pointer is not found
+in the array.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14868"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-REMOVE-INDEX"
+></A
+>g_ptr_array_remove_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_ptr_array_remove_index        (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the pointer at the given index from the pointer array.
+The following elements are moved down one place.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14876"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the pointer to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer which was removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14894"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-REMOVE-FAST"
+></A
+>g_ptr_array_remove_fast ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_ptr_array_remove_fast         (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the first occurrence of the given pointer from the pointer array.
+The last element in the array is used to fill in the space, so this function
+does not preserve the order of the array. But it is faster than
+<A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE"
+>g_ptr_array_remove</A
+>().</P
+><P
+>It returns TRUE if the pointer was removed, or FALSE if the pointer
+was not found.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14904"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the pointer was found in the array.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14922"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-REMOVE-INDEX-FAST"
+></A
+>g_ptr_array_remove_index_fast ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_ptr_array_remove_index_fast   (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the pointer at the given index from the pointer array.
+The last element in the array is used to fill in the space, so this function
+does not preserve the order of the array. But it is faster than
+<A
+HREF="glib-pointer-arrays.html#G-PTR-ARRAY-REMOVE-INDEX"
+>g_ptr_array_remove_index</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14931"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the pointer to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer which was removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14949"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-SET-SIZE"
+></A
+>g_ptr_array_set_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_ptr_array_set_size            (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the size of the array, expanding it if necessary.
+New elements are set to NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14956"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new length of the pointer array.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14970"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-INDEX"
+></A
+>g_ptr_array_index()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_ptr_array_index(array,index)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the pointer at the given index of the pointer array.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN14975"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the pointer to return.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer at the given index.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN14993"
+></A
+><H3
+><A
+NAME="G-PTR-ARRAY-FREE"
+></A
+>g_ptr_array_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_ptr_array_free                (<A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+> *array,
+                                             <A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+> free_seg);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees all of the memory allocated for the pointer array.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15000"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>array</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-pointer-arrays.html#GPTRARRAY"
+>GPtrArray</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>free_seg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if TRUE the actual element data is freed as well.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-byte-arrays.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Arrays</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Byte Arrays</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

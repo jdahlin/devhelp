@@ -1,0 +1,3788 @@
+<HTML
+><HEAD
+><TITLE
+>Doubly-Linked Lists</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Memory Chunks"
+HREF="glib-memory-chunks.html"><LINK
+REL="NEXT"
+TITLE="Singly-Linked Lists"
+HREF="glib-singly-linked-lists.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-memory-chunks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-singly-linked-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-DOUBLY-LINKED-LISTS"
+>Doubly-Linked Lists</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11188"
+></A
+><H2
+>Name</H2
+>Doubly-Linked Lists&nbsp;--&nbsp;linked lists containing integer values or pointers to data, with the ability
+to iterate over the list in both directions.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11191"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>;
+
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-APPEND"
+>g_list_append</A
+>                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-PREPEND"
+>g_list_prepend</A
+>                  (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INSERT"
+>g_list_insert</A
+>                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> position);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INSERT-SORTED"
+>g_list_insert_sorted</A
+>            (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-REMOVE"
+>g_list_remove</A
+>                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-REMOVE-LINK"
+>g_list_remove_link</A
+>              (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *llink);
+void        <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FREE"
+>g_list_free</A
+>                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);
+
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-ALLOC"
+>g_list_alloc</A
+>                    (void);
+void        <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FREE-1"
+>g_list_free_1</A
+>                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-doubly-linked-lists.html#G-LIST-LENGTH"
+>g_list_length</A
+>                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-COPY"
+>g_list_copy</A
+>                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-REVERSE"
+>g_list_reverse</A
+>                  (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-SORT"
+>g_list_sort</A
+>                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> compare_func);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-CONCAT"
+>g_list_concat</A
+>                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list1,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list2);
+void        <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FOREACH"
+>g_list_foreach</A
+>                  (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GFUNC"
+>GFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+void        (<A
+HREF="glib-doubly-linked-lists.html#GFUNC"
+>*GFunc</A
+>)                        (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FIRST"
+>g_list_first</A
+>                    (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-LAST"
+>g_list_last</A
+>                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);
+#define     <A
+HREF="glib-doubly-linked-lists.html#G-LIST-PREVIOUS"
+>g_list_previous</A
+>                 (list)
+#define     <A
+HREF="glib-doubly-linked-lists.html#G-LIST-NEXT"
+>g_list_next</A
+>                     (list)
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-NTH"
+>g_list_nth</A
+>                      (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-doubly-linked-lists.html#G-LIST-NTH-DATA"
+>g_list_nth_data</A
+>                 (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);
+
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FIND"
+>g_list_find</A
+>                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FIND-CUSTOM"
+>g_list_find_custom</A
+>              (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-doubly-linked-lists.html#G-LIST-POSITION"
+>g_list_position</A
+>                 (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *llink);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INDEX"
+>g_list_index</A
+>                    (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+void        <A
+HREF="glib-doubly-linked-lists.html#G-LIST-PUSH-ALLOCATOR"
+>g_list_push_allocator</A
+>           (<A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> *allocator);
+void        <A
+HREF="glib-doubly-linked-lists.html#G-LIST-POP-ALLOCATOR"
+>g_list_pop_allocator</A
+>            (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11287"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> structure and its associated functions provide a standard
+doubly-linked list data structure.</P
+><P
+>Each element in the list contains a piece of data, together with pointers
+which link to the previous and next elements in the list.
+Using these pointers it is possible to move through the list in both
+directions (unlike the
+<A
+HREF="glib-singly-linked-lists.html"
+>Singly-Linked Lists</A
+>
+which only allows movement through the list in the forward direction).</P
+><P
+>The data contained in each element can be either integer values, by using one
+of the
+<A
+HREF="glib-type-conversion-macros.html"
+>Type Conversion Macros</A
+>,
+or simply pointers to any type of data.</P
+><P
+>List elements are allocated in blocks using a GListAllocator, which is
+more efficient than allocating elements individually.</P
+><P
+>Note that most of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> functions expect to be passed a pointer to
+the first element in the list. The functions which insert elements return
+the new start of the list, which may have changed.</P
+><P
+>There is no function to create a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>. NULL is considered to be the empty
+list so you simply set a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>* to NULL.</P
+><P
+>To add elements, use <A
+HREF="glib-doubly-linked-lists.html#G-LIST-APPEND"
+>g_list_append</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-PREPEND"
+>g_list_prepend</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INSERT"
+>g_list_insert</A
+>()
+and <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INSERT-SORTED"
+>g_list_insert_sorted</A
+>().</P
+><P
+>To remove elements, use <A
+HREF="glib-doubly-linked-lists.html#G-LIST-REMOVE"
+>g_list_remove</A
+>().</P
+><P
+>To find elements in the list use <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FIRST"
+>g_list_first</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-LAST"
+>g_list_last</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-NEXT"
+>g_list_next</A
+>(),
+<A
+HREF="glib-doubly-linked-lists.html#G-LIST-PREVIOUS"
+>g_list_previous</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-NTH"
+>g_list_nth</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-NTH-DATA"
+>g_list_nth_data</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FIND"
+>g_list_find</A
+>() and
+<A
+HREF="glib-doubly-linked-lists.html#G-LIST-FIND-CUSTOM"
+>g_list_find_custom</A
+>().</P
+><P
+>To find the index of an element use <A
+HREF="glib-doubly-linked-lists.html#G-LIST-POSITION"
+>g_list_position</A
+>() and <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INDEX"
+>g_list_index</A
+>().</P
+><P
+>To call a function for each element in the list use <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FOREACH"
+>g_list_foreach</A
+>().</P
+><P
+>To free the entire list, use <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FREE"
+>g_list_free</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11325"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11327"
+></A
+><H3
+><A
+NAME="GLIST"
+></A
+>struct GList</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GList
+{
+  gpointer data;
+  GList *next;
+  GList *prev;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> struct is used for each element in a doubly-linked list.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>data</I
+></TT
+> field holds the element's data, which can
+be a pointer to any kind of data, or any integer value using the
+<A
+HREF="glib-type-conversion-macros.html"
+>Type Conversion Macros</A
+>.
+The <TT
+CLASS="STRUCTFIELD"
+><I
+>next</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>prev</I
+></TT
+>
+pointers are the links to the next and previous elements in the list.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11337"
+></A
+><H3
+><A
+NAME="G-LIST-APPEND"
+></A
+>g_list_append ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_append                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new element on to the end of the list.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>The return value is the new start of the list, which may have changed, so
+make sure you store the new value.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN11347"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  /* Notice that these are initialized to the empty list. */
+  GList *list = NULL, *number_list = NULL;
+
+  /* This is a list of strings. */
+  list = g_list_append (list, "first");
+  list = g_list_append (list, "second");
+
+  /* This is a list of integers. */
+  number_list = g_list_append (number_list, GINT_TO_POINTER (27));
+  number_list = g_list_append (number_list, GINT_TO_POINTER (14));</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11349"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11368"
+></A
+><H3
+><A
+NAME="G-LIST-PREPEND"
+></A
+>g_list_prepend ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_prepend                  (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a new element on to the start of the list.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>The return value is the new start of the list, which may have changed, so
+make sure you store the new value.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALEXAMPLE"
+><A
+NAME="AEN11378"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  /* Notice that it is initialized to the empty list. */
+  GList *list = NULL;
+  list = g_list_prepend (list, "last");
+  list = g_list_prepend (list, "first");</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11380"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11399"
+></A
+><H3
+><A
+NAME="G-LIST-INSERT"
+></A
+>g_list_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_insert                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> position);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new element into the list at the given position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11408"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>position</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position to insert the element. If this is negative, or is
+larger than the number of elements in the list, the new element is added on
+to the end of the list.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11431"
+></A
+><H3
+><A
+NAME="G-LIST-INSERT-SORTED"
+></A
+>g_list_insert_sorted ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_insert_sorted            (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new element into the list, using the given comparison function
+to determine its position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11440"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data for the new element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to compare elements in the list. It should return a
+number &#62; 0 if the first parameter comes after the second parameter in
+the sort order.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11463"
+></A
+><H3
+><A
+NAME="G-LIST-REMOVE"
+></A
+>g_list_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_remove                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes an element from a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+If two elements contain the same data, only the first is removed.
+If none of the elements contain the data, the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> is unchanged.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11473"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data of the element to remove.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11492"
+></A
+><H3
+><A
+NAME="G-LIST-REMOVE-LINK"
+></A
+>g_list_remove_link ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_remove_link              (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *llink);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes an element from a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>, without freeing the element.
+The removed element's prev and next links are set to NULL, so that it becomes a
+self-contained list with one element.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11501"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>llink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an element in the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new start of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>, without the element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11521"
+></A
+><H3
+><A
+NAME="G-LIST-FREE"
+></A
+>g_list_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_list_free                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees all of the memory used by a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+The freed elements are added to the GListAllocator free list.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>If list elements contain dynamically-allocated memory, they should be freed
+first.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11531"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11540"
+></A
+><H3
+><A
+NAME="G-LIST-ALLOC"
+></A
+>g_list_alloc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_alloc                    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allocates space for one <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> element.
+It is called by <A
+HREF="glib-doubly-linked-lists.html#G-LIST-APPEND"
+>g_list_append</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-PREPEND"
+>g_list_prepend</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INSERT"
+>g_list_insert</A
+>() and
+<A
+HREF="glib-doubly-linked-lists.html#G-LIST-INSERT-SORTED"
+>g_list_insert_sorted</A
+>() and so is rarely used on its own.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11551"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the newly-allocated <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11561"
+></A
+><H3
+><A
+NAME="G-LIST-FREE-1"
+></A
+>g_list_free_1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_list_free_1                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees one <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> element.
+It is usually used after <A
+HREF="glib-doubly-linked-lists.html#G-LIST-REMOVE-LINK"
+>g_list_remove_link</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11569"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> element.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11579"
+></A
+><H3
+><A
+NAME="G-LIST-LENGTH"
+></A
+>g_list_length ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_list_length                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the number of elements in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11587"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of elements in the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11602"
+></A
+><H3
+><A
+NAME="G-LIST-COPY"
+></A
+>g_list_copy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_copy                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Copies a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><P
+>Note that this is a "shallow" copy. If the list elements consist of pointers
+to data, the pointers are copied but the actual data isn't.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11611"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a copy of <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11626"
+></A
+><H3
+><A
+NAME="G-LIST-REVERSE"
+></A
+>g_list_reverse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_reverse                  (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reverses a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+It simply switches the next and prev pointers of each element.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11634"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start of the reversed <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11649"
+></A
+><H3
+><A
+NAME="G-LIST-SORT"
+></A
+>g_list_sort ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_sort                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> compare_func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sorts a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> using the given comparison function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11658"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>compare_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the comparison function used to sort the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>. This function
+is passed 2 elements of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> and should return 0 if they are equal,
+a negative value if the first element comes before the second, or a positive
+value if the first element comes after the second.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start of the sorted <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11679"
+></A
+><H3
+><A
+NAME="G-LIST-CONCAT"
+></A
+>g_list_concat ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_concat                   (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list1,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the second <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> onto the end of the first <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+Note that the elements of the second <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> are not copied.
+They are used directly.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11690"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> to add to the end of the first <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start of the new <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11711"
+></A
+><H3
+><A
+NAME="G-LIST-FOREACH"
+></A
+>g_list_foreach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_list_foreach                  (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GFUNC"
+>GFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calls a function for each element of a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11720"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call with each element's data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11738"
+></A
+><H3
+><A
+NAME="GFUNC"
+></A
+>GFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GFunc)                        (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of functions passed to <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FOREACH"
+>g_list_foreach</A
+>() and
+<A
+HREF="glib-singly-linked-lists.html#G-SLIST-FOREACH"
+>g_slist_foreach</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11747"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FOREACH"
+>g_list_foreach</A
+>() or <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FOREACH"
+>g_slist_foreach</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11762"
+></A
+><H3
+><A
+NAME="G-LIST-FIRST"
+></A
+>g_list_first ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_first                    (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the first element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11770"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the first element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>, or NULL if the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> has no elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11786"
+></A
+><H3
+><A
+NAME="G-LIST-LAST"
+></A
+>g_list_last ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_last                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the last element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11794"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the last element in the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>, or NULL if the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> has no
+elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11810"
+></A
+><H3
+><A
+NAME="G-LIST-PREVIOUS"
+></A
+>g_list_previous()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_list_previous(list)</PRE
+></TD
+></TR
+></TABLE
+><P
+>A convenience macro to gets the previous element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11816"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the previous element, or NULL if there are no previous elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11830"
+></A
+><H3
+><A
+NAME="G-LIST-NEXT"
+></A
+>g_list_next()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_list_next(list)</PRE
+></TD
+></TR
+></TABLE
+><P
+>A convenience macro to gets the next element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11836"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the next element, or NULL if there are no more elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11850"
+></A
+><H3
+><A
+NAME="G-LIST-NTH"
+></A
+>g_list_nth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_nth                      (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the element at the given position in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11859"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the element, counting from 0.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element, or NULL if the position is off the end of the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11878"
+></A
+><H3
+><A
+NAME="G-LIST-NTH-DATA"
+></A
+>g_list_nth_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_list_nth_data                 (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> n);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the data of the element at the given position.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11886"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the element.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element's data, or NULL if the position is off the end of the
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11905"
+></A
+><H3
+><A
+NAME="G-LIST-FIND"
+></A
+>g_list_find ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_find                     (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds the element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> which contains the given data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11914"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the element data to find.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the found <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> element, or NULL if it is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11933"
+></A
+><H3
+><A
+NAME="G-LIST-FIND-CUSTOM"
+></A
+>g_list_find_custom ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_list_find_custom              (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds an element in a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>, using a supplied function to find the desired
+element.
+It iterates over the list, calling the given function which should return 0
+when the desired element is found.
+The function takes two <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> arguments, the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> element's data
+and the given user data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11945"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call for each element. It should return 0 when the
+desired element is found.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the found <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> element, or NULL if it is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11968"
+></A
+><H3
+><A
+NAME="G-LIST-POSITION"
+></A
+>g_list_position ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_list_position                 (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *llink);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the position of the given element in the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> (starting from 0).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11977"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>llink</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an element in the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position of the element in the <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>, or -1 if the element is
+not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11997"
+></A
+><H3
+><A
+NAME="G-LIST-INDEX"
+></A
+>g_list_index ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_list_index                    (<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *list,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the position of the element containing the given data (starting from 0).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12005"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the data to find.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the element containing the data, or -1 if the data
+is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12023"
+></A
+><H3
+><A
+NAME="G-LIST-PUSH-ALLOCATOR"
+></A
+>g_list_push_allocator ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_list_push_allocator           (<A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> *allocator);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the allocator to use to allocate <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> elements.
+Use <A
+HREF="glib-doubly-linked-lists.html#G-LIST-POP-ALLOCATOR"
+>g_list_pop_allocator</A
+>() to restore the previous allocator.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12031"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>allocator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+> to use when allocating <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> elements.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12042"
+></A
+><H3
+><A
+NAME="G-LIST-POP-ALLOCATOR"
+></A
+>g_list_pop_allocator ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_list_pop_allocator            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Restores the previous <A
+HREF="glib-memory-allocators.html#GALLOCATOR"
+>GAllocator</A
+>, used when allocating <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> elements.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-memory-chunks.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-singly-linked-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Memory Chunks</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Singly-Linked Lists</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

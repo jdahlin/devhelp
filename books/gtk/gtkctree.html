@@ -1,0 +1,12712 @@
+<HTML
+><HEAD
+><TITLE
+>GtkCTree</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkContainer"
+HREF="gtkcontainer.html"><LINK
+REL="NEXT"
+TITLE="GtkCurve"
+HREF="gtkcurve.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkcontainer.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcurve.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKCTREE"
+>GtkCTree</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN20821"
+></A
+><H2
+>Name</H2
+>GtkCTree&nbsp;--&nbsp;a widget displaying a hierarchical tree.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN20824"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkctree.html#GTKCTREE-STRUCT"
+>GtkCTree</A
+>;
+#define     <A
+HREF="gtkctree.html#GTK-CTREE-ROW-CAPS"
+>GTK_CTREE_ROW</A
+>                   (_node_)
+#define     <A
+HREF="gtkctree.html#GTK-CTREE-NODE-CAPS"
+>GTK_CTREE_NODE</A
+>                  (_node_)
+#define     <A
+HREF="gtkctree.html#GTK-CTREE-NODE-NEXT-CAPS"
+>GTK_CTREE_NODE_NEXT</A
+>             (_nnode_)
+#define     <A
+HREF="gtkctree.html#GTK-CTREE-NODE-PREV-CAPS"
+>GTK_CTREE_NODE_PREV</A
+>             (_pnode_)
+#define     <A
+HREF="gtkctree.html#GTK-CTREE-FUNC-CAPS"
+>GTK_CTREE_FUNC</A
+>                  (_func_)
+enum        <A
+HREF="gtkctree.html#GTKCTREEPOS"
+>GtkCTreePos</A
+>;
+enum        <A
+HREF="gtkctree.html#GTKCTREELINESTYLE"
+>GtkCTreeLineStyle</A
+>;
+enum        <A
+HREF="gtkctree.html#GTKCTREEEXPANDERSTYLE"
+>GtkCTreeExpanderStyle</A
+>;
+enum        <A
+HREF="gtkctree.html#GTKCTREEEXPANSIONTYPE"
+>GtkCTreeExpansionType</A
+>;
+void        (<A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>*GtkCTreeFunc</A
+>)                 (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    (<A
+HREF="gtkctree.html#GTKCTREEGNODEFUNC"
+>*GtkCTreeGNodeFunc</A
+>)            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> depth,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *gnode,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *cnode,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    (<A
+HREF="gtkctree.html#GTKCTREECOMPAREDRAGFUNC"
+>*GtkCTreeCompareDragFunc</A
+>)      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *source_node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_sibling);
+struct      <A
+HREF="gtkctree.html#GTKCTREEROW"
+>GtkCTreeRow</A
+>;
+struct      <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>;
+void        <A
+HREF="gtkctree.html#GTK-CTREE-CONSTRUCT"
+>gtk_ctree_construct</A
+>             (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tree_column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *titles[]);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkctree.html#GTK-CTREE-NEW-WITH-TITLES"
+>gtk_ctree_new_with_titles</A
+>       (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tree_column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *titles[]);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkctree.html#GTK-CTREE-NEW"
+>gtk_ctree_new</A
+>                   (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tree_column);
+<A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* <A
+HREF="gtkctree.html#GTK-CTREE-INSERT-NODE"
+>gtk_ctree_insert_node</A
+>         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *sibling,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text[],
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_opened,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_opened,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_leaf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expanded);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-REMOVE-NODE"
+>gtk_ctree_remove_node</A
+>           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+<A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* <A
+HREF="gtkctree.html#GTK-CTREE-INSERT-GNODE"
+>gtk_ctree_insert_gnode</A
+>        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *sibling,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *gnode,
+                                             <A
+HREF="gtkctree.html#GTKCTREEGNODEFUNC"
+>GtkCTreeGNodeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A>*      <A
+HREF="gtkctree.html#GTK-CTREE-EXPORT-TO-GNODE"
+>gtk_ctree_export_to_gnode</A
+>       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *parent,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *sibling,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREEGNODEFUNC"
+>GtkCTreeGNodeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-POST-RECURSIVE"
+>gtk_ctree_post_recursive</A
+>        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-POST-RECURSIVE-TO-DEPTH"
+>gtk_ctree_post_recursive_to_depth</A
+>
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-PRE-RECURSIVE"
+>gtk_ctree_pre_recursive</A
+>         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-PRE-RECURSIVE-TO-DEPTH"
+>gtk_ctree_pre_recursive_to_depth</A
+>
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtkctree.html#GTK-CTREE-IS-VIEWABLE"
+>gtk_ctree_is_viewable</A
+>           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+<A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* <A
+HREF="gtkctree.html#GTK-CTREE-LAST"
+>gtk_ctree_last</A
+>                (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+<A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* <A
+HREF="gtkctree.html#GTK-CTREE-FIND-NODE-PTR"
+>gtk_ctree_find_node_ptr</A
+>       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREEROW"
+>GtkCTreeRow</A
+> *ctree_row);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtkctree.html#GTK-CTREE-FIND"
+>gtk_ctree_find</A
+>                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *child);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtkctree.html#GTK-CTREE-IS-ANCESTOR"
+>gtk_ctree_is_ancestor</A
+>           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *child);
+<A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* <A
+HREF="gtkctree.html#GTK-CTREE-FIND-BY-ROW-DATA"
+>gtk_ctree_find_by_row_data</A
+>    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      <A
+HREF="gtkctree.html#GTK-CTREE-FIND-ALL-BY-ROW-DATA"
+>gtk_ctree_find_all_by_row_data</A
+>  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* <A
+HREF="gtkctree.html#GTK-CTREE-FIND-BY-ROW-DATA-CUSTOM"
+>gtk_ctree_find_by_row_data_custom</A
+>
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GCOMPAREFUNC
+>GCompareFunc</A> func);
+<A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      <A
+HREF="gtkctree.html#GTK-CTREE-FIND-ALL-BY-ROW-DATA-CUSTOM"
+>gtk_ctree_find_all_by_row_data_custom</A
+>
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GCOMPAREFUNC
+>GCompareFunc</A> func);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtkctree.html#GTK-CTREE-IS-HOT-SPOT"
+>gtk_ctree_is_hot_spot</A
+>           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-MOVE"
+>gtk_ctree_move</A
+>                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_sibling);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-EXPAND"
+>gtk_ctree_expand</A
+>                (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-EXPAND-RECURSIVE"
+>gtk_ctree_expand_recursive</A
+>      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-EXPAND-TO-DEPTH"
+>gtk_ctree_expand_to_depth</A
+>       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-COLLAPSE"
+>gtk_ctree_collapse</A
+>              (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-COLLAPSE-RECURSIVE"
+>gtk_ctree_collapse_recursive</A
+>    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-COLLAPSE-TO-DEPTH"
+>gtk_ctree_collapse_to_depth</A
+>     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-TOGGLE-EXPANSION"
+>gtk_ctree_toggle_expansion</A
+>      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-TOGGLE-EXPANSION-RECURSIVE"
+>gtk_ctree_toggle_expansion_recursive</A
+>
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SELECT"
+>gtk_ctree_select</A
+>                (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SELECT-RECURSIVE"
+>gtk_ctree_select_recursive</A
+>      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-UNSELECT"
+>gtk_ctree_unselect</A
+>              (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-UNSELECT-RECURSIVE"
+>gtk_ctree_unselect_recursive</A
+>    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-REAL-SELECT-RECURSIVE"
+>gtk_ctree_real_select_recursive</A
+> (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> state);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-TEXT"
+>gtk_ctree_node_set_text</A
+>         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-PIXMAP"
+>gtk_ctree_node_set_pixmap</A
+>       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-PIXTEXT"
+>gtk_ctree_node_set_pixtext</A
+>      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SET-NODE-INFO"
+>gtk_ctree_set_node_info</A
+>         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_opened,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_opened,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_leaf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expanded);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-SHIFT"
+>gtk_ctree_node_set_shift</A
+>        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> vertical,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> horizontal);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-SELECTABLE"
+>gtk_ctree_node_set_selectable</A
+>   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> selectable);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-SELECTABLE"
+>gtk_ctree_node_get_selectable</A
+>   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+<A
+HREF="gtkclist.html#GTKCELLTYPE"
+>GtkCellType</A
+> <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-CELL-TYPE"
+>gtk_ctree_node_get_cell_type</A
+>    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-TEXT"
+>gtk_ctree_node_get_text</A
+>         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **text);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-PIXMAP"
+>gtk_ctree_node_get_pixmap</A
+>       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-PIXTEXT"
+>gtk_ctree_node_get_pixtext</A
+>      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> *spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkctree.html#GTK-CTREE-GET-NODE-INFO"
+>gtk_ctree_get_node_info</A
+>         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> *spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap_opened,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask_opened,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *is_leaf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *expanded);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-ROW-STYLE"
+>gtk_ctree_node_set_row_style</A
+>    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+> *style);
+<A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+>*   <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-ROW-STYLE"
+>gtk_ctree_node_get_row_style</A
+>    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-CELL-STYLE"
+>gtk_ctree_node_set_cell_style</A
+>   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+> *style);
+<A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+>*   <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-CELL-STYLE"
+>gtk_ctree_node_get_cell_style</A
+>   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-FOREGROUND"
+>gtk_ctree_node_set_foreground</A
+>   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *color);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-BACKGROUND"
+>gtk_ctree_node_set_background</A
+>   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *color);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-ROW-DATA"
+>gtk_ctree_node_set_row_data</A
+>     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-SET-ROW-DATA-FULL"
+>gtk_ctree_node_set_row_data_full</A
+>
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);
+<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    <A
+HREF="gtkctree.html#GTK-CTREE-NODE-GET-ROW-DATA"
+>gtk_ctree_node_get_row_data</A
+>     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-NODE-MOVETO"
+>gtk_ctree_node_moveto</A
+>           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> row_align,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> col_align);
+<A
+HREF="gtk-standard-enumerations.html#GTKVISIBILITY"
+>GtkVisibility</A
+> <A
+HREF="gtkctree.html#GTK-CTREE-NODE-IS-VISIBLE"
+>gtk_ctree_node_is_visible</A
+>     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SET-INDENT"
+>gtk_ctree_set_indent</A
+>            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> indent);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SET-SPACING"
+>gtk_ctree_set_spacing</A
+>           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> spacing);
+#define     <A
+HREF="gtkctree.html#GTK-CTREE-SET-REORDERABLE"
+>gtk_ctree_set_reorderable</A
+>       (t,r)
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SET-LINE-STYLE"
+>gtk_ctree_set_line_style</A
+>        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREELINESTYLE"
+>GtkCTreeLineStyle</A
+> line_style);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SET-EXPANDER-STYLE"
+>gtk_ctree_set_expander_style</A
+>    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREEEXPANDERSTYLE"
+>GtkCTreeExpanderStyle</A
+> expander_style);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SET-DRAG-COMPARE-FUNC"
+>gtk_ctree_set_drag_compare_func</A
+> (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREECOMPAREDRAGFUNC"
+>GtkCTreeCompareDragFunc</A
+> cmp_func);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SORT-NODE"
+>gtk_ctree_sort_node</A
+>             (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SORT-RECURSIVE"
+>gtk_ctree_sort_recursive</A
+>        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);
+<A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* <A
+HREF="gtkctree.html#GTK-CTREE-NODE-NTH"
+>gtk_ctree_node_nth</A
+>            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> row);
+void        <A
+HREF="gtkctree.html#GTK-CTREE-SET-SHOW-STUB"
+>gtk_ctree_set_show_stub</A
+>         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_stub);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21181"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkclist.html"
+>GtkCList</A
+>
+                     +----GtkCTree</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21188"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtkctree.html#GTKCTREE--N-COLUMNS"
+>n-columns</A
+>&quot;            <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write / Construct Only
+  &quot;<A
+HREF="gtkctree.html#GTKCTREE--TREE-COLUMN"
+>tree-column</A
+>&quot;          <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write / Construct Only
+  &quot;<A
+HREF="gtkctree.html#GTKCTREE--INDENT"
+>indent</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkctree.html#GTKCTREE--SPACING"
+>spacing</A
+>&quot;              <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>                : Read / Write
+  &quot;<A
+HREF="gtkctree.html#GTKCTREE--SHOW-STUB"
+>show-stub</A
+>&quot;            <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtkctree.html#GTKCTREE--LINE-STYLE"
+>line-style</A
+>&quot;           <A
+HREF="gtkctree.html#GTKCTREELINESTYLE"
+>GtkCTreeLineStyle</A
+>    : Read / Write
+  &quot;<A
+HREF="gtkctree.html#GTKCTREE--EXPANDER-STYLE"
+>expander-style</A
+>&quot;       <A
+HREF="gtkctree.html#GTKCTREEEXPANDERSTYLE"
+>GtkCTreeExpanderStyle</A
+> : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21205"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkctree.html#GTKCTREE-TREE-SELECT-ROW"
+>tree-select-row</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkctree.html#GTKCTREE-TREE-UNSELECT-ROW"
+>tree-unselect-row</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkctree.html#GTKCTREE-TREE-EXPAND"
+>tree-expand</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkctree.html#GTKCTREE-TREE-COLLAPSE"
+>tree-collapse</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkctree.html#GTKCTREE-TREE-MOVE"
+>tree-move</A
+>&quot; void        user_function      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *new_parent,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *new_sibling,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkctree.html#GTKCTREE-CHANGE-FOCUS-ROW-EXPANSION"
+>change-focus-row-expansion</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF="gtkctree.html#GTKCTREEEXPANSIONTYPE"
+>GtkCTreeExpansionType</A
+> expansion,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21236"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkctree.html"
+>GtkCTree</A
+> widget is used for showing a hierarchical tree 
+to the user, for example a directory tree.</P
+><P
+>The tree is internally represented as a set of <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> structures.</P
+><P
+>The interface has much in common with the <A
+HREF="gtkclist.html"
+>GtkCList</A
+> widget: rows (nodes)
+can be selected by the user etc.</P
+><P
+> 
+Positions in the tree are often indicated by two arguments, a
+parent and a sibling, both <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> pointers. If the parent
+is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, the position is at the root of the tree and if the sibling
+is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, it will be the last child of parent, otherwise it will be
+inserted just before the sibling.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21248"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21250"
+></A
+><H3
+><A
+NAME="GTKCTREE-STRUCT"
+></A
+>struct GtkCTree</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkCTree;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkctree.html#GTKCTREE-STRUCT"
+>GtkCTree</A
+> contains the following user-accessible fields.
+These fields should be considered read-only; to set the values,
+use the methods below.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21256"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>tree_indent</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of pixels each successive level of the tree is
+indented in the display.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>tree_spacing</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The space in pixels between the graphical tree and the text in the
+node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>tree_column</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The index of the column for which the tree graphics is drawn. </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkctree.html#GTKCTREELINESTYLE"
+>GtkCTreeLineStyle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>line_style</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The style in which the lines in the tree graphics are drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkctree.html#GTKCTREEEXPANDERSTYLE"
+>GtkCTreeExpanderStyle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>expander_style</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The style in which the expander buttons are drawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkctree.html#GTKCTREEEXPANDERSTYLE"
+>GtkCTreeExpanderStyle</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>expander_style</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>FIXME.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21291"
+></A
+><H3
+><A
+NAME="GTK-CTREE-ROW-CAPS"
+></A
+>GTK_CTREE_ROW()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_CTREE_ROW(_node_) ((GtkCTreeRow *)(((GList *)(_node_))-&gt;data))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used to get the <A
+HREF="gtkctree.html#GTKCTREEROW"
+>GtkCTreeRow</A
+> structure corresponding to the given <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21298"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>_node_</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21307"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-CAPS"
+></A
+>GTK_CTREE_NODE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_CTREE_NODE(_node_) ((GtkCTreeNode *)((_node_)))</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21312"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>_node_</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21321"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-NEXT-CAPS"
+></A
+>GTK_CTREE_NODE_NEXT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_CTREE_NODE_NEXT(_nnode_) ((GtkCTreeNode *)(((GList *)(_nnode_))-&gt;next))</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21326"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>_nnode_</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21335"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-PREV-CAPS"
+></A
+>GTK_CTREE_NODE_PREV()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_CTREE_NODE_PREV(_pnode_) ((GtkCTreeNode *)(((GList *)(_pnode_))-&gt;prev))</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21340"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>_pnode_</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21349"
+></A
+><H3
+><A
+NAME="GTK-CTREE-FUNC-CAPS"
+></A
+>GTK_CTREE_FUNC()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_CTREE_FUNC(_func_) ((GtkCTreeFunc)(_func_))</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21354"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>_func_</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21363"
+></A
+><H3
+><A
+NAME="GTKCTREEPOS"
+></A
+>enum GtkCTreePos</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_CTREE_POS_BEFORE,
+  GTK_CTREE_POS_AS_CHILD,
+  GTK_CTREE_POS_AFTER
+} GtkCTreePos;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A value specifying the position of a new node relative to an old one.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21368"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_POS_BEFORE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>As a sibling, before the specified node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_POS_AS_CHILD</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>As a child of the specified node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_POS_AFTER</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>As a sibling, after the specified node.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21382"
+></A
+><H3
+><A
+NAME="GTKCTREELINESTYLE"
+></A
+>enum GtkCTreeLineStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_CTREE_LINES_NONE,
+  GTK_CTREE_LINES_SOLID,
+  GTK_CTREE_LINES_DOTTED,
+  GTK_CTREE_LINES_TABBED
+} GtkCTreeLineStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The appearance of the lines in the tree graphics.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21387"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_LINES_NONE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>No lines.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_LINES_SOLID</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Solid lines.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_LINES_DOTTED</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Dotted lines.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_LINES_TABBED</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>FIXME.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>
+&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21404"
+></A
+><H3
+><A
+NAME="GTKCTREEEXPANDERSTYLE"
+></A
+>enum GtkCTreeExpanderStyle</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_CTREE_EXPANDER_NONE,
+  GTK_CTREE_EXPANDER_SQUARE,
+  GTK_CTREE_EXPANDER_TRIANGLE,
+  GTK_CTREE_EXPANDER_CIRCULAR
+} GtkCTreeExpanderStyle;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The appearance of the expander buttons, i.e. the small buttons
+which expand or contract parts of the tree when pressed.
+
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21409"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANDER_NONE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>No expanders.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANDER_SQUARE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Square expanders.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANDER_TRIANGLE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Triangular expanders.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANDER_CIRCULAR</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Round expanders.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>
+&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21426"
+></A
+><H3
+><A
+NAME="GTKCTREEEXPANSIONTYPE"
+></A
+>enum GtkCTreeExpansionType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_CTREE_EXPANSION_EXPAND,
+  GTK_CTREE_EXPANSION_EXPAND_RECURSIVE,
+  GTK_CTREE_EXPANSION_COLLAPSE,
+  GTK_CTREE_EXPANSION_COLLAPSE_RECURSIVE,
+  GTK_CTREE_EXPANSION_TOGGLE,
+  GTK_CTREE_EXPANSION_TOGGLE_RECURSIVE
+} GtkCTreeExpansionType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>How to expand or collapse a part of a tree.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21431"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANSION_EXPAND</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Expand this node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANSION_EXPAND_RECURSIVE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Expand this node and everything below it in the hierarchy.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANSION_COLLAPSE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Collapse this node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANSION_COLLAPSE_RECURSIVE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Collapse this node and everything below it in the hierarchy.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANSION_TOGGLE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Toggle this node (i.e. expand if collapsed and vice versa).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CTREE_EXPANSION_TOGGLE_RECURSIVE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Toggle this node and everything below it in the hierarchy.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>
+&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21454"
+></A
+><H3
+><A
+NAME="GTKCTREEFUNC"
+></A
+>GtkCTreeFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkCTreeFunc)                 (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A generic callback type to do something with a particular node.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21462"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtkctree.html"
+>GtkCTree</A
+> object.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> in the tree.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The user data associated with the node.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21481"
+></A
+><H3
+><A
+NAME="GTKCTREEGNODEFUNC"
+></A
+>GtkCTreeGNodeFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    (*GtkCTreeGNodeFunc)            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> depth,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *gnode,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *cnode,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21492"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gnode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cnode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21521"
+></A
+><H3
+><A
+NAME="GTKCTREECOMPAREDRAGFUNC"
+></A
+>GtkCTreeCompareDragFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    (*GtkCTreeCompareDragFunc)      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *source_node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_sibling);</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21531"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source_node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21556"
+></A
+><H3
+><A
+NAME="GTKCTREEROW"
+></A
+>struct GtkCTreeRow</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkCTreeRow
+{
+  GtkCListRow row;
+  
+  GtkCTreeNode *parent;
+  GtkCTreeNode *sibling;
+  GtkCTreeNode *children;
+  
+  GdkPixmap *pixmap_closed;
+  GdkBitmap *mask_closed;
+  GdkPixmap *pixmap_opened;
+  GdkBitmap *mask_opened;
+  
+  guint16 level;
+  
+  guint is_leaf  : 1;
+  guint expanded : 1;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A structure representing a single row in the tree graph.
+The values inside the structure should be considered read-only.
+This structure is derived from the <A
+HREF="gtkclist.html#GTKCLISTROW"
+>GtkCListRow</A
+> structure.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21562"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>parent</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The parent node of the node corresponding to this row.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>sibling</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The next sibling node of the node corresponding to this row.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>children</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The first child node corresponding to this row; to access
+the other children, just use the siblings of that node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *<TT
+CLASS="STRUCTFIELD"
+><I
+>pixmap_closed</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The pixmap to be shown when the node is collapsed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *<TT
+CLASS="STRUCTFIELD"
+><I
+>mask_closed</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The mask for the above pixmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *<TT
+CLASS="STRUCTFIELD"
+><I
+>pixmap_opened</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The pixmap to be shown when the node is expanded.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *<TT
+CLASS="STRUCTFIELD"
+><I
+>mask_opened</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The mask for the above pixmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>level</I
+></TT
+>;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The level of this node in the tree.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>is_leaf</I
+></TT
+> : 1;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether this row is a leaf.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>expanded</I
+></TT
+> : 1;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether the children of this row are visible.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21617"
+></A
+><H3
+><A
+NAME="GTKCTREENODE"
+></A
+>struct GtkCTreeNode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkCTreeNode {
+  GList list;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>This structure is opaque - you should use the
+macros <A
+HREF="gtkctree.html#GTK-CTREE-ROW-CAPS"
+>GTK_CTREE_ROW</A
+>, <A
+HREF="gtkctree.html#GTK-CTREE-NODE-NEXT-CAPS"
+>GTK_CTREE_NODE_NEXT</A
+> etc. as well
+as the functions below to access it.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21624"
+></A
+><H3
+><A
+NAME="GTK-CTREE-CONSTRUCT"
+></A
+>gtk_ctree_construct ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_construct             (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tree_column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *titles[]);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is not usually used by users.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21633"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>columns</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>titles</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21654"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NEW-WITH-TITLES"
+></A
+>gtk_ctree_new_with_titles ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_ctree_new_with_titles       (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tree_column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *titles[]);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new <A
+HREF="gtkctree.html"
+>GtkCTree</A
+> widget with the given titles for the columns.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21664"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>columns</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of columns.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Which column has the tree graphic; 0 = leftmost.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>titles</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The titles for the columns.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtkctree.html"
+>GtkCTree</A
+> widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21686"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NEW"
+></A
+>gtk_ctree_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_ctree_new                   (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> columns,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tree_column);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new <A
+HREF="gtkctree.html"
+>GtkCTree</A
+> widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21695"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>columns</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Number of columns.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tree_column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Which columns has the tree graphic.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new <A
+HREF="gtkctree.html"
+>GtkCTree</A
+> widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21713"
+></A
+><H3
+><A
+NAME="GTK-CTREE-INSERT-NODE"
+></A
+>gtk_ctree_insert_node ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* gtk_ctree_insert_node         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *sibling,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text[],
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_opened,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_opened,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_leaf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expanded);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Insert a new node to the tree. The position is specified through
+the parent-sibling notation, as explained in the introduction above.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21730"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The <A
+HREF="gtkctree.html"
+>GtkCTree</A
+> widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The parent node to be.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The sibling node to be.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The texts to be shown in each column.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The extra space between the pixmap and the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_closed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pixmap to be used when the node is collapsed. Can be <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask_closed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The mask for the above pixmap. Can be <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_opened</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pixmap to be used when the children are visible. Can be <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask_opened</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The mask for the above pixmap. Can be <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_leaf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether this node is going to be a leaf.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expanded</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether this node should start out expanded or not.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21788"
+></A
+><H3
+><A
+NAME="GTK-CTREE-REMOVE-NODE"
+></A
+>gtk_ctree_remove_node ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_remove_node           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Remove the node and all nodes underneath it from the tree.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21795"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The widget.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node to be removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21808"
+></A
+><H3
+><A
+NAME="GTK-CTREE-INSERT-GNODE"
+></A
+>gtk_ctree_insert_gnode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* gtk_ctree_insert_gnode        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *sibling,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *gnode,
+                                             <A
+HREF="gtkctree.html#GTKCTREEGNODEFUNC"
+>GtkCTreeGNodeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21820"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gnode</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21853"
+></A
+><H3
+><A
+NAME="GTK-CTREE-EXPORT-TO-GNODE"
+></A
+>gtk_ctree_export_to_gnode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A>*      gtk_ctree_export_to_gnode       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *parent,
+                                             <A
+HREF=../glib/glib-n-ary-trees.html#GNODE
+>GNode</A> *sibling,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREEGNODEFUNC"
+>GtkCTreeGNodeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21865"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21898"
+></A
+><H3
+><A
+NAME="GTK-CTREE-POST-RECURSIVE"
+></A
+>gtk_ctree_post_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_post_recursive        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Recursively apply a function to all nodes of the tree at or below a certain
+node. 
+The function is called for each node after it has been called
+for that node's children.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21907"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node where to start. <TT
+CLASS="LITERAL"
+>NULL</TT
+> means to start at the root.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to apply to each node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A closure argument given to each invocation of the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21929"
+></A
+><H3
+><A
+NAME="GTK-CTREE-POST-RECURSIVE-TO-DEPTH"
+></A
+>gtk_ctree_post_recursive_to_depth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_post_recursive_to_depth
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Recursively apply a function to nodes up to a certain depth.
+The function is called for each node after it has been called
+for that node's children.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21939"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node where to start.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The maximum absolute depth for applying the function.  If depth is negative, this function just calls <A
+HREF="gtkctree.html#GTK-CTREE-POST-RECURSIVE"
+>gtk_ctree_post_recursive</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to apply to each node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A closure argument given to each invocation of the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21965"
+></A
+><H3
+><A
+NAME="GTK-CTREE-PRE-RECURSIVE"
+></A
+>gtk_ctree_pre_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_pre_recursive         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Recursively apply a function to all nodes of the tree at or below a certain
+node.
+The function is called for each node after it has been called
+for its parent.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN21974"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node where to start. <TT
+CLASS="LITERAL"
+>NULL</TT
+> means to start at the root.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to apply to each node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A closure argument given to each invocation of the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN21996"
+></A
+><H3
+><A
+NAME="GTK-CTREE-PRE-RECURSIVE-TO-DEPTH"
+></A
+>gtk_ctree_pre_recursive_to_depth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_pre_recursive_to_depth
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth,
+                                             <A
+HREF="gtkctree.html#GTKCTREEFUNC"
+>GtkCTreeFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Recursively apply a function to nodes up to a certain depth.
+The function is called for each node after it has been called
+for that node's children.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22006"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node where to start.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The maximum absolute depth for applying the function.  If depth is negative, this function just calls <A
+HREF="gtkctree.html#GTK-CTREE-POST-RECURSIVE"
+>gtk_ctree_post_recursive</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to apply to each node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A closure argument given to each invocation of the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22032"
+></A
+><H3
+><A
+NAME="GTK-CTREE-IS-VIEWABLE"
+></A
+>gtk_ctree_is_viewable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_ctree_is_viewable           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function checks whether the given node is viewable i.e. so that
+all of its parent nodes are expanded.  This is different from being
+actually visible: the node can be viewable but outside the scrolling
+area of the window.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22040"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether the node is viewable.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22057"
+></A
+><H3
+><A
+NAME="GTK-CTREE-LAST"
+></A
+>gtk_ctree_last ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* gtk_ctree_last                (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the last child of the last child of the last child...
+of the given node.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22065"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22082"
+></A
+><H3
+><A
+NAME="GTK-CTREE-FIND-NODE-PTR"
+></A
+>gtk_ctree_find_node_ptr ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* gtk_ctree_find_node_ptr       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREEROW"
+>GtkCTreeRow</A
+> *ctree_row);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds the node pointer given a <A
+HREF="gtkctree.html#GTKCTREEROW"
+>GtkCTreeRow</A
+> structure.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22091"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree_row</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node pointer.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22108"
+></A
+><H3
+><A
+NAME="GTK-CTREE-FIND"
+></A
+>gtk_ctree_find ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_ctree_find                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22117"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node to start searching from. May be <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>True if <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+> is on some level a child (grandchild...) of the <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22141"
+></A
+><H3
+><A
+NAME="GTK-CTREE-IS-ANCESTOR"
+></A
+>gtk_ctree_is_ancestor ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_ctree_is_ancestor           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *child);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22150"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>True is <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> is an ancestor of <TT
+CLASS="PARAMETER"
+><I
+>child</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22173"
+></A
+><H3
+><A
+NAME="GTK-CTREE-FIND-BY-ROW-DATA"
+></A
+>gtk_ctree_find_by_row_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* gtk_ctree_find_by_row_data    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds a node in the tree under <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> that has the given user data pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22183"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node, or <TT
+CLASS="LITERAL"
+>NULL</TT
+> if not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22205"
+></A
+><H3
+><A
+NAME="GTK-CTREE-FIND-ALL-BY-ROW-DATA"
+></A
+>gtk_ctree_find_all_by_row_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      gtk_ctree_find_all_by_row_data  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Finds all nodes in the tree under <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> that have the given user data pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22215"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A list of nodes that have the given data pointer.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22236"
+></A
+><H3
+><A
+NAME="GTK-CTREE-FIND-BY-ROW-DATA-CUSTOM"
+></A
+>gtk_ctree_find_by_row_data_custom ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* gtk_ctree_find_by_row_data_custom
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GCOMPAREFUNC
+>GCompareFunc</A> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Find the first node under <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> whose row data pointer fulfills 
+a custom criterion.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22247"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node where to start searching.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>User data for the criterion function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The criterion function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The first node found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22272"
+></A
+><H3
+><A
+NAME="GTK-CTREE-FIND-ALL-BY-ROW-DATA-CUSTOM"
+></A
+>gtk_ctree_find_all_by_row_data_custom ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      gtk_ctree_find_all_by_row_data_custom
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-hash-tables.html#GCOMPAREFUNC
+>GCompareFunc</A> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Find all nodes under <TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+> whose row data pointer fulfills 
+a custom criterion.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22283"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node where to start searching.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>User data for the criterion function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The criterion function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A list of all nodes found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22308"
+></A
+><H3
+><A
+NAME="GTK-CTREE-IS-HOT-SPOT"
+></A
+>gtk_ctree_is_hot_spot ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_ctree_is_hot_spot           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22317"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>True if the given coordinates lie on an expander button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22338"
+></A
+><H3
+><A
+NAME="GTK-CTREE-MOVE"
+></A
+>gtk_ctree_move ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_move                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_parent,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *new_sibling);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Move a node in the tree to another location.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22347"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node to be moved.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new parent-to-be of the node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new sibling-to-be of the node.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22368"
+></A
+><H3
+><A
+NAME="GTK-CTREE-EXPAND"
+></A
+>gtk_ctree_expand ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_expand                (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expand one node.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22375"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22388"
+></A
+><H3
+><A
+NAME="GTK-CTREE-EXPAND-RECURSIVE"
+></A
+>gtk_ctree_expand_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_expand_recursive      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expand one node and all nodes underneath.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22395"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22408"
+></A
+><H3
+><A
+NAME="GTK-CTREE-EXPAND-TO-DEPTH"
+></A
+>gtk_ctree_expand_to_depth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_expand_to_depth       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expand a node and its children up to the depth given.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22416"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The (absolute) depth up to which to expand nodes.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22433"
+></A
+><H3
+><A
+NAME="GTK-CTREE-COLLAPSE"
+></A
+>gtk_ctree_collapse ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_collapse              (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Collapse one node.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22440"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22453"
+></A
+><H3
+><A
+NAME="GTK-CTREE-COLLAPSE-RECURSIVE"
+></A
+>gtk_ctree_collapse_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_collapse_recursive    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Collapse one node and all its subnodes.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22460"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22473"
+></A
+><H3
+><A
+NAME="GTK-CTREE-COLLAPSE-TO-DEPTH"
+></A
+>gtk_ctree_collapse_to_depth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_collapse_to_depth     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> depth);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Collapse a node and its children up to the depth given.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22481"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>depth</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The (absolute) depth up to which to collapse nodes.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22498"
+></A
+><H3
+><A
+NAME="GTK-CTREE-TOGGLE-EXPANSION"
+></A
+>gtk_ctree_toggle_expansion ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_toggle_expansion      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Toggle a node, i.e. if it is collapsed, expand it and vice versa.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22505"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22518"
+></A
+><H3
+><A
+NAME="GTK-CTREE-TOGGLE-EXPANSION-RECURSIVE"
+></A
+>gtk_ctree_toggle_expansion_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_toggle_expansion_recursive
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Toggle the expansion of a node and all its children.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22525"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22538"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SELECT"
+></A
+>gtk_ctree_select ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_select                (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Cause the given node to be selected and emit the appropriate signal.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22545"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22558"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SELECT-RECURSIVE"
+></A
+>gtk_ctree_select_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_select_recursive      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Cause the given node and its subnodes to be selected and emit the appropriate signal(s).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22565"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22578"
+></A
+><H3
+><A
+NAME="GTK-CTREE-UNSELECT"
+></A
+>gtk_ctree_unselect ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_unselect              (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unselect the given node and emit the appropriate signal.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22585"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22598"
+></A
+><H3
+><A
+NAME="GTK-CTREE-UNSELECT-RECURSIVE"
+></A
+>gtk_ctree_unselect_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_unselect_recursive    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Unselect the given node and its subnodes and emit the appropriate signal(s).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22605"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22618"
+></A
+><H3
+><A
+NAME="GTK-CTREE-REAL-SELECT-RECURSIVE"
+></A
+>gtk_ctree_real_select_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_real_select_recursive (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> state);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The function that implements both <A
+HREF="gtkctree.html#GTK-CTREE-SELECT-RECURSIVE"
+>gtk_ctree_select_recursive</A
+> and
+<A
+HREF="gtkctree.html#GTK-CTREE-UNSELECT-RECURSIVE"
+>gtk_ctree_unselect_recursive</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22628"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>state</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>True for selecting, false for unselecting.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22645"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-TEXT"
+></A
+>gtk_ctree_node_set_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_text         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the text in a node.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22654"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The column whose text to change.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new text.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22675"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-PIXMAP"
+></A
+>gtk_ctree_node_set_pixmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_pixmap       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22685"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22710"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-PIXTEXT"
+></A
+>gtk_ctree_node_set_pixtext ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_pixtext      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22722"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22755"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-NODE-INFO"
+></A
+>gtk_ctree_set_node_info ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_set_node_info         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> *pixmap_opened,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> *mask_opened,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_leaf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> expanded);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Change the information. Most parameters correspond 
+to the parameters of <A
+HREF="gtkctree.html#GTK-CTREE-INSERT-NODE"
+>gtk_ctree_insert_node</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22771"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The text to be in the tree column.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_closed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask_closed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_opened</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask_opened</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_leaf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expanded</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22816"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-SHIFT"
+></A
+>gtk_ctree_node_set_shift ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_shift        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> vertical,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> horizontal);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Shift the given cell the given amounts in pixels.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22826"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vertical</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>horizontal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22851"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-SELECTABLE"
+></A
+>gtk_ctree_node_set_selectable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_selectable   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> selectable);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22859"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>selectable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether this node can be selected by the user.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22876"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-SELECTABLE"
+></A
+>gtk_ctree_node_get_selectable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_ctree_node_get_selectable   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22884"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Whether this node can be selected by the user.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22901"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-CELL-TYPE"
+></A
+>gtk_ctree_node_get_cell_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkclist.html#GTKCELLTYPE"
+>GtkCellType</A
+> gtk_ctree_node_get_cell_type    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22910"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The type of the given cell.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22931"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-TEXT"
+></A
+>gtk_ctree_node_get_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_ctree_node_get_text         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **text);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22941"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If nonnull, the pointer to the text string is assigned to *<TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>True if the given cell has text in it.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN22967"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-PIXMAP"
+></A
+>gtk_ctree_node_get_pixmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_ctree_node_get_pixmap       (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN22978"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If nonnull, the pointer to the pixmap is returned through this.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If nonnull, the pointer to the mask is returned through this.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>True if the given cell contains a pixmap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23007"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-PIXTEXT"
+></A
+>gtk_ctree_node_get_pixtext ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_ctree_node_get_pixtext      (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> *spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get the parameters of a cell containing both a pixmap and text.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23020"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23057"
+></A
+><H3
+><A
+NAME="GTK-CTREE-GET-NODE-INFO"
+></A
+>gtk_ctree_get_node_info ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_ctree_get_node_info         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> **text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT8
+>guint8</A> *spacing,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask_closed,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKPIXMAP
+>GdkPixmap</A> **pixmap_opened,
+                                             <A
+HREF=../gdk/gdk-bitmaps-and-pixmaps.html#GDKBITMAP
+>GdkBitmap</A> **mask_opened,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *is_leaf,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> *expanded);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get information corresponding to a node.
+Any of the return parameters can be null. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23073"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_closed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask_closed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixmap_opened</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask_opened</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_leaf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expanded</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23122"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-ROW-STYLE"
+></A
+>gtk_ctree_node_set_row_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_row_style    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+> *style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the style of a row.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23130"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23147"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-ROW-STYLE"
+></A
+>gtk_ctree_node_get_row_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+>*   gtk_ctree_node_get_row_style    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get the style of a row.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23155"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23172"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-CELL-STYLE"
+></A
+>gtk_ctree_node_set_cell_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_cell_style   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+> *style);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the style of an individual cell.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23181"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23202"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-CELL-STYLE"
+></A
+>gtk_ctree_node_get_cell_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-styles.html#GTKSTYLE"
+>GtkStyle</A
+>*   gtk_ctree_node_get_cell_style   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get the style of an individual cell.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23211"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23232"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-FOREGROUND"
+></A
+>gtk_ctree_node_set_foreground ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_foreground   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23240"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23257"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-BACKGROUND"
+></A
+>gtk_ctree_node_set_background ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_background   (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23265"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23282"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-ROW-DATA"
+></A
+>gtk_ctree_node_set_row_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_row_data     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the custom data associated with a node.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23290"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23307"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-SET-ROW-DATA-FULL"
+></A
+>gtk_ctree_node_set_row_data_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_set_row_data_full
+                                            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This is the full interface to setting row data, so that a destructor
+can be given for the data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23316"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The routine to be called when <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> is no longer needed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23338"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-GET-ROW-DATA"
+></A
+>gtk_ctree_node_get_row_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    gtk_ctree_node_get_row_data     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23346"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23363"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-MOVETO"
+></A
+>gtk_ctree_node_moveto ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_node_moveto           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> row_align,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> col_align);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function makes the given column of the given node visible by
+scrolling.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23373"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node to be made visible.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The column to be made visible.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>row_align</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Where in the window the row should appear.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>col_align</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Where in the window the column should appear.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23398"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-IS-VISIBLE"
+></A
+>gtk_ctree_node_is_visible ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-standard-enumerations.html#GTKVISIBILITY"
+>GtkVisibility</A
+> gtk_ctree_node_is_visible     (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23406"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>True if the node is currently inside the bounds of the window.
+Note that this function can return true even if the node is not
+viewable, if the node's ancestor is visible.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23423"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-INDENT"
+></A
+>gtk_ctree_set_indent ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_set_indent            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> indent);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23430"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>indent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The number of pixels to shift the levels of the tree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23443"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-SPACING"
+></A
+>gtk_ctree_set_spacing ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_set_spacing           (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> spacing);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The spacing between the tree graphic and the actual node content.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23450"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>spacing</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23463"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-REORDERABLE"
+></A
+>gtk_ctree_set_reorderable()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	gtk_ctree_set_reorderable(t,r)		gtk_clist_set_reorderable((GtkCList*) (t),(r))</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23468"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>t</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>r</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23481"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-LINE-STYLE"
+></A
+>gtk_ctree_set_line_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_set_line_style        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREELINESTYLE"
+>GtkCTreeLineStyle</A
+> line_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23488"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>line_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23501"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-EXPANDER-STYLE"
+></A
+>gtk_ctree_set_expander_style ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_set_expander_style    (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREEEXPANDERSTYLE"
+>GtkCTreeExpanderStyle</A
+> expander_style);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23508"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expander_style</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23521"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-DRAG-COMPARE-FUNC"
+></A
+>gtk_ctree_set_drag_compare_func ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_set_drag_compare_func (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREECOMPAREDRAGFUNC"
+>GtkCTreeCompareDragFunc</A
+> cmp_func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>FIXME</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23528"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmp_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23541"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SORT-NODE"
+></A
+>gtk_ctree_sort_node ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_sort_node             (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sort the children of a node. See <A
+HREF="gtkclist.html"
+>GtkCList</A
+> for how to set the sorting
+criteria etc.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23549"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23562"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SORT-RECURSIVE"
+></A
+>gtk_ctree_sort_recursive ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_sort_recursive        (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+> *node);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sort the descendants of a node. See <A
+HREF="gtkclist.html"
+>GtkCList</A
+> for how to set the sorting
+criteria etc.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23570"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23583"
+></A
+><H3
+><A
+NAME="GTK-CTREE-NODE-NTH"
+></A
+>gtk_ctree_node_nth ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkctree.html#GTKCTREENODE"
+>GtkCTreeNode</A
+>* gtk_ctree_node_nth            (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> row);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23591"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>row</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node corresponding to the <TT
+CLASS="PARAMETER"
+><I
+>row</I
+></TT
+> th row.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23609"
+></A
+><H3
+><A
+NAME="GTK-CTREE-SET-SHOW-STUB"
+></A
+>gtk_ctree_set_show_stub ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_ctree_set_show_stub         (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_stub);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23616"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>show_stub</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23629"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKCTREE--N-COLUMNS"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>n-columns</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write / Construct Only)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKCTREE--TREE-COLUMN"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>tree-column</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write / Construct Only)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKCTREE--INDENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>indent</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+>The number of pixels to indent the tree levels.</P
+></DD
+><DT
+><A
+NAME="GTKCTREE--SPACING"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>spacing</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> : Read / Write)</DT
+><DD
+><P
+>The number of pixels between the tree and the columns.</P
+></DD
+><DT
+><A
+NAME="GTKCTREE--SHOW-STUB"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>show-stub</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKCTREE--LINE-STYLE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>line-style</TT
+>&quot; (<A
+HREF="gtkctree.html#GTKCTREELINESTYLE"
+>GtkCTreeLineStyle</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKCTREE--EXPANDER-STYLE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>expander-style</TT
+>&quot; (<A
+HREF="gtkctree.html#GTKCTREEEXPANDERSTYLE"
+>GtkCTreeExpanderStyle</A
+> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23681"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23683"
+></A
+><H3
+><A
+NAME="GTKCTREE-TREE-SELECT-ROW"
+></A
+>The &quot;tree-select-row&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when a row is selected.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23692"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node corresponding to the selected row.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The column which was selected.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23713"
+></A
+><H3
+><A
+NAME="GTKCTREE-TREE-UNSELECT-ROW"
+></A
+>The &quot;tree-unselect-row&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> column,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when a node is unselected.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23722"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node  corresponding to the selected row.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>column</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23743"
+></A
+><H3
+><A
+NAME="GTKCTREE-TREE-EXPAND"
+></A
+>The &quot;tree-expand&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when a node is expanded.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23751"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23768"
+></A
+><H3
+><A
+NAME="GTKCTREE-TREE-COLLAPSE"
+></A
+>The &quot;tree-collapse&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when a node is collapsed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23776"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23793"
+></A
+><H3
+><A
+NAME="GTKCTREE-TREE-MOVE"
+></A
+>The &quot;tree-move&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *node,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *new_parent,
+                                            <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *new_sibling,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when a node is moved.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23803"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>node</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The node that is moved.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_parent</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new parent of the node.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_sibling</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The new sibling of the node.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23828"
+></A
+><H3
+><A
+NAME="GTKCTREE-CHANGE-FOCUS-ROW-EXPANSION"
+></A
+>The &quot;change-focus-row-expansion&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkctree.html"
+>GtkCTree</A
+> *ctree,
+                                            <A
+HREF="gtkctree.html#GTKCTREEEXPANSIONTYPE"
+>GtkCTreeExpansionType</A
+> expansion,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The row which has the focus is either collapsed or expanded
+or toggled.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23836"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ctree</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expansion</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>What is being done.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkcontainer.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcurve.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkContainer</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkCurve</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

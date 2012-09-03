@@ -1,0 +1,2203 @@
+<HTML
+><HEAD
+><TITLE
+>Miscellaneous Utility Functions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Utilities"
+HREF="glib-utilities.html"><LINK
+REL="PREVIOUS"
+TITLE="Hook Functions"
+HREF="glib-hook-functions.html"><LINK
+REL="NEXT"
+TITLE="Lexical Scanner"
+HREF="glib-lexical-scanner.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-hook-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-lexical-scanner.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-MISCELLANEOUS-UTILITY-FUNCTIONS"
+>Miscellaneous Utility Functions</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN8905"
+></A
+><H2
+>Name</H2
+>Miscellaneous Utility Functions&nbsp;--&nbsp;a selection of portable utility functions.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN8908"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-PRGNAME"
+>g_get_prgname</A
+>                   (void);
+void        <A
+HREF="glib-miscellaneous-utility-functions.html#G-SET-PRGNAME"
+>g_set_prgname</A
+>                   (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prgname);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-GETENV"
+>g_getenv</A
+>                        (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *variable);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-USER-NAME"
+>g_get_user_name</A
+>                 (void);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-REAL-NAME"
+>g_get_real_name</A
+>                 (void);
+
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-HOME-DIR"
+>g_get_home_dir</A
+>                  (void);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-TMP-DIR"
+>g_get_tmp_dir</A
+>                   (void);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-CURRENT-DIR"
+>g_get_current_dir</A
+>               (void);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-BASENAME"
+>g_basename</A
+>                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-DIRNAME"
+>g_dirname</A
+>                       (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-miscellaneous-utility-functions.html#G-PATH-IS-ABSOLUTE"
+>g_path_is_absolute</A
+>              (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      <A
+HREF="glib-miscellaneous-utility-functions.html#G-PATH-SKIP-ROOT"
+>g_path_skip_root</A
+>                (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);
+
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-miscellaneous-utility-functions.html#G-BIT-NTH-LSF"
+>g_bit_nth_lsf</A
+>                   (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> mask,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> nth_bit);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-miscellaneous-utility-functions.html#G-BIT-NTH-MSF"
+>g_bit_nth_msf</A
+>                   (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> mask,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> nth_bit);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-miscellaneous-utility-functions.html#G-BIT-STORAGE"
+>g_bit_storage</A
+>                   (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> number);
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-miscellaneous-utility-functions.html#G-SPACED-PRIMES-CLOSEST"
+>g_spaced_primes_closest</A
+>         (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> num);
+
+void        <A
+HREF="glib-miscellaneous-utility-functions.html#G-ATEXIT"
+>g_atexit</A
+>                        (<A
+HREF="glib-miscellaneous-utility-functions.html#GVOIDFUNC"
+>GVoidFunc</A
+> func);
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-miscellaneous-utility-functions.html#G-PARSE-DEBUG-STRING"
+>g_parse_debug_string</A
+>            (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             <A
+HREF="glib-miscellaneous-utility-functions.html#GDEBUGKEY"
+>GDebugKey</A
+> *keys,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> nkeys);
+struct      <A
+HREF="glib-miscellaneous-utility-functions.html#GDEBUGKEY"
+>GDebugKey</A
+>;
+
+void        (<A
+HREF="glib-miscellaneous-utility-functions.html#GVOIDFUNC"
+>*GVoidFunc</A
+>)                    (void);
+void        (<A
+HREF="glib-miscellaneous-utility-functions.html#GFREEFUNC"
+>*GFreeFunc</A
+>)                    (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN8965"
+></A
+><H2
+>Description</H2
+><P
+>These are portable utility functions.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN8968"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8970"
+></A
+><H3
+><A
+NAME="G-GET-PRGNAME"
+></A
+>g_get_prgname ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_get_prgname                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the name of the program.
+(If you are using GDK or GTK the program name is set in <A
+HREF=../gdk/gdk-general.html#GDK-INIT
+>gdk_init</A>(), which
+is called by <A
+HREF=../gtk/gtk-general.html#GTK-INIT
+>gtk_init</A>(). The program name is found by taking the last
+component of argv[0].)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8978"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the program.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8987"
+></A
+><H3
+><A
+NAME="G-SET-PRGNAME"
+></A
+>g_set_prgname ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_set_prgname                   (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prgname);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the name of the program.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8993"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prgname</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the program.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9002"
+></A
+><H3
+><A
+NAME="G-GETENV"
+></A
+>g_getenv ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_getenv                        (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *variable);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns an environment variable.
+On windows systems the returned value is only valid until the next call to
+<A
+HREF="glib-miscellaneous-utility-functions.html#G-GETENV"
+>g_getenv</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9010"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>variable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the environment variable to get.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value of the environment variable, or NULL if the environment
+variable is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9023"
+></A
+><H3
+><A
+NAME="G-GET-USER-NAME"
+></A
+>g_get_user_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_get_user_name                 (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the user name of the current user.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9029"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user name of the current user.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9038"
+></A
+><H3
+><A
+NAME="G-GET-REAL-NAME"
+></A
+>g_get_real_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_get_real_name                 (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the real name of the user. This comes from the user's entry in the
+passwd file.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9044"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user's real name.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9053"
+></A
+><H3
+><A
+NAME="G-GET-HOME-DIR"
+></A
+>g_get_home_dir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_get_home_dir                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the current user's home directory.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9059"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the current user's home directory.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9068"
+></A
+><H3
+><A
+NAME="G-GET-TMP-DIR"
+></A
+>g_get_tmp_dir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_get_tmp_dir                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the directory to use for temporary files.
+This is found from inspecting the environment variables TMPDIR, TMP, and TEMP
+in that order. If none of those are defined "/tmp" is returned.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9074"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the directory to use for temporary files.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9083"
+></A
+><H3
+><A
+NAME="G-GET-CURRENT-DIR"
+></A
+>g_get_current_dir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_get_current_dir               (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the current directory.
+The returned string should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9089"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the current directory.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9098"
+></A
+><H3
+><A
+NAME="G-BASENAME"
+></A
+>g_basename ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_basename                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the name of the file without any leading directory components.
+It returns a pointer into the given file name string.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9105"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the file.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the file without any leading directory components.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9118"
+></A
+><H3
+><A
+NAME="G-DIRNAME"
+></A
+>g_dirname ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_dirname                       (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the directory components of a file name.
+If the file name has no directory components "." is returned.
+The returned string should be freed when no longer needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9125"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of the file.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the directory components of the file.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9138"
+></A
+><H3
+><A
+NAME="G-PATH-IS-ABSOLUTE"
+></A
+>g_path_is_absolute ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_path_is_absolute              (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns TRUE if the given <TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+> is an absolute file name,
+i.e. it contains a full path from the root directory such as '/usr/local'
+or 'C:/windows' on windows systems.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9146"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a file name.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if <TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+> is an absolute path.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9160"
+></A
+><H3
+><A
+NAME="G-PATH-SKIP-ROOT"
+></A
+>g_path_skip_root ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      g_path_skip_root                (<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *file_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns a pointer into <TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+> after the root component, i.e. after
+the '/' in Unix or 'C:/' under Windows. If <TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+> is not an absolute
+path it returns NULL.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9169"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a file name.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer into <TT
+CLASS="PARAMETER"
+><I
+>file_name</I
+></TT
+> after the root component.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9183"
+></A
+><H3
+><A
+NAME="G-BIT-NTH-LSF"
+></A
+>g_bit_nth_lsf ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_bit_nth_lsf                   (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> mask,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> nth_bit);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Find the position of the first bit set in <TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>, searching from (but not
+including) <TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+> upwards. Bits are numbered from 0 (least significant)
+to 31. To start searching from the 0th bit, set <TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+> to -1.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9194"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> containing up to 32 bit flags.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the bit to start the search from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the first bit set which is higher than <TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9213"
+></A
+><H3
+><A
+NAME="G-BIT-NTH-MSF"
+></A
+>g_bit_nth_msf ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_bit_nth_msf                   (<A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> mask,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> nth_bit);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Find the position of the first bit set in <TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>, searching from (but not
+including) <TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+> downwards. Bits are numbered from 0 (least significant)
+to 31. To start searching from the 31st bit, set <TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+> to 32 or -1.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9224"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-basic-types.html#GUINT32"
+>guint32</A
+> containing up to 32 bit flags.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the bit to start the search from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the first bit set which is lower than <TT
+CLASS="PARAMETER"
+><I
+>nth_bit</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9243"
+></A
+><H3
+><A
+NAME="G-BIT-STORAGE"
+></A
+>g_bit_storage ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_bit_storage                   (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> number);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the number of bits used to hold <TT
+CLASS="PARAMETER"
+><I
+>number</I
+></TT
+>,
+e.g. if <TT
+CLASS="PARAMETER"
+><I
+>number</I
+></TT
+> is 4, 3 bits are needed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9252"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>number</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a guint.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bits used to hold <TT
+CLASS="PARAMETER"
+><I
+>number</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9266"
+></A
+><H3
+><A
+NAME="G-SPACED-PRIMES-CLOSEST"
+></A
+>g_spaced_primes_closest ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_spaced_primes_closest         (<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> num);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the smallest prime number from a built-in array of primes which
+is larger than <TT
+CLASS="PARAMETER"
+><I
+>num</I
+></TT
+>. This is used within GLib to calculate the optimum
+size of a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><P
+>The built-in array of primes ranges from 11 to 13845163 such that
+each prime is approximately 1.5-2 times the previous prime.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9276"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>num</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a guint.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the smallest prime number from a built-in array of primes which is
+larger than <TT
+CLASS="PARAMETER"
+><I
+>num</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9290"
+></A
+><H3
+><A
+NAME="G-ATEXIT"
+></A
+>g_atexit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_atexit                        (<A
+HREF="glib-miscellaneous-utility-functions.html#GVOIDFUNC"
+>GVoidFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies a function to be called at normal program termination.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9296"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call on normal program termination.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9305"
+></A
+><H3
+><A
+NAME="G-PARSE-DEBUG-STRING"
+></A
+>g_parse_debug_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_parse_debug_string            (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string,
+                                             <A
+HREF="glib-miscellaneous-utility-functions.html#GDEBUGKEY"
+>GDebugKey</A
+> *keys,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> nkeys);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Parses a string containing debugging options separated by ':' into a guint
+containing bit flags.
+This is used within GDK and GTK to parse the debug options passed on the
+command line or through environment variables.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9314"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a list of debug options separated by ':' or "all" to set all flags.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>keys</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>pointer to an array of <A
+HREF="glib-miscellaneous-utility-functions.html#GDEBUGKEY"
+>GDebugKey</A
+> which associate strings with
+bit flags.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nkeys</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of <A
+HREF="glib-miscellaneous-utility-functions.html#GDEBUGKEY"
+>GDebugKey</A
+> in the array.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the combined set of bit flags.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9337"
+></A
+><H3
+><A
+NAME="GDEBUGKEY"
+></A
+>struct GDebugKey</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GDebugKey
+{
+  gchar *key;
+  guint	 value;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Associates a string with a bit flag.
+Used in <A
+HREF="glib-miscellaneous-utility-functions.html#G-PARSE-DEBUG-STRING"
+>g_parse_debug_string</A
+>().</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9343"
+></A
+><H3
+><A
+NAME="GVOIDFUNC"
+></A
+>GVoidFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GVoidFunc)                    (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Declares a type of function which takes no arguments and has no return value.
+It is used to specify the type function passed to <A
+HREF="glib-miscellaneous-utility-functions.html#G-ATEXIT"
+>g_atexit</A
+>().</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9349"
+></A
+><H3
+><A
+NAME="GFREEFUNC"
+></A
+>GFreeFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GFreeFunc)                    (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Declares a type of function which takes an arbitrary data pointer argument
+and has no return value. It is not currently used in GLib or GTK+.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9355"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-hook-functions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-lexical-scanner.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Hook Functions</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Lexical Scanner</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

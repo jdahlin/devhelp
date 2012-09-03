@@ -1,0 +1,2862 @@
+<HTML
+><HEAD
+><TITLE
+>Events</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Windows"
+HREF="gdk-windows.html"><LINK
+REL="NEXT"
+TITLE="Event Structures"
+HREF="gdk-event-structures.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-windows.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-event-structures.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-EVENTS"
+>Events</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN8892"
+></A
+><H2
+>Name</H2
+>Events&nbsp;--&nbsp;functions for handling events from the window system.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN8895"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+enum        <A
+HREF="gdk-events.html#GDKEVENTTYPE"
+>GdkEventType</A
+>;
+enum        <A
+HREF="gdk-events.html#GDKEVENTMASK"
+>GdkEventMask</A
+>;
+#define     <A
+HREF="gdk-events.html#GDK-CURRENT-TIME-CAPS"
+>GDK_CURRENT_TIME</A
+>
+#define     <A
+HREF="gdk-events.html#GDK-PRIORITY-EVENTS-CAPS"
+>GDK_PRIORITY_EVENTS</A
+>
+
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-events.html#GDK-EVENTS-PENDING"
+>gdk_events_pending</A
+>              (void);
+<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   <A
+HREF="gdk-events.html#GDK-EVENT-PEEK"
+>gdk_event_peek</A
+>                  (void);
+<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   <A
+HREF="gdk-events.html#GDK-EVENT-GET"
+>gdk_event_get</A
+>                   (void);
+<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   <A
+HREF="gdk-events.html#GDK-EVENT-GET-GRAPHICS-EXPOSE"
+>gdk_event_get_graphics_expose</A
+>   (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window);
+void        <A
+HREF="gdk-events.html#GDK-EVENT-PUT"
+>gdk_event_put</A
+>                   (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);
+<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   <A
+HREF="gdk-events.html#GDK-EVENT-COPY"
+>gdk_event_copy</A
+>                  (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);
+void        <A
+HREF="gdk-events.html#GDK-EVENT-FREE"
+>gdk_event_free</A
+>                  (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);
+<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A>     <A
+HREF="gdk-events.html#GDK-EVENT-GET-TIME"
+>gdk_event_get_time</A
+>              (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);
+
+void        <A
+HREF="gdk-events.html#GDK-EVENT-HANDLER-SET"
+>gdk_event_handler_set</A
+>           (<A
+HREF="gdk-events.html#GDKEVENTFUNC"
+>GdkEventFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-datasets.html#GDESTROYNOTIFY
+>GDestroyNotify</A> notify);
+void        (<A
+HREF="gdk-events.html#GDKEVENTFUNC"
+>*GdkEventFunc</A
+>)                 (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-events.html#GDK-EVENT-SEND-CLIENT-MESSAGE"
+>gdk_event_send_client_message</A
+>   (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> xid);
+void        <A
+HREF="gdk-events.html#GDK-EVENT-SEND-CLIENTMESSAGE-TOALL"
+>gdk_event_send_clientmessage_toall</A
+>
+                                            (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);
+void        <A
+HREF="gdk-events.html#GDK-ADD-CLIENT-MESSAGE-FILTER"
+>gdk_add_client_message_filter</A
+>   (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> message_type,
+                                             <A
+HREF="gdk-windows.html#GDKFILTERFUNC"
+>GdkFilterFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-events.html#GDK-GET-SHOW-EVENTS"
+>gdk_get_show_events</A
+>             (void);
+void        <A
+HREF="gdk-events.html#GDK-SET-SHOW-EVENTS"
+>gdk_set_show_events</A
+>             (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> show_events);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN8942"
+></A
+><H2
+>Description</H2
+><P
+>This section describes functions dealing with events from the window system.</P
+><P
+>In GTK+ applications the events are handled automatically in
+<A
+HREF=../gtk/gtk-general.html#GTK-MAIN-DO-EVENT
+>gtk_main_do_event</A>() and passed on to the appropriate widgets, so these
+functions are rarely needed. Though some of the fields in the
+<A
+HREF="gdk-event-structures.html"
+>Event Structures</A
+> are useful.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN8948"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN8950"
+></A
+><H3
+><A
+NAME="GDKEVENTTYPE"
+></A
+>enum GdkEventType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_NOTHING		= -1,
+  GDK_DELETE		= 0,
+  GDK_DESTROY		= 1,
+  GDK_EXPOSE		= 2,
+  GDK_MOTION_NOTIFY	= 3,
+  GDK_BUTTON_PRESS	= 4,
+  GDK_2BUTTON_PRESS	= 5,
+  GDK_3BUTTON_PRESS	= 6,
+  GDK_BUTTON_RELEASE	= 7,
+  GDK_KEY_PRESS		= 8,
+  GDK_KEY_RELEASE	= 9,
+  GDK_ENTER_NOTIFY	= 10,
+  GDK_LEAVE_NOTIFY	= 11,
+  GDK_FOCUS_CHANGE	= 12,
+  GDK_CONFIGURE		= 13,
+  GDK_MAP		= 14,
+  GDK_UNMAP		= 15,
+  GDK_PROPERTY_NOTIFY	= 16,
+  GDK_SELECTION_CLEAR	= 17,
+  GDK_SELECTION_REQUEST = 18,
+  GDK_SELECTION_NOTIFY	= 19,
+  GDK_PROXIMITY_IN	= 20,
+  GDK_PROXIMITY_OUT	= 21,
+  GDK_DRAG_ENTER        = 22,
+  GDK_DRAG_LEAVE        = 23,
+  GDK_DRAG_MOTION       = 24,
+  GDK_DRAG_STATUS       = 25,
+  GDK_DROP_START        = 26,
+  GDK_DROP_FINISHED     = 27,
+  GDK_CLIENT_EVENT	= 28,
+  GDK_VISIBILITY_NOTIFY = 29,
+  GDK_NO_EXPOSE		= 30
+} GdkEventType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of the event.</P
+><P
+>Do not confuse these events with the signals that GTK+ widgets emit.
+Although many of these events result in corresponding signals being emitted,
+the events are often transformed or filtered along the way.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN8956"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_NOTHING</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a special code to indicate a null event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DELETE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window manager has requested that the toplevel window be
+hidden or destroyed, usually when the user clicks on a special icon in the
+title bar.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DESTROY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window has been destroyed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_EXPOSE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>all or part of the window has become visible and needs to be
+redrawn.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_MOTION_NOTIFY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer (usually a mouse) has moved.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON_PRESS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a mouse button has been pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_2BUTTON_PRESS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a mouse button has been double-clicked (clicked twice
+within a short period of time). Note that each click also generates a
+<TT
+CLASS="LITERAL"
+>GDK_BUTTON_PRESS</TT
+> event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_3BUTTON_PRESS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a mouse button has been clicked 3 times in a short period
+of time. Note that each click also generates a <TT
+CLASS="LITERAL"
+>GDK_BUTTON_PRESS</TT
+> event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON_RELEASE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a mouse button has been released.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_KEY_PRESS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key has been pressed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_KEY_RELEASE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key has been released.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_ENTER_NOTIFY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer has entered the window.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_LEAVE_NOTIFY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pointer has left the window.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_FOCUS_CHANGE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the keyboard focus has entered or left the window.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_CONFIGURE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the size, position or stacking order of the window has changed.
+Note that GTK+ discards these events for <TT
+CLASS="LITERAL"
+>GDK_WINDOW_CHILD</TT
+> windows.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_MAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window has been mapped.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_UNMAP</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window has been unmapped.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROPERTY_NOTIFY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a property on the window has been changed or deleted.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_CLEAR</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the application has lost ownership of a selection.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_REQUEST</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>another application has requested a selection.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SELECTION_NOTIFY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a selection has been received.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROXIMITY_IN</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an input device has moved into contact with a sensing
+surface (e.g. a touchscreen or graphics tablet).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROXIMITY_OUT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an input device has moved out of contact with a sensing
+surface.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DRAG_ENTER</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the mouse has entered the window while a drag is in progress.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DRAG_LEAVE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the mouse has left the window while a drag is in progress.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DRAG_MOTION</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the mouse has moved in the window while a drag is in
+progress.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DRAG_STATUS</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the status of the drag operation initiated by the window
+has changed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DROP_START</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a drop operation onto the window has started.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_DROP_FINISHED</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the drop operation initiated by the window has completed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_CLIENT_EVENT</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a message has been received from another application.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_VISIBILITY_NOTIFY</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window visibility status has changed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_NO_EXPOSE</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>indicates that the source region was completely available
+when parts of a drawable were copied. This is not very useful.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9092"
+></A
+><H3
+><A
+NAME="GDKEVENTMASK"
+></A
+>enum GdkEventMask</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_EXPOSURE_MASK		= 1 &lt;&lt; 1,
+  GDK_POINTER_MOTION_MASK	= 1 &lt;&lt; 2,
+  GDK_POINTER_MOTION_HINT_MASK	= 1 &lt;&lt; 3,
+  GDK_BUTTON_MOTION_MASK	= 1 &lt;&lt; 4,
+  GDK_BUTTON1_MOTION_MASK	= 1 &lt;&lt; 5,
+  GDK_BUTTON2_MOTION_MASK	= 1 &lt;&lt; 6,
+  GDK_BUTTON3_MOTION_MASK	= 1 &lt;&lt; 7,
+  GDK_BUTTON_PRESS_MASK		= 1 &lt;&lt; 8,
+  GDK_BUTTON_RELEASE_MASK	= 1 &lt;&lt; 9,
+  GDK_KEY_PRESS_MASK		= 1 &lt;&lt; 10,
+  GDK_KEY_RELEASE_MASK		= 1 &lt;&lt; 11,
+  GDK_ENTER_NOTIFY_MASK		= 1 &lt;&lt; 12,
+  GDK_LEAVE_NOTIFY_MASK		= 1 &lt;&lt; 13,
+  GDK_FOCUS_CHANGE_MASK		= 1 &lt;&lt; 14,
+  GDK_STRUCTURE_MASK		= 1 &lt;&lt; 15,
+  GDK_PROPERTY_CHANGE_MASK	= 1 &lt;&lt; 16,
+  GDK_VISIBILITY_NOTIFY_MASK	= 1 &lt;&lt; 17,
+  GDK_PROXIMITY_IN_MASK		= 1 &lt;&lt; 18,
+  GDK_PROXIMITY_OUT_MASK	= 1 &lt;&lt; 19,
+  GDK_SUBSTRUCTURE_MASK		= 1 &lt;&lt; 20,
+  GDK_ALL_EVENTS_MASK		= 0x0FFFFF
+} GdkEventMask;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A set of bit-flags to indicate which events a window is to receive.
+Most of these masks map onto one or more of the <A
+HREF="gdk-events.html#GDKEVENTTYPE"
+>GdkEventType</A
+> event types
+above.</P
+><P
+><TT
+CLASS="LITERAL"
+>GDK_POINTER_MOTION_HINT_MASK</TT
+> is a special mask which is used to reduce the
+number of <TT
+CLASS="LITERAL"
+>GDK_MOTION_NOTIFY</TT
+> events received. Normally a <TT
+CLASS="LITERAL"
+>GDK_MOTION_NOTIFY</TT
+>
+event is received each time the mouse moves. However, if the application
+spends a lot of time processing the event (updating the display, for example),
+it can easily lag behind the position of the mouse. When using the
+<TT
+CLASS="LITERAL"
+>GDK_POINTER_MOTION_HINT_MASK</TT
+> the server will only send <TT
+CLASS="LITERAL"
+>GDK_MOTION_NOTIFY</TT
+>
+events when the application asks for them, by calling <A
+HREF="gdk-windows.html#GDK-WINDOW-GET-POINTER"
+>gdk_window_get_pointer</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9105"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_EXPOSURE_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_POINTER_MOTION_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_POINTER_MOTION_HINT_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON_MOTION_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON1_MOTION_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON2_MOTION_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON3_MOTION_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON_PRESS_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_BUTTON_RELEASE_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_KEY_PRESS_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_KEY_RELEASE_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_ENTER_NOTIFY_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_LEAVE_NOTIFY_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_FOCUS_CHANGE_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_STRUCTURE_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROPERTY_CHANGE_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_VISIBILITY_NOTIFY_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROXIMITY_IN_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_PROXIMITY_OUT_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_SUBSTRUCTURE_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_ALL_EVENTS_MASK</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the combination of all the above event masks.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9194"
+></A
+><H3
+><A
+NAME="GDK-CURRENT-TIME-CAPS"
+></A
+>GDK_CURRENT_TIME</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GDK_CURRENT_TIME     0L</PRE
+></TD
+></TR
+></TABLE
+><P
+>Represents the current time, and can be used anywhere a time is expected.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9199"
+></A
+><H3
+><A
+NAME="GDK-PRIORITY-EVENTS-CAPS"
+></A
+>GDK_PRIORITY_EVENTS</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	  GDK_PRIORITY_EVENTS		(G_PRIORITY_DEFAULT)</PRE
+></TD
+></TR
+></TABLE
+><P
+>This is the priority that events from the X server are given in the
+<A
+HREF=../glib/glib-the-main-event-loop.html
+>GLib Main Loop</A>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9205"
+></A
+><H3
+><A
+NAME="GDK-EVENTS-PENDING"
+></A
+>gdk_events_pending ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_events_pending              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Checks if any events are waiting to be processed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9211"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if any events are pending.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9220"
+></A
+><H3
+><A
+NAME="GDK-EVENT-PEEK"
+></A
+>gdk_event_peek ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   gdk_event_peek                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets a copy of the first <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> in the event queue.
+(Note that this function will not get more events from the X server.
+It only checks the events that have already been moved to the GDK event queue.)</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9227"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a copy of the first <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> on the event queue, or NULL if no
+events are in the queue. The returned <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> should be freed with
+<A
+HREF="gdk-events.html#GDK-EVENT-FREE"
+>gdk_event_free</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9239"
+></A
+><H3
+><A
+NAME="GDK-EVENT-GET"
+></A
+>gdk_event_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   gdk_event_get                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the next <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> to be processed, fetching events from the X server if
+necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9246"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the next <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> to be processed, or NULL if no events are pending.
+The returned <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> should be freed with <A
+HREF="gdk-events.html#GDK-EVENT-FREE"
+>gdk_event_free</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9258"
+></A
+><H3
+><A
+NAME="GDK-EVENT-GET-GRAPHICS-EXPOSE"
+></A
+>gdk_event_get_graphics_expose ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   gdk_event_get_graphics_expose   (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Waits for a GraphicsExpose or NoExpose event from the X server.
+This is used in the <A
+HREF=../gtk/gtktext.html
+>GtkText</A> and <A
+HREF=../gtk/gtkclist.html
+>GtkCList</A> widgets in GTK+ to make sure any
+GraphicsExpose events are handled before the widget is scrolled.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9267"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> to wait for the events for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-event-structures.html#GDKEVENTEXPOSE"
+>GdkEventExpose</A
+> if a GraphicsExpose was received, or NULL if a
+NoExpose event was received.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9282"
+></A
+><H3
+><A
+NAME="GDK-EVENT-PUT"
+></A
+>gdk_event_put ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_event_put                   (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Appends a copy of the given event onto the front of the event queue.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9288"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9298"
+></A
+><H3
+><A
+NAME="GDK-EVENT-COPY"
+></A
+>gdk_event_copy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>*   gdk_event_copy                  (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Copies a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>, copying or incrementing the reference count of the
+resources associated with it (e.g. <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+>'s and strings).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9307"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a copy of <TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>. The returned <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> should be freed with
+<A
+HREF="gdk-events.html#GDK-EVENT-FREE"
+>gdk_event_free</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9324"
+></A
+><H3
+><A
+NAME="GDK-EVENT-FREE"
+></A
+>gdk_event_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_event_free                  (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>, freeing or decrementing any resources associated with it.
+Note that this function should only be called with events returned from
+<A
+HREF="gdk-events.html#GDK-EVENT-PEEK"
+>gdk_event_peek</A
+>(), <A
+HREF="gdk-events.html#GDK-EVENT-GET"
+>gdk_event_get</A
+>(), <A
+HREF="gdk-events.html#GDK-EVENT-GET-GRAPHICS-EXPOSE"
+>gdk_event_get_graphics_expose</A
+>() and
+<A
+HREF="gdk-events.html#GDK-EVENT-COPY"
+>gdk_event_copy</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9335"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9345"
+></A
+><H3
+><A
+NAME="GDK-EVENT-GET-TIME"
+></A
+>gdk_event_get_time ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A>     gdk_event_get_time              (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets the timestamp from a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9353"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the timestamp from <TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>, or <A
+HREF="gdk-events.html#GDK-CURRENT-TIME-CAPS"
+>GDK_CURRENT_TIME</A
+> if the event has
+no timestamp.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9369"
+></A
+><H3
+><A
+NAME="GDK-EVENT-HANDLER-SET"
+></A
+>gdk_event_handler_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_event_handler_set           (<A
+HREF="gdk-events.html#GDKEVENTFUNC"
+>GdkEventFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-datasets.html#GDESTROYNOTIFY
+>GDestroyNotify</A> notify);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the function to call to handle all events from GDK.</P
+><P
+>Note that GTK+ uses this to install its own event handler, so it is probably
+not useful for GTK+ applications.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9378"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call to handle events from GDK.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the handler function is removed, i.e. when
+<A
+HREF="gdk-events.html#GDK-EVENT-HANDLER-SET"
+>gdk_event_handler_set</A
+>() is called with another event handler.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9396"
+></A
+><H3
+><A
+NAME="GDKEVENTFUNC"
+></A
+>GdkEventFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GdkEventFunc)                 (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function passed to <A
+HREF="gdk-events.html#GDK-EVENT-HANDLER-SET"
+>gdk_event_handler_set</A
+>() to handle
+all GDK events.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9404"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> to process.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the event handler was installed with
+<A
+HREF="gdk-events.html#GDK-EVENT-HANDLER-SET"
+>gdk_event_handler_set</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9419"
+></A
+><H3
+><A
+NAME="GDK-EVENT-SEND-CLIENT-MESSAGE"
+></A
+>gdk_event_send_client_message ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_event_send_client_message   (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> xid);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sends an X ClientMessage event to a given window.</P
+><P
+>This could be used for communicating between different applications,
+though the amount of data is limited to 20 bytes.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9428"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> to send, which should be a <A
+HREF="gdk-event-structures.html#GDKEVENTCLIENT"
+>GdkEventClient</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window to send the X ClientMessage event to.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>non-zero on success.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9447"
+></A
+><H3
+><A
+NAME="GDK-EVENT-SEND-CLIENTMESSAGE-TOALL"
+></A
+>gdk_event_send_clientmessage_toall ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_event_send_clientmessage_toall
+                                            (<A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sends an X ClientMessage event to all toplevel windows.</P
+><P
+>Toplevel windows are determined by checking for the WM_STATE property, as
+described in the Inter-Client Communication Conventions Manual (ICCCM).
+If no windows are found with the WM_STATE property set, the message is sent
+to all children of the root window.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9454"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-event-structures.html#GDKEVENT"
+>GdkEvent</A
+> to send, which should be a <A
+HREF="gdk-event-structures.html#GDKEVENTCLIENT"
+>GdkEventClient</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9465"
+></A
+><H3
+><A
+NAME="GDK-ADD-CLIENT-MESSAGE-FILTER"
+></A
+>gdk_add_client_message_filter ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_add_client_message_filter   (<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+> message_type,
+                                             <A
+HREF="gdk-windows.html#GDKFILTERFUNC"
+>GdkFilterFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a filter to be called when X ClientMessage events are received.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9473"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>message_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of ClientMessage events to receive. This will be
+checked against the <TT
+CLASS="STRUCTFIELD"
+><I
+>message_type</I
+></TT
+> field of the
+XClientMessage event struct.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call to process the event.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to <TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9492"
+></A
+><H3
+><A
+NAME="GDK-GET-SHOW-EVENTS"
+></A
+>gdk_get_show_events ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_get_show_events             (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns non-zero if event debugging output is enabled.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9498"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>non-zero if event debugging output is enabled.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9507"
+></A
+><H3
+><A
+NAME="GDK-SET-SHOW-EVENTS"
+></A
+>gdk_set_show_events ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_set_show_events             (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> show_events);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets whether event debugging information is output.
+Note that GTK+ must be compiled with debugging enabled, i.e. using the
+'--enable-debug' configure option.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9513"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>show_events</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE to output event debugging information.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9522"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gdk-event-structures.html"
+>Event Structures</A
+></DT
+><DD
+><P
+>The structs used for each type of event.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-windows.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-event-structures.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Windows</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Event Structures</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1308 @@
+<HTML
+><HEAD
+><TITLE
+>Message Output and Debugging Functions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Core Application Support"
+HREF="glib-core.html"><LINK
+REL="PREVIOUS"
+TITLE="IO Channels"
+HREF="glib-io-channels.html"><LINK
+REL="NEXT"
+TITLE="Message Logging"
+HREF="glib-message-logging.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-io-channels.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-message-logging.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-WARNINGS-AND-ASSERTIONS"
+>Message Output and Debugging Functions</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4952"
+></A
+><H2
+>Name</H2
+>Message Output and Debugging Functions&nbsp;--&nbsp;functions to output messages and help debug applications.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4955"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+void        <A
+HREF="glib-warnings-and-assertions.html#G-PRINT"
+>g_print</A
+>                         (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);
+<A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+>  <A
+HREF="glib-warnings-and-assertions.html#G-SET-PRINT-HANDLER"
+>g_set_print_handler</A
+>             (<A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+> func);
+void        (<A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>*GPrintFunc</A
+>)                   (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);
+
+void        <A
+HREF="glib-warnings-and-assertions.html#G-PRINTERR"
+>g_printerr</A
+>                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);
+<A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+>  <A
+HREF="glib-warnings-and-assertions.html#G-SET-PRINTERR-HANDLER"
+>g_set_printerr_handler</A
+>          (<A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+> func);
+
+#define     <A
+HREF="glib-warnings-and-assertions.html#G-RETURN-IF-FAIL"
+>g_return_if_fail</A
+>                (expr)
+#define     <A
+HREF="glib-warnings-and-assertions.html#G-RETURN-VAL-IF-FAIL"
+>g_return_val_if_fail</A
+>            (expr,val)
+
+#define     <A
+HREF="glib-warnings-and-assertions.html#G-ASSERT"
+>g_assert</A
+>                        (expr)
+#define     <A
+HREF="glib-warnings-and-assertions.html#G-ASSERT-NOT-REACHED"
+>g_assert_not_reached</A
+>            ()
+
+void        <A
+HREF="glib-warnings-and-assertions.html#G-ON-ERROR-QUERY"
+>g_on_error_query</A
+>                (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prg_name);
+void        <A
+HREF="glib-warnings-and-assertions.html#G-ON-ERROR-STACK-TRACE"
+>g_on_error_stack_trace</A
+>          (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prg_name);
+
+#define     <A
+HREF="glib-warnings-and-assertions.html#G-BREAKPOINT-CAPS"
+>G_BREAKPOINT</A
+>                    ()</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4979"
+></A
+><H2
+>Description</H2
+><P
+>These functions provide support for outputting messages.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4982"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4984"
+></A
+><H3
+><A
+NAME="G-PRINT"
+></A
+>g_print ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_print                         (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Outputs a formatted message via the print handler.
+The default print handler simply outputs the message to stdout.</P
+><P
+><A
+HREF="glib-warnings-and-assertions.html#G-PRINT"
+>g_print</A
+>() should not be used from within libraries for debugging messages,
+since it may be redirected by applications to special purpose message
+windows or even files.
+Instead, libraries should use <A
+HREF="glib-message-logging.html#G-LOG"
+>g_log</A
+>(), or the convenience functions
+<A
+HREF="glib-message-logging.html#G-MESSAGE"
+>g_message</A
+>(), <A
+HREF="glib-message-logging.html#G-WARNING"
+>g_warning</A
+>() and <A
+HREF="glib-message-logging.html#G-ERROR"
+>g_error</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4996"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message format. See the <TT
+CLASS="FUNCTION"
+>printf()</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to insert into the format string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5010"
+></A
+><H3
+><A
+NAME="G-SET-PRINT-HANDLER"
+></A
+>g_set_print_handler ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+>  g_set_print_handler             (<A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the print handler.
+Any messages passed to <A
+HREF="glib-warnings-and-assertions.html#G-PRINT"
+>g_print</A
+>() will be output via the new handler.
+The default handler simply outputs the message to stdout.
+By providing your own handler you can redirect the output, to a GTK
+widget or a log file for example.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5018"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new print handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the old print handler.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5031"
+></A
+><H3
+><A
+NAME="GPRINTFUNC"
+></A
+>GPrintFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GPrintFunc)                   (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of the print handler functions.
+These are called with the complete formatted string to output.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5037"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message to be output.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5046"
+></A
+><H3
+><A
+NAME="G-PRINTERR"
+></A
+>g_printerr ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_printerr                      (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *format,
+                                             ...);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Outputs a formatted message via the error message handler.
+The default handler simply outputs the message to stderr.</P
+><P
+><A
+HREF="glib-warnings-and-assertions.html#G-PRINTERR"
+>g_printerr</A
+>() should not be used from within libraries. Instead <A
+HREF="glib-message-logging.html#G-LOG"
+>g_log</A
+>() should
+be used, or the convenience functions <A
+HREF="glib-message-logging.html#G-MESSAGE"
+>g_message</A
+>(), <A
+HREF="glib-message-logging.html#G-WARNING"
+>g_warning</A
+>() and <A
+HREF="glib-message-logging.html#G-ERROR"
+>g_error</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5058"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the message format. See the <TT
+CLASS="FUNCTION"
+>printf()</TT
+>
+documentation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>...</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the parameters to insert into the format string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5072"
+></A
+><H3
+><A
+NAME="G-SET-PRINTERR-HANDLER"
+></A
+>g_set_printerr_handler ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+>  g_set_printerr_handler          (<A
+HREF="glib-warnings-and-assertions.html#GPRINTFUNC"
+>GPrintFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the handler for printing error messages.
+Any messages passed to <A
+HREF="glib-warnings-and-assertions.html#G-PRINTERR"
+>g_printerr</A
+>() will be output via the new handler.
+The default handler simply outputs the message to stderr.
+By providing your own handler you can redirect the output, to a GTK
+widget or a log file for example.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5080"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new error message handler.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the old error message handler.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5093"
+></A
+><H3
+><A
+NAME="G-RETURN-IF-FAIL"
+></A
+>g_return_if_fail()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_return_if_fail(expr)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns from the current function if the expression is not true.
+If the expression evaluates to FALSE, a critical message is logged and
+the function returns. This can only be used in functions which do not return
+a value.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5098"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the expression to check.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5107"
+></A
+><H3
+><A
+NAME="G-RETURN-VAL-IF-FAIL"
+></A
+>g_return_val_if_fail()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_return_val_if_fail(expr,val)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns from the current function, returning the value <TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>, if the expression
+is not true.
+If the expression evaluates to FALSE, a critical message is logged and
+<TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+> is returned.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5114"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the expression to check.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>val</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to return from the current function if the expression is not
+true.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5127"
+></A
+><H3
+><A
+NAME="G-ASSERT"
+></A
+>g_assert()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_assert(expr)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Debugging macro to terminate the application if the assertion fails.
+If the assertion fails (i.e. the expression is not true), an error message
+is logged and the application is terminated.</P
+><P
+>The macro can be turned off in final releases of code by defining
+G_DISABLE_ASSERT when compiling the application.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5133"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expr</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the expression to check.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5142"
+></A
+><H3
+><A
+NAME="G-ASSERT-NOT-REACHED"
+></A
+>g_assert_not_reached()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_assert_not_reached()</PRE
+></TD
+></TR
+></TABLE
+><P
+>Debugging macro to terminate the application if it is ever reached.
+If it is reached, an error message is logged and the application is terminated.</P
+><P
+>The macro can be turned off in final releases of code by defining
+G_DISABLE_ASSERT when compiling the application.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5148"
+></A
+><H3
+><A
+NAME="G-ON-ERROR-QUERY"
+></A
+>g_on_error_query ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_on_error_query                (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prg_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prompts the user with "[E]xit, [H]alt, show [S]tack trace or [P]roceed".
+This function is intended to be used for debugging use only.
+FIXME: How do you set it up?</P
+><P
+>If Exit is selected, the application terminates with a call to
+<TT
+CLASS="FUNCTION"
+>_exit(0)</TT
+>.</P
+><P
+>If Halt is selected, the application enters an infinite loop.
+The infinite loop can only be stopped by killing the application,
+or by setting glib_on_error_halt to FALSE (possibly via a debugger).</P
+><P
+>If Stack trace is selected, <A
+HREF="glib-warnings-and-assertions.html#G-ON-ERROR-STACK-TRACE"
+>g_on_error_stack_trace</A
+>() is called. This
+invokes gdb, which attaches to the current process and shows a stack trace.
+The prompt is then shown again.</P
+><P
+>If Proceed is selected, the function returns.</P
+><P
+>This function may cause different actions on non-unix platforms.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5161"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prg_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the program name, needed by gdb for the [S]tack trace option.
+If <TT
+CLASS="PARAMETER"
+><I
+>prg_name</I
+></TT
+> is NULL, <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-PRGNAME"
+>g_get_prgname</A
+>() is called to get the program name
+(which will work correctly if <A
+HREF=../gdk/gdk-general.html#GDK-INIT
+>gdk_init</A>() or <A
+HREF=../gtk/gtk-general.html#GTK-INIT
+>gtk_init</A>() has been called).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5174"
+></A
+><H3
+><A
+NAME="G-ON-ERROR-STACK-TRACE"
+></A
+>g_on_error_stack_trace ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_on_error_stack_trace          (const <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prg_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Invokes gdb, which attaches to the current process and shows a stack trace.
+Called by <A
+HREF="glib-warnings-and-assertions.html#G-ON-ERROR-QUERY"
+>g_on_error_query</A
+>() when the [S]tack trace option is selected.</P
+><P
+>This function may cause different actions on non-unix platforms.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5182"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prg_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the program name, needed by gdb for the [S]tack trace option.
+If <TT
+CLASS="PARAMETER"
+><I
+>prg_name</I
+></TT
+> is NULL, <A
+HREF="glib-miscellaneous-utility-functions.html#G-GET-PRGNAME"
+>g_get_prgname</A
+>() is called to get the program name
+(which will work correctly if <A
+HREF=../gdk/gdk-general.html#GDK-INIT
+>gdk_init</A>() or <A
+HREF=../gtk/gtk-general.html#GTK-INIT
+>gtk_init</A>() has been called).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5195"
+></A
+><H3
+><A
+NAME="G-BREAKPOINT-CAPS"
+></A
+>G_BREAKPOINT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_BREAKPOINT()</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a breakpoint instruction into the code (on x86 machines only).</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-io-channels.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-message-logging.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>IO Channels</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Message Logging</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

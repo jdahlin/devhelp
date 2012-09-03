@@ -1,0 +1,841 @@
+<HTML
+><HEAD
+><TITLE
+>GtkRadioMenuItem</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkRadioButton"
+HREF="gtkradiobutton.html"><LINK
+REL="NEXT"
+TITLE="GtkRange"
+HREF="gtkrange.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkradiobutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkrange.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKRADIOMENUITEM"
+>GtkRadioMenuItem</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN37719"
+></A
+><H2
+>Name</H2
+>GtkRadioMenuItem&nbsp;--&nbsp;A choice from multiple check menu items.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN37722"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkradiomenuitem.html#GTKRADIOMENUITEM-STRUCT"
+>GtkRadioMenuItem</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkradiomenuitem.html#GTK-RADIO-MENU-ITEM-NEW"
+>gtk_radio_menu_item_new</A
+>         (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkradiomenuitem.html#GTK-RADIO-MENU-ITEM-NEW-WITH-LABEL"
+>gtk_radio_menu_item_new_with_label</A
+>
+                                            (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);
+<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     <A
+HREF="gtkradiomenuitem.html#GTK-RADIO-MENU-ITEM-GROUP"
+>gtk_radio_menu_item_group</A
+>       (<A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+> *radio_menu_item);
+void        <A
+HREF="gtkradiomenuitem.html#GTK-RADIO-MENU-ITEM-SET-GROUP"
+>gtk_radio_menu_item_set_group</A
+>   (<A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+> *radio_menu_item,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37739"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkitem.html"
+>GtkItem</A
+>
+                           +----<A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+>
+                                 +----<A
+HREF="gtkcheckmenuitem.html"
+>GtkCheckMenuItem</A
+>
+                                       +----GtkRadioMenuItem</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37749"
+></A
+><H2
+>Description</H2
+><P
+>A radio menu item is a check menu item that belongs to a group. At each
+instant exactly one of the radio menu items from a group is selected.</P
+><P
+>The correct way to create a group of radio menu items is aproximativly
+this:</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN37754"
+></A
+><P
+><B
+>Example 1. How to create a group of radio menu items.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GList *group = NULL;
+GtkWidget *item;
+gint i;
+
+for(i = 0; i &#60; 5; i++)
+{
+  item = gtk_radio_menu_item_new_with_label (group, "This is an example");
+  group = gtk_radio_menu_item_group (GTK_RADIO_MENU_ITEM (item));
+  if (i == 1)
+    gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item), TRUE);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37757"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37759"
+></A
+><H3
+><A
+NAME="GTKRADIOMENUITEM-STRUCT"
+></A
+>struct GtkRadioMenuItem</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkRadioMenuItem;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The structure contains only provate data that must be accessed through
+the interface functions.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37764"
+></A
+><H3
+><A
+NAME="GTK-RADIO-MENU-ITEM-NEW"
+></A
+>gtk_radio_menu_item_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_radio_menu_item_new         (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37772"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the group to wich the radio menu item is to be attached</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created radio menu item
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37785"
+></A
+><H3
+><A
+NAME="GTK-RADIO-MENU-ITEM-NEW-WITH-LABEL"
+></A
+>gtk_radio_menu_item_new_with_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_radio_menu_item_new_with_label
+                                            (<A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+> whose child is a simple GtlLabel.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37795"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the group to wich the radio menu item is to be attached</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the text for the label</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the newly created radio menu item
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37812"
+></A
+><H3
+><A
+NAME="GTK-RADIO-MENU-ITEM-GROUP"
+></A
+>gtk_radio_menu_item_group ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A>*     gtk_radio_menu_item_group       (<A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+> *radio_menu_item);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the group to which the radio menu item belongs, as a <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> of
+<A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+>. The list belongs to GTK+ and should not be freed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37821"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>radio_menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the radio menu item</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>its group
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN37834"
+></A
+><H3
+><A
+NAME="GTK-RADIO-MENU-ITEM-SET-GROUP"
+></A
+>gtk_radio_menu_item_set_group ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_radio_menu_item_set_group   (<A
+HREF="gtkradiomenuitem.html"
+>GtkRadioMenuItem</A
+> *radio_menu_item,
+                                             <A
+HREF=../glib/glib-singly-linked-lists.html#GSLIST
+>GSList</A> *group);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the group of a radio menu item, or changes it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN37841"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>radio_menu_item</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the radio menu item</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new group
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN37854"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkmenuitem.html"
+>GtkMenuItem</A
+></DT
+><DD
+><P
+>because a radio menu item is a menu item.</P
+></DD
+><DT
+>GtkCheckItem</DT
+><DD
+><P
+>to know how to handle the check.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkradiobutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkrange.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkRadioButton</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkRange</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

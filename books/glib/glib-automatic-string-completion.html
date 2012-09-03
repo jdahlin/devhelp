@@ -1,0 +1,1154 @@
+<HTML
+><HEAD
+><TITLE
+>Automatic String Completion</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Utilities"
+HREF="glib-utilities.html"><LINK
+REL="PREVIOUS"
+TITLE="Lexical Scanner"
+HREF="glib-lexical-scanner.html"><LINK
+REL="NEXT"
+TITLE="Timers"
+HREF="glib-timers.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-lexical-scanner.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-timers.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-AUTOMATIC-STRING-COMPLETION"
+>Automatic String Completion</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN10242"
+></A
+><H2
+>Name</H2
+>Automatic String Completion&nbsp;--&nbsp;support for automatic completion using a group of target strings.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN10245"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>;
+<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>* <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-NEW"
+>g_completion_new</A
+>               (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETIONFUNC"
+>GCompletionFunc</A
+> func);
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETIONFUNC"
+>*GCompletionFunc</A
+>)              (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>);
+void        <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-ADD-ITEMS"
+>g_completion_add_items</A
+>          (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *items);
+void        <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-REMOVE-ITEMS"
+>g_completion_remove_items</A
+>       (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *items);
+void        <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-CLEAR-ITEMS"
+>g_completion_clear_items</A
+>        (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp);
+<A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-COMPLETE"
+>g_completion_complete</A
+>           (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prefix,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **new_prefix);
+void        <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-FREE"
+>g_completion_free</A
+>               (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN10270"
+></A
+><H2
+>Description</H2
+><P
+><A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> provides support for automatic completion of a string using
+any group of target strings. It is typically used for file name completion
+as is common in many Unix shells.</P
+><P
+>A <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> is created using <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-NEW"
+>g_completion_new</A
+>().
+Target items are added and removed with
+<A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-ADD-ITEMS"
+>g_completion_add_items</A
+>(), <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-REMOVE-ITEMS"
+>g_completion_remove_items</A
+>() and
+<A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-CLEAR-ITEMS"
+>g_completion_clear_items</A
+>().
+A completion attempt is requested with <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-COMPLETE"
+>g_completion_complete</A
+>().
+When no longer needed, the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> is freed with <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-FREE"
+>g_completion_free</A
+>().</P
+><P
+>Items in the completion can be simple strings (e.g. file names),
+or pointers to arbitrary data structures. If data structures are used
+you must provide a <A
+HREF="glib-automatic-string-completion.html#GCOMPLETIONFUNC"
+>GCompletionFunc</A
+> in <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-NEW"
+>g_completion_new</A
+>(),
+which retrieves the item's string from the data structure.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN10286"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10288"
+></A
+><H3
+><A
+NAME="GCOMPLETION"
+></A
+>struct GCompletion</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GCompletion
+{
+  GList* items;
+  GCompletionFunc func;
+  
+  gchar* prefix;
+  GList* cache;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The data structure used for automatic completion.
+<TT
+CLASS="STRUCTFIELD"
+><I
+>items</I
+></TT
+> is the list of target items (strings
+or data structures).
+<TT
+CLASS="STRUCTFIELD"
+><I
+>func</I
+></TT
+> is the function called to get the string
+associated with a target item. It is NULL if the target items are strings.
+<TT
+CLASS="STRUCTFIELD"
+><I
+>prefix</I
+></TT
+> is the last prefix passed to
+<A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-COMPLETE"
+>g_completion_complete</A
+>().
+<TT
+CLASS="STRUCTFIELD"
+><I
+>cache</I
+></TT
+> is the list of items which begin with
+<TT
+CLASS="STRUCTFIELD"
+><I
+>prefix</I
+></TT
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10299"
+></A
+><H3
+><A
+NAME="G-COMPLETION-NEW"
+></A
+>g_completion_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>* g_completion_new               (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETIONFUNC"
+>GCompletionFunc</A
+> func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10307"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to be called to return the string representing an item
+in the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>, or NULL if strings are going to be used as the
+<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> items.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10323"
+></A
+><H3
+><A
+NAME="GCOMPLETIONFUNC"
+></A
+>GCompletionFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>*      (*GCompletionFunc)              (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of the function passed to <A
+HREF="glib-automatic-string-completion.html#G-COMPLETION-NEW"
+>g_completion_new</A
+>().
+It should return the string corresponding to the given target item.
+This is used when you use data structures as <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> items.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10332"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>Param1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the completion item.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string corresponding to the item.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10345"
+></A
+><H3
+><A
+NAME="G-COMPLETION-ADD-ITEMS"
+></A
+>g_completion_add_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_completion_add_items          (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *items);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds items to the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10353"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmp</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list of items to add.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10367"
+></A
+><H3
+><A
+NAME="G-COMPLETION-REMOVE-ITEMS"
+></A
+>g_completion_remove_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_completion_remove_items       (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp,
+                                             <A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+> *items);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes items from a <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10375"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmp</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>items</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the items to remove.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10389"
+></A
+><H3
+><A
+NAME="G-COMPLETION-CLEAR-ITEMS"
+></A
+>g_completion_clear_items ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_completion_clear_items        (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes all items from the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10396"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmp</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10406"
+></A
+><H3
+><A
+NAME="G-COMPLETION-COMPLETE"
+></A
+>g_completion_complete ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-doubly-linked-lists.html#GLIST"
+>GList</A
+>*      g_completion_complete           (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *prefix,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> **new_prefix);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Attempts to complete the string <TT
+CLASS="PARAMETER"
+><I
+>prefix</I
+></TT
+> using the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> target items.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10417"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmp</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>prefix</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the prefix string, typically typed by the user, which is compared
+with each of the items.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>new_prefix</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if non-NULL, returns the longest prefix which is common to all
+items that matched <TT
+CLASS="PARAMETER"
+><I
+>prefix</I
+></TT
+>, or NULL if no items matched <TT
+CLASS="PARAMETER"
+><I
+>prefix</I
+></TT
+>.
+This string should be freed when no longer needed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the list of items whose strings begin with <TT
+CLASS="PARAMETER"
+><I
+>prefix</I
+></TT
+>. This should
+not be changed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10442"
+></A
+><H3
+><A
+NAME="G-COMPLETION-FREE"
+></A
+>g_completion_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_completion_free               (<A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+> *cmp);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Frees all memory used by the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10449"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cmp</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-automatic-string-completion.html#GCOMPLETION"
+>GCompletion</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-lexical-scanner.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-utilities.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-timers.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Lexical Scanner</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Timers</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

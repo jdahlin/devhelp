@@ -1,0 +1,3169 @@
+<HTML
+><HEAD
+><TITLE
+>Hash Tables</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Data Types"
+HREF="glib-data-types.html"><LINK
+REL="PREVIOUS"
+TITLE="Singly-Linked Lists"
+HREF="glib-singly-linked-lists.html"><LINK
+REL="NEXT"
+TITLE="Strings"
+HREF="glib-strings.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-singly-linked-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-strings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-HASH-TABLES"
+>Hash Tables</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12841"
+></A
+><H2
+>Name</H2
+>Hash Tables&nbsp;--&nbsp;associations between keys and values so that given a key the value
+can be found quickly.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12844"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>;
+<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>* <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>                (<A
+HREF="glib-hash-tables.html#GHASHFUNC"
+>GHashFunc</A
+> hash_func,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> key_compare_func);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       (<A
+HREF="glib-hash-tables.html#GHASHFUNC"
+>*GHashFunc</A
+>)                    (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        (<A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>*GCompareFunc</A
+>)                 (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> a,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> b);
+void        <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-INSERT"
+>g_hash_table_insert</A
+>             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-SIZE"
+>g_hash_table_size</A
+>               (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);
+<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-LOOKUP"
+>g_hash_table_lookup</A
+>             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-LOOKUP-EXTENDED"
+>g_hash_table_lookup_extended</A
+>    (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> lookup_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> *orig_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> *value);
+void        <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH"
+>g_hash_table_foreach</A
+>            (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-hash-tables.html#GHFUNC"
+>GHFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+void        (<A
+HREF="glib-hash-tables.html#GHFUNC"
+>*GHFunc</A
+>)                       (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+void        <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-REMOVE"
+>g_hash_table_remove</A
+>             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH-REMOVE"
+>g_hash_table_foreach_remove</A
+>     (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-hash-tables.html#GHRFUNC"
+>GHRFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (<A
+HREF="glib-hash-tables.html#GHRFUNC"
+>*GHRFunc</A
+>)                      (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+void        <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FREEZE"
+>g_hash_table_freeze</A
+>             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);
+void        <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-THAW"
+>g_hash_table_thaw</A
+>               (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);
+void        <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-DESTROY"
+>g_hash_table_destroy</A
+>            (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);
+
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-hash-tables.html#G-DIRECT-EQUAL"
+>g_direct_equal</A
+>                  (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v2);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-hash-tables.html#G-DIRECT-HASH"
+>g_direct_hash</A
+>                   (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-hash-tables.html#G-INT-EQUAL"
+>g_int_equal</A
+>                     (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v2);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-hash-tables.html#G-INT-HASH"
+>g_int_hash</A
+>                      (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-hash-tables.html#G-STR-EQUAL"
+>g_str_equal</A
+>                     (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v2);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-hash-tables.html#G-STR-HASH"
+>g_str_hash</A
+>                      (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12924"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> provides associations between keys and values which
+is optimized so that given a key, the associated value can be found
+very quickly.</P
+><P
+>Note that neither keys nor values are copied when inserted into the
+<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, so they must exist for the lifetime of the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+This means that the use of static strings is OK, but temporary
+strings (i.e. those created in buffers and those returned by GTK widgets)
+should be copied with <A
+HREF="glib-string-utility-functions.html#G-STRDUP"
+>g_strdup</A
+>() before being inserted.</P
+><P
+>If keys or values are dynamically allocated, you must be careful to ensure
+that they are freed when they are removed from the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, and also
+when they are overwritten by new insertions into the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+It is also not advisable to mix static strings and dynamically-allocated
+strings in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, because it then becomes difficult to determine
+whether the string should be freed.</P
+><P
+>To create a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, use <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>().</P
+><P
+>To insert a key and value into a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, use <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-INSERT"
+>g_hash_table_insert</A
+>().</P
+><P
+>To lookup a value corresponding to a given key, use <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-LOOKUP"
+>g_hash_table_lookup</A
+>()
+and <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-LOOKUP-EXTENDED"
+>g_hash_table_lookup_extended</A
+>().</P
+><P
+>To remove a key and value, use <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-REMOVE"
+>g_hash_table_remove</A
+>().</P
+><P
+>To call a function for each key and value pair use <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH"
+>g_hash_table_foreach</A
+>().</P
+><P
+>To destroy a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> use <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-DESTROY"
+>g_hash_table_destroy</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12952"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12954"
+></A
+><H3
+><A
+NAME="GHASHTABLE"
+></A
+>struct GHashTable</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GHashTable;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> struct is an opaque data structure to represent a
+<A
+HREF="glib-hash-tables.html"
+>Hash Table</A
+>.
+It should only be accessed via the following functions.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12961"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-NEW"
+></A
+>g_hash_table_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>* g_hash_table_new                (<A
+HREF="glib-hash-tables.html#GHASHFUNC"
+>GHashFunc</A
+> hash_func,
+                                             <A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> key_compare_func);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12970"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function to create a hash value from a key.
+Hash values are used to determine where keys are stored within the
+<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> data structure.
+The <A
+HREF="glib-hash-tables.html#G-DIRECT-HASH"
+>g_direct_hash</A
+>(), <A
+HREF="glib-hash-tables.html#G-INT-HASH"
+>g_int_hash</A
+>() and <A
+HREF="glib-hash-tables.html#G-STR-HASH"
+>g_str_hash</A
+>() functions are provided for
+some common types of keys. If hash_func is NULL, <A
+HREF="glib-hash-tables.html#G-DIRECT-HASH"
+>g_direct_hash</A
+>() is used.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key_compare_func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a function to compare two keys to see if they are equal.
+This is used when looking up keys in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+The <A
+HREF="glib-hash-tables.html#G-DIRECT-EQUAL"
+>g_direct_equal</A
+>(), <A
+HREF="glib-hash-tables.html#G-INT-EQUAL"
+>g_int_equal</A
+>() and <A
+HREF="glib-hash-tables.html#G-STR-EQUAL"
+>g_str_equal</A
+>() functions are provided
+for the most common types of keys. If compare_func is NULL, keys are compared
+directly in a similar fashion to <A
+HREF="glib-hash-tables.html#G-DIRECT-EQUAL"
+>g_direct_equal</A
+>(), but without the overhead
+of a function call.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12998"
+></A
+><H3
+><A
+NAME="GHASHFUNC"
+></A
+>GHashFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       (*GHashFunc)                    (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of the hash function which is passed to
+<A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>() when a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> is created.</P
+><P
+>The function is passed a key and should return a guint hash value.
+The functions <A
+HREF="glib-hash-tables.html#G-DIRECT-HASH"
+>g_direct_hash</A
+>(), <A
+HREF="glib-hash-tables.html#G-INT-HASH"
+>g_int_hash</A
+>() and <A
+HREF="glib-hash-tables.html#G-STR-HASH"
+>g_str_hash</A
+>() provide
+hash functions which can be used when the key is a <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>, <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>, and 
+<A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+>* respectively.</P
+><P
+>FIXME: Need more here.
+The hash values should be evenly distributed over a fairly large range?
+The modulus is taken with the hash table size (a prime number)
+to find the 'bucket' to place each key into.
+The function should also be very fast, since it is called for each key
+lookup.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13015"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the hash value corresponding to the key.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13028"
+></A
+><H3
+><A
+NAME="GCOMPAREFUNC"
+></A
+>GCompareFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        (*GCompareFunc)                 (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> a,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> b);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of a comparison function used to compare two values.
+The value which should be returned depends on the context in which the
+<A
+HREF="glib-hash-tables.html#GCOMPAREFUNC"
+>GCompareFunc</A
+> is used.</P
+><P
+>In <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>(), <A
+HREF="glib-caches.html#G-CACHE-NEW"
+>g_cache_new</A
+>(), and <A
+HREF="glib-relations-and-tuples.html#G-RELATION-INDEX"
+>g_relation_index</A
+>() the function
+should return TRUE if the two parameters are equal, or FALSE if they are not.</P
+><P
+>In <A
+HREF="glib-doubly-linked-lists.html#G-LIST-FIND-CUSTOM"
+>g_list_find_custom</A
+>() and <A
+HREF="glib-singly-linked-lists.html#G-SLIST-FIND-CUSTOM"
+>g_slist_find_custom</A
+>() the function should return
+0 if the two parameters are equal.</P
+><P
+>In <A
+HREF="glib-doubly-linked-lists.html#G-LIST-INSERT-SORTED"
+>g_list_insert_sorted</A
+>(), <A
+HREF="glib-doubly-linked-lists.html#G-LIST-SORT"
+>g_list_sort</A
+>(), <A
+HREF="glib-singly-linked-lists.html#G-SLIST-INSERT-SORTED"
+>g_slist_insert_sorted</A
+>(),
+<A
+HREF="glib-singly-linked-lists.html#G-SLIST-SORT"
+>g_slist_sort</A
+>() and <A
+HREF="glib-balanced-binary-trees.html#G-TREE-NEW"
+>g_tree_new</A
+>()  the function should return a negative integer
+if the first value comes before the second, 0 if they are equal, or a positive
+integer if the first value comes after the second.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13050"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>b</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a value to compare with.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the two values are equivalent.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13067"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-INSERT"
+></A
+>g_hash_table_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_hash_table_insert             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Inserts a new key and value into a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+If the key already exists in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> its current value is replaced
+with the new value.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>If the keys or values use dynamically allocated memory, then you should
+first check if the key already exists in the GHashTable. If it does,
+you should free the existing key and/or value before inserting the
+new key and value.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13079"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key to insert.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value to associate with the key.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13097"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-SIZE"
+></A
+>g_hash_table_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_hash_table_size               (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the number of key/value pairs in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13105"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of key/value pairs in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13120"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-LOOKUP"
+></A
+>g_hash_table_lookup ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+>    g_hash_table_lookup             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Looks up a key in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, returning the associated value or NULL
+if the key is not found.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13129"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the key to look up.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the associated value, or NULL if the key is not found.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13147"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-LOOKUP-EXTENDED"
+></A
+>g_hash_table_lookup_extended ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    g_hash_table_lookup_extended    (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> lookup_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> *orig_key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> *value);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Looks up a key in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>, returning the original key and the
+associated value and a gboolean which is TRUE if the key was found.
+This is useful if you need to free the memory allocated for the
+original key, for example before calling <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-REMOVE"
+>g_hash_table_remove</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13159"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lookup_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the key to look up.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>orig_key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returns the original key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returns the value associated with the key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the key was found in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13186"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-FOREACH"
+></A
+>g_hash_table_foreach ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_hash_table_foreach            (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-hash-tables.html#GHFUNC"
+>GHFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calls the given function for each of the key/value pairs in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+The function is passed the key and value of each pair, and the given
+<TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+> parameter.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13196"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call for each key/value pair.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>use data to pass to the function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13214"
+></A
+><H3
+><A
+NAME="GHFUNC"
+></A
+>GHFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GHFunc)                       (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of the function passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH"
+>g_hash_table_foreach</A
+>().
+It is called with each key/value pair, together with the <TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+> parameter
+which is passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH"
+>g_hash_table_foreach</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13225"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value corresponding to the key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH"
+>g_hash_table_foreach</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13243"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-REMOVE"
+></A
+>g_hash_table_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_hash_table_remove             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> key);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes a key and its associated value from a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>As with <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-INSERT"
+>g_hash_table_insert</A
+>(), you should make sure that any dynamically
+allocated values are freed yourself.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13254"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the key to remove.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13268"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-FOREACH-REMOVE"
+></A
+>g_hash_table_foreach_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_hash_table_foreach_remove     (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table,
+                                             <A
+HREF="glib-hash-tables.html#GHRFUNC"
+>GHRFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Calls the given function for each key/value pair in the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+If the function returns TRUE, then the key/value pair is removed from the
+<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13279"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call for each key/value pair.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of key/value paris removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13301"
+></A
+><H3
+><A
+NAME="GHRFUNC"
+></A
+>GHRFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (*GHRFunc)                      (<A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> key,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> value,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of the function passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH-REMOVE"
+>g_hash_table_foreach_remove</A
+>().
+It is called with each key/value pair, together with the <TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+> parameter
+passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-FOREACH-REMOVE"
+>g_hash_table_foreach_remove</A
+>().
+It should return TRUE if the key/value pair should be removed from the
+<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13314"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>key</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the value associated with the key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-REMOVE"
+>g_hash_table_remove</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the key/value pair should be removed from the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13337"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-FREEZE"
+></A
+>g_hash_table_freeze ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_hash_table_freeze             (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Disable resizing of a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><P
+>This should be used if you need to make a lot of changes to a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>
+at once, as it reduces the number of times that the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> is rebuilt.
+You should call <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-THAW"
+>g_hash_table_thaw</A
+>() after updating the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> to
+enable resizing again.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13349"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13359"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-THAW"
+></A
+>g_hash_table_thaw ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_hash_table_thaw               (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Enables resizing of a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13366"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13376"
+></A
+><H3
+><A
+NAME="G-HASH-TABLE-DESTROY"
+></A
+>g_hash_table_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_hash_table_destroy            (<A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+> *hash_table);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys the <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>If keys and/or values are dynamically allocated, you should free them
+first.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13385"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hash_table</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13395"
+></A
+><H3
+><A
+NAME="G-DIRECT-EQUAL"
+></A
+>g_direct_equal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_direct_equal                  (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Compares two <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> arguments and returns TRUE if they are equal.
+It can be passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>() as the <TT
+CLASS="PARAMETER"
+><I
+>key_compare_func</I
+></TT
+>
+parameter, when using pointers as keys in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13407"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key to compare with <TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the two keys match.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13425"
+></A
+><H3
+><A
+NAME="G-DIRECT-HASH"
+></A
+>g_direct_hash ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_direct_hash                   (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a gpointer to a hash value.
+It can be passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>() as the <TT
+CLASS="PARAMETER"
+><I
+>hash_func</I
+></TT
+> parameter, when
+using gpointer values as keys in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13435"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a gpointer key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a hash value corresponding to the key.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13448"
+></A
+><H3
+><A
+NAME="G-INT-EQUAL"
+></A
+>g_int_equal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_int_equal                     (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Compares the two <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> values being pointed to and returns TRUE if they are
+equal.
+It can be passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>() as the <TT
+CLASS="PARAMETER"
+><I
+>key_compare_func</I
+></TT
+>
+parameter, when using pointers to integers as keys in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13460"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> key to compare with <TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the two keys match.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13480"
+></A
+><H3
+><A
+NAME="G-INT-HASH"
+></A
+>g_int_hash ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_int_hash                      (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a pointer to a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> to a hash value.
+It can be passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>() as the <TT
+CLASS="PARAMETER"
+><I
+>hash_func</I
+></TT
+> parameter, when
+using pointers to gint values as keys in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13491"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a hash value corresponding to the key.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13505"
+></A
+><H3
+><A
+NAME="G-STR-EQUAL"
+></A
+>g_str_equal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_str_equal                     (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v,
+                                             <A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Compares two strings and returns TRUE if they are equal.
+It can be passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>() as the <TT
+CLASS="PARAMETER"
+><I
+>key_compare_func</I
+></TT
+>
+parameter, when using strings as keys in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13516"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a key to compare with <TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the two keys match.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13534"
+></A
+><H3
+><A
+NAME="G-STR-HASH"
+></A
+>g_str_hash ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_str_hash                      (<A
+HREF="glib-basic-types.html#GCONSTPOINTER"
+>gconstpointer</A
+> v);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Converts a string to a hash value.
+It can be passed to <A
+HREF="glib-hash-tables.html#G-HASH-TABLE-NEW"
+>g_hash_table_new</A
+>() as the <TT
+CLASS="PARAMETER"
+><I
+>hash_func</I
+></TT
+> parameter, when
+using strings as keys in a <A
+HREF="glib-hash-tables.html#GHASHTABLE"
+>GHashTable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13544"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>v</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string key.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a hash value corresponding to the key.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-singly-linked-lists.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-data-types.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-strings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Singly-Linked Lists</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Strings</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

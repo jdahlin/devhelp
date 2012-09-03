@@ -1,0 +1,1346 @@
+<HTML
+><HEAD
+><TITLE
+>GtkTooltips</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkToolbar"
+HREF="gtktoolbar.html"><LINK
+REL="NEXT"
+TITLE="GtkTree"
+HREF="gtktree.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktoolbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktree.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKTOOLTIPS"
+>GtkTooltips</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN42578"
+></A
+><H2
+>Name</H2
+>GtkTooltips&nbsp;--&nbsp;Add tips to your widgets.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN42581"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtktooltips.html#GTKTOOLTIPS-STRUCT"
+>GtkTooltips</A
+>;
+struct      <A
+HREF="gtktooltips.html#GTKTOOLTIPSDATA"
+>GtkTooltipsData</A
+>;
+<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+>* <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-NEW"
+>gtk_tooltips_new</A
+>               (void);
+void        <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-ENABLE"
+>gtk_tooltips_enable</A
+>             (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips);
+void        <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-DISABLE"
+>gtk_tooltips_disable</A
+>            (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips);
+void        <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-SET-DELAY"
+>gtk_tooltips_set_delay</A
+>          (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> delay);
+void        <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-SET-TIP"
+>gtk_tooltips_set_tip</A
+>            (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_text,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_private);
+void        <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-SET-COLORS"
+>gtk_tooltips_set_colors</A
+>         (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *background,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *foreground);
+<A
+HREF="gtktooltips.html#GTKTOOLTIPSDATA"
+>GtkTooltipsData</A
+>* <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-DATA-GET"
+>gtk_tooltips_data_get</A
+>      (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);
+void        <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-FORCE-WINDOW"
+>gtk_tooltips_force_window</A
+>       (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42609"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkdata.html"
+>GtkData</A
+>
+         +----GtkTooltips</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42614"
+></A
+><H2
+>Description</H2
+><P
+>Tooltips are the messages that appear next to a widget when the mouse pointer is held over it for a short amount of time. They are especially helpful for adding more verbose descriptions of things such as buttons in a toolbar.</P
+><P
+>An individual tooltip belongs to a group of tooltips. A group is created with a call to <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-NEW"
+>gtk_tooltips_new</A
+>(). Every tooltip in the group can then be turned off with a call to <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-DISABLE"
+>gtk_tooltips_disable</A
+>() and enabled with <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-ENABLE"
+>gtk_tooltips_enable</A
+>().</P
+><P
+>The length of time the user must keep the mouse over a widget before the tip is shown, can be altered with <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-SET-DELAY"
+>gtk_tooltips_set_delay</A
+>(). This is set on a 'per group of tooltips' basis.</P
+><P
+>To assign a tip to a particular <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>, <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-SET-TIP"
+>gtk_tooltips_set_tip</A
+>() is used.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>Tooltips can only be set on widgets which have their own X window.
+To check if a widget has its own window use 'GTK_WIDGET_NO_WINDOW (widget)'.
+To add a tooltip to a widget that doesn't have its own window, place the
+widget inside a <A
+HREF="gtkeventbox.html"
+>GtkEventBox</A
+> and add a tooltip to that instead.</P
+></BLOCKQUOTE
+></DIV
+><P
+>The default appearance of all tooltips in a program is determined by the current gtk theme that the user has selected.</P
+><P
+>Information about the tooltip (if any) associated with an arbitrary widget can be retrieved using <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-DATA-GET"
+>gtk_tooltips_data_get</A
+>().</P
+><P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN42633"
+></A
+><P
+><B
+>Example 1. Adding tooltips to buttons.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>   GtkWidget *load_button, *save_button, *hbox;
+   GtkTooltips *button_bar_tips;
+   
+   button_bar_tips = <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-NEW"
+>gtk_tooltips_new</A
+>();
+   
+   /* Create the buttons and pack them into a <A
+HREF="gtkhbox.html"
+>GtkHBox</A
+> */
+   hbox = gtk_hbox_new(TRUE, 2);
+   
+   load_button = gtk_button_new_with_label("Load a file");
+   gtk_box_pack_start(GTK_BOX (hbox), load_button, TRUE, TRUE, 2);
+   gtk_widget_show(load_button);
+   
+   save_button = gtk_button_new_with_label("Save a file");
+   gtk_box_pack_start(GTK_BOX (hbox), save_button, TRUE, TRUE, 2);
+   gtk_widget_show(save_button);
+   gtk_widget_show(hbox);
+   
+   /* Add the tips */
+   gtk_tooltips_set_tip(GTK_TOOLTIPS (button_bar_tips), load_button,
+				 "Load a new document into this window",
+				 "Requests the filename of a document.
+				  This will then be loaded into the current
+				  window, replacing the contents of whatever
+				  is already loaded.");
+   gtk_tooltips_set_tip(GTK_TOOLTIPS (button_bar_tips), save_button,
+				 "Saves the current document to a file",
+				 "If you have saved the document previously,
+				  then the new version will be saved over the
+				  old one. Otherwise, you will be prompted for
+				  a filename."); </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42638"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42640"
+></A
+><H3
+><A
+NAME="GTKTOOLTIPS-STRUCT"
+></A
+>struct GtkTooltips</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTooltips;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Holds information about a group of tooltips. Fields should be changed using the functions provided, rather than directly accessing the struct's members.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42645"
+></A
+><H3
+><A
+NAME="GTKTOOLTIPSDATA"
+></A
+>struct GtkTooltipsData</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTooltipsData
+{
+  GtkTooltips *tooltips;
+  GtkWidget *widget;
+  gchar *tip_text;
+  gchar *tip_private;
+  GdkFont *font;
+  gint width;
+  GList *row;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>tooltips</I
+></TT
+> is the <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> group that this tooltip belongs to. <TT
+CLASS="STRUCTFIELD"
+><I
+>widget</I
+></TT
+> is the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> that this tooltip data is associated with. <TT
+CLASS="STRUCTFIELD"
+><I
+>tip_text</I
+></TT
+> is a string containing the tooltip message itself.</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>tip_private</I
+></TT
+> is a string that is not shown as the default tooltip. Instead, this message may be more informative and go towards forming a context-sensitive help system for your application. (FIXME: how to actually "switch on" private tips?)</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42657"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-NEW"
+></A
+>gtk_tooltips_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+>* gtk_tooltips_new               (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates an empty group of tooltips. This function initialises a <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> structure. Without at least one such structure, you can not add tips to your application.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42664"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> group for you to use.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42674"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-ENABLE"
+></A
+>gtk_tooltips_enable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tooltips_enable             (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Allows the user to see your tooltips as they navigate your application.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42680"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltips</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42690"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-DISABLE"
+></A
+>gtk_tooltips_disable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tooltips_disable            (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Causes all tooltips in <TT
+CLASS="PARAMETER"
+><I
+>tooltips</I
+></TT
+> to become inactive. Any widgets that have tips associated with that group will no longer display their tips until they are enabled again with <A
+HREF="gtktooltips.html#GTK-TOOLTIPS-ENABLE"
+>gtk_tooltips_enable</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42698"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltips</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42708"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-SET-DELAY"
+></A
+>gtk_tooltips_set_delay ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tooltips_set_delay          (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> delay);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the time between the user moving the mouse over a widget and the widget's tooltip appearing.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42715"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltips</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>delay</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an integer value representing seconds (FIXME: double-check this).
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42729"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-SET-TIP"
+></A
+>gtk_tooltips_set_tip ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tooltips_set_tip            (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips,
+                                             <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_text,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *tip_private);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds a tooltip containing the message <TT
+CLASS="PARAMETER"
+><I
+>tip_text</I
+></TT
+> to the specified <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42740"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltips</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> you wish to associate the tip with.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tip_text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string containing the tip itself.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tip_private</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string of any further information that may be useful if the user gets stuck.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42763"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-SET-COLORS"
+></A
+>gtk_tooltips_set_colors ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tooltips_set_colors         (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *background,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *foreground);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is unimplemented because tooltip colors are instead
+determined by the theme.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42771"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltips</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkTooltip</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>background</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> that your tooltip text will be shown in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>foreground</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> that your tooltip backgrounds will be shown in.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42791"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-DATA-GET"
+></A
+>gtk_tooltips_data_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtktooltips.html#GTKTOOLTIPSDATA"
+>GtkTooltipsData</A
+>* gtk_tooltips_data_get      (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Retrieves any <A
+HREF="gtktooltips.html#GTKTOOLTIPSDATA"
+>GtkTooltipsData</A
+> previously associated with the given widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42799"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktooltips.html#GTKTOOLTIPSDATA"
+>GtkTooltipsData</A
+> struct, or NULL if the widget has no tooltip.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN42814"
+></A
+><H3
+><A
+NAME="GTK-TOOLTIPS-FORCE-WINDOW"
+></A
+>gtk_tooltips_force_window ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_tooltips_force_window       (<A
+HREF="gtktooltips.html"
+>GtkTooltips</A
+> *tooltips);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Soon as I play with this, I'll report what it does.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN42820"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tooltips</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN42829"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtktoolbar.html"
+>GtkToolbar</A
+></DT
+><DD
+><P
+>Create groups of widgets with their own tooltips.</P
+></DD
+><DT
+><A
+HREF="gtktipsquery.html"
+>GtkTipsQuery</A
+></DT
+><DD
+><P
+>Query tooltips to create context-sensitive help.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktoolbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktree.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkToolbar</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTree</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

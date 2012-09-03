@@ -1,0 +1,1384 @@
+<HTML
+><HEAD
+><TITLE
+>GtkAdjustment</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkAccelLabel"
+HREF="gtkaccellabel.html"><LINK
+REL="NEXT"
+TITLE="GtkAlignment"
+HREF="gtkalignment.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkaccellabel.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkalignment.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKADJUSTMENT"
+>GtkAdjustment</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12887"
+></A
+><H2
+>Name</H2
+>GtkAdjustment&nbsp;--&nbsp;a <A
+HREF="gtkobject.html"
+>GtkObject</A
+> representing an adjustable bounded value.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12891"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkadjustment.html#GTKADJUSTMENT-STRUCT"
+>GtkAdjustment</A
+>;
+<A
+HREF="gtkobject.html"
+>GtkObject</A
+>*  <A
+HREF="gtkadjustment.html#GTK-ADJUSTMENT-NEW"
+>gtk_adjustment_new</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> value,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> lower,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> upper,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> step_increment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> page_increment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> page_size);
+void        <A
+HREF="gtkadjustment.html#GTK-ADJUSTMENT-SET-VALUE"
+>gtk_adjustment_set_value</A
+>        (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> value);
+void        <A
+HREF="gtkadjustment.html#GTK-ADJUSTMENT-CLAMP-PAGE"
+>gtk_adjustment_clamp_page</A
+>       (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> lower,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> upper);
+void        <A
+HREF="gtkadjustment.html#GTK-ADJUSTMENT-CHANGED"
+>gtk_adjustment_changed</A
+>          (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);
+void        <A
+HREF="gtkadjustment.html#GTK-ADJUSTMENT-VALUE-CHANGED"
+>gtk_adjustment_value_changed</A
+>    (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12914"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkdata.html"
+>GtkData</A
+>
+         +----GtkAdjustment</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12919"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkadjustment.html#GTKADJUSTMENT-CHANGED"
+>changed</A
+>&quot;   void        user_function      (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkadjustment.html#GTKADJUSTMENT-VALUE-CHANGED"
+>value-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12928"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> object represents a value which has an associated lower
+and upper bound, together with step and page increments, and a page size.
+It is used within several GTK+ widgets, including
+<A
+HREF="gtkspinbutton.html"
+>GtkSpinButton</A
+>, <A
+HREF="gtkviewport.html"
+>GtkViewport</A
+>, and <A
+HREF="gtkrange.html"
+>GtkRange</A
+> (which is a base class for
+<A
+HREF="gtkhscrollbar.html"
+>GtkHScrollbar</A
+>, <A
+HREF="gtkvscrollbar.html"
+>GtkVScrollbar</A
+>, <A
+HREF="gtkhscale.html"
+>GtkHScale</A
+>, and <A
+HREF="gtkvscale.html"
+>GtkVScale</A
+>).</P
+><P
+>The <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> object does not update the value itself. Instead
+it is left up to the owner of the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> to control the value.</P
+><P
+>The owner of the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> typically calls the
+<A
+HREF="gtkadjustment.html#GTK-ADJUSTMENT-VALUE-CHANGED"
+>gtk_adjustment_value_changed</A
+>() and <A
+HREF="gtkadjustment.html#GTK-ADJUSTMENT-CHANGED"
+>gtk_adjustment_changed</A
+>() functions
+after changing the value and its bounds. This results in the emission of the
+&quot;value_changed&quot; or &quot;changed&quot; signal respectively.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12946"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12948"
+></A
+><H3
+><A
+NAME="GTKADJUSTMENT-STRUCT"
+></A
+>struct GtkAdjustment</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkAdjustment;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkadjustment.html#GTKADJUSTMENT-STRUCT"
+>GtkAdjustment</A
+> struct contains the following fields.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12954"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> lower;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the minimum value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> upper;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> value;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the current value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> step_increment;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the increment to use to make minor changes to the value.
+In a <A
+HREF="gtkscrollbar.html"
+>GtkScrollbar</A
+> this increment is used when the mouse is clicked on the
+arrows at the top and bottom of the scrollbar, to scroll by a small amount.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> page_increment;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the increment to use to make major changes to the value.
+In a <A
+HREF="gtkscrollbar.html"
+>GtkScrollbar</A
+> this increment is used when the mouse is clicked in the
+trough, to scroll by a large amount.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> page_size;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page size.
+In a <A
+HREF="gtkscrollbar.html"
+>GtkScrollbar</A
+> this is the size of the area which is currently visible.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN12986"
+></A
+><H3
+><A
+NAME="GTK-ADJUSTMENT-NEW"
+></A
+>gtk_adjustment_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkobject.html"
+>GtkObject</A
+>*  gtk_adjustment_new              (<A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> value,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> lower,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> upper,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> step_increment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> page_increment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> page_size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN12999"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the initial value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lower</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the minimum value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>upper</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>step_increment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the step increment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>page_increment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page increment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>page_size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the page size.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13033"
+></A
+><H3
+><A
+NAME="GTK-ADJUSTMENT-SET-VALUE"
+></A
+>gtk_adjustment_set_value ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_adjustment_set_value        (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> value);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> value.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13041"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13055"
+></A
+><H3
+><A
+NAME="GTK-ADJUSTMENT-CLAMP-PAGE"
+></A
+>gtk_adjustment_clamp_page ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_adjustment_clamp_page       (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> lower,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> upper);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Updates the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> <TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+> to ensure that the range between <TT
+CLASS="PARAMETER"
+><I
+>lower</I
+></TT
+>
+and <TT
+CLASS="PARAMETER"
+><I
+>upper</I
+></TT
+> is in the current page (i.e. between <TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>value</I
+></TT
+> +
+<TT
+CLASS="PARAMETER"
+><I
+>page_size</I
+></TT
+>).
+If the range is larger than the page size, then only the start of it will
+be in the current page.
+A &quot;changed&quot; signal will be emitted if the value is changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13070"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>lower</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the lower value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>upper</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the upper value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13088"
+></A
+><H3
+><A
+NAME="GTK-ADJUSTMENT-CHANGED"
+></A
+>gtk_adjustment_changed ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_adjustment_changed          (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits a &quot;changed&quot; signal from the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>.
+This is typically called by the owner of the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> after it has
+changed any of the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> fields other than the value.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13097"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13106"
+></A
+><H3
+><A
+NAME="GTK-ADJUSTMENT-VALUE-CHANGED"
+></A
+>gtk_adjustment_value_changed ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_adjustment_value_changed    (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emits a &quot;value_changed&quot; signal from the GtkAdjusmtent.
+This is typically called by the owner of the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> after it has
+changed the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> value field.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13115"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13124"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13126"
+></A
+><H3
+><A
+NAME="GTKADJUSTMENT-CHANGED"
+></A
+>The &quot;changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when one or more of the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> fields have been changed,
+other than the value field.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13134"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13147"
+></A
+><H3
+><A
+NAME="GTKADJUSTMENT-VALUE-CHANGED"
+></A
+>The &quot;value-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *adjustment,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> value field has been changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13155"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>adjustment</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkaccellabel.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkalignment.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkAccelLabel</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkAlignment</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

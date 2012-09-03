@@ -1,0 +1,1004 @@
+<HTML
+><HEAD
+><TITLE
+>Miscellaneous Macros</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Fundamentals"
+HREF="glib-fundamentals.html"><LINK
+REL="PREVIOUS"
+TITLE="Byte Order Macros"
+HREF="glib-byte-order-macros.html"><LINK
+REL="NEXT"
+TITLE="GLib Core Application Support"
+HREF="glib-core.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-byte-order-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-MISCELLANEOUS-MACROS"
+>Miscellaneous Macros</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN1947"
+></A
+><H2
+>Name</H2
+>Miscellaneous Macros&nbsp;--&nbsp;specialised macros which are not used often.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN1950"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-INLINE-FUNC-CAPS"
+>G_INLINE_FUNC</A
+>
+
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-STMT-START-CAPS"
+>G_STMT_START</A
+>
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-STMT-END-CAPS"
+>G_STMT_END</A
+>
+
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-VA-COPY-CAPS"
+>G_VA_COPY</A
+>                       (ap1, ap2)
+
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-EXTENSION-CAPS"
+>G_GNUC_EXTENSION</A
+>
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-CONST-CAPS"
+>G_GNUC_CONST</A
+>
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-NORETURN-CAPS"
+>G_GNUC_NORETURN</A
+>
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-UNUSED-CAPS"
+>G_GNUC_UNUSED</A
+>
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-PRINTF-CAPS"
+>G_GNUC_PRINTF</A
+>                   ( format_idx, arg_idx )
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-SCANF-CAPS"
+>G_GNUC_SCANF</A
+>                    ( format_idx, arg_idx )
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-FORMAT-CAPS"
+>G_GNUC_FORMAT</A
+>                   ( arg_idx )
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-FUNCTION-CAPS"
+>G_GNUC_FUNCTION</A
+>
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-GNUC-PRETTY-FUNCTION-CAPS"
+>G_GNUC_PRETTY_FUNCTION</A
+>
+
+#define     <A
+HREF="glib-miscellaneous-macros.html#G-STRING"
+>g_string</A
+>                        (x)&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1967"
+></A
+><H2
+>Description</H2
+><P
+>These macros provide more specialized features which are not needed so often
+by application programmers.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1970"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1972"
+></A
+><H3
+><A
+NAME="G-INLINE-FUNC-CAPS"
+></A
+>G_INLINE_FUNC</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_INLINE_FUNC</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used to declare inline functions. If inline functions are not supported on
+the particular platform, the macro evaluates to the empty string.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1977"
+></A
+><H3
+><A
+NAME="G-STMT-START-CAPS"
+></A
+>G_STMT_START</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_STMT_START</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used within multi-statement macros so that they can be used in places where
+only one statement is expected by the compiler.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1982"
+></A
+><H3
+><A
+NAME="G-STMT-END-CAPS"
+></A
+>G_STMT_END</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_STMT_END</PRE
+></TD
+></TR
+></TABLE
+><P
+>Used within multi-statement macros so that they can be used in places where
+only one statement is expected by the compiler.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1987"
+></A
+><H3
+><A
+NAME="G-VA-COPY-CAPS"
+></A
+>G_VA_COPY()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_VA_COPY(ap1, ap2)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Portable way to copy <SPAN
+CLASS="TYPE"
+>va_list</SPAN
+> variables.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1993"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ap1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <SPAN
+CLASS="TYPE"
+>va_list</SPAN
+> variable to place a copy of <TT
+CLASS="PARAMETER"
+><I
+>ap2</I
+></TT
+> in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ap2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <SPAN
+CLASS="TYPE"
+>va_list</SPAN
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2009"
+></A
+><H3
+><A
+NAME="G-GNUC-EXTENSION-CAPS"
+></A
+>G_GNUC_EXTENSION</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_EXTENSION</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to "__extension__" when GNU C is used as the compiler.
+This simply tells GNU C not to warn about the following non-standard code
+when compiling with the -pedantic option.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2014"
+></A
+><H3
+><A
+NAME="G-GNUC-CONST-CAPS"
+></A
+>G_GNUC_CONST</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_CONST</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C const function attribute if the compiler is GNU C.
+This enables optimization of the function.
+See the GNU C documentation for details. </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2019"
+></A
+><H3
+><A
+NAME="G-GNUC-NORETURN-CAPS"
+></A
+>G_GNUC_NORETURN</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_NORETURN</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C noreturn function attribute if the compiler is GNU C.
+It is used for declaring functions which never return.
+It enables optimization of the function, and avoids possible compiler
+warnings. See the GNU C documentation for details. </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2024"
+></A
+><H3
+><A
+NAME="G-GNUC-UNUSED-CAPS"
+></A
+>G_GNUC_UNUSED</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_UNUSED</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C unused function attribute if the compiler is GNU C.
+It is used for declaring functions which may never be used.
+It avoids possible compiler warnings. See the GNU C documentation for details. </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2029"
+></A
+><H3
+><A
+NAME="G-GNUC-PRINTF-CAPS"
+></A
+>G_GNUC_PRINTF()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_PRINTF( format_idx, arg_idx )</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C format function attribute if the compiler is GNU C.
+This is used for declaring functions which take a variable number of
+arguments, with the same syntax as <TT
+CLASS="FUNCTION"
+>printf()</TT
+>.
+It allows the compiler to type-check the arguments passed to the function.
+See the GNU C documentation for details. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2035"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format_idx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the argument corresponding to the format string.
+(The arguments are numbered from 1).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_idx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the first of the format arguments.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2048"
+></A
+><H3
+><A
+NAME="G-GNUC-SCANF-CAPS"
+></A
+>G_GNUC_SCANF()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_SCANF( format_idx, arg_idx )</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C format function attribute if the compiler is GNU C.
+This is used for declaring functions which take a variable number of
+arguments, with the same syntax as <TT
+CLASS="FUNCTION"
+>scanf()</TT
+>.
+It allows the compiler to type-check the arguments passed to the function.
+See the GNU C documentation for details. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2055"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>format_idx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the argument corresponding to the format string.
+(The arguments are numbered from 1).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_idx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the first of the format arguments.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2068"
+></A
+><H3
+><A
+NAME="G-GNUC-FORMAT-CAPS"
+></A
+>G_GNUC_FORMAT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_FORMAT( arg_idx )</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C format_arg function attribute if the compiler is GNU C.
+This is used for declaring functions which take a variable number of
+parameters, like <TT
+CLASS="FUNCTION"
+>printf()</TT
+> and
+<TT
+CLASS="FUNCTION"
+>scanf()</TT
+>. See the GNU C documentation for details. 
+
+FIXME: I can't find this in my GNU C documentation. Take out?</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2076"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_idx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the index of the argument.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2085"
+></A
+><H3
+><A
+NAME="G-GNUC-FUNCTION-CAPS"
+></A
+>G_GNUC_FUNCTION</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_FUNCTION</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C __FUNCTION__ variable if the compiler is GNU C,
+or "" if it isn't.
+The GNU C __FUNCTION__ variable contains the name of the current function.
+See the GNU C documentation for details. </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2090"
+></A
+><H3
+><A
+NAME="G-GNUC-PRETTY-FUNCTION-CAPS"
+></A
+>G_GNUC_PRETTY_FUNCTION</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     G_GNUC_PRETTY_FUNCTION</PRE
+></TD
+></TR
+></TABLE
+><P
+>Expands to the GNU C __PRETTY_FUNCTION__ variable if the compiler is GNU C,
+or "" if it isn't.
+The GNU C __PRETTY_FUNCTION__ variable contains the name of the current
+function. For a C program this is the same as the __FUNCTION__ variable
+but for C++ it also includes extra information such as the class
+and function prototype. See the GNU C documentation for details. </P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2095"
+></A
+><H3
+><A
+NAME="G-STRING"
+></A
+>g_string()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     g_string(x)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Turns the argument into a string literal by using the '#' stringizing operator.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2100"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>text to convert to a literal string.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-byte-order-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-fundamentals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Byte Order Macros</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GLib Core Application Support</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

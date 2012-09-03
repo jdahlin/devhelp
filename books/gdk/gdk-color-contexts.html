@@ -1,0 +1,2275 @@
+<HTML
+><HEAD
+><TITLE
+>Color Contexts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Colormaps and Colors"
+HREF="gdk-colormaps-and-colors.html"><LINK
+REL="NEXT"
+TITLE="Visuals"
+HREF="gdk-visuals.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-colormaps-and-colors.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-visuals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-COLOR-CONTEXTS"
+>Color Contexts</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN5130"
+></A
+><H2
+>Name</H2
+>Color Contexts&nbsp;--&nbsp;routines for allocating colors (deprecated).</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN5133"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+>;
+struct      <A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXTDITHER"
+>GdkColorContextDither</A
+>;
+enum        <A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXTMODE"
+>GdkColorContextMode</A
+>;
+<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+>* <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-NEW"
+>gdk_color_context_new</A
+>      (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap);
+<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+>* <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-NEW-MONO"
+>gdk_color_context_new_mono</A
+> (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap);
+void        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-FREE"
+>gdk_color_context_free</A
+>          (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc);
+<A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A>      <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-GET-PIXEL"
+>gdk_color_context_get_pixel</A
+>     (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> red,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> green,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> blue,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *failed);
+void        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-GET-PIXELS"
+>gdk_color_context_get_pixels</A
+>    (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *reds,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *greens,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *blues,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *nallocated);
+void        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-GET-PIXELS-INCREMENTAL"
+>gdk_color_context_get_pixels_incremental</A
+>
+                                            (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *reds,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *greens,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *blues,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *used,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *nallocated);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-QUERY-COLOR"
+>gdk_color_context_query_color</A
+>   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-QUERY-COLORS"
+>gdk_color_context_query_colors</A
+>  (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> num_colors);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-ADD-PALETTE"
+>gdk_color_context_add_palette</A
+>   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *palette,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> num_palette);
+void        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-INIT-DITHER"
+>gdk_color_context_init_dither</A
+>   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc);
+void        <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-FREE-DITHER"
+>gdk_color_context_free_dither</A
+>   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc);
+<A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A>      <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-GET-PIXEL-FROM-PALETTE"
+>gdk_color_context_get_pixel_from_palette</A
+>
+                                            (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *red,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *green,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *blue,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *failed);
+<A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A>      <A
+HREF="gdk-color-contexts.html#GDK-COLOR-CONTEXT-GET-INDEX-FROM-PALETTE"
+>gdk_color_context_get_index_from_palette</A
+>
+                                            (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *red,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *green,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *blue,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *failed);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5205"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> type is used for allocating groups of colors.</P
+><P
+>It is now deprecated in favor of the gdk_colormap_*() functions described in
+the <A
+HREF="gdk-colormaps-and-colors.html"
+>Colormaps and Colors</A
+>
+section.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN5211"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5213"
+></A
+><H3
+><A
+NAME="GDKCOLORCONTEXT"
+></A
+>struct GdkColorContext</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkColorContext
+{
+  GdkVisual *visual;
+  GdkColormap *colormap;
+
+  gint num_colors;		/* available no. of colors in colormap */
+  gint max_colors;		/* maximum no. of colors */
+  gint num_allocated;		/* no. of allocated colors */
+
+  GdkColorContextMode mode;
+  gint need_to_free_colormap;
+  GdkAtom std_cmap_atom;
+
+  gulong *clut;			/* color look-up table */
+  GdkColor *cmap;		/* colormap */
+
+  GHashTable *color_hash;	/* hash table of allocated colors */
+  GdkColor *palette;		/* preallocated palette */
+  gint num_palette;		/* size of palette */
+
+  GdkColorContextDither *fast_dither;	/* fast dither matrix */
+
+  struct
+  {
+    gint red;
+    gint green;
+    gint blue;
+  } shifts;&#13;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5218"
+></A
+><H3
+><A
+NAME="GDKCOLORCONTEXTDITHER"
+></A
+>struct GdkColorContextDither</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkColorContextDither
+{
+  gint fast_rgb[32][32][32]; /* quick look-up table for faster rendering */
+  gint fast_err[32][32][32]; /* internal RGB error information */
+  gint fast_erg[32][32][32];
+  gint fast_erb[32][32][32];
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5223"
+></A
+><H3
+><A
+NAME="GDKCOLORCONTEXTMODE"
+></A
+>enum GdkColorContextMode</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_CC_MODE_UNDEFINED,
+  GDK_CC_MODE_BW,
+  GDK_CC_MODE_STD_CMAP,
+  GDK_CC_MODE_TRUE,
+  GDK_CC_MODE_MY_GRAY,
+  GDK_CC_MODE_PALETTE
+} GdkColorContextMode;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5228"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-NEW"
+></A
+>gdk_color_context_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+>* gdk_color_context_new      (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5236"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5253"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-NEW-MONO"
+></A
+>gdk_color_context_new_mono ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+>* gdk_color_context_new_mono (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLORMAP"
+>GdkColormap</A
+> *colormap);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5261"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colormap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5278"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-FREE"
+></A
+>gdk_color_context_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_color_context_free          (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5284"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5293"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-GET-PIXEL"
+></A
+>gdk_color_context_get_pixel ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A>      gdk_color_context_get_pixel     (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> red,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> green,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> blue,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *failed);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5304"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>red</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>green</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blue</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>failed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5333"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-GET-PIXELS"
+></A
+>gdk_color_context_get_pixels ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_color_context_get_pixels    (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *reds,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *greens,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *blues,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *nallocated);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5345"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>reds</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>greens</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blues</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nallocated</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5378"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-GET-PIXELS-INCREMENTAL"
+></A
+>gdk_color_context_get_pixels_incremental ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_color_context_get_pixels_incremental
+                                            (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *reds,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *greens,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *blues,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ncolors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *used,
+                                             <A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *nallocated);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5391"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>reds</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>greens</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blues</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ncolors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>used</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nallocated</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5428"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-QUERY-COLOR"
+></A
+>gdk_color_context_query_color ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_color_context_query_color   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *color);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5436"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>color</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5453"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-QUERY-COLORS"
+></A
+>gdk_color_context_query_colors ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_color_context_query_colors  (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *colors,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> num_colors);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5462"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>num_colors</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5483"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-ADD-PALETTE"
+></A
+>gdk_color_context_add_palette ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_color_context_add_palette   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *palette,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> num_palette);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5492"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>palette</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>num_palette</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5513"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-INIT-DITHER"
+></A
+>gdk_color_context_init_dither ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_color_context_init_dither   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5519"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5528"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-FREE-DITHER"
+></A
+>gdk_color_context_free_dither ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_color_context_free_dither   (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5534"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5543"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-GET-PIXEL-FROM-PALETTE"
+></A
+>gdk_color_context_get_pixel_from_palette ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GULONG
+>gulong</A>      gdk_color_context_get_pixel_from_palette
+                                            (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *red,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *green,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUSHORT
+>gushort</A> *blue,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *failed);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5554"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>red</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>green</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blue</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>failed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN5583"
+></A
+><H3
+><A
+NAME="GDK-COLOR-CONTEXT-GET-INDEX-FROM-PALETTE"
+></A
+>gdk_color_context_get_index_from_palette ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A>      gdk_color_context_get_index_from_palette
+                                            (<A
+HREF="gdk-color-contexts.html#GDKCOLORCONTEXT"
+>GdkColorContext</A
+> *cc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *red,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *green,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *blue,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *failed);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN5594"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>red</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>green</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blue</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>failed</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-colormaps-and-colors.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-visuals.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Colormaps and Colors</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Visuals</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

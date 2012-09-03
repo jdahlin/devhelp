@@ -1,0 +1,4736 @@
+<HTML
+><HEAD
+><TITLE
+>General</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="NEXT"
+TITLE="Version Information"
+HREF="gtk-feature-test-macros.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-feature-test-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-GENERAL"
+>General</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN27"
+></A
+><H2
+>Name</H2
+>General&nbsp;--&nbsp;Mainloop and event handling</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN30"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-general.html#GTK-SET-LOCALE"
+>gtk_set_locale</A
+>                  (void);
+void        <A
+HREF="gtk-general.html#GTK-INIT"
+>gtk_init</A
+>                        (int *argc,
+                                             char ***argv);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-general.html#GTK-INIT-CHECK"
+>gtk_init_check</A
+>                  (int *argc,
+                                             char ***argv);
+void        <A
+HREF="gtk-general.html#GTK-EXIT"
+>gtk_exit</A
+>                        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> error_code);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-general.html#GTK-EVENTS-PENDING"
+>gtk_events_pending</A
+>              (void);
+void        <A
+HREF="gtk-general.html#GTK-MAIN"
+>gtk_main</A
+>                        (void);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-MAIN-LEVEL"
+>gtk_main_level</A
+>                  (void);
+void        <A
+HREF="gtk-general.html#GTK-MAIN-QUIT"
+>gtk_main_quit</A
+>                   (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-general.html#GTK-MAIN-ITERATION"
+>gtk_main_iteration</A
+>              (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-general.html#GTK-MAIN-ITERATION-DO"
+>gtk_main_iteration_do</A
+>           (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> blocking);
+void        <A
+HREF="gtk-general.html#GTK-MAIN-DO-EVENT"
+>gtk_main_do_event</A
+>               (<A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event);
+void        (<A
+HREF="gtk-general.html#GTKMODULEINITFUNC"
+>*GtkModuleInitFunc</A
+>)            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *argc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***argv);
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-general.html#GTK-TRUE"
+>gtk_true</A
+>                        (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtk-general.html#GTK-FALSE"
+>gtk_false</A
+>                       (void);
+
+void        <A
+HREF="gtk-general.html#GTK-GRAB-ADD"
+>gtk_grab_add</A
+>                    (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtk-general.html#GTK-GRAB-GET-CURRENT"
+>gtk_grab_get_current</A
+>            (void);
+void        <A
+HREF="gtk-general.html#GTK-GRAB-REMOVE"
+>gtk_grab_remove</A
+>                 (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);
+
+void        <A
+HREF="gtk-general.html#GTK-INIT-ADD"
+>gtk_init_add</A
+>                    (<A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtk-general.html#GTK-QUIT-ADD-DESTROY"
+>gtk_quit_add_destroy</A
+>            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> main_level,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-QUIT-ADD"
+>gtk_quit_add</A
+>                    (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> main_level,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-QUIT-ADD-FULL"
+>gtk_quit_add_full</A
+>               (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> main_level,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);
+void        <A
+HREF="gtk-general.html#GTK-QUIT-REMOVE"
+>gtk_quit_remove</A
+>                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> quit_handler_id);
+void        <A
+HREF="gtk-general.html#GTK-QUIT-REMOVE-BY-DATA"
+>gtk_quit_remove_by_data</A
+>         (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-TIMEOUT-ADD-FULL"
+>gtk_timeout_add_full</A
+>            (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> interval,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-TIMEOUT-ADD"
+>gtk_timeout_add</A
+>                 (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> interval,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gtk-general.html#GTK-TIMEOUT-REMOVE"
+>gtk_timeout_remove</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> timeout_handler_id);
+
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-IDLE-ADD"
+>gtk_idle_add</A
+>                    (<A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-IDLE-ADD-PRIORITY"
+>gtk_idle_add_priority</A
+>           (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> priority,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-IDLE-ADD-FULL"
+>gtk_idle_add_full</A
+>               (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> priority,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);
+void        <A
+HREF="gtk-general.html#GTK-IDLE-REMOVE"
+>gtk_idle_remove</A
+>                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> idle_handler_id);
+void        <A
+HREF="gtk-general.html#GTK-IDLE-REMOVE-BY-DATA"
+>gtk_idle_remove_by_data</A
+>         (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-INPUT-ADD-FULL"
+>gtk_input_add_full</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF=../gdk/gdk-input.html#GDKINPUTCONDITION
+>GdkInputCondition</A> condition,
+                                             <A
+HREF=../gdk/gdk-input.html#GDKINPUTFUNCTION
+>GdkInputFunction</A> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);
+void        <A
+HREF="gtk-general.html#GTK-INPUT-REMOVE"
+>gtk_input_remove</A
+>                (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> input_handler_id);
+
+#define     <A
+HREF="gtk-general.html#GTK-PRIORITY-REDRAW-CAPS"
+>GTK_PRIORITY_REDRAW</A
+>
+#define     <A
+HREF="gtk-general.html#GTK-PRIORITY-RESIZE-CAPS"
+>GTK_PRIORITY_RESIZE</A
+>
+#define     <A
+HREF="gtk-general.html#GTK-PRIORITY-HIGH-CAPS"
+>GTK_PRIORITY_HIGH</A
+>
+#define     <A
+HREF="gtk-general.html#GTK-PRIORITY-INTERNAL-CAPS"
+>GTK_PRIORITY_INTERNAL</A
+>
+#define     <A
+HREF="gtk-general.html#GTK-PRIORITY-DEFAULT-CAPS"
+>GTK_PRIORITY_DEFAULT</A
+>
+#define     <A
+HREF="gtk-general.html#GTK-PRIORITY-LOW-CAPS"
+>GTK_PRIORITY_LOW</A
+>
+
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtk-general.html#GTK-KEY-SNOOPER-INSTALL"
+>gtk_key_snooper_install</A
+>         (<A
+HREF="gtk-general.html#GTKKEYSNOOPFUNC"
+>GtkKeySnoopFunc</A
+> snooper,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        (<A
+HREF="gtk-general.html#GTKKEYSNOOPFUNC"
+>*GtkKeySnoopFunc</A
+>)              (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *grab_widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTKEY
+>GdkEventKey</A> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);
+void        <A
+HREF="gtk-general.html#GTK-KEY-SNOOPER-REMOVE"
+>gtk_key_snooper_remove</A
+>          (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> snooper_handler_id);
+
+<A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A>*   <A
+HREF="gtk-general.html#GTK-GET-CURRENT-EVENT"
+>gtk_get_current_event</A
+>           (void);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtk-general.html#GTK-GET-EVENT-WIDGET"
+>gtk_get_event_widget</A
+>            (<A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event);
+void        <A
+HREF="gtk-general.html#GTK-PROPAGATE-EVENT"
+>gtk_propagate_event</A
+>             (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN157"
+></A
+><H2
+>Description</H2
+><P
+>GTK uses an event oriented programming model. While conventional C programs
+have control over the program flow all the time this does not apply to 
+applications written using GTK. Instead you set up some objects and 
+register some functions (<SPAN
+CLASS="QUOTE"
+>"callbacks"</SPAN
+>) to be called whenever 
+some event occurs and give control to the GTK mainloop (e.g. by calling 
+gtk_main).</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN161"
+></A
+><P
+><B
+>Example 1.  Typical <TT
+CLASS="FUNCTION"
+>main</TT
+> function for a GTK application</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int 
+main (int argc, char **argv)
+{
+  /* Initialize i18n support */
+  <A
+HREF="gtk-general.html#GTK-SET-LOCALE"
+>gtk_set_locale</A
+>();
+
+  /* Initialize the widget set */
+  gtk_init (&amp;argc, &amp;argv);
+
+  /* Create the main window */
+  mainwin = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+
+  /* Set up our GUI elements */
+  ...
+
+  /* Show the application window */
+  gtk_widget_showall (mainwin);
+
+  /* Let the user interact with our application */
+  <A
+HREF="gtk-general.html#GTK-MAIN"
+>gtk_main</A
+>();
+
+  /* The user lost interest */
+  gtk_exit (0);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN167"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN169"
+></A
+><H3
+><A
+NAME="GTK-SET-LOCALE"
+></A
+>gtk_set_locale ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_set_locale                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the current locale according to the program environment. This is the 
+same as calling the libc function setlocale(LC_ALL, "") but also takes 
+care of the locale specific setup of the windowing system used by GDK.</P
+><P
+> 
+You should call this function before <TT
+CLASS="FUNCTION"
+>gtk_init</TT
+> to 
+support internationalization of your GTK+ applications.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN177"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A string corresponding to the locale set. 
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN186"
+></A
+><H3
+><A
+NAME="GTK-INIT"
+></A
+>gtk_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_init                        (int *argc,
+                                             char ***argv);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Call this function before using any other GTK functions in your GUI
+applications.  It will initialize everything needed to operate the toolkit and
+parses some standard command line options. <TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+> and 
+<TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+> are adjusted accordingly so your own code will 
+never see those standard arguments.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This function will terminate your program if it was unable to initialize 
+the GUI for some reason. If you want your program to fall back to a 
+textual interface you want to call <TT
+CLASS="FUNCTION"
+>gtk_init_check</TT
+> 
+instead.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN196"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Address of the <TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+> parameter of your 
+<TT
+CLASS="FUNCTION"
+>main</TT
+> function. Changed if any arguments were 
+handled.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Address of the <TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+> parameter of 
+<TT
+CLASS="FUNCTION"
+>main</TT
+>. Any parameters understood by <TT
+CLASS="FUNCTION"
+>gtk_init</TT
+> are stripped before return.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN214"
+></A
+><H3
+><A
+NAME="GTK-INIT-CHECK"
+></A
+>gtk_init_check ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_init_check                  (int *argc,
+                                             char ***argv);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function does the same work as <TT
+CLASS="FUNCTION"
+>gtk_init</TT
+> with only 
+a single change: It does not terminate the program if the GUI can't be 
+initialized. Instead it returns <TT
+CLASS="LITERAL"
+>FALSE</TT
+> on failure.</P
+><P
+>This way the application can fall back to some other means of communication 
+with the user - for example a curses or command line interface.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN223"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A reference to the <TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+> of the <TT
+CLASS="FUNCTION"
+>main</TT
+> function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A reference to the <TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+> of the <TT
+CLASS="FUNCTION"
+>main</TT
+> function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the GUI has been successful initialized, 
+<TT
+CLASS="LITERAL"
+>FALSE</TT
+> otherwise.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN246"
+></A
+><H3
+><A
+NAME="GTK-EXIT"
+></A
+>gtk_exit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_exit                        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> error_code);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Terminate the program and return the given exit code to the caller. 
+This function will shut down the GUI and free all resources allocated 
+for GTK.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN252"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>error_code</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Return value to pass to the caller. This is dependend on the
+target system but at least on Unix systems <TT
+CLASS="LITERAL"
+>0</TT
+> means 
+success.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN262"
+></A
+><H3
+><A
+NAME="GTK-EVENTS-PENDING"
+></A
+>gtk_events_pending ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_events_pending              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Check if any events are pending. This can be used to update the GUI 
+and invoke timeouts etc. while doing some time intensive computation.</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN268"
+></A
+><P
+><B
+>Example 2.  Updating the GUI during a long computation</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>	/* computation going on */
+...
+        while (<A
+HREF="gtk-general.html#GTK-EVENTS-PENDING"
+>gtk_events_pending</A
+>())
+	  <A
+HREF="gtk-general.html#GTK-MAIN-ITERATION"
+>gtk_main_iteration</A
+>();
+...
+	/* computation continued */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN273"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if any events are pending, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> otherwise.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN284"
+></A
+><H3
+><A
+NAME="GTK-MAIN"
+></A
+>gtk_main ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_main                        (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Runs the main loop until <A
+HREF="gtk-general.html#GTK-MAIN-QUIT"
+>gtk_main_quit</A
+>() is called. You can nest calls to
+gtk_main. In that case <A
+HREF="gtk-general.html#GTK-MAIN-QUIT"
+>gtk_main_quit</A
+>() will make the innerst invocation
+of the main loop return.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN291"
+></A
+><H3
+><A
+NAME="GTK-MAIN-LEVEL"
+></A
+>gtk_main_level ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_main_level                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Ask for the current nesting level of the main loop. This can be useful
+when calling gtk_quit_add.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN297"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the nesting level of the current invocation of the main loop.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN306"
+></A
+><H3
+><A
+NAME="GTK-MAIN-QUIT"
+></A
+>gtk_main_quit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_main_quit                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Makes the innermost invocation of the main loop return when it regains 
+control.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN311"
+></A
+><H3
+><A
+NAME="GTK-MAIN-ITERATION"
+></A
+>gtk_main_iteration ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_main_iteration              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Runs a single iteration of the mainloop. If no events are waiting to be
+processed GTK+ will block until the next event is noticed. If you don't
+want to block look at gtk_main_iteration_do or check if any events are
+pending with gtk_events_pending first.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN317"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if gtk_main_quit has been called for the innermost mainloop.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN327"
+></A
+><H3
+><A
+NAME="GTK-MAIN-ITERATION-DO"
+></A
+>gtk_main_iteration_do ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_main_iteration_do           (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> blocking);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Run a single iteration of the mainloop. If no events are available either
+return or block dependend on the value of <TT
+CLASS="PARAMETER"
+><I
+>blocking</I
+></TT
+>. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN335"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>blocking</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if you want GTK+ to block if no events are pending.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if gtk_main_quit has been called for the innermost mainloop.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN350"
+></A
+><H3
+><A
+NAME="GTK-MAIN-DO-EVENT"
+></A
+>gtk_main_do_event ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_main_do_event               (<A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Process a single GDK event. This is public only to allow filtering of events
+between GDK and GTK. You will not usually need to call this function directly.</P
+><P
+>While you should not call this function directly, you might want to know
+how exactly events are handled. So here is what this function does with 
+the event:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>  Compress enter/leave notify events. If the event passed build an 
+  enter/leave pair together with the next event (peeked from Gdk)
+  both events are thrown away. This is to avoid a backlog of (de-)highlighting
+  widgets crossed by the pointer.</P
+></LI
+><LI
+><P
+>  Find the widget which got the event. If the widget can't be determined 
+  the event is thrown away unless it belongs to a INCR transaction. In that
+  case it is passed to gtk_selection_incr_event.</P
+></LI
+><LI
+><P
+>  Then the event is passed on a stack so you can query the currently handled
+  event with gtk_get_current_event. </P
+></LI
+><LI
+><P
+>  The event is sent to a widget. If a grab is active all events for 
+  widgets that are not in the contained in the grab widget are sent to the 
+  latter with a few exceptions: 
+
+  <P
+></P
+><UL
+><LI
+><P
+>    Deletion and destruction events are still sent to the event widget for
+    obvious reasons.
+  </P
+></LI
+><LI
+><P
+>    Events which directly relate to the visual representation of the event
+    widget.
+  </P
+></LI
+><LI
+><P
+>    Leave events are delivered to the event widget if there was an enter 
+    event delivered to it before without the paired leave event.
+  </P
+></LI
+><LI
+><P
+>    Drag events are not redirected because it is unclear what the semantics
+    of that would be.
+  </P
+></LI
+></UL
+>
+
+  Another point of interest might be that all keypresses are first passed
+  through the key snooper functions if there are any. Read the description
+  of <A
+HREF="gtk-general.html#GTK-KEY-SNOOPER-INSTALL"
+>gtk_key_snooper_install</A
+>() if you need this feature.</P
+></LI
+><LI
+><P
+>  After finishing the delivery the event is popped from the event stack.</P
+></LI
+></OL
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN378"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>An event to process (normally) passed by Gdk.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN387"
+></A
+><H3
+><A
+NAME="GTKMODULEINITFUNC"
+></A
+>GtkModuleInitFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkModuleInitFunc)            (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> *argc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> ***argv);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Each GTK+ module must have a function gtk_module_init with this prototype.
+This function is called after loading the module with the argc and argv 
+cleaned from any arguments that GTK+ handles itself.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN394"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Pointer to the number of arguments remaining after gtk_init.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>argv</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Points to the argument vector. 
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN407"
+></A
+><H3
+><A
+NAME="GTK-TRUE"
+></A
+>gtk_true ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_true                        (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>All this function does it to return TRUE. This can be useful for example
+if you want to inhibit the deletion of a window. Of course you should 
+not do this as the user expects a reaction from clicking the close 
+icon of the window...</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN413"
+></A
+><P
+><B
+>Example 3.  A persistent window</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#include &lt;gtk/gtk.h&gt;
+
+int
+main (int argc, char **argv)
+{
+  GtkWidget     *win, *but;
+
+  gtk_init( &amp;argc, &amp;argv );
+
+  win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_signal_connect (GTK_OBJECT(win), "delete-event", 
+                      (GtkSignalFunc) gtk_true, NULL);
+  gtk_signal_connect (GTK_OBJECT(win), "destroy", 
+		      (GtkSignalFunc) gtk_main_quit, NULL);
+
+  but = gtk_button_new_with_label ("Close yourself. I mean it!");
+  gtk_signal_connect_object (
+		  GTK_OBJECT (but), "clicked", 
+		  (GtkSignalFunc) gtk_object_destroy, (gpointer) win );
+  gtk_container_add (GTK_CONTAINER (win), but);
+
+  gtk_widget_show_all (win);
+  <A
+HREF="gtk-general.html#GTK-MAIN"
+>gtk_main</A
+>();
+  return 0;
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN418"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN428"
+></A
+><H3
+><A
+NAME="GTK-FALSE"
+></A
+>gtk_false ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_false                       (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Analogical to <TT
+CLASS="FUNCTION"
+>gtk_true</TT
+> this function does nothing 
+but always returns <TT
+CLASS="LITERAL"
+>FALSE</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN436"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>FALSE</TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN446"
+></A
+><H3
+><A
+NAME="GTK-GRAB-ADD"
+></A
+>gtk_grab_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_grab_add                    (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Makes <TT
+CLASS="LITERAL"
+>widget</TT
+> the current grabbed widget. This means that interaction with 
+other widgets in the same application is blocked and mouse as well as 
+keyboard events are delivered to this <TT
+CLASS="LITERAL"
+>widget</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN454"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The widget that grabs keyboard and pointer events.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN463"
+></A
+><H3
+><A
+NAME="GTK-GRAB-GET-CURRENT"
+></A
+>gtk_grab_get_current ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_grab_get_current            (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Queries the current grab. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN469"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The widget which currently has the grab or <TT
+CLASS="LITERAL"
+>NULL</TT
+> if no grab is active.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN479"
+></A
+><H3
+><A
+NAME="GTK-GRAB-REMOVE"
+></A
+>gtk_grab_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_grab_remove                 (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Remove the grab from the given widget. You have to pair calls to gtk_grab_add
+and gtk_grab_remove.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN485"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The widget which gives up the grab.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN494"
+></A
+><H3
+><A
+NAME="GTK-INIT-ADD"
+></A
+>gtk_init_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_init_add                    (<A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Register a function to be called when the mainloop is started.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN501"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Function to invoke when gtk_main is called next.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Data to pass to that function.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN514"
+></A
+><H3
+><A
+NAME="GTK-QUIT-ADD-DESTROY"
+></A
+>gtk_quit_add_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_quit_add_destroy            (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> main_level,
+                                             <A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Trigger destruction of <TT
+CLASS="LITERAL"
+>object</TT
+> in case the mainloop at level <TT
+CLASS="LITERAL"
+>main_level</TT
+>
+is quit.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN523"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>main_level</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Level of the mainloop which shall trigger the destruction.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Object to be destroyed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN536"
+></A
+><H3
+><A
+NAME="GTK-QUIT-ADD"
+></A
+>gtk_quit_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_quit_add                    (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> main_level,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Registers a function to be called when an instance of the mainloop is left.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN545"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>main_level</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Level at which termination the function shall be called. You
+ can pass 0 here to have the function run at the termination of the current
+ mainloop.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to call. This should return 0 to be removed from the 
+ list of quit handlers. Otherwise the function might be called again.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Pointer to pass when calling <TT
+CLASS="LITERAL"
+>function</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A handle for this quit handler (you need this for <A
+HREF="gtk-general.html#GTK-QUIT-REMOVE"
+>gtk_quit_remove</A
+>())
+  or 0 if you passed a NULL pointer in <TT
+CLASS="LITERAL"
+>function</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN569"
+></A
+><H3
+><A
+NAME="GTK-QUIT-ADD-FULL"
+></A
+>gtk_quit_add_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_quit_add_full               (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> main_level,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Registers a function to be called when an instance of the mainloop is left.
+In comparison to <A
+HREF="gtk-general.html#GTK-QUIT-ADD"
+>gtk_quit_add</A
+>() this function adds the possibility to 
+pass a marshaller and a function to be called when the quit handler is freed.</P
+><P
+>The former can be used to run interpreted code instead of a compiled function
+while the latter can be used to free the information stored in <TT
+CLASS="LITERAL"
+>data</TT
+> (while
+you can do this in <TT
+CLASS="LITERAL"
+>function</TT
+> as well)... So this function will mostly be
+used by GTK+ wrappers for languages other than C.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN584"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>main_level</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Level at which termination the function shall be called. You
+ can pass 0 here to have the function run at the termination of the current
+ mainloop.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to call. This should return 0 to be removed from the 
+ list of quit handlers. Otherwise the function might be called again.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The marshaller to be used. If this is non-NULL, <TT
+CLASS="LITERAL"
+>function</TT
+> is 
+ ignored.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Pointer to pass when calling <TT
+CLASS="LITERAL"
+>function</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Function to call to destruct <TT
+CLASS="LITERAL"
+>data</TT
+>. Gets <TT
+CLASS="LITERAL"
+>data</TT
+> as argument.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A handle for this quit handler (you need this for <A
+HREF="gtk-general.html#GTK-QUIT-REMOVE"
+>gtk_quit_remove</A
+>())
+  or 0 if you passed a NULL pointer in <TT
+CLASS="LITERAL"
+>function</TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN619"
+></A
+><H3
+><A
+NAME="GTK-QUIT-REMOVE"
+></A
+>gtk_quit_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_quit_remove                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> quit_handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Remove a quit handler by it's identifier.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN625"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>quit_handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Identifier for the handler returned when installing it.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN634"
+></A
+><H3
+><A
+NAME="GTK-QUIT-REMOVE-BY-DATA"
+></A
+>gtk_quit_remove_by_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_quit_remove_by_data         (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Remove a quit handler identified by it's <TT
+CLASS="LITERAL"
+>data</TT
+> field.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN641"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The pointer passed as <TT
+CLASS="LITERAL"
+>data</TT
+> to <A
+HREF="gtk-general.html#GTK-QUIT-ADD"
+>gtk_quit_add</A
+>() or <A
+HREF="gtk-general.html#GTK-QUIT-ADD-FULL"
+>gtk_quit_add_full</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN653"
+></A
+><H3
+><A
+NAME="GTK-TIMEOUT-ADD-FULL"
+></A
+>gtk_timeout_add_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_timeout_add_full            (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> interval,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Registers a function to be called periodically. The function will be called
+repeatedly after <TT
+CLASS="LITERAL"
+>interval</TT
+> milliseconds until it returns <TT
+CLASS="LITERAL"
+>FALSE</TT
+> at which 
+point the timeout is destroyed and will not be called again.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN666"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>interval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The time between calls to the function, in milliseconds 
+	(1/1000ths of a second.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to call periodically.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The marshaller to use instead of the function (if non-NULL).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The data to pass to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Function to call when the timeout is destroyed or NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A unique id for the event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN695"
+></A
+><H3
+><A
+NAME="GTK-TIMEOUT-ADD"
+></A
+>gtk_timeout_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_timeout_add                 (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> interval,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Registers a function to be called periodically. The function will be called
+repeatedly after <TT
+CLASS="LITERAL"
+>interval</TT
+> milliseconds until it returns <TT
+CLASS="LITERAL"
+>FALSE</TT
+> at which 
+point the timeout is destroyed and will not be called again.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN706"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>interval</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The time between calls to the function, in milliseconds 
+	(1/1000ths of a second.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to call periodically.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The data to pass to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A unique id for the event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN727"
+></A
+><H3
+><A
+NAME="GTK-TIMEOUT-REMOVE"
+></A
+>gtk_timeout_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_timeout_remove              (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> timeout_handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the given timeout destroying all information about it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN733"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>timeout_handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The identifier returned when installing the timeout.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN742"
+></A
+><H3
+><A
+NAME="GTK-IDLE-ADD"
+></A
+>gtk_idle_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_idle_add                    (<A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Causes the mainloop to call the given function whenever no events with 
+higher priority are to be processed. The default priority is 
+GTK_PRIORITY_DEFAULT, which is rather low.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN750"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to call.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The information to pass to the function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a unique handle for this registration.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN767"
+></A
+><H3
+><A
+NAME="GTK-IDLE-ADD-PRIORITY"
+></A
+>gtk_idle_add_priority ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_idle_add_priority           (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> priority,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Like <A
+HREF="gtk-general.html#GTK-IDLE-ADD"
+>gtk_idle_add</A
+>() this function allows you to have a function called
+when the event loop is idle. The difference is that you can give a 
+priority different from GTK_PRIORITY_DEFAULT to the idle function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN777"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The priority which should not be above G_PRIORITY_HIGH_IDLE.
+Note that you will interfere with GTK if you use a priority above
+GTK_PRIORITY_RESIZE.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The function to call.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Data to pass to that function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A unique id for the event source.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN798"
+></A
+><H3
+><A
+NAME="GTK-IDLE-ADD-FULL"
+></A
+>gtk_idle_add_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_idle_add_full               (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> priority,
+                                             <A
+HREF="gtk-types.html#GTKFUNCTION"
+>GtkFunction</A
+> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN809"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN838"
+></A
+><H3
+><A
+NAME="GTK-IDLE-REMOVE"
+></A
+>gtk_idle_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_idle_remove                 (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> idle_handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the idle function with the given id.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN844"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>idle_handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Identifies the idle function to remove.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN853"
+></A
+><H3
+><A
+NAME="GTK-IDLE-REMOVE-BY-DATA"
+></A
+>gtk_idle_remove_by_data ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_idle_remove_by_data         (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Removes the idle function identified by the user data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN859"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>remove the idle function which was registered with this user data.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN868"
+></A
+><H3
+><A
+NAME="GTK-INPUT-ADD-FULL"
+></A
+>gtk_input_add_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_input_add_full              (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF=../gdk/gdk-input.html#GDKINPUTCONDITION
+>GdkInputCondition</A> condition,
+                                             <A
+HREF=../gdk/gdk-input.html#GDKINPUTFUNCTION
+>GdkInputFunction</A> function,
+                                             <A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>GtkCallbackMarshal</A
+> marshal,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>GtkDestroyNotify</A
+> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN880"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>condition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>marshal</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN913"
+></A
+><H3
+><A
+NAME="GTK-INPUT-REMOVE"
+></A
+>gtk_input_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_input_remove                (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> input_handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN919"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>input_handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN928"
+></A
+><H3
+><A
+NAME="GTK-PRIORITY-REDRAW-CAPS"
+></A
+>GTK_PRIORITY_REDRAW</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_PRIORITY_REDRAW     (G_PRIORITY_HIGH_IDLE + 20)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this priority for redrawing related stuff. It is used internally by
+GTK+ to do pending redraws. This priority is lower than <TT
+CLASS="LITERAL"
+>GTK_PRIORITY_RESIZE</TT
+>
+to avoid redrawing a widget just before resizing (and therefore redrawing
+it again).</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN934"
+></A
+><H3
+><A
+NAME="GTK-PRIORITY-RESIZE-CAPS"
+></A
+>GTK_PRIORITY_RESIZE</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_PRIORITY_RESIZE     (G_PRIORITY_HIGH_IDLE + 10)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this priority for resizing related stuff. It is used internally by
+GTK+ to compute the sizes of widgets. This priority is higher than 
+<TT
+CLASS="LITERAL"
+>GTK_PRIORITY_REDRAW</TT
+> to avoid resizing a widget which was just redrawn.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN940"
+></A
+><H3
+><A
+NAME="GTK-PRIORITY-HIGH-CAPS"
+></A
+>GTK_PRIORITY_HIGH</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_PRIORITY_HIGH       G_PRIORITY_HIGH</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use this for high priority timeouts. This priority is never used inside
+GTK+ so everything running at this priority will be running before anything
+inside the toolkit.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This macro is deprecated. You should use G_PRIORITY_HIGH instead.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN947"
+></A
+><H3
+><A
+NAME="GTK-PRIORITY-INTERNAL-CAPS"
+></A
+>GTK_PRIORITY_INTERNAL</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_PRIORITY_INTERNAL   GTK_PRIORITY_REDRAW</PRE
+></TD
+></TR
+></TABLE
+><P
+>This priority is for GTK+ internal stuff. Don't use it in your applications.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN952"
+></A
+><H3
+><A
+NAME="GTK-PRIORITY-DEFAULT-CAPS"
+></A
+>GTK_PRIORITY_DEFAULT</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_PRIORITY_DEFAULT	G_PRIORITY_DEFAULT_IDLE</PRE
+></TD
+></TR
+></TABLE
+><P
+>Default priority for idle functions.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This macro is deprecated. You should use G_PRIORITY_DEFAULT_IDLE instead.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN959"
+></A
+><H3
+><A
+NAME="GTK-PRIORITY-LOW-CAPS"
+></A
+>GTK_PRIORITY_LOW</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_PRIORITY_LOW	G_PRIORITY_LOW</PRE
+></TD
+></TR
+></TABLE
+><P
+>Priority for very unimportant background tasks.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>This macro is deprecated. You should use G_PRIORITY_LOW instead.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN966"
+></A
+><H3
+><A
+NAME="GTK-KEY-SNOOPER-INSTALL"
+></A
+>gtk_key_snooper_install ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_key_snooper_install         (<A
+HREF="gtk-general.html#GTKKEYSNOOPFUNC"
+>GtkKeySnoopFunc</A
+> snooper,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN974"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>snooper</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN991"
+></A
+><H3
+><A
+NAME="GTKKEYSNOOPFUNC"
+></A
+>GtkKeySnoopFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        (*GtkKeySnoopFunc)              (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *grab_widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENTKEY
+>GdkEventKey</A> *event,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1000"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>grab_widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1021"
+></A
+><H3
+><A
+NAME="GTK-KEY-SNOOPER-REMOVE"
+></A
+>gtk_key_snooper_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_key_snooper_remove          (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> snooper_handler_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1027"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>snooper_handler_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1036"
+></A
+><H3
+><A
+NAME="GTK-GET-CURRENT-EVENT"
+></A
+>gtk_get_current_event ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A>*   gtk_get_current_event           (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1042"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1051"
+></A
+><H3
+><A
+NAME="GTK-GET-EVENT-WIDGET"
+></A
+>gtk_get_event_widget ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_get_event_widget            (<A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1058"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1071"
+></A
+><H3
+><A
+NAME="GTK-PROPAGATE-EVENT"
+></A
+>gtk_propagate_event ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_propagate_event             (<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+> *widget,
+                                             <A
+HREF=../gdk/gdk-event-structures.html#GDKEVENT
+>GdkEvent</A> *event);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN1078"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>widget</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-feature-test-macros.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GTK+</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Version Information</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

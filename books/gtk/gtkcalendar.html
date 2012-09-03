@@ -1,0 +1,2272 @@
+<HTML
+><HEAD
+><TITLE
+>GtkCalendar</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkButton"
+HREF="gtkbutton.html"><LINK
+REL="NEXT"
+TITLE="GtkCheckButton"
+HREF="gtkcheckbutton.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcheckbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKCALENDAR"
+>GtkCalendar</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN15111"
+></A
+><H2
+>Name</H2
+>GtkCalendar&nbsp;--&nbsp;display a calendar and/or allow the user to select a date.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN15114"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkcalendar.html#GTKCALENDAR-STRUCT"
+>GtkCalendar</A
+>;
+enum        <A
+HREF="gtkcalendar.html#GTKCALENDARDISPLAYOPTIONS"
+>GtkCalendarDisplayOptions</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkcalendar.html#GTK-CALENDAR-NEW"
+>gtk_calendar_new</A
+>                (void);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-SELECT-MONTH"
+>gtk_calendar_select_month</A
+>       (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> month,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> year);
+void        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-SELECT-DAY"
+>gtk_calendar_select_day</A
+>         (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> day);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-MARK-DAY"
+>gtk_calendar_mark_day</A
+>           (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> day);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-UNMARK-DAY"
+>gtk_calendar_unmark_day</A
+>         (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> day);
+void        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-CLEAR-MARKS"
+>gtk_calendar_clear_marks</A
+>        (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar);
+void        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-DISPLAY-OPTIONS"
+>gtk_calendar_display_options</A
+>    (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF="gtkcalendar.html#GTKCALENDARDISPLAYOPTIONS"
+>GtkCalendarDisplayOptions</A
+> flags);
+void        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-GET-DATE"
+>gtk_calendar_get_date</A
+>           (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *year,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *month,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *day);
+void        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-FREEZE"
+>gtk_calendar_freeze</A
+>             (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar);
+void        <A
+HREF="gtkcalendar.html#GTK-CALENDAR-THAW"
+>gtk_calendar_thaw</A
+>               (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15151"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----GtkCalendar</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15156"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkcalendar.html#GTKCALENDAR-MONTH-CHANGED"
+>month-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkcalendar.html#GTKCALENDAR-DAY-SELECTED"
+>day-selected</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkcalendar.html#GTKCALENDAR-DAY-SELECTED-DOUBLE-CLICK"
+>day-selected-double-click</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkcalendar.html#GTKCALENDAR-PREV-MONTH"
+>prev-month</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkcalendar.html#GTKCALENDAR-NEXT-MONTH"
+>next-month</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkcalendar.html#GTKCALENDAR-PREV-YEAR"
+>prev-year</A
+>&quot; void        user_function      (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);
+&quot;<A
+HREF="gtkcalendar.html#GTKCALENDAR-NEXT-YEAR"
+>next-year</A
+>&quot; void        user_function      (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15180"
+></A
+><H2
+>Description</H2
+><P
+><A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> is a widget that displays a calendar, one month at a time. 
+It can be created with <A
+HREF="gtkcalendar.html#GTK-CALENDAR-NEW"
+>gtk_calendar_new</A
+>().</P
+><P
+>The month and year currently displayed can be altered with 
+<A
+HREF="gtkcalendar.html#GTK-CALENDAR-SELECT-MONTH"
+>gtk_calendar_select_month</A
+>(). The exact day can be selected from the displayed 
+month using <A
+HREF="gtkcalendar.html#GTK-CALENDAR-SELECT-DAY"
+>gtk_calendar_select_day</A
+>().</P
+><P
+>FIXME: (check)To place a visual marker on a particular day, use
+<A
+HREF="gtkcalendar.html#GTK-CALENDAR-MARK-DAY"
+>gtk_calendar_mark_day</A
+>() and to remove the marker, <A
+HREF="gtkcalendar.html#GTK-CALENDAR-UNMARK-DAY"
+>gtk_calendar_unmark_day</A
+>().
+Alternative, all marks can be cleared with <A
+HREF="gtkcalendar.html#GTK-CALENDAR-CLEAR-MARKS"
+>gtk_calendar_clear_marks</A
+>().</P
+><P
+>The way in which the calendar itself is displayed can be altered using
+<A
+HREF="gtkcalendar.html#GTK-CALENDAR-DISPLAY-OPTIONS"
+>gtk_calendar_display_options</A
+>().</P
+><P
+>The selected date can be retrieved from a <A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> using
+<A
+HREF="gtkcalendar.html#GTK-CALENDAR-GET-DATE"
+>gtk_calendar_get_date</A
+>().</P
+><P
+>If performing many 'mark' operations, the calendar can be frozen to prevent
+flicker, using <A
+HREF="gtkcalendar.html#GTK-CALENDAR-FREEZE"
+>gtk_calendar_freeze</A
+>(), and 'thawed' again using
+<A
+HREF="gtkcalendar.html#GTK-CALENDAR-THAW"
+>gtk_calendar_thaw</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15200"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15202"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-STRUCT"
+></A
+>struct GtkCalendar</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkCalendar;</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>num_marked_dates</I
+></TT
+> is an integer containing the
+number of days that have a mark over them.</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>marked_date</I
+></TT
+> is an array containing the day numbers
+that currently have a mark over them.</P
+><P
+><TT
+CLASS="STRUCTFIELD"
+><I
+>month</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>year</I
+></TT
+>, and 
+<TT
+CLASS="STRUCTFIELD"
+><I
+>selected_day</I
+></TT
+> contain the currently visible month,
+year, and selected day respectively.</P
+><P
+>All of these fields should be considered read only, and everything in this
+struct should only be modified using the functions provided below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15215"
+></A
+><H3
+><A
+NAME="GTKCALENDARDISPLAYOPTIONS"
+></A
+>enum GtkCalendarDisplayOptions</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_CALENDAR_SHOW_HEADING		= 1 &lt;&lt; 0,
+  GTK_CALENDAR_SHOW_DAY_NAMES		= 1 &lt;&lt; 1,
+  GTK_CALENDAR_NO_MONTH_CHANGE		= 1 &lt;&lt; 2,
+  GTK_CALENDAR_SHOW_WEEK_NUMBERS	= 1 &lt;&lt; 3,
+  GTK_CALENDAR_WEEK_START_MONDAY	= 1 &lt;&lt; 4
+} GtkCalendarDisplayOptions;</PRE
+></TD
+></TR
+></TABLE
+><P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15220"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="11%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CALENDAR_SHOW_HEADING</TD
+><TD
+WIDTH="89%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Specifies that the month and year should be displayed.</TD
+></TR
+><TR
+><TD
+WIDTH="11%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CALENDAR_SHOW_DAY_NAMES</TD
+><TD
+WIDTH="89%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Specifies that three letter day descriptions should be present.</TD
+></TR
+><TR
+><TD
+WIDTH="11%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CALENDAR_NO_MONTH_CHANGE</TD
+><TD
+WIDTH="89%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Prevents the user from switching months with the calendar.</TD
+></TR
+><TR
+><TD
+WIDTH="11%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CALENDAR_SHOW_WEEK_NUMBERS</TD
+><TD
+WIDTH="89%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Displays each week numbers of the current year, down the left side of
+the calendar.</TD
+></TR
+><TR
+><TD
+WIDTH="11%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GTK_CALENDAR_WEEK_START_MONDAY</TD
+><TD
+WIDTH="89%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Starts the calendar week on Monday, instead of the default Sunday.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15240"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-NEW"
+></A
+>gtk_calendar_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_calendar_new                (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new calendar. FIXME:default date.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15246"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15256"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-SELECT-MONTH"
+></A
+>gtk_calendar_select_month ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_calendar_select_month       (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> month,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> year);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Shifts the calendar to a different month.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15265"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a month number.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the year the month is in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>FIXME.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15287"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-SELECT-DAY"
+></A
+>gtk_calendar_select_day ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_calendar_select_day         (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> day);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Selects a day from the current month.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15294"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the day number to select.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15308"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-MARK-DAY"
+></A
+>gtk_calendar_mark_day ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_calendar_mark_day           (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> day);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15316"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15333"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-UNMARK-DAY"
+></A
+>gtk_calendar_unmark_day ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_calendar_unmark_day         (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> day);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15341"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15358"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-CLEAR-MARKS"
+></A
+>gtk_calendar_clear_marks ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_calendar_clear_marks        (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15364"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15373"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-DISPLAY-OPTIONS"
+></A
+>gtk_calendar_display_options ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_calendar_display_options    (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF="gtkcalendar.html#GTKCALENDARDISPLAYOPTIONS"
+>GtkCalendarDisplayOptions</A
+> flags);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15380"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15393"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-GET-DATE"
+></A
+>gtk_calendar_get_date ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_calendar_get_date           (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *year,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *month,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> *day);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15402"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>year</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>month</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>day</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15423"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-FREEZE"
+></A
+>gtk_calendar_freeze ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_calendar_freeze             (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Locks the display of the calendar until it is thawed with <A
+HREF="gtkcalendar.html#GTK-CALENDAR-THAW"
+>gtk_calendar_thaw</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15430"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15440"
+></A
+><H3
+><A
+NAME="GTK-CALENDAR-THAW"
+></A
+>gtk_calendar_thaw ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_calendar_thaw               (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Defrosts a calendar; all the changes made since the last
+<A
+HREF="gtkcalendar.html#GTK-CALENDAR-FREEZE"
+>gtk_calendar_freeze</A
+>() are displayed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15447"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15457"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15459"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-MONTH-CHANGED"
+></A
+>The &quot;month-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the user clicks a button to change the selected month on a
+calendar.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15466"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15479"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-DAY-SELECTED"
+></A
+>The &quot;day-selected&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the user selects a day.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15486"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15499"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-DAY-SELECTED-DOUBLE-CLICK"
+></A
+>The &quot;day-selected-double-click&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15506"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15519"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-PREV-MONTH"
+></A
+>The &quot;prev-month&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15526"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15539"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-NEXT-MONTH"
+></A
+>The &quot;next-month&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15546"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15559"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-PREV-YEAR"
+></A
+>The &quot;prev-year&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15566"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN15579"
+></A
+><H3
+><A
+NAME="GTKCALENDAR-NEXT-YEAR"
+></A
+>The &quot;next-year&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcalendar.html"
+>GtkCalendar</A
+> *calendar,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN15586"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>calendar</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkcheckbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkButton</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkCheckButton</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

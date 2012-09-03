@@ -1,0 +1,7662 @@
+<HTML
+><HEAD
+><TITLE
+>Types</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ "
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Implementation of Object Properties"
+HREF="gtk-object-properties.html"><LINK
+REL="NEXT"
+TITLE="Bindings"
+HREF="gtk-bindings.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-object-properties.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-bindings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTK-TYPES"
+>Types</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN9652"
+></A
+><H2
+>Name</H2
+>Types&nbsp;--&nbsp;Handle run-time type creation.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN9655"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+typedef     <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>;
+enum        <A
+HREF="gtk-types.html#GTKFUNDAMENTALTYPE"
+>GtkFundamentalType</A
+>;
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-NUM-BUILTINS-CAPS"
+>GTK_TYPE_NUM_BUILTINS</A
+>
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-FLAT-FIRST-CAPS"
+>GTK_TYPE_FLAT_FIRST</A
+>
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-FLAT-LAST-CAPS"
+>GTK_TYPE_FLAT_LAST</A
+>
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-STRUCTURED-FIRST-CAPS"
+>GTK_TYPE_STRUCTURED_FIRST</A
+>
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-STRUCTURED-LAST-CAPS"
+>GTK_TYPE_STRUCTURED_LAST</A
+>
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-FUNDAMENTAL-LAST-CAPS"
+>GTK_TYPE_FUNDAMENTAL_LAST</A
+>
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-FUNDAMENTAL-MAX-CAPS"
+>GTK_TYPE_FUNDAMENTAL_MAX</A
+>
+#define     <A
+HREF="gtk-types.html#GTK-STRUCT-OFFSET-CAPS"
+>GTK_STRUCT_OFFSET</A
+>               (struct, field)
+#define     <A
+HREF="gtk-types.html#GTK-CHECK-CAST-CAPS"
+>GTK_CHECK_CAST</A
+>                  (tobj, cast_type, cast)
+#define     <A
+HREF="gtk-types.html#GTK-CHECK-CLASS-CAST-CAPS"
+>GTK_CHECK_CLASS_CAST</A
+>            (tclass,cast_type,cast)
+#define     <A
+HREF="gtk-types.html#GTK-CHECK-TYPE-CAPS"
+>GTK_CHECK_TYPE</A
+>                  (type_object, otype)
+#define     <A
+HREF="gtk-types.html#GTK-CHECK-CLASS-TYPE-CAPS"
+>GTK_CHECK_CLASS_TYPE</A
+>            (type_class, otype)
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-IDENTIFIER-CAPS"
+>GTK_TYPE_IDENTIFIER</A
+>
+<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     <A
+HREF="gtk-types.html#GTK-IDENTIFIER-GET-TYPE"
+>gtk_identifier_get_type</A
+>         (void);
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-MAKE-CAPS"
+>GTK_TYPE_MAKE</A
+>                   (parent_t, seqno)
+#define     <A
+HREF="gtk-types.html#GTK-FUNDAMENTAL-TYPE-CAPS"
+>GTK_FUNDAMENTAL_TYPE</A
+>            (type)
+#define     <A
+HREF="gtk-types.html#GTK-TYPE-SEQNO-CAPS"
+>GTK_TYPE_SEQNO</A
+>                  (type)
+#define     <A
+HREF="gtk-types.html#GTK-SIGNAL-FUNC-CAPS"
+>GTK_SIGNAL_FUNC</A
+>                 (f)
+void        (<A
+HREF="gtk-types.html#GTKCLASSINITFUNC"
+>*GtkClassInitFunc</A
+>)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> klass);
+void        (<A
+HREF="gtk-types.html#GTKOBJECTINITFUNC"
+>*GtkObjectInitFunc</A
+>)            (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> klass);
+void        (<A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>*GtkSignalFunc</A
+>)                ();
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        (<A
+HREF="gtk-types.html#GTKFUNCTION"
+>*GtkFunction</A
+>)                  (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        (<A
+HREF="gtk-types.html#GTKDESTROYNOTIFY"
+>*GtkDestroyNotify</A
+>)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        (<A
+HREF="gtk-types.html#GTKCALLBACKMARSHAL"
+>*GtkCallbackMarshal</A
+>)           (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_args,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);
+void        (<A
+HREF="gtk-types.html#GTKSIGNALMARSHALLER"
+>*GtkSignalMarshaller</A
+>)          (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);
+void        (<A
+HREF="gtk-types.html#GTKARGGETFUNC"
+>*GtkArgGetFunc</A
+>)                (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *arg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_id);
+void        (<A
+HREF="gtk-types.html#GTKARGSETFUNC"
+>*GtkArgSetFunc</A
+>)                (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *arg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_id);
+struct      <A
+HREF="gtk-types.html#GTKTYPEOBJECT"
+>GtkTypeObject</A
+>;
+struct      <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+>;
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-CHAR-CAPS"
+>GTK_VALUE_CHAR</A
+>                  (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-UCHAR-CAPS"
+>GTK_VALUE_UCHAR</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-BOOL-CAPS"
+>GTK_VALUE_BOOL</A
+>                  (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-INT-CAPS"
+>GTK_VALUE_INT</A
+>                   (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-UINT-CAPS"
+>GTK_VALUE_UINT</A
+>                  (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-LONG-CAPS"
+>GTK_VALUE_LONG</A
+>                  (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-ULONG-CAPS"
+>GTK_VALUE_ULONG</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-FLOAT-CAPS"
+>GTK_VALUE_FLOAT</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-DOUBLE-CAPS"
+>GTK_VALUE_DOUBLE</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-STRING-CAPS"
+>GTK_VALUE_STRING</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-ENUM-CAPS"
+>GTK_VALUE_ENUM</A
+>                  (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-FLAGS-CAPS"
+>GTK_VALUE_FLAGS</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-BOXED-CAPS"
+>GTK_VALUE_BOXED</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-POINTER-CAPS"
+>GTK_VALUE_POINTER</A
+>               (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-OBJECT-CAPS"
+>GTK_VALUE_OBJECT</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-SIGNAL-CAPS"
+>GTK_VALUE_SIGNAL</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-ARGS-CAPS"
+>GTK_VALUE_ARGS</A
+>                  (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-CALLBACK-CAPS"
+>GTK_VALUE_CALLBACK</A
+>              (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-C-CALLBACK-CAPS"
+>GTK_VALUE_C_CALLBACK</A
+>            (a)
+#define     <A
+HREF="gtk-types.html#GTK-VALUE-FOREIGN-CAPS"
+>GTK_VALUE_FOREIGN</A
+>               (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-CHAR-CAPS"
+>GTK_RETLOC_CHAR</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-UCHAR-CAPS"
+>GTK_RETLOC_UCHAR</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-BOOL-CAPS"
+>GTK_RETLOC_BOOL</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-INT-CAPS"
+>GTK_RETLOC_INT</A
+>                  (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-UINT-CAPS"
+>GTK_RETLOC_UINT</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-LONG-CAPS"
+>GTK_RETLOC_LONG</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-ULONG-CAPS"
+>GTK_RETLOC_ULONG</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-FLOAT-CAPS"
+>GTK_RETLOC_FLOAT</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-DOUBLE-CAPS"
+>GTK_RETLOC_DOUBLE</A
+>               (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-STRING-CAPS"
+>GTK_RETLOC_STRING</A
+>               (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-ENUM-CAPS"
+>GTK_RETLOC_ENUM</A
+>                 (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-FLAGS-CAPS"
+>GTK_RETLOC_FLAGS</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-BOXED-CAPS"
+>GTK_RETLOC_BOXED</A
+>                (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-POINTER-CAPS"
+>GTK_RETLOC_POINTER</A
+>              (a)
+#define     <A
+HREF="gtk-types.html#GTK-RETLOC-OBJECT-CAPS"
+>GTK_RETLOC_OBJECT</A
+>               (a)
+struct      <A
+HREF="gtk-types.html#GTKTYPEINFO"
+>GtkTypeInfo</A
+>;
+struct      <A
+HREF="gtk-types.html#GTKTYPEQUERY"
+>GtkTypeQuery</A
+>;
+struct      <A
+HREF="gtk-types.html#GTKTYPECLASS"
+>GtkTypeClass</A
+>;
+struct      <A
+HREF="gtk-types.html#GTKENUMVALUE"
+>GtkEnumValue</A
+>;
+void        <A
+HREF="gtk-types.html#GTK-TYPE-INIT"
+>gtk_type_init</A
+>                   (void);
+<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     <A
+HREF="gtk-types.html#GTK-TYPE-UNIQUE"
+>gtk_type_unique</A
+>                 (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> parent_type,
+                                             const <A
+HREF="gtk-types.html#GTKTYPEINFO"
+>GtkTypeInfo</A
+> *type_info);
+void        <A
+HREF="gtk-types.html#GTK-TYPE-SET-CHUNK-ALLOC"
+>gtk_type_set_chunk_alloc</A
+>        (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_chunks);
+<A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      <A
+HREF="gtk-types.html#GTK-TYPE-NAME"
+>gtk_type_name</A
+>                   (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> type);
+<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     <A
+HREF="gtk-types.html#GTK-TYPE-FROM-NAME"
+>gtk_type_from_name</A
+>              (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name);
+<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     <A
+HREF="gtk-types.html#GTK-TYPE-PARENT"
+>gtk_type_parent</A
+>                 (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);
+<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    <A
+HREF="gtk-types.html#GTK-TYPE-CLASS"
+>gtk_type_class</A
+>                  (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);
+<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    <A
+HREF="gtk-types.html#GTK-TYPE-PARENT-CLASS"
+>gtk_type_parent_class</A
+>           (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);
+<A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      <A
+HREF="gtk-types.html#GTK-TYPE-CHILDREN-TYPES"
+>gtk_type_children_types</A
+>         (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);
+<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    <A
+HREF="gtk-types.html#GTK-TYPE-NEW"
+>gtk_type_new</A
+>                    (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);
+void        <A
+HREF="gtk-types.html#GTK-TYPE-FREE"
+>gtk_type_free</A
+>                   (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> mem);
+void        <A
+HREF="gtk-types.html#GTK-TYPE-DESCRIBE-HERITAGE"
+>gtk_type_describe_heritage</A
+>      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);
+void        <A
+HREF="gtk-types.html#GTK-TYPE-DESCRIBE-TREE"
+>gtk_type_describe_tree</A
+>          (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_size);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtk-types.html#GTK-TYPE-IS-A"
+>gtk_type_is_a</A
+>                   (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> is_a_type);
+<A
+HREF="gtk-types.html#GTKTYPEOBJECT"
+>GtkTypeObject</A
+>* <A
+HREF="gtk-types.html#GTK-TYPE-CHECK-OBJECT-CAST"
+>gtk_type_check_object_cast</A
+>   (<A
+HREF="gtk-types.html#GTKTYPEOBJECT"
+>GtkTypeObject</A
+> *type_object,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> cast_type);
+<A
+HREF="gtk-types.html#GTKTYPECLASS"
+>GtkTypeClass</A
+>* <A
+HREF="gtk-types.html#GTK-TYPE-CHECK-CLASS-CAST"
+>gtk_type_check_class_cast</A
+>     (<A
+HREF="gtk-types.html#GTKTYPECLASS"
+>GtkTypeClass</A
+> *klass,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> cast_type);
+<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     <A
+HREF="gtk-types.html#GTK-TYPE-REGISTER-ENUM"
+>gtk_type_register_enum</A
+>          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *type_name,
+                                             <A
+HREF="gtk-types.html#GTKENUMVALUE"
+>GtkEnumValue</A
+> *values);
+<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     <A
+HREF="gtk-types.html#GTK-TYPE-REGISTER-FLAGS"
+>gtk_type_register_flags</A
+>         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *type_name,
+                                             GtkFlagValue *values);
+<A
+HREF="gtk-types.html#GTKENUMVALUE"
+>GtkEnumValue</A
+>* <A
+HREF="gtk-types.html#GTK-TYPE-ENUM-GET-VALUES"
+>gtk_type_enum_get_values</A
+>      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> enum_type);
+GtkFlagValue* <A
+HREF="gtk-types.html#GTK-TYPE-FLAGS-GET-VALUES"
+>gtk_type_flags_get_values</A
+>     (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> flags_type);
+<A
+HREF="gtk-types.html#GTKENUMVALUE"
+>GtkEnumValue</A
+>* <A
+HREF="gtk-types.html#GTK-TYPE-ENUM-FIND-VALUE"
+>gtk_type_enum_find_value</A
+>      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> enum_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *value_name);
+GtkFlagValue* <A
+HREF="gtk-types.html#GTK-TYPE-FLAGS-FIND-VALUE"
+>gtk_type_flags_find_value</A
+>     (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> flag_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *value_name);
+void        <A
+HREF="gtk-types.html#GTK-TYPE-SET-VARARGS-TYPE"
+>gtk_type_set_varargs_type</A
+>       (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> foreign_type,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> varargs_type);
+<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     <A
+HREF="gtk-types.html#GTK-TYPE-GET-VARARGS-TYPE"
+>gtk_type_get_varargs_type</A
+>       (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> foreign_type);
+<A
+HREF="gtk-types.html#GTKTYPEQUERY"
+>GtkTypeQuery</A
+>* <A
+HREF="gtk-types.html#GTK-TYPE-QUERY"
+>gtk_type_query</A
+>                (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9829"
+></A
+><H2
+>Description</H2
+><P
+>Gtk's type system is extensible.  Because of that, types have to be
+managed at runtime.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9832"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9834"
+></A
+><H3
+><A
+NAME="GTKTYPE"
+></A
+>GtkType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef guint GtkType;</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>GtkType</I
+></TT
+> is unique integer identifying the type.  The guts of the
+information about the type is held in a private struct named
+GtkTypeNode.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9840"
+></A
+><H3
+><A
+NAME="GTKFUNDAMENTALTYPE"
+></A
+>enum GtkFundamentalType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GTK_TYPE_INVALID,
+  GTK_TYPE_NONE,
+  
+  /* flat types */
+  GTK_TYPE_CHAR,
+  GTK_TYPE_UCHAR,
+  GTK_TYPE_BOOL,
+  GTK_TYPE_INT,
+  GTK_TYPE_UINT,
+  GTK_TYPE_LONG,
+  GTK_TYPE_ULONG,
+  GTK_TYPE_FLOAT,
+  GTK_TYPE_DOUBLE,
+  GTK_TYPE_STRING,
+  GTK_TYPE_ENUM,
+  GTK_TYPE_FLAGS,
+  GTK_TYPE_BOXED,
+  GTK_TYPE_POINTER,
+  
+  /* structured types */
+  GTK_TYPE_SIGNAL,
+  GTK_TYPE_ARGS,
+  GTK_TYPE_CALLBACK,
+  GTK_TYPE_C_CALLBACK,
+  GTK_TYPE_FOREIGN,
+  
+  /* base type node of the object system */
+  GTK_TYPE_OBJECT
+} GtkFundamentalType;</PRE
+></TD
+></TR
+></TABLE
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>GtkFundamentalType</I
+></TT
+> is an enumerated type which lists all the possible
+fundamental types (e.g. char, uchar, int, long, float, etc).</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9846"
+></A
+><H3
+><A
+NAME="GTK-TYPE-NUM-BUILTINS-CAPS"
+></A
+>GTK_TYPE_NUM_BUILTINS</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	GTK_TYPE_NUM_BUILTINS	(121)</PRE
+></TD
+></TR
+></TABLE
+><P
+>No idea.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9851"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FLAT-FIRST-CAPS"
+></A
+>GTK_TYPE_FLAT_FIRST</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	GTK_TYPE_FLAT_FIRST		GTK_TYPE_CHAR</PRE
+></TD
+></TR
+></TABLE
+><P
+>The first "flat" (no struct) enumerated type value.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9856"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FLAT-LAST-CAPS"
+></A
+>GTK_TYPE_FLAT_LAST</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	GTK_TYPE_FLAT_LAST		GTK_TYPE_POINTER</PRE
+></TD
+></TR
+></TABLE
+><P
+>The last "flat" (no struct) enumerated type value.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9861"
+></A
+><H3
+><A
+NAME="GTK-TYPE-STRUCTURED-FIRST-CAPS"
+></A
+>GTK_TYPE_STRUCTURED_FIRST</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	GTK_TYPE_STRUCTURED_FIRST	GTK_TYPE_SIGNAL</PRE
+></TD
+></TR
+></TABLE
+><P
+>The first structured enumerated type value.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9866"
+></A
+><H3
+><A
+NAME="GTK-TYPE-STRUCTURED-LAST-CAPS"
+></A
+>GTK_TYPE_STRUCTURED_LAST</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	GTK_TYPE_STRUCTURED_LAST	GTK_TYPE_FOREIGN</PRE
+></TD
+></TR
+></TABLE
+><P
+>The last structured enumerated type value.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9871"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FUNDAMENTAL-LAST-CAPS"
+></A
+>GTK_TYPE_FUNDAMENTAL_LAST</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	GTK_TYPE_FUNDAMENTAL_LAST	GTK_TYPE_OBJECT</PRE
+></TD
+></TR
+></TABLE
+><P
+>The highest-numbered structured or flat enumerated type value.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9876"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FUNDAMENTAL-MAX-CAPS"
+></A
+>GTK_TYPE_FUNDAMENTAL_MAX</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	GTK_TYPE_FUNDAMENTAL_MAX	(32)</PRE
+></TD
+></TR
+></TABLE
+><P
+>The highest maximum fundamental enumerated type value.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9881"
+></A
+><H3
+><A
+NAME="GTK-STRUCT-OFFSET-CAPS"
+></A
+>GTK_STRUCT_OFFSET()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     GTK_STRUCT_OFFSET(struct, field)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use in place of offsetof(), which is used if it exists.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9887"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>struct</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The type of the structure.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>field</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The field within the structure.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9900"
+></A
+><H3
+><A
+NAME="GTK-CHECK-CAST-CAPS"
+></A
+>GTK_CHECK_CAST()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     GTK_CHECK_CAST(tobj, cast_type, cast)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Cast the object in <TT
+CLASS="PARAMETER"
+><I
+>tobj</I
+></TT
+> into <TT
+CLASS="PARAMETER"
+><I
+>cast</I
+></TT
+>.  If GTK_NO_CHECK_CASTS is
+defined, just cast it.  Otherwise, check to see if we can cast <TT
+CLASS="PARAMETER"
+><I
+>tobj</I
+></TT
+>
+into a <TT
+CLASS="PARAMETER"
+><I
+>cast</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9909"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tobj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a GtkObject.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a Gtk type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cast</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a C type
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9926"
+></A
+><H3
+><A
+NAME="GTK-CHECK-CLASS-CAST-CAPS"
+></A
+>GTK_CHECK_CLASS_CAST()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     GTK_CHECK_CLASS_CAST(tclass,cast_type,cast)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Cast the object in <TT
+CLASS="PARAMETER"
+><I
+>tobj</I
+></TT
+> into <TT
+CLASS="PARAMETER"
+><I
+>cast</I
+></TT
+>.  If GTK_NO_CHECK_CASTS is
+defined, just cast it.  Otherwise, check to see if we can cast <TT
+CLASS="PARAMETER"
+><I
+>tobj</I
+></TT
+>
+into a <TT
+CLASS="PARAMETER"
+><I
+>cast</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9935"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tclass</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to a GtkClassInitFunc</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a Gtk type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cast</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a C type
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9952"
+></A
+><H3
+><A
+NAME="GTK-CHECK-TYPE-CAPS"
+></A
+>GTK_CHECK_TYPE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     GTK_CHECK_TYPE(type_object, otype)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines whether <TT
+CLASS="PARAMETER"
+><I
+>type_object</I
+></TT
+> is a type of <TT
+CLASS="PARAMETER"
+><I
+>otype</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9959"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type_object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A GtkTypeObject object.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>otype</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9972"
+></A
+><H3
+><A
+NAME="GTK-CHECK-CLASS-TYPE-CAPS"
+></A
+>GTK_CHECK_CLASS_TYPE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     GTK_CHECK_CLASS_TYPE(type_class, otype)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines whether <TT
+CLASS="PARAMETER"
+><I
+>type_class</I
+></TT
+> is a type of <TT
+CLASS="PARAMETER"
+><I
+>otype</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN9979"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type_class</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A GtkTypeClass class.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>otype</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9992"
+></A
+><H3
+><A
+NAME="GTK-TYPE-IDENTIFIER-CAPS"
+></A
+>GTK_TYPE_IDENTIFIER</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define		GTK_TYPE_IDENTIFIER		(gtk_identifier_get_type ())</PRE
+></TD
+></TR
+></TABLE
+><P
+>Hide the name of gtk_identifier_get_type</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN9997"
+></A
+><H3
+><A
+NAME="GTK-IDENTIFIER-GET-TYPE"
+></A
+>gtk_identifier_get_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     gtk_identifier_get_type         (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get the type of GtkIdentifier.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10003"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType -- the enumerated type of something.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10012"
+></A
+><H3
+><A
+NAME="GTK-TYPE-MAKE-CAPS"
+></A
+>GTK_TYPE_MAKE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_TYPE_MAKE(parent_t, seqno)	(((seqno) &lt;&lt; 8) | GTK_FUNDAMENTAL_TYPE (parent_t))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Combine a fundemantal type and a sequence number to create a gtk type.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10017"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent_t</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>seqno</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10030"
+></A
+><H3
+><A
+NAME="GTK-FUNDAMENTAL-TYPE-CAPS"
+></A
+>GTK_FUNDAMENTAL_TYPE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_FUNDAMENTAL_TYPE(type)	((GtkFundamentalType) ((type) &amp; 0xFF))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Convert a gtk type into a fundamental type</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10035"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10044"
+></A
+><H3
+><A
+NAME="GTK-TYPE-SEQNO-CAPS"
+></A
+>GTK_TYPE_SEQNO()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_TYPE_SEQNO(type)		((type) &gt; 0xFF ? (type) &gt;&gt; 8 : (type))</PRE
+></TD
+></TR
+></TABLE
+><P
+>Convert a gtk type into its sequence number</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10049"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10058"
+></A
+><H3
+><A
+NAME="GTK-SIGNAL-FUNC-CAPS"
+></A
+>GTK_SIGNAL_FUNC()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_SIGNAL_FUNC(f)  ((GtkSignalFunc) f)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Just a macroized cast into a GtkSignalFunc</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10063"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>f</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10072"
+></A
+><H3
+><A
+NAME="GTKCLASSINITFUNC"
+></A
+>GtkClassInitFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkClassInitFunc)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> klass);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10078"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>klass</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a gpointer
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10087"
+></A
+><H3
+><A
+NAME="GTKOBJECTINITFUNC"
+></A
+>GtkObjectInitFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkObjectInitFunc)            (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> klass);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10094"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a gpointer</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>klass</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a gpointer
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10107"
+></A
+><H3
+><A
+NAME="GTKSIGNALFUNC"
+></A
+>GtkSignalFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkSignalFunc)                ();</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10112"
+></A
+><H3
+><A
+NAME="GTKFUNCTION"
+></A
+>GtkFunction ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        (*GtkFunction)                  (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10119"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gint
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10132"
+></A
+><H3
+><A
+NAME="GTKDESTROYNOTIFY"
+></A
+>GtkDestroyNotify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkDestroyNotify)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10138"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10147"
+></A
+><H3
+><A
+NAME="GTKCALLBACKMARSHAL"
+></A
+>GtkCallbackMarshal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkCallbackMarshal)           (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_args,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10156"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkObject*</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>guint</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkArg*
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10177"
+></A
+><H3
+><A
+NAME="GTKSIGNALMARSHALLER"
+></A
+>GtkSignalMarshaller ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkSignalMarshaller)          (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKSIGNALFUNC"
+>GtkSignalFunc</A
+> func,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> func_data,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *args);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10186"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkObject*</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkSignalFunc</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>args</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkArg*
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10207"
+></A
+><H3
+><A
+NAME="GTKARGGETFUNC"
+></A
+>GtkArgGetFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkArgGetFunc)                (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *arg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.  Deprecated.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10215"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10232"
+></A
+><H3
+><A
+NAME="GTKARGSETFUNC"
+></A
+>GtkArgSetFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GtkArgSetFunc)                (<A
+HREF="gtkobject.html"
+>GtkObject</A
+> *object,
+                                             <A
+HREF="gtk-types.html#GTKARG"
+>GtkArg</A
+> *arg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> arg_id);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Define a function pointer.  Deprecated.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10240"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>arg_id</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10257"
+></A
+><H3
+><A
+NAME="GTKTYPEOBJECT"
+></A
+>struct GtkTypeObject</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTypeObject
+{
+  /* A pointer to the objects class. This will actually point to
+   *  the derived objects class struct (which will be derived from
+   *  GtkTypeClass).
+   */
+  GtkTypeClass	*klass;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A GtkTypeObject defines the minimum structure requirements
+for type instances. Type instances returned from <A
+HREF="gtk-types.html#GTK-TYPE-NEW"
+>gtk_type_new</A
+>()
+and initialized through a GtkObjectInitFunc need to directly inherit
+from this structure or at least copy its fields one by one.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10263"
+></A
+><H3
+><A
+NAME="GTKARG"
+></A
+>struct GtkArg</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkArg
+{
+  GtkType type;
+  gchar *name;
+  
+  /* this union only defines the required storage types for
+   * the possibile values, thus there is no gint enum_data field,
+   * because that would just be a mere alias for gint int_data.
+   * use the GTK_VALUE_*() and GTK_RETLOC_*() macros to access
+   * the discrete memebers.
+   */
+  union {
+    /* flat values */
+    gchar char_data;
+    guchar uchar_data;
+    gboolean bool_data;
+    gint int_data;
+    guint uint_data;
+    glong long_data;
+    gulong ulong_data;
+    gfloat float_data;
+    gdouble double_data;
+    gchar *string_data;
+    gpointer pointer_data;
+    GtkObject *object_data;
+    
+    /* structured values */
+    struct {
+      GtkSignalFunc f;
+      gpointer d;
+    } signal_data;
+    struct {
+      gint n_args;
+      GtkArg *args;
+    } args_data;
+    struct {
+      GtkCallbackMarshal marshal;
+      gpointer data;
+      GtkDestroyNotify notify;
+    } callback_data;
+    struct {
+      GtkFunction func;
+      gpointer func_data;
+    } c_callback_data;
+    struct {
+      gpointer data;
+      GtkDestroyNotify notify;
+    } foreign_data;
+  } d;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>This is a structure that we use to pass in typed values (and names).</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10268"
+></A
+><H3
+><A
+NAME="GTK-VALUE-CHAR-CAPS"
+></A
+>GTK_VALUE_CHAR()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_CHAR(a)	((a).d.char_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_CHAR</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10273"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10282"
+></A
+><H3
+><A
+NAME="GTK-VALUE-UCHAR-CAPS"
+></A
+>GTK_VALUE_UCHAR()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_UCHAR(a)	((a).d.uchar_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_UCHAR</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10287"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10296"
+></A
+><H3
+><A
+NAME="GTK-VALUE-BOOL-CAPS"
+></A
+>GTK_VALUE_BOOL()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_BOOL(a)	((a).d.bool_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_BOOL</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10301"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10310"
+></A
+><H3
+><A
+NAME="GTK-VALUE-INT-CAPS"
+></A
+>GTK_VALUE_INT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_INT(a)	((a).d.int_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_INT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10315"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10324"
+></A
+><H3
+><A
+NAME="GTK-VALUE-UINT-CAPS"
+></A
+>GTK_VALUE_UINT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_UINT(a)	((a).d.uint_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_UINT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10329"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10338"
+></A
+><H3
+><A
+NAME="GTK-VALUE-LONG-CAPS"
+></A
+>GTK_VALUE_LONG()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_LONG(a)	((a).d.long_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_LONG</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10343"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10352"
+></A
+><H3
+><A
+NAME="GTK-VALUE-ULONG-CAPS"
+></A
+>GTK_VALUE_ULONG()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_ULONG(a)	((a).d.ulong_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_ULONG</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10357"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10366"
+></A
+><H3
+><A
+NAME="GTK-VALUE-FLOAT-CAPS"
+></A
+>GTK_VALUE_FLOAT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_FLOAT(a)	((a).d.float_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_FLOAT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10371"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10380"
+></A
+><H3
+><A
+NAME="GTK-VALUE-DOUBLE-CAPS"
+></A
+>GTK_VALUE_DOUBLE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_DOUBLE(a)	((a).d.double_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_DOUBLE</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10385"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10394"
+></A
+><H3
+><A
+NAME="GTK-VALUE-STRING-CAPS"
+></A
+>GTK_VALUE_STRING()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_STRING(a)	((a).d.string_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_STRING</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10399"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10408"
+></A
+><H3
+><A
+NAME="GTK-VALUE-ENUM-CAPS"
+></A
+>GTK_VALUE_ENUM()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_ENUM(a)	((a).d.int_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_ENUM</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10413"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10422"
+></A
+><H3
+><A
+NAME="GTK-VALUE-FLAGS-CAPS"
+></A
+>GTK_VALUE_FLAGS()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_FLAGS(a)	((a).d.uint_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_FLAGS</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10427"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10436"
+></A
+><H3
+><A
+NAME="GTK-VALUE-BOXED-CAPS"
+></A
+>GTK_VALUE_BOXED()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_BOXED(a)	((a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_BOXED</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10441"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10450"
+></A
+><H3
+><A
+NAME="GTK-VALUE-POINTER-CAPS"
+></A
+>GTK_VALUE_POINTER()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_POINTER(a)	((a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_POINTER</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10455"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10464"
+></A
+><H3
+><A
+NAME="GTK-VALUE-OBJECT-CAPS"
+></A
+>GTK_VALUE_OBJECT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_OBJECT(a)	((a).d.object_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_OBJECT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10469"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10478"
+></A
+><H3
+><A
+NAME="GTK-VALUE-SIGNAL-CAPS"
+></A
+>GTK_VALUE_SIGNAL()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_SIGNAL(a)	((a).d.signal_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_SIGNAL</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10483"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10492"
+></A
+><H3
+><A
+NAME="GTK-VALUE-ARGS-CAPS"
+></A
+>GTK_VALUE_ARGS()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_ARGS(a)	((a).d.args_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_ARGS</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10497"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10506"
+></A
+><H3
+><A
+NAME="GTK-VALUE-CALLBACK-CAPS"
+></A
+>GTK_VALUE_CALLBACK()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_CALLBACK(a)	((a).d.callback_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_CALLBACK</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10511"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10520"
+></A
+><H3
+><A
+NAME="GTK-VALUE-C-CALLBACK-CAPS"
+></A
+>GTK_VALUE_C_CALLBACK()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_C_CALLBACK(a) ((a).d.c_callback_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_C_CALLBACK</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10525"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10534"
+></A
+><H3
+><A
+NAME="GTK-VALUE-FOREIGN-CAPS"
+></A
+>GTK_VALUE_FOREIGN()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_VALUE_FOREIGN(a)	((a).d.foreign_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>Use to get the value of a GtkArg whose GtkType is GTK_TYPE_C_FOREIGN</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10539"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10548"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-CHAR-CAPS"
+></A
+>GTK_RETLOC_CHAR()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_CHAR(a)	((gchar*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_CHAR</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10553"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10562"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-UCHAR-CAPS"
+></A
+>GTK_RETLOC_UCHAR()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_UCHAR(a)	((guchar*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_UCHAR</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10567"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10576"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-BOOL-CAPS"
+></A
+>GTK_RETLOC_BOOL()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_BOOL(a)	((gboolean*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_BOOL</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10581"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10590"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-INT-CAPS"
+></A
+>GTK_RETLOC_INT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_INT(a)	((gint*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_INT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10595"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10604"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-UINT-CAPS"
+></A
+>GTK_RETLOC_UINT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_UINT(a)	((guint*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_UINT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10609"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10618"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-LONG-CAPS"
+></A
+>GTK_RETLOC_LONG()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_LONG(a)	((glong*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_LONG</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10623"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10632"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-ULONG-CAPS"
+></A
+>GTK_RETLOC_ULONG()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_ULONG(a)	((gulong*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_ULONG</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10637"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10646"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-FLOAT-CAPS"
+></A
+>GTK_RETLOC_FLOAT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_FLOAT(a)	((gfloat*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_FLOAT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10651"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10660"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-DOUBLE-CAPS"
+></A
+>GTK_RETLOC_DOUBLE()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_DOUBLE(a)	((gdouble*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_DOUBLE</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10665"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10674"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-STRING-CAPS"
+></A
+>GTK_RETLOC_STRING()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_STRING(a)	((gchar**)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_STRING</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10679"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10688"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-ENUM-CAPS"
+></A
+>GTK_RETLOC_ENUM()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_ENUM(a)	((gint*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_ENUM</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10693"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10702"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-FLAGS-CAPS"
+></A
+>GTK_RETLOC_FLAGS()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_FLAGS(a)	((guint*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_FLAGS</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10707"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10716"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-BOXED-CAPS"
+></A
+>GTK_RETLOC_BOXED()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_BOXED(a)	((gpointer*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_BOXED</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10721"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10730"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-POINTER-CAPS"
+></A
+>GTK_RETLOC_POINTER()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_POINTER(a)	((gpointer*)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_POINTER</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10735"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10744"
+></A
+><H3
+><A
+NAME="GTK-RETLOC-OBJECT-CAPS"
+></A
+>GTK_RETLOC_OBJECT()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define GTK_RETLOC_OBJECT(a)	((GtkObject**)	(a).d.pointer_data)</PRE
+></TD
+></TR
+></TABLE
+><P
+>If the GtkArg contains a pointer to the value, this macro will be a pointer to a GTK_TYPE_OBJECT</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10749"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>a</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10758"
+></A
+><H3
+><A
+NAME="GTKTYPEINFO"
+></A
+>struct GtkTypeInfo</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTypeInfo
+{
+  gchar			*type_name;
+  guint			 object_size;
+  guint			 class_size;
+  GtkClassInitFunc	 class_init_func;
+  GtkObjectInitFunc	 object_init_func;
+  gpointer		 reserved_1;
+  gpointer		 reserved_2;
+  GtkClassInitFunc	 base_class_init_func;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Holds information about the type.  <TT
+CLASS="PARAMETER"
+><I
+>gtk_type_name</I
+></TT
+> returns the name.
+<TT
+CLASS="PARAMETER"
+><I
+>object_size</I
+></TT
+> is somehow set to the number of bytes that an instance of
+the object will occupy.  <TT
+CLASS="PARAMETER"
+><I
+>class_init_func</I
+></TT
+> holds the type's
+initialization function.  <TT
+CLASS="PARAMETER"
+><I
+>object_init_func</I
+></TT
+> holds the initialization
+function for an instance of the object.  <TT
+CLASS="PARAMETER"
+><I
+>reserved_1</I
+></TT
+> is used for
+GtkEnumValue to hold the enumerated values.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10768"
+></A
+><H3
+><A
+NAME="GTKTYPEQUERY"
+></A
+>struct GtkTypeQuery</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTypeQuery
+{
+  GtkType		 type;
+  const gchar		*type_name;
+  guint			 object_size;
+  guint			 class_size;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A structure used to return values from <TT
+CLASS="PARAMETER"
+><I
+>gtk_type_query</I
+></TT
+>.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10774"
+></A
+><H3
+><A
+NAME="GTKTYPECLASS"
+></A
+>struct GtkTypeClass</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTypeClass;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The base structure for a Gtk Type.  Every type inherits this as a base structure.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10779"
+></A
+><H3
+><A
+NAME="GTKENUMVALUE"
+></A
+>struct GtkEnumValue</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkEnumValue
+{
+  guint	 value;
+  gchar	*value_name;
+  gchar *value_nick;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A structure which contains a single enum value, and its name, and it's
+nickname.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10784"
+></A
+><H3
+><A
+NAME="GTK-TYPE-INIT"
+></A
+>gtk_type_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_type_init                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initialize the data structures associated with gtk types.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10789"
+></A
+><H3
+><A
+NAME="GTK-TYPE-UNIQUE"
+></A
+>gtk_type_unique ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     gtk_type_unique                 (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> parent_type,
+                                             const <A
+HREF="gtk-types.html#GTKTYPEINFO"
+>GtkTypeInfo</A
+> *type_info);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new, unique type.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10797"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>parent_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>if zero, a fundamental type is created.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type_info</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>must not be null, and <TT
+CLASS="PARAMETER"
+><I
+>type_info</I
+></TT
+>-&#62;type_name must also not be null.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new GtkType.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10815"
+></A
+><H3
+><A
+NAME="GTK-TYPE-SET-CHUNK-ALLOC"
+></A
+>gtk_type_set_chunk_alloc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_type_set_chunk_alloc        (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> n_chunks);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the mem_chunk size so it will hold <TT
+CLASS="PARAMETER"
+><I
+>n_chunks</I
+></TT
+> of the objects of that <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10824"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>There must be an unlocked TypeNode associated with this type otherwise nothing happens.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>n_chunks</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10837"
+></A
+><H3
+><A
+NAME="GTK-TYPE-NAME"
+></A
+>gtk_type_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A>*      gtk_type_name                   (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10844"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a pointer to the name of a type, or NULL if it has none.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10857"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FROM-NAME"
+></A
+>gtk_type_from_name ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     gtk_type_from_name              (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get the internal representation of a type given its name.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10864"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the name of a gtk type</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkType
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10877"
+></A
+><H3
+><A
+NAME="GTK-TYPE-PARENT"
+></A
+>gtk_type_parent ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     gtk_type_parent                 (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10884"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the GtkType of the parent
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10897"
+></A
+><H3
+><A
+NAME="GTK-TYPE-CLASS"
+></A
+>gtk_type_class ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    gtk_type_class                  (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return a gpointer pointing to the class of <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+> or NULL if there was
+any trouble identifying <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.  Initialize the class if necessary.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10906"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer to the klass.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10919"
+></A
+><H3
+><A
+NAME="GTK-TYPE-PARENT-CLASS"
+></A
+>gtk_type_parent_class ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    gtk_type_parent_class           (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return the class of the parent.  Initialize the class if necessary.
+Return NULL if anything goes wrong.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10926"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer to the klass.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10939"
+></A
+><H3
+><A
+NAME="GTK-TYPE-CHILDREN-TYPES"
+></A
+>gtk_type_children_types ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A>*      gtk_type_children_types         (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return the pointer to the type's children's types.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10946"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>pointer to a GList
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10959"
+></A
+><H3
+><A
+NAME="GTK-TYPE-NEW"
+></A
+>gtk_type_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A>    gtk_type_new                    (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new object of a given type, and return a gpointer to it.
+Returns NULL if you give it an invalid type.  It allocates the object
+out of the type's memory chunk if there is a memory chunk.  The object
+has all the proper initializers called.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10966"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer to a GtkTypeObject
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10979"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FREE"
+></A
+>gtk_type_free ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_type_free                   (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> mem);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given the type of an object and a pointer to it, the object is freed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10986"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mem</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gpointer to the object
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10999"
+></A
+><H3
+><A
+NAME="GTK-TYPE-DESCRIBE-HERITAGE"
+></A
+>gtk_type_describe_heritage ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_type_describe_heritage      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Print the types <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+> inherits from.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11006"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11015"
+></A
+><H3
+><A
+NAME="GTK-TYPE-DESCRIBE-TREE"
+></A
+>gtk_type_describe_tree ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_type_describe_tree          (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> show_size);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given a <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>, describe all of its children, and their children.  Only
+show the size if <TT
+CLASS="PARAMETER"
+><I
+>show_size</I
+></TT
+> is true.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11024"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>show_size</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gboolean
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11037"
+></A
+><H3
+><A
+NAME="GTK-TYPE-IS-A"
+></A
+>gtk_type_is_a ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_type_is_a                   (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> is_a_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Look in the type hierarchy to see if <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+> has <TT
+CLASS="PARAMETER"
+><I
+>is_a_type</I
+></TT
+> among its
+ancestors.  Do so with a simple lookup, not a loop.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11047"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_a_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11064"
+></A
+><H3
+><A
+NAME="GTK-TYPE-CHECK-OBJECT-CAST"
+></A
+>gtk_type_check_object_cast ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPEOBJECT"
+>GtkTypeObject</A
+>* gtk_type_check_object_cast   (<A
+HREF="gtk-types.html#GTKTYPEOBJECT"
+>GtkTypeObject</A
+> *type_object,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> cast_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given a pointer to a GtkTypeObject <TT
+CLASS="PARAMETER"
+><I
+>type_object</I
+></TT
+>, and a GtkType <TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>,
+make sure that it's okay to cast <TT
+CLASS="PARAMETER"
+><I
+>type_object</I
+></TT
+> into a <TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11076"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type_object</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkTypeObject*</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the same GtkTypeObject* as <TT
+CLASS="PARAMETER"
+><I
+>type_object</I
+></TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11094"
+></A
+><H3
+><A
+NAME="GTK-TYPE-CHECK-CLASS-CAST"
+></A
+>gtk_type_check_class_cast ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPECLASS"
+>GtkTypeClass</A
+>* gtk_type_check_class_cast     (<A
+HREF="gtk-types.html#GTKTYPECLASS"
+>GtkTypeClass</A
+> *klass,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> cast_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given a GtkTypeClass pointer <TT
+CLASS="PARAMETER"
+><I
+>klass</I
+></TT
+>, and a GtkType <TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>, make
+sure that it's okay to cast something of that <TT
+CLASS="PARAMETER"
+><I
+>klass</I
+></TT
+> into a <TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11106"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>klass</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkTypeClass*</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cast_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Always return <TT
+CLASS="PARAMETER"
+><I
+>klass</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11124"
+></A
+><H3
+><A
+NAME="GTK-TYPE-REGISTER-ENUM"
+></A
+>gtk_type_register_enum ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     gtk_type_register_enum          (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *type_name,
+                                             <A
+HREF="gtk-types.html#GTKENUMVALUE"
+>GtkEnumValue</A
+> *values);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Register a new set of enum <TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+> and give them the name in
+<TT
+CLASS="PARAMETER"
+><I
+>type_name</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11134"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>must not be null.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkEnumValue*</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11151"
+></A
+><H3
+><A
+NAME="GTK-TYPE-REGISTER-FLAGS"
+></A
+>gtk_type_register_flags ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     gtk_type_register_flags         (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *type_name,
+                                             GtkFlagValue *values);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Register a new set of flags <TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+> and give them the name in
+<TT
+CLASS="PARAMETER"
+><I
+>type_name</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11161"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>must not be null.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>values</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkFlagValue*</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11178"
+></A
+><H3
+><A
+NAME="GTK-TYPE-ENUM-GET-VALUES"
+></A
+>gtk_type_enum_get_values ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKENUMVALUE"
+>GtkEnumValue</A
+>* gtk_type_enum_get_values      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> enum_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>enum_type</I
+></TT
+> has values, then return a pointer to all of them.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11186"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>enum_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkEnumValue*
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11199"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FLAGS-GET-VALUES"
+></A
+>gtk_type_flags_get_values ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GtkFlagValue* gtk_type_flags_get_values     (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> flags_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>flags_type</I
+></TT
+> has values, then return a pointer to all of them.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11207"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flags_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkFlagValue*
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11220"
+></A
+><H3
+><A
+NAME="GTK-TYPE-ENUM-FIND-VALUE"
+></A
+>gtk_type_enum_find_value ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKENUMVALUE"
+>GtkEnumValue</A
+>* gtk_type_enum_find_value      (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> enum_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *value_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return a pointer to one of <TT
+CLASS="PARAMETER"
+><I
+>enum_type</I
+></TT
+>'s GtkEnumValues's whose name (or nickname) matches <TT
+CLASS="PARAMETER"
+><I
+>value_name</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11230"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>enum_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkEnumValue*
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11247"
+></A
+><H3
+><A
+NAME="GTK-TYPE-FLAGS-FIND-VALUE"
+></A
+>gtk_type_flags_find_value ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>GtkFlagValue* gtk_type_flags_find_value     (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> flag_type,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *value_name);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return a pointer to one of <TT
+CLASS="PARAMETER"
+><I
+>flag_type</I
+></TT
+>'s GtkFlagValue's whose name (or nickname) matches <TT
+CLASS="PARAMETER"
+><I
+>value_name</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11257"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>flag_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>value_name</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkFlagValue*
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11274"
+></A
+><H3
+><A
+NAME="GTK-TYPE-SET-VARARGS-TYPE"
+></A
+>gtk_type_set_varargs_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_type_set_varargs_type       (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> foreign_type,
+                                             <A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> varargs_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the varargs type for a fundamental type <TT
+CLASS="PARAMETER"
+><I
+>foreign_type</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11282"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>foreign_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Must be a GtkType with a sequence number of zero.  Must not be a
+fundamental type.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>varargs_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Must be a GtkType which is either structured or flag, or NONE.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11295"
+></A
+><H3
+><A
+NAME="GTK-TYPE-GET-VARARGS-TYPE"
+></A
+>gtk_type_get_varargs_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+>     gtk_type_get_varargs_type       (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> foreign_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get the varargs type associated with <TT
+CLASS="PARAMETER"
+><I
+>foreign_type</I
+></TT
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11303"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>foreign_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11316"
+></A
+><H3
+><A
+NAME="GTK-TYPE-QUERY"
+></A
+>gtk_type_query ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtk-types.html#GTKTYPEQUERY"
+>GtkTypeQuery</A
+>* gtk_type_query                (<A
+HREF="gtk-types.html#GTKTYPE"
+>GtkType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Given a type, return various interesting parameters of the type.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11323"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkType</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkTypeQuery*
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtk-object-properties.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtk-bindings.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Implementation of Object Properties</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Bindings</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

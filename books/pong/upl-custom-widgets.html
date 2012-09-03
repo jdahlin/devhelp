@@ -1,0 +1,296 @@
+<HTML
+><HEAD
+><TITLE
+>Custom Widgets</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.52"><LINK
+REL="HOME"
+TITLE="PonG: GNOME Properties"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Using the PonG library"
+HREF="using-pong-library.html"><LINK
+REL="PREVIOUS"
+TITLE="Levels and Prefixes"
+HREF="upl-levels-prefixes.html"><LINK
+REL="NEXT"
+TITLE="Custom Bonobo Controls"
+HREF="upl-custom-bonobo-controls.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PonG: GNOME Properties</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="upl-levels-prefixes.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Using the PonG library</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="upl-custom-bonobo-controls.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="UPL-CUSTOM-WIDGETS"
+>Custom Widgets</A
+></H1
+><P
+>	While the standard widgets are OK for most applications, it is
+	sometimes necessary to write a custom widget which may even live only
+	inside the application.  To do this, there is an interface API in
+	PonG by which you can add the PonG interface to a GTK+ class.  You can
+	then use this widget just like any other native PonG widget inside
+	your .pong files.  In fact all you have to do to use the widget is to
+	link it into your application and PonG will find it automatically
+	if the platform supports gmodule.  If you call the _get_type method
+	of your widget, it will be initialized and GTK+ object system will
+	know about it, and then it will work even without gmodule.
+      </P
+><P
+>	The basics of the implementing a widget using the PonG interface is
+	using the pong/pong.h or pong/pong-widget-interface.h includes in your
+	implementation (not in the header file neccessairly) and in the class
+	initialization function, calling pong_widget_interface_add, which
+	takes the class as an argument (cast to "GtkObjectClass *").  This
+	will return a structure pointer for you to fill out.  The structure
+	is defined as follows:
+
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 7. PongWidgetInterface structure</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct _PongWidgetInterface PongWidgetInterface;
+struct _PongWidgetInterface {
+	/* this is the name of the signal that should be bound to get changes
+	 * on the widget, this signal should not have any extra function
+	 * arguments (handler should look like
+	 * "void foo(GtkWidget *widget, gpointer data)" ) */
+	char *		changed_signal;
+
+	gboolean	(*get_value)	(GtkWidget *w,
+					 const char *specifier,
+					 PongType type,
+					 GConfValue **value);
+	gboolean	(*set_value)	(GtkWidget *w,
+					 const char *specifier,
+					 GConfValue *value);
+
+	void		(*add_options)	(GtkWidget *w,
+					 GList *pong_options);
+
+	gboolean	(*set_label)	(GtkWidget *w,
+					 const char *label);
+
+	/* If this is unimplemented, PonG will set GtkArgs */
+	void		(*set_arg)	(GtkWidget *w,
+					 const char *name,
+					 const char *value);
+};
+          </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	For example a class initialization function could look like:
+	<DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 8. Class initialization for a custom widget</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>static void 
+foo_class_init (FooClass * klass)
+{
+  PongWidgetInterface *iface;
+
+  iface = pong_widget_interface_add (GTK_OBJECT_CLASS (klass));
+
+  /* This assumes there exists a signal named "changed" */
+  iface-&#62;changed_signal = "changed";
+  iface-&#62;get_value = get_value;
+  iface-&#62;set_value = set_value;
+  iface-&#62;add_options = add_options;
+  iface-&#62;set_label = NULL;
+  iface-&#62;set_arg = NULL;
+}
+          </PRE
+></TD
+></TR
+></TABLE
+></DIV
+>
+      </P
+><P
+>	The changed_signal is just a character string which refers to a signal
+	of your widget that PonG should monitor for changes.  For example
+	in a GtkEntry, this is "changed".  The rest of the items are function
+	pointers, get_value and set_value must be implemented, the rest can
+	be left NULL if you do not implement that functionality.
+      </P
+><P
+>	The get_value and set_value get or set the value of the widget.  If
+	a wrong type is passed in, they should return FALSE, on success they
+	should return TRUE.  These work with the GConfValue type for which you
+	should see the GConf documentation.
+      </P
+><P
+>	The get_value and set_value get or set the value of the widget.  If
+	a wrong type is passed in, they should return FALSE, on success they
+	should return TRUE.  These work with the GConfValue type for which you
+	should see the GConf documentation.  PongType is an enumeration that
+	is defined in pong/pong-type.h header file.  The four basic value
+	which are most used are PONG_TYPE_STRING, PONG_TYPE_INT,
+	PONG_TYPE_FLOAT and PONG_TYPE_BOOL.  The types correspond to
+	GConfValue types, however unlike in GConf the types are completely
+	enumerated and so you get types such as PONG_TYPE_LIST_OF_FLOATS or
+	PONG_TYPE_PAIR_STRING_INT.
+      </P
+><P
+>	The add_options function is given a list of structures of type
+	PongOption, which has two string fields, "label" and "value".  These
+	correspond to the options defined in the .pong file, and for example
+	correspond to the choices the user is given in an option menu.
+      </P
+><P
+>	The set_label function is used to set a label of a widget.  Most
+	widgets do not implement this functionality and the label is created
+	for them by PonG and is placed left of the widget.  But some widgets
+	might have a special place where to put the label and they can
+	implement it this way.
+      </P
+><P
+>	The set_arg can be safely ignored, if it is unimplemented, PonG
+	will use the standard GTK+ argument system such as you would when
+	you use gtk_object_set.  Implementing this function will bypass
+	the argument setting and is used in the corba interface.  It's not
+	considered good style to implement your own arguments this way but
+	it would certainly work.  I however recommend gob for making new
+	objects and then implementing it with GTK+ arguments is far simpler.
+      </P
+><P
+>	Note that gob style object naming is used by PonG when referring to
+	widgets, so ':' is used to separate words.  For example GtkButton
+	would be written as "Gtk:Button".  This way PonG can easily construct
+	methods for that objects, for example the get_type function which
+	would be gtk_button_get_type.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="upl-levels-prefixes.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="upl-custom-bonobo-controls.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Levels and Prefixes</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="using-pong-library.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Custom Bonobo Controls</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1281 @@
+<HTML
+><HEAD
+><TITLE
+>GtkToggleButton</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkTipsQuery"
+HREF="gtktipsquery.html"><LINK
+REL="NEXT"
+TITLE="GtkToolbar"
+HREF="gtktoolbar.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktipsquery.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktoolbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKTOGGLEBUTTON"
+>GtkToggleButton</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN41407"
+></A
+><H2
+>Name</H2
+>GtkToggleButton&nbsp;--&nbsp;create buttons which retain their state.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN41410"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtktogglebutton.html#GTKTOGGLEBUTTON-STRUCT"
+>GtkToggleButton</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-NEW"
+>gtk_toggle_button_new</A
+>           (void);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-NEW-WITH-LABEL"
+>gtk_toggle_button_new_with_label</A
+>
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);
+void        <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-SET-MODE"
+>gtk_toggle_button_set_mode</A
+>      (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> draw_indicator);
+#define     <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-SET-STATE"
+>gtk_toggle_button_set_state</A
+>
+void        <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-TOGGLED"
+>gtk_toggle_button_toggled</A
+>       (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-GET-ACTIVE"
+>gtk_toggle_button_get_active</A
+>    (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button);
+void        <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-SET-ACTIVE"
+>gtk_toggle_button_set_active</A
+>    (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_active);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41431"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkbutton.html"
+>GtkButton</A
+>
+                           +----GtkToggleButton</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41439"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtktogglebutton.html#GTKTOGGLEBUTTON--ACTIVE"
+>active</A
+>&quot;               <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtktogglebutton.html#GTKTOGGLEBUTTON--DRAW-INDICATOR"
+>draw-indicator</A
+>&quot;       <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41446"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtktogglebutton.html#GTKTOGGLEBUTTON-TOGGLED"
+>toggled</A
+>&quot;   void        user_function      (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *togglebutton,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41452"
+></A
+><H2
+>Description</H2
+><P
+>A <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> is a <A
+HREF="gtkbutton.html"
+>GtkButton</A
+> which will remain 'pressed-in' when
+clicked. Clicking again will cause the toggle button to return to it's
+normal state.</P
+><P
+>A toggle button is created by calling either <A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-NEW"
+>gtk_toggle_button_new</A
+>() or
+<A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-NEW-WITH-LABEL"
+>gtk_toggle_button_new_with_label</A
+>(). If using the former, it is advisable to
+pack a widget, (such as a <A
+HREF="gtklabel.html"
+>GtkLabel</A
+> and/or a <A
+HREF="gtkpixmap.html"
+>GtkPixmap</A
+>), into the toggle
+button's container. (See <A
+HREF="gtkbutton.html"
+>GtkButton</A
+> for more information).</P
+><P
+>The state of a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> can be set specifically using
+<A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-SET-ACTIVE"
+>gtk_toggle_button_set_active</A
+>(), and retrieved using
+<A
+HREF="gtktogglebutton.html#GTK-TOGGLE-BUTTON-GET-ACTIVE"
+>gtk_toggle_button_get_active</A
+>().</P
+><P
+>To simply switch the state of a toggle button, use gtk_toggle_button_toggled.</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN41468"
+></A
+><P
+><B
+>Example 1. Creating two <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> widgets.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>&#13;void make_toggles(void) {
+   GtkWidget *dialog, *toggle1, *toggle2;
+
+   dialog = <A
+HREF="gtkdialog.html#GTK-DIALOG-NEW"
+>gtk_dialog_new</A
+>();
+   toggle1 = gtk_toggle_button_new_with_label("Hi, i'm a toggle button.");
+
+   /* Makes this toggle button invisible */
+   gtk_toggle_button_set_mode (GTK_TOGGLE_BUTTON (toggle1), TRUE);
+   
+   gtk_signal_connect (GTK_OBJECT (toggle1), "toggled",
+                       GTK_SIGNAL_FUNC (output_state), NULL);
+   gtk_box_pack_start (GTK_BOX (GTK_DIALOG(dialog)-&#62;action_area),
+                       toggle1, FALSE, FALSE, 2);
+
+   toggle2 = gtk_toggle_button_new_with_label("Hi, i'm another toggle button.");
+   gtk_toggle_button_set_mode (GTK_TOGGLE_BUTTON (toggle2), FALSE);
+   gtk_signal_connect (GTK_OBJECT (toggle2), "toggled",
+                       GTK_SIGNAL_FUNC (output_state), NULL);
+   gtk_box_pack_start (GTK_BOX (GTK_DIALOG(dialog)-&#62;action_area),
+                       toggle2, FALSE, FALSE, 2);
+
+   gtk_widget_show_all (dialog);
+}&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41473"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41475"
+></A
+><H3
+><A
+NAME="GTKTOGGLEBUTTON-STRUCT"
+></A
+>struct GtkToggleButton</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkToggleButton;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> struct contains private data only, and should be manipulated using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41481"
+></A
+><H3
+><A
+NAME="GTK-TOGGLE-BUTTON-NEW"
+></A
+>gtk_toggle_button_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toggle_button_new           (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new toggle button. A widget should be packed into the button, as in <A
+HREF="gtkbutton.html#GTK-BUTTON-NEW"
+>gtk_button_new</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41488"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new toggle button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41497"
+></A
+><H3
+><A
+NAME="GTK-TOGGLE-BUTTON-NEW-WITH-LABEL"
+></A
+>gtk_toggle_button_new_with_label ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_toggle_button_new_with_label
+                                            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new toggle button with a text label.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41504"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a string containing the message to be placed in the toggle button.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new toggle button.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41517"
+></A
+><H3
+><A
+NAME="GTK-TOGGLE-BUTTON-SET-MODE"
+></A
+>gtk_toggle_button_set_mode ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toggle_button_set_mode      (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> draw_indicator);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines whether or not the toggle button is drawn on screen. The default mode is FALSE, which results in the button being displayed. To make the button invisible, set <TT
+CLASS="STRUCTFIELD"
+><I
+>draw_indicator</I
+></TT
+> to TRUE.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41525"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toggle_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>draw_indicator</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE or FALSE.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41539"
+></A
+><H3
+><A
+NAME="GTK-TOGGLE-BUTTON-SET-STATE"
+></A
+>gtk_toggle_button_set_state</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define	gtk_toggle_button_set_state		gtk_toggle_button_set_active</PRE
+></TD
+></TR
+></TABLE
+><P
+>This is a deprecated macro, and is only maintained for compatability reasons.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41544"
+></A
+><H3
+><A
+NAME="GTK-TOGGLE-BUTTON-TOGGLED"
+></A
+>gtk_toggle_button_toggled ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toggle_button_toggled       (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Changes the state of the toggle button.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41550"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toggle_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41560"
+></A
+><H3
+><A
+NAME="GTK-TOGGLE-BUTTON-GET-ACTIVE"
+></A
+>gtk_toggle_button_get_active ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gtk_toggle_button_get_active    (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Queries a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> and returns it's current state. Returns TRUE if
+the toggle button is pressed in and FALSE if it is raised.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41568"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toggle_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41583"
+></A
+><H3
+><A
+NAME="GTK-TOGGLE-BUTTON-SET-ACTIVE"
+></A
+>gtk_toggle_button_set_active ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_toggle_button_set_active    (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *toggle_button,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> is_active);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the status of the toggle button. Set to TRUE if you want the
+GtkToggleButton to be 'pressed in', and FALSE to raise it.
+This action causes the toggled signal to be emitted.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41590"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>toggle_button</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>is_active</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE or FALSE.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41604"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKTOGGLEBUTTON--ACTIVE"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>active</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+>Sets whether the toggle button should be pressed in or not.</P
+></DD
+><DT
+><A
+NAME="GTKTOGGLEBUTTON--DRAW-INDICATOR"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>draw-indicator</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41621"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN41623"
+></A
+><H3
+><A
+NAME="GTKTOGGLEBUTTON-TOGGLED"
+></A
+>The &quot;toggled&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+> *togglebutton,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Should be connected if you wish to perform an action whenever the
+<A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>'s state is changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41631"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>togglebutton</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41644"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkbutton.html"
+>GtkButton</A
+></DT
+><DD
+><P
+>a more general button.</P
+></DD
+><DT
+><A
+HREF="gtkcheckbutton.html"
+>GtkCheckButton</A
+></DT
+><DD
+><P
+>another way of presenting a toggle option.</P
+></DD
+><DT
+><A
+HREF="gtkcheckmenuitem.html"
+>GtkCheckMenuItem</A
+></DT
+><DD
+><P
+>a <A
+HREF="gtktogglebutton.html"
+>GtkToggleButton</A
+>  as a menu item.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktipsquery.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktoolbar.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTipsQuery</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkToolbar</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

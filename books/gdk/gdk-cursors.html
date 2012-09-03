@@ -1,0 +1,801 @@
+<HTML
+><HEAD
+><TITLE
+>Cursors</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Fonts"
+HREF="gdk-fonts.html"><LINK
+REL="NEXT"
+TITLE="Windows"
+HREF="gdk-windows.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-fonts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-windows.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-CURSORS"
+>Cursors</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN6972"
+></A
+><H2
+>Name</H2
+>Cursors&nbsp;--&nbsp;standard and pixmap cursors.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN6975"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>;
+enum        <A
+HREF="gdk-cursors.html#GDKCURSORTYPE"
+>GdkCursorType</A
+>;
+<A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>*  <A
+HREF="gdk-cursors.html#GDK-CURSOR-NEW"
+>gdk_cursor_new</A
+>                  (<A
+HREF="gdk-cursors.html#GDKCURSORTYPE"
+>GdkCursorType</A
+> cursor_type);
+<A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>*  <A
+HREF="gdk-cursors.html#GDK-CURSOR-NEW-FROM-PIXMAP"
+>gdk_cursor_new_from_pixmap</A
+>      (<A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *source,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *mask,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *fg,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *bg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gdk-cursors.html#GDK-CURSOR-DESTROY"
+>gdk_cursor_destroy</A
+>              (<A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+> *cursor);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6993"
+></A
+><H2
+>Description</H2
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN6996"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN6998"
+></A
+><H3
+><A
+NAME="GDKCURSOR"
+></A
+>struct GdkCursor</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkCursor
+{
+  GdkCursorType type;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7003"
+></A
+><H3
+><A
+NAME="GDKCURSORTYPE"
+></A
+>enum GdkCursorType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+#include &lt;gdk/gdkcursors.h&gt;
+  GDK_LAST_CURSOR,
+  GDK_CURSOR_IS_PIXMAP = -1
+} GdkCursorType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The standard cursors available.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7008"
+></A
+><H3
+><A
+NAME="GDK-CURSOR-NEW"
+></A
+>gdk_cursor_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>*  gdk_cursor_new                  (<A
+HREF="gdk-cursors.html#GDKCURSORTYPE"
+>GdkCursorType</A
+> cursor_type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new standard cursor.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7015"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cursor_type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the cursor.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7029"
+></A
+><H3
+><A
+NAME="GDK-CURSOR-NEW-FROM-PIXMAP"
+></A
+>gdk_cursor_new_from_pixmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>*  gdk_cursor_new_from_pixmap      (<A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *source,
+                                             <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> *mask,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *fg,
+                                             <A
+HREF="gdk-colormaps-and-colors.html#GDKCOLOR"
+>GdkColor</A
+> *bg,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new cursor from a given pixmap and mask. Both the pixmap and mask
+must have a depth of 1 (i.e. each pixel has only 2 values - on or off).
+The standard cursor size is 16 by 16 pixels.</P
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN7041"
+></A
+><P
+><B
+>Example 1. Creating a custom cursor.</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>/* This data is in X bitmap format, and can be created with the 'bitmap'
+   utility. */
+define cursor1_width 16
+define cursor1_height 16
+static unsigned char cursor1_bits[] = {
+   0x80, 0x01, 0x40, 0x02, 0x20, 0x04, 0x10, 0x08, 0x08, 0x10, 0x04, 0x20,
+   0x82, 0x41, 0x41, 0x82, 0x41, 0x82, 0x82, 0x41, 0x04, 0x20, 0x08, 0x10,
+   0x10, 0x08, 0x20, 0x04, 0x40, 0x02, 0x80, 0x01};
+
+static unsigned char cursor1mask_bits[] = {
+   0x80, 0x01, 0xc0, 0x03, 0x60, 0x06, 0x30, 0x0c, 0x18, 0x18, 0x8c, 0x31,
+   0xc6, 0x63, 0x63, 0xc6, 0x63, 0xc6, 0xc6, 0x63, 0x8c, 0x31, 0x18, 0x18,
+   0x30, 0x0c, 0x60, 0x06, 0xc0, 0x03, 0x80, 0x01};
+
+
+  GdkCursor *cursor;
+  GdkPixmap *source, *mask;
+  GdkColor fg = { 0, 65535, 0, 0 }; /* Red. */
+  GdkColor bg = { 0, 0, 0, 65535 }; /* Blue. */
+
+
+  source = gdk_bitmap_create_from_data (NULL, cursor1_bits,
+					cursor1_width, cursor1_height);
+  mask = gdk_bitmap_create_from_data (NULL, cursor1mask_bits,
+				      cursor1_width, cursor1_height);
+  cursor = gdk_cursor_new_from_pixmap (source, mask, &amp;fg, &amp;bg, 8, 8);
+  gdk_pixmap_unref (source);
+  gdk_pixmap_unref (mask);
+
+
+  gdk_window_set_cursor (widget-&#62;window, cursor);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7046"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pixmap specifying the cursor.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pixmap specifying the mask, which must be the same size as <TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the foreground color, used for the bits in the source which are 1.
+The color does not have to be allocated first.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>bg</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the background color, used for the bits in the source which are 0.
+The color does not have to be allocated first.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the horizontal offset of the 'hotspot' of the cursor.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the vertical offset of the 'hotspot' of the cursor.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN7081"
+></A
+><H3
+><A
+NAME="GDK-CURSOR-DESTROY"
+></A
+>gdk_cursor_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_cursor_destroy              (<A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+> *cursor);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys a cursor, freeing any resources allocated for it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN7087"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>cursor</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-cursors.html#GDKCURSOR"
+>GdkCursor</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-fonts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-windows.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Fonts</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Windows</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

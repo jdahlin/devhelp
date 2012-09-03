@@ -1,0 +1,2079 @@
+<HTML
+><HEAD
+><TITLE
+>GtkPreview</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkPlug"
+HREF="gtkplug.html"><LINK
+REL="NEXT"
+TITLE="GtkProgress"
+HREF="gtkprogress.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkplug.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkprogress.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKPREVIEW"
+>GtkPreview</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN36253"
+></A
+><H2
+>Name</H2
+>GtkPreview&nbsp;--&nbsp;a widget to display RGB or grayscale data.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN36256"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkpreview.html#GTKPREVIEW-STRUCT"
+>GtkPreview</A
+>;
+struct      <A
+HREF="gtkpreview.html#GTKPREVIEWINFO"
+>GtkPreviewInfo</A
+>;
+union       <A
+HREF="gtkpreview.html#GTKDITHERINFO"
+>GtkDitherInfo</A
+>;
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-UNINIT"
+>gtk_preview_uninit</A
+>              (void);
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkpreview.html#GTK-PREVIEW-NEW"
+>gtk_preview_new</A
+>                 (<A
+HREF="gtk-standard-enumerations.html#GTKPREVIEWTYPE"
+>GtkPreviewType</A
+> type);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-SIZE"
+>gtk_preview_size</A
+>                (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-PUT"
+>gtk_preview_put</A
+>                 (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A> *window,
+                                             <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> srcx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> srcy,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> destx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> desty,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-DRAW-ROW"
+>gtk_preview_draw_row</A
+>            (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> w);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-SET-EXPAND"
+>gtk_preview_set_expand</A
+>          (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> expand);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-SET-GAMMA"
+>gtk_preview_set_gamma</A
+>           (double gamma);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-SET-COLOR-CUBE"
+>gtk_preview_set_color_cube</A
+>      (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nred_shades,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ngreen_shades,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nblue_shades,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ngray_shades);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-SET-INSTALL-CMAP"
+>gtk_preview_set_install_cmap</A
+>    (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> install_cmap);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-SET-RESERVED"
+>gtk_preview_set_reserved</A
+>        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nreserved);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-SET-DITHER"
+>gtk_preview_set_dither</A
+>          (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../gdk/gdk-gdkrgb.html#GDKRGBDITHER
+>GdkRgbDither</A> dither);
+<A
+HREF=../gdk/gdk-visuals.html#GDKVISUAL
+>GdkVisual</A>*  <A
+HREF="gtkpreview.html#GTK-PREVIEW-GET-VISUAL"
+>gtk_preview_get_visual</A
+>          (void);
+<A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A>* <A
+HREF="gtkpreview.html#GTK-PREVIEW-GET-CMAP"
+>gtk_preview_get_cmap</A
+>           (void);
+<A
+HREF="gtkpreview.html#GTKPREVIEWINFO"
+>GtkPreviewInfo</A
+>* <A
+HREF="gtkpreview.html#GTK-PREVIEW-GET-INFO"
+>gtk_preview_get_info</A
+>        (void);
+void        <A
+HREF="gtkpreview.html#GTK-PREVIEW-RESET"
+>gtk_preview_reset</A
+>               (void);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN36310"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----GtkPreview</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN36315"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> widget provides a simple interface 
+used to display images as RGB or grayscale data.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN36319"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36321"
+></A
+><H3
+><A
+NAME="GTKPREVIEW-STRUCT"
+></A
+>struct GtkPreview</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPreview;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkpreview.html#GTKPREVIEW-STRUCT"
+>GtkPreview</A
+> struct contains private data only, and
+should be accessed using the functions below.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36327"
+></A
+><H3
+><A
+NAME="GTKPREVIEWINFO"
+></A
+>struct GtkPreviewInfo</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPreviewInfo
+{
+  GdkVisual *visual;
+  GdkColormap *cmap;
+
+  guchar *lookup;
+
+  gdouble gamma;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Contains information about global properties
+of preview widgets.
+
+The <A
+HREF="gtkpreview.html#GTKPREVIEWINFO"
+>GtkPreviewInfo</A
+> struct contains the following fields.
+(These fields should be considered read-only. They should never be set by
+an application.)
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36333"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../gdk/gdk-visuals.html#GDKVISUAL
+>GdkVisual</A> *visual;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the visual used by all previews.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A> *cmap;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the colormap used by all previews.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>gdouble gamma;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the gamma correction value used by all previews (See <A
+HREF="gtkpreview.html#GTK-PREVIEW-SET-GAMMA"
+>gtk_preview_set_gamma</A
+>()).</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36350"
+></A
+><H3
+><A
+NAME="GTKDITHERINFO"
+></A
+>union GtkDitherInfo</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>union GtkDitherInfo
+{
+  gushort s[2];
+  guchar c[4];
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>This union not used in GTK+.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36355"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-UNINIT"
+></A
+>gtk_preview_uninit ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_uninit              (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is deprecated and does nothing.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36360"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-NEW"
+></A
+>gtk_preview_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_preview_new                 (<A
+HREF="gtk-standard-enumerations.html#GTKPREVIEWTYPE"
+>GtkPreviewType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new preview widget.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36367"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type data contained by the widget. 
+(Grayscale or RGB)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36380"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-SIZE"
+></A
+>gtk_preview_size ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_size                (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the size that the preview widget will request
+in response to a "size_request" signal. The 
+drawing area may actually be allocated a size
+larger than this depending on how it is packed
+within the enclosing containers. The effect
+of this is determined by whether the preview
+is set to expand or not (see gtk_preview_expand())</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36389"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>preview</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpreview.html"
+>GtkPreview</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new width.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new height.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36407"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-PUT"
+></A
+>gtk_preview_put ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_put                 (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A> *window,
+                                             <A
+HREF=../gdk/gdk-graphics-contexts.html#GDKGC
+>GdkGC</A> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> srcx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> srcy,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> destx,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> desty,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Takes a portion of the contents of a preview widget
+and draws it onto the given drawable, <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36422"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>preview</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpreview.html"
+>GtkPreview</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a window or pixmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The graphics context for the operation. Only the
+     clip mask for this GC matters.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>srcx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the upper left corner in the source image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>srcy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the upper left corner in the source image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destx</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the upper left corner in the destination image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>desty</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the upper left corner in the destination image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the rectangular portion to draw.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the rectangular portion to draw.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36464"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-DRAW-ROW"
+></A
+>gtk_preview_draw_row ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_draw_row            (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUCHAR
+>guchar</A> *data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> w);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the data for a portion of a row.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36474"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>preview</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpreview.html"
+>GtkPreview</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new data for the portion. It should contain
+       <TT
+CLASS="PARAMETER"
+><I
+>w</I
+></TT
+> bytes of data if the preview is of type
+       GTK_TYPE_GRAYSCALE, and 3*<TT
+CLASS="PARAMETER"
+><I
+>w</I
+></TT
+> bytes of data
+       if the preview is of type GTK_TYPE_COLOR.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the starting value on the row to set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the row to change.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>w</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of pixels in the row to change.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36502"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-SET-EXPAND"
+></A
+>gtk_preview_set_expand ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_set_expand          (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> expand);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Determines the way that the the preview widget behaves
+when the size it is allocated is larger than the requested
+size. If <TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>FALSE</TT
+>, then the preview's window
+and buffer will be no larger than the size set with 
+<A
+HREF="gtkpreview.html#GTK-PREVIEW-SIZE"
+>gtk_preview_size</A
+>(), and the data set will be centered
+in the allocation if it is larger. If <TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>TRUE</TT
+>
+then the window and buffer will expand with the allocation;
+the application is responsible for catching
+the "size_allocate" signal and providing the data 
+appropriate for this size.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36514"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>preview</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpreview.html"
+>GtkPreview</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>expand</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>whether the preview's window should expand or not.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36528"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-SET-GAMMA"
+></A
+>gtk_preview_set_gamma ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_set_gamma           (double gamma);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the gamma-correction value for all preview widgets.
+(This function will eventually be replaced with a
+function that sets a per-preview-widget gamma value).
+The resulting intensity is given by:
+<TT
+CLASS="LITERAL"
+>destination_value * pow (source_value/255, 1/gamma)</TT
+>.
+The gamma value is applied when the data is
+set with <A
+HREF="gtkpreview.html#GTK-PREVIEW-DRAW-ROW"
+>gtk_preview_draw_row</A
+>() so changing this
+value will not affect existing data in preview
+widgets.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36536"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gamma</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new gamma value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36545"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-SET-COLOR-CUBE"
+></A
+>gtk_preview_set_color_cube ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_set_color_cube      (<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nred_shades,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ngreen_shades,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nblue_shades,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> ngray_shades);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is deprecated and does nothing. GdkRGB
+automatically picks an optimium color cube for the
+display.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36554"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nred_shades</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>ignored</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ngreen_shades</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>ignored</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nblue_shades</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>ignored</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ngray_shades</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>ignored
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36575"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-SET-INSTALL-CMAP"
+></A
+>gtk_preview_set_install_cmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_set_install_cmap    (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> install_cmap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is deprecated
+and does nothing. GdkRGB will automatically pick
+a private colormap if it cannot allocate sufficient
+colors.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36581"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>install_cmap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>ignored.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36590"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-SET-RESERVED"
+></A
+>gtk_preview_set_reserved ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_set_reserved        (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nreserved);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is deprecated and does nothing.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36596"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nreserved</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>ignored.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36605"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-SET-DITHER"
+></A
+>gtk_preview_set_dither ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_set_dither          (<A
+HREF="gtkpreview.html"
+>GtkPreview</A
+> *preview,
+                                             <A
+HREF=../gdk/gdk-gdkrgb.html#GDKRGBDITHER
+>GdkRgbDither</A> dither);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set the dithering mode for the display. </P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36612"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>preview</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpreview.html"
+>GtkPreview</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dither</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the dithering mode.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36626"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-GET-VISUAL"
+></A
+>gtk_preview_get_visual ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gdk/gdk-visuals.html#GDKVISUAL
+>GdkVisual</A>*  gtk_preview_get_visual          (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the visual used by preview widgets. This
+function is deprecated, and you should use
+<A
+HREF=../gdk/gdk-gdkrgb.html#GDK-RGB-GET-VISUAL
+>gdk_rgb_get_visual</A>() instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36633"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the visual for previews.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36642"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-GET-CMAP"
+></A
+>gtk_preview_get_cmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLORMAP
+>GdkColormap</A>* gtk_preview_get_cmap           (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the colormap used by preview widgets. This
+function is deprecated, and you should use
+<A
+HREF=../gdk/gdk-gdkrgb.html#GDK-RGB-GET-CMAP
+>gdk_rgb_get_cmap</A>() instead.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36649"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the colormap for previews.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36658"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-GET-INFO"
+></A
+>gtk_preview_get_info ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkpreview.html#GTKPREVIEWINFO"
+>GtkPreviewInfo</A
+>* gtk_preview_get_info        (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Return a <A
+HREF="gtkpreview.html#GTKPREVIEWINFO"
+>GtkPreviewInfo</A
+> structure containing 
+global information about preview widgets.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN36665"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkpreview.html#GTKPREVIEWINFO"
+>GtkPreviewInfo</A
+> structure. The return
+ value belongs to GTK+ and must not be modified
+ or freed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN36675"
+></A
+><H3
+><A
+NAME="GTK-PREVIEW-RESET"
+></A
+>gtk_preview_reset ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_preview_reset               (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>This function is deprecated and does nothing. It was
+once used for changing the colormap and visual on the fly.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN36680"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>GdkRGB</DT
+><DD
+><P
+>the backend used by <A
+HREF="gtkpreview.html"
+>GtkPreview</A
+>.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkplug.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkprogress.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkPlug</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkProgress</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

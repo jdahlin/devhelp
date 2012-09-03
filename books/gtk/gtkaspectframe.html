@@ -1,0 +1,763 @@
+<HTML
+><HEAD
+><TITLE
+>GtkAspectFrame</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkArrow"
+HREF="gtkarrow.html"><LINK
+REL="NEXT"
+TITLE="GtkButtonBox"
+HREF="gtkbuttonbox.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkarrow.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkbuttonbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKASPECTFRAME"
+>GtkAspectFrame</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13491"
+></A
+><H2
+>Name</H2
+>GtkAspectFrame&nbsp;--&nbsp;A frame that constrains its child to a particular aspect ratio.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13494"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkaspectframe.html#GTKASPECTFRAME-STRUCT"
+>GtkAspectFrame</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkaspectframe.html#GTK-ASPECT-FRAME-NEW"
+>gtk_aspect_frame_new</A
+>            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> ratio,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> obey_child);
+void        <A
+HREF="gtkaspectframe.html#GTK-ASPECT-FRAME-SET"
+>gtk_aspect_frame_set</A
+>            (<A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+> *aspect_frame,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> ratio,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> obey_child);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13511"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----<A
+HREF="gtkbin.html"
+>GtkBin</A
+>
+                     +----<A
+HREF="gtkframe.html"
+>GtkFrame</A
+>
+                           +----GtkAspectFrame</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13519"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+> is useful when you want
+pack a widget so that it can resize but always retains
+the same aspect ratio. For instance, one might be
+drawing a small preview of a larger image. <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>
+derives from <A
+HREF="gtkframe.html"
+>GtkFrame</A
+>, so it can draw a label and
+a frame around the child. The frame will be
+"shrink-wrapped" to the size of the child.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13525"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13527"
+></A
+><H3
+><A
+NAME="GTKASPECTFRAME-STRUCT"
+></A
+>struct GtkAspectFrame</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkAspectFrame;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13532"
+></A
+><H3
+><A
+NAME="GTK-ASPECT-FRAME-NEW"
+></A
+>gtk_aspect_frame_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_aspect_frame_new            (const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *label,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> ratio,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> obey_child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13544"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>label</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Label text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Horizontal alignment of the child within the allocation of
+the <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>. This ranges from 0.0 (left aligned)
+to 1.0 (right aligned)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Vertical alignment of the child within the allocation of
+the <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>. This ranges from 0.0 (left aligned)
+to 1.0 (right aligned)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ratio</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The desired aspect ratio.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>obey_child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>ratio</I
+></TT
+> is ignored, and the aspect
+    ratio is taken from the requistion of the child.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN13578"
+></A
+><H3
+><A
+NAME="GTK-ASPECT-FRAME-SET"
+></A
+>gtk_aspect_frame_set ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_aspect_frame_set            (<A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+> *aspect_frame,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> xalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> yalign,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> ratio,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> obey_child);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Set parameters for an existing <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN13589"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>aspect_frame</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Horizontal alignment of the child within the allocation of
+the <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>. This ranges from 0.0 (left aligned)
+to 1.0 (right aligned)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>yalign</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Vertical alignment of the child within the allocation of
+the <A
+HREF="gtkaspectframe.html"
+>GtkAspectFrame</A
+>. This ranges from 0.0 (left aligned)
+to 1.0 (right aligned)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ratio</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The desired aspect ratio.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>obey_child</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>If <TT
+CLASS="LITERAL"
+>TRUE</TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>ratio</I
+></TT
+> is ignored, and the aspect
+    ratio is taken from the requistion of the child.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkarrow.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkbuttonbox.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkArrow</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkButtonBox</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

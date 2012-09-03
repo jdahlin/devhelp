@@ -1,0 +1,3329 @@
+<HTML
+><HEAD
+><TITLE
+>Drawing Primitives</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Graphics Contexts"
+HREF="gdk-graphics-contexts.html"><LINK
+REL="NEXT"
+TITLE="Bitmaps and Pixmaps"
+HREF="gdk-bitmaps-and-pixmaps.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-graphics-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-DRAWING-PRIMITIVES"
+>Drawing Primitives</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN2025"
+></A
+><H2
+>Name</H2
+>Drawing Primitives&nbsp;--&nbsp;functions for drawing points, lines, arcs, and text.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN2028"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-POINT"
+>gdk_draw_point</A
+>                  (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-POINTS"
+>gdk_draw_points</A
+>                 (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-LINE"
+>gdk_draw_line</A
+>                   (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x2,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y2);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-LINES"
+>gdk_draw_lines</A
+>                  (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-SEGMENTS"
+>gdk_draw_segments</A
+>               (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-drawing-primitives.html#GDKSEGMENT"
+>GdkSegment</A
+> *segs,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nsegs);
+struct      <A
+HREF="gdk-drawing-primitives.html#GDKSEGMENT"
+>GdkSegment</A
+>;
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-RECTANGLE"
+>gdk_draw_rectangle</A
+>              (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> filled,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-ARC"
+>gdk_draw_arc</A
+>                    (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> filled,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> angle1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> angle2);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-POLYGON"
+>gdk_draw_polygon</A
+>                (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> filled,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints);
+
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-STRING"
+>gdk_draw_string</A
+>                 (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-TEXT"
+>gdk_draw_text</A
+>                   (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-TEXT-WC"
+>gdk_draw_text_wc</A
+>                (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);
+
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-PIXMAP"
+>gdk_draw_pixmap</A
+>                 (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *src,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xsrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ysrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xdest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ydest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+void        <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-IMAGE"
+>gdk_draw_image</A
+>                  (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xsrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ysrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xdest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ydest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN2126"
+></A
+><H2
+>Description</H2
+><P
+>These functions provide support for drawing points, lines, arcs and text
+onto what are called 'drawables'. Drawables, as the name suggests, are things
+which support drawing onto them, and are either <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>
+objects.</P
+><P
+>Many of the drawing operations take a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> argument, which represents a
+graphics context. This <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> contains a number of drawing attributes such
+as foreground color, background color and line width, and is used to reduce
+the number of arguments needed for each drawing operation. See the
+<A
+HREF="gdk-graphics-contexts.html"
+>Graphics Contexts</A
+> section for
+more information.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN2135"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2137"
+></A
+><H3
+><A
+NAME="GDK-DRAW-POINT"
+></A
+>gdk_draw_point ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_point                  (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a point, using the foreground color and other attributes of the <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2147"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the point.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2172"
+></A
+><H3
+><A
+NAME="GDK-DRAW-POINTS"
+></A
+>gdk_draw_points ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_points                 (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a number of points, using the foreground color and other attributes of
+the <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2182"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>points</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> structures.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>npoints</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of points to be drawn.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2208"
+></A
+><H3
+><A
+NAME="GDK-DRAW-LINE"
+></A
+>gdk_draw_line ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_line                   (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x2,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a line, using the foreground color and other attributes of the <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2220"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the start point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the start point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the end point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the end point.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2253"
+></A
+><H3
+><A
+NAME="GDK-DRAW-LINES"
+></A
+>gdk_draw_lines ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_lines                  (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a series of lines connecting the given points.
+The way in which joins between lines are draw is determined by the
+<A
+HREF="gdk-graphics-contexts.html#GDKCAPSTYLE"
+>GdkCapStyle</A
+> value in the <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>. This can be set with
+<A
+HREF="gdk-graphics-contexts.html#GDK-GC-SET-LINE-ATTRIBUTES"
+>gdk_gc_set_line_attributes</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2265"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>points</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> structures specifying the endpoints of the
+lines.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>npoints</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the size of the <TT
+CLASS="PARAMETER"
+><I
+>points</I
+></TT
+> array.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2292"
+></A
+><H3
+><A
+NAME="GDK-DRAW-SEGMENTS"
+></A
+>gdk_draw_segments ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_segments               (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-drawing-primitives.html#GDKSEGMENT"
+>GdkSegment</A
+> *segs,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> nsegs);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a number of unconnected lines.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2301"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>segs</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of <A
+HREF="gdk-drawing-primitives.html#GDKSEGMENT"
+>GdkSegment</A
+> structures specifying the start and end points
+of the lines to be drawn,</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nsegs</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of line segments to draw, i.e. the size of the <TT
+CLASS="PARAMETER"
+><I
+>segs</I
+></TT
+> array.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2328"
+></A
+><H3
+><A
+NAME="GDKSEGMENT"
+></A
+>struct GdkSegment</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkSegment
+{
+  gint16 x1;
+  gint16 y1;
+  gint16 x2;
+  gint16 y2;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the start and end point of a line for use by the <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-SEGMENTS"
+>gdk_draw_segments</A
+>()
+function.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2334"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>x1</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the start point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>y1</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the start point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>x2</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the end point.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GINT16
+>gint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>y2</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the end point.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2359"
+></A
+><H3
+><A
+NAME="GDK-DRAW-RECTANGLE"
+></A
+>gdk_draw_rectangle ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_rectangle              (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> filled,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a rectangular outline or filled rectangle, using the foreground color
+and other attributes of the <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Note: </B
+>A rectangle drawn filled is 1 pixel smaller in both dimensions than a rectangle
+outlined. Calling gdk_draw_rectangle (window, gc, TRUE, 0, 0, 20, 20) results
+in a filled rectangle 20 pixels wide and 20 pixels high. Calling
+gdk_draw_rectangle (window, gc, FALSE, 0, 0, 20, 20) results in an outlined
+rectangle with corners at (0, 0), (0, 20), (20, 20), and (20, 0), which
+makes it 21 pixels wide and 21 pixels high.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2374"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filled</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the rectangle should be filled.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the left edge of the rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the top edge of the rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the rectangle.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2411"
+></A
+><H3
+><A
+NAME="GDK-DRAW-ARC"
+></A
+>gdk_draw_arc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_arc                    (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> filled,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> angle1,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> angle2);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws an arc or a filled 'pie slice'. The arc is defined by the bounding
+rectangle of the entire ellipse, and the start and end angles of the part of
+the ellipse to be drawn.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2425"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filled</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the arc should be filled, producing a 'pie slice'.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the left edge of the bounding rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the top edge of the bounding rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the bounding rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the bounding rectangle.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>angle1</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start angle of the arc, relative to the 3 o'clock position,
+counter-clockwise, in 1/64ths of a degree.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>angle2</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the end angle of the arc, relative to <TT
+CLASS="PARAMETER"
+><I
+>angle1</I
+></TT
+>, in 1/64ths of a degree.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2471"
+></A
+><H3
+><A
+NAME="GDK-DRAW-POLYGON"
+></A
+>gdk_draw_polygon ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_polygon                (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> filled,
+                                             <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> *points,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> npoints);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws an outlined or filled polygon.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2481"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filled</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>TRUE if the polygon should be filled. The polygon is closed
+automatically, connecting the last point to the first point if necessary.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>points</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an array of <A
+HREF="gdk-points-rectangles-and-regions.html#GDKPOINT"
+>GdkPoint</A
+> structures specifying the points making up the
+polygon.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>npoints</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of points.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2511"
+></A
+><H3
+><A
+NAME="GDK-DRAW-STRING"
+></A
+>gdk_draw_string ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_string                 (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *string);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a string of characters in the given font or fontset.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2522"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the left edge of the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the baseline of the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>string</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the string of characters to draw.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2556"
+></A
+><H3
+><A
+NAME="GDK-DRAW-TEXT"
+></A
+>gdk_draw_text ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_text                   (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             const <A
+HREF=../glib/glib-basic-types.html#GCHAR
+>gchar</A> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a number of characters in the given font or fontset.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2568"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the left edge of the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the baseline of the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the characters to draw.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters of <TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+> to draw.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2607"
+></A
+><H3
+><A
+NAME="GDK-DRAW-TEXT-WC"
+></A
+>gdk_draw_text_wc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_text_wc                (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+> *font,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             const <A
+HREF="gdk-fonts.html#GDKWCHAR"
+>GdkWChar</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> text_length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a number of wide characters using the given font of fontset.
+If the font is a 1-byte font, the string is converted into 1-byte characters
+(discarding the high bytes) before output.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2619"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-fonts.html#GDKFONT"
+>GdkFont</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the left edge of the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the baseline of the text.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the wide characters to draw.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text_length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters to draw.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2657"
+></A
+><H3
+><A
+NAME="GDK-DRAW-PIXMAP"
+></A
+>gdk_draw_pixmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_pixmap                 (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *src,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xsrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ysrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xdest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ydest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a pixmap, or a part of a pixmap, onto another drawable.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2671"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the source <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> to draw.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xsrc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the left edge of the source rectangle within <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ysrc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the top of the source rectangle within <TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xdest</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the destination within <TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ydest</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the destination within <TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the area to be copied, or -1 to make the area extend to
+the right edge of the source pixmap.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the area to be copied, or -1 to make the area extend
+to the bottom edge of the source pixmap.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN2721"
+></A
+><H3
+><A
+NAME="GDK-DRAW-IMAGE"
+></A
+>gdk_draw_image ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_draw_image                  (<A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> *drawable,
+                                             <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+> *gc,
+                                             <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xsrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ysrc,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> xdest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> ydest,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Draws a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> onto a drawable.
+The depth of the <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> must match the depth of the <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN2738"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-windows.html#GDKDRAWABLE"
+>GdkDrawable</A
+> (a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or a <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+>).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-graphics-contexts.html#GDKGC"
+>GdkGC</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> to draw.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xsrc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the left edge of the source rectangle within <TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ysrc</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the top of the source rectangle within <TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xdest</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the destination within <TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ydest</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the destination within <TT
+CLASS="PARAMETER"
+><I
+>drawable</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the area to be copied, or -1 to make the area extend to
+the right edge of <TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the area to be copied, or -1 to make the area extend
+to the bottom edge of <TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-graphics-contexts.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-bitmaps-and-pixmaps.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Graphics Contexts</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Bitmaps and Pixmaps</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

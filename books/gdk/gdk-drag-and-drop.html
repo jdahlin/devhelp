@@ -1,0 +1,1951 @@
+<HTML
+><HEAD
+><TITLE
+>Drag and Drop</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Selections"
+HREF="gdk-selections.html"><LINK
+REL="NEXT"
+TITLE="Properties and Atoms"
+HREF="gdk-properties-and-atoms.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-selections.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-properties-and-atoms.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-DRAG-AND-DROP"
+>Drag and Drop</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN10737"
+></A
+><H2
+>Name</H2
+>Drag and Drop&nbsp;--&nbsp;functions for controlling drag and drop handling.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN10740"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+<A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+>     <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-GET-SELECTION"
+>gdk_drag_get_selection</A
+>          (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context);
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-ABORT"
+>gdk_drag_abort</A
+>                  (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DROP-REPLY"
+>gdk_drop_reply</A
+>                  (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> ok,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+>* <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-CONTEXT-NEW"
+>gdk_drag_context_new</A
+>        (void);
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-DROP"
+>gdk_drag_drop</A
+>                   (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-FIND-WINDOW"
+>gdk_drag_find_window</A
+>            (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *drag_window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x_root,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y_root,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> **dest_window,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGPROTOCOL"
+>GdkDragProtocol</A
+> *protocol);
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-CONTEXT-REF"
+>gdk_drag_context_ref</A
+>            (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context);
+<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+>* <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-BEGIN"
+>gdk_drag_begin</A
+>              (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *targets);
+<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-MOTION"
+>gdk_drag_motion</A
+>                 (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *dest_window,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGPROTOCOL"
+>GdkDragProtocol</A
+> protocol,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x_root,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y_root,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGACTION"
+>GdkDragAction</A
+> suggested_action,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGACTION"
+>GdkDragAction</A
+> possible_actions,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DROP-FINISH"
+>gdk_drop_finish</A
+>                 (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> success,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);
+<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A>     <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-GET-PROTOCOL"
+>gdk_drag_get_protocol</A
+>           (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> xid,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGPROTOCOL"
+>GdkDragProtocol</A
+> *protocol);
+enum        <A
+HREF="gdk-drag-and-drop.html#GDKDRAGPROTOCOL"
+>GdkDragProtocol</A
+>;
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-CONTEXT-UNREF"
+>gdk_drag_context_unref</A
+>          (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context);
+struct      <A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+>;
+enum        <A
+HREF="gdk-drag-and-drop.html#GDKDRAGACTION"
+>GdkDragAction</A
+>;
+void        <A
+HREF="gdk-drag-and-drop.html#GDK-DRAG-STATUS"
+>gdk_drag_status</A
+>                 (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGACTION"
+>GdkDragAction</A
+> action,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN10798"
+></A
+><H2
+>Description</H2
+><P
+>These functions provide a low level interface for drag and drop.
+GDK supports both the Xdnd and Motif drag and drop protocols transparently.</P
+><P
+>GTK+ provides a higher level abstraction based on top of these functions,
+and so they are not normally needed in GTK+ applications.
+See the <A
+HREF=../gtk/gtk-drag-and-drop.html
+>Drag and Drop</A> section of
+the GTK+ documentation for more information.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN10803"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10805"
+></A
+><H3
+><A
+NAME="GDK-DRAG-GET-SELECTION"
+></A
+>gdk_drag_get_selection ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-properties-and-atoms.html#GDKATOM"
+>GdkAtom</A
+>     gdk_drag_get_selection          (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10812"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10825"
+></A
+><H3
+><A
+NAME="GDK-DRAG-ABORT"
+></A
+>gdk_drag_abort ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drag_abort                  (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10832"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10845"
+></A
+><H3
+><A
+NAME="GDK-DROP-REPLY"
+></A
+>gdk_drop_reply ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drop_reply                  (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> ok,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10853"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ok</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10870"
+></A
+><H3
+><A
+NAME="GDK-DRAG-CONTEXT-NEW"
+></A
+>gdk_drag_context_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+>* gdk_drag_context_new        (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10876"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10885"
+></A
+><H3
+><A
+NAME="GDK-DRAG-DROP"
+></A
+>gdk_drag_drop ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drag_drop                   (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10892"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10905"
+></A
+><H3
+><A
+NAME="GDK-DRAG-FIND-WINDOW"
+></A
+>gdk_drag_find_window ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drag_find_window            (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *drag_window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x_root,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y_root,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> **dest_window,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGPROTOCOL"
+>GdkDragProtocol</A
+> *protocol);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10916"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>drag_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x_root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y_root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dest_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>protocol</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10945"
+></A
+><H3
+><A
+NAME="GDK-DRAG-CONTEXT-REF"
+></A
+>gdk_drag_context_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drag_context_ref            (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10951"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10960"
+></A
+><H3
+><A
+NAME="GDK-DRAG-BEGIN"
+></A
+>gdk_drag_begin ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+>* gdk_drag_begin              (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-doubly-linked-lists.html#GLIST
+>GList</A> *targets);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10968"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>targets</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN10985"
+></A
+><H3
+><A
+NAME="GDK-DRAG-MOTION"
+></A
+>gdk_drag_motion ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>    gdk_drag_motion                 (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *dest_window,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGPROTOCOL"
+>GdkDragProtocol</A
+> protocol,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x_root,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y_root,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGACTION"
+>GdkDragAction</A
+> suggested_action,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGACTION"
+>GdkDragAction</A
+> possible_actions,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN10999"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>dest_window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>protocol</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x_root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y_root</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>suggested_action</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>possible_actions</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11040"
+></A
+><H3
+><A
+NAME="GDK-DROP-FINISH"
+></A
+>gdk_drop_finish ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drop_finish                 (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> success,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11048"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>success</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11065"
+></A
+><H3
+><A
+NAME="GDK-DRAG-GET-PROTOCOL"
+></A
+>gdk_drag_get_protocol ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A>     gdk_drag_get_protocol           (<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> xid,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGPROTOCOL"
+>GdkDragProtocol</A
+> *protocol);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11073"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>xid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>protocol</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11090"
+></A
+><H3
+><A
+NAME="GDKDRAGPROTOCOL"
+></A
+>enum GdkDragProtocol</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum {
+  GDK_DRAG_PROTO_MOTIF,
+  GDK_DRAG_PROTO_XDND,
+  GDK_DRAG_PROTO_ROOTWIN,	/* A root window with nobody claiming
+				 * drags */
+  GDK_DRAG_PROTO_NONE		/* Not a valid drag window */
+} GdkDragProtocol;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11095"
+></A
+><H3
+><A
+NAME="GDK-DRAG-CONTEXT-UNREF"
+></A
+>gdk_drag_context_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drag_context_unref          (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11101"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11110"
+></A
+><H3
+><A
+NAME="GDKDRAGCONTEXT"
+></A
+>struct GdkDragContext</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkDragContext {
+  GdkDragProtocol protocol;
+  
+  gboolean is_source;
+  
+  GdkWindow *source_window;
+  GdkWindow *dest_window;
+
+  GList *targets;
+  GdkDragAction actions;
+  GdkDragAction suggested_action;
+  GdkDragAction action; 
+
+  guint32 start_time;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11115"
+></A
+><H3
+><A
+NAME="GDKDRAGACTION"
+></A
+>enum GdkDragAction</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum {
+  GDK_ACTION_DEFAULT = 1 &lt;&lt; 0,
+  GDK_ACTION_COPY    = 1 &lt;&lt; 1,
+  GDK_ACTION_MOVE    = 1 &lt;&lt; 2,
+  GDK_ACTION_LINK    = 1 &lt;&lt; 3,
+  GDK_ACTION_PRIVATE = 1 &lt;&lt; 4,
+  GDK_ACTION_ASK     = 1 &lt;&lt; 5
+} GdkDragAction;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11120"
+></A
+><H3
+><A
+NAME="GDK-DRAG-STATUS"
+></A
+>gdk_drag_status ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_drag_status                 (<A
+HREF="gdk-drag-and-drop.html#GDKDRAGCONTEXT"
+>GdkDragContext</A
+> *context,
+                                             <A
+HREF="gdk-drag-and-drop.html#GDKDRAGACTION"
+>GdkDragAction</A
+> action,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> time);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11128"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>action</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>time</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-selections.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-properties-and-atoms.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Selections</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Properties and Atoms</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1298 @@
+<HTML
+><HEAD
+><TITLE
+>GtkCurve</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkCTree"
+HREF="gtkctree.html"><LINK
+REL="NEXT"
+TITLE="GtkData"
+HREF="gtkdata.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkctree.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkdata.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKCURVE"
+>GtkCurve</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN23858"
+></A
+><H2
+>Name</H2
+>GtkCurve&nbsp;--&nbsp;allows direct editing of a curve.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN23861"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtkcurve.html#GTKCURVE-STRUCT"
+>GtkCurve</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtkcurve.html#GTK-CURVE-NEW"
+>gtk_curve_new</A
+>                   (void);
+void        <A
+HREF="gtkcurve.html#GTK-CURVE-RESET"
+>gtk_curve_reset</A
+>                 (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve);
+void        <A
+HREF="gtkcurve.html#GTK-CURVE-SET-GAMMA"
+>gtk_curve_set_gamma</A
+>             (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> gamma);
+void        <A
+HREF="gtkcurve.html#GTK-CURVE-SET-RANGE"
+>gtk_curve_set_range</A
+>             (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> min_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> max_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> min_y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> max_y);
+void        <A
+HREF="gtkcurve.html#GTK-CURVE-GET-VECTOR"
+>gtk_curve_get_vector</A
+>            (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             int veclen,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> vector[]);
+void        <A
+HREF="gtkcurve.html#GTK-CURVE-SET-VECTOR"
+>gtk_curve_set_vector</A
+>            (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             int veclen,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> vector[]);
+void        <A
+HREF="gtkcurve.html#GTK-CURVE-SET-CURVE-TYPE"
+>gtk_curve_set_curve_type</A
+>        (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKCURVETYPE"
+>GtkCurveType</A
+> type);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23887"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkdrawingarea.html"
+>GtkDrawingArea</A
+>
+               +----GtkCurve</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23893"
+></A
+><H2
+>Signal Prototypes</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;&quot;<A
+HREF="gtkcurve.html#GTKCURVE-CURVE-TYPE-CHANGED"
+>curve-type-changed</A
+>&quot;
+            void        user_function      (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23899"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> widget allows the user to edit a curve covering a range of
+values. It is typically used to fine-tune color balances in graphics
+applications like the Gimp.</P
+><P
+>The <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> widget has 3 modes of operation - spline, linear and free.
+In spline mode the user places points on the curve which are automatically
+connected together into a smooth curve. In linear mode the user places points
+on the curve which are connected by straight lines. In free mode the user can
+draw the points of the curve freely, and they are not connected at all.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23905"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23907"
+></A
+><H3
+><A
+NAME="GTKCURVE-STRUCT"
+></A
+>struct GtkCurve</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkCurve;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23911"
+></A
+><H3
+><A
+NAME="GTK-CURVE-NEW"
+></A
+>gtk_curve_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_curve_new                   (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23918"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23928"
+></A
+><H3
+><A
+NAME="GTK-CURVE-RESET"
+></A
+>gtk_curve_reset ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_curve_reset                 (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Resets the curve to a straight line from the minimum x &#38; y values to the
+maximum x &#38; y values (i.e. from the bottom-left to the top-right corners).
+The curve type is not changed.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23934"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>curve</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23944"
+></A
+><H3
+><A
+NAME="GTK-CURVE-SET-GAMMA"
+></A
+>gtk_curve_set_gamma ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_curve_set_gamma             (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> gamma);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Recomputes the entire curve using the given gamma value.
+A gamma value of 1 results in a straight line. Values greater than 1 result
+in a curve above the straight line. Values less than 1 result in a curve
+below the straight line. The curve type is changed to <TT
+CLASS="LITERAL"
+>GTK_CURVE_TYPE_FREE</TT
+>.
+FIXME: Needs a more precise definition of gamma.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23952"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>curve</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>gamma</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the gamma value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN23966"
+></A
+><H3
+><A
+NAME="GTK-CURVE-SET-RANGE"
+></A
+>gtk_curve_set_range ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_curve_set_range             (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> min_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> max_x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> min_y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> max_y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the minimum and maximum x &#38; y values of the curve.
+The curve is also reset with a call to <A
+HREF="gtkcurve.html#GTK-CURVE-RESET"
+>gtk_curve_reset</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN23977"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>curve</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the minimum x value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max_x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum x value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>min_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the minimum y value.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>max_y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the maximum y value.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24003"
+></A
+><H3
+><A
+NAME="GTK-CURVE-GET-VECTOR"
+></A
+>gtk_curve_get_vector ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_curve_get_vector            (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             int veclen,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> vector[]);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns a vector of points representing the curve.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24010"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>curve</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>veclen</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of points to calculate.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vector</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returns the points.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24028"
+></A
+><H3
+><A
+NAME="GTK-CURVE-SET-VECTOR"
+></A
+>gtk_curve_set_vector ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_curve_set_vector            (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             int veclen,
+                                             <A
+HREF=../glib/glib-basic-types.html#GFLOAT
+>gfloat</A> vector[]);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the vector of points on the curve.
+The curve type is set to <TT
+CLASS="LITERAL"
+>GTK_CURVE_TYPE_FREE</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24036"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>curve</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>veclen</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of points.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vector</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the points on the curve.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24054"
+></A
+><H3
+><A
+NAME="GTK-CURVE-SET-CURVE-TYPE"
+></A
+>gtk_curve_set_curve_type ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_curve_set_curve_type        (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                             <A
+HREF="gtk-standard-enumerations.html#GTKCURVETYPE"
+>GtkCurveType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the type of the curve. The curve will remain unchanged except when
+changing from a free curve to a linear or spline curve, in which case the
+curve will be changed as little as possible.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24061"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>curve</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtkcurve.html"
+>GtkCurve</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the curve.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24075"
+></A
+><H2
+>Signals</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN24077"
+></A
+><H3
+><A
+NAME="GTKCURVE-CURVE-TYPE-CHANGED"
+></A
+>The &quot;curve-type-changed&quot; signal</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        user_function                  (<A
+HREF="gtkcurve.html"
+>GtkCurve</A
+> *curve,
+                                            <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Emitted when the curve type has been changed.
+The curve type can be changed explicitly with a call to
+<A
+HREF="gtkcurve.html#GTK-CURVE-SET-CURVE-TYPE"
+>gtk_curve_set_curve_type</A
+>(). It is also changed as a side-effect of
+calling <A
+HREF="gtkcurve.html#GTK-CURVE-RESET"
+>gtk_curve_reset</A
+>() or <A
+HREF="gtkcurve.html#GTK-CURVE-SET-GAMMA"
+>gtk_curve_set_gamma</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN24087"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>curve</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the object which received the signal.&#13;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set when the signal handler was connected.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN24100"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkgammacurve.html"
+>GtkGammaCurve</A
+></DT
+><DD
+><P
+>a subclass for editing gamma curves.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkctree.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkdata.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkCTree</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkData</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

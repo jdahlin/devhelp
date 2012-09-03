@@ -1,0 +1,703 @@
+<HTML
+><HEAD
+><TITLE
+>GtkSocket</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkSeparator"
+HREF="gtkseparator.html"><LINK
+REL="NEXT"
+TITLE="GtkSpinButton"
+HREF="gtkspinbutton.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkseparator.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkspinbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKSOCKET"
+>GtkSocket</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN39013"
+></A
+><H2
+>Name</H2
+>GtkSocket&nbsp;--&nbsp;Container for widgets from other processes.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN39016"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtksocket.html#GTKSOCKET-STRUCT"
+>GtkSocket</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtksocket.html#GTK-SOCKET-NEW"
+>gtk_socket_new</A
+>                  (void);
+void        <A
+HREF="gtksocket.html#GTK-SOCKET-STEAL"
+>gtk_socket_steal</A
+>                (<A
+HREF="gtksocket.html"
+>GtkSocket</A
+> *socket,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> wid);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39025"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkcontainer.html"
+>GtkContainer</A
+>
+               +----GtkSocket</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39031"
+></A
+><H2
+>Description</H2
+><P
+>Together with <A
+HREF="gtkplug.html"
+>GtkPlug</A
+>, <A
+HREF="gtksocket.html"
+>GtkSocket</A
+> provides the ability
+to embed widgets from one process into another process
+in a fashion that is transparent to the user. One
+process creates a <A
+HREF="gtksocket.html"
+>GtkSocket</A
+> widget and, passes the
+XID of that widget's window to the other process, 
+which then creates a <A
+HREF="gtkplug.html"
+>GtkPlug</A
+> window with that XID.
+Any widgets contained in the <A
+HREF="gtkplug.html"
+>GtkPlug</A
+> then will appear
+inside the first applications window.</P
+><P
+>The XID of the socket's window is obtained by using
+the GTK_WINDOW_XWINDOW() macro from the header
+file &lt;gdk/gdkx.h&gt;. Before using this macro,
+the socket must have been realized, and for hence,
+have been added to its parent.
+
+<DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN39041"
+></A
+><P
+><B
+>Example 1.  Obtaining the XID of a socket </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#D8F8D8"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>include &lt;gdk/gdkx.h&gt;
+
+GtkWidget *socket = <A
+HREF="gtksocket.html#GTK-SOCKET-NEW"
+>gtk_socket_new</A
+>();
+gtk_widget_show (socket);
+gtk_container_add (GTK_CONTAINER (parent), socket);
+
+/* The following call is only necessary if one of
+ * the ancestors of the socket is not yet visible.
+ */
+gtk_widget_realize (socket);
+g_print ("The XID of the sockets window is %x\n",
+         GDK_WINDOW_XWINDOW (socket-&#62;window));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></P
+><P
+>Note that if you pass the XID of the socket to another
+process that will create a plug in the socket, you 
+must make sure that the socket widget is not destroyed
+until that plug is created. Violating this rule will
+cause unpredictable consequences, the most likely
+consequence being that the plug will appear as a 
+separate toplevel window. You can check if the plug
+has been created by examining the
+<TT
+CLASS="STRUCTFIELD"
+><I
+>plug_window</I
+></TT
+> field of the
+<A
+HREF="gtksocket.html"
+>GtkSocket</A
+> structure. If this field is non-NULL, 
+then the plug has been succesfully created inside
+of the socket.</P
+><P
+>When GTK+ is notified that the embedded window has been
+destroyed, then it will destroy the socket as well. You
+should always, therefore, be prepared for your sockets
+to be destroyed at any time when the main event loop
+is running.</P
+><P
+>A socket can also be used to swallow arbitrary 
+pre-existing top-level windows using <A
+HREF="gtksocket.html#GTK-SOCKET-STEAL"
+>gtk_socket_steal</A
+>(),
+though the integration when this is done will not be as close
+as between a <A
+HREF="gtkplug.html"
+>GtkPlug</A
+> and a <A
+HREF="gtksocket.html"
+>GtkSocket</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39055"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39057"
+></A
+><H3
+><A
+NAME="GTKSOCKET-STRUCT"
+></A
+>struct GtkSocket</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkSocket;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gtkeditable.html"
+>GtkEditable</A
+> structure contains the following field.
+(This field should be considered read-only. It should
+never be set by an application.)
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39063"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../gdk/gdk-windows.html#GDKWINDOW
+>GdkWindow</A> *plug_window;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the window embedded inside this <A
+HREF="gtksocket.html"
+>GtkSocket</A
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39073"
+></A
+><H3
+><A
+NAME="GTK-SOCKET-NEW"
+></A
+>gtk_socket_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_socket_new                  (void);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create a new empty <A
+HREF="gtksocket.html"
+>GtkSocket</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39080"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtksocket.html"
+>GtkSocket</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN39090"
+></A
+><H3
+><A
+NAME="GTK-SOCKET-STEAL"
+></A
+>gtk_socket_steal ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_socket_steal                (<A
+HREF="gtksocket.html"
+>GtkSocket</A
+> *socket,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> wid);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reparents a pre-existing toplevel window into a
+<A
+HREF="gtksocket.html"
+>GtkSocket</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN39098"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>socket</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gtksocket.html"
+>GtkSocket</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>wid</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the XID of an existing toplevel window.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN39112"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gtkplug.html"
+>GtkPlug</A
+></DT
+><DD
+><P
+>the widget that plugs into a <A
+HREF="gtksocket.html"
+>GtkSocket</A
+>.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtkseparator.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtkspinbutton.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkSeparator</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkSpinButton</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

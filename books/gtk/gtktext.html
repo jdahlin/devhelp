@@ -1,0 +1,2272 @@
+<HTML
+><HEAD
+><TITLE
+>GtkText</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GTK+ Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GTK+ Widgets and Objects"
+HREF="gtkobjects.html"><LINK
+REL="PREVIOUS"
+TITLE="GtkTearoffMenuItem"
+HREF="gtktearoffmenuitem.html"><LINK
+REL="NEXT"
+TITLE="GtkTipsQuery"
+HREF="gtktipsquery.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GTK+ Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktearoffmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktipsquery.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GTKTEXT"
+>GtkText</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN40556"
+></A
+><H2
+>Name</H2
+>GtkText&nbsp;--&nbsp;text widget which allows display and manipulation of arbitrary text</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN40559"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gtk/gtk.h&gt;
+
+
+struct      <A
+HREF="gtktext.html#GTKTEXT-STRUCT"
+>GtkText</A
+>;
+struct      <A
+HREF="gtktext.html#GTKTEXTFONT"
+>GtkTextFont</A
+>;
+struct      <A
+HREF="gtktext.html#GTKPROPERTYMARK"
+>GtkPropertyMark</A
+>;
+<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  <A
+HREF="gtktext.html#GTK-TEXT-NEW"
+>gtk_text_new</A
+>                    (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadj,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *vadj);
+void        <A
+HREF="gtktext.html#GTK-TEXT-SET-EDITABLE"
+>gtk_text_set_editable</A
+>           (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> editable);
+void        <A
+HREF="gtktext.html#GTK-TEXT-SET-WORD-WRAP"
+>gtk_text_set_word_wrap</A
+>          (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> word_wrap);
+void        <A
+HREF="gtktext.html#GTK-TEXT-SET-LINE-WRAP"
+>gtk_text_set_line_wrap</A
+>          (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> line_wrap);
+void        <A
+HREF="gtktext.html#GTK-TEXT-SET-ADJUSTMENTS"
+>gtk_text_set_adjustments</A
+>        (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadj,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *vadj);
+void        <A
+HREF="gtktext.html#GTK-TEXT-SET-POINT"
+>gtk_text_set_point</A
+>              (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtktext.html#GTK-TEXT-GET-POINT"
+>gtk_text_get_point</A
+>              (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);
+<A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       <A
+HREF="gtktext.html#GTK-TEXT-GET-LENGTH"
+>gtk_text_get_length</A
+>             (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);
+void        <A
+HREF="gtktext.html#GTK-TEXT-FREEZE"
+>gtk_text_freeze</A
+>                 (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);
+void        <A
+HREF="gtktext.html#GTK-TEXT-THAW"
+>gtk_text_thaw</A
+>                   (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);
+void        <A
+HREF="gtktext.html#GTK-TEXT-INSERT"
+>gtk_text_insert</A
+>                 (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../gdk/gdk-fonts.html#GDKFONT
+>GdkFont</A> *font,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *fore,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *back,
+                                             const char *chars,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> length);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtktext.html#GTK-TEXT-BACKWARD-DELETE"
+>gtk_text_backward_delete</A
+>        (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nchars);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gtktext.html#GTK-TEXT-FORWARD-DELETE"
+>gtk_text_forward_delete</A
+>         (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nchars);
+#define     <A
+HREF="gtktext.html#GTK-TEXT-INDEX-CAPS"
+>GTK_TEXT_INDEX</A
+>                  (t, index)&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40610"
+></A
+><H2
+>Object Hierarchy</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  <A
+HREF="gtkobject.html"
+>GtkObject</A
+>
+   +----<A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>
+         +----<A
+HREF="gtkeditable.html"
+>GtkEditable</A
+>
+               +----GtkText</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40616"
+></A
+><H2
+>Args</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;  &quot;<A
+HREF="gtktext.html#GTKTEXT--HADJUSTMENT"
+>hadjustment</A
+>&quot;          <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>        : Read / Write / Construct
+  &quot;<A
+HREF="gtktext.html#GTKTEXT--VADJUSTMENT"
+>vadjustment</A
+>&quot;          <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+>        : Read / Write / Construct
+  &quot;<A
+HREF="gtktext.html#GTKTEXT--LINE-WRAP"
+>line-wrap</A
+>&quot;            <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write
+  &quot;<A
+HREF="gtktext.html#GTKTEXT--WORD-WRAP"
+>word-wrap</A
+>&quot;            <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A>             : Read / Write</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40627"
+></A
+><H2
+>Description</H2
+><P
+>&#13;A <A
+HREF="gtktext.html"
+>GtkText</A
+> widget allows one to display any given text and manipulate it
+
+by deleting from one point to another, selecting a region, and various
+
+other functions as outlined below.  It is inherited from <A
+HREF="gtkeditable.html"
+>GtkEditable</A
+>.&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN40632"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40634"
+></A
+><H3
+><A
+NAME="GTKTEXT-STRUCT"
+></A
+>struct GtkText</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkText;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Most of the <A
+HREF="gtktext.html#GTKTEXT-STRUCT"
+>GtkText</A
+> struct members should not be accessed directly.
+
+Listed below are a few exceptions and how to use them.
+
+
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40640"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkAdjustment *hadj;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Allows you to see the state of an attached horizontal <A
+HREF="gtkscrollbar.html"
+>GtkScrollbar</A
+>.
+
+See <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> for more info. This allows easy access to the adjustments
+
+of the <A
+HREF="gtktext.html"
+>GtkText</A
+> struct without having to keep track of ones that you initialize
+
+at widget creation.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GtkAdjustment *vadj;</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Same as hadj except it involves the vertical <A
+HREF="gtkscrollbar.html"
+>GtkScrollbar</A
+>.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>
+
+&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40655"
+></A
+><H3
+><A
+NAME="GTKTEXTFONT"
+></A
+>struct GtkTextFont</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkTextFont;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Internal <A
+HREF="gtktext.html"
+>GtkText</A
+> data type.
+&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40661"
+></A
+><H3
+><A
+NAME="GTKPROPERTYMARK"
+></A
+>struct GtkPropertyMark</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GtkPropertyMark
+{
+  /* Position in list. */
+  GList* property;
+
+  /* Offset into that property. */
+  guint offset;
+
+  /* Current index. */
+  guint index;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Internal <A
+HREF="gtktext.html"
+>GtkText</A
+> data type.  Should not be access directly.
+&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40667"
+></A
+><H3
+><A
+NAME="GTK-TEXT-NEW"
+></A
+>gtk_text_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gtkwidget.html"
+>GtkWidget</A
+>*  gtk_text_new                    (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadj,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *vadj);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Creates a new <A
+HREF="gtktext.html"
+>GtkText</A
+> widget, initialized with the given pointers to
+
+GtkAdjustments.  These pointers can be used to track the viewing position
+
+of the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget.  Passing NULL to either or both of them will make
+
+the <A
+HREF="gtktext.html"
+>GtkText</A
+> create it's own.  You can set these later with the function
+
+<TT
+CLASS="FUNCTION"
+>gtk_text_set_adjustment()</TT
+>&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40681"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hadj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>horizontal adjustment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vadj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>vertical adjustment.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the new <A
+HREF="gtktext.html"
+>GtkText</A
+> widget.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40699"
+></A
+><H3
+><A
+NAME="GTK-TEXT-SET-EDITABLE"
+></A
+>gtk_text_set_editable ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_set_editable           (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> editable);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Set whether the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget can be edited by the user or not.  This
+
+still allows you the programmer to make changes with the various <A
+HREF="gtktext.html"
+>GtkText</A
+>
+
+functions.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40708"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>editable</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> makes it editable, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> makes it immutable by the user
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40724"
+></A
+><H3
+><A
+NAME="GTK-TEXT-SET-WORD-WRAP"
+></A
+>gtk_text_set_word_wrap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_set_word_wrap          (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> word_wrap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets whether the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget wraps words down to the next line if it
+
+can't be completed on the current line.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40732"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>word_wrap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> makes it word wrap, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> disables word wrapping
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40748"
+></A
+><H3
+><A
+NAME="GTK-TEXT-SET-LINE-WRAP"
+></A
+>gtk_text_set_line_wrap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_set_line_wrap          (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> line_wrap);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Controls how <A
+HREF="gtktext.html"
+>GtkText</A
+> handles long lines of continuous text.  If line wrap
+
+is on, the line is broken when it reaches the extent of the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget
+
+viewing area and the rest is displayed on the next line.  If it is not set,
+
+the line continues regardless size of current viewing area.  Similar to word
+
+wrap but it disregards word boundaries.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40757"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>line_wrap</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> turns line wrap on, <TT
+CLASS="LITERAL"
+>FALSE</TT
+> turns it off
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40773"
+></A
+><H3
+><A
+NAME="GTK-TEXT-SET-ADJUSTMENTS"
+></A
+>gtk_text_set_adjustments ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_set_adjustments        (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *hadj,
+                                             <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> *vadj);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Allows you to set <A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> pointers which in turn allows you to
+
+keep track of the viewing position of the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40783"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>hadj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the horizontal adjustment</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>vadj</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the vertical adjustment
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40801"
+></A
+><H3
+><A
+NAME="GTK-TEXT-SET-POINT"
+></A
+>gtk_text_set_point ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_set_point              (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> index);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Sets the cursor at the given point.  In this case a point constitutes
+
+the number of characters from the extreme upper left corner of the <A
+HREF="gtktext.html"
+>GtkText</A
+>
+
+widget.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40809"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters from the upper left corner
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40823"
+></A
+><H3
+><A
+NAME="GTK-TEXT-GET-POINT"
+></A
+>gtk_text_get_point ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_text_get_point              (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Gets the current position of the cursor as the number of characters from
+
+the upper left corner of the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40831"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters from the upper left corner
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40845"
+></A
+><H3
+><A
+NAME="GTK-TEXT-GET-LENGTH"
+></A
+>gtk_text_get_length ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A>       gtk_text_get_length             (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns the length of the all the text contained within the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget;
+
+disregards current point position.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40853"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40867"
+></A
+><H3
+><A
+NAME="GTK-TEXT-FREEZE"
+></A
+>gtk_text_freeze ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_freeze                 (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Freezes the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget which disallows redrawing of the widget until
+
+it is thawed.  This is useful if a large number of changes are going to
+
+made to the text within the widget, reducing the amount of flicker seen
+
+by the user.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40874"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40884"
+></A
+><H3
+><A
+NAME="GTK-TEXT-THAW"
+></A
+>gtk_text_thaw ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_thaw                   (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Allows the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget to be redrawn again by GTK.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40891"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40901"
+></A
+><H3
+><A
+NAME="GTK-TEXT-INSERT"
+></A
+>gtk_text_insert ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gtk_text_insert                 (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../gdk/gdk-fonts.html#GDKFONT
+>GdkFont</A> *font,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *fore,
+                                             <A
+HREF=../gdk/gdk-colormaps-and-colors.html#GDKCOLOR
+>GdkColor</A> *back,
+                                             const char *chars,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> length);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Inserts given text into the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget with the given properties as
+
+outlined below.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40912"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>font</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF=../gdk/gdk-fonts.html#GDKFONT
+>GdkFont</A> to use</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fore</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the foreground color to insert with</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>back</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the background color to insert with</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>chars</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the actual text to be inserted</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>length</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the length of the text to be inserted, passing -1 makes it insert
+
+all the text.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40943"
+></A
+><H3
+><A
+NAME="GTK-TEXT-BACKWARD-DELETE"
+></A
+>gtk_text_backward_delete ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_text_backward_delete        (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nchars);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Deletes from the current point position backward the given number of
+
+characters.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40951"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nchars</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters to delete</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the operation was successful, otherwise returns <TT
+CLASS="LITERAL"
+>FALSE</TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40971"
+></A
+><H3
+><A
+NAME="GTK-TEXT-FORWARD-DELETE"
+></A
+>gtk_text_forward_delete ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gtk_text_forward_delete         (<A
+HREF="gtktext.html"
+>GtkText</A
+> *text,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT
+>guint</A> nchars);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Deletes from the current point position forward the given number of
+
+characters.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN40979"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>text</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>nchars</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters to delete</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>TRUE</TT
+> if the operation was successful, otherwise returns <TT
+CLASS="LITERAL"
+>FALSE</TT
+>
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN40999"
+></A
+><H3
+><A
+NAME="GTK-TEXT-INDEX-CAPS"
+></A
+>GTK_TEXT_INDEX()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define     GTK_TEXT_INDEX(t, index)</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;Returns the character at the given index within the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget.&#13;</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN41005"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>t</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of characters from the upper left corner
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN41019"
+></A
+><H2
+>Args</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="GTKTEXT--HADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>hadjustment</TT
+>&quot; (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> : Read / Write / Construct)</DT
+><DD
+><P
+>&#13;Used by the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget to keep track of the size of it's horizontal
+
+text.&#13;</P
+></DD
+><DT
+><A
+NAME="GTKTEXT--VADJUSTMENT"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>vadjustment</TT
+>&quot; (<A
+HREF="gtkadjustment.html"
+>GtkAdjustment</A
+> : Read / Write / Construct)</DT
+><DD
+><P
+>&#13;Used by the <A
+HREF="gtktext.html"
+>GtkText</A
+> widget to keep track of the size of it's vertical
+
+text.&#13;</P
+></DD
+><DT
+><A
+NAME="GTKTEXT--LINE-WRAP"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>line-wrap</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+><DT
+><A
+NAME="GTKTEXT--WORD-WRAP"
+></A
+>&quot;<TT
+CLASS="LITERAL"
+>word-wrap</TT
+>&quot; (<A
+HREF=../glib/glib-basic-types.html#GBOOLEAN
+>gboolean</A> : Read / Write)</DT
+><DD
+><P
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gtktearoffmenuitem.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gtkobjects.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gtktipsquery.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTearoffMenuItem</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GtkTipsQuery</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

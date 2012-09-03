@@ -1,0 +1,562 @@
+<HTML
+><HEAD
+><TITLE
+>Class GtkIconFactory</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.54"><LINK
+REL="HOME"
+TITLE="PyGTK Docs"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Class GtkIMMulticontext"
+HREF="class-gtkimmulticontext.html"><LINK
+REL="NEXT"
+TITLE="Class GtkImage"
+HREF="class-gtkimage.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PyGTK Docs</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="class-gtkimmulticontext.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="class-gtkimage.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CLASS-GTKICONFACTORY"
+>Class GtkIconFactory</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN11911"
+>Ancestry</A
+></H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>+-- GObject
+  +-- <A
+HREF="class-gtkiconfactory.html"
+>GtkIconFactory</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN11916"
+>Constructor</A
+></H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="FSFUNC"
+>GtkIconFactory</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Returns:</DT
+><DD
+><P
+>a new <A
+HREF="class-gtkiconfactory.html"
+><SPAN
+CLASS="TYPE"
+>GtkIconFactory</SPAN
+></A
+></P
+></DD
+></DL
+></DIV
+><P
+>Creates a new <A
+HREF="class-gtkiconfactory.html"
+><SPAN
+CLASS="TYPE"
+>GtkIconFactory</SPAN
+></A
+>. An icon factory manages a collection
+of <TT
+CLASS="LITERAL"
+>GtkIconSet</TT
+>; a <TT
+CLASS="LITERAL"
+>GtkIconSet</TT
+> manages a set of variants of a
+particular icon (i.e. a <TT
+CLASS="LITERAL"
+>GtkIconSet</TT
+> contains variants for different
+sizes and widget states). Icons in an icon factory are named by a
+stock ID, which is a simple string identifying the icon. Each
+<A
+HREF="class-gtkstyle.html"
+><SPAN
+CLASS="TYPE"
+>GtkStyle</SPAN
+></A
+> has a list of <A
+HREF="class-gtkiconfactory.html"
+><SPAN
+CLASS="TYPE"
+>GtkIconFactory</SPAN
+></A
+> derived from the current
+theme; those icon factories are consulted first when searching for
+an icon. If the theme doesn't set a particular icon, GTK+ looks for
+the icon in a list of default icon factories, maintained by
+<A
+HREF="class-gtkiconfactory.html#METHOD-GTKICONFACTORY--ADD-DEFAULT"
+><TT
+CLASS="FUNCTION"
+>GtkIconFactory.add_default()</TT
+></A
+> and
+<A
+HREF="class-gtkiconfactory.html#METHOD-GTKICONFACTORY--REMOVE-DEFAULT"
+><TT
+CLASS="FUNCTION"
+>GtkIconFactory.remove_default()</TT
+></A
+>. Applications with icons should
+add a default icon factory with their icons, which will allow
+themes to override the icons for the application.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN11944"
+>Methods</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKICONFACTORY--ADD"
+>GtkIconFactory.add</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>stock_id</VAR
+>, <VAR
+CLASS="PDPARAM"
+>icon_set</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+></DT
+><DD
+><P
+>icon name</P
+></DD
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>icon_set</I
+></TT
+></DT
+><DD
+><P
+>icon set</P
+></DD
+></DL
+></DIV
+><P
+>Adds the given <TT
+CLASS="PARAMETER"
+><I
+>icon_set</I
+></TT
+> to the icon factory, under the name
+<TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+>.  <TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+> should be namespaced for your application,
+e.g. "myapp-whatever-icon".  Normally applications create a
+<A
+HREF="class-gtkiconfactory.html"
+><SPAN
+CLASS="TYPE"
+>GtkIconFactory</SPAN
+></A
+>, then add it to the list of default factories with
+<A
+HREF="class-gtkiconfactory.html#METHOD-GTKICONFACTORY--ADD-DEFAULT"
+><TT
+CLASS="FUNCTION"
+>GtkIconFactory.add_default()</TT
+></A
+>. Then they pass the <TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+> to
+widgets such as <A
+HREF="class-gtkimage.html"
+><SPAN
+CLASS="TYPE"
+>GtkImage</SPAN
+></A
+> to display the icon. Themes can provide
+an icon with the same name (such as "myapp-whatever-icon") to
+override your application's default icons. If an icon already
+existed in <TT
+CLASS="PARAMETER"
+><I
+>factory</I
+></TT
+> for <TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+>, it is unreferenced and replaced
+with the new <TT
+CLASS="PARAMETER"
+><I
+>icon_set</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKICONFACTORY--LOOKUP"
+>GtkIconFactory.lookup</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>lookup</B
+></CODE
+>(<VAR
+CLASS="PDPARAM"
+>stock_id</VAR
+>);</CODE
+></P
+><P
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+></DT
+><DD
+><P
+>an icon name</P
+></DD
+><DT
+>Returns:</DT
+><DD
+><P
+>icon set of <TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+>.</P
+></DD
+></DL
+></DIV
+><P
+>Looks up <TT
+CLASS="PARAMETER"
+><I
+>stock_id</I
+></TT
+> in the icon factory, returning an icon set
+if found, otherwise <TT
+CLASS="LITERAL"
+>NULL</TT
+>. For display to the user, you should
+use <A
+HREF="class-gtkstyle.html#METHOD-GTKSTYLE--LOOKUP-ICON-SET"
+><TT
+CLASS="FUNCTION"
+>GtkStyle.lookup_icon_set()</TT
+></A
+> on the <A
+HREF="class-gtkstyle.html"
+><SPAN
+CLASS="TYPE"
+>GtkStyle</SPAN
+></A
+> for the
+widget that will display the icon, instead of using this
+function directly, so that themes are taken into account.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKICONFACTORY--ADD-DEFAULT"
+>GtkIconFactory.add_default</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>add_default</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Adds an icon factory to the list of icon factories searched by
+<A
+HREF="class-gtkstyle.html#METHOD-GTKSTYLE--LOOKUP-ICON-SET"
+><TT
+CLASS="FUNCTION"
+>GtkStyle.lookup_icon_set()</TT
+></A
+>. This means that, for example,
+<TT
+CLASS="FUNCTION"
+>GtkImage()</TT
+> will be able to find icons in <TT
+CLASS="PARAMETER"
+><I
+>factory</I
+></TT
+>.
+There will normally be an icon factory added for each library or
+application that comes with icons. The default icon factories
+can be overridden by themes.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="METHOD-GTKICONFACTORY--REMOVE-DEFAULT"
+>GtkIconFactory.remove_default</A
+></H3
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="REPLACEABLE"
+><I
+>instance</I
+></TT
+>.<B
+CLASS="FSFUNC"
+>remove_default</B
+></CODE
+>();</CODE
+></P
+><P
+></P
+></DIV
+><P
+>Removes an icon factory from the list of default icon
+factories. Not normally used; you might use it for a library that
+can be unloaded or shut down.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="class-gtkimmulticontext.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="class-gtkimage.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class GtkIMMulticontext</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class GtkImage</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

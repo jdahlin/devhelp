@@ -1,0 +1,1099 @@
+<HTML
+><HEAD
+><TITLE
+>Input</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="Threads"
+HREF="gdk-threads.html"><LINK
+REL="NEXT"
+TITLE="Input Devices"
+HREF="gdk-input-devices.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-threads.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-input-devices.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-INPUT"
+>Input</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11637"
+></A
+><H2
+>Name</H2
+>Input&nbsp;--&nbsp;Callbacks on file descriptors.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11640"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-input.html#GDK-INPUT-ADD-FULL"
+>gdk_input_add_full</A
+>              (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF="gdk-input.html#GDKINPUTCONDITION"
+>GdkInputCondition</A
+> condition,
+                                             <A
+HREF="gdk-input.html#GDKINPUTFUNCTION"
+>GdkInputFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gdk-input.html#GDKDESTROYNOTIFY"
+>GdkDestroyNotify</A
+> destroy);
+enum        <A
+HREF="gdk-input.html#GDKINPUTCONDITION"
+>GdkInputCondition</A
+>;
+void        (<A
+HREF="gdk-input.html#GDKINPUTFUNCTION"
+>*GdkInputFunction</A
+>)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF="gdk-input.html#GDKINPUTCONDITION"
+>GdkInputCondition</A
+> condition);
+void        (<A
+HREF="gdk-input.html#GDKDESTROYNOTIFY"
+>*GdkDestroyNotify</A
+>)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        <A
+HREF="gdk-input.html#GDK-INPUT-ADD"
+>gdk_input_add</A
+>                   (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF="gdk-input.html#GDKINPUTCONDITION"
+>GdkInputCondition</A
+> condition,
+                                             <A
+HREF="gdk-input.html#GDKINPUTFUNCTION"
+>GdkInputFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);
+void        <A
+HREF="gdk-input.html#GDK-INPUT-REMOVE"
+>gdk_input_remove</A
+>                (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tag);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11665"
+></A
+><H2
+>Description</H2
+><P
+>The functions in this section are used to establish
+callbacks when some condition becomes true for
+a file descriptor. They are currently just wrappers around
+the <A
+HREF=../glib/glib-io-channels.html
+>IO Channel</A>
+facility.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11669"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11671"
+></A
+><H3
+><A
+NAME="GDK-INPUT-ADD-FULL"
+></A
+>gdk_input_add_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_input_add_full              (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF="gdk-input.html#GDKINPUTCONDITION"
+>GdkInputCondition</A
+> condition,
+                                             <A
+HREF="gdk-input.html#GDKINPUTFUNCTION"
+>GdkInputFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF="gdk-input.html#GDKDESTROYNOTIFY"
+>GdkDestroyNotify</A
+> destroy);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Establish a callback when a condition becomes true on
+a file descriptor.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11682"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a file descriptor.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>condition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the condition.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the callback function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>callback data passed to <TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>destroy</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>callback function to call with <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> when the input
+  handler is removed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a tag that can later be used as an argument to
+ <A
+HREF="gdk-input.html#GDK-INPUT-REMOVE"
+>gdk_input_remove</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11714"
+></A
+><H3
+><A
+NAME="GDKINPUTCONDITION"
+></A
+>enum GdkInputCondition</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_INPUT_READ       = 1 &lt;&lt; 0,
+  GDK_INPUT_WRITE      = 1 &lt;&lt; 1,
+  GDK_INPUT_EXCEPTION  = 1 &lt;&lt; 2
+} GdkInputCondition;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A set of bit flags used to specify conditions for which
+an input callback will be triggered. The three members
+of this enumeration correspond to the <TT
+CLASS="PARAMETER"
+><I
+>readfds</I
+></TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>writefds</I
+></TT
+>, and <TT
+CLASS="PARAMETER"
+><I
+>exceptfds</I
+></TT
+> arguments to the 
+<TT
+CLASS="FUNCTION"
+>select</TT
+> system call.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11723"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_INPUT_READ</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the file descriptor has become available for reading.
+(Or, as is standard in Unix, a socket or pipe was closed
+at the other end; this is the case if a subsequent read
+on the file descriptor returns a count of zero.)</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_INPUT_WRITE</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the file descriptor has become available for writing.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>GDK_INPUT_EXCEPTION</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an exception was raised on the file descriptor.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11737"
+></A
+><H3
+><A
+NAME="GDKINPUTFUNCTION"
+></A
+>GdkInputFunction ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GdkInputFunction)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF="gdk-input.html#GDKINPUTCONDITION"
+>GdkInputCondition</A
+> condition);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A callback function that will be called when some condition
+occurs.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11745"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data passed to <A
+HREF="gdk-input.html#GDK-INPUT-ADD"
+>gdk_input_add</A
+>() or <A
+HREF="gdk-input.html#GDK-INPUT-ADD-FULL"
+>gdk_input_add_full</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the source where the condition occurred.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>condition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the triggering condition.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11764"
+></A
+><H3
+><A
+NAME="GDKDESTROYNOTIFY"
+></A
+>GdkDestroyNotify ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        (*GdkDestroyNotify)             (<A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>A callback function called when a piece of user data is 
+no longer being stored by GDK. Will typically free the
+structure or object that <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+> points to.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11771"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the user data.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11780"
+></A
+><H3
+><A
+NAME="GDK-INPUT-ADD"
+></A
+>gdk_input_add ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A>        gdk_input_add                   (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> source,
+                                             <A
+HREF="gdk-input.html#GDKINPUTCONDITION"
+>GdkInputCondition</A
+> condition,
+                                             <A
+HREF="gdk-input.html#GDKINPUTFUNCTION"
+>GdkInputFunction</A
+> function,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Establish a callback when a condition becomes true on
+a file descriptor.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11790"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a file descriptor.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>condition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the condition.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the callback function.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>callback data passed to <TT
+CLASS="PARAMETER"
+><I
+>function</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a tag that can later be used as an argument to
+ <A
+HREF="gdk-input.html#GDK-INPUT-REMOVE"
+>gdk_input_remove</A
+>().
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN11817"
+></A
+><H3
+><A
+NAME="GDK-INPUT-REMOVE"
+></A
+>gdk_input_remove ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_input_remove                (<A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> tag);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Remove a callback added with <A
+HREF="gdk-input.html#GDK-INPUT-ADD"
+>gdk_input_add</A
+>() or 
+<A
+HREF="gdk-input.html#GDK-INPUT-ADD-FULL"
+>gdk_input_add_full</A
+>().</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN11825"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>tag</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the tag returned when the callback was set up.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11834"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF=../glib/glib-the-main-event-loop.html
+>GLib Main Loop</A></DT
+><DD
+><P
+>The main loop in which input callbacks run.</P
+></DD
+><DT
+><A
+HREF=../glib/glib-io-channels.html
+>IO Channels</A></DT
+><DD
+><P
+>A newer and more flexible way of doing IO
+callbacks.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-threads.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-input-devices.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Threads</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Input Devices</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

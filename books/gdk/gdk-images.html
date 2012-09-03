@@ -1,0 +1,1700 @@
+<HTML
+><HEAD
+><TITLE
+>Images</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GDK Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GDK"
+HREF="gdk.html"><LINK
+REL="PREVIOUS"
+TITLE="GdkRGB"
+HREF="gdk-gdkrgb.html"><LINK
+REL="NEXT"
+TITLE="Colormaps and Colors"
+HREF="gdk-colormaps-and-colors.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GDK Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-gdkrgb.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-colormaps-and-colors.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GDK-IMAGES"
+>Images</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN3976"
+></A
+><H2
+>Name</H2
+>Images&nbsp;--&nbsp;an area for bit-mapped graphics stored on the X Windows client.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN3979"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;gdk/gdk.h&gt;
+
+
+struct      <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>;
+<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>*   <A
+HREF="gdk-images.html#GDK-IMAGE-NEW"
+>gdk_image_new</A
+>                   (<A
+HREF="gdk-images.html#GDKIMAGETYPE"
+>GdkImageType</A
+> type,
+                                             <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+enum        <A
+HREF="gdk-images.html#GDKIMAGETYPE"
+>GdkImageType</A
+>;
+<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>*   <A
+HREF="gdk-images.html#GDK-IMAGE-NEW-BITMAP"
+>gdk_image_new_bitmap</A
+>            (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>*   <A
+HREF="gdk-images.html#GDK-IMAGE-GET"
+>gdk_image_get</A
+>                   (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);
+void        <A
+HREF="gdk-images.html#GDK-IMAGE-DESTROY"
+>gdk_image_destroy</A
+>               (<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image);
+
+void        <A
+HREF="gdk-images.html#GDK-IMAGE-PUT-PIXEL"
+>gdk_image_put_pixel</A
+>             (<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> pixel);
+<A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A>     <A
+HREF="gdk-images.html#GDK-IMAGE-GET-PIXEL"
+>gdk_image_get_pixel</A
+>             (<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4015"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> type represents an area for drawing graphics.
+It has now been superceded to a large extent by the much more flexible
+<A
+HREF="gdk-gdkrgb.html"
+>GdkRGB</A
+> functions.</P
+><P
+>To create an empty <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> use <A
+HREF="gdk-images.html#GDK-IMAGE-NEW"
+>gdk_image_new</A
+>().
+To create a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> from bitmap data use <A
+HREF="gdk-images.html#GDK-IMAGE-NEW-BITMAP"
+>gdk_image_new_bitmap</A
+>().
+To create an image from part of a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> use <A
+HREF="gdk-images.html#GDK-IMAGE-GET"
+>gdk_image_get</A
+>().</P
+><P
+>The image can be manipulated with <A
+HREF="gdk-images.html#GDK-IMAGE-GET-PIXEL"
+>gdk_image_get_pixel</A
+>() and
+<A
+HREF="gdk-images.html#GDK-IMAGE-PUT-PIXEL"
+>gdk_image_put_pixel</A
+>(), or alternatively by changing the actual pixel data.
+Though manipulating the pixel data requires complicated code to cope with
+the different formats that may be used.</P
+><P
+>To draw a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> in a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> or <A
+HREF="gdk-bitmaps-and-pixmaps.html#GDKPIXMAP"
+>GdkPixmap</A
+> use <A
+HREF="gdk-drawing-primitives.html#GDK-DRAW-IMAGE"
+>gdk_draw_image</A
+>().</P
+><P
+>To destroy a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> use <A
+HREF="gdk-images.html#GDK-IMAGE-DESTROY"
+>gdk_image_destroy</A
+>().</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4038"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4040"
+></A
+><H3
+><A
+NAME="GDKIMAGE"
+></A
+>struct GdkImage</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GdkImage
+{
+  GdkImageType	type;
+  GdkVisual    *visual;	    /* visual used to create the image */
+  GdkByteOrder	byte_order;
+  guint16	width;
+  guint16	height;
+  guint16	depth;
+  guint16	bpp;	    /* bytes per pixel */
+  guint16	bpl;	    /* bytes per line */
+  gpointer	mem;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>The <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> struct contains information on the image and the pixel data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4046"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFF0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-images.html#GDKIMAGETYPE"
+>GdkImageType</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>type</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *<TT
+CLASS="STRUCTFIELD"
+><I
+>visual</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the visual.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="gdk-visuals.html#GDKBYTEORDER"
+>GdkByteOrder</A
+> <TT
+CLASS="STRUCTFIELD"
+><I
+>byte_order</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the byte order.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>width</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the image in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>height</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the image in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>depth</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the depth of the image, i.e. the number of bits per pixel.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>bpp</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes per pixel.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GUINT16
+>guint16</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>bpl</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes per line of the image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> <TT
+CLASS="STRUCTFIELD"
+><I
+>mem</I
+></TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pixel data.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4096"
+></A
+><H3
+><A
+NAME="GDK-IMAGE-NEW"
+></A
+>gdk_image_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>*   gdk_image_new                   (<A
+HREF="gdk-images.html#GDKIMAGETYPE"
+>GdkImageType</A
+> type,
+                                             <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4107"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the type of the <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>, one of <TT
+CLASS="LITERAL"
+>GDK_IMAGE_NORMAL</TT
+>, <TT
+CLASS="LITERAL"
+>GDK_IMAGE_SHARED</TT
+>
+and <TT
+CLASS="LITERAL"
+>GDK_IMAGE_FASTEST</TT
+>. <TT
+CLASS="LITERAL"
+>GDK_IMAGE_FASTEST</TT
+> is probably the best choice, since
+it will try creating a <TT
+CLASS="LITERAL"
+>GDK_IMAGE_SHARED</TT
+> image first and if that fails it will
+then use <TT
+CLASS="LITERAL"
+>GDK_IMAGE_NORMAL</TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> to use for the image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the image in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the image in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>, or NULL if the image could not be created.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4141"
+></A
+><H3
+><A
+NAME="GDKIMAGETYPE"
+></A
+>enum GdkImageType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  GDK_IMAGE_NORMAL,
+  GDK_IMAGE_SHARED,
+  GDK_IMAGE_FASTEST
+} GdkImageType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4147"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IMAGE_NORMAL</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>The original X image type, which is quite slow since the
+image has to be transferred from the client to the server to display it.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IMAGE_SHARED</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>A faster image type, which uses shared memory to transfer
+the image data between client and server. However this will only be available
+if client and server are on the same machine and the shared memory extension
+is supported by the server.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>GDK_IMAGE_FASTEST</TT
+></TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Specifies that <TT
+CLASS="LITERAL"
+>GDK_IMAGE_SHARED</TT
+> should be tried first,
+and if that fails then <TT
+CLASS="LITERAL"
+>GDK_IMAGE_NORMAL</TT
+> will be used.&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4166"
+></A
+><H3
+><A
+NAME="GDK-IMAGE-NEW-BITMAP"
+></A
+>gdk_image_new_bitmap ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>*   gdk_image_new_bitmap            (<A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> *visual,
+                                             <A
+HREF=../glib/glib-basic-types.html#GPOINTER
+>gpointer</A> data,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> with a depth of 1 from the given data.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4177"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visual</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-visuals.html#GDKVISUAL"
+>GdkVisual</A
+> to use for the image.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pixel data.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the image in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the image in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4204"
+></A
+><H3
+><A
+NAME="GDK-IMAGE-GET"
+></A
+>gdk_image_get ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>*   gdk_image_get                   (<A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> *window,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> width,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> height);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets part of a <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> and stores it in a new <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4217"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="gdk-windows.html#GDKWINDOW"
+>GdkWindow</A
+> to copy from.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the left edge of the rectangle to copy from <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the top edge of the rectangle to copy from <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>width</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the width of the area to copy, in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>height</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the height of the area to copy, in pixels.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> with a copy of the given area of <TT
+CLASS="PARAMETER"
+><I
+>window</I
+></TT
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4251"
+></A
+><H3
+><A
+NAME="GDK-IMAGE-DESTROY"
+></A
+>gdk_image_destroy ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_image_destroy               (<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Destroys a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>, freeing any resources allocated for it.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4258"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4268"
+></A
+><H3
+><A
+NAME="GDK-IMAGE-PUT-PIXEL"
+></A
+>gdk_image_put_pixel ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        gdk_image_put_pixel             (<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y,
+                                             <A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A> pixel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets a pixel in a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> to a given pixel value.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4278"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the pixel to set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the pixel to set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>pixel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pixel value to set.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4300"
+></A
+><H3
+><A
+NAME="GDK-IMAGE-GET-PIXEL"
+></A
+>gdk_image_get_pixel ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF=../glib/glib-basic-types.html#GUINT32
+>guint32</A>     gdk_image_get_pixel             (<A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+> *image,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> x,
+                                             <A
+HREF=../glib/glib-basic-types.html#GINT
+>gint</A> y);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Gets a pixel value at a specified position in a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4310"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>image</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>x</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the x coordinate of the pixel to get.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>y</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the y coordinate of the pixel to get.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the pixel value at the given position.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4332"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF="gdk-bitmaps-and-pixmaps.html"
+>Bitmaps and Pixmaps</A
+></DT
+><DD
+><P
+>Graphics which are stored on the X Windows server.
+Since these are stored on the server they can be drawn very quickly, and all
+of the <A
+HREF="gdk-drawing-primitives.html"
+>Drawing Primitives</A
+> can be
+used to draw on them. Their main disadvantage is that manipulating individual
+pixels can be very slow.</P
+></DD
+><DT
+><A
+HREF="gdk-gdkrgb.html"
+>GdkRGB</A
+></DT
+><DD
+><P
+>Built on top of <A
+HREF="gdk-images.html#GDKIMAGE"
+>GdkImage</A
+>, this provides much more functionality,
+including the dithering of colors to produce better output on low-color
+displays.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="gdk-gdkrgb.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="gdk.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="gdk-colormaps-and-colors.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>GdkRGB</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Colormaps and Colors</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

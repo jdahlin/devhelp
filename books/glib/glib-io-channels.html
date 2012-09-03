@@ -1,0 +1,2450 @@
+<HTML
+><HEAD
+><TITLE
+>IO Channels</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.61
+"><LINK
+REL="HOME"
+TITLE="GLib Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="GLib Core Application Support"
+HREF="glib-core.html"><LINK
+REL="PREVIOUS"
+TITLE="Memory Allocation"
+HREF="glib-memory-allocation.html"><LINK
+REL="NEXT"
+TITLE="Message Output and Debugging Functions"
+HREF="glib-warnings-and-assertions.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="4"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="5"
+>GLib Reference Manual</FONT
+></TH
+></TR
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-memory-allocation.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-warnings-and-assertions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+></TABLE
+></DIV
+><H1
+><A
+NAME="GLIB-IO-CHANNELS"
+>IO Channels</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4415"
+></A
+><H2
+>Name</H2
+>IO Channels&nbsp;--&nbsp;portable support for using files, pipes and sockets.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4418"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &lt;glib.h&gt;
+
+
+struct      <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>;
+
+<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>* <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-UNIX-NEW"
+>g_io_channel_unix_new</A
+>           (int fd);
+<A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-UNIX-GET-FD"
+>g_io_channel_unix_get_fd</A
+>        (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);
+
+void        <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-INIT"
+>g_io_channel_init</A
+>               (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);
+
+<A
+HREF="glib-io-channels.html#GIOERROR"
+>GIOError</A
+>    <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-READ"
+>g_io_channel_read</A
+>               (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *buf,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> count,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> *bytes_read);
+enum        <A
+HREF="glib-io-channels.html#GIOERROR"
+>GIOError</A
+>;
+<A
+HREF="glib-io-channels.html#GIOERROR"
+>GIOError</A
+>    <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-WRITE"
+>g_io_channel_write</A
+>              (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *buf,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> count,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> *bytes_written);
+<A
+HREF="glib-io-channels.html#GIOERROR"
+>GIOError</A
+>    <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-SEEK"
+>g_io_channel_seek</A
+>               (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> offset,
+                                             <A
+HREF="glib-io-channels.html#GSEEKTYPE"
+>GSeekType</A
+> type);
+enum        <A
+HREF="glib-io-channels.html#GSEEKTYPE"
+>GSeekType</A
+>;
+void        <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-CLOSE"
+>g_io_channel_close</A
+>              (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);
+
+void        <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-REF"
+>g_io_channel_ref</A
+>                (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);
+void        <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-UNREF"
+>g_io_channel_unref</A
+>              (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);
+
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH"
+>g_io_add_watch</A
+>                  (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+> condition,
+                                             <A
+HREF="glib-io-channels.html#GIOFUNC"
+>GIOFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);
+<A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH-FULL"
+>g_io_add_watch_full</A
+>             (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+> condition,
+                                             <A
+HREF="glib-io-channels.html#GIOFUNC"
+>GIOFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);
+enum        <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+>;
+<A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (<A
+HREF="glib-io-channels.html#GIOFUNC"
+>*GIOFunc</A
+>)                      (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *source,
+                                             <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+> condition,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);
+
+struct      <A
+HREF="glib-io-channels.html#GIOFUNCS"
+>GIOFuncs</A
+>;&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4475"
+></A
+><H2
+>Description</H2
+><P
+>The <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> data type aims to provide a portable method for using file
+descriptors, pipes, and sockets, and integrating them into the
+<A
+HREF="glib-the-main-event-loop.html"
+>main event loop</A
+>.
+Currently full support is available on Unix platforms, though support for
+Windows is only partially complete.</P
+><P
+>To create a new <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> on Unix systems use <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-UNIX-NEW"
+>g_io_channel_unix_new</A
+>().
+This works for plain file descriptors, pipes and sockets.</P
+><P
+>Once a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> has been created, it can be used in a generic manner
+with the functions <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-READ"
+>g_io_channel_read</A
+>(), <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-WRITE"
+>g_io_channel_write</A
+>(),
+<A
+HREF="glib-io-channels.html#G-IO-CHANNEL-SEEK"
+>g_io_channel_seek</A
+>(), and <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-CLOSE"
+>g_io_channel_close</A
+>().</P
+><P
+>To add a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> to the 
+<A
+HREF="glib-the-main-event-loop.html"
+>main event loop</A
+>
+use <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH"
+>g_io_add_watch</A
+>() or <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH-FULL"
+>g_io_add_watch_full</A
+>(). Here you specify which events
+you are interested in on the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>, and provide a function to be
+called whenever these events occur.</P
+><P
+><A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> instances are created with an initial reference count of 1.
+<A
+HREF="glib-io-channels.html#G-IO-CHANNEL-REF"
+>g_io_channel_ref</A
+>() and <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-UNREF"
+>g_io_channel_unref</A
+>() can be used to increment or
+decrement the reference count respectively. When the reference count falls
+to 0, the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> is freed. (Though it isn't closed automatically.)
+Using <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH"
+>g_io_add_watch</A
+>() or <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH-FULL"
+>g_io_add_watch_full</A
+>() increments a channel's
+reference count.</P
+><P
+>GTK+ contains the convenience function <A
+HREF=../gtk/gtk-general.html#GTK-INPUT-ADD-FULL
+>gtk_input_add_full</A>()
+which creates a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> from a file descriptor and adds it to the
+<A
+HREF="glib-the-main-event-loop.html"
+>main event loop</A
+>.
+The event source can later be removed with <A
+HREF=../gtk/gtk-general.html#GTK-INPUT-REMOVE
+>gtk_input_remove</A>().
+Similar functions can also be found in GDK.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4507"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4509"
+></A
+><H3
+><A
+NAME="GIOCHANNEL"
+></A
+>struct GIOChannel</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GIOChannel
+{
+  guint channel_flags;
+  guint ref_count;
+  GIOFuncs *funcs;
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A data structure representing an IO Channel. The fields should be considered
+private and should only be accessed with the following functions.</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4514"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-UNIX-NEW"
+></A
+>g_io_channel_unix_new ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>* g_io_channel_unix_new           (int fd);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Creates a new <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> given a file descriptor.
+On Unix systems this works for plain files, pipes, and sockets.</P
+><P
+>The returned <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> has a reference count of 1.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4523"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a file descriptor.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a new <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4537"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-UNIX-GET-FD"
+></A
+>g_io_channel_unix_get_fd ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+>        g_io_channel_unix_get_fd        (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Returns the file descriptor of the Unix <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4545"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>, created with <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-UNIX-NEW"
+>g_io_channel_unix_new</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the file descriptor of the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4561"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-INIT"
+></A
+>g_io_channel_init ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_io_channel_init               (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Initializes a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> struct. This is called by each of the above functions
+when creating a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>, and so is not often needed by the application
+programmer (unless you are creating a new type of <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>).</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4570"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4580"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-READ"
+></A
+>g_io_channel_read ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-io-channels.html#GIOERROR"
+>GIOError</A
+>    g_io_channel_read               (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *buf,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> count,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> *bytes_read);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reads data from a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4591"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a buffer to read the data into (which should be at least count bytes
+long).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to read from the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>bytes_read</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>returns the number of bytes actually read.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>G_IO_ERROR_NONE</TT
+> if the operation was successful.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4619"
+></A
+><H3
+><A
+NAME="GIOERROR"
+></A
+>enum GIOError</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  G_IO_ERROR_NONE,
+  G_IO_ERROR_AGAIN,
+  G_IO_ERROR_INVAL,
+  G_IO_ERROR_UNKNOWN
+} GIOError;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4624"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-WRITE"
+></A
+>g_io_channel_write ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-io-channels.html#GIOERROR"
+>GIOError</A
+>    g_io_channel_write              (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GCHAR"
+>gchar</A
+> *buf,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> count,
+                                             <A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+> *bytes_written);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Writes data to a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4635"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the buffer containing the data to write.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes to write.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>bytes_written</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the number of bytes actually written.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>G_IO_ERROR_NONE</TT
+> if the operation was successful.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4662"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-SEEK"
+></A
+>g_io_channel_seek ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-io-channels.html#GIOERROR"
+>GIOError</A
+>    g_io_channel_seek               (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> offset,
+                                             <A
+HREF="glib-io-channels.html#GSEEKTYPE"
+>GSeekType</A
+> type);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the current position in the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>, similar to the standard system
+call <TT
+CLASS="FUNCTION"
+>fseek()</TT
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4674"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>an offset, in bytes, which is added to the position specified by
+<TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the position in the file, which can be <TT
+CLASS="LITERAL"
+>G_SEEK_CUR</TT
+> (the current
+position), <TT
+CLASS="LITERAL"
+>G_SEEK_SET</TT
+> (the start of the file), or <TT
+CLASS="LITERAL"
+>G_SEEK_END</TT
+> (the end of the
+file).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="LITERAL"
+>G_IO_ERROR_NONE</TT
+> if the operation was successful.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4701"
+></A
+><H3
+><A
+NAME="GSEEKTYPE"
+></A
+>enum GSeekType</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  G_SEEK_CUR,
+  G_SEEK_SET,
+  G_SEEK_END
+} GSeekType;</PRE
+></TD
+></TR
+></TABLE
+><P
+>An enumeration specifying the base position for a <A
+HREF="glib-io-channels.html#G-IO-CHANNEL-SEEK"
+>g_io_channel_seek</A
+>()
+operation.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4707"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_SEEK_CUR</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the current position in the file.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_SEEK_SET</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the start of the file.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_SEEK_END</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the end of the file.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4721"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-CLOSE"
+></A
+>g_io_channel_close ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_io_channel_close              (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Closes a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.
+The <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> will be freed when its reference count drops to 0.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4729"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4739"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-REF"
+></A
+>g_io_channel_ref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_io_channel_ref                (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Increments the reference count of a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4746"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4756"
+></A
+><H3
+><A
+NAME="G-IO-CHANNEL-UNREF"
+></A
+>g_io_channel_unref ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        g_io_channel_unref              (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Decrements the reference count of a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4763"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4773"
+></A
+><H3
+><A
+NAME="G-IO-ADD-WATCH"
+></A
+>g_io_add_watch ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_io_add_watch                  (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+> condition,
+                                             <A
+HREF="glib-io-channels.html#GIOFUNC"
+>GIOFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> into the
+<A
+HREF="glib-the-main-event-loop.html"
+>main event loop</A
+>
+with the default priority.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4785"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>condition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the condition to watch for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the condition is satisfied.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to <TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the event source id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4812"
+></A
+><H3
+><A
+NAME="G-IO-ADD-WATCH-FULL"
+></A
+>g_io_add_watch_full ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GUINT"
+>guint</A
+>       g_io_add_watch_full             (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *channel,
+                                             <A
+HREF="glib-basic-types.html#GINT"
+>gint</A
+> priority,
+                                             <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+> condition,
+                                             <A
+HREF="glib-io-channels.html#GIOFUNC"
+>GIOFunc</A
+> func,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> user_data,
+                                             <A
+HREF="glib-datasets.html#GDESTROYNOTIFY"
+>GDestroyNotify</A
+> notify);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Adds the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> into the
+<A
+HREF="glib-the-main-event-loop.html"
+>main event loop</A
+>
+with the given priority.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4826"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>channel</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>a <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>priority</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the priority of the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> source.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>condition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the condition to watch for.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the condition is satisfied.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>user_data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data to pass to <TT
+CLASS="PARAMETER"
+><I
+>func</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>notify</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function to call when the source is removed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the event source id.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4862"
+></A
+><H3
+><A
+NAME="GIOCONDITION"
+></A
+>enum GIOCondition</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef enum
+{
+  G_IO_IN	GLIB_SYSDEF_POLLIN,
+  G_IO_OUT	GLIB_SYSDEF_POLLOUT,
+  G_IO_PRI	GLIB_SYSDEF_POLLPRI,
+  G_IO_ERR	GLIB_SYSDEF_POLLERR,
+  G_IO_HUP	GLIB_SYSDEF_POLLHUP,
+  G_IO_NVAL	GLIB_SYSDEF_POLLNVAL
+} GIOCondition;</PRE
+></TD
+></TR
+></TABLE
+><P
+>A bitwise combination representing a condition to watch for on an event
+source.
+
+<DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4867"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#F0F0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_IO_IN</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>There is data to read.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_IO_OUT</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Data can be written (without blocking).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_IO_PRI</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>There is urgent data to read.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_IO_ERR</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Error condition.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_IO_HUP</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Hung up (the connection has been broken, usually for pipes and
+sockets).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>G_IO_NVAL</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>Invalid request. The file descriptor is not open.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>&#13;</P
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4890"
+></A
+><H3
+><A
+NAME="GIOFUNC"
+></A
+>GIOFunc ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="glib-basic-types.html#GBOOLEAN"
+>gboolean</A
+>    (*GIOFunc)                      (<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> *source,
+                                             <A
+HREF="glib-io-channels.html#GIOCONDITION"
+>GIOCondition</A
+> condition,
+                                             <A
+HREF="glib-basic-types.html#GPOINTER"
+>gpointer</A
+> data);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Specifies the type of function passed to <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH"
+>g_io_add_watch</A
+>() or
+<A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH-FULL"
+>g_io_add_watch_full</A
+>(), which is called when the requested condition on a
+<A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> is satisfied.</P
+><DIV
+CLASS="INFORMALTABLE"
+><A
+NAME="AEN4902"
+></A
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+BGCOLOR="#FFD0D0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>source</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> event source.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>condition</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the condition which has been satisfied.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>&nbsp;:</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>user data set in <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH"
+>g_io_add_watch</A
+>() or <A
+HREF="glib-io-channels.html#G-IO-ADD-WATCH-FULL"
+>g_io_add_watch_full</A
+>().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the function should return FALSE if the event source should be
+removed.
+&#13;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><HR><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN4926"
+></A
+><H3
+><A
+NAME="GIOFUNCS"
+></A
+>struct GIOFuncs</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#D6E8FF"
+WIDTH="100%"
+CELLPADDING="6"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct GIOFuncs
+{
+  GIOError (*io_read)   (GIOChannel 	*channel, 
+		         gchar      	*buf, 
+		         guint      	 count,
+			 guint      	*bytes_read);
+  GIOError (*io_write)  (GIOChannel 	*channel, 
+		 	 gchar      	*buf, 
+			 guint      	 count,
+			 guint      	*bytes_written);
+  GIOError (*io_seek)   (GIOChannel   	*channel, 
+		 	 gint       	 offset, 
+		  	 GSeekType  	 type);
+  void (*io_close)      (GIOChannel	*channel);
+  guint (*io_add_watch) (GIOChannel     *channel,
+			 gint            priority,
+			 GIOCondition    condition,
+			 GIOFunc         func,
+			 gpointer        user_data,
+			 GDestroyNotify  notify);
+  void (*io_free)       (GIOChannel	*channel);
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+>A table of functions used to handle different types of <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> in a
+generic way.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4932"
+></A
+><H2
+>See Also</H2
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+HREF=../gtk/gtk-general.html#GTK-INPUT-ADD-FULL
+>gtk_input_add_full</A>(), <A
+HREF=../gtk/gtk-general.html#GTK-INPUT-REMOVE
+>gtk_input_remove</A>(), <A
+HREF=../gdk/gdk-input.html#GDK-INPUT-ADD
+>gdk_input_add</A>(),
+<A
+HREF=../gdk/gdk-input.html#GDK-INPUT-ADD-FULL
+>gdk_input_add_full</A>(), <A
+HREF=../gdk/gdk-input.html#GDK-INPUT-REMOVE
+>gdk_input_remove</A>()</DT
+><DD
+><P
+>Convenience functions for creating <A
+HREF="glib-io-channels.html#GIOCHANNEL"
+>GIOChannel</A
+> instances and adding them to the
+<A
+HREF="glib-the-main-event-loop.html"
+>main event loop</A
+>.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><BR
+CLEAR="all"><BR><TABLE
+WIDTH="100%"
+BORDER="0"
+BGCOLOR="#000000"
+CELLPADDING="1"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="left"
+><A
+HREF="glib-memory-allocation.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>&#60;&#60;&#60; Previous Page</B
+></FONT
+></A
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#0000C0"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="index.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Home</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#00C000"
+ALIGN="center"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+><A
+HREF="glib-core.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Up</B
+></FONT
+></A
+></B
+></FONT
+></TD
+><TD
+WIDTH="25%"
+BGCOLOR="#C00000"
+ALIGN="right"
+><A
+HREF="glib-warnings-and-assertions.html"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Next Page &#62;&#62;&#62;</B
+></FONT
+></A
+></TD
+></TR
+><TR
+><TD
+COLSPAN="2"
+ALIGN="left"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Memory Allocation</B
+></FONT
+></TD
+><TD
+COLSPAN="2"
+ALIGN="right"
+><FONT
+COLOR="#FFFFFF"
+SIZE="3"
+><B
+>Message Output and Debugging Functions</B
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
